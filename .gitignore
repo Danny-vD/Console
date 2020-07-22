@@ -1,0 +1,13 @@
+# Solution and project files
+*.sln
+*.csproj
+
+# IDE generated
+.vs/
+.idea/
+
+# Auto generated directories
+Logs/
+Library/
+Temp/
+obj/
