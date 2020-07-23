@@ -108,7 +108,8 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -135,7 +136,8 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -163,7 +165,8 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -192,7 +195,8 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7, TParam8> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -223,7 +227,9 @@ namespace Commands
 	public class
 		Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9>
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+				TParam5, TParam6, TParam7, TParam8,
+				TParam9>
 			callback;
 
 		public Command(string name,
@@ -258,7 +264,9 @@ namespace Commands
 		TParam10> : AbstractCommand
 	{
 		private readonly
-			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> callback;
+			Action<TParam1, TParam2, TParam3, TParam4,
+				TParam5, TParam6, TParam7, TParam8,
+				TParam9, TParam10> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -292,8 +300,9 @@ namespace Commands
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
 		TParam11> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9,
-			TParam10, TParam11> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -328,8 +337,9 @@ namespace Commands
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
 		TParam11, TParam12> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9,
-			TParam10, TParam11, TParam12> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -367,8 +377,9 @@ namespace Commands
 	{
 		private readonly Action<
 			TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8, TParam9,
-			TParam10, TParam11, TParam12, TParam13> callback;
+			TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12,
+			TParam13> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -406,8 +417,10 @@ namespace Commands
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
 		TParam11, TParam12, TParam13, TParam14> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9,
-			TParam10, TParam11, TParam12, TParam13, TParam14> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12,
+			TParam13, TParam14> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -446,8 +459,10 @@ namespace Commands
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
 		TParam11, TParam12, TParam13, TParam14, TParam15> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9,
-			TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12,
+			TParam13, TParam14, TParam15> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
@@ -487,8 +502,10 @@ namespace Commands
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
 		TParam11, TParam12, TParam13, TParam14, TParam15, TParam16> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9,
-			TParam10, TParam11, TParam12, TParam13, TParam14, TParam15, TParam16> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4,
+			TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12,
+			TParam13, TParam14, TParam15, TParam16> callback;
 
 		public Command(string name,
 			Action<TParam1, TParam2, TParam3, TParam4,
