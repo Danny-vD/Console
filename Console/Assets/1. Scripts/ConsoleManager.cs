@@ -1,5 +1,4 @@
-﻿using Commands;
-using VDFramework.Singleton;
+﻿using VDFramework.Singleton;
 
 public class ConsoleManager : Singleton<ConsoleManager>
 {
