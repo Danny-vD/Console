@@ -7,7 +7,7 @@ namespace Commands
 		public readonly int ParametersCount;
 		
 		protected string Name;
-		protected List<string> Aliases;
+		protected readonly List<string> Aliases;
         
 		protected string HelpMessage = "No help message set";
 		
@@ -19,9 +19,29 @@ namespace Commands
 			Aliases = new List<string>();
 		}
 
+		public void SetName(string name)
+		{
+			Name = name;
+		}
+		
 		public bool HasName(string name)
 		{
 			return Name == name || Aliases.Contains(name);
+		}
+
+		public void AddAlias(string alias)
+		{
+			if (Aliases.Contains(alias))
+			{
+				return;
+			}
+			
+			Aliases.Add(alias);
+		}
+
+		public void RemoveAlias(string name)
+		{
+			Aliases.Remove(name);
 		}
 	}
 }
