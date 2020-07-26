@@ -10,29 +10,39 @@ namespace Commands
 	public abstract class AbstractCommand
 	{
 		public readonly int ParametersCount;
-		
+
 		protected string Name;
 		protected readonly List<string> Aliases;
-        
+
 		protected string HelpMessage = "No help message set.";
-		
+
 		public abstract void Invoke(params object[] parameters);
 
 		protected AbstractCommand(int paramsCount)
 		{
 			ParametersCount = paramsCount;
-			Aliases = new List<string>();
+			Aliases         = new List<string>();
 		}
-		
+
 		protected static bool IsValidCast<TType>(object parameter)
 		{
-			if (parameter.HasValidCastTo<TType>())
+			try
 			{
-				return true;
+				object newType = Convert.ChangeType(parameter, typeof(TType));
 			}
-			
-			ConsoleManager.Instance.LogError($"{parameter} ({parameter.GetType().Name}) is not of type {typeof(TType).Name}");
-			return false;
+			catch
+			{
+				ConsoleManager.Instance.LogError(
+					$"{parameter} ({parameter.GetType().Name}) can not be converted to type {typeof(TType).Name}");
+				return false;
+			}
+
+			return true;
+		}
+
+		protected static TNewType ConvertTo<TNewType>(object parameter)
+		{
+			return (TNewType) Convert.ChangeType(parameter, typeof(TNewType));
 		}
 
 		public void SetName(string name)
@@ -48,7 +58,7 @@ namespace Commands
 		public List<string> GetAllNames()
 		{
 			List<string> names = new List<string>() {Name};
-			
+
 			Aliases.ForEach(names.Add);
 
 			return names;
@@ -58,7 +68,7 @@ namespace Commands
 		/// Returns the name, plus all the parameter types
 		/// </summary>
 		public abstract string GetFullName();
-		
+
 		public bool HasName(string name)
 		{
 			return Name == name || Aliases.Contains(name);
@@ -80,7 +90,7 @@ namespace Commands
 			{
 				return;
 			}
-			
+
 			Aliases.Add(alias);
 		}
 
@@ -118,7 +128,7 @@ namespace Commands
 			return stringBuilder.ToString();
 
 			// {Name}: {help}
-			
+
 			// Aliases:
 			// Alias1
 			// Alias2

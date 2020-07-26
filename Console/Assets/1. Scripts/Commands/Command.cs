@@ -45,7 +45,7 @@ namespace Commands
 				return;
 			}
 
-			callback.Invoke((TParam1) parameters[0]);
+			callback.Invoke(ConvertTo<TParam1>(parameters[0]));
 		}
 	}
 

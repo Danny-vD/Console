@@ -1,6 +1,7 @@
 ﻿using System;
 using Commands;
 using UnityEngine;
+using VDFramework.Extensions;
 using VDFramework.Singleton;
 
 namespace Console
@@ -25,12 +26,10 @@ namespace Console
 
 		private void Temporary()
 		{
-			CommandManager.AddCommand(new Command<float, string, int>("Log", Test));
-			CommandManager.Invoke("Log", 2.4f, ToString(), 2);
-
-			Convert.ToString(5);
+			CommandManager.AddCommand(new Command<int>("Log", Test));
+			CommandManager.Invoke("Log", true);
 			
-			void Test(float f, string s, int i)
+			void Test(int f)
 			{
 				Log("Performed work");
 			}
