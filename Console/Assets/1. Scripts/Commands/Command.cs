@@ -12,6 +12,11 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return GetName();
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
 			callback.Invoke();
@@ -28,8 +33,18 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return $"{GetName()} ({typeof(TParam1).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
 			callback.Invoke((TParam1) parameters[0]);
 		}
 	}
@@ -47,8 +62,23 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return $"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -70,8 +100,28 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return $"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -94,8 +144,34 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -108,12 +184,10 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5>
 				commandCallback)
 			: base(5)
 		{
@@ -121,8 +195,40 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -136,12 +242,10 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6>
 				commandCallback)
 			: base(6)
 		{
@@ -149,8 +253,45 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -165,12 +306,10 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7>
 				commandCallback)
 			: base(7)
 		{
@@ -178,8 +317,50 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -195,12 +376,10 @@ namespace Commands
 
 	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8>
 				commandCallback)
 			: base(8)
 		{
@@ -208,8 +387,55 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -224,17 +450,15 @@ namespace Commands
 		}
 	}
 
-	public class
-		Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-				TParam5, TParam6, TParam7, TParam8,
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 				TParam9>
 			callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 					TParam9>
 				commandCallback)
 			: base(9)
@@ -243,8 +467,61 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -260,17 +537,15 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9,
-		TParam10> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10> : AbstractCommand
 	{
 		private readonly
-			Action<TParam1, TParam2, TParam3, TParam4,
-				TParam5, TParam6, TParam7, TParam8,
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 				TParam9, TParam10> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 					TParam9, TParam10>
 				commandCallback)
 			: base(10)
@@ -279,8 +554,66 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -297,16 +630,15 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
-		TParam11> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10, TParam11> : AbstractCommand
 	{
 		private readonly Action<TParam1, TParam2, TParam3, TParam4,
 			TParam5, TParam6, TParam7, TParam8,
 			TParam9, TParam10, TParam11> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 					TParam9, TParam10, TParam11>
 				commandCallback)
 			: base(11)
@@ -315,8 +647,71 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam11>(parameters[10]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -334,16 +729,14 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
-		TParam11, TParam12> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10, TParam11, TParam12> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8,
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 			TParam9, TParam10, TParam11, TParam12> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
 					TParam9, TParam10, TParam11, TParam12>
 				commandCallback)
 			: base(12)
@@ -352,8 +745,76 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam11>(parameters[10]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam12>(parameters[11]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -372,20 +833,16 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
-		TParam11, TParam12, TParam13> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10, TParam11, TParam12, TParam13> : AbstractCommand
 	{
 		private readonly Action<
-			TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8,
-			TParam9, TParam10, TParam11, TParam12,
-			TParam13> callback;
+			TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12, TParam13> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
-					TParam9, TParam10, TParam11, TParam12,
-					TParam13>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+					TParam9, TParam10, TParam11, TParam12, TParam13>
 				commandCallback)
 			: base(13)
 		{
@@ -393,8 +850,82 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}," +
+				$"{typeof(TParam13).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam11>(parameters[10]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam12>(parameters[11]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam13>(parameters[12]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -414,19 +945,15 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
-		TParam11, TParam12, TParam13, TParam14> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8,
-			TParam9, TParam10, TParam11, TParam12,
-			TParam13, TParam14> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
-					TParam9, TParam10, TParam11, TParam12,
-					TParam13, TParam14>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+					TParam9, TParam10, TParam11, TParam12, TParam13, TParam14>
 				commandCallback)
 			: base(14)
 		{
@@ -434,8 +961,87 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}," +
+				$"{typeof(TParam13).Name}, {typeof(TParam14).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam11>(parameters[10]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam12>(parameters[11]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam13>(parameters[12]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam14>(parameters[13]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -456,19 +1062,15 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
-		TParam11, TParam12, TParam13, TParam14, TParam15> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8,
-			TParam9, TParam10, TParam11, TParam12,
-			TParam13, TParam14, TParam15> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
-					TParam9, TParam10, TParam11, TParam12,
-					TParam13, TParam14, TParam15>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+					TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15>
 				commandCallback)
 			: base(15)
 		{
@@ -476,8 +1078,92 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}," +
+				$"{typeof(TParam13).Name}, {typeof(TParam14).Name}, {typeof(TParam15).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam11>(parameters[10]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam12>(parameters[11]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam13>(parameters[12]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam14>(parameters[13]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam15>(parameters[14]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
@@ -499,19 +1185,15 @@ namespace Commands
 		}
 	}
 
-	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10,
-		TParam11, TParam12, TParam13, TParam14, TParam15, TParam16> : AbstractCommand
+	public class Command<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+		TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15, TParam16> : AbstractCommand
 	{
-		private readonly Action<TParam1, TParam2, TParam3, TParam4,
-			TParam5, TParam6, TParam7, TParam8,
-			TParam9, TParam10, TParam11, TParam12,
-			TParam13, TParam14, TParam15, TParam16> callback;
+		private readonly Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+			TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15, TParam16> callback;
 
 		public Command(string name,
-			Action<TParam1, TParam2, TParam3, TParam4,
-					TParam5, TParam6, TParam7, TParam8,
-					TParam9, TParam10, TParam11, TParam12,
-					TParam13, TParam14, TParam15, TParam16>
+			Action<TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8,
+					TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15, TParam16>
 				commandCallback)
 			: base(16)
 		{
@@ -519,8 +1201,97 @@ namespace Commands
 			callback = commandCallback;
 		}
 
+		public override string GetFullName()
+		{
+			return
+				$"{GetName()} ({typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}," +
+				$" {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}," +
+				$"{typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}," +
+				$"{typeof(TParam13).Name}, {typeof(TParam14).Name}, {typeof(TParam15).Name}, {typeof(TParam16).Name})";
+		}
+
 		public override void Invoke(params object[] parameters)
 		{
+			if (!IsValidCast<TParam1>(parameters[0]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam2>(parameters[1]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam3>(parameters[2]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam4>(parameters[3]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam5>(parameters[4]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam6>(parameters[5]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam7>(parameters[6]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam8>(parameters[7]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam9>(parameters[8]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam10>(parameters[9]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam11>(parameters[10]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam12>(parameters[11]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam13>(parameters[12]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam14>(parameters[13]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam15>(parameters[14]))
+			{
+				return;
+			}
+
+			if (!IsValidCast<TParam16>(parameters[15]))
+			{
+				return;
+			}
+
 			callback.Invoke
 			(
 				(TParam1) parameters[0],
