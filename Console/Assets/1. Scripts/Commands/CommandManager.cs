@@ -12,9 +12,14 @@ namespace Commands
 
 		private static readonly List<AbstractCommand> commands = new List<AbstractCommand>();
 
+		/// <summary>
+		/// Invokes a given command with given parameters (does not respect user-defined conversions between types)
+		/// </summary>
 		public static void Invoke(string commandName, params object[] parameters)
 		{
-			GetCommand(commandName, parameters.Length).Invoke(parameters);
+			AbstractCommand command = GetCommand(commandName, parameters.Length);
+
+			command?.Invoke(parameters);
 		}
 		
 		public static void RenameCommand(string commandName, int paramsCount, string newName)
@@ -23,7 +28,6 @@ namespace Commands
 
 			if (commands.Any(item => item.HasName(newName)))
 			{
-				// log to the console that newName already exists
 				ConsoleManager.Instance.LogError($"Rename failed! A command with name {newName} already exists!");
 				return;
 			}

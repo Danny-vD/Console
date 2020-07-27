@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Console;
+using UnityEngine;
 using VDFramework.Extensions;
 
 namespace Commands
@@ -26,23 +27,47 @@ namespace Commands
 
 		protected static bool IsValidCast<TType>(object parameter)
 		{
+			string newTypeName = typeof(TType).Name;
+
 			try
 			{
-				object newType = Convert.ChangeType(parameter, typeof(TType));
+				if (typeof(Component).IsAssignableFrom(typeof(TType)))
+				{
+					newTypeName = typeof(GameObject).Name;
+
+					// Convert to check if it will throw an error
+					parameter.ConvertTo<GameObject>();
+					return true;
+				}
+
+				// Convert to check if it will throw an error
+				parameter.ConvertTo<TType>();
+
+				return true;
 			}
 			catch
 			{
 				ConsoleManager.Instance.LogError(
-					$"{parameter} ({parameter.GetType().Name}) can not be converted to type {typeof(TType).Name}");
+					$"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!");
 				return false;
 			}
-
-			return true;
 		}
 
 		protected static TNewType ConvertTo<TNewType>(object parameter)
 		{
-			return (TNewType) Convert.ChangeType(parameter, typeof(TNewType));
+			if (typeof(Component).IsAssignableFrom(typeof(TNewType)))
+			{
+				GameObject gameobject = (GameObject) parameter;
+
+				if (!gameobject.TryGetComponent(out TNewType component))
+				{
+					ConsoleManager.Instance.LogError($"{parameter} does not have component {typeof(TNewType).Name}!");
+				}
+
+				return component;
+			}
+			
+			return parameter.ConvertTo<TNewType>();
 		}
 
 		public void SetName(string name)

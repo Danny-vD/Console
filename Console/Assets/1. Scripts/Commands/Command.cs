@@ -81,8 +81,8 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1])
 			);
 		}
 	}
@@ -124,9 +124,9 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2])
 			);
 		}
 	}
@@ -174,10 +174,10 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3])
 			);
 		}
 	}
@@ -231,11 +231,11 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4])
 			);
 		}
 	}
@@ -294,12 +294,12 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5])
 			);
 		}
 	}
@@ -363,13 +363,13 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6])
 			);
 		}
 	}
@@ -438,14 +438,14 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7])
 			);
 		}
 	}
@@ -524,15 +524,15 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8])
 			);
 		}
 	}
@@ -616,16 +616,16 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9])
 			);
 		}
 	}
@@ -714,17 +714,17 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9],
-				(TParam11) parameters[10]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9]),
+				ConvertTo<TParam11>(parameters[10])
 			);
 		}
 	}
@@ -817,18 +817,18 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9],
-				(TParam11) parameters[10],
-				(TParam12) parameters[11]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9]),
+				ConvertTo<TParam11>(parameters[10]),
+				ConvertTo<TParam12>(parameters[11])
 			);
 		}
 	}
@@ -928,19 +928,19 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9],
-				(TParam11) parameters[10],
-				(TParam12) parameters[11],
-				(TParam13) parameters[12]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9]),
+				ConvertTo<TParam11>(parameters[10]),
+				ConvertTo<TParam12>(parameters[11]),
+				ConvertTo<TParam13>(parameters[12])
 			);
 		}
 	}
@@ -1044,20 +1044,20 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9],
-				(TParam11) parameters[10],
-				(TParam12) parameters[11],
-				(TParam13) parameters[12],
-				(TParam14) parameters[13]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9]),
+				ConvertTo<TParam11>(parameters[10]),
+				ConvertTo<TParam12>(parameters[11]),
+				ConvertTo<TParam13>(parameters[12]),
+				ConvertTo<TParam14>(parameters[13])
 			);
 		}
 	}
@@ -1166,21 +1166,21 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9],
-				(TParam11) parameters[10],
-				(TParam12) parameters[11],
-				(TParam13) parameters[12],
-				(TParam14) parameters[13],
-				(TParam15) parameters[14]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9]),
+				ConvertTo<TParam11>(parameters[10]),
+				ConvertTo<TParam12>(parameters[11]),
+				ConvertTo<TParam13>(parameters[12]),
+				ConvertTo<TParam14>(parameters[13]),
+				ConvertTo<TParam15>(parameters[14])
 			);
 		}
 	}
@@ -1294,22 +1294,22 @@ namespace Commands
 
 			callback.Invoke
 			(
-				(TParam1) parameters[0],
-				(TParam2) parameters[1],
-				(TParam3) parameters[2],
-				(TParam4) parameters[3],
-				(TParam5) parameters[4],
-				(TParam6) parameters[5],
-				(TParam7) parameters[6],
-				(TParam8) parameters[7],
-				(TParam9) parameters[8],
-				(TParam10) parameters[9],
-				(TParam11) parameters[10],
-				(TParam12) parameters[11],
-				(TParam13) parameters[12],
-				(TParam14) parameters[13],
-				(TParam15) parameters[14],
-				(TParam16) parameters[15]
+				ConvertTo<TParam1>(parameters[0]),
+				ConvertTo<TParam2>(parameters[1]),
+				ConvertTo<TParam3>(parameters[2]),
+				ConvertTo<TParam4>(parameters[3]),
+				ConvertTo<TParam5>(parameters[4]),
+				ConvertTo<TParam6>(parameters[5]),
+				ConvertTo<TParam7>(parameters[6]),
+				ConvertTo<TParam8>(parameters[7]),
+				ConvertTo<TParam9>(parameters[8]),
+				ConvertTo<TParam10>(parameters[9]),
+				ConvertTo<TParam11>(parameters[10]),
+				ConvertTo<TParam12>(parameters[11]),
+				ConvertTo<TParam13>(parameters[12]),
+				ConvertTo<TParam14>(parameters[13]),
+				ConvertTo<TParam15>(parameters[14]),
+				ConvertTo<TParam16>(parameters[15])
 			);
 		}
 	}
