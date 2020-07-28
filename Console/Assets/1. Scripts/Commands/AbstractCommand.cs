@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Console;
@@ -47,8 +46,8 @@ namespace Commands
 			}
 			catch
 			{
-				ConsoleManager.Instance.LogError(
-					$"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!");
+				ConsoleManager.LogError(
+					$"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!", false);
 				return false;
 			}
 		}
@@ -61,7 +60,7 @@ namespace Commands
 
 				if (!gameobject.TryGetComponent(out TNewType component))
 				{
-					ConsoleManager.Instance.LogError($"{parameter} does not have component {typeof(TNewType).Name}!");
+					ConsoleManager.LogError($"{parameter} does not have component {typeof(TNewType).Name}!");
 				}
 
 				return component;
@@ -145,6 +144,11 @@ namespace Commands
 			stringBuilder.AppendLine();
 			stringBuilder.AppendLine("Aliases: ");
 
+			if (Aliases.Count == 0)
+			{
+				stringBuilder.AppendLine("None");
+			}
+			
 			foreach (string alias in Aliases)
 			{
 				stringBuilder.AppendLine(alias);

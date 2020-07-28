@@ -29,7 +29,7 @@ namespace Commands
 
 			if (commands.Any(item => item.HasName(newName)))
 			{
-				ConsoleManager.Instance.LogError($"Rename failed! A command with name {newName} already exists!");
+				ConsoleManager.LogError($"Rename failed! A command with name {newName} already exists!");
 				return;
 			}
 
@@ -43,22 +43,24 @@ namespace Commands
 
 			if (command == null)
 			{
-				ConsoleManager.Instance.LogWarning(
+				ConsoleManager.LogWarning(
 					$"A command with name {commandName} and {paramsCount} parameter(s) does not exist!\n" +
-					$"Type {ConsoleManager.Instance.prefix}{ConsoleManager.Instance.helpCommand} to see a list of all commands!");
+					$"Type {ConsoleManager.Instance.prefix}{ConsoleManager.Instance.defaultCommands.helpCommand} to see a list of all commands!",
+					false);
 			}
 
 			return command;
 		}
 
-		public static List<AbstractCommand> GetCommands(string commandName)
+		public static IEnumerable<AbstractCommand> GetCommands(string commandName)
 		{
 			List<AbstractCommand> tempCommands = commands.Where(command => command.HasName(commandName)).ToList();
 
 			if (tempCommands.Count == 0)
 			{
-				ConsoleManager.Instance.LogWarning($"A command with name {commandName} does not exist!\n" +
-												   $"Type {ConsoleManager.Instance.prefix}{ConsoleManager.Instance.helpCommand} to see a list of all commands!");
+				ConsoleManager.LogWarning($"A command with name {commandName} does not exist!\n" +
+										  $"Type {ConsoleManager.Instance.prefix}{ConsoleManager.Instance.defaultCommands.helpCommand} to see a list of all commands!",
+					false);
 			}
 
 			return tempCommands;
@@ -69,7 +71,7 @@ namespace Commands
 			if (commands.Any(item => item.ParametersCount == command.ParametersCount &&
 									 item.HasName(command.GetAllNames())))
 			{
-				ConsoleManager.Instance.LogError(
+				ConsoleManager.LogError(
 					$"A command with name {ToString(command.GetAllNames())} with {command.ParametersCount} parameter(s) already exists!");
 				return;
 			}
@@ -110,7 +112,7 @@ namespace Commands
 		{
 			foreach (AbstractCommand command in commands)
 			{
-				ConsoleManager.Instance.Log(command.ToString());
+				ConsoleManager.Log(command.ToString(), false);
 			}
 		}
 
@@ -118,7 +120,7 @@ namespace Commands
 		{
 			foreach (AbstractCommand command in GetCommands(commandName))
 			{
-				ConsoleManager.Instance.Log(command.ToString());
+				ConsoleManager.Log(command.ToString(), false);
 			}
 		}
 	}
