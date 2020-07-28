@@ -13,7 +13,8 @@ namespace Commands
 		private static readonly List<AbstractCommand> commands = new List<AbstractCommand>();
 
 		/// <summary>
-		/// Invokes a given command with given parameters (does not respect user-defined conversions between types)
+		/// Invokes a given command with given parameters (does not respect user-defined conversions between types, except IConvertible)
+		/// <para>Does not work with arrays (unless you invoke directly through code)</para>
 		/// </summary>
 		public static void Invoke(string commandName, params object[] parameters)
 		{
@@ -21,7 +22,7 @@ namespace Commands
 
 			command?.Invoke(parameters);
 		}
-		
+
 		public static void RenameCommand(string commandName, int paramsCount, string newName)
 		{
 			AbstractCommand command = GetCommand(commandName, paramsCount);
@@ -42,7 +43,9 @@ namespace Commands
 
 			if (command == null)
 			{
-				ConsoleManager.Instance.LogError($"A command with name {commandName} and {paramsCount} parameter(s) does not exist!");
+				ConsoleManager.Instance.LogWarning(
+					$"A command with name {commandName} and {paramsCount} parameter(s) does not exist!\n" +
+					$"Type {ConsoleManager.Instance.prefix}{ConsoleManager.Instance.helpCommand} to see a list of all commands!");
 			}
 
 			return command;
@@ -54,7 +57,8 @@ namespace Commands
 
 			if (tempCommands.Count == 0)
 			{
-				ConsoleManager.Instance.LogError($"A command with name {commandName} does not exist!");
+				ConsoleManager.Instance.LogWarning($"A command with name {commandName} does not exist!\n" +
+												   $"Type {ConsoleManager.Instance.prefix}{ConsoleManager.Instance.helpCommand} to see a list of all commands!");
 			}
 
 			return tempCommands;
@@ -78,7 +82,7 @@ namespace Commands
 				{
 					return string.Empty;
 				}
-				
+
 				StringBuilder stringBuilder = new StringBuilder(list[0]);
 
 				for (int i = 1; i < list.Count; i++)

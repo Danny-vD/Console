@@ -468,8 +468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000017166138, y: 0.000062167645}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00008010864, y: 0.000062167645}
+  m_SizeDelta: {x: -37.19995, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &474139587
 MonoBehaviour:
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2082287539}
   m_HandleRect: {fileID: 2082287538}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1459,6 +1459,7 @@ MonoBehaviour:
   inputField: {fileID: 1558388757}
   text: {fileID: 474139587}
   prefix: 
+  stringChar: 34
   helpCommand: help
 --- !u!1 &2082287537
 GameObject:

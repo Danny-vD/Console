@@ -136,7 +136,7 @@ namespace Commands
 
 		public override string ToString()
 		{
-			StringBuilder stringBuilder = new StringBuilder();
+			StringBuilder stringBuilder = new StringBuilder(ConsoleManager.Instance.prefix);
 
 			stringBuilder.Append(GetFullName());
 			stringBuilder.Append(": ");
