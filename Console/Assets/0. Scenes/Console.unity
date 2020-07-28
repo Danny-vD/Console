@@ -809,7 +809,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 0.19, g: 0.19, b: 0.19, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1458,9 +1458,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1558388757}
   text: {fileID: 474139587}
+  console: {fileID: 1015287157}
   prefix: 
   stringChar: 34
   helpCommand: help
+  clearCommand: clear
+  KeysToPress: 16010000
+  toggleCooldown: 1
+  normalColorHex: 000000
+  warningColorHex: D4D422
+  errorColorHex: D42222
 --- !u!1 &2082287537
 GameObject:
   m_ObjectHideFlags: 0

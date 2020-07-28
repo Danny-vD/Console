@@ -66,8 +66,8 @@ namespace Commands
 
 		public static void AddCommand(AbstractCommand command)
 		{
-			if (commands.Any(item => item.HasName(command.GetAllNames()) &&
-									 item.ParametersCount == command.ParametersCount))
+			if (commands.Any(item => item.ParametersCount == command.ParametersCount &&
+									 item.HasName(command.GetAllNames())))
 			{
 				ConsoleManager.Instance.LogError(
 					$"A command with name {ToString(command.GetAllNames())} with {command.ParametersCount} parameter(s) already exists!");
