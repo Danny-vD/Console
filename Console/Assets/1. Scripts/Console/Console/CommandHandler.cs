@@ -25,7 +25,7 @@ namespace Console.Console
 			ParseArguments(command);
 		}
 
-		private void ParseArguments(string arguments)
+		private static void ParseArguments(string arguments)
 		{
 			string[] commandArguments = Split(arguments, ' ');
 			string commandName = commandArguments[0];

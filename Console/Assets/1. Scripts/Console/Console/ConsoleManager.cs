@@ -58,6 +58,7 @@ namespace Console.Console
 		private DefaultLogReader logReader;
 
 		private bool submittedCommand = false;
+		private const ushort characterLimit = 10000;
 
 		protected override void Awake()
 		{
@@ -138,6 +139,8 @@ namespace Console.Console
 
 			Instance.text.text += $"<color=#{Instance.normalColorHex}>{@object}\n" +
 								  "---------------------------------------------------</color>\n";
+
+			MaintainCharacterLimit();
 		}
 
 		public static void LogWarning(object @object, bool logUnityConsole = true)
@@ -150,6 +153,8 @@ namespace Console.Console
 
 			Instance.text.text += $"<color=#{Instance.warningColorHex}>{@object}</color>\n" +
 								  $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
+
+			MaintainCharacterLimit();
 		}
 
 		public static void LogError(object @object, bool logUnityConsole = true)
@@ -162,6 +167,8 @@ namespace Console.Console
 
 			Instance.text.text += $"<color=#{Instance.errorColorHex}>{@object}</color>\n" +
 								  $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
+
+			MaintainCharacterLimit();
 		}
 
 		private static void LogCommand(string command)
@@ -190,6 +197,23 @@ namespace Console.Console
 			{
 				scrollRect.normalizedPosition = Vector2.zero;
 			}
+		}
+
+		private static void MaintainCharacterLimit()
+		{
+			string textString = Instance.text.text;
+
+			ushort length = (ushort) textString.Length;
+
+			if (length <= characterLimit)
+			{
+				return;
+			}
+
+			int startIndex = length - characterLimit;
+			startIndex = textString.IndexOf("</color>", startIndex, StringComparison.Ordinal) + "</color>\n".Length;
+
+			Instance.text.text = textString.Substring(startIndex, length - startIndex);
 		}
 	}
 }
