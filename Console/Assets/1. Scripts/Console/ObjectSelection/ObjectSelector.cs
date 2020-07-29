@@ -12,14 +12,17 @@ namespace Console.ObjectSelection
 		public Camera RaycastFrom;
 
 		[SerializeField]
-		private LayerMask SelectableLayers = default;
-
-		[SerializeField]
 		private SelectedObjectsVisualiser visualiser = null;
 		
+		[SerializeField, Tooltip("Keep in mind that you can't select Screen space overlay canvases, no matter what")]
+		private LayerMask SelectableLayers = default;
+
+		[SerializeField,
+		 Tooltip("You need to press at least 1 of these keys to Add to the selection, instead of override it")]
+		private List<KeyCode> AddToSelectionKeys = new List<KeyCode>() {KeyCode.LeftControl, KeyCode.RightControl};
+
 		public List<object> SelectedObjects => selectedObjects.Select(item => item as object).ToList();
 
-		[SerializeField]
 		private List<GameObject> selectedObjects;
 
 		private void Awake()
@@ -49,8 +52,7 @@ namespace Console.ObjectSelection
 
 				if (RayCast(out GameObject hitObject))
 				{
-					// default key to add to selection
-					if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+					if (AddToSelectionKeys.Any(Input.GetKey))
 					{
 						AddToSelection(hitObject);
 					}
@@ -76,7 +78,7 @@ namespace Console.ObjectSelection
 			selectedObjects.Remove(selectedObject);
 			visualiser.Redraw(selectedObjects);
 		}
-		
+
 		private void SelectObject(GameObject selectedObject)
 		{
 			selectedObjects.Clear();

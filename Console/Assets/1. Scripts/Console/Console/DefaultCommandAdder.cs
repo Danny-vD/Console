@@ -17,18 +17,6 @@ namespace Console.Console
 		{
 			CommandManager.SetHelp(helpCommand);
 			AddClear();
-
-			AddHide();
-		}
-
-		private void AddHide()
-		{
-			CommandManager.AddCommand(new Command<Component, string>("Rename", Rename));
-
-			void Rename(Component component, string name)
-			{
-				component.gameObject.name = name;
-			}
 		}
 
 		private void AddClear()
