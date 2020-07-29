@@ -1,8 +1,8 @@
 ﻿using System;
-using Commands;
+using Console.Commands;
 using UnityEngine;
 
-namespace Console
+namespace Console.Console
 {
 	[Serializable]
 	public class DefaultCommandAdder
@@ -17,8 +17,20 @@ namespace Console
 		{
 			CommandManager.SetHelp(helpCommand);
 			AddClear();
+
+			AddHide();
 		}
-		
+
+		private void AddHide()
+		{
+			CommandManager.AddCommand(new Command<Component, string>("Rename", Rename));
+
+			void Rename(Component component, string name)
+			{
+				component.gameObject.name = name;
+			}
+		}
+
 		private void AddClear()
 		{
 			Command clear = new Command(clearCommand, ConsoleManager.Clear);

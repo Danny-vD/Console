@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using Commands;
+using Console.Commands;
 
-namespace Console
+namespace Console.Console
 {
 	public class CommandHandler
 	{
@@ -29,13 +30,15 @@ namespace Console
 			string[] commandArguments = Split(arguments, ' ');
 			string commandName = commandArguments[0];
 
-			if (commandArguments.Length == 1)
+			if (commandArguments.Length == 1 &&
+				ConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
 			{
 				CommandManager.Invoke(commandName);
 				return;
 			}
 
-			arguments = arguments.Remove(0, commandName.Length + 1); // +1 to also remove the whitespace
+			arguments = arguments.Remove(0, commandName.Length);
+			arguments = arguments.Trim();
 
 			if (arguments.Contains(ConsoleManager.Instance.stringChar.ToString()))
 			{
@@ -49,9 +52,13 @@ namespace Console
 
 		private static object[] ProcessArguments(string arguments)
 		{
-			// ReSharper disable once CoVariantArrayConversion
-			// Reason: No danger as we're only reading from the array
-			return Split(arguments, ' ');
+			List<object> parameters = ConsoleManager.Instance.ObjectSelector.SelectedObjects;
+			
+			List<string> commandArguments = Split(arguments, ' ').ToList();
+			
+			commandArguments.ForEach(parameters.Add);
+
+			return parameters.ToArray();
 		}
 
 		private static string[] Split(string arguments, char split)
@@ -59,20 +66,21 @@ namespace Console
 			return arguments.Split(new[] {split}, StringSplitOptions.RemoveEmptyEntries);
 		}
 
-		private object[] GetCorrectParameters(string commandArguments)
+		private static object[] GetCorrectParameters(string commandArguments)
 		{
-			commandArguments = commandArguments.Trim();
 			string[] sections = commandArguments.Split(' ');
 
 			// Split at whitespace, and append the items as long as a section does not contain an stringChar.
-			string[] arguments = AppendStringArguments(sections);
+			List<string> arguments = AppendStringArguments(sections);
 
-			// ReSharper disable once CoVariantArrayConversion
-			// Reason: No danger as we're only reading from the array
-			return arguments;
+			List<object> parameters = ConsoleManager.Instance.ObjectSelector.SelectedObjects;
+			
+			arguments.ForEach(parameters.Add);
+			
+			return parameters.ToArray();
 		}
 
-		private string[] AppendStringArguments(string[] parts)
+		private static List<string> AppendStringArguments(string[] parts)
 		{
 			bool append = false;
 			StringBuilder stringBuilder = null;
@@ -127,7 +135,7 @@ namespace Console
 				arguments.Add(argumentString.Replace(stringSplit, ""));
 			}
 
-			return arguments.ToArray();
+			return arguments;
 		}
 	}
 }

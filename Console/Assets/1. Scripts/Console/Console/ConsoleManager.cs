@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Console.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework.Singleton;
 
-namespace Console
+namespace Console.Console
 {
 	public class ConsoleManager : Singleton<ConsoleManager>
 	{
@@ -16,6 +18,9 @@ namespace Console
 		[SerializeField]
 		private GameObject console = null;
 
+		[SerializeField]
+		private GameObject selectedObjectWindow = null;
+
 		[Header("Command properties"), Space(20), Tooltip("Symbol(s) that must precede all commands")]
 		public string prefix = "";
 
@@ -27,8 +32,8 @@ namespace Console
 		[Header("Console properties"), Tooltip("The combination of buttons to press to toggle the console")]
 		public List<KeyCode> KeysToPress = new List<KeyCode>() {KeyCode.Home};
 
-		[Space, SerializeField]
-		private float toggleCooldown = 1;
+		[Space, SerializeField, Tooltip("The time (in seconds) before you can toggle the console again")]
+		private float toggleCooldown = 0.3f;
 
 		[Space, SerializeField]
 		private string normalColorHex = "000000"; // Black
@@ -42,23 +47,36 @@ namespace Console
 		[SerializeField]
 		private string commandColorHex = "FFFFFF"; // White
 
+		[NonSerialized]
+		public ObjectSelector ObjectSelector;
+
 		private float time = 0;
+
+		private ScrollRect scrollRect;
 
 		private CommandHandler commandHandler;
 		private DefaultLogReader logReader;
+
+		private bool submittedCommand = false;
 
 		protected override void Awake()
 		{
 			base.Awake();
 			DontDestroyOnLoad(true);
 
-			commandHandler = new CommandHandler();
+			ObjectSelector  = GetComponent<ObjectSelector>();
+			commandHandler  = new CommandHandler();
 			defaultCommands = new DefaultCommandAdder();
-			logReader = new DefaultLogReader();
-			
+			logReader       = new DefaultLogReader();
+
+			scrollRect = console.GetComponentInChildren<ScrollRect>();
+
 			defaultCommands.AddCommands();
 
 			inputField.onEndEdit.AddListener(OnSubmitCommand);
+
+			ObjectSelector.enabled = console.activeSelf;
+			selectedObjectWindow.SetActive(console.activeSelf);
 		}
 
 		private void Update()
@@ -71,24 +89,43 @@ namespace Console
 			if (time <= 0 && KeysToPress.TrueForAll(Input.GetKey))
 			{
 				time = toggleCooldown;
+
 				console.SetActive(!console.activeSelf);
+				ObjectSelector.enabled = console.activeSelf;
+				selectedObjectWindow.SetActive(console.activeSelf);
+
+				SetScrollbarToBottom();
+			}
+		}
+
+		private void LateUpdate()
+		{
+			if (submittedCommand)
+			{
+				ObjectSelector.CheckValid(); // In case the command modified the object
+				submittedCommand = false;
 			}
 		}
 
 		protected override void OnDestroy()
 		{
-			commandHandler = null;
+			commandHandler  = null;
 			defaultCommands = null;
-			
+
 			logReader.OnDestroy();
 			logReader = null;
-			
+
 			base.OnDestroy();
 		}
 
 		public static void Clear()
 		{
 			Instance.text.text = string.Empty;
+		}
+
+		public static void EnterCommand(string command)
+		{
+			Instance.OnSubmitCommand(command);
 		}
 
 		public static void Log(object @object, bool logUnityConsole = true)
@@ -98,7 +135,7 @@ namespace Console
 				UnityEngine.Debug.Log(@object);
 				return;
 			}
-			
+
 			Instance.text.text += $"<color=#{Instance.normalColorHex}>{@object}\n" +
 								  "---------------------------------------------------</color>\n";
 		}
@@ -110,7 +147,7 @@ namespace Console
 				UnityEngine.Debug.LogWarning(@object);
 				return;
 			}
-			
+
 			Instance.text.text += $"<color=#{Instance.warningColorHex}>{@object}</color>\n" +
 								  $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
 		}
@@ -122,7 +159,7 @@ namespace Console
 				UnityEngine.Debug.LogError(@object);
 				return;
 			}
-			
+
 			Instance.text.text += $"<color=#{Instance.errorColorHex}>{@object}</color>\n" +
 								  $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
 		}
@@ -143,6 +180,16 @@ namespace Console
 			inputField.text = string.Empty;
 
 			commandHandler.OnSubmitCommand(command);
+
+			submittedCommand = true;
+		}
+
+		private void SetScrollbarToBottom()
+		{
+			if (scrollRect)
+			{
+				scrollRect.normalizedPosition = Vector2.zero;
+			}
 		}
 	}
 }

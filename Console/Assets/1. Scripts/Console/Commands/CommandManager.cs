@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Console;
+using Console.Console;
+using UnityEngine;
 
-namespace Commands
+namespace Console.Commands
 {
 	public static class CommandManager
 	{
@@ -18,7 +19,10 @@ namespace Commands
 		/// </summary>
 		public static void Invoke(string commandName, params object[] parameters)
 		{
-			AbstractCommand command = GetCommand(commandName, parameters.Length);
+			// 16 is the max amount of parameters we allow, because system.Action only goes up to 16 generics
+			int paramsCount = Mathf.Min(parameters.Length, 16);
+
+			AbstractCommand command = GetCommand(commandName, paramsCount);
 
 			command?.Invoke(parameters);
 		}
@@ -36,6 +40,30 @@ namespace Commands
 			command.SetName(newName);
 		}
 
+		public static void AddAlias(string commandName, int paramsCount, string alias)
+		{
+			AbstractCommand command = GetCommand(commandName, paramsCount);
+
+			if (commands.Any(item => item.HasName(alias)))
+			{
+				ConsoleManager.LogError($"Rename failed! A command with name {alias} already exists!");
+				return;
+			}
+
+			command.AddAlias(alias);
+		}
+
+		public static void RemoveAlias(string commandName, int paramsCount, string alias)
+		{
+			AbstractCommand command = GetCommand(commandName, paramsCount);
+
+			command.RemoveAlias(alias);
+		}
+
+		/// <summary>
+		/// Returns the respective command with a given name and specified amount of parameters
+		/// <para>Disclaimer: there is no error checking for adding aliases / renaming the returned command</para>
+		/// </summary>
 		public static AbstractCommand GetCommand(string commandName, int paramsCount)
 		{
 			AbstractCommand command = commands.FirstOrDefault(item => item.HasName(commandName) &&
@@ -52,6 +80,10 @@ namespace Commands
 			return command;
 		}
 
+		/// <summary>
+		/// Returns a list of all commands with a given name
+		/// <para>Disclaimer: there is no error checking for adding aliases / renaming the returned commands</para>
+		/// </summary>
 		public static IEnumerable<AbstractCommand> GetCommands(string commandName)
 		{
 			List<AbstractCommand> tempCommands = commands.Where(command => command.HasName(commandName)).ToList();
@@ -68,6 +100,12 @@ namespace Commands
 
 		public static void AddCommand(AbstractCommand command)
 		{
+			if (command.GetAllNames().Any(name => name.Contains(" ")))
+			{
+				ConsoleManager.LogError("A command name cannot contain a whitespace character!");
+				return;
+			}
+
 			if (commands.Any(item => item.ParametersCount == command.ParametersCount &&
 									 item.HasName(command.GetAllNames())))
 			{
@@ -94,6 +132,18 @@ namespace Commands
 
 				return stringBuilder.ToString();
 			}
+		}
+
+		public static void RemoveCommand(string commandName, int paramsCount)
+		{
+			AbstractCommand command = GetCommand(commandName, paramsCount);
+
+			commands.Remove(command);
+		}
+
+		public static void RemoveCommand(AbstractCommand command)
+		{
+			commands.Remove(command);
 		}
 
 		public static void SetHelp(string helpCommand)

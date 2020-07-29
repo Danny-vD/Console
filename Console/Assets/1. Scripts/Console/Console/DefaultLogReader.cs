@@ -1,8 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Console
+namespace Console.Console
 {
+	/// <summary>
+	/// A class which will "read" the default console log and write it to the custom console
+	/// </summary>
 	public class DefaultLogReader
 	{
 		public DefaultLogReader()

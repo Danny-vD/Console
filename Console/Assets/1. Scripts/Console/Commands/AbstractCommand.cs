@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Console;
+using Console.Console;
 using UnityEngine;
 using VDFramework.Extensions;
 
-namespace Commands
+namespace Console.Commands
 {
 	public abstract class AbstractCommand
 	{

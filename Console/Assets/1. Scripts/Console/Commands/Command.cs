@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Commands
+namespace Console.Commands
 {
 	public class Command : AbstractCommand
 	{
