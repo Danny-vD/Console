@@ -1,4 +1,5 @@
 ﻿using System;
+using Console.Attributes;
 using Console.Commands;
 using UnityEngine;
 
@@ -17,14 +18,28 @@ namespace Console.Console
 		{
 			CommandManager.SetHelp(helpCommand);
 			AddClear();
+			
+			CommandAttributeUtils.AddCommands(this);
 		}
-
+		
 		private void AddClear()
 		{
 			Command clear = new Command(clearCommand, ConsoleManager.Clear);
 			clear.SetHelpMessage("Clears the console.");
 
 			CommandManager.AddCommand(clear);
+		}
+
+		[Command("test", "Prints nothing", "t", "T", "Test")]
+		private void Test()
+		{
+			ConsoleManager.Log("Absolutely nothing", false);
+		}
+
+		[Command("write", "Writes a message to the console", "Write")]
+		private void Write(string message)
+		{
+			ConsoleManager.Log(message);
 		}
 	}
 }

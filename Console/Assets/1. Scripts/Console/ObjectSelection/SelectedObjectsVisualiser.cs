@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
+using VDFramework.Extensions;
 using VDFramework.UnityExtensions;
 
 namespace Console.ObjectSelection
@@ -11,6 +12,9 @@ namespace Console.ObjectSelection
 		[SerializeField]
 		private GameObject prefab = null;
 
+		[SerializeField]
+		private GameObject Window = null; 
+		
 		public void Redraw(List<GameObject> objects)
 		{
 			CachedTransform.DestroyChildren();
@@ -34,6 +38,8 @@ namespace Console.ObjectSelection
 					Redraw(objects);
 				}
 			}
+			
+			Window.SetActive(objects.Count > 0);
 		}
 	}
 }

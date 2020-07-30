@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Console.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
+using VDFramework.Extensions;
 using VDFramework.Singleton;
 
 namespace Console.Console
@@ -93,7 +94,9 @@ namespace Console.Console
 
 				console.SetActive(!console.activeSelf);
 				ObjectSelector.enabled = console.activeSelf;
-				selectedObjectWindow.SetActive(console.activeSelf);
+				
+				selectedObjectWindow.SetActive(console.activeSelf &&
+											   ObjectSelector.SelectedObjects.Count > 0);
 
 				SetScrollbarToBottom();
 			}

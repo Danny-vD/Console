@@ -11,9 +11,9 @@ namespace Console.ObjectSelection
 		[Tooltip("The camera to raycast from (defaults to Camera.Main)")]
 		public Camera RaycastFrom;
 
-		[SerializeField]
+		[SerializeField, Tooltip("Optional: A script that will visualise all selected objects")]
 		private SelectedObjectsVisualiser visualiser = null;
-		
+
 		[SerializeField, Tooltip("Keep in mind that you can't select Screen space overlay canvases, no matter what")]
 		private LayerMask SelectableLayers = default;
 
@@ -70,13 +70,13 @@ namespace Console.ObjectSelection
 		public void CheckValid()
 		{
 			selectedObjects.RemoveAll(item => item == null);
-			visualiser.Redraw(selectedObjects);
+			RedrawVisualiser();
 		}
 
 		public void RemoveFromSelection(GameObject selectedObject)
 		{
 			selectedObjects.Remove(selectedObject);
-			visualiser.Redraw(selectedObjects);
+			RedrawVisualiser();
 		}
 
 		private void SelectObject(GameObject selectedObject)
@@ -88,7 +88,7 @@ namespace Console.ObjectSelection
 		private void AddToSelection(GameObject selectedObject)
 		{
 			selectedObjects.Add(selectedObject);
-			visualiser.Redraw(selectedObjects);
+			RedrawVisualiser();
 		}
 
 		private bool RayCast(out GameObject objectHit)
@@ -103,6 +103,14 @@ namespace Console.ObjectSelection
 
 			objectHit = null;
 			return false;
+		}
+
+		private void RedrawVisualiser()
+		{
+			if (visualiser)
+			{
+				visualiser.Redraw(selectedObjects);
+			}
 		}
 	}
 }
