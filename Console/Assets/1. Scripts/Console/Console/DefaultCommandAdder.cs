@@ -13,15 +13,15 @@ namespace Console.Console
 
 		[Tooltip("The command to clear the console")]
 		public string clearCommand = "clear";
-		
+
 		public void AddCommands()
 		{
 			CommandManager.SetHelp(helpCommand);
 			AddClear();
-			
-			CommandAttributeUtils.AddCommands(this);
+
+			CommandAttributeUtils.AddCommands<DefaultCommandAdder>();
 		}
-		
+
 		private void AddClear()
 		{
 			Command clear = new Command(clearCommand, ConsoleManager.Clear);
@@ -30,16 +30,15 @@ namespace Console.Console
 			CommandManager.AddCommand(clear);
 		}
 
-		[Command("test", "Prints nothing", "t", "T", "Test")]
-		private void Test()
-		{
-			ConsoleManager.Log("Absolutely nothing", false);
-		}
 
-		[Command("write", "Writes a message to the console", "Write")]
-		private void Write(string message)
+		[Command("exit", "Closes the application", "Exit", "Quit", "quit")]
+		private static void Exit()
 		{
-			ConsoleManager.Log(message);
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.ExitPlaymode();
+#else
+		Application.Quit();
+#endif
 		}
 	}
 }
