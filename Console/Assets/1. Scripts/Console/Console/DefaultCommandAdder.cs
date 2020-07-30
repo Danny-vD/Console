@@ -30,14 +30,13 @@ namespace Console.Console
 			CommandManager.AddCommand(clear);
 		}
 
-
-		[Command("exit", "Closes the application", "Exit", "Quit", "quit")]
+		[Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
 		private static void Exit()
 		{
 #if UNITY_EDITOR
 			UnityEditor.EditorApplication.ExitPlaymode();
 #else
-		Application.Quit();
+			Application.Quit();
 #endif
 		}
 	}
