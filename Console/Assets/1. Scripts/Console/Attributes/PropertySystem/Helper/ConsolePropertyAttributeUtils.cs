@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Assets.Console.EnvironmentVariables;
 using Console.Attributes.CommandSystem;
 using Console.Attributes.CommandSystem.Helper;
 using Console.Console;
@@ -33,6 +34,7 @@ namespace Console.Attributes.PropertySystem.Helper
         public static void InitializePropertySystem()
         {
             CommandAttributeUtils.AddCommands<ConsolePropertyAttributeUtils>();
+            EnvironmentVariableManager.AddProvider(new PropertyVariableProvider());
         }
 
 

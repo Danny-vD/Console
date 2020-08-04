@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Console.EnvironmentVariables;
 using Console.Attributes.PropertySystem;
 using Console.Attributes.PropertySystem.Helper;
 using Console.ObjectSelection;
@@ -223,10 +224,12 @@ namespace Console.Console
                 return;
             }
 
+            string cmd = EnvironmentVariableManager.Expand(command);
+
             LogCommand(command);
             inputField.text = string.Empty;
 
-            commandHandler.OnSubmitCommand(command);
+            commandHandler.OnSubmitCommand(cmd);
 
             submittedCommand = true;
         }

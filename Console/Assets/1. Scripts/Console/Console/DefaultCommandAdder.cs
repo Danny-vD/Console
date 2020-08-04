@@ -15,7 +15,7 @@ namespace Console.Console
 		[Tooltip("The command to clear the console")]
 		public string clearCommand = "clear";
 
-		public void AddCommands()
+        public void AddCommands()
 		{
 			CommandManager.SetHelp(helpCommand);
 			AddClear();
@@ -30,6 +30,9 @@ namespace Console.Console
 
 			CommandManager.AddCommand(clear);
 		}
+
+        [Command("echo", "Echos the input")]
+        private static void Echo(string value) => ConsoleManager.Log(value);
 
 		[Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
 		private static void Exit()
