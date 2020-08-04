@@ -26,6 +26,7 @@ namespace Console.NetworkCommands
         [Command("start-console-host", "Creates a Console host at the specified port.", "start-host")]
         private void StartHostCommand(int port)
         {
+            ConsoleManager.Log("Starting Console Host on port: " + port);
             ConsoleManager.OnLog += OnLog;
             Listener?.Stop();
             Listener = TcpListener.Create(port);
@@ -34,6 +35,7 @@ namespace Console.NetworkCommands
             IsRunning = true;
             LoopThread = new Thread(ListenerLoop);
             LoopThread.Start();
+            ConsoleManager.Log("Host Initialized.");
         }
 
 
@@ -50,7 +52,7 @@ namespace Console.NetworkCommands
         private void ForceStopHostCommand()
         {
             ConsoleManager.OnLog -= OnLog;
-            ConsoleManager.Log("Stopping Console Host");
+            ConsoleManager.LogWarning("Force Stopping Console Host");
             IsRunning = false;
             Listener?.Stop();
             LoopThread?.Abort();
@@ -97,7 +99,7 @@ namespace Console.NetworkCommands
                         int last = 0;
                         for (int j = last; j < data.Length; j++)
                         {
-                            if (data[j] == (byte) '\0')
+                            if (data[j] == (byte)'\0')
                             {
 
                                 byte[] d = new byte[j - last];

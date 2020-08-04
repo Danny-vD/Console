@@ -84,8 +84,9 @@ namespace Console.Console
             scrollRect = console.GetComponentInChildren<ScrollRect>();
 
             defaultCommands.AddCommands();
-
+            
             inputField.onEndEdit.AddListener(OnSubmitCommand);
+            inputField.onEndEdit.AddListener(OnUIWriteCommand);
 
             ObjectSelector.enabled = console.activeSelf;
             selectedObjectWindow.SetActive(console.activeSelf);
@@ -103,6 +104,9 @@ namespace Console.Console
             if (time <= 0 && KeysToPress.TrueForAll(Input.GetKey))
             {
                 time = toggleCooldown;
+
+                inputField?.Select();
+                inputField?.ActivateInputField();
 
                 console.SetActive(!console.activeSelf);
                 ObjectSelector.enabled = console.activeSelf;
@@ -204,6 +208,12 @@ namespace Console.Console
         public static void LogPlainText(string text)
         {
             Instance.text.text += text;
+        }
+
+        private void OnUIWriteCommand(string text)
+        {
+            inputField?.Select();
+            inputField?.ActivateInputField();
         }
 
         private void OnSubmitCommand(string command)
