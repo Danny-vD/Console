@@ -9,7 +9,8 @@ namespace Console.Attributes
 {
 	public static class CommandAttributeUtils
 	{
-		/// <summary>
+
+        /// <summary>
 		/// Call this to add all static commands from a type
 		/// </summary>
 		/// <typeparam name="T"></typeparam>

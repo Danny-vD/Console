@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using Console.Attributes;
+using Console.Properties;
 using UnityEngine;
 
 namespace Assets.Console.NetworkCommands
 {
     public class NetworkedConsoleProcess : MonoBehaviour
     {
-        [Range(0.001f, 1)]
+        [Range(0.001f, 1), ConsoleProperty("console.client.logpolling.tick")]
         public float ClientLogPollingTick = 0.1f;
 
-        [Range(0.001f, 1)]
+        [Range(0.001f, 1), ConsoleProperty("console.host.commandprocess.tick")]
         public float HostProcessingTick = 0.1f;
 
         private HostConsoleCommand hc = new HostConsoleCommand();
@@ -20,6 +21,8 @@ namespace Assets.Console.NetworkCommands
         private void Start()
         {
             DontDestroyOnLoad(gameObject);
+            ConsolePropertyAttributeUtils.InitializePropertySystem();
+            ConsolePropertyAttributeUtils.AddProperties(this);
             CommandAttributeUtils.AddCommands(hc);
             CommandAttributeUtils.AddCommands(cc);
             Host = HostRoutine();

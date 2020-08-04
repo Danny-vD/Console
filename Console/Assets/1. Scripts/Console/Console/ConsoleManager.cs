@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Console.ObjectSelection;
+using Console.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 using VDUnityFramework.Standard.Singleton;
@@ -24,9 +25,11 @@ namespace Console.Console
         private GameObject selectedObjectWindow = null;
 
         [Header("Command properties"), Space(20), Tooltip("Symbol(s) that must precede all commands")]
+        [ConsoleProperty("console.input.prefix")]
         public string prefix = "";
 
         [Tooltip("The character to tell the console that your argument is a string")]
+        [ConsoleProperty("console.input.stringchar")]
         public char stringChar = '"';
 
         public DefaultCommandAdder defaultCommands;
@@ -35,18 +38,23 @@ namespace Console.Console
         public List<KeyCode> KeysToPress = new List<KeyCode>() { KeyCode.Home };
 
         [Space, SerializeField, Tooltip("The time (in seconds) before you can toggle the console again")]
+        [ConsoleProperty("console.ui.cooldown")]
         private float toggleCooldown = 0.3f;
 
         [Space, SerializeField]
+        [ConsoleProperty("console.ui.normalcolor")]
         private string normalColorHex = "000000"; // Black
 
         [SerializeField]
+        [ConsoleProperty("console.ui.warningcolor")]
         private string warningColorHex = "D4D422"; // Yellow
 
         [SerializeField]
+        [ConsoleProperty("console.ui.errorcolor")]
         private string errorColorHex = "882222"; // Red
 
         [SerializeField]
+        [ConsoleProperty("console.ui.commandcolor")]
         private string commandColorHex = "FFFFFF"; // White
 
         [NonSerialized]
@@ -80,6 +88,8 @@ namespace Console.Console
 
             ObjectSelector.enabled = console.activeSelf;
             selectedObjectWindow.SetActive(console.activeSelf);
+
+            ConsolePropertyAttributeUtils.AddProperties(this);
         }
 
         private void Update()
