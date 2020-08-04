@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using Console.Attributes;
+using Console.Attributes.CommandSystem;
 using Console.Console;
 
-namespace Assets.Console.NetworkCommands
+namespace Console.NetworkCommands
 {
     public class HostConsoleCommand
     {

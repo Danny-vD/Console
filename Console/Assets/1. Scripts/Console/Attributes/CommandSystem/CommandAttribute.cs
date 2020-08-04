@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Console.Attributes
+namespace Console.Attributes.CommandSystem
 {
     /// <summary>
     /// Command Attribute that only works on methods.

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Console.Attributes;
+using Console.Attributes.CommandSystem;
+using Console.Attributes.CommandSystem.Helper;
 using Console.Console;
 
-namespace Console.Properties
+namespace Console.Attributes.PropertySystem.Helper
 {
     public class ConsolePropertyAttributeUtils
     {
@@ -58,7 +59,7 @@ namespace Console.Properties
         }
 
         [Command("set-property", "Sets the specified property to the specified value", "sp")]
-        private static void SetProperty(string propertyPath, string propertyValue)
+        private static void SetProperty(string propertyPath, [SelectionProperty] object propertyValue)
         {
             if (!HasProperty(propertyPath)) return;
 

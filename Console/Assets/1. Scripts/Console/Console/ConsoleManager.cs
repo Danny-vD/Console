@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Console.Attributes.PropertySystem;
+using Console.Attributes.PropertySystem.Helper;
 using Console.ObjectSelection;
-using Console.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 using VDUnityFramework.Standard.Singleton;

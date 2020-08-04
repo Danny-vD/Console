@@ -2,11 +2,10 @@
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using Console.Attributes;
-using Console.Commands;
+using Console.Attributes.CommandSystem;
 using Console.Console;
 
-namespace Assets.Console.NetworkCommands
+namespace Console.NetworkCommands
 {
     public class ClientConsoleCommand
     {

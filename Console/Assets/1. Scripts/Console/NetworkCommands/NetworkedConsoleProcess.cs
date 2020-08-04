@@ -1,9 +1,10 @@
 ﻿using System.Collections;
-using Console.Attributes;
-using Console.Properties;
+using Console.Attributes.CommandSystem.Helper;
+using Console.Attributes.PropertySystem;
+using Console.Attributes.PropertySystem.Helper;
 using UnityEngine;
 
-namespace Assets.Console.NetworkCommands
+namespace Console.NetworkCommands
 {
     public class NetworkedConsoleProcess : MonoBehaviour
     {

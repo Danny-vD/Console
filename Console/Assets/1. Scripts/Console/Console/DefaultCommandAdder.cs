@@ -1,5 +1,6 @@
 ﻿using System;
-using Console.Attributes;
+using Console.Attributes.CommandSystem;
+using Console.Attributes.CommandSystem.Helper;
 using Console.Commands;
 using UnityEngine;
 

@@ -52,13 +52,13 @@ namespace Console.Console
 
 		private static object[] ProcessArguments(string arguments)
 		{
-			List<object> parameters = ConsoleManager.Instance.ObjectSelector.SelectedObjects;
+			//List<object> parameters = ConsoleManager.Instance.ObjectSelector.SelectedObjects;
 			
 			List<string> commandArguments = Split(arguments, ' ').ToList();
 			
-			commandArguments.ForEach(parameters.Add);
+			//commandArguments.ForEach(parameters.Add);
 
-			return parameters.ToArray();
+			return commandArguments.ToArray();
 		}
 
 		private static string[] Split(string arguments, char split)

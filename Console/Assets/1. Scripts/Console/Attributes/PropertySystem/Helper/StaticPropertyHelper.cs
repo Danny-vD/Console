@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Console.Properties
+namespace Console.Attributes.PropertySystem.Helper
 {
     internal class StaticPropertyHelper : PropertyHelper
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Console.Properties
+namespace Console.Attributes.PropertySystem
 {
     [AttributeUsage(AttributeTargets.Property|AttributeTargets.Field, AllowMultiple = true)]
     public class ConsolePropertyAttribute : Attribute
