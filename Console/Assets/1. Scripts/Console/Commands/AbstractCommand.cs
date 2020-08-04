@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using Console.Console;
 using UnityEngine;
+using VDFramework.Standard.SharedClasses.Extensions;
 
 namespace Console.Commands
 {
@@ -32,13 +33,14 @@ namespace Console.Commands
 				if (typeof(Component).IsAssignableFrom(typeof(TType)))
 				{
 					newTypeName = typeof(GameObject).Name;
+
+                    // Convert to check if it will throw an error
                     
-					// Convert to check if it will throw an error
-					ConvertTo<GameObject>(parameter);
+                    parameter.ConvertTo<GameObject>();
 					return true;
 				}
 
-                ConvertTo<TType>(parameter);
+                parameter.ConvertTo<TType>();
 				// Convert to check if it will throw an error
 				
 				return true;
@@ -65,7 +67,7 @@ namespace Console.Commands
 				return component;
 			}
 			
-			return ConvertTo<TNewType>(parameter);
+			return parameter.ConvertTo<TNewType>();
 		}
 
 		public void SetName(string name)

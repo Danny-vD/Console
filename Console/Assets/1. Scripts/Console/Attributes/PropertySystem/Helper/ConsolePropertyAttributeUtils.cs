@@ -62,10 +62,8 @@ namespace Console.Attributes.PropertySystem.Helper
         private static void SetProperty(string propertyPath, [SelectionProperty] object propertyValue)
         {
             if (!HasProperty(propertyPath)) return;
-
-            object val = propertyValue; //Convert later.
-
-            Properties[propertyPath].SetValue(val);
+            
+            Properties[propertyPath].SetValue(propertyValue);
         }
 
         [Command("get-property",

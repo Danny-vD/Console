@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections;
+using System.Reflection;
 using Console.Attributes.CommandSystem.Helper;
 
 namespace Console.Attributes.PropertySystem.Helper
@@ -20,7 +22,15 @@ namespace Console.Attributes.PropertySystem.Helper
 
         internal override void SetValue(object value)
         {
-            object convertedValue = CommandAttributeUtils.ConvertToNonGeneric(value, Info.PropertyType);
+            object convertedValue = null;
+            if (value is Array ar && !typeof(IEnumerable).IsAssignableFrom(Info.PropertyType))
+            {
+                convertedValue = ar.GetValue(0); //get the first item of the array
+            }
+            else
+            {
+                convertedValue = CommandAttributeUtils.ConvertToNonGeneric(value, Info.PropertyType);
+            }
 
             Info.SetValue(Instance, convertedValue);
         }
