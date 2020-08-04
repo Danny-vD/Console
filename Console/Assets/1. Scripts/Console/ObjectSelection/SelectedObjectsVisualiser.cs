@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using VDFramework;
-using VDFramework.Extensions;
-using VDFramework.UnityExtensions;
+using VDUnityFramework.Standard.BaseClasses;
+using VDUnityFramework.Standard.UnityExtensions;
 
 namespace Console.ObjectSelection
 {

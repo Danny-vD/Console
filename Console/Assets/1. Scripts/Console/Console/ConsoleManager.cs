@@ -3,220 +3,236 @@ using System.Collections.Generic;
 using Console.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
-using VDFramework.Extensions;
-using VDFramework.Singleton;
+using VDUnityFramework.Standard.Singleton;
 
 namespace Console.Console
 {
-	public class ConsoleManager : Singleton<ConsoleManager>
-	{
-		[Header("Components"), SerializeField]
-		private InputField inputField = null;
+    public class ConsoleManager : Singleton<ConsoleManager>
+    {
+        public static event Action<string> OnLog;
 
-		[SerializeField]
-		private Text text = null;
+        [Header("Components"), SerializeField]
+        private InputField inputField = null;
 
-		[SerializeField]
-		private GameObject console = null;
+        [SerializeField]
+        private Text text = null;
 
-		[SerializeField]
-		private GameObject selectedObjectWindow = null;
+        [SerializeField]
+        private GameObject console = null;
 
-		[Header("Command properties"), Space(20), Tooltip("Symbol(s) that must precede all commands")]
-		public string prefix = "";
+        [SerializeField]
+        private GameObject selectedObjectWindow = null;
 
-		[Tooltip("The character to tell the console that your argument is a string")]
-		public char stringChar = '"';
+        [Header("Command properties"), Space(20), Tooltip("Symbol(s) that must precede all commands")]
+        public string prefix = "";
 
-		public DefaultCommandAdder defaultCommands;
+        [Tooltip("The character to tell the console that your argument is a string")]
+        public char stringChar = '"';
 
-		[Header("Console properties"), Tooltip("The combination of buttons to press to toggle the console")]
-		public List<KeyCode> KeysToPress = new List<KeyCode>() {KeyCode.Home};
+        public DefaultCommandAdder defaultCommands;
 
-		[Space, SerializeField, Tooltip("The time (in seconds) before you can toggle the console again")]
-		private float toggleCooldown = 0.3f;
+        [Header("Console properties"), Tooltip("The combination of buttons to press to toggle the console")]
+        public List<KeyCode> KeysToPress = new List<KeyCode>() { KeyCode.Home };
 
-		[Space, SerializeField]
-		private string normalColorHex = "000000"; // Black
+        [Space, SerializeField, Tooltip("The time (in seconds) before you can toggle the console again")]
+        private float toggleCooldown = 0.3f;
 
-		[SerializeField]
-		private string warningColorHex = "D4D422"; // Yellow
+        [Space, SerializeField]
+        private string normalColorHex = "000000"; // Black
 
-		[SerializeField]
-		private string errorColorHex = "882222"; // Red
+        [SerializeField]
+        private string warningColorHex = "D4D422"; // Yellow
 
-		[SerializeField]
-		private string commandColorHex = "FFFFFF"; // White
+        [SerializeField]
+        private string errorColorHex = "882222"; // Red
 
-		[NonSerialized]
-		public ObjectSelector ObjectSelector;
+        [SerializeField]
+        private string commandColorHex = "FFFFFF"; // White
 
-		private float time = 0;
+        [NonSerialized]
+        public ObjectSelector ObjectSelector;
 
-		private ScrollRect scrollRect;
+        private float time = 0;
 
-		private CommandHandler commandHandler;
-		private DefaultLogReader logReader;
+        private ScrollRect scrollRect;
 
-		private bool submittedCommand = false;
-		private const ushort characterLimit = 10000;
+        private CommandHandler commandHandler;
+        private DefaultLogReader logReader;
 
-		protected override void Awake()
-		{
-			base.Awake();
-			DontDestroyOnLoad(true);
+        private bool submittedCommand = false;
+        private const ushort characterLimit = 10000;
 
-			ObjectSelector  = GetComponent<ObjectSelector>();
-			commandHandler  = new CommandHandler();
-			defaultCommands = new DefaultCommandAdder();
-			logReader       = new DefaultLogReader();
+        protected override void Awake()
+        {
+            base.Awake();
+            DontDestroyOnLoad(true);
 
-			scrollRect = console.GetComponentInChildren<ScrollRect>();
+            ObjectSelector = GetComponent<ObjectSelector>();
+            commandHandler = new CommandHandler();
+            defaultCommands = new DefaultCommandAdder();
+            logReader = new DefaultLogReader();
 
-			defaultCommands.AddCommands();
+            scrollRect = console.GetComponentInChildren<ScrollRect>();
 
-			inputField.onEndEdit.AddListener(OnSubmitCommand);
+            defaultCommands.AddCommands();
 
-			ObjectSelector.enabled = console.activeSelf;
-			selectedObjectWindow.SetActive(console.activeSelf);
-		}
+            inputField.onEndEdit.AddListener(OnSubmitCommand);
 
-		private void Update()
-		{
-			if (time > 0)
-			{
-				time -= Time.unscaledDeltaTime;
-			}
+            ObjectSelector.enabled = console.activeSelf;
+            selectedObjectWindow.SetActive(console.activeSelf);
+        }
 
-			if (time <= 0 && KeysToPress.TrueForAll(Input.GetKey))
-			{
-				time = toggleCooldown;
+        private void Update()
+        {
+            if (time > 0)
+            {
+                time -= Time.unscaledDeltaTime;
+            }
 
-				console.SetActive(!console.activeSelf);
-				ObjectSelector.enabled = console.activeSelf;
-				
-				selectedObjectWindow.SetActive(console.activeSelf &&
-											   ObjectSelector.SelectedObjects.Count > 0);
+            if (time <= 0 && KeysToPress.TrueForAll(Input.GetKey))
+            {
+                time = toggleCooldown;
 
-				SetScrollbarToBottom();
-			}
-		}
+                console.SetActive(!console.activeSelf);
+                ObjectSelector.enabled = console.activeSelf;
 
-		private void LateUpdate()
-		{
-			if (submittedCommand)
-			{
-				ObjectSelector.CheckValid(); // In case the command modified the object
-				submittedCommand = false;
-			}
-		}
+                selectedObjectWindow.SetActive(console.activeSelf &&
+                                               ObjectSelector.SelectedObjects.Count > 0);
 
-		protected override void OnDestroy()
-		{
-			commandHandler  = null;
-			defaultCommands = null;
+                SetScrollbarToBottom();
+            }
+        }
 
-			logReader.OnDestroy();
-			logReader = null;
+        private void LateUpdate()
+        {
+            if (submittedCommand)
+            {
+                ObjectSelector.CheckValid(); // In case the command modified the object
+                submittedCommand = false;
+            }
+        }
 
-			base.OnDestroy();
-		}
+        protected override void OnDestroy()
+        {
+            commandHandler = null;
+            defaultCommands = null;
 
-		public static void Clear()
-		{
-			Instance.text.text = string.Empty;
-		}
+            logReader.OnDestroy();
+            logReader = null;
 
-		public static void EnterCommand(string command)
-		{
-			Instance.OnSubmitCommand(command);
-		}
+            base.OnDestroy();
+        }
 
-		public static void Log(object @object, bool logUnityConsole = true)
-		{
-			if (logUnityConsole)
-			{
-				UnityEngine.Debug.Log(@object);
-				return;
-			}
+        public static void Clear()
+        {
+            Instance.text.text = string.Empty;
+        }
 
-			Instance.text.text += $"<color=#{Instance.normalColorHex}>{@object}\n" +
-								  "---------------------------------------------------</color>\n";
+        public static void EnterCommand(string command)
+        {
+            Instance.OnSubmitCommand(command);
+        }
 
-			MaintainCharacterLimit();
-		}
+        public static void Log(object @object, bool logUnityConsole = true)
+        {
+            if (logUnityConsole)
+            {
+                UnityEngine.Debug.Log(@object);
+                return;
+            }
 
-		public static void LogWarning(object @object, bool logUnityConsole = true)
-		{
-			if (logUnityConsole)
-			{
-				UnityEngine.Debug.LogWarning(@object);
-				return;
-			}
+            string txt = $"<color=#{Instance.normalColorHex}>{@object}\n" +
+                         "---------------------------------------------------</color>\n";
+            OnLog?.Invoke(txt);
 
-			Instance.text.text += $"<color=#{Instance.warningColorHex}>{@object}</color>\n" +
-								  $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
+            Instance.text.text += txt;
 
-			MaintainCharacterLimit();
-		}
+            MaintainCharacterLimit();
+        }
 
-		public static void LogError(object @object, bool logUnityConsole = true)
-		{
-			if (logUnityConsole)
-			{
-				UnityEngine.Debug.LogError(@object);
-				return;
-			}
+        public static void LogWarning(object @object, bool logUnityConsole = true)
+        {
+            if (logUnityConsole)
+            {
+                UnityEngine.Debug.LogWarning(@object);
+                return;
+            }
 
-			Instance.text.text += $"<color=#{Instance.errorColorHex}>{@object}</color>\n" +
-								  $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
+            string txt = $"<color=#{Instance.warningColorHex}>{@object}</color>\n" +
+                         $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
+            OnLog?.Invoke(txt);
+            Instance.text.text += txt;
 
-			MaintainCharacterLimit();
-		}
+            MaintainCharacterLimit();
+        }
 
-		private static void LogCommand(string command)
-		{
-			Instance.text.text += $"<color=#{Instance.commandColorHex}>{command}</color>\n";
-		}
+        public static void LogError(object @object, bool logUnityConsole = true)
+        {
+            if (logUnityConsole)
+            {
+                UnityEngine.Debug.LogError(@object);
+                return;
+            }
 
-		private void OnSubmitCommand(string command)
-		{
-			if (command == string.Empty)
-			{
-				return;
-			}
+            string txt = $"<color=#{Instance.errorColorHex}>{@object}</color>\n" +
+                         $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
+            OnLog?.Invoke(txt);
+            Instance.text.text += txt;
 
-			LogCommand(command);
-			inputField.text = string.Empty;
+            MaintainCharacterLimit();
+        }
 
-			commandHandler.OnSubmitCommand(command);
+        private static void LogCommand(string command)
+        {
+            string txt = $"<color=#{Instance.commandColorHex}>{command}</color>\n";
+            OnLog?.Invoke(txt);
+            Instance.text.text += txt;
 
-			submittedCommand = true;
-		}
+        }
 
-		private void SetScrollbarToBottom()
-		{
-			if (scrollRect)
-			{
-				scrollRect.normalizedPosition = Vector2.zero;
-			}
-		}
+        public static void LogPlainText(string text)
+        {
+            Instance.text.text += text;
+        }
 
-		private static void MaintainCharacterLimit()
-		{
-			string textString = Instance.text.text;
+        private void OnSubmitCommand(string command)
+        {
+            if (command == string.Empty)
+            {
+                return;
+            }
 
-			ushort length = (ushort) textString.Length;
+            LogCommand(command);
+            inputField.text = string.Empty;
 
-			if (length <= characterLimit)
-			{
-				return;
-			}
+            commandHandler.OnSubmitCommand(command);
 
-			int startIndex = length - characterLimit;
-			startIndex = textString.IndexOf("</color>", startIndex, StringComparison.Ordinal) + "</color>\n".Length;
+            submittedCommand = true;
+        }
 
-			Instance.text.text = textString.Substring(startIndex, length - startIndex);
-		}
-	}
+        private void SetScrollbarToBottom()
+        {
+            if (scrollRect)
+            {
+                scrollRect.normalizedPosition = Vector2.zero;
+            }
+        }
+
+        private static void MaintainCharacterLimit()
+        {
+            string textString = Instance.text.text;
+
+            ushort length = (ushort)textString.Length;
+
+            if (length <= characterLimit)
+            {
+                return;
+            }
+
+            int startIndex = length - characterLimit;
+            startIndex = textString.IndexOf("</color>", startIndex, StringComparison.Ordinal) + "</color>\n".Length;
+
+            Instance.text.text = textString.Substring(startIndex, length - startIndex);
+        }
+    }
 }

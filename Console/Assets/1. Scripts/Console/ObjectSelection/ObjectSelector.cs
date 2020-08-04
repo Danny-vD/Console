@@ -2,7 +2,7 @@
 using System.Linq;
 using Console.Console;
 using UnityEngine;
-using VDFramework;
+using VDUnityFramework.Standard.BaseClasses;
 
 namespace Console.ObjectSelection
 {
