@@ -1,11 +1,14 @@
 ﻿using System.IO;
 using Console.EnvironmentVariables;
 
-public class DirectoriesVariableProvider : VariableProvider
+namespace Console.PropIOCompat
 {
-    public override string FunctionName => "dirs";
-    public override string GetValue(string parameter)
+    public class DirectoriesVariableProvider : VariableProvider
     {
-        return FilesVariableProvider.ToList(Directory.GetDirectories(parameter, "*", SearchOption.TopDirectoryOnly));
+        public override string FunctionName => "dirs";
+        public override string GetValue(string parameter)
+        {
+            return FilesVariableProvider.ToList(Directory.GetDirectories(parameter, "*", SearchOption.TopDirectoryOnly));
+        }
     }
 }

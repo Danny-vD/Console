@@ -25,7 +25,10 @@ namespace Console.Core.Attributes.PropertySystem.Helper
 
         public static bool TrySetValue(string propertyPath, object value)
         {
-            if (!Properties.ContainsKey(propertyPath)) return false;
+            if (!Properties.ContainsKey(propertyPath))
+            {
+                return false;
+            }
             Properties[propertyPath].SetValue(value);
             return true;
         }

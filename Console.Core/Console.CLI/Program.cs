@@ -13,7 +13,9 @@ using Console.Core.Console;
 using Console.EnvironmentVariables;
 using Console.IO;
 using Console.Networking;
+using Console.PersistentProperties;
 using Console.PropEnvCompat;
+using Console.PropIOCompat;
 using Console.ScriptSystem;
 
 namespace Console.CLI
@@ -43,6 +45,7 @@ namespace Console.CLI
             new IOInitializer().Initialize();
             new ScriptSystemInitializer().Initialize();
             new IOCompatInitializer().Initialize();
+            new PersistentPropertiesInitializer().Initialize();
 
             Thread t = new Thread(Loop);
 

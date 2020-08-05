@@ -19,7 +19,12 @@ namespace Console.Core.Attributes.CommandSystem.Helper
 		public static void AddCommands<T>()
         {
             Type t = typeof(T);
-            ReflectionCommand[] cmds = GetStaticCommandData(t).Select(x => new ReflectionCommand(x)).ToArray();
+            AddCommands(t);
+        }
+
+        public static void AddCommands(Type type)
+        {
+            ReflectionCommand[] cmds = GetStaticCommandData(type).Select(x => new ReflectionCommand(x)).ToArray();
 
             foreach (ReflectionCommand refCommand in cmds)
             {

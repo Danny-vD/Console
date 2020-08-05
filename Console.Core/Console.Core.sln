@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.IO", "Console.IO\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.PropIOCompat", "Console.PropIOCompat\Console.PropIOCompat.csproj", "{D5162652-D902-4A45-BEDA-AE5D2FD38B44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.PersistentProperties", "Console.PersistentProperties\Console.PersistentProperties.csproj", "{E4E1EC58-86AC-428A-BE42-12ED19405C9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E1EC58-86AC-428A-BE42-12ED19405C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E1EC58-86AC-428A-BE42-12ED19405C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E1EC58-86AC-428A-BE42-12ED19405C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E1EC58-86AC-428A-BE42-12ED19405C9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{E5195B8F-09BE-4028-81E8-16DE0456BDCB} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 		{D5162652-D902-4A45-BEDA-AE5D2FD38B44} = {2266ED80-FE89-4B40-B609-5DEC97E3AC90}
+		{E4E1EC58-86AC-428A-BE42-12ED19405C9F} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {337C24C7-7CAE-43D0-B962-DE4B2CB4CEAB}

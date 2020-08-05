@@ -1,21 +1,24 @@
 ﻿using System.IO;
 using Console.EnvironmentVariables;
 
-public class FilesVariableProvider : VariableProvider
+namespace Console.PropIOCompat
 {
-    public static string ToList(string[] li)
+    public class FilesVariableProvider : VariableProvider
     {
-        string s = "";
-        foreach (string s1 in li)
+        public static string ToList(string[] li)
         {
-            s += s1 + "; ";
+            string s = "";
+            foreach (string s1 in li)
+            {
+                s += s1 + "; ";
+            }
+            return s;
         }
-        return s;
-    }
 
-    public override string FunctionName => "files";
-    public override string GetValue(string parameter)
-    {
-        return ToList(Directory.GetFiles(parameter, "*", SearchOption.TopDirectoryOnly));
+        public override string FunctionName => "files";
+        public override string GetValue(string parameter)
+        {
+            return ToList(Directory.GetFiles(parameter, "*", SearchOption.TopDirectoryOnly));
+        }
     }
 }
