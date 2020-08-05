@@ -38,11 +38,7 @@ namespace Console.Networking
             catch (Exception)
             {
                 State = ConnectionState.Error;
-                return;
             }
-
-
-            AConsoleManager.Instance.Log("Connection Established.");
         }
 
         [Command("disconnect-console", "Tries to disconnect from a hosting console", "disconnect")]
@@ -82,7 +78,8 @@ namespace Console.Networking
             }
 
 
-            if (Client?.Client == null || !Client.Connected) return;
+            if (Client?.Client == null || !Client.Connected)
+                return;
 
             if (Client.Available != 0)
             {

@@ -19,11 +19,13 @@ namespace Console.Console
     public class UnityConsoleManager : AConsoleManager
     {
         private ConsoleManager Manager;
+        
         public UnityConsoleManager(ConsoleManager manager)
         {
             Manager = manager;
         }
 
+        public void InvokeOnLog(string log) => InvokeLogEvent(log);
         public override void Log(object @object) => ConsoleManager.Log(@object);
         public override void LogWarning(object @object) => ConsoleManager.LogWarning(@object);
         public override void LogError(object @object) => ConsoleManager.LogError(@object);
@@ -135,7 +137,7 @@ namespace Console.Console
             ObjectSelector = GetComponent<ObjectSelector>();
             //commandHandler = new CommandHandler();
             logReader = new DefaultLogReader();
-
+            
             scrollRect = console.GetComponentInChildren<ScrollRect>();
             
             
@@ -173,7 +175,6 @@ namespace Console.Console
 
             Manager.InvokeOnTick();
         }
-
         private void LateUpdate()
         {
             if (submittedCommand)
@@ -211,6 +212,7 @@ namespace Console.Console
             
 
             Instance.text.text += txt;
+            Instance.Manager.InvokeOnLog(@object.ToString());
 
             MaintainCharacterLimit();
         }
@@ -227,6 +229,7 @@ namespace Console.Console
                          $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
             
             Instance.text.text += txt;
+            Instance.Manager.InvokeOnLog(@object.ToString());
 
             MaintainCharacterLimit();
         }
@@ -243,6 +246,7 @@ namespace Console.Console
                          $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
             
             Instance.text.text += txt;
+            Instance.Manager.InvokeOnLog(@object.ToString());
 
             MaintainCharacterLimit();
         }
@@ -259,6 +263,7 @@ namespace Console.Console
         public static void LogPlainText(string text)
         {
             Instance.text.text += text;
+            Instance.Manager.InvokeOnLog(text);
             MaintainCharacterLimit();
         }
 

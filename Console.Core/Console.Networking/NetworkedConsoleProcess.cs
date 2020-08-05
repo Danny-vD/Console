@@ -16,23 +16,8 @@ namespace Console.Networking
         {
             CommandAttributeUtils.AddCommands(hc);
             CommandAttributeUtils.AddCommands(cc);
-            AConsoleManager.OnConsoleTick += HostRoutine;
-            AConsoleManager.OnConsoleTick += ClientRoutine;
-        }
-
-
-        private void HostRoutine()
-        {
-            HostConsoleCommand.ProcessQueue();
-            //yield return new WaitForSeconds(HostProcessingTick);
-
-        }
-
-        private void ClientRoutine()
-        {
-            ClientConsoleCommand.ProcessLogMessages();
-            //yield return new WaitForSeconds(ClientLogPollingTick);
-
+            AConsoleManager.OnConsoleTick += HostConsoleCommand.ProcessQueue;
+            AConsoleManager.OnConsoleTick += ClientConsoleCommand.ProcessLogMessages;
         }
     }
 }
