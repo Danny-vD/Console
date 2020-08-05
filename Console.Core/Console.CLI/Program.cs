@@ -11,6 +11,7 @@ namespace Console.CLI
 {
     class Program
     {
+        private const string ExtensionPath = ".\\extensions\\";
         [ConsoleProperty("console.networking.tick")]
         private static float ConsoleTick = 0.2f;
 
@@ -21,14 +22,12 @@ namespace Console.CLI
             ConsolePropertyAttributeUtils.AddProperties<ConsoleCoreConfig>();
             ConsolePropertyAttributeUtils.AddProperties<Program>();
 
+
+            AExtensionInitializer.LoadExtensions(ExtensionPath);
+
             Thread t = new Thread(Loop);
 
-            Directory.CreateDirectory(".\\extensions\\");
-            string[] exts = Directory.GetFiles(".\\extensions\\", "*.dll", SearchOption.AllDirectories);
-            foreach (string ext in exts)
-            {
-                ConsoleCoreConfig.LoadExtension(ext);
-            }
+            
             t.Start();
 
             //For debugging adding as reference.
