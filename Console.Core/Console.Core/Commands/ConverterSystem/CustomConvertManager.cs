@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Console.Core.Commands.ExpandSystem
+namespace Console.Core.Commands.ConverterSystem
 {
 
 

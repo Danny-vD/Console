@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Console.Core;
+using Console.Core.Commands.ExpanderSystem;
 using Console.Core.Console;
 
 namespace Console.EnvironmentVariables

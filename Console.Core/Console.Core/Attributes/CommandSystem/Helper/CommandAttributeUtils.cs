@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Console.Core.Commands;
-using Console.Core.Commands.ExpandSystem;
+using Console.Core.Commands.CommandImplementations.Reflection;
+using Console.Core.Commands.ConverterSystem;
 
 namespace Console.Core.Attributes.CommandSystem.Helper
 {

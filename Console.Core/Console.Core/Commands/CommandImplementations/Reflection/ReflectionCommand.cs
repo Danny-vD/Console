@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text;
 
-namespace Console.Core.Commands
+namespace Console.Core.Commands.CommandImplementations.Reflection
 {
     /// <summary>
     /// Wrapper for the Console.

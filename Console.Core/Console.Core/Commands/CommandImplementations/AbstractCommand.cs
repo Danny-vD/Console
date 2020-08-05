@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Console.Core.Commands.ExpandSystem;
+using Console.Core.Commands.ConverterSystem;
 using Console.Core.Console;
 using VDFramework.Standard.SharedClasses.Extensions;
 
-namespace Console.Core.Commands
+namespace Console.Core.Commands.CommandImplementations
 {
     public abstract class AbstractCommand
     {

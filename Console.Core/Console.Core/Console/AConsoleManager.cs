@@ -1,4 +1,5 @@
 ﻿using System;
+using Console.Core.Commands.ExpanderSystem;
 using Console.Core.ObjectSelection;
 
 namespace Console.Core.Console

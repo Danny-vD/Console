@@ -2,6 +2,7 @@
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.CommandSystem.Helper;
 using Console.Core.Commands;
+using Console.Core.Commands.CommandImplementations;
 
 namespace Console.Core.Console
 {

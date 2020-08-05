@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem.Helper;
 
-namespace Console.Core.Commands.ExpandSystem
+namespace Console.Core.Commands.ConverterSystem
 {
     public class ArrayConverter : AConverter
     {

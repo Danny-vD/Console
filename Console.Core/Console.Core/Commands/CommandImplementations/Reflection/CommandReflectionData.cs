@@ -4,7 +4,7 @@ using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.CommandSystem.Helper;
 using Console.Core.Console;
 
-namespace Console.Core.Commands
+namespace Console.Core.Commands.CommandImplementations.Reflection
 {
     /// <summary>
     /// Inner class that contains the reflected data

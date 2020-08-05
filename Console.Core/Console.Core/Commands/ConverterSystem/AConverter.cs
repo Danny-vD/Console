@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Console.Core.Commands.ExpandSystem
+namespace Console.Core.Commands.ConverterSystem
 {
     public abstract class AConverter
     {

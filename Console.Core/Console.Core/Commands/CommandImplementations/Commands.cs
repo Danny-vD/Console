@@ -3,7 +3,7 @@
 						      
 using System;
 	
-namespace Console.Core.Commands
+namespace Console.Core.Commands.CommandImplementations
 {
 	public class Command : AbstractCommand
 	{
