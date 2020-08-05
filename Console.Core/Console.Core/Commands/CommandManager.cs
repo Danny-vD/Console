@@ -83,13 +83,23 @@ namespace Console.Core.Commands
         /// Returns a list of all commands with a given name
         /// <para>Disclaimer: there is no error checking for adding aliases / renaming the returned commands</para>
         /// </summary>
-        public static IEnumerable<AbstractCommand> GetCommands(string commandName)
+        public static IEnumerable<AbstractCommand> GetCommands(string commandName, bool find = false)
         {
-            List<AbstractCommand> tempCommands = commands.Where(command => command.HasName(commandName)).ToList();
+
+            List<AbstractCommand> tempCommands;
+            if (find)
+            {
+                tempCommands = commands.Where(command => command.Name.StartsWith(commandName)).ToList();
+            }
+            else
+            {
+                tempCommands = commands.Where(command => command.HasName(commandName)).ToList();
+            }
 
             if (tempCommands.Count == 0)
             {
-                AConsoleManager.Instance.LogWarning($"A command with name {commandName} does not exist!\n");
+                string s = $"A command with name {commandName} does not exist!\n";
+                AConsoleManager.Instance.LogWarning(s);
             }
 
             return tempCommands;
@@ -165,7 +175,7 @@ namespace Console.Core.Commands
 
         private static void Help(string commandName)
         {
-            foreach (AbstractCommand command in GetCommands(commandName))
+            foreach (AbstractCommand command in GetCommands(commandName, true))
             {
                 AConsoleManager.Instance.Log(command.ToString());
             }

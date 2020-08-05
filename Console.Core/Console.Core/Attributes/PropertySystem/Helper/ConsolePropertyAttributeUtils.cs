@@ -59,10 +59,11 @@ namespace Console.Core.Attributes.PropertySystem.Helper
         }
 
         [Command("set-property", "Sets the specified property to the specified value", "sp")]
-        private static void SetProperty(string propertyPath, [SelectionProperty] object propertyValue)
+        private static void SetProperty(string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
             if (!HasProperty(propertyPath)) return;
-            
+
+            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to valuetype: " + propertyValue.GetType().Name);
             Properties[propertyPath].SetValue(propertyValue);
         }
 

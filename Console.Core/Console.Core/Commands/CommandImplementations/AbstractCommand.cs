@@ -11,7 +11,7 @@ namespace Console.Core.Commands.CommandImplementations
     {
         public readonly int ParametersCount;
 
-        protected string Name;
+        public string Name { get; protected set; }
         protected readonly List<string> Aliases;
 
         protected string HelpMessage = "No help message set.";
@@ -32,7 +32,7 @@ namespace Console.Core.Commands.CommandImplementations
             {
 
                 if (CustomConvertManager.CanConvert(parameter, typeof(TType))) return true;
-                
+
 
                 parameter.ConvertTo<TType>();
                 // Convert to check if it will throw an error
@@ -52,7 +52,7 @@ namespace Console.Core.Commands.CommandImplementations
 
             if (CustomConvertManager.CanConvert(parameter, typeof(TNewType)))
                 return (TNewType)CustomConvertManager.Convert(parameter, typeof(TNewType));
-            
+
             return parameter.ConvertTo<TNewType>();
         }
 

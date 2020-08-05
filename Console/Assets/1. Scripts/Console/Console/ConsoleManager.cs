@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Console.EnvironmentVariables;
-using Console.Attributes.PropertySystem;
-using Console.Attributes.PropertySystem.Helper;
+using Console.Core;
+using Console.Core.Attributes.CommandSystem;
+using Console.Core.Attributes.CommandSystem.Helper;
+using Console.Core.Attributes.PropertySystem;
+using Console.Core.Attributes.PropertySystem.Helper;
+using Console.Core.Commands.ConverterSystem;
+using Console.Core.Console;
+using Console.Core.ObjectSelection;
 using Console.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,31 +15,44 @@ using VDUnityFramework.Standard.Singleton;
 
 namespace Console.Console
 {
+
+    public class UnityConsoleManager : AConsoleManager
+    {
+        private ConsoleManager Manager;
+        public UnityConsoleManager(ConsoleManager manager)
+        {
+            Manager = manager;
+        }
+
+        public override void Log(object @object) => ConsoleManager.Log(@object);
+        public override void LogWarning(object @object) => ConsoleManager.LogWarning(@object);
+        public override void LogError(object @object) => ConsoleManager.LogError(@object);
+        public override void Clear() => ConsoleManager.Clear();
+        public override void LogCommand(string command) => ConsoleManager.LogCommand(command);
+        public override void LogPlainText(string text) => ConsoleManager.LogPlainText(text);
+        protected override void SubmitCommand(string command) => Manager.SubmitCommand(command);
+        public override AObjectSelector ObjectSelector => Manager.ObjectSelector.Selector;
+    }
+
     public class ConsoleManager : Singleton<ConsoleManager>
     {
-        public static event Action<string> OnLog;
+        private UnityConsoleManager Manager;
 
-        [Header("Components"), SerializeField]
-        private InputField inputField = null;
+        public string ExtensionFolder = ".\\extensions\\";
 
-        [SerializeField]
-        private Text text = null;
+        [Header("Components"), SerializeField] private InputField inputField = null;
 
-        [SerializeField]
-        private GameObject console = null;
+        [SerializeField] private Text text = null;
 
-        [SerializeField]
-        private GameObject selectedObjectWindow = null;
+        [SerializeField] private GameObject console = null;
+
+        [SerializeField] private GameObject selectedObjectWindow = null;
 
         [Header("Command properties"), Space(20), Tooltip("Symbol(s) that must precede all commands")]
-        [ConsoleProperty("console.input.prefix")]
         public string prefix = "";
 
         [Tooltip("The character to tell the console that your argument is a string")]
-        [ConsoleProperty("console.input.stringchar")]
         public char stringChar = '"';
-
-        public DefaultCommandAdder defaultCommands;
 
         [Header("Console properties"), Tooltip("The combination of buttons to press to toggle the console")]
         public List<KeyCode> KeysToPress = new List<KeyCode>() { KeyCode.Home };
@@ -43,20 +61,27 @@ namespace Console.Console
         [ConsoleProperty("console.ui.cooldown")]
         private float toggleCooldown = 0.3f;
 
+        [ConsoleProperty("o")]
+        public GameObject Object;
+        [ConsoleProperty("oa")]
+        public GameObject[] ObjectArr;
+        [ConsoleProperty("ol")]
+        public List<GameObject> ObjectList;
+
         [Space, SerializeField]
-        [ConsoleProperty("console.ui.normalcolor")]
+        [ConsoleProperty("unity.ui.normalcolor")]
         private string normalColorHex = "000000"; // Black
 
         [SerializeField]
-        [ConsoleProperty("console.ui.warningcolor")]
+        [ConsoleProperty("unity.ui.warningcolor")]
         private string warningColorHex = "D4D422"; // Yellow
 
         [SerializeField]
-        [ConsoleProperty("console.ui.errorcolor")]
+        [ConsoleProperty("unity.ui.errorcolor")]
         private string errorColorHex = "882222"; // Red
 
         [SerializeField]
-        [ConsoleProperty("console.ui.commandcolor")]
+        [ConsoleProperty("unity.ui.commandcolor")]
         private string commandColorHex = "FFFFFF"; // White
 
         [NonSerialized]
@@ -72,21 +97,56 @@ namespace Console.Console
         private bool submittedCommand = false;
         private const ushort characterLimit = 10000;
 
+
+        [Command("second", "")]
+        private void TestCommandSecond(string test, [SelectionProperty] object value)
+        {
+            AConsoleManager.Instance.Log(value);
+        }
+
+        [Command("first", "")]
+        private void TestCommandFirst([SelectionProperty] object[] value, string test)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                AConsoleManager.Instance.Log(value[i]);
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();
+
+            ConsoleCoreConfig.StringChar = stringChar;
+            ConsoleCoreConfig.ConsolePrefix = prefix;
+
+            Manager = new UnityConsoleManager(this);
+            commandHandler = new CommandHandler();
+            DefaultCommandAdder a = new DefaultCommandAdder();
+            a.AddCommands();
+
+            CommandAttributeUtils.AddCommands(this);
+
+            ConsolePropertyAttributeUtils.InitializePropertySystem();
+            ConsolePropertyAttributeUtils.AddProperties<ConsoleCoreConfig>();
+            ConsolePropertyAttributeUtils.AddProperties(this);
+
+            CustomConvertManager.AddConverter(new ArrayConverter());
+
+            AExtensionInitializer.LoadExtensions(ExtensionFolder);
+
+
+
             DontDestroyOnLoad(true);
 
             ObjectSelector = GetComponent<ObjectSelector>();
-            commandHandler = new CommandHandler();
-            defaultCommands = new DefaultCommandAdder();
+            //commandHandler = new CommandHandler();
             logReader = new DefaultLogReader();
 
             scrollRect = console.GetComponentInChildren<ScrollRect>();
-
-            defaultCommands.AddCommands();
             
-            inputField.onEndEdit.AddListener(OnSubmitCommand);
+            
+            inputField.onEndEdit.AddListener(Manager.EnterCommand);
             inputField.onEndEdit.AddListener(OnUIWriteCommand);
 
             ObjectSelector.enabled = console.activeSelf;
@@ -113,10 +173,12 @@ namespace Console.Console
                 ObjectSelector.enabled = console.activeSelf;
 
                 selectedObjectWindow.SetActive(console.activeSelf &&
-                                               ObjectSelector.SelectedObjects.Count > 0);
+                                               ObjectSelector.Selector.SelectedObjects.Count > 0);
 
                 SetScrollbarToBottom();
             }
+
+            Manager.InvokeOnTick();
         }
 
         private void LateUpdate()
@@ -130,8 +192,7 @@ namespace Console.Console
 
         protected override void OnDestroy()
         {
-            commandHandler = null;
-            defaultCommands = null;
+            //commandHandler = null;
 
             logReader.OnDestroy();
             logReader = null;
@@ -144,11 +205,6 @@ namespace Console.Console
             Instance.text.text = string.Empty;
         }
 
-        public static void EnterCommand(string command)
-        {
-            Instance.OnSubmitCommand(command);
-        }
-
         public static void Log(object @object, bool logUnityConsole = true)
         {
             if (logUnityConsole)
@@ -159,7 +215,7 @@ namespace Console.Console
 
             string txt = $"<color=#{Instance.normalColorHex}>{@object}\n" +
                          "---------------------------------------------------</color>\n";
-            OnLog?.Invoke(txt);
+            
 
             Instance.text.text += txt;
 
@@ -176,7 +232,7 @@ namespace Console.Console
 
             string txt = $"<color=#{Instance.warningColorHex}>{@object}</color>\n" +
                          $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
-            OnLog?.Invoke(txt);
+            
             Instance.text.text += txt;
 
             MaintainCharacterLimit();
@@ -192,23 +248,25 @@ namespace Console.Console
 
             string txt = $"<color=#{Instance.errorColorHex}>{@object}</color>\n" +
                          $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
-            OnLog?.Invoke(txt);
+            
             Instance.text.text += txt;
 
             MaintainCharacterLimit();
         }
 
-        private static void LogCommand(string command)
+        public static void LogCommand(string command)
         {
             string txt = $"<color=#{Instance.commandColorHex}>{command}</color>\n";
-            OnLog?.Invoke(txt);
+           
             Instance.text.text += txt;
 
+            MaintainCharacterLimit();
         }
 
         public static void LogPlainText(string text)
         {
             Instance.text.text += text;
+            MaintainCharacterLimit();
         }
 
         private void OnUIWriteCommand(string text)
@@ -216,20 +274,18 @@ namespace Console.Console
             inputField?.Select();
             inputField?.ActivateInputField();
         }
+        
 
-        private void OnSubmitCommand(string command)
+        public void SubmitCommand(string command)
         {
             if (command == string.Empty)
             {
                 return;
             }
 
-            string cmd = EnvironmentVariableManager.Expand(command);
-
             LogCommand(command);
             inputField.text = string.Empty;
-
-            commandHandler.OnSubmitCommand(cmd);
+            commandHandler.OnSubmitCommand(command);
 
             submittedCommand = true;
         }

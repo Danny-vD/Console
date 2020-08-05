@@ -2,6 +2,7 @@
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.CommandSystem.Helper;
+using Console.Core.Commands.ConverterSystem;
 using Console.Core.Console;
 
 namespace Console.Core.Commands.CommandImplementations.Reflection
@@ -65,8 +66,14 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
                 if (AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count != 0 && sp != null)
                 {
+                    object v = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
+                    if (!sp.NoConverter && CustomConvertManager.CanConvert(v, pt[i].ParameterType))
+                    {
+                        v = CustomConvertManager.Convert(
+                            v, pt[i].ParameterType);
+                    }
 
-                    ret[i] = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
+                    ret[i] = v;
 
                     off++;
                     continue;

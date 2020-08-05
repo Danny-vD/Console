@@ -58,6 +58,18 @@
       <Project>{407430ef-d01a-4ec9-9eb1-e2c837ecd9be}</Project>
       <Name>Console.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Console.EnvironmentVariables\Console.EnvironmentVariables.csproj">
+      <Project>{12045b0e-3c0e-4d2d-8b2f-5f5c39a289c1}</Project>
+      <Name>Console.EnvironmentVariables</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console.Networking\Console.Networking.csproj">
+      <Project>{3a3d6188-ce8d-4659-b2a6-29289a142761}</Project>
+      <Name>Console.Networking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console.PropEnvCompat\Console.PropEnvCompat.csproj">
+      <Project>{b7af4f3a-d9dc-4112-9fa6-31ddb4f6cfa2}</Project>
+      <Name>Console.PropEnvCompat</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

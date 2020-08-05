@@ -5,7 +5,7 @@ namespace Console.CLI
 {
     public class CLIConsoleManager : AConsoleManager
     {
-        public override AObjectSelector ObjectSelector { get; set; }
+        public override AObjectSelector ObjectSelector { get; }
         private DefaultCommandAdder DefaultCommands;
         private CommandHandler Handler;
         public CLIConsoleManager()

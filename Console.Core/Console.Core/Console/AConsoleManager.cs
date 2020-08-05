@@ -31,7 +31,7 @@ namespace Console.Core.Console
 
         public static AConsoleManager Instance { get; private set; }
 
-        public abstract AObjectSelector ObjectSelector { get; set; }
+        public abstract AObjectSelector ObjectSelector { get; }
 
         protected AConsoleManager()
         {

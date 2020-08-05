@@ -52,7 +52,7 @@ namespace Console.Core.Console
 
 		private static object[] ProcessArguments(string arguments)
 		{
-			//List<object> parameters = ConsoleManager.Instance.ObjectSelector.SelectedObjects;
+			//List<object> parameters = AConsoleManager.Instance.ObjectSelector.SelectedObjects;
 			
 			List<string> commandArguments = Split(arguments, ' ').ToList();
 			

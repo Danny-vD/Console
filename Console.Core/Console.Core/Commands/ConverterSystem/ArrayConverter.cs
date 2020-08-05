@@ -11,8 +11,9 @@ namespace Console.Core.Commands.ConverterSystem
     {
         public override bool CanConvert(object parameter, Type target)
         {
-            return parameter is Array &&
-                   (target.IsArray || (typeof(IList).IsAssignableFrom(target) && target.IsGenericType));
+            return (parameter is Array) &&
+                   (target.IsArray || (typeof(IList).IsAssignableFrom(target) && target.IsGenericType) ||
+                    target.IsAssignableFrom(parameter.GetType().GetElementType()));
         }
 
         //Used as reflection
@@ -22,7 +23,7 @@ namespace Console.Core.Commands.ConverterSystem
 
             foreach (object item in arr)
             {
-                list.Add((T)System.Convert.ChangeType(item, typeof(T)));
+                list.Add((T)item);
             }
             return list;
         }
@@ -41,10 +42,15 @@ namespace Console.Core.Commands.ConverterSystem
             {
                 //return lst.ConvertAll(input => FUCK);
 
-                MethodInfo info = typeof(CommandAttributeUtils)
+                MethodInfo info = typeof(ArrayConverter)
                     .GetMethod(nameof(GetAsList), BindingFlags.NonPublic | BindingFlags.Static) //Get method info
                     ?.MakeGenericMethod(target.GetGenericArguments().First()); //Create Generic Method Call with the generic type of the target
-                return info.Invoke(null, new object[] { paramArr }); //Invoke the GetAsList<T> method.
+                object r = info.Invoke(null, new object[] { paramArr }); //Invoke the GetAsList<T> method.
+                return r;
+            }
+            if (target.IsAssignableFrom(parameter.GetType().GetElementType()))
+            {
+                return paramArr == null || paramArr.Length == 0 ? null : paramArr.GetValue(0);
             }
             //Error
             return null;
