@@ -3,17 +3,15 @@ using Console.Core.ObjectSelection;
 
 namespace Console.Core.Console
 {
-
     public abstract class AConsoleManager
     {
         /// <summary>
         /// Has to be invoked for all Logs
         /// </summary>
         public static event Action<string> OnLog;
-        public static event Func<string, string> OnCommandSubmit;
+        public static readonly ExpanderManager ExpanderManager = new ExpanderManager();
         public static event Action OnConsoleTick;
 
-        protected string RunCommandSubmit(string text) => OnCommandSubmit == null ? text : OnCommandSubmit?.Invoke(text);
         protected void InvokeLogEvent(string text) => OnLog?.Invoke(text);
         public static AConsoleManager Instance { get; private set; }
 
@@ -32,7 +30,7 @@ namespace Console.Core.Console
         public abstract void LogPlainText(string text);
         public void EnterCommand(string command)
         {
-            string text = OnCommandSubmit == null ? command : OnCommandSubmit?.Invoke(command);
+            string text = ExpanderManager.Expand(command);
             SubmitCommand(text);
         }
 

@@ -1,170 +1,154 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Console.Core.Commands.ExpandSystem;
 using Console.Core.Console;
 using VDFramework.Standard.SharedClasses.Extensions;
 
 namespace Console.Core.Commands
 {
-	public abstract class AbstractCommand
-	{
-		public readonly int ParametersCount;
+    public abstract class AbstractCommand
+    {
+        public readonly int ParametersCount;
 
-		protected string Name;
-		protected readonly List<string> Aliases;
+        protected string Name;
+        protected readonly List<string> Aliases;
 
-		protected string HelpMessage = "No help message set.";
+        protected string HelpMessage = "No help message set.";
 
-		public abstract void Invoke(params object[] parameters);
+        public abstract void Invoke(params object[] parameters);
 
-		protected AbstractCommand(int paramsCount)
-		{
-			ParametersCount = paramsCount;
-			Aliases         = new List<string>();
-		}
+        protected AbstractCommand(int paramsCount)
+        {
+            ParametersCount = paramsCount;
+            Aliases = new List<string>();
+        }
 
-		protected static bool IsValidCast<TType>(object parameter)
-		{
-			string newTypeName = typeof(TType).Name;
+        protected static bool IsValidCast<TType>(object parameter)
+        {
+            string newTypeName = typeof(TType).Name;
 
-			try
-			{
-                //TODO: Reimplement the Component/Gameobject logic in abstracted system
-				//if (typeof(Component).IsAssignableFrom(typeof(TType)))
-				//{
-				//	newTypeName = typeof(GameObject).Name;
+            try
+            {
 
-    //                // Convert to check if it will throw an error
-                    
-    //                parameter.ConvertTo<GameObject>();
-				//	return true;
-				//}
+                if (CustomConvertManager.CanConvert(parameter, typeof(TType))) return true;
+                
 
                 parameter.ConvertTo<TType>();
-				// Convert to check if it will throw an error
-				
-				return true;
-			}
-			catch
-			{
-				AConsoleManager.Instance.LogError(
-					$"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!");
-				return false;
-			}
-		}
+                // Convert to check if it will throw an error
 
-		protected static TNewType ConvertTo<TNewType>(object parameter)
+                return true;
+            }
+            catch
+            {
+                AConsoleManager.Instance.LogError(
+                    $"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!");
+                return false;
+            }
+        }
+
+        protected static TNewType ConvertTo<TNewType>(object parameter)
         {
-            //TODO: Reimplement the Component/Gameobject logic in abstracted system
 
-   //         if (typeof(Component).IsAssignableFrom(typeof(TNewType)))
-			//{
-			//	GameObject gameobject = (GameObject) parameter;
+            if (CustomConvertManager.CanConvert(parameter, typeof(TNewType)))
+                return (TNewType)CustomConvertManager.Convert(parameter, typeof(TNewType));
+            
+            return parameter.ConvertTo<TNewType>();
+        }
 
-			//	if (!gameobject.TryGetComponent(out TNewType component))
-			//	{
-			//		ConsoleManager.LogError($"{parameter} does not have component {typeof(TNewType).Name}!");
-			//	}
+        public void SetName(string name)
+        {
+            Name = name;
+        }
 
-			//	return component;
-			//}
-			
-			return parameter.ConvertTo<TNewType>();
-		}
+        public string GetName()
+        {
+            return Name;
+        }
 
-		public void SetName(string name)
-		{
-			Name = name;
-		}
+        public List<string> GetAllNames()
+        {
+            List<string> names = new List<string>() { Name };
 
-		public string GetName()
-		{
-			return Name;
-		}
+            Aliases.ForEach(names.Add);
 
-		public List<string> GetAllNames()
-		{
-			List<string> names = new List<string>() {Name};
+            return names;
+        }
 
-			Aliases.ForEach(names.Add);
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        public abstract string GetFullName();
 
-			return names;
-		}
+        public bool HasName(string name)
+        {
+            return Name == name || Aliases.Contains(name);
+        }
 
-		/// <summary>
-		/// Returns the name, plus all the parameter types
-		/// </summary>
-		public abstract string GetFullName();
+        public bool HasName(IEnumerable<string> names)
+        {
+            if (names.Any(HasName))
+            {
+                return true;
+            }
 
-		public bool HasName(string name)
-		{
-			return Name == name || Aliases.Contains(name);
-		}
+            return false;
+        }
 
-		public bool HasName(IEnumerable<string> names)
-		{
-			if (names.Any(HasName))
-			{
-				return true;
-			}
+        public void AddAlias(string alias)
+        {
+            if (Aliases.Contains(alias))
+            {
+                return;
+            }
 
-			return false;
-		}
+            Aliases.Add(alias);
+        }
 
-		public void AddAlias(string alias)
-		{
-			if (Aliases.Contains(alias))
-			{
-				return;
-			}
+        public void RemoveAlias(string name)
+        {
+            Aliases.Remove(name);
+        }
 
-			Aliases.Add(alias);
-		}
+        public void SetHelpMessage(string message)
+        {
+            HelpMessage = message;
+        }
 
-		public void RemoveAlias(string name)
-		{
-			Aliases.Remove(name);
-		}
+        public string GetHelpMessage()
+        {
+            return HelpMessage;
+        }
 
-		public void SetHelpMessage(string message)
-		{
-			HelpMessage = message;
-		}
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder(ConsoleCoreConfig.ConsolePrefix);
 
-		public string GetHelpMessage()
-		{
-			return HelpMessage;
-		}
+            stringBuilder.Append(GetFullName());
+            stringBuilder.Append(": ");
+            stringBuilder.AppendLine(HelpMessage);
 
-		public override string ToString()
-		{
-			StringBuilder stringBuilder = new StringBuilder(ConsoleCoreConfig.ConsolePrefix);
+            stringBuilder.AppendLine();
+            stringBuilder.AppendLine("Aliases: ");
 
-			stringBuilder.Append(GetFullName());
-			stringBuilder.Append(": ");
-			stringBuilder.AppendLine(HelpMessage);
+            if (Aliases.Count == 0)
+            {
+                stringBuilder.AppendLine("None");
+            }
 
-			stringBuilder.AppendLine();
-			stringBuilder.AppendLine("Aliases: ");
+            foreach (string alias in Aliases)
+            {
+                stringBuilder.AppendLine(alias);
+            }
 
-			if (Aliases.Count == 0)
-			{
-				stringBuilder.AppendLine("None");
-			}
-			
-			foreach (string alias in Aliases)
-			{
-				stringBuilder.AppendLine(alias);
-			}
+            return stringBuilder.ToString();
 
-			return stringBuilder.ToString();
+            // {Name}: {help}
 
-			// {Name}: {help}
-
-			// Aliases:
-			// Alias1
-			// Alias2
-			// etc.
-		}
-	}
+            // Aliases:
+            // Alias1
+            // Alias2
+            // etc.
+        }
+    }
 }

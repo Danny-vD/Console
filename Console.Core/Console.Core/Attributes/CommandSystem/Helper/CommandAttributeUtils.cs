@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Console.Core.Commands;
+using Console.Core.Commands.ExpandSystem;
 
 namespace Console.Core.Attributes.CommandSystem.Helper
 {
@@ -94,7 +95,11 @@ namespace Console.Core.Attributes.CommandSystem.Helper
             if (target.IsInstanceOfType(parameter))
                 return parameter;
 
-            //TODO: Reimplement Component/Gameobject Conversion
+
+            if (CustomConvertManager.CanConvert(parameter, target))
+                return CustomConvertManager.Convert(parameter, target);
+
+            //DONE: Expose abstract Class AConverter
             //if (typeof(Component).IsAssignableFrom(target))
             //{
             //    GameObject gameobject = (GameObject)parameter;
@@ -107,39 +112,27 @@ namespace Console.Core.Attributes.CommandSystem.Helper
             //    return component;
             //}
 
-            if (parameter is Array paramArr)
-            {
-                if (target.IsArray)
-                {
-                    Array result = (Array)Activator.CreateInstance(target, paramArr.Length);
-                    //Array result = Array.CreateInstance(target.MakeArrayType(), paramArr.Length);
-                    paramArr.CopyTo(result, 0);
-                    return result;
-                }
-                if (typeof(IList).IsAssignableFrom(target) && target.IsGenericType)
-                {
-                    //return lst.ConvertAll(input => FUCK);
+            //if (parameter is Array paramArr)
+            //{
+            //    if (target.IsArray)
+            //    {
+            //        Array result = (Array)Activator.CreateInstance(target, paramArr.Length);
+            //        //Array result = Array.CreateInstance(target.MakeArrayType(), paramArr.Length);
+            //        paramArr.CopyTo(result, 0);
+            //        return result;
+            //    }
+            //    if (typeof(IList).IsAssignableFrom(target) && target.IsGenericType)
+            //    {
+            //        //return lst.ConvertAll(input => FUCK);
 
-                    MethodInfo info = typeof(CommandAttributeUtils)
-                        .GetMethod("GetAsList", BindingFlags.NonPublic|BindingFlags.Static) //Get method info
-                        ?.MakeGenericMethod(target.GetGenericArguments().First()); //Create Generic Method Call with the generic type of the target
-                    return info.Invoke(null, new object[] {paramArr}); //Invoke the GetAsList<T> method.
-                }
-            }
+            //        MethodInfo info = typeof(CommandAttributeUtils)
+            //            .GetMethod("GetAsList", BindingFlags.NonPublic|BindingFlags.Static) //Get method info
+            //            ?.MakeGenericMethod(target.GetGenericArguments().First()); //Create Generic Method Call with the generic type of the target
+            //        return info.Invoke(null, new object[] {paramArr}); //Invoke the GetAsList<T> method.
+            //    }
+            //}
 
             return Convert.ChangeType(parameter, target);
-        }
-
-        //Used as reflection
-        private static List<T> GetAsList<T>(Array arr)
-        {
-            List<T> list = new List<T>();
-
-            foreach (object item in arr)
-            {
-                list.Add((T)Convert.ChangeType(item, typeof(T)));
-            }
-            return list;
         }
     }
 }

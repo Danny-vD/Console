@@ -49,7 +49,7 @@ namespace Console.CLI
 
         protected override void SubmitCommand(string command)
         {
-            string cmd = RunCommandSubmit(command);
+            string cmd = ExpanderManager.Expand(command);
             LogCommand(command);
             Handler.OnSubmitCommand(cmd);
         }

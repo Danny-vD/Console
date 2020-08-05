@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="VDFramework.Standard">
       <HintPath>..\..\Console\Assets\Еxternal Code\VDFramework.Standard.dll</HintPath>
     </Reference>

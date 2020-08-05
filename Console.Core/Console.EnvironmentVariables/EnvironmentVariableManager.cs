@@ -7,10 +7,18 @@ namespace Console.EnvironmentVariables
 {
     public class EnvInitializer : AExtensionInitializer
     {
+        private class EnvExpander : AExpander
+        {
+            public override string Expand(string input)
+            {
+                return EnvironmentVariableManager.Expand(input);
+            }
+        }
+
         public override void Initialize()
         {
             EnvironmentVariableManager.AddProvider(DefaultVariables.Instance);
-            AConsoleManager.OnCommandSubmit += EnvironmentVariableManager.Expand;
+            AConsoleManager.ExpanderManager.AddExpander(new EnvExpander());
         }
     }
 
