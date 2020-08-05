@@ -1,6 +1,8 @@
 # Solution and project files
 *.sln
+!Console.Core.sln
 *.csproj
+!Console*.csproj
 
 # IDE generated
 .vs/
@@ -12,3 +14,4 @@ Library/
 Temp/
 obj/
 Build/
+bin/
