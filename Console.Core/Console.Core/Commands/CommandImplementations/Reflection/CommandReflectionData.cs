@@ -51,7 +51,7 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
             }
             else
             {
-                return Info.Invoke(Instance, parameter);
+                return Info.Invoke(Instance, parameter.Length == 0 ? null : parameter);
             }
         }
 

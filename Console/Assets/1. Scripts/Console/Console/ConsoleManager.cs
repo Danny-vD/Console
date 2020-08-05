@@ -60,14 +60,7 @@ namespace Console.Console
         [Space, SerializeField, Tooltip("The time (in seconds) before you can toggle the console again")]
         [ConsoleProperty("console.ui.cooldown")]
         private float toggleCooldown = 0.3f;
-
-        [ConsoleProperty("o")]
-        public GameObject Object;
-        [ConsoleProperty("oa")]
-        public GameObject[] ObjectArr;
-        [ConsoleProperty("ol")]
-        public List<GameObject> ObjectList;
-
+        
         [Space, SerializeField]
         [ConsoleProperty("unity.ui.normalcolor")]
         private string normalColorHex = "000000"; // Black

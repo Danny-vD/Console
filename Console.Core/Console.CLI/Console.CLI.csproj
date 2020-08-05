@@ -62,6 +62,10 @@
       <Project>{12045b0e-3c0e-4d2d-8b2f-5f5c39a289c1}</Project>
       <Name>Console.EnvironmentVariables</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Console.IO\Console.IO.csproj">
+      <Project>{aa91dc74-23fa-4d41-a747-2a9a3c65c22d}</Project>
+      <Name>Console.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Console.Networking\Console.Networking.csproj">
       <Project>{3a3d6188-ce8d-4659-b2a6-29289a142761}</Project>
       <Name>Console.Networking</Name>
@@ -69,6 +73,10 @@
     <ProjectReference Include="..\Console.PropEnvCompat\Console.PropEnvCompat.csproj">
       <Project>{b7af4f3a-d9dc-4112-9fa6-31ddb4f6cfa2}</Project>
       <Name>Console.PropEnvCompat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console.ScriptSystem\Console.ScriptSystem.csproj">
+      <Project>{e5195b8f-09be-4028-81e8-16de0456bdcb}</Project>
+      <Name>Console.ScriptSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

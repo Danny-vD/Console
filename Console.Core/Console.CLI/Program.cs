@@ -11,8 +11,10 @@ using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Commands.ConverterSystem;
 using Console.Core.Console;
 using Console.EnvironmentVariables;
+using Console.IO;
 using Console.Networking;
 using Console.PropEnvCompat;
+using Console.ScriptSystem;
 
 namespace Console.CLI
 {
@@ -21,54 +23,11 @@ namespace Console.CLI
         private const string ExtensionPath = ".\\extensions\\";
         [ConsoleProperty("console.networking.tick")]
         private static float ConsoleTick = 0.2f;
-
-        [ConsoleProperty("o")]
-        private static object o ;
-        [ConsoleProperty("oa")]
-        private static object[] oa;
-        [ConsoleProperty("ol")]
-        private static List<object> ol;
-
-        [Command("second", "")]
-        private static void TestCommandSecond(string test, [SelectionProperty] object value)
-        {
-            AConsoleManager.Instance.Log(value);
-        }
-
-        [Command("first","")]
-        private static void TestCommandFirst([SelectionProperty] object[] value, string test)
-        {
-            for (int i = 0; i < value.Length; i++)
-            {
-                AConsoleManager.Instance.Log(value[i]);
-            }
-        }
-
-        private class TestClass
-        {
-            private int Index;
-
-            public TestClass(int index)
-            {
-                Index = index;
-            }
-            public override string ToString()
-            {
-                return "Test Class: " + Index;
-            }
-        }
+        
 
         static void Main(string[] args)
         {
             CLIConsoleManager cm = new CLIConsoleManager();
-
-            if (cm.ObjectSelector is CLIObjSelector s)
-            {
-                for (int i = 0; i < 1000; i++)
-                {
-                    s.SelectableObjects.Add(i.ToString(), new TestClass(i));
-                }
-            }
             
             ConsolePropertyAttributeUtils.InitializePropertySystem();
             ConsolePropertyAttributeUtils.AddProperties<ConsoleCoreConfig>();
@@ -81,7 +40,8 @@ namespace Console.CLI
             new EnvInitializer().Initialize();
             new NetworkedInitializer().Initialize();
             new PropCompatInitializer().Initialize();
-
+            new IOInitializer().Initialize();
+            new ScriptSystemInitializer().Initialize();
 
             Thread t = new Thread(Loop);
 

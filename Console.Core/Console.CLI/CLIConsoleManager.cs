@@ -29,7 +29,7 @@ namespace Console.CLI
 
         public override void LogCommand(string command)
         {
-            Log(command);
+            //Log(command);
         }
 
         public override void LogError(object @object)

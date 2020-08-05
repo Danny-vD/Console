@@ -3,21 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Core", "Console.Core\Console.Core.csproj", "{407430EF-D01A-4EC9-9EB1-E2C837ECD9BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Core", "Console.Core\Console.Core.csproj", "{407430EF-D01A-4EC9-9EB1-E2C837ECD9BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.EnvironmentVariables", "Console.EnvironmentVariables\Console.EnvironmentVariables.csproj", "{12045B0E-3C0E-4D2D-8B2F-5F5C39A289C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.EnvironmentVariables", "Console.EnvironmentVariables\Console.EnvironmentVariables.csproj", "{12045B0E-3C0E-4D2D-8B2F-5F5C39A289C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{1A33947B-126B-4B17-A387-5C4711E8C8E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Networking", "Console.Networking\Console.Networking.csproj", "{3A3D6188-CE8D-4659-B2A6-29289A142761}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Networking", "Console.Networking\Console.Networking.csproj", "{3A3D6188-CE8D-4659-B2A6-29289A142761}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compatibilty", "Compatibilty", "{2266ED80-FE89-4B40-B609-5DEC97E3AC90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.PropEnvCompat", "Console.PropEnvCompat\Console.PropEnvCompat.csproj", "{B7AF4F3A-D9DC-4112-9FA6-31DDB4F6CFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.PropEnvCompat", "Console.PropEnvCompat\Console.PropEnvCompat.csproj", "{B7AF4F3A-D9DC-4112-9FA6-31DDB4F6CFA2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{270B8A43-D76B-4B22-AA15-241962D95FFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.CLI", "Console.CLI\Console.CLI.csproj", "{113DC864-278F-45DF-BE5E-96A9B8D55EF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.ScriptSystem", "Console.ScriptSystem\Console.ScriptSystem.csproj", "{E5195B8F-09BE-4028-81E8-16DE0456BDCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.IO", "Console.IO\Console.IO.csproj", "{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{113DC864-278F-45DF-BE5E-96A9B8D55EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113DC864-278F-45DF-BE5E-96A9B8D55EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{113DC864-278F-45DF-BE5E-96A9B8D55EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5195B8F-09BE-4028-81E8-16DE0456BDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5195B8F-09BE-4028-81E8-16DE0456BDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5195B8F-09BE-4028-81E8-16DE0456BDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5195B8F-09BE-4028-81E8-16DE0456BDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +66,8 @@ Global
 		{3A3D6188-CE8D-4659-B2A6-29289A142761} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 		{B7AF4F3A-D9DC-4112-9FA6-31DDB4F6CFA2} = {2266ED80-FE89-4B40-B609-5DEC97E3AC90}
 		{113DC864-278F-45DF-BE5E-96A9B8D55EF6} = {270B8A43-D76B-4B22-AA15-241962D95FFF}
+		{E5195B8F-09BE-4028-81E8-16DE0456BDCB} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
+		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {337C24C7-7CAE-43D0-B962-DE4B2CB4CEAB}
