@@ -19,9 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{270B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.CLI", "Console.CLI\Console.CLI.csproj", "{113DC864-278F-45DF-BE5E-96A9B8D55EF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.ScriptSystem", "Console.ScriptSystem\Console.ScriptSystem.csproj", "{E5195B8F-09BE-4028-81E8-16DE0456BDCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.ScriptSystem", "Console.ScriptSystem\Console.ScriptSystem.csproj", "{E5195B8F-09BE-4028-81E8-16DE0456BDCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.IO", "Console.IO\Console.IO.csproj", "{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.IO", "Console.IO\Console.IO.csproj", "{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.PropIOCompat", "Console.PropIOCompat\Console.PropIOCompat.csproj", "{D5162652-D902-4A45-BEDA-AE5D2FD38B44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5162652-D902-4A45-BEDA-AE5D2FD38B44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{113DC864-278F-45DF-BE5E-96A9B8D55EF6} = {270B8A43-D76B-4B22-AA15-241962D95FFF}
 		{E5195B8F-09BE-4028-81E8-16DE0456BDCB} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 		{AA91DC74-23FA-4D41-A747-2A9A3C65C22D} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
+		{D5162652-D902-4A45-BEDA-AE5D2FD38B44} = {2266ED80-FE89-4B40-B609-5DEC97E3AC90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {337C24C7-7CAE-43D0-B962-DE4B2CB4CEAB}

@@ -74,6 +74,10 @@
       <Project>{b7af4f3a-d9dc-4112-9fa6-31ddb4f6cfa2}</Project>
       <Name>Console.PropEnvCompat</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Console.PropIOCompat\Console.PropIOCompat.csproj">
+      <Project>{d5162652-d902-4a45-beda-ae5d2fd38b44}</Project>
+      <Name>Console.PropIOCompat</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Console.ScriptSystem\Console.ScriptSystem.csproj">
       <Project>{e5195b8f-09be-4028-81e8-16de0456bdcb}</Project>
       <Name>Console.ScriptSystem</Name>

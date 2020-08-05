@@ -42,6 +42,7 @@ namespace Console.CLI
             new PropCompatInitializer().Initialize();
             new IOInitializer().Initialize();
             new ScriptSystemInitializer().Initialize();
+            new IOCompatInitializer().Initialize();
 
             Thread t = new Thread(Loop);
 
