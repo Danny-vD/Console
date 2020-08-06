@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.CommandSystem.Helper;
@@ -36,6 +37,8 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
         /// Shortcut to get the types of the parameters
         /// </summary>
         public ParameterInfo[] AllowedParameterTypes => Info.GetParameters();
+        public int SelectionAttributeCount =>
+            AllowedParameterTypes.Count(x => x.GetCustomAttribute<SelectionPropertyAttribute>() != null);
 
         /// <summary>
         /// Gets called by the Console System
@@ -47,7 +50,13 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
             if (!IsAllowedSignature(parameter))
             {
                 //Cast
-                return Info.Invoke(Instance, Cast(parameter));
+                object[] parame = Cast(parameter);
+                string s = "Parameters: ";
+                foreach (object o in parame)
+                {
+                    s += o + "; ";
+                }
+                return Info.Invoke(Instance, parame);
             }
             else
             {
@@ -64,10 +73,15 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
             for (int i = 0; i < pt.Length; i++)
             {
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
-                if (AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count != 0 && sp != null)
+                if (sp != null)
                 {
+                    
                     object v = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
-                    if (!sp.NoConverter && CustomConvertManager.CanConvert(v, pt[i].ParameterType))
+                    if (AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
+                    {
+                        v = null;
+                    }
+                    else if (!sp.NoConverter && CustomConvertManager.CanConvert(v, pt[i].ParameterType))
                     {
                         v = CustomConvertManager.Convert(
                             v, pt[i].ParameterType);

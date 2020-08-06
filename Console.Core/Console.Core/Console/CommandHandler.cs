@@ -73,11 +73,11 @@ namespace Console.Core.Console
 			// Split at whitespace, and append the items as long as a section does not contain an stringChar.
 			List<string> arguments = AppendStringArguments(sections);
 
-			List<object> parameters = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToList();
+			//List<object> parameters = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToList();
 			
-			arguments.ForEach(parameters.Add);
+			//arguments.ForEach(parameters.Add);
 			
-			return parameters.ToArray();
+			return arguments.ToArray();
 		}
 
 		private static List<string> AppendStringArguments(string[] parts)

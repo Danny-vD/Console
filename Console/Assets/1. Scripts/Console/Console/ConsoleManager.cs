@@ -38,6 +38,13 @@ namespace Console.Console
 
     public class ConsoleManager : Singleton<ConsoleManager>
     {
+        [ConsoleProperty("test.object")]
+        public GameObject TestObject;
+        [ConsoleProperty("test.list")]
+        public List<GameObject> TestList;
+        [ConsoleProperty("test.array")]
+        public GameObject[] TestArray;
+
         private UnityConsoleManager Manager;
 
         public string ExtensionFolder = ".\\extensions\\";

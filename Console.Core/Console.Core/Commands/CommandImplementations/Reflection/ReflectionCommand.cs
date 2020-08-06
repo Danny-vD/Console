@@ -8,11 +8,11 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
     /// </summary>
     public class ReflectionCommand : AbstractCommand
     {
-        private readonly CommandReflectionData refData;
+        public CommandReflectionData RefData { get; }
 
         public ReflectionCommand(CommandReflectionData refData) : base(refData.AllowedParameterTypes.Length)
         {
-            this.refData = refData;
+            RefData = refData;
 
             //Setting the Data from the attributes
             SetName(refData.Attribute.Name);
@@ -22,7 +22,7 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
 
         public override string GetFullName()
         {
-            ParameterInfo[] parameters = refData.Info.GetParameters();
+            ParameterInfo[] parameters = RefData.Info.GetParameters();
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -39,13 +39,13 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
                 stringBuilder.Append(")");
             }
 
-            return refData.Attribute.Name + $"{stringBuilder}";
+            return RefData.Attribute.Name + $"{stringBuilder}";
         }
 
         //Simple Wrapper
         public override void Invoke(params object[] parameters)
         {
-            refData.Invoke(parameters);
+            RefData.Invoke(parameters);
         }
     }
 }

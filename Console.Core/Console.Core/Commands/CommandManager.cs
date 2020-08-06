@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Console.Core.Commands.CommandImplementations;
+using Console.Core.Commands.CommandImplementations.Reflection;
 using Console.Core.Console;
 
 namespace Console.Core.Commands
@@ -22,6 +24,13 @@ namespace Console.Core.Commands
         {
             // 16 is the max amount of parameters we allow, because system.Action only goes up to 16 generics
             int paramsCount = Math.Min(parameters.Length, 16);
+
+            AConsoleManager.Instance.Log("Searching for command: " + commandName + " with " + paramsCount + " Parameters");
+            for (int index = 0; index < parameters.Length; index++)
+            {
+                object parameter = parameters[index];
+                AConsoleManager.Instance.Log(index + " Parameter Type: " + parameter.GetType().Name);
+            }
 
             AbstractCommand command = GetCommand(commandName, paramsCount);
 
@@ -61,14 +70,35 @@ namespace Console.Core.Commands
             command.RemoveAlias(alias);
         }
 
+        private static AbstractCommand Find(string commandName, int paramsCount)
+        {
+            foreach (AbstractCommand abstractCommand in commands)
+            {
+                if (!abstractCommand.HasName(commandName)) continue;
+
+                if (abstractCommand is ReflectionCommand refl)
+                {
+                    int parC = paramsCount + refl.RefData.SelectionAttributeCount;
+                    if (parC == refl.ParametersCount)
+                    {
+                        return refl;
+                    }
+                }
+                else if (abstractCommand.ParametersCount == paramsCount)
+                {
+                    return abstractCommand;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Returns the respective command with a given name and specified amount of parameters
         /// <para>Disclaimer: there is no error checking for adding aliases / renaming the returned command</para>
         /// </summary>
         public static AbstractCommand GetCommand(string commandName, int paramsCount)
         {
-            AbstractCommand command = commands.FirstOrDefault(item => item.HasName(commandName) &&
-                                                                      item.ParametersCount == paramsCount + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);
+            AbstractCommand command = Find(commandName, paramsCount);
 
             if (command == null)
             {
@@ -78,6 +108,7 @@ namespace Console.Core.Commands
 
             return command;
         }
+
 
         /// <summary>
         /// Returns a list of all commands with a given name

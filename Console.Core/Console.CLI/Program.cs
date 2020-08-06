@@ -25,7 +25,23 @@ namespace Console.CLI
         private const string ExtensionPath = ".\\extensions\\";
         [ConsoleProperty("console.networking.tick")]
         private static float ConsoleTick = 0.2f;
-        
+
+
+        [Command("second", "")]
+        private static void TestCommandSecond(string test, [SelectionProperty] object value)
+        {
+            AConsoleManager.Instance.Log(value);
+        }
+
+        [Command("first", "")]
+        private static void TestCommandFirst([SelectionProperty] object[] value, string test)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                AConsoleManager.Instance.Log(value[i]);
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -51,6 +67,10 @@ namespace Console.CLI
 
 
             t.Start();
+
+            cm.ObjectSelector.AddToSelection("LOL1");
+            cm.ObjectSelector.AddToSelection("LOL2");
+            cm.ObjectSelector.AddToSelection("LOL3");
 
             //For debugging adding as reference.
             //new NetworkedInitializer().Initialize();
