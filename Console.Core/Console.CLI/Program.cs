@@ -53,15 +53,7 @@ namespace Console.CLI
                 new DefaultConverterInitializer()
             };
             CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray());
-
             
-
-            //Testing
-            cm.ObjectSelector.AddToSelection("LOL1");
-            cm.ObjectSelector.AddToSelection("LOL2");
-            cm.ObjectSelector.AddToSelection("LOL3");
-
-
             //Running the OnTick Loop
             Thread t = new Thread(Loop);
             t.Start();
