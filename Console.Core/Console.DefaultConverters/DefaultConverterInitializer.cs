@@ -1,5 +1,4 @@
-﻿using System;
-using Console.Core;
+﻿using Console.Core;
 using Console.Core.Commands.ConverterSystem;
 
 namespace Console.DefaultConverters

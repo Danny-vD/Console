@@ -2,14 +2,6 @@
 
 namespace Console.Core
 {
-
-    public enum LoadOrder
-    {
-        Default,
-        First,
-        After
-    }
-
     /// <summary>
     /// Helper Class that has to be implemented with an empty public constructor to be detected and loaded by the console system
     /// </summary>
