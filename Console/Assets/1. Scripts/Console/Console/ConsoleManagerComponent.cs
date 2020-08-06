@@ -49,6 +49,13 @@ namespace Console.Console
         [ConsoleProperty("unity.ui.cooldown")]
         private float toggleCooldown = 0.3f;
 
+        [ConsoleProperty("test.object")]
+        public GameObject testObject;
+        [ConsoleProperty("test.list")]
+        public List<GameObject> testList;
+        [ConsoleProperty("test.array")]
+        public GameObject[] testArray;
+
         [Space, SerializeField]
         [ConsoleProperty("unity.ui.normalcolor")]
         private string normalColorHex = "000000"; // Black
