@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Console.Core.Attributes.CommandSystem;
+using Console.Core.Attributes.CommandSystem.Helper;
 using Console.Core.Attributes.PropertySystem;
+using Console.Core.Commands;
+using Console.Core.Commands.CommandImplementations;
 using Console.Core.Console;
 
 namespace Console.Core
@@ -14,6 +18,16 @@ namespace Console.Core
         {
         }
 
+
+        #region Console Properties
+
+        private const string helpHelpMessage = "Displays all commands.";
+        private const string help1HelpMessage = "Displays the help page of a given command.";
+        private const string helpCommand = "help";
+        private const string clearCommand = "clear";
+        private const string clearCommandMessage = "Clears the Console";
+
+
         [ConsoleProperty("console.output.writecommand")]
         public static bool WriteCommand = true;
 
@@ -23,10 +37,59 @@ namespace Console.Core
         [ConsoleProperty("console.input.stringchar")]
         public static char StringChar = '"';
 
+        #endregion
 
+        #region Console Commands
+
+        public static void AddDefaultCommands()
+        {
+            CommandAttributeUtils.AddCommands<ConsoleCoreConfig>();
+        }
+
+        [Command(clearCommand, clearCommandMessage, "cls", "clr")]
+        private static void Clear()
+        {
+            AConsoleManager.Instance.Clear();
+        }
+
+
+        [Command(helpCommand, helpHelpMessage, "h")]
+        private static void Help()
+        {
+            foreach (AbstractCommand command in CommandManager.commands)
+            {
+                AConsoleManager.Instance.Log(command.ToString());
+            }
+        }
+
+        [Command(helpCommand, help1HelpMessage, "h")]
+        private static void Help(string commandName)
+        {
+            foreach (AbstractCommand command in CommandManager.GetCommands(commandName, (bool)true))
+            {
+                AConsoleManager.Instance.Log(command.ToString());
+            }
+        }
+
+
+        [Command("echo", "Echos the input")]
+        private static void Echo(string value) => AConsoleManager.Instance.Log(value);
+
+        #endregion
+
+        #region Extension Loading
+
+
+        [Command("load-extensions", "Loads the Extensions in the specified Folder")]
         public static void LoadExtensions(string folder)
         {
             LoadExtensions(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
+        }
+
+        [Command("load-extension", "Loads the specified extension")]
+        public static void LoadExtensionFile(string file)
+        {
+            LoadExtensions(new[] {file});
         }
 
         public static void LoadExtensions(string[] paths)
@@ -63,7 +126,7 @@ namespace Console.Core
             s += "\nLoadOrder.Default: " + extensions[LoadOrder.Default].Count;
             i += LoadExtensions(extensions[LoadOrder.After]);
             s += "\nLoadOrder.After: " + extensions[LoadOrder.After].Count;
-            s += "\nTotal Loaded Extensions: " + i+"\n";
+            s += "\nTotal Loaded Extensions: " + i + "\n";
             AConsoleManager.Instance.Log(s);
         }
 
@@ -75,6 +138,7 @@ namespace Console.Core
             }
             return extensions.Count;
         }
+
 
         private static AExtensionInitializer LoadExtension(string path)
         {
@@ -98,5 +162,8 @@ namespace Console.Core
                 typeof(AExtensionInitializer).IsAssignableFrom(x) && x != typeof(AExtensionInitializer));
             return (AExtensionInitializer)Activator.CreateInstance(t);
         }
+
+
+        #endregion
     }
 }

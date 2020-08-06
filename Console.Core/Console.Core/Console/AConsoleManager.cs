@@ -42,7 +42,7 @@ namespace Console.Core.Console
         {
             Instance = this;
             Handler = new CommandHandler();
-            DefaultCommandAdder.AddDefaultCommands();
+            ConsoleCoreConfig.AddDefaultCommands();
             ConsolePropertyAttributeUtils.InitializePropertySystem();
         }
 
