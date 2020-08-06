@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.PropIOCompat", "Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.PersistentProperties", "Console.PersistentProperties\Console.PersistentProperties.csproj", "{E4E1EC58-86AC-428A-BE42-12ED19405C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.ArrayConverter", "Console.ArrayConverter\Console.ArrayConverter.csproj", "{9892F8EE-93ED-4551-99F8-ABF17BC14A04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.ArrayConverter", "Console.ArrayConverter\Console.ArrayConverter.csproj", "{9892F8EE-93ED-4551-99F8-ABF17BC14A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.ScriptIOCompat", "Console.ScriptIOCompat\Console.ScriptIOCompat.csproj", "{BA266A81-5CA3-4D47-8356-AAB981205A97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.ScriptIOCompat", "Console.ScriptIOCompat\Console.ScriptIOCompat.csproj", "{BA266A81-5CA3-4D47-8356-AAB981205A97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.DefaultConverters", "Console.DefaultConverters\Console.DefaultConverters.csproj", "{D4B0D2D5-6081-4E00-8853-63505B4734AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{BA266A81-5CA3-4D47-8356-AAB981205A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA266A81-5CA3-4D47-8356-AAB981205A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA266A81-5CA3-4D47-8356-AAB981205A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B0D2D5-6081-4E00-8853-63505B4734AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B0D2D5-6081-4E00-8853-63505B4734AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B0D2D5-6081-4E00-8853-63505B4734AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B0D2D5-6081-4E00-8853-63505B4734AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +102,7 @@ Global
 		{E4E1EC58-86AC-428A-BE42-12ED19405C9F} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 		{9892F8EE-93ED-4551-99F8-ABF17BC14A04} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 		{BA266A81-5CA3-4D47-8356-AAB981205A97} = {2266ED80-FE89-4B40-B609-5DEC97E3AC90}
+		{D4B0D2D5-6081-4E00-8853-63505B4734AD} = {1A33947B-126B-4B17-A387-5C4711E8C8E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {337C24C7-7CAE-43D0-B962-DE4B2CB4CEAB}

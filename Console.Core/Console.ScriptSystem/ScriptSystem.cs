@@ -15,7 +15,6 @@ namespace Console.ScriptSystem
         {
             if (File.Exists(path))
             {
-                AConsoleManager.Instance.Log("Executing Program..");
                 string[] lines = File.ReadAllLines(path).Where(x=>!string.IsNullOrEmpty(x.Trim())).ToArray();
                 foreach (string line in lines)
                 {

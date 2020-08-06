@@ -48,12 +48,5 @@ namespace Console.Core.Console
 
         [Command("echo", "Echos the input")]
         private static void Echo(string value) => AConsoleManager.Instance.Log(value);
-
-        [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
-        private static void Exit()
-        {
-            Environment.Exit(0);
-            //TODO
-        }
     }
 }

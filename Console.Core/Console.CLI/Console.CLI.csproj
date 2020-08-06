@@ -62,6 +62,10 @@
       <Project>{407430ef-d01a-4ec9-9eb1-e2c837ecd9be}</Project>
       <Name>Console.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Console.DefaultConverters\Console.DefaultConverters.csproj">
+      <Project>{d4b0d2d5-6081-4e00-8853-63505b4734ad}</Project>
+      <Name>Console.DefaultConverters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Console.EnvironmentVariables\Console.EnvironmentVariables.csproj">
       <Project>{12045b0e-3c0e-4d2d-8b2f-5f5c39a289c1}</Project>
       <Name>Console.EnvironmentVariables</Name>

@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Console.ArrayConverter;
 using Console.Core;
+using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.PropertySystem;
 using Console.Core.Console;
+using Console.DefaultConverters;
 using Console.EnvironmentVariables;
 using Console.IO;
 using Console.Networking;
@@ -21,6 +24,12 @@ namespace Console.CLI
         [ConsoleProperty("console.networking.tick")]
         private static float ConsoleTick = 0.2f;
 
+        [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
+        private static void Exit()
+        {
+            Environment.Exit(0);
+        }
+
 
         static void Main(string[] args)
         {
@@ -35,6 +44,7 @@ namespace Console.CLI
                 new IOCompatInitializer(),
                 new PersistentPropertiesInitializer(),
                 new ArrayConverterInitializer(),
+                new DefaultConverterInitializer()
             };
             CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray());
 

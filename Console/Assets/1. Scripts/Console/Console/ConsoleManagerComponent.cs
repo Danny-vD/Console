@@ -20,6 +20,7 @@ namespace Console.Console
         private UnityConsoleManager Manager;
 
         public string ExtensionFolder = ".\\extensions\\";
+        private static string Separator => Instance.useLogSeperator ? "\n---------------------------------------------------" : "";
 
         #region Components
 
@@ -63,6 +64,25 @@ namespace Console.Console
         [SerializeField]
         [ConsoleProperty("unity.ui.commandcolor")]
         private string commandColorHex = "FFFFFF"; // White
+
+        [SerializeField]
+        [ConsoleProperty("unity.ui.uselogseperator")]
+        private bool useLogSeperator = true;
+        #endregion
+
+        #region Commands
+
+        [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
+        private void Exit()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
+
         #endregion
 
 
@@ -105,17 +125,17 @@ namespace Console.Console
 
             ObjectSelectorComponent = GetComponent<ObjectSelectorComponent>();
             logReader = new DefaultLogReader();
-            
+
             scrollRect = console.GetComponentInChildren<ScrollRect>();
-            
-            
+
+
             inputField.onEndEdit.AddListener(Manager.EnterCommand);
             inputField.onEndEdit.AddListener(OnUIWriteCommand);
 
             ObjectSelectorComponent.enabled = console.activeSelf;
             selectedObjectWindow.SetActive(console.activeSelf);
 
-            
+
 
             Manager.InvokeOnInitialize();
         }
@@ -177,9 +197,9 @@ namespace Console.Console
                 return;
             }
 
-            string txt = $"<color=#{Instance.normalColorHex}>{@object}\n" +
-                         "---------------------------------------------------</color>\n";
-            
+            string txt = $"<color=#{Instance.normalColorHex}>{@object}" +
+                         Separator + "</color>\n";
+
 
             Instance.text.text += txt;
             Instance.Manager.InvokeOnLog(@object.ToString());
@@ -195,9 +215,10 @@ namespace Console.Console
                 return;
             }
 
-            string txt = $"<color=#{Instance.warningColorHex}>{@object}</color>\n" +
-                         $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
-            
+            string txt = $"<color=#{Instance.warningColorHex}>{@object}</color>" +
+                         $"<color=#{Instance.normalColorHex}>" +
+                         Separator + "</color>\n";
+
             Instance.text.text += txt;
             Instance.Manager.InvokeOnLog(@object.ToString());
 
@@ -212,9 +233,10 @@ namespace Console.Console
                 return;
             }
 
-            string txt = $"<color=#{Instance.errorColorHex}>{@object}</color>\n" +
-                         $"<color=#{Instance.normalColorHex}>---------------------------------------------------</color>\n";
-            
+            string txt = $"<color=#{Instance.errorColorHex}>{@object}</color>" +
+                         $"<color=#{Instance.normalColorHex}>" +
+                         Separator + "</color>\n";
+
             Instance.text.text += txt;
             Instance.Manager.InvokeOnLog(@object.ToString());
 
@@ -225,7 +247,7 @@ namespace Console.Console
         {
             if (!ConsoleCoreConfig.WriteCommand) return;
             string txt = $"<color=#{Instance.commandColorHex}>{command}</color>\n";
-           
+
             Instance.text.text += txt;
 
             MaintainCharacterLimit();
@@ -243,7 +265,7 @@ namespace Console.Console
             inputField?.Select();
             inputField?.ActivateInputField();
         }
-        
+
 
         public void SubmitCommand(string command)
         {

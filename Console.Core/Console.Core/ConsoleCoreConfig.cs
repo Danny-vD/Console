@@ -32,7 +32,7 @@ namespace Console.Core
 
         public static void LoadExtensions(string[] paths)
         {
-            LoadExtensions(paths.Select(LoadExtension).Where(x=>x!=null).ToArray());
+            LoadExtensions(paths.Select(LoadExtension).Where(x => x != null).ToArray());
         }
 
         public static void LoadExtensions(AExtensionInitializer[] exts)
@@ -57,9 +57,24 @@ namespace Console.Core
 
         public static void LoadExtensions(Dictionary<LoadOrder, List<AExtensionInitializer>> extensions)
         {
-            extensions[LoadOrder.First].ForEach(x => x.Initialize());
-            extensions[LoadOrder.Default].ForEach(x => x.Initialize());
-            extensions[LoadOrder.After].ForEach(x => x.Initialize());
+            string s = "Loading Extensions...";
+            int i = LoadExtensions(extensions[LoadOrder.First]);
+            s += "\nLoadOrder.First: " + extensions[LoadOrder.First].Count;
+            i += LoadExtensions(extensions[LoadOrder.Default]);
+            s += "\nLoadOrder.Default: " + extensions[LoadOrder.Default].Count;
+            i += LoadExtensions(extensions[LoadOrder.After]);
+            s += "\nLoadOrder.After: " + extensions[LoadOrder.After].Count;
+            s += "\nTotal Loaded Extensions: " + i+"\n";
+            AConsoleManager.Instance.Log(s);
+        }
+
+        private static int LoadExtensions(List<AExtensionInitializer> extensions)
+        {
+            foreach (AExtensionInitializer aExtensionInitializer in extensions)
+            {
+                aExtensionInitializer.Initialize();
+            }
+            return extensions.Count;
         }
 
         private static AExtensionInitializer LoadExtension(string path)
@@ -83,7 +98,7 @@ namespace Console.Core
         {
             Type t = asm.GetTypes().First(x =>
                 typeof(AExtensionInitializer).IsAssignableFrom(x) && x != typeof(AExtensionInitializer));
-            return (AExtensionInitializer) Activator.CreateInstance(t);
+            return (AExtensionInitializer)Activator.CreateInstance(t);
         }
     }
 }

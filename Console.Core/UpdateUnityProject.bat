@@ -8,4 +8,5 @@ call UpdateLibrary.bat Console.PropIOCompat
 call UpdateLibrary.bat Console.ScriptSystem
 call UpdateLibrary.bat Console.ArrayConverter
 call UpdateLibrary.bat Console.ScriptIOCompat
+call UpdateLibrary.bat Console.DefaultConverters
 pause

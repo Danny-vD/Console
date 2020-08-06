@@ -67,7 +67,7 @@ namespace Console.Core.Attributes.PropertySystem.Helper
         {
             if (!HasProperty(propertyPath)) return;
 
-            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to valuetype: " + propertyValue.GetType().Name);
+            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
             Properties[propertyPath].SetValue(propertyValue);
         }
 
