@@ -88,6 +88,8 @@ namespace Console.Console
 
             Manager = new UnityConsoleManager(this);
 
+            CustomConvertManager.AddConverter(new GameObjectComponentConverter());
+
             //Console Setup
             CommandAttributeUtils.AddCommands(this);
             ConsolePropertyAttributeUtils.AddProperties(this);
