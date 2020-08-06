@@ -36,6 +36,7 @@ namespace Console.Core.Attributes.PropertySystem.Helper
         public static void InitializePropertySystem()
         {
             CommandAttributeUtils.AddCommands<ConsolePropertyAttributeUtils>();
+            AddProperties<ConsoleCoreConfig>();
         }
 
 

@@ -54,6 +54,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Console.ArrayConverter\Console.ArrayConverter.csproj">
+      <Project>{9892f8ee-93ed-4551-99f8-abf17bc14a04}</Project>
+      <Name>Console.ArrayConverter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Console.Core\Console.Core.csproj">
       <Project>{407430ef-d01a-4ec9-9eb1-e2c837ecd9be}</Project>
       <Name>Console.Core</Name>
@@ -81,6 +85,10 @@
     <ProjectReference Include="..\Console.PropIOCompat\Console.PropIOCompat.csproj">
       <Project>{d5162652-d902-4a45-beda-ae5d2fd38b44}</Project>
       <Name>Console.PropIOCompat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console.ScriptIOCompat\Console.ScriptIOCompat.csproj">
+      <Project>{ba266a81-5ca3-4d47-8356-aab981205a97}</Project>
+      <Name>Console.ScriptIOCompat</Name>
     </ProjectReference>
     <ProjectReference Include="..\Console.ScriptSystem\Console.ScriptSystem.csproj">
       <Project>{e5195b8f-09be-4028-81e8-16de0456bdcb}</Project>

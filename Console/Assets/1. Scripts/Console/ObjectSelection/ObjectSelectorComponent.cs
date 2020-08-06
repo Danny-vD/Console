@@ -1,19 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Console.Console;
-using Console.Core.ObjectSelection;
 using UnityEngine;
 using VDUnityFramework.Standard.BaseClasses;
 
 namespace Console.ObjectSelection
 {
-    public class UnityObjectSelector : AObjectSelector
-    {
-        public override List<object> SelectedObjects { get; } = new List<object>();
-    }
-
-
-    public class ObjectSelector : BetterMonoBehaviour
+    public class ObjectSelectorComponent : BetterMonoBehaviour
     {
         public UnityObjectSelector Selector { get; private set; }
 
@@ -38,7 +31,7 @@ namespace Console.ObjectSelection
             {
                 if (Camera.main == null)
                 {
-                    ConsoleManager.LogError("No suitable Camera to raycast from");
+                    ConsoleManagerComponent.LogError("No suitable Camera to raycast from");
                     return;
                 }
 

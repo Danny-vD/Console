@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Console.Core.Attributes.CommandSystem.Helper;
+using Console.Core.Commands.ConverterSystem;
 
-namespace Console.Core.Commands.ConverterSystem
+namespace Console.ArrayConverter
 {
-    public class ArrayConverter : AConverter
+
+    public class ArrayCustomConverter : AConverter
     {
         public override bool CanConvert(object parameter, Type target)
         {
@@ -42,7 +43,7 @@ namespace Console.Core.Commands.ConverterSystem
             {
                 //return lst.ConvertAll(input => FUCK);
 
-                MethodInfo info = typeof(ArrayConverter)
+                MethodInfo info = typeof(ArrayCustomConverter)
                     .GetMethod(nameof(GetAsList), BindingFlags.NonPublic | BindingFlags.Static) //Get method info
                     ?.MakeGenericMethod(target.GetGenericArguments().First()); //Create Generic Method Call with the generic type of the target
                 object r = info.Invoke(null, new object[] { paramArr }); //Invoke the GetAsList<T> method.

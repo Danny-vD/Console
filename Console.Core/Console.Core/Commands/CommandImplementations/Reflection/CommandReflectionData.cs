@@ -73,13 +73,26 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
             for (int i = 0; i < pt.Length; i++)
             {
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
+                if (sp != null && AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0 &&
+                    pt.Length == parameter.Length)
+                {
+
+                }
                 if (sp != null)
                 {
-                    
+
                     object v = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
                     if (AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
                     {
-                        v = null;
+                        if (pt.Length == parameter.Length)
+                        {
+                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(parameter[i - off], pt[i].ParameterType);
+                            continue;
+                        }
+                        else
+                        {
+                            v = null;
+                        }
                     }
                     else if (!sp.NoConverter && CustomConvertManager.CanConvert(v, pt[i].ParameterType))
                     {

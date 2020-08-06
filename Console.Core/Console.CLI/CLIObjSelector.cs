@@ -3,7 +3,6 @@ using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.CommandSystem.Helper;
 using Console.Core.Console;
 using Console.Core.ObjectSelection;
-using Console.EnvironmentVariables;
 
 namespace Console.CLI
 {

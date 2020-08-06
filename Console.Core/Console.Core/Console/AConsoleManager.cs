@@ -1,4 +1,5 @@
 ﻿using System;
+using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Commands.ExpanderSystem;
 using Console.Core.ObjectSelection;
 
@@ -6,10 +7,13 @@ namespace Console.Core.Console
 {
     public abstract class AConsoleManager
     {
+        protected readonly CommandHandler Handler;
+
         /// <summary>
         /// Has to be invoked for all Logs
         /// </summary>
         public static event Action<string> OnLog;
+        public static event Action OnInitializationFinished;
 
         /// <summary>
         /// "Hack" to provide a Console Tick Function that gets called periodically.
@@ -28,6 +32,7 @@ namespace Console.Core.Console
         /// <param name="text"></param>
         protected void InvokeLogEvent(string text) => OnLog?.Invoke(text);
 
+        protected void InvokeOnFinishInitialize() => OnInitializationFinished?.Invoke();
 
         public static AConsoleManager Instance { get; private set; }
 
@@ -36,13 +41,20 @@ namespace Console.Core.Console
         protected AConsoleManager()
         {
             Instance = this;
+            Handler = new CommandHandler();
+            DefaultCommandAdder.AddDefaultCommands();
+            ConsolePropertyAttributeUtils.InitializePropertySystem();
         }
 
         public abstract void Clear();
         public abstract void Log(object @object);
         public abstract void LogWarning(object @object);
         public abstract void LogError(object @object);
-        public abstract void LogCommand(string command);
+
+        public virtual void LogCommand(string command)
+        {
+            if (ConsoleCoreConfig.WriteCommand) LogPlainText(command);
+        }
         public abstract void LogPlainText(string text);
 
         public void EnterCommand(string command)

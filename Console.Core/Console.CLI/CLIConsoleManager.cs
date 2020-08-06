@@ -1,4 +1,7 @@
-﻿using Console.Core.Console;
+﻿using Console.Core;
+using Console.Core.Attributes.CommandSystem.Helper;
+using Console.Core.Attributes.PropertySystem.Helper;
+using Console.Core.Console;
 using Console.Core.ObjectSelection;
 
 namespace Console.CLI
@@ -6,14 +9,30 @@ namespace Console.CLI
     public class CLIConsoleManager : AConsoleManager
     {
         public override AObjectSelector ObjectSelector { get; }
-        private DefaultCommandAdder DefaultCommands;
-        private CommandHandler Handler;
-        public CLIConsoleManager()
+
+        public CLIConsoleManager(AExtensionInitializer[] extensions) : this(false)
         {
+            ConsoleCoreConfig.LoadExtensions(extensions);
+            InvokeOnFinishInitialize();
+        }
+
+        public CLIConsoleManager(bool runInit = true)
+        {
+
             ObjectSelector = new CLIObjSelector();
-            Handler = new CommandHandler();
-            DefaultCommands = new DefaultCommandAdder();
-            DefaultCommands.AddCommands();
+            //CLI Specific Setup
+            ConsolePropertyAttributeUtils.AddProperties<Program>();
+            TestClass.InitializeTests();
+            CommandAttributeUtils.AddCommands<Program>();
+
+            if (runInit)
+                InvokeOnFinishInitialize();
+
+        }
+        public CLIConsoleManager(string extensionPath) : this(false)
+        {
+            AExtensionInitializer.LoadExtensions(extensionPath);
+            InvokeOnFinishInitialize();
         }
 
         public override void Clear()
@@ -25,11 +44,6 @@ namespace Console.CLI
         {
             InvokeLogEvent(@object.ToString());
             System.Console.WriteLine(@object);
-        }
-
-        public override void LogCommand(string command)
-        {
-            //Log(command);
         }
 
         public override void LogError(object @object)

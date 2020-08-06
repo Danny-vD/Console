@@ -1,0 +1,4 @@
+echo "Loading.."
+load-properties configs/console.input.cfg
+load-properties configs/unity.ui.cfg
+echo "Console Initialized"

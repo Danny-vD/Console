@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Console.Core.Commands.CommandImplementations;
@@ -11,10 +10,8 @@ namespace Console.Core.Commands
 {
     public static class CommandManager
     {
-        private const string helpHelpMessage = "Displays all commands.";
-        private const string help1HelpMessage = "Displays the help page of a given command.";
 
-        private static readonly List<AbstractCommand> commands = new List<AbstractCommand>();
+        public static readonly List<AbstractCommand> commands = new List<AbstractCommand>();
 
         /// <summary>
         /// Invokes a given command with given parameters (does not respect user-defined conversions between types, except IConvertible)
@@ -24,13 +21,6 @@ namespace Console.Core.Commands
         {
             // 16 is the max amount of parameters we allow, because system.Action only goes up to 16 generics
             int paramsCount = Math.Min(parameters.Length, 16);
-
-            AConsoleManager.Instance.Log("Searching for command: " + commandName + " with " + paramsCount + " Parameters");
-            for (int index = 0; index < parameters.Length; index++)
-            {
-                object parameter = parameters[index];
-                AConsoleManager.Instance.Log(index + " Parameter Type: " + parameter.GetType().Name);
-            }
 
             AbstractCommand command = GetCommand(commandName, paramsCount);
 
@@ -76,7 +66,7 @@ namespace Console.Core.Commands
             {
                 if (!abstractCommand.HasName(commandName)) continue;
 
-                if (abstractCommand is ReflectionCommand refl)
+                if (abstractCommand is ReflectionCommand refl && paramsCount != abstractCommand.ParametersCount)
                 {
                     int parC = paramsCount + refl.RefData.SelectionAttributeCount;
                     if (parC == refl.ParametersCount)
@@ -182,34 +172,6 @@ namespace Console.Core.Commands
         public static void RemoveCommand(AbstractCommand command)
         {
             commands.Remove(command);
-        }
-
-        public static void SetHelp(string helpCommand)
-        {
-            Command help = new Command(helpCommand, Help);
-            help.SetHelpMessage(helpHelpMessage);
-
-            Command<string> help1 = new Command<string>(helpCommand, Help);
-            help1.SetHelpMessage(help1HelpMessage);
-
-            AddCommand(help);
-            AddCommand(help1);
-        }
-
-        private static void Help()
-        {
-            foreach (AbstractCommand command in commands)
-            {
-                AConsoleManager.Instance.Log(command.ToString());
-            }
-        }
-
-        private static void Help(string commandName)
-        {
-            foreach (AbstractCommand command in GetCommands(commandName, true))
-            {
-                AConsoleManager.Instance.Log(command.ToString());
-            }
         }
     }
 }

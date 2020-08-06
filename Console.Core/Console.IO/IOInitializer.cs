@@ -1,5 +1,4 @@
-﻿using System;
-using Console.Core;
+﻿using Console.Core;
 using Console.Core.Attributes.CommandSystem.Helper;
 
 namespace Console.IO

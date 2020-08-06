@@ -6,36 +6,54 @@ using Console.Core.Commands.CommandImplementations;
 
 namespace Console.Core.Console
 {
-	[Serializable]
-	public class DefaultCommandAdder
-	{
-		public string helpCommand = "help";
-        
-		public string clearCommand = "clear";
+    [Serializable]
+    public static class DefaultCommandAdder
+    {
+        private const string helpHelpMessage = "Displays all commands.";
+        private const string help1HelpMessage = "Displays the help page of a given command.";
+        private const string helpCommand = "help";
+        private const string clearCommand = "clear";
+        private const string clearCommandMessage = "Clears the Console";
 
-        public void AddCommands()
-		{
-			CommandManager.SetHelp(helpCommand);
-			AddClear();
+        public static void AddDefaultCommands()
+        {
+            CommandAttributeUtils.AddCommands(typeof(DefaultCommandAdder));
+        }
 
-			CommandAttributeUtils.AddCommands<DefaultCommandAdder>();
-		}
+        [Command(clearCommand, clearCommandMessage, "cls", "clr")]
+        private static void Clear()
+        {
+            AConsoleManager.Instance.Clear();
+        }
 
-		private void AddClear()
-		{
-			Command clear = new Command(clearCommand, AConsoleManager.Instance.Clear);
-			clear.SetHelpMessage("Clears the console.");
 
-			CommandManager.AddCommand(clear);
-		}
+        [Command(helpCommand, helpHelpMessage, "h")]
+        private static void Help()
+        {
+            foreach (AbstractCommand command in CommandManager.commands)
+            {
+                AConsoleManager.Instance.Log(command.ToString());
+            }
+        }
+
+        [Command(helpCommand, help1HelpMessage, "h")]
+        private static void Help(string commandName)
+        {
+            foreach (AbstractCommand command in CommandManager.GetCommands(commandName, (bool)true))
+            {
+                AConsoleManager.Instance.Log(command.ToString());
+            }
+        }
+
 
         [Command("echo", "Echos the input")]
         private static void Echo(string value) => AConsoleManager.Instance.Log(value);
 
-		[Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
-		private static void Exit()
-		{
+        [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
+        private static void Exit()
+        {
+            Environment.Exit(0);
             //TODO
-		}
-	}
+        }
+    }
 }

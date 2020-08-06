@@ -40,24 +40,24 @@ namespace Console.Console
 
 		private static void Log(string logString)
 		{
-			ConsoleManager.Log(logString, false);
+			ConsoleManagerComponent.Log(logString, false);
 		}
 
 		private static void LogWarning(string logString)
 		{
-			ConsoleManager.LogWarning(logString, false);
+			ConsoleManagerComponent.LogWarning(logString, false);
 		}
 		
 		private static void LogError(string logString)
 		{
-			ConsoleManager.LogError(logString, false);
+			ConsoleManagerComponent.LogError(logString, false);
 		}
 
 		private static void LogException(string logString, string stackTrace)
 		{
 			string exception = $"{logString}\nStackTrace:\n{stackTrace}";
 			
-			ConsoleManager.LogError(exception, false);
+			ConsoleManagerComponent.LogError(exception, false);
 		}
 	}
 }
