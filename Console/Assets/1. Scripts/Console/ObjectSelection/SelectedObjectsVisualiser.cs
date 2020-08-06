@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Console.Core.ObjectSelection;
+﻿using Console.Core.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
 using VDUnityFramework.Standard.BaseClasses;

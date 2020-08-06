@@ -6,7 +6,6 @@ using Console.Core.Attributes.CommandSystem.Helper;
 using Console.Core.Attributes.PropertySystem;
 using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Commands.ConverterSystem;
-using Console.Core.Console;
 using Console.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
@@ -214,6 +213,7 @@ namespace Console.Console
 
         public static void LogWarning(object @object, bool logUnityConsole = true)
         {
+
             if (logUnityConsole)
             {
                 UnityEngine.Debug.LogWarning(@object);
