@@ -19,7 +19,6 @@ namespace Console.Console
         public override void LogWarning(object @object) => ConsoleManagerComponent.LogWarning(@object);
         public override void LogError(object @object) => ConsoleManagerComponent.LogError(@object);
         public override void Clear() => ConsoleManagerComponent.Clear();
-        //public override void LogCommand(string command) => ConsoleManagerComponent.LogCommand(command);
         public override void LogPlainText(string text) => ConsoleManagerComponent.LogPlainText(text);
         protected override void SubmitCommand(string command) => managerComponent.SubmitCommand(command);
         public override AObjectSelector ObjectSelector => managerComponent.ObjectSelectorComponent.Selector;

@@ -123,10 +123,7 @@ namespace Console.Console
 
             //Initializing Tests
             TestClass.InitializeTests();
-
-            AExtensionInitializer.LoadExtensions(ExtensionFolder);
-
-
+            
 
             DontDestroyOnLoad(true);
 
@@ -142,6 +139,7 @@ namespace Console.Console
             ObjectSelectorComponent.enabled = console.activeSelf;
             selectedObjectWindow.SetActive(console.activeSelf);
 
+            AExtensionInitializer.LoadExtensions(ExtensionFolder);
 
 
             Manager.InvokeOnInitialize();

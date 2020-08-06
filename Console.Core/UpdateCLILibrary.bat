@@ -1,0 +1,1 @@
+copy /Y .\%1\bin\Debug\netstandard2.0\%1.dll .\Console.CLI\bin\Debug\extensions\

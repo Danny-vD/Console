@@ -83,7 +83,6 @@ namespace Console.Core
             {
                 Assembly asm = Assembly.LoadFrom(path);
                 AExtensionInitializer i = GetInitializer(asm);
-                AConsoleManager.Instance.Log("Loaded: " + Path.GetFileNameWithoutExtension(path));
                 return i;
             }
             catch (Exception e)
