@@ -75,10 +75,29 @@ namespace Console.Core.Attributes.PropertySystem.Helper
             "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
         private static void GetProperty(string propertyPath)
         {
-            if (!HasProperty(propertyPath) || !TryGetValue(propertyPath, out object value))
+            if (!HasProperty(propertyPath))
             {
-                AConsoleManager.Instance.LogError("Can not find property path: " + propertyPath);
+                List<string> targets = AllPropertyPaths.Where(x => x.StartsWith(propertyPath)).ToList();
+                if (targets.Count == 0)
+                {
+                    AConsoleManager.Instance.LogWarning("Can not find property path: " + propertyPath);
+                }
+                else
+                {
+                    string s = "Properties that match: " + propertyPath;
+                    foreach (string target in targets)
+                    {
+                        object v;
+                        if (!TryGetValue(target, out v)) v = "ERROR";
+                        s += $"\n\t{target} = {v}";
+                    }
+                    AConsoleManager.Instance.Log(s);
+                }
                 return;
+            }
+            if (!TryGetValue(propertyPath, out object value))
+            {
+                AConsoleManager.Instance.LogWarning("Can not get the value at path: " + propertyPath);
             }
             AConsoleManager.Instance.Log($"{propertyPath} = {value}");
         }
