@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using Console.ArrayConverter;
+using Console.ClassQueries;
 using Console.Core;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Attributes.PropertySystem;
@@ -15,6 +17,7 @@ using Console.PropEnvCompat;
 using Console.PropIOCompat;
 using Console.ScriptIOCompat;
 using Console.ScriptSystem;
+using Console.UtilExtension;
 
 namespace Console.CLI
 {
@@ -50,7 +53,9 @@ namespace Console.CLI
                 new IOCompatInitializer(),
                 new PersistentPropertiesInitializer(),
                 new ArrayConverterInitializer(),
-                new DefaultConverterInitializer()
+                new DefaultConverterInitializer(),
+                new ClassQueryInitializer(),
+                new UtilExtensionInitializer()
             };
             CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray());
             

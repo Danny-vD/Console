@@ -2,8 +2,8 @@
 
 namespace Console.Core.Attributes.PropertySystem.Helper
 {
-    internal class StaticPropertyHelper : PropertyHelper
+    public class StaticPropertyHelper : PropertyHelper
     {
-        internal StaticPropertyHelper(PropertyInfo info) : base(null, info) { }
+        public StaticPropertyHelper(PropertyInfo info) : base(null, info) { }
     }
 }

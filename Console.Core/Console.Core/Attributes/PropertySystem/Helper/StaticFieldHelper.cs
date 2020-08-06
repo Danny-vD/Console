@@ -2,8 +2,8 @@
 
 namespace Console.Core.Attributes.PropertySystem.Helper
 {
-    internal class StaticFieldHelper : FieldHelper
+    public class StaticFieldHelper : FieldHelper
     {
-        internal StaticFieldHelper(FieldInfo info) : base(null, info) { }
+        public StaticFieldHelper(FieldInfo info) : base(null, info) { }
     }
 }

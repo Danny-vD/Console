@@ -10,6 +10,8 @@ namespace Console.Core.Attributes.PropertySystem.Helper
 {
     public class ConsolePropertyAttributeUtils
     {
+
+        
         private static readonly Dictionary<string, ReflectionHelper> Properties = new Dictionary<string, ReflectionHelper>();
         public static List<string> AllPropertyPaths => Properties.Keys.ToList();
 
@@ -23,10 +25,21 @@ namespace Console.Core.Attributes.PropertySystem.Helper
             return true;
         }
 
-        public static bool TrySetValue(string propertyPath, object value)
+        public static void SetProperty(string propertyPath, ReflectionHelper helper)
+        {
+            Properties[propertyPath] = helper;
+        }
+
+        public static bool TrySetValue(string propertyPath, object value, bool create = false)
         {
             if (!Properties.ContainsKey(propertyPath))
             {
+                if (create)
+                {
+                    Properties.Add(propertyPath, new FakeReflectionHelper(value));
+                    return true;
+                }
+
                 return false;
             }
             Properties[propertyPath].SetValue(value);
@@ -71,6 +84,19 @@ namespace Console.Core.Attributes.PropertySystem.Helper
             Properties[propertyPath].SetValue(propertyValue);
         }
 
+        [Command("add-property", "Sets or Adds the specified property to the specified value", "ap")]
+        private static void AddProperty(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        {
+            if (!HasProperty(propertyPath))
+            {
+                Properties.Add(propertyPath, new FakeReflectionHelper(propertyValue));
+                return;
+            }
+
+            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
+            Properties[propertyPath].SetValue(propertyValue);
+        }
+
         [Command("get-property",
             "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
         private static void GetProperty(string propertyPath)
@@ -102,10 +128,16 @@ namespace Console.Core.Attributes.PropertySystem.Helper
             AConsoleManager.Instance.Log($"{propertyPath} = {value}");
         }
 
+        public static void AddPropertiesByType(Type t)
+        {
+            AddRefHelpers(GetStaticConsoleFields<ConsolePropertyAttribute>(t));
+            AddRefHelpers(GetStaticConsoleProps<ConsolePropertyAttribute>(t));
+        }
+
+
         public static void AddProperties<T>()
         {
-            AddRefHelpers(GetStaticConsoleFields<ConsolePropertyAttribute>(typeof(T)));
-            AddRefHelpers(GetStaticConsoleProps<ConsolePropertyAttribute>(typeof(T)));
+            AddPropertiesByType(typeof(T));
         }
 
         public static void AddProperties(object instance)

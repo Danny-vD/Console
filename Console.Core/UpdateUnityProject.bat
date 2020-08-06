@@ -9,4 +9,6 @@ call UpdateLibrary.bat Console.ScriptSystem
 call UpdateLibrary.bat Console.ArrayConverter
 call UpdateLibrary.bat Console.ScriptIOCompat
 call UpdateLibrary.bat Console.DefaultConverters
+call UpdateLibrary.bat Console.ClassQueries
+call UpdateLibrary.bat Console.UtilExtension
 pause

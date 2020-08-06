@@ -1,38 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
-using Console.Core;
-using Console.Core.Commands.ExpanderSystem;
+using System.Linq;
+using System.Reflection;
+using Console.Core.Attributes.CommandSystem;
+using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Console;
 
 namespace Console.EnvironmentVariables
 {
-    public class EnvInitializer : AExtensionInitializer
-    {
-        private class EnvExpander : AExpander
-        {
-            public override string Expand(string input)
-            {
-                return EnvironmentVariableManager.Expand(input);
-            }
-        }
-
-        public override void Initialize()
-        {
-            EnvironmentVariableManager.AddProvider(DefaultVariables.Instance);
-            AConsoleManager.ExpanderManager.AddExpander(new EnvExpander());
-        }
-    }
-
-    public abstract class VariableProvider
-    {
-        public abstract string FunctionName { get; }
-        public abstract string GetValue(string parameter);
-    }
-
     public static class EnvironmentVariableManager
     {
 
+        [Command("add-env-api", "Adds all public static methods with valid return and one string parameter.")]
+        public static void AddStringTransformMethods(string funcPrefix, string qualifiedType)
+        {
+            Type t = Type.GetType(qualifiedType);
+
+            if (t == null)
+            {
+                AConsoleManager.Instance.LogWarning("Can not find Type with name: " + qualifiedType);
+                return;
+            }
+            AddStringTransformMethods(funcPrefix, t);
+        }
+
+        public static void AddStringTransformMethods(string funcPrefix, Type type)
+        {
+            MethodInfo[] mi = type.GetMethods(BindingFlags.Static | BindingFlags.Public);
+
+            foreach (MethodInfo methodInfo in mi)
+            {
+                if (ValidType(methodInfo.ReturnType))
+                {
+                    if ((methodInfo.GetParameters().Length == 1 &&
+                              methodInfo.GetParameters()[0].ParameterType == typeof(string)))
+                    {
+                        AddProvider(GetProvider(funcPrefix, methodInfo));
+                    }
+                }
+            }
+        }
+
+        private static bool ValidType(Type t) => t.IsPrimitive || t == typeof(string);
+
+        public static VariableProvider GetProvider(string funcPrefix, MethodInfo info)
+        {
+            return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] { s })?.ToString());
+        }
+        
+
         public static readonly Dictionary<string, VariableProvider> Providers = new Dictionary<string, VariableProvider>();
+        internal static string EnvList
+        {
+            get
+            {
+                string s = "";
+                List<string> keys = Providers.Keys.ToList();
+                for (int i = 0; i < keys.Count; i++)
+                {
+                    string instanceProvider = keys[i];
+                    s += instanceProvider;
+                    if (i != keys.Count - 1) s += "; ";
+                }
+                return s;
+            }
+        }
         public static string Expand(string cmd)
         {
             string ret = cmd;

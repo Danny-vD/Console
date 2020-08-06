@@ -5,7 +5,7 @@ using Console.Core.Attributes.CommandSystem.Helper;
 
 namespace Console.Core.Attributes.PropertySystem.Helper
 {
-    internal class PropertyHelper : ReflectionHelper
+    public class PropertyHelper : ReflectionHelper
     {
         internal PropertyInfo Info { get; }
         internal object Instance { get; }
@@ -15,12 +15,12 @@ namespace Console.Core.Attributes.PropertySystem.Helper
             Instance = instance;
             Info = info;
         }
-        internal override object GetValue()
+        public override object GetValue()
         {
             return Info.GetValue(Instance);
         }
 
-        internal override void SetValue(object value)
+        public override void SetValue(object value)
         {
             object convertedValue = null;
             if (value is Array ar && !typeof(IEnumerable).IsAssignableFrom(Info.PropertyType))

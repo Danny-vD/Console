@@ -58,6 +58,10 @@
       <Project>{9892f8ee-93ed-4551-99f8-abf17bc14a04}</Project>
       <Name>Console.ArrayConverter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Console.ClassQueries\Console.ClassQueries.csproj">
+      <Project>{8e192276-f84a-4e83-9488-6984e9344e82}</Project>
+      <Name>Console.ClassQueries</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Console.Core\Console.Core.csproj">
       <Project>{407430ef-d01a-4ec9-9eb1-e2c837ecd9be}</Project>
       <Name>Console.Core</Name>
@@ -97,6 +101,10 @@
     <ProjectReference Include="..\Console.ScriptSystem\Console.ScriptSystem.csproj">
       <Project>{e5195b8f-09be-4028-81e8-16de0456bdcb}</Project>
       <Name>Console.ScriptSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console.UtilExtension\Console.UtilExtension.csproj">
+      <Project>{ca9e48ca-72df-4738-a421-a9cbf847ad04}</Project>
+      <Name>Console.UtilExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

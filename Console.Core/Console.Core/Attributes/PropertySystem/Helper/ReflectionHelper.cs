@@ -1,8 +1,8 @@
 ﻿namespace Console.Core.Attributes.PropertySystem.Helper
 {
-    internal abstract class ReflectionHelper
+    public abstract class ReflectionHelper
     {
-        internal abstract object GetValue();
-        internal abstract void SetValue(object value);
+        public abstract object GetValue();
+        public abstract void SetValue(object value);
     }
 }

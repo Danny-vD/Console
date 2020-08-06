@@ -9,4 +9,6 @@ call UpdateCLILibrary.bat Console.ScriptSystem
 call UpdateCLILibrary.bat Console.ArrayConverter
 call UpdateCLILibrary.bat Console.ScriptIOCompat
 call UpdateCLILibrary.bat Console.DefaultConverters
+call UpdateCLILibrary.bat Console.ClassQueries
+call UpdateCLILibrary.bat Console.UtilExtension
 pause
