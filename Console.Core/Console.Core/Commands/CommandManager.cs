@@ -110,7 +110,7 @@ namespace Console.Core.Commands
             List<AbstractCommand> tempCommands;
             if (find)
             {
-                tempCommands = commands.Where(command => command.Name.StartsWith(commandName)).ToList();
+                tempCommands = commands.Where(command => command.Name.Contains(commandName)).ToList();
             }
             else
             {

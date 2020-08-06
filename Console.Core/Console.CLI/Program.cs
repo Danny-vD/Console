@@ -27,7 +27,13 @@ namespace Console.CLI
         [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
         private static void Exit()
         {
-            Environment.Exit(0);
+            Exit(0);
+        }
+
+        [Command("exit", "Closes the application with the specified Exit Code.", "Exit", "Quit", "quit")]
+        private static void Exit(int exitCode)
+        {
+            Environment.Exit(exitCode);
         }
 
 
