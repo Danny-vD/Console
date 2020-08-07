@@ -17,7 +17,8 @@ namespace Console.Core.Attributes.PropertySystem.Helper
         }
         public override object GetValue()
         {
-            return Info.GetValue(Instance);
+            return Info.Get(Instance);
+            //return Info.GetMethod.InvokePreserveStack(Instance, null);
         }
 
         public override void SetValue(object value)
@@ -32,7 +33,8 @@ namespace Console.Core.Attributes.PropertySystem.Helper
                 convertedValue = CommandAttributeUtils.ConvertToNonGeneric(value, Info.PropertyType);
             }
 
-            Info.SetValue(Instance, convertedValue);
+            Info.Set(Instance, convertedValue);
+            //Info.SetValue(Instance, convertedValue);
         }
     }
 }

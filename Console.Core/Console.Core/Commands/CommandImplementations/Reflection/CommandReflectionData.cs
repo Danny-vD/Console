@@ -56,12 +56,17 @@ namespace Console.Core.Commands.CommandImplementations.Reflection
                 {
                     s += o + "; ";
                 }
-                return Info.Invoke(Instance, parame);
+                return InvokeDirect(parame);
             }
             else
             {
-                return Info.Invoke(Instance, parameter.Length == 0 ? null : parameter);
+                return InvokeDirect(parameter.Length == 0 ? null : parameter);
             }
+        }
+
+        public object InvokeDirect(object[] parameter)
+        {
+            return Info.InvokePreserveStack(Instance, parameter);
         }
 
         private object[] Cast(object[] parameter)

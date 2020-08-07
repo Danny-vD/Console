@@ -28,6 +28,7 @@ namespace Console.Core.Console
 		private static void ParseArguments(string arguments)
 		{
 			string[] commandArguments = Split(arguments, ' ');
+            if (commandArguments.Length == 0) return;
 			string commandName = commandArguments[0];
 
 			if (commandArguments.Length == 1 &&
