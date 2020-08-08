@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.CommandSystem.Helper;
+using Console.Core.Attributes.PropertySystem;
 using Console.Core.Console;
+using Console.Core.Utils.Reflection;
 
-namespace Console.Core.Attributes.PropertySystem.Helper
+namespace Console.Core.Utils
 {
     public class ConsolePropertyAttributeUtils
     {
 
-        
+
         private static readonly Dictionary<string, ReflectionHelper> Properties = new Dictionary<string, ReflectionHelper>();
         public static List<string> AllPropertyPaths => Properties.Keys.ToList();
 
@@ -130,8 +130,8 @@ namespace Console.Core.Attributes.PropertySystem.Helper
 
         public static void AddPropertiesByType(Type t)
         {
-            AddRefHelpers(GetStaticConsoleFields<ConsolePropertyAttribute>(t));
-            AddRefHelpers(GetStaticConsoleProps<ConsolePropertyAttribute>(t));
+            AddRefHelpers(ReflectionUtils.GetStaticConsoleFields<ConsolePropertyAttribute>(t));
+            AddRefHelpers(ReflectionUtils.GetStaticConsoleProps<ConsolePropertyAttribute>(t));
         }
 
 
@@ -143,8 +143,8 @@ namespace Console.Core.Attributes.PropertySystem.Helper
         public static void AddProperties(object instance)
         {
             if (instance == null) return;
-            AddRefHelpers(GetConsoleFields<ConsolePropertyAttribute>(instance));
-            AddRefHelpers(GetConsoleProps<ConsolePropertyAttribute>(instance));
+            AddRefHelpers( ReflectionUtils.GetConsoleFields<ConsolePropertyAttribute>(instance));
+            AddRefHelpers(ReflectionUtils.GetConsoleProps<ConsolePropertyAttribute>(instance));
         }
 
         private static void AddRefHelpers(Dictionary<ConsolePropertyAttribute, ReflectionHelper> infos)
@@ -155,54 +155,6 @@ namespace Console.Core.Attributes.PropertySystem.Helper
             }
         }
 
-        #region Reflection Helper Functions
-
-        private static Dictionary<T, ReflectionHelper> GetStaticConsoleProps<T>(Type t) where T : Attribute
-        {
-            return GetPropertiesWithAttribute<T>(t, BindingFlags.Static).Select(x =>
-                new KeyValuePair<T, ReflectionHelper>(x.Key,
-                    new StaticPropertyHelper(x.Value))).ToDictionary(x => x.Key, x => x.Value);
-        }
-        private static Dictionary<T, ReflectionHelper> GetStaticConsoleFields<T>(Type t) where T : Attribute
-        {
-            return GetFieldsWithAttribute<T>(t, BindingFlags.Static).Select(x =>
-                new KeyValuePair<T, ReflectionHelper>(x.Key,
-                    new StaticFieldHelper(x.Value))).ToDictionary(x => x.Key, x => x.Value);
-        }
-
-        private static Dictionary<T, ReflectionHelper> GetConsoleProps<T>(object instance) where T : Attribute
-        {
-            return GetPropertiesWithAttribute<T>(instance.GetType(), BindingFlags.Instance).Select(x =>
-                new KeyValuePair<T, ReflectionHelper>(x.Key,
-                    new PropertyHelper(instance, x.Value))).ToDictionary(x => x.Key, x => x.Value);
-        }
-        private static Dictionary<T, ReflectionHelper> GetConsoleFields<T>(object instance) where T : Attribute
-        {
-            return GetFieldsWithAttribute<T>(instance.GetType(), BindingFlags.Instance).Select(x =>
-                new KeyValuePair<T, ReflectionHelper>(x.Key,
-                    new FieldHelper(instance, x.Value))).ToDictionary(x => x.Key, x => x.Value);
-        }
-
-
-        #endregion
-
-        #region Attribute Inspection
-
-        private static Dictionary<T, FieldInfo> GetFieldsWithAttribute<T>(Type t, BindingFlags flag)
-            where T : Attribute
-        {
-            return t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
-                .Where(x => x.GetCustomAttributes<T>().Count() != 0)
-                .ToDictionary(x => x.GetCustomAttribute<T>(), x => x);
-        }
-
-        private static Dictionary<T, PropertyInfo> GetPropertiesWithAttribute<T>(Type t, BindingFlags flag) where T : Attribute
-        {
-            return t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
-                .Where(x => x.GetCustomAttributes<T>().Count() != 0)
-                .ToDictionary(x => x.GetCustomAttribute<T>(), x => x);
-        }
-
-        #endregion
+       
     }
 }

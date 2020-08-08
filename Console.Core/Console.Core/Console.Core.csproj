@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Commands\CommandImplementations\Commands.cs">
+    <None Include="Commands\Commands.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Commands.tt</DependentUpon>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Commands\CommandImplementations\Commands.tt">
+    <None Update="Commands\Commands.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Commands.cs</LastGenOutput>
     </None>
@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Commands\CommandImplementations\Commands.cs">
+    <Compile Update="Commands\Commands.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Commands.tt</DependentUpon>

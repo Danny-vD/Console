@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Reflection;
-using Console.Core.Attributes.CommandSystem.Helper;
 
-namespace Console.Core.Attributes.PropertySystem.Helper
+namespace Console.Core.Utils.Reflection.Properties
 {
     public class PropertyHelper : ReflectionHelper
     {

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Console.Core.Attributes.PropertySystem.Helper
+namespace Console.Core.Utils.Reflection.Fields
 {
     public class StaticFieldHelper : FieldHelper
     {

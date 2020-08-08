@@ -1,7 +1,7 @@
 ﻿using Console.Core;
-using Console.Core.Attributes.CommandSystem.Helper;
-using Console.Core.Commands.ExpanderSystem;
 using Console.Core.Console;
+using Console.Core.ExpanderSystem;
+using Console.Core.Utils;
 
 namespace Console.EnvironmentVariables
 {

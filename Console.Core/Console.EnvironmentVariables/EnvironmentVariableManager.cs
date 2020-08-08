@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Console;
 
 namespace Console.EnvironmentVariables

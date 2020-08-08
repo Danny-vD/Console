@@ -1,4 +1,4 @@
-﻿namespace Console.Core.Attributes.PropertySystem.Helper
+﻿namespace Console.Core.Utils.Reflection
 {
     public abstract class ReflectionHelper
     {

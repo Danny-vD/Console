@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.CommandSystem.Helper;
 using Console.Core.Attributes.PropertySystem;
-using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Console;
 
-namespace Console.Core
+namespace Console.Core.Utils
 {
     public class TestClass
     {

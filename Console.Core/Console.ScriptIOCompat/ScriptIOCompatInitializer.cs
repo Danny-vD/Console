@@ -1,8 +1,8 @@
 ﻿using System;
 using Console.Core;
 using Console.Core.Attributes.PropertySystem;
-using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Console;
+using Console.Core.Utils;
 
 namespace Console.ScriptIOCompat
 {

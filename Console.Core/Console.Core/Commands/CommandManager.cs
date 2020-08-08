@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Console.Core.Commands.CommandImplementations;
-using Console.Core.Commands.CommandImplementations.Reflection;
 using Console.Core.Console;
+using Console.Core.Utils.Reflection.Methods;
 
 namespace Console.Core.Commands
 {

@@ -1,8 +1,7 @@
 ﻿using Console.Core;
-using Console.Core.Attributes.CommandSystem.Helper;
-using Console.Core.Attributes.PropertySystem.Helper;
 using Console.Core.Console;
 using Console.Core.ObjectSelection;
+using Console.Core.Utils;
 
 namespace Console.CLI
 {

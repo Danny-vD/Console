@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.PropertySystem.Helper;
+using Console.Core.Utils;
 
 namespace Console.PersistentProperties
 {

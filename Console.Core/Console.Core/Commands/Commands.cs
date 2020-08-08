@@ -1,9 +1,6 @@
-﻿                                                                                    
+﻿using System;
 
-						      
-using System;
-	
-namespace Console.Core.Commands.CommandImplementations
+namespace Console.Core.Commands
 {
 	public class Command : AbstractCommand
 	{

@@ -2,11 +2,10 @@
 using System.Linq;
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.CommandSystem.Helper;
-using Console.Core.Commands.ConverterSystem;
 using Console.Core.Console;
+using Console.Core.ConverterSystem;
 
-namespace Console.Core.Commands.CommandImplementations.Reflection
+namespace Console.Core.Utils.Reflection.Methods
 {
     /// <summary>
     /// Inner class that contains the reflected data

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Console.Core.Commands.ExpanderSystem
+namespace Console.Core.ExpanderSystem
 {
     public class ExpanderManager
     {

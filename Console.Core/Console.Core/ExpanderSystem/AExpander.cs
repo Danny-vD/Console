@@ -1,4 +1,4 @@
-﻿namespace Console.Core.Commands.ExpanderSystem
+﻿namespace Console.Core.ExpanderSystem
 {
     public abstract class AExpander
     {

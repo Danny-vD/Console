@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Console.Core;
-using Console.Core.Attributes.PropertySystem.Helper;
+using Console.Core.Utils;
 using Console.EnvironmentVariables;
 
 namespace Console.PropEnvCompat

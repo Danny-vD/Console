@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Console.Core.Attributes.CommandSystem;
 using Console.Core.Commands;
-using Console.Core.Commands.CommandImplementations.Reflection;
-using Console.Core.Commands.ConverterSystem;
+using Console.Core.ConverterSystem;
+using Console.Core.Utils.Reflection.Methods;
 
-namespace Console.Core.Attributes.CommandSystem.Helper
+namespace Console.Core.Utils
 {
     public static class CommandAttributeUtils
     {
