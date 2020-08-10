@@ -4,13 +4,9 @@ echo "Loading.."
 
 echo "Console Initialized"
 
-echo Extension Versions:
+echo "Versions:"
 gp version.
 
 echo "View Environment Default Variables: <dollar>(envs)"
 echo "View Environment Variables: <dollar>(envs-all)"
 echo "View Properties: lp or echo <dollar>props(envs)"
-
-echo ""
-echo "Running Array Tests..."
-run configs/arraytest.txt

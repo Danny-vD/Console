@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using Console.Core;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.CommandSystem.Helper;
-using Console.Core.Attributes.PropertySystem;
-using Console.Core.Attributes.PropertySystem.Helper;
-using Console.Core.Commands.ConverterSystem;
+using Console.Core.Console;
+using Console.Core.ConverterSystem;
+using Console.Core.Utils;
 using Console.ObjectSelection;
 using UnityEngine;
 using UnityEngine.UI;
 using VDUnityFramework.Standard.Singleton;
+using PropertyAttribute = Console.Core.PropertySystem.PropertyAttribute;
 
 namespace Console.Console
 {
@@ -35,6 +35,8 @@ namespace Console.Console
 
         #region Properties
 
+        public AConsoleManager.ConsoleInitOptions InitOptions = AConsoleManager.ConsoleInitOptions.All;
+
         [Header("Command properties"), Space(20), Tooltip("Symbol(s) that must precede all commands")]
         public string prefix = "";
 
@@ -45,34 +47,34 @@ namespace Console.Console
         public List<KeyCode> KeysToPress = new List<KeyCode>() { KeyCode.Home };
 
         [Space, SerializeField, Tooltip("The time (in seconds) before you can toggle the console again")]
-        [ConsoleProperty("unity.ui.cooldown")]
+        [Property("unity.ui.cooldown")]
         private float toggleCooldown = 0.3f;
 
-        [ConsoleProperty("test.object")]
+        [Property("test.object")]
         public GameObject testObject;
-        [ConsoleProperty("test.list")]
+        [Property("test.list")]
         public List<GameObject> testList;
-        [ConsoleProperty("test.array")]
+        [Property("test.array")]
         public GameObject[] testArray;
 
         [Space, SerializeField]
-        [ConsoleProperty("unity.ui.normalcolor")]
+        [Property("unity.ui.normalcolor")]
         private string normalColorHex = "000000"; // Black
 
         [SerializeField]
-        [ConsoleProperty("unity.ui.warningcolor")]
+        [Property("unity.ui.warningcolor")]
         private string warningColorHex = "D4D422"; // Yellow
 
         [SerializeField]
-        [ConsoleProperty("unity.ui.errorcolor")]
+        [Property("unity.ui.errorcolor")]
         private string errorColorHex = "882222"; // Red
 
         [SerializeField]
-        [ConsoleProperty("unity.ui.commandcolor")]
+        [Property("unity.ui.commandcolor")]
         private string commandColorHex = "FFFFFF"; // White
 
         [SerializeField]
-        [ConsoleProperty("unity.ui.uselogseperator")]
+        [Property("unity.ui.uselogseperator")]
         private bool useLogSeperator = true;
         #endregion
 
@@ -112,17 +114,17 @@ namespace Console.Console
             ConsoleCoreConfig.StringChar = stringChar;
             ConsoleCoreConfig.ConsolePrefix = prefix;
 
-            Manager = new UnityConsoleManager(this);
+            Manager = new UnityConsoleManager(InitOptions, this);
 
             CustomConvertManager.AddConverter(new GameObjectComponentConverter());
 
             //Console Setup
             CommandAttributeUtils.AddCommands(this);
-            ConsolePropertyAttributeUtils.AddProperties(this);
+            PropertyAttributeUtils.AddProperties(this);
 
             //Initializing Tests
             TestClass.InitializeTests();
-            
+
 
             DontDestroyOnLoad(true);
 

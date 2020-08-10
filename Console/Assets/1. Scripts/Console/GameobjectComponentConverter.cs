@@ -1,5 +1,5 @@
 ﻿using System;
-using Console.Core.Commands.ConverterSystem;
+using Console.Core.ConverterSystem;
 using UnityEngine;
 
 public class GameObjectComponentConverter : AConverter

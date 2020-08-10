@@ -6,8 +6,8 @@ namespace Console.Console
     public class UnityConsoleManager : AConsoleManager
     {
         private ConsoleManagerComponent managerComponent;
-        
-        public UnityConsoleManager(ConsoleManagerComponent managerComponent)
+
+        public UnityConsoleManager(ConsoleInitOptions options, ConsoleManagerComponent managerComponent) : base(options)
         {
             this.managerComponent = managerComponent;
         }
