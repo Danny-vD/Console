@@ -4,10 +4,6 @@ using System.Linq;
 
 namespace Console.Core.ConverterSystem
 {
-
-
-
-
     public static class CustomConvertManager
     {
         private static List<AConverter> Converters = new List<AConverter>();
@@ -28,6 +24,18 @@ namespace Console.Core.ConverterSystem
                 return conv.Convert(parameter, target);
             }
             return parameter;
+        }
+
+        public static TNewType ConvertTo<TNewType>(this object @object)
+        {
+            try
+            {
+                return (TNewType)System.Convert.ChangeType(@object, typeof(TNewType));
+            }
+            catch
+            {
+                return (TNewType)@object;
+            }
         }
     }
 }

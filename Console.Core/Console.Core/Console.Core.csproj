@@ -13,12 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="VDFramework.Standard">
-      <HintPath>..\..\Console\Assets\Еxternal Code\VDFramework.Standard.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Commands\Commands.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Commands.cs</LastGenOutput>

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Console.Core.Console;
 using Console.Core.ConverterSystem;
-using VDFramework.Standard.SharedClasses.Extensions;
 
 namespace Console.Core.Commands
 {
