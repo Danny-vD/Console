@@ -55,57 +55,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Console.ArrayConverter\Console.ArrayConverter.csproj">
-      <Project>{9892f8ee-93ed-4551-99f8-abf17bc14a04}</Project>
-      <Name>Console.ArrayConverter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.ClassQueries\Console.ClassQueries.csproj">
-      <Project>{8e192276-f84a-4e83-9488-6984e9344e82}</Project>
-      <Name>Console.ClassQueries</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Console.Core\Console.Core.csproj">
       <Project>{407430ef-d01a-4ec9-9eb1-e2c837ecd9be}</Project>
       <Name>Console.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.DefaultConverters\Console.DefaultConverters.csproj">
-      <Project>{d4b0d2d5-6081-4e00-8853-63505b4734ad}</Project>
-      <Name>Console.DefaultConverters</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.EnvironmentVariables\Console.EnvironmentVariables.csproj">
-      <Project>{12045b0e-3c0e-4d2d-8b2f-5f5c39a289c1}</Project>
-      <Name>Console.EnvironmentVariables</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.IO\Console.IO.csproj">
-      <Project>{aa91dc74-23fa-4d41-a747-2a9a3c65c22d}</Project>
-      <Name>Console.IO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.Networking\Console.Networking.csproj">
-      <Project>{3a3d6188-ce8d-4659-b2a6-29289a142761}</Project>
-      <Name>Console.Networking</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.PersistentProperties\Console.PersistentProperties.csproj">
-      <Project>{e4e1ec58-86ac-428a-be42-12ed19405c9f}</Project>
-      <Name>Console.PersistentProperties</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.PropEnvCompat\Console.PropEnvCompat.csproj">
-      <Project>{b7af4f3a-d9dc-4112-9fa6-31ddb4f6cfa2}</Project>
-      <Name>Console.PropEnvCompat</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.PropIOCompat\Console.PropIOCompat.csproj">
-      <Project>{d5162652-d902-4a45-beda-ae5d2fd38b44}</Project>
-      <Name>Console.PropIOCompat</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.ScriptIOCompat\Console.ScriptIOCompat.csproj">
-      <Project>{ba266a81-5ca3-4d47-8356-aab981205a97}</Project>
-      <Name>Console.ScriptIOCompat</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.ScriptSystem\Console.ScriptSystem.csproj">
-      <Project>{e5195b8f-09be-4028-81e8-16de0456bdcb}</Project>
-      <Name>Console.ScriptSystem</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Console.UtilExtension\Console.UtilExtension.csproj">
-      <Project>{ca9e48ca-72df-4738-a421-a9cbf847ad04}</Project>
-      <Name>Console.UtilExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

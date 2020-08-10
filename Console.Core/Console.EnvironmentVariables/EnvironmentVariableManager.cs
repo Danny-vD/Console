@@ -70,9 +70,12 @@ namespace Console.EnvironmentVariables
             {
 
                 int bracketOpen = ret.IndexOf('(', idx);
+                if (bracketOpen == -1) return cmd;
                 int funcLen = bracketOpen - idx - 1;
+                if (funcLen < 0) return cmd;
                 string funcName = ret.Substring(idx + 1, funcLen);
                 int bracketClose = FindClosing(ret);
+                if (bracketClose == -1) return cmd;
                 string content = ret.Substring(bracketOpen + 1, bracketClose - bracketOpen - 1);
                 string expandedContent = Expand(content);
                 string exp;

@@ -2,23 +2,10 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
-using Console.ArrayConverter;
-using Console.ClassQueries;
 using Console.Core;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Console;
 using Console.Core.PropertySystem;
-using Console.DefaultConverters;
-using Console.EnvironmentVariables;
-using Console.IO;
-using Console.Networking;
-using Console.PersistentProperties;
-using Console.PropEnvCompat;
-using Console.PropIOCompat;
-using Console.ScriptIOCompat;
-using Console.ScriptSystem;
-using Console.UtilExtension;
-
 namespace Console.CLI
 {
     class Program
@@ -46,22 +33,7 @@ namespace Console.CLI
 
         static void Main(string[] args)
         {
-            List<AExtensionInitializer> ii = new List<AExtensionInitializer>
-            {
-                new ScriptIOCompatInitializer(),
-                new EnvInitializer(),
-                new NetworkedInitializer(),
-                new PropCompatInitializer(),
-                new IOInitializer(),
-                new ScriptSystemInitializer(),
-                new IOCompatInitializer(),
-                new PersistentPropertiesInitializer(),
-                new ArrayConverterInitializer(),
-                new DefaultConverterInitializer(),
-                new ClassQueryInitializer(),
-                new UtilExtensionInitializer()
-            };
-            CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
+            CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath, AConsoleManager.ConsoleInitOptions.All);
 
             //Running the OnTick Loop
             Thread t = new Thread(Loop);

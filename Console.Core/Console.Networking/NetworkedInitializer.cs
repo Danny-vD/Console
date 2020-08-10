@@ -14,6 +14,8 @@ namespace Console.Networking
         public override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<NetworkedInitializer>();
+            PropertyAttributeUtils.AddProperties<HostConsoleCommand>();
+            PropertyAttributeUtils.AddProperties<ClientConsoleCommand>();
             Instance = new NetworkedConsoleProcess();
         }
     }
