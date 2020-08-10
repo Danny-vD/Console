@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Reflection;
-using Console.Core.Console;
 
 namespace Console.EnvironmentVariables
 {

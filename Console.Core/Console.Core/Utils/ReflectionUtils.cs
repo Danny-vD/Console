@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
+using Console.Core.Console;
 using Console.Core.Utils.Reflection;
 using Console.Core.Utils.Reflection.Fields;
 using Console.Core.Utils.Reflection.Properties;
@@ -21,7 +22,15 @@ namespace Console.Core.Utils
             {
                 Exception actual = e is TargetInvocationException ? e.InnerException : e;
                 if (actual == null) throw new Exception("The exception is null and can not be thrown.");
-                ExceptionDispatchInfo.Capture(actual).Throw(); //Throw the Exception but do not change the stacktrace
+                try
+                {
+                    ExceptionDispatchInfo.Capture(actual).Throw(); //Throw the Exception but do not change the stacktrace
+                }
+                catch (Exception exception)
+                {
+                    AConsoleManager.Instance.LogWarning(exception.Message);
+                    //throw actual;
+                }
                 return null;
             }
         }
@@ -30,7 +39,7 @@ namespace Console.Core.Utils
             InvokePreserveStack(info.GetMethod, instance, null);
 
         public static void Set(this PropertyInfo info, object instance, object value) =>
-            InvokePreserveStack(info.SetMethod, instance, new[] {value});
+            InvokePreserveStack(info.SetMethod, instance, new[] { value });
 
 
         #region Reflection Helper Functions
@@ -70,18 +79,32 @@ namespace Console.Core.Utils
         public static Dictionary<T, FieldInfo> GetFieldsWithAttribute<T>(this Type t, BindingFlags flag)
             where T : Attribute
         {
-            return t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
-                .Where(x => x.GetCustomAttributes<T>().Count() != 0)
-                .ToDictionary(x => x.GetCustomAttribute<T>(), x => x);
+            return GetAttributes<T, FieldInfo>( t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
+                .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
         }
 
         public static Dictionary<T, PropertyInfo> GetPropertiesWithAttribute<T>(this Type t, BindingFlags flag) where T : Attribute
         {
-            return t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
-                .Where(x => x.GetCustomAttributes<T>().Count() != 0)
-                .ToDictionary(x => x.GetCustomAttribute<T>(), x => x);
+            return GetAttributes<T, PropertyInfo>(t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
+                .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
         }
+        
 
+        private static Dictionary<K, V> GetAttributes<K, V>(List<MemberInfo> info)
+            where K : Attribute
+            where V : MemberInfo
+        {
+            Dictionary<K, V> ret = new Dictionary<K, V>();
+            foreach (V propertyInfo in info)
+            {
+                K[] a = propertyInfo.GetCustomAttributes<K>().ToArray();
+                foreach (K attribute in a)
+                {
+                    ret.Add(attribute, propertyInfo);
+                }
+            }
+            return ret;
+        }
 
 
         #endregion

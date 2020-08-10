@@ -5,17 +5,16 @@ using Console.Core.PropertySystem;
 using Console.Core.Utils;
 using Console.EnvironmentVariables;
 
-namespace Console.ClassQueries
+namespace Console.PropEnvCompat
 {
-
-    public class ClassQueryInitializer : AExtensionInitializer
+    public class PropCompatInitializer : AExtensionInitializer
     {
-        [Property("version.classqueries")]
+        [Property("version.propenvcompat")]
         private static Version EnvVersion => Assembly.GetExecutingAssembly().GetName().Version;
         public override void Initialize()
         {
-            PropertyAttributeUtils.AddProperties<ClassQueryInitializer>();
-            EnvironmentVariableManager.AddProvider(new ClassQueryProvider());
+            PropertyAttributeUtils.AddProperties<PropCompatInitializer>();
+            EnvironmentVariableManager.AddProvider(new PropertyVariableProvider());
         }
     }
 }

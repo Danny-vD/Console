@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Console;
+using Console.Core.PropertySystem;
 
 namespace Console.Networking
 {
@@ -17,6 +18,9 @@ namespace Console.Networking
         private static Thread LoopThread;
         private static readonly List<TcpClient> Clients = new List<TcpClient>();
         public static bool IsRunning { get; private set; }
+
+        [Property("networking.host.allowconnections")]
+        private static bool AllowConnections = true;
 
         private void OnLog(string log)
         {
@@ -75,7 +79,17 @@ namespace Console.Networking
             {
                 if (Listener.Pending())
                 {
-                    Clients.Add(Listener.AcceptTcpClient());
+                    TcpClient cl = Listener.AcceptTcpClient();
+                    AConsoleManager.Instance.Log($"Client {cl} connected.");
+                    if (AllowConnections)
+                    {
+                        Clients.Add(cl);
+                    }
+                    else
+                    {
+                        AConsoleManager.Instance.LogWarning($"Client {cl} closed. (Connection not Allowed)");
+                        cl.Close();
+                    }
                 }
 
                 if (Clients.Count == 0) continue;

@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.PropertySystem;
 using Console.Core.Console;
+using Console.Core.PropertySystem;
 
 namespace Console.Core.Utils
 {
     public class TestClass
     {
-        [ConsoleProperty("test.object")]
+        [Property("core.test.object")]
         public object TestObject;
-        [ConsoleProperty("test.list")]
+        [Property("core.test.list")]
         public List<object> TestList;
-        [ConsoleProperty("test.array")]
+        [Property("core.test.array")]
         public object[] TestArray;
 
         public static void InitializeTests()
         {
             TestClass tc = new TestClass();
             CommandAttributeUtils.AddCommands(tc);
-            ConsolePropertyAttributeUtils.AddProperties<TestClass>();
+            PropertyAttributeUtils.AddProperties<TestClass>();
         }
 
         [Command("second", "")]

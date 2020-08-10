@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Reflection;
 using Console.Core;
-using Console.Core.Attributes.PropertySystem;
 using Console.Core.Console;
+using Console.Core.PropertySystem;
 using Console.Core.Utils;
 
 namespace Console.ScriptIOCompat
 {
     public class ScriptIOCompatInitializer : AExtensionInitializer
     {
+        [Property("version.scriptiocompat")]
+        private static Version EnvVersion => Assembly.GetExecutingAssembly().GetName().Version;
 
-        [ConsoleProperty("console.scripts.autostart")]
+        [Property("scriptiocompat.scripts.autostart")]
         public static string AutoStartFile;
         public static void AutoStart()
         {
@@ -25,7 +28,7 @@ namespace Console.ScriptIOCompat
 
         public override void Initialize()
         {
-            ConsolePropertyAttributeUtils.AddProperties<ScriptIOCompatInitializer>();
+            PropertyAttributeUtils.AddProperties<ScriptIOCompatInitializer>();
             AConsoleManager.OnInitializationFinished += AutoStart;
         }
     }

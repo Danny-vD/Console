@@ -6,6 +6,7 @@ namespace Console.Core.Utils.Reflection.Fields
 {
     public class FieldHelper : ReflectionHelper
     {
+        public override bool CanWrite => !Info.IsInitOnly;
         internal FieldInfo Info { get; }
         internal object Instance { get; }
 

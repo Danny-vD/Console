@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Utils;
+using Console.Core.PropertySystem;
 
 namespace Console.PersistentProperties
 {
@@ -14,7 +14,7 @@ namespace Console.PersistentProperties
             if (File.Exists(file))
             {
                 Dictionary<string, string> v = PropertyParser.LoadProperties(File.ReadAllText(file));
-                v.ToList().ForEach(x => ConsolePropertyAttributeUtils.TrySetValue(x.Key, x.Value));
+                v.ToList().ForEach(x => PropertyManager.TrySetValue(x.Key, x.Value));
             }
         }
 
@@ -26,10 +26,10 @@ namespace Console.PersistentProperties
         public static void Save(string file, string searchTerm)
         {
             List<string> ret = new List<string>();
-            List<string> p = ConsolePropertyAttributeUtils.AllPropertyPaths.Where(x => x.StartsWith(searchTerm)).ToList();
+            List<string> p = PropertyManager.AllPropertyPaths.Where(x => x.StartsWith(searchTerm)).ToList();
             for (int i = 0; i < p.Count; i++)
             {
-                if (ConsolePropertyAttributeUtils.TryGetValue(p[i], out object obj))
+                if (PropertyManager.TryGetValue(p[i], out object obj))
                 {
                     ret.Add($"{p[i]}={obj}");
                 }

@@ -1,31 +1,16 @@
-set-property unity.ui.uselogseperator false
 echo "User: $(user)"
 echo "Machine: $(machine)"
 echo "Loading.."
-load-properties configs/console.input.cfg
-load-properties configs/unity.ui.cfg
 
-echo "Loading Environment Variables:"
+echo "Console Initialized"
 
-echo "Loading Properties from $class(Environment)"
-add-properties-any "$class(Environment)" Environment.
-
-echo "Loading Properties from $class(System.IO.Path)"
-add-properties-any "$class(System.IO.Path)" Path.
-
-echo "Loading Properties from $class(System.AppDomain)"
-add-properties-any "$class(System.AppDomain)" Path.
-
-echo "Loaded Properties."
-echo "Loading Env Command APIs"
-add-env-api path. "$class(System.IO.Path)"
-add-env-api environment. "$class(Environment)"
-echo "Env Command APIs Loaded."
-
-clear
+echo Extension Versions:
+gp version.
 
 echo "View Environment Default Variables: <dollar>(envs)"
 echo "View Environment Variables: <dollar>(envs-all)"
 echo "View Properties: lp or echo <dollar>props(envs)"
-set-property unity.ui.uselogseperator true
-echo "Console Initialized"
+
+echo ""
+echo "Running Array Tests..."
+run configs/arraytest.txt

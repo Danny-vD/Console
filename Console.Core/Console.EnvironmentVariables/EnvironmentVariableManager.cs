@@ -9,6 +9,22 @@ namespace Console.EnvironmentVariables
 {
     public static class EnvironmentVariableManager
     {
+        public static readonly Dictionary<string, VariableProvider> Providers = new Dictionary<string, VariableProvider>();
+        internal static string EnvList
+        {
+            get
+            {
+                string s = "";
+                List<string> keys = Providers.Keys.ToList();
+                for (int i = 0; i < keys.Count; i++)
+                {
+                    string instanceProvider = keys[i];
+                    s += instanceProvider;
+                    if (i != keys.Count - 1) s += "; ";
+                }
+                return s;
+            }
+        }
 
         [Command("add-env-api", "Adds all public static methods with valid return and one string parameter.")]
         public static void AddStringTransformMethods(string funcPrefix, string qualifiedType)
@@ -45,24 +61,6 @@ namespace Console.EnvironmentVariables
         public static VariableProvider GetProvider(string funcPrefix, MethodInfo info)
         {
             return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] { s })?.ToString());
-        }
-        
-
-        public static readonly Dictionary<string, VariableProvider> Providers = new Dictionary<string, VariableProvider>();
-        internal static string EnvList
-        {
-            get
-            {
-                string s = "";
-                List<string> keys = Providers.Keys.ToList();
-                for (int i = 0; i < keys.Count; i++)
-                {
-                    string instanceProvider = keys[i];
-                    s += instanceProvider;
-                    if (i != keys.Count - 1) s += "; ";
-                }
-                return s;
-            }
         }
         public static string Expand(string cmd)
         {

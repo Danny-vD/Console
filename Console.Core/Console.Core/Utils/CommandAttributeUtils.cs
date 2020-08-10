@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Commands;
+using Console.Core.Console;
 using Console.Core.ConverterSystem;
 using Console.Core.Utils.Reflection.Methods;
 
@@ -100,44 +101,20 @@ namespace Console.Core.Utils
             if (target.IsInstanceOfType(parameter))
                 return parameter;
 
+            try
+            {
+                if (CustomConvertManager.CanConvert(parameter, target))
+                    return CustomConvertManager.Convert(parameter, target);
 
-            if (CustomConvertManager.CanConvert(parameter, target))
-                return CustomConvertManager.Convert(parameter, target);
-
-            //DONE: Expose abstract Class AConverter
-            //if (typeof(Component).IsAssignableFrom(target))
-            //{
-            //    GameObject gameobject = (GameObject)parameter;
-
-            //    if (gameobject.TryGetComponent(target, out Component component))
-            //    {
-            //        ConsoleManager.LogError($"{parameter} does not have component {target.Name}!");
-            //    }
-
-            //    return component;
-            //}
-
-            //if (parameter is Array paramArr)
-            //{
-            //    if (target.IsArray)
-            //    {
-            //        Array result = (Array)Activator.CreateInstance(target, paramArr.Length);
-            //        //Array result = Array.CreateInstance(target.MakeArrayType(), paramArr.Length);
-            //        paramArr.CopyTo(result, 0);
-            //        return result;
-            //    }
-            //    if (typeof(IList).IsAssignableFrom(target) && target.IsGenericType)
-            //    {
-            //        //return lst.ConvertAll(input => FUCK);
-
-            //        MethodInfo info = typeof(CommandAttributeUtils)
-            //            .GetMethod("GetAsList", BindingFlags.NonPublic|BindingFlags.Static) //Get method info
-            //            ?.MakeGenericMethod(target.GetGenericArguments().First()); //Create Generic Method Call with the generic type of the target
-            //        return info.Invoke(null, new object[] {paramArr}); //Invoke the GetAsList<T> method.
-            //    }
-            //}
-
-            return Convert.ChangeType(parameter, target);
+                return Convert.ChangeType(parameter, target);
+            }
+            catch (Exception e)
+            {
+                AConsoleManager.Instance.LogError($"Can not cast value: \"{parameter}\"  to type: {target.Name}");
+                if (target.IsValueType)
+                    return null;//Return Default value if the target is int/float/...
+                throw e;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Console.Core.Utils.Reflection.Properties
 {
     public class PropertyHelper : ReflectionHelper
     {
+        public override bool CanWrite => Info.CanWrite;
         internal PropertyInfo Info { get; }
         internal object Instance { get; }
 

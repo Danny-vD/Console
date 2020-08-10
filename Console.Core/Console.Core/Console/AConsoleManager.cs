@@ -1,4 +1,5 @@
 ﻿using System;
+using Console.Core.Commands.BuiltIn;
 using Console.Core.ExpanderSystem;
 using Console.Core.ObjectSelection;
 using Console.Core.Utils;
@@ -7,6 +8,17 @@ namespace Console.Core.Console
 {
     public abstract class AConsoleManager
     {
+        [Flags]
+        public enum ConsoleInitOptions
+        {
+            All = -1,
+            None = 0,
+            DefaultCommands = 1,
+            PropertyCommands = 2,
+            ExtensionCommands = 4,
+            SelectionCommands = 8,
+        }
+
         protected readonly CommandHandler Handler;
 
         /// <summary>
@@ -38,12 +50,19 @@ namespace Console.Core.Console
 
         public abstract AObjectSelector ObjectSelector { get; }
 
-        protected AConsoleManager()
+        protected AConsoleManager(ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
         {
             Instance = this;
             Handler = new CommandHandler();
-            ConsoleCoreConfig.AddDefaultCommands();
-            ConsolePropertyAttributeUtils.InitializePropertySystem();
+            PropertyAttributeUtils.AddProperties<ConsoleCoreConfig>();
+            if ((options & ConsoleInitOptions.DefaultCommands) != 0)
+                DefaultCommands.AddDefaultCommands();
+            if ((options & ConsoleInitOptions.ExtensionCommands) != 0)
+                ExtensionCommands.AddExtensionsCommands();
+            if ((options & ConsoleInitOptions.PropertyCommands) != 0)
+                PropertyCommands.AddPropertyCommands();
+            if ((options & ConsoleInitOptions.SelectionCommands) != 0)
+                ObjectSelectionCommands.AddSelectionCommands();
         }
 
         public abstract void Clear();

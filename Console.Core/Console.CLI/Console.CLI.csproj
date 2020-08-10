@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CLIConsoleManager.cs" />
     <Compile Include="CLIObjSelector.cs" />
+    <Compile Include="CLIObjectSelectionCommands.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

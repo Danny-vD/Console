@@ -2,6 +2,7 @@
 {
     public class FakeReflectionHelper : ReflectionHelper
     {
+        public override bool CanWrite => true;
         private object Value;
         public FakeReflectionHelper(object value)
         {

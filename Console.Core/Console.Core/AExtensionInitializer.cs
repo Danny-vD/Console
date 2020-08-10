@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Console.Core.Commands.BuiltIn;
 
 namespace Console.Core
 {
@@ -19,7 +20,7 @@ namespace Console.Core
             Directory.CreateDirectory(folder);
             string[] exts = Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories);
 
-            ConsoleCoreConfig.LoadExtensions(exts);
+            ExtensionCommands.LoadExtensions(exts);
         }
     }
 }

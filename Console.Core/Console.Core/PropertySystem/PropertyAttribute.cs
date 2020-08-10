@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace Console.Core.Attributes.PropertySystem
+namespace Console.Core.PropertySystem
 {
     [AttributeUsage(AttributeTargets.Property|AttributeTargets.Field, AllowMultiple = true)]
-    public class ConsolePropertyAttribute : Attribute
+    public class PropertyAttribute : Attribute
     {
         public readonly string PropertyPath;
 
-        public ConsolePropertyAttribute(string propertyPath)
+        public PropertyAttribute(string propertyPath)
         {
             PropertyPath = propertyPath;
         }

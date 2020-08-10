@@ -1,4 +1,5 @@
 ﻿using Console.Core;
+using Console.Core.Commands.BuiltIn;
 using Console.Core.Console;
 using Console.Core.ObjectSelection;
 using Console.Core.Utils;
@@ -9,18 +10,21 @@ namespace Console.CLI
     {
         public override AObjectSelector ObjectSelector { get; }
 
-        public CLIConsoleManager(AExtensionInitializer[] extensions) : this(false)
+        public CLIConsoleManager(AExtensionInitializer[] extensions, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
         {
-            ConsoleCoreConfig.LoadExtensions(extensions);
+            ExtensionCommands.LoadExtensions(extensions);
             InvokeOnFinishInitialize();
         }
 
-        public CLIConsoleManager(bool runInit = true)
+        public CLIConsoleManager(ConsoleInitOptions options, bool runInit = true) : base(options)
         {
-
-            ObjectSelector = new CLIObjSelector();
+            CLIObjSelector s = new CLIObjSelector();
+            ObjectSelector = s;
             //CLI Specific Setup
-            ConsolePropertyAttributeUtils.AddProperties<Program>();
+            if ((options & ConsoleInitOptions.SelectionCommands) != 0)
+                CLIObjectSelectionCommands.AddSelectionCommands();
+
+            PropertyAttributeUtils.AddProperties<Program>();
             TestClass.InitializeTests();
             CommandAttributeUtils.AddCommands<Program>();
 
@@ -28,7 +32,7 @@ namespace Console.CLI
                 InvokeOnFinishInitialize();
 
         }
-        public CLIConsoleManager(string extensionPath) : this(false)
+        public CLIConsoleManager(string extensionPath, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
         {
             AExtensionInitializer.LoadExtensions(extensionPath);
             InvokeOnFinishInitialize();

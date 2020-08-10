@@ -1,20 +1,9 @@
-﻿
-using System.Collections.Generic;
-using System.Linq;
-using Console.Core;
-using Console.Core.Utils;
+﻿using System.Collections.Generic;
+using Console.Core.PropertySystem;
 using Console.EnvironmentVariables;
 
 namespace Console.PropEnvCompat
 {
-    public class PropCompatInitializer : AExtensionInitializer
-    {
-        public override void Initialize()
-        {
-            EnvironmentVariableManager.AddProvider(new PropertyVariableProvider());
-        }
-    }
-
     public class PropertyVariableProvider : VariableContainer
     {
         protected override string EnvList
@@ -22,7 +11,7 @@ namespace Console.PropEnvCompat
             get
             {
                 string s = base.EnvList+"; ";
-                List<string> keys = ConsolePropertyAttributeUtils.AllPropertyPaths;
+                List<string> keys = PropertyManager.AllPropertyPaths;
                 for (int i = 0; i < keys.Count; i++)
                 {
                     string instanceProvider = keys[i];
@@ -41,7 +30,7 @@ namespace Console.PropEnvCompat
             {
                 return Providers[parameter].GetValue(parameter);
             }
-            if (ConsolePropertyAttributeUtils.TryGetValue(parameter, out object ret))
+            if (PropertyManager.TryGetValue(parameter, out object ret))
             {
                 return ret.ToString();
             }

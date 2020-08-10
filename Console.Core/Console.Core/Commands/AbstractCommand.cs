@@ -125,20 +125,20 @@ namespace Console.Core.Commands
             StringBuilder stringBuilder = new StringBuilder(ConsoleCoreConfig.ConsolePrefix);
 
             stringBuilder.Append(GetFullName());
-            stringBuilder.Append(": ");
-            stringBuilder.AppendLine(HelpMessage);
+            stringBuilder.Append(": \n");
+            stringBuilder.AppendLine("\t" + HelpMessage);
 
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Aliases: ");
 
             if (Aliases.Count == 0)
             {
-                stringBuilder.AppendLine("None");
+                stringBuilder.AppendLine("\tNone");
             }
 
             foreach (string alias in Aliases)
             {
-                stringBuilder.AppendLine(alias);
+                stringBuilder.AppendLine("\t" + alias);
             }
 
             return stringBuilder.ToString();

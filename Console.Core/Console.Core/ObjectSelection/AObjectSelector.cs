@@ -6,20 +6,13 @@ namespace Console.Core.ObjectSelection
     {
         public abstract List<object> SelectedObjects { get; }
 
-        public virtual void RemoveFromSelection(object obj)
-        {
-            SelectedObjects.Remove(obj);
-        }
+        public virtual void ClearSelection() => SelectedObjects.Clear();
 
-        public virtual void AddToSelection(object obj)
-        {
-            SelectedObjects.Add(obj);
-        }
+        public virtual void RemoveFromSelection(object obj) => SelectedObjects.Remove(obj);
 
-        public virtual void CheckValid()
-        {
-            SelectedObjects.RemoveAll(x => x == null);
-        }
+        public virtual void AddToSelection(object obj) => SelectedObjects.Add(obj);
+
+        public virtual void CheckValid() => SelectedObjects.RemoveAll(x => x == null);
 
         public virtual void SelectObject(object obj)
         {

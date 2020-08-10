@@ -30,11 +30,12 @@ namespace Console.Core.Utils.Reflection.Methods
             if (parameters.Length != 0)
             {
                 stringBuilder.Append(" (");
-                stringBuilder.Append(parameters[0].ParameterType.Name);
+                stringBuilder.Append(parameters[0].ParameterType.Name + " " + parameters[0].Name);
 
                 for (int i = 1; i < parameters.Length; i++)
                 {
-                    stringBuilder.Append($", {parameters[i].ParameterType.Name}");
+                    string text = parameters[i].ParameterType.Name + " " + parameters[i].Name;
+                    stringBuilder.Append($", {text}");
                 }
 
                 stringBuilder.Append(")");

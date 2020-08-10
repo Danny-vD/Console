@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Reflection;
 using System.Threading;
 using Console.ArrayConverter;
 using Console.ClassQueries;
 using Console.Core;
 using Console.Core.Attributes.CommandSystem;
-using Console.Core.Attributes.PropertySystem;
 using Console.Core.Console;
+using Console.Core.PropertySystem;
 using Console.DefaultConverters;
 using Console.EnvironmentVariables;
 using Console.IO;
@@ -24,8 +24,12 @@ namespace Console.CLI
     class Program
     {
         private const string ExtensionPath = ".\\extensions\\";
-        [ConsoleProperty("console.networking.tick")]
+        [Property("networking.tick")]
         private static float ConsoleTick = 0.2f;
+
+        [Property("version.cli")]
+        private static Version CLIVersion => Assembly.GetExecutingAssembly().GetName().Version;
+        
 
         [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
         private static void Exit()
@@ -57,8 +61,8 @@ namespace Console.CLI
                 new ClassQueryInitializer(),
                 new UtilExtensionInitializer()
             };
-            CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray());
-            
+            CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
+
             //Running the OnTick Loop
             Thread t = new Thread(Loop);
             t.Start();
