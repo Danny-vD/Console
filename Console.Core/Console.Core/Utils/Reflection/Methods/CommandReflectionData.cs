@@ -82,8 +82,10 @@ namespace Console.Core.Utils.Reflection.Methods
                 {
                     string name = cfa.Name ?? pt[i].Name;
                     bool val = cparameter.Any(x => x.ToString().StartsWith("-") && x.ToString().Remove(0, 1) == name);
-                    cparameter.Remove("-" + name);
-                    ret[i] = val;
+                    bool lval = cparameter.Any(x => x.ToString().StartsWith("--") && x.ToString().Remove(0, 2) == name);
+                    if (val) cparameter.Remove("-" + name);
+                    if (lval) cparameter.Remove("--" + name);
+                    ret[i] = val || lval;
                 }
             }
         }
