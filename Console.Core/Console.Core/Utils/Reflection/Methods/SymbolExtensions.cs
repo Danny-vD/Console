@@ -15,7 +15,8 @@ namespace Console.Core.Utils.Reflection.Methods
 
         public static MethodInfo GetMethodInfo<T>(string name)
         {
-            return typeof(T).GetMethod(name, BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+            return typeof(T).GetMethod(name,
+                BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         }
     }
 }

@@ -4,6 +4,7 @@ using Console.EnvironmentVariables;
 
 namespace Console.PropEnvCompat
 {
+
     public class PropertyVariableProvider : VariableContainer
     {
         protected override string EnvList

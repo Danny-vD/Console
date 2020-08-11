@@ -13,13 +13,13 @@ namespace Console.DefaultConverters
 
         public override bool CanConvert(object parameter, Type target)
         {
-            return parameter is string && target == typeof(Enum);
+            return parameter is string && typeof(Enum).IsAssignableFrom(target);
         }
 
         public override object Convert(object parameter, Type target)
         {
             string s = parameter.ToString();
-            if (!s.StartsWith(target.Name)) s = target.Name + "." + s;
+            if (s.StartsWith(target.Name)) s = s.Remove(0, target.Name.Length);
             return Enum.Parse(target, s, !CaseSensitive);
         }
     }

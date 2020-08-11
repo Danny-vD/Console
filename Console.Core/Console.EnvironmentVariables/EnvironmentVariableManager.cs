@@ -10,20 +10,18 @@ namespace Console.EnvironmentVariables
     public static class EnvironmentVariableManager
     {
         public static readonly Dictionary<string, VariableProvider> Providers = new Dictionary<string, VariableProvider>();
-        internal static string EnvList
+
+        public static string GetEnvironmentList()
         {
-            get
+            string s = "";
+            List<string> keys = Providers.Keys.ToList();
+            for (int i = 0; i < keys.Count; i++)
             {
-                string s = "";
-                List<string> keys = Providers.Keys.ToList();
-                for (int i = 0; i < keys.Count; i++)
-                {
-                    string instanceProvider = keys[i];
-                    s += instanceProvider;
-                    if (i != keys.Count - 1) s += "; ";
-                }
-                return s;
+                string instanceProvider = keys[i];
+                s += instanceProvider;
+                if (i != keys.Count - 1) s += "; ";
             }
+            return s;
         }
 
         [Command("add-env-api", "Adds all public static methods with valid return and one string parameter.")]

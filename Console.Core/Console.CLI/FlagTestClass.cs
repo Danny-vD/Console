@@ -1,4 +1,5 @@
-﻿using Console.Core.Attributes.CommandSystem;
+﻿using System.Data;
+using Console.Core.Attributes.CommandSystem;
 using Console.Core.Console;
 using Console.Core.Utils;
 

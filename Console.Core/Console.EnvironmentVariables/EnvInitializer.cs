@@ -10,6 +10,8 @@ namespace Console.EnvironmentVariables
 {
     public class EnvInitializer : AExtensionInitializer
     {
+        public override LoadOrder Order => LoadOrder.First;
+
         private class EnvExpander : AExpander
         {
             public override string Expand(string input)

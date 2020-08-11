@@ -1,0 +1,36 @@
+﻿namespace Console.Evaluator.Core.Enums
+{
+    public enum TokenType
+    {
+        None,
+        EndOfFormula,
+        OperatorPlus,
+        OperatorMinus,
+        OperatorMul,
+        OperatorDiv,
+        OperatorPercent,
+        OpenParenthesis,
+        Comma,
+        Dot,
+        CloseParenthesis,
+        OperatorNe,
+        OperatorGt,
+        OperatorGe,
+        OperatorEq,
+        OperatorLe,
+        OperatorLt,
+        OperatorAnd,
+        OperatorOr,
+        OperatorNot,
+        OperatorConcat,
+        OperatorIf,
+        ValueIdentifier,
+        ValueTrue,
+        ValueFalse,
+        ValueNumber,
+        ValueString,
+        ValueDate,
+        OpenBracket,
+        CloseBracket
+    }
+}

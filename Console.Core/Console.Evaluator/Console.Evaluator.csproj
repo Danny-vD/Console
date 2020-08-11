@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Console.Core\Console.Core.csproj" />
+    <ProjectReference Include="..\Console.EnvironmentVariables\Console.EnvironmentVariables.csproj" />
+  </ItemGroup>
+
+</Project>

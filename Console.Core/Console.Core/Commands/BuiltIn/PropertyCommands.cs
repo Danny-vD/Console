@@ -82,8 +82,29 @@ namespace Console.Core.Commands.BuiltIn
 
         #region Set/Add Properties
 
+        [Command("set-property-selection", "Sets the specified property to the specified value", "sps")]
+        private static void SetPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        {
+            if (!PropertyManager.HasProperty(propertyPath)) return;
+
+            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
+            PropertyManager.SetPropertyValue(propertyPath, propertyValue);
+        }
+
+        [Command("add-property-selection", "Sets or Adds the specified property to the specified value", "aps")]
+        private static void AddPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        {
+            if (!PropertyManager.HasProperty(propertyPath))
+            {
+                PropertyManager.AddProperty(propertyPath, propertyValue);
+                return;
+            }
+
+            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
+            PropertyManager.SetPropertyValue(propertyPath, propertyValue);
+        }
         [Command("set-property", "Sets the specified property to the specified value", "sp")]
-        private static void SetProperty(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        private static void SetProperty(string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath)) return;
 
@@ -92,7 +113,7 @@ namespace Console.Core.Commands.BuiltIn
         }
 
         [Command("add-property", "Sets or Adds the specified property to the specified value", "ap")]
-        private static void AddProperty(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        private static void AddProperty(string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {

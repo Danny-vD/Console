@@ -11,4 +11,6 @@ call UpdateCLILibrary.bat Console.ScriptIOCompat
 call UpdateCLILibrary.bat Console.DefaultConverters
 call UpdateCLILibrary.bat Console.ClassQueries
 call UpdateCLILibrary.bat Console.UtilExtension
+call UpdateCLILibrary.bat Console.Evaluator
+call UpdateCLILibrary.bat Console.Evaluator.Math
 pause

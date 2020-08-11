@@ -16,7 +16,7 @@ namespace Console.EnvironmentVariables
         {
             AddProvider(new DelegateVariableProvider("user", s => Environment.UserName));
             AddProvider(new DelegateVariableProvider("machine", s => Environment.MachineName));
-            AddProvider( new DelegateVariableProvider("envs-all", s => EnvironmentVariableManager.EnvList));
+            AddProvider( new DelegateVariableProvider("envs-all", s => EnvironmentVariableManager.GetEnvironmentList()));
         }
 
 

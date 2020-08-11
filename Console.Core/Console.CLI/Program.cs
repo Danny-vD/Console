@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
+using Console.Core;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Console;
 using Console.Core.PropertySystem;
+
 namespace Console.CLI
 {
     class Program
@@ -31,7 +34,16 @@ namespace Console.CLI
 
         static void Main(string[] args)
         {
+            //List<AExtensionInitializer> ii=new List<AExtensionInitializer>
+            //{
+            //    new ClassQueryInitializer(),
+            //    new EnvInitializer(),
+            //    new EvalInitializer()
+            //};
             CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath, AConsoleManager.ConsoleInitOptions.All);
+            //new EnvInitializer().Initialize();
+            //CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
+            //new DefaultConverterInitializer().Initialize();
 
             //Running the OnTick Loop
             Thread t = new Thread(Loop);

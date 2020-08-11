@@ -33,6 +33,7 @@ namespace Console.Core.Commands.BuiltIn
 
         public static void LoadExtensions(string[] paths)
         {
+            AConsoleManager.Instance.Log($"Loading {paths.Length} Extensions...");
             LoadExtensions(paths.Select(LoadExtension).Where(x => x != null).ToArray());
         }
 
@@ -62,14 +63,14 @@ namespace Console.Core.Commands.BuiltIn
 
         private static void LoadExtensions(Dictionary<LoadOrder, List<AExtensionInitializer>> extensions)
         {
-            string s = "Loading Extensions...";
+            string s = "Initializing Extensions...";
             int i = LoadExtensions(extensions[LoadOrder.First]);
             s += "\nLoadOrder.First: " + extensions[LoadOrder.First].Count;
             i += LoadExtensions(extensions[LoadOrder.Default]);
             s += "\nLoadOrder.Default: " + extensions[LoadOrder.Default].Count;
             i += LoadExtensions(extensions[LoadOrder.After]);
             s += "\nLoadOrder.After: " + extensions[LoadOrder.After].Count;
-            s += "\nTotal Loaded Extensions: " + i + "\n";
+            s += "\nTotal Initialized Extensions: " + i + "\n";
             AConsoleManager.Instance.Log(s);
         }
 
@@ -89,6 +90,8 @@ namespace Console.Core.Commands.BuiltIn
             {
                 Assembly asm = Assembly.LoadFrom(path);
                 AExtensionInitializer i = GetInitializer(asm);
+                if (i == null)
+                    AConsoleManager.Instance.LogWarning("Assembly " + asm.GetName().Name + " does not have an Initializer but is loaded.");
                 return i;
             }
             catch (Exception e)
@@ -101,8 +104,9 @@ namespace Console.Core.Commands.BuiltIn
 
         private static AExtensionInitializer GetInitializer(Assembly asm)
         {
-            Type t = asm.GetTypes().First(x =>
+            Type t = asm.GetTypes().FirstOrDefault(x =>
                 typeof(AExtensionInitializer).IsAssignableFrom(x) && x != typeof(AExtensionInitializer));
+            if (t == null) return null;
             return (AExtensionInitializer)Activator.CreateInstance(t);
         }
 
