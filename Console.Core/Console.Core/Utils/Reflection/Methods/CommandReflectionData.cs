@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Console.Core.Attributes.CommandSystem;
@@ -38,6 +39,7 @@ namespace Console.Core.Utils.Reflection.Methods
         public ParameterInfo[] AllowedParameterTypes => Info.GetParameters();
         public int SelectionAttributeCount =>
             AllowedParameterTypes.Count(x => x.GetCustomAttribute<SelectionPropertyAttribute>() != null);
+        public int FlagAttributeCount => AllowedParameterTypes.Count(x => x.ParameterType == typeof(bool) && x.GetCustomAttribute<CommandFlagAttribute>() != null);
 
         /// <summary>
         /// Gets called by the Console System
@@ -57,10 +59,13 @@ namespace Console.Core.Utils.Reflection.Methods
                 }
                 return InvokeDirect(parame);
             }
-            else
+            if (parameter.Length != 0)
             {
-                return InvokeDirect(parameter.Length == 0 ? null : parameter);
+                object[] parame = Cast(parameter);
+                return InvokeDirect(parame);
             }
+
+            return InvokeDirect(parameter.Length == 0 ? null : parameter);
         }
 
         public object InvokeDirect(object[] parameter)
@@ -68,29 +73,44 @@ namespace Console.Core.Utils.Reflection.Methods
             return Info.InvokePreserveStack(Instance, parameter);
         }
 
+        private void ApplyFlagsSyntax(ParameterInfo[] pt, List<object> cparameter, object[] ret)
+        {
+            for (int i = 0; i < pt.Length; i++)
+            {
+                CommandFlagAttribute cfa = pt[i].GetCustomAttribute<CommandFlagAttribute>();
+                if (cfa != null)
+                {
+                    string name = cfa.Name ?? pt[i].Name;
+                    bool val = cparameter.Any(x => x.ToString().StartsWith("-") && x.ToString().Remove(0, 1) == name);
+                    cparameter.Remove("-" + name);
+                    ret[i] = val;
+                }
+            }
+        }
+
         private object[] Cast(object[] parameter)
         {
             ParameterInfo[] pt = AllowedParameterTypes;
+            List<object> cparameter = new List<object>(parameter);
 
             object[] ret = new object[pt.Length];
             int off = 0;
+
+            ApplyFlagsSyntax(pt, cparameter, ret);
+
             for (int i = 0; i < pt.Length; i++)
             {
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
-                if (sp != null && AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0 &&
-                    pt.Length == parameter.Length)
-                {
-
-                }
-                if (sp != null)
+                if (sp != null && !(AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0 &&
+                                         pt.Length == cparameter.Count))
                 {
 
                     object v = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
                     if (AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
                     {
-                        if (pt.Length == parameter.Length)
+                        if (pt.Length == cparameter.Count)
                         {
-                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(parameter[i - off], pt[i].ParameterType);
+                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(cparameter[i - off], pt[i].ParameterType);
                             continue;
                         }
                         else
@@ -110,8 +130,19 @@ namespace Console.Core.Utils.Reflection.Methods
                     continue;
                 }
 
+                CommandFlagAttribute cfa = pt[i].GetCustomAttribute<CommandFlagAttribute>();
+                if (cfa != null)
+                {
+                    if (ret[i] is bool b && !b && cparameter.Count > i - off)
+                    {
+                        ret[i] = cparameter[i - off].ToString().ToLower() == "true";
+                    }
+                    off++;
+                    continue;
+                }
+
                 Type type = pt[i].ParameterType;
-                ret[i] = CommandAttributeUtils.ConvertToNonGeneric(parameter[i - off], type);
+                ret[i] = CommandAttributeUtils.ConvertToNonGeneric(cparameter[i - off], type);
             }
 
             return ret;
@@ -120,6 +151,7 @@ namespace Console.Core.Utils.Reflection.Methods
         private bool IsAllowedSignature(object[] parameter)
         {
             ParameterInfo[] pt = AllowedParameterTypes;
+
             int off = 0;
             if (pt.Length != parameter.Length) return false;
 
@@ -129,6 +161,12 @@ namespace Console.Core.Utils.Reflection.Methods
             {
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
                 if (sp != null)
+                {
+                    off++;
+                    continue;
+                }
+                CommandFlagAttribute cfa = pt[i].GetCustomAttribute<CommandFlagAttribute>();
+                if (cfa != null)
                 {
                     off++;
                     continue;

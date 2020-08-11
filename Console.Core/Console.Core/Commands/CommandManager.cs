@@ -67,7 +67,7 @@ namespace Console.Core.Commands
 
                 if (abstractCommand is ReflectionCommand refl && paramsCount != abstractCommand.ParametersCount)
                 {
-                    int parC = paramsCount + refl.RefData.SelectionAttributeCount;
+                    int parC = paramsCount + refl.RefData.SelectionAttributeCount + refl.RefData.FlagAttributeCount;
                     if (parC == refl.ParametersCount)
                     {
                         return refl;

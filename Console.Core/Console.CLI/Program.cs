@@ -39,6 +39,7 @@ namespace Console.CLI
             Thread t = new Thread(Loop);
             t.Start();
 
+            FlagTestClass tc = new FlagTestClass();
 
             while (true)
             {

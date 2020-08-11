@@ -10,5 +10,11 @@ namespace Console.Core.Attributes.CommandSystem
         {
             NoConverter = noConverter;
         }
+
+
+        public override string ToString()
+        {
+            return $"SelectionProperty{(NoConverter ? "" : "(NoConverter)")}";
+        }
     }
 }

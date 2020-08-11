@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using Console.Core.Commands;
 
@@ -30,12 +33,27 @@ namespace Console.Core.Utils.Reflection.Methods
             if (parameters.Length != 0)
             {
                 stringBuilder.Append(" (");
-                stringBuilder.Append(parameters[0].ParameterType.Name + " " + parameters[0].Name);
 
-                for (int i = 1; i < parameters.Length; i++)
+                for (int i = 0; i < parameters.Length; i++)
                 {
                     string text = parameters[i].ParameterType.Name + " " + parameters[i].Name;
-                    stringBuilder.Append($", {text}");
+                    List<Attribute> abs = parameters[i].GetCustomAttributes(true).Cast<Attribute>().ToList();
+                    if (abs.Count != 0)
+                    {
+                        string a = "[";
+                        for (int j = 0; j < abs.Count; j++)
+                        {
+                            Attribute attribute = abs[j];
+                            a += $"{attribute}";
+                            if (j != abs.Count - 1)
+                                a += ", ";
+                        }
+                        a += "]";
+                        text = a + text;
+                    }
+                    if (i != 0)
+                        text = ", " + text;
+                    stringBuilder.Append(text);
                 }
 
                 stringBuilder.Append(")");
