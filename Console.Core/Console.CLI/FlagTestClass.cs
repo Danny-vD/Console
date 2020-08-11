@@ -14,7 +14,7 @@ namespace Console.CLI
             CommandAttributeUtils.AddCommands(this);
         }
 
-        [Command("test", "")]
+        [Command("flag-tests", "Manipulates data depending on the flags set.")]
         public void TestCommand(string data, [CommandFlag("to-lower")] bool lower, [CommandFlag]bool reverse)
         {
             string r = lower ? data.ToLower() : data;
