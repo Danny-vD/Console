@@ -17,6 +17,8 @@ namespace Console.Core.Utils.Reflection.Methods
         public ReflectionCommand(CommandReflectionData refData) : base(refData.AllowedParameterTypes.Length)
         {
             RefData = refData;
+            ParametersCount = new ParameterRange(ParametersCount.Max - refData.FlagAttributeCount, ParametersCount.Max);
+
 
             //Setting the Data from the attributes
             SetName(refData.Attribute.Name);

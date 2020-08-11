@@ -48,24 +48,7 @@ namespace Console.Core.Utils.Reflection.Methods
         /// <returns></returns>
         public object Invoke(object[] parameter)
         {
-            if (!IsAllowedSignature(parameter))
-            {
-                //Cast
-                object[] parame = Cast(parameter);
-                string s = "Parameters: ";
-                foreach (object o in parame)
-                {
-                    s += o + "; ";
-                }
-                return InvokeDirect(parame);
-            }
-            if (parameter.Length != 0)
-            {
-                object[] parame = Cast(parameter);
-                return InvokeDirect(parame);
-            }
-
-            return InvokeDirect(parameter.Length == 0 ? null : parameter);
+            return InvokeDirect(parameter.Length == 0 ? null : Cast(parameter));
         }
 
         public object InvokeDirect(object[] parameter)
@@ -139,7 +122,6 @@ namespace Console.Core.Utils.Reflection.Methods
                     {
                         ret[i] = cparameter[i - off].ToString().ToLower() == "true";
                     }
-                    off++;
                     continue;
                 }
 
@@ -150,35 +132,35 @@ namespace Console.Core.Utils.Reflection.Methods
             return ret;
         }
 
-        private bool IsAllowedSignature(object[] parameter)
-        {
-            ParameterInfo[] pt = AllowedParameterTypes;
+        //private bool IsAllowedSignature(object[] parameter)
+        //{
+        //    ParameterInfo[] pt = AllowedParameterTypes;
 
-            int off = 0;
-            if (pt.Length != parameter.Length) return false;
+        //    int off = 0;
+        //    if (pt.Length != parameter.Length) return false;
 
-            bool ret = true;
+        //    bool ret = true;
 
-            for (int i = 0; i < pt.Length; i++)
-            {
-                SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
-                if (sp != null)
-                {
-                    off++;
-                    continue;
-                }
-                CommandFlagAttribute cfa = pt[i].GetCustomAttribute<CommandFlagAttribute>();
-                if (cfa != null)
-                {
-                    off++;
-                    continue;
-                }
+        //    for (int i = 0; i < pt.Length; i++)
+        //    {
+        //        SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
+        //        if (sp != null)
+        //        {
+        //            off++;
+        //            continue;
+        //        }
+        //        CommandFlagAttribute cfa = pt[i].GetCustomAttribute<CommandFlagAttribute>();
+        //        if (cfa != null)
+        //        {
+        //            off++;
+        //            continue;
+        //        }
 
-                Type type = pt[i].ParameterType;
-                ret &= type.IsInstanceOfType(parameter[i - off]);
-            }
+        //        Type type = pt[i].ParameterType;
+        //        ret &= type.IsInstanceOfType(parameter[i - off]);
+        //    }
 
-            return ret;
-        }
+        //    return ret;
+        //}
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
-using Console.Core;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Console;
 using Console.Core.PropertySystem;

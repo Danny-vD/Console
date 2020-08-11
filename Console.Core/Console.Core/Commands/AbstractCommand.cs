@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Console.Core.Console;
@@ -7,9 +6,30 @@ using Console.Core.ConverterSystem;
 
 namespace Console.Core.Commands
 {
+    public struct ParameterRange
+    {
+        public int Min;
+        public int Max;
+
+        public ParameterRange(int max)
+        {
+            Min = Max = max;
+        }
+
+        public ParameterRange(int min, int max)
+        {
+            Min = min;
+            Max = max;
+        }
+
+        public bool Contains(int value) => Min <= value && Max >= value;
+        public bool Overlaps(ParameterRange other) => !(Min > other.Max || Max < other.Min);
+        public override string ToString() => $"{Min} - {Max}";
+    }
+
     public abstract class AbstractCommand
     {
-        public readonly int ParametersCount;
+        public ParameterRange ParametersCount { get; protected set; }
 
         public string Name { get; protected set; }
         protected readonly List<string> Aliases;
@@ -20,7 +40,7 @@ namespace Console.Core.Commands
 
         protected AbstractCommand(int paramsCount)
         {
-            ParametersCount = paramsCount;
+            ParametersCount = new ParameterRange(paramsCount);
             Aliases = new List<string>();
         }
 

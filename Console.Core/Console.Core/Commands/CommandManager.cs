@@ -65,15 +65,16 @@ namespace Console.Core.Commands
             {
                 if (!abstractCommand.HasName(commandName)) continue;
 
-                if (abstractCommand is ReflectionCommand refl && paramsCount != abstractCommand.ParametersCount)
+                if (abstractCommand is ReflectionCommand refl && abstractCommand.ParametersCount.Contains( paramsCount))
                 {
-                    int parC = paramsCount + refl.RefData.SelectionAttributeCount + refl.RefData.FlagAttributeCount;
-                    if (parC == refl.ParametersCount)
+                    int flagC = refl.RefData.FlagAttributeCount - (paramsCount - refl.ParametersCount.Min);
+                    int parC = paramsCount + refl.RefData.SelectionAttributeCount + flagC;
+                    if (refl.ParametersCount.Contains(parC))
                     {
                         return refl;
                     }
                 }
-                else if (abstractCommand.ParametersCount == paramsCount)
+                else if (abstractCommand.ParametersCount.Contains(paramsCount))
                 {
                     return abstractCommand;
                 }
@@ -133,11 +134,13 @@ namespace Console.Core.Commands
                 return;
             }
 
-            if (commands.Any(item => item.ParametersCount == command.ParametersCount &&
-                                     item.HasName(command.GetAllNames())))
+
+            AbstractCommand cmd = commands.FirstOrDefault(item => item.ParametersCount.Overlaps(command.ParametersCount) &&
+                                                       item.HasName(command.GetAllNames()));
+            if (cmd != null)
             {
                 AConsoleManager.Instance.LogError(
-                    $"A command with name {ToString(command.GetAllNames())} with {command.ParametersCount} parameter(s) already exists!");
+                    $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
                 return;
             }
 
