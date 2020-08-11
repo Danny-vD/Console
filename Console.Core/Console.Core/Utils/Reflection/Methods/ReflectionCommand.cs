@@ -19,12 +19,14 @@ namespace Console.Core.Utils.Reflection.Methods
             RefData = refData;
             ParametersCount = new ParameterRange(ParametersCount.Max - refData.FlagAttributeCount, ParametersCount.Max);
 
-
             //Setting the Data from the attributes
             SetName(refData.Attribute.Name);
             SetHelpMessage(refData.Attribute.HelpMessage);
             Aliases.AddRange(refData.Attribute.Aliases);
         }
+
+        public ReflectionCommand(MethodInfo info) :this(null, info) { }
+        public ReflectionCommand(object instance, MethodInfo info):this(new CommandReflectionData(instance, info)) { }
 
         public override string GetFullName()
         {

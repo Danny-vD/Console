@@ -8,7 +8,6 @@ namespace Console.CLI
     {
         public FlagTestClass()
         {
-            //PropertyAttributeUtils.AddProperties(this);
             CommandAttributeUtils.AddCommands(this);
         }
 
