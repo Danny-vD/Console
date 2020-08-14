@@ -81,12 +81,12 @@ namespace Console.Networking.Authentication
 
         public static byte[] Encrypt(SymmetricAlgorithm alg, byte[] value, byte[] password)
         {
-            return Encrypt(alg, value, password, GetBytes<ASCIIEncoding>(DefaultSalt), GetBytes<ASCIIEncoding>(DefaultVector));
+            return Encrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance,DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance,DefaultVector));
         }
         public static byte[] Encrypt<T>(byte[] value, byte[] password)
             where T : SymmetricAlgorithm, new()
         {
-            return Encrypt<T>(value, password, GetBytes<ASCIIEncoding>(DefaultSalt), GetBytes<ASCIIEncoding>(DefaultVector));
+            return Encrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance,DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance,DefaultVector));
         }
 
 
@@ -140,12 +140,12 @@ namespace Console.Networking.Authentication
 
         public static byte[] Decrypt(SymmetricAlgorithm alg, byte[] value, byte[] password)
         {
-            return Decrypt(alg, value, password, GetBytes<ASCIIEncoding>(DefaultSalt), GetBytes<ASCIIEncoding>(DefaultVector));
+            return Decrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance,DefaultVector));
         }
         public static byte[] Decrypt<T>(byte[] value, byte[] password)
             where T : SymmetricAlgorithm, new()
         {
-            return Decrypt<T>(value, password, GetBytes<ASCIIEncoding>(DefaultSalt), GetBytes<ASCIIEncoding>(DefaultVector));
+            return Decrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
         }
 
 
