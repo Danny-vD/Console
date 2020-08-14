@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Console.Core;
 using Console.Core.Attributes.CommandSystem;
 using Console.Core.Console;
 using Console.Core.PropertySystem;
+using Console.Core.Utils;
 
 namespace Console.CLI
 {
@@ -17,7 +22,7 @@ namespace Console.CLI
 
         [Property("version.cli")]
         private static Version CLIVersion => Assembly.GetExecutingAssembly().GetName().Version;
-        
+
 
         [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
         private static void Exit()
@@ -34,15 +39,16 @@ namespace Console.CLI
 
         static void Main(string[] args)
         {
-            //List<AExtensionInitializer> ii=new List<AExtensionInitializer>
+            //List<AExtensionInitializer> ii = new List<AExtensionInitializer>
             //{
             //    new ClassQueryInitializer(),
+            //    new ScriptSystemInitializer(),
             //    new EnvInitializer(),
-            //    new EvalInitializer()
+            //    new NetworkedInitializer()
             //};
+            //CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
             CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath, AConsoleManager.ConsoleInitOptions.All);
             //new EnvInitializer().Initialize();
-            //CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
             //new DefaultConverterInitializer().Initialize();
 
             //Running the OnTick Loop
@@ -50,6 +56,14 @@ namespace Console.CLI
             t.Start();
 
             FlagTestClass tc = new FlagTestClass();
+
+            if (args.Length != 0)
+            {
+                for (int i = 0; i < args.Length; i++)
+                {
+                    cm.EnterCommand($"run " + args[i]);
+                }
+            }
 
             while (true)
             {

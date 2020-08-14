@@ -1,5 +1,6 @@
 ﻿using Console.Core.Console;
 using Console.Core.Utils;
+using Console.Networking.Commands;
 
 namespace Console.Networking
 {
@@ -13,8 +14,7 @@ namespace Console.Networking
         {
             CommandAttributeUtils.AddCommands(hc);
             CommandAttributeUtils.AddCommands(cc);
-            AConsoleManager.OnConsoleTick += HostConsoleCommand.ProcessQueue;
-            AConsoleManager.OnConsoleTick += ClientConsoleCommand.ProcessLogMessages;
+            AConsoleManager.OnConsoleTick += NetworkingSettings.ClientSession.ProcessLogMessages;
         }
     }
 }

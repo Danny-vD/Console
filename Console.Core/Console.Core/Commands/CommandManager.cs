@@ -65,7 +65,7 @@ namespace Console.Core.Commands
             {
                 if (!abstractCommand.HasName(commandName)) continue;
 
-                if (abstractCommand is ReflectionCommand refl && abstractCommand.ParametersCount.Contains( paramsCount))
+                if (abstractCommand is ReflectionCommand refl && abstractCommand.ParametersCount.Contains(paramsCount))
                 {
                     int flagC = refl.RefData.FlagAttributeCount - (paramsCount - refl.ParametersCount.Min);
                     int parC = paramsCount + refl.RefData.SelectionAttributeCount + flagC;
@@ -135,8 +135,7 @@ namespace Console.Core.Commands
             }
 
 
-            AbstractCommand cmd = commands.FirstOrDefault(item => item.ParametersCount.Overlaps(command.ParametersCount) &&
-                                                       item.HasName(command.GetAllNames()));
+            AbstractCommand cmd = commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Overlaps(command.ParametersCount));
             if (cmd != null)
             {
                 AConsoleManager.Instance.LogError(
