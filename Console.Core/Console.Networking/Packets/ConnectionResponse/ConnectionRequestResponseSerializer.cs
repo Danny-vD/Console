@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.ConnectionResponse

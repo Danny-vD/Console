@@ -1,7 +1,9 @@
-﻿using Console.Networking.Packets.Abstract;
+﻿using Console.Core.ActivationSystem;
+using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Handlers.Abstract
 {
+    [ActivateOn]
     public abstract class APacketClientHandler<T> : IPacketClientHandler
         where T : ANetworkPacket
     {

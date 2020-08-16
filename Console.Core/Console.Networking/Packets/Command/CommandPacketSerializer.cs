@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.Command

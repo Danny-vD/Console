@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using Console.Core.Console;
+﻿using Console.Core;
 using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets.AuthenticationRequest;
 using Console.Networking.Packets.ConnectionResponse;

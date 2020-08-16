@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Console;
-using Console.Core.Utils;
+using Console.Core;
+using Console.Core.CommandSystem;
 
 namespace Console.CLI
 {

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Console.Core.Attributes.CommandSystem;
+using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
-using Console.Core.Utils.Reflection.Properties;
+using Console.Core.ReflectionSystem;
 
 namespace Console.UtilExtension
 {
@@ -38,7 +37,7 @@ namespace Console.UtilExtension
             PropertyInfo[] infos = t.GetProperties(BindingFlags.Static | BindingFlags.Public).Where(x => ValidType(x.PropertyType)).ToArray();
             foreach (PropertyInfo propertyInfo in infos)
             {
-                PropertyManager.SetProperty(prefix + propertyInfo.Name, new StaticPropertyHelper(propertyInfo));
+                PropertyManager.SetProperty(prefix + propertyInfo.Name, new StaticPropertyMetaData(propertyInfo));
             }
         }
 

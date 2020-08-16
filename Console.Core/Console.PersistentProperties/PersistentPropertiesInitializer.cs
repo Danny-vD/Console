@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using Console.Core;
+using Console.Core.CommandSystem;
+using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
 
 namespace Console.PersistentProperties
 {

@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Console.Networking.Packets.Abstract;
+﻿using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.Log
 {

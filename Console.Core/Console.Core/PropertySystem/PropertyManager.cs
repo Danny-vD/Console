@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Console.Core.Console;
-using Console.Core.Utils.Reflection;
-
+using Console.Core.ReflectionSystem;
+using Console.Core.ReflectionSystem.Interfaces;
 namespace Console.Core.PropertySystem
 {
     public static class PropertyManager
     {
-        private static readonly Dictionary<string, ReflectionHelper> Properties = new Dictionary<string, ReflectionHelper>();
+        private static readonly Dictionary<string, IValueTypeContainer> Properties = new Dictionary<string, IValueTypeContainer>();
         public static List<string> AllPropertyPaths
         {
             get
@@ -22,12 +21,12 @@ namespace Console.Core.PropertySystem
         public static void AddProperty(string propertyPath, object value)
         {
             if (!HasProperty(propertyPath))
-                SetProperty(propertyPath, new FakeReflectionHelper(value));
+                SetProperty(propertyPath, new FakeValueContainer(value));
             else
                 SetPropertyValue(propertyPath, value);
         }
 
-        public static void SetProperty(string propertyPath, ReflectionHelper helper)
+        public static void SetProperty(string propertyPath, IValueTypeContainer helper)
         {
             Properties[propertyPath] = helper;
         }
@@ -36,7 +35,7 @@ namespace Console.Core.PropertySystem
 
         #region Try Get/Set
 
-        public static object GetPropertyValue(string propertyPath) => Properties[propertyPath].GetValue();
+        public static object GetPropertyValue(string propertyPath) => Properties[propertyPath].Get();
         public static bool TryGetValue(string propertyPath, out object value)
         {
             value = null;
@@ -48,7 +47,7 @@ namespace Console.Core.PropertySystem
         public static void SetPropertyValue(string propertyPath, object value)
         {
             if (Properties[propertyPath].CanWrite)
-                Properties[propertyPath].SetValue(value);
+                Properties[propertyPath].Set(value);
             else
                 AConsoleManager.Instance.LogWarning("Can not Write property: " + propertyPath + " its already existing and readonly");
         }
@@ -70,9 +69,9 @@ namespace Console.Core.PropertySystem
         #endregion
 
 
-        internal static void AddRefHelpers(Dictionary<PropertyAttribute, ReflectionHelper> infos)
+        internal static void AddRefHelpers(Dictionary<PropertyAttribute, IValueTypeContainer> infos)
         {
-            foreach (KeyValuePair<PropertyAttribute, ReflectionHelper> propertyInfo in infos)
+            foreach (KeyValuePair<PropertyAttribute, IValueTypeContainer> propertyInfo in infos)
             {
                 Properties[propertyInfo.Key.PropertyPath] = propertyInfo.Value;
             }

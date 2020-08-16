@@ -1,6 +1,5 @@
 ﻿using System;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Utils;
+using Console.Core.CommandSystem;
 
 namespace Console.UtilExtension
 {

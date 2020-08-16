@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Console;
+using Console.Core;
+using Console.Core.CommandSystem;
 
 namespace Console.EnvironmentVariables
 {

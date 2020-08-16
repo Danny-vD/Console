@@ -1,8 +1,10 @@
-﻿using Console.Networking.Packets;
+﻿using Console.Core.ActivationSystem;
+using Console.Networking.Packets;
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Handlers.Abstract
 {
+    [ActivateOn]
     public abstract class APacketHostHandler<T> : IPacketHostHandler
         where T : ANetworkPacket
     {

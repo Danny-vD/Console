@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection;
 using Console.Core;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Console;
+using Console.Core.ActivationSystem;
+using Console.Core.CommandSystem;
 using Console.Core.ConverterSystem;
+using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
 
 namespace Console.DefaultConverters
 {
@@ -33,15 +33,16 @@ namespace Console.DefaultConverters
         private static Version EnvVersion => Assembly.GetExecutingAssembly().GetName().Version;
         public override void Initialize()
         {
+
             CommandAttributeUtils.AddCommands<DefaultConverterInitializer>();
             PropertyAttributeUtils.AddProperties<DefaultConverterInitializer>();
             PropertyAttributeUtils.AddProperties<DateTimeConverter>();
             PropertyAttributeUtils.AddProperties<EnumConverter>();
-            CustomConvertManager.AddConverter(new DateTimeConverter());
-            CustomConvertManager.AddConverter(new FileInfoConverter());
-            CustomConvertManager.AddConverter(new DirInfoConverter());
-            CustomConvertManager.AddConverter(new EnumDigitConverter()); //Before Enum Converter(Enum Converter detects the same conditions)
-            CustomConvertManager.AddConverter(new EnumConverter());
+            AConverter[] aco = ActivateOnAttributeUtils.ActivateObjects<AConverter>(Assembly.GetExecutingAssembly());
+            foreach (AConverter aConverter in aco)
+            {
+                CustomConvertManager.AddConverter(aConverter);
+            }
         }
     }
 }

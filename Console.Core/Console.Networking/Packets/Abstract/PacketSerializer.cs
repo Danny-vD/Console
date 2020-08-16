@@ -1,7 +1,9 @@
 ﻿using System;
+using Console.Core.ActivationSystem;
 
 namespace Console.Networking.Packets.Abstract
 {
+    [ActivateOn]
     public abstract class PacketSerializer<T> : IPacketSerializer
     where T : ANetworkPacket
     {

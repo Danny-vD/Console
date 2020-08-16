@@ -1,4 +1,4 @@
-﻿using Console.Core.Attributes.CommandSystem;
+﻿using Console.Core.CommandSystem;
 
 namespace Console.Networking.Commands
 {

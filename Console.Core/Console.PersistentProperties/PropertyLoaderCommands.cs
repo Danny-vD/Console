@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Console.Core.Attributes.CommandSystem;
+using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
 
 namespace Console.PersistentProperties

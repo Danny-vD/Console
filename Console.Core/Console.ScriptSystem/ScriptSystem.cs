@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Console;
+using Console.Core;
+using Console.Core.CommandSystem;
 
 namespace Console.ScriptSystem
 {

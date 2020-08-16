@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using System.Text;
-using Console.Core.Console;
+using Console.Core;
 using Console.Core.PropertySystem;
 using Console.Networking.Packets;
 using Console.Networking.Packets.Authentication;

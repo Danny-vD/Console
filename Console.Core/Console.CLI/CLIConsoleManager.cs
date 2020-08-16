@@ -1,8 +1,8 @@
 ﻿using Console.Core;
-using Console.Core.Commands.BuiltIn;
-using Console.Core.Console;
-using Console.Core.ObjectSelection;
-using Console.Core.Utils;
+using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Commands.BuiltIn;
+using Console.Core.ExtensionSystem;
+using Console.Core.PropertySystem;
 
 namespace Console.CLI
 {
@@ -12,7 +12,7 @@ namespace Console.CLI
 
         public CLIConsoleManager(AExtensionInitializer[] extensions, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
         {
-            ExtensionCommands.LoadExtensions(extensions);
+            ExtensionLoader.ProcessLoadOrder(extensions);
             InvokeOnFinishInitialize();
         }
 
@@ -25,7 +25,6 @@ namespace Console.CLI
                 CLIObjectSelectionCommands.AddSelectionCommands();
 
             PropertyAttributeUtils.AddProperties<Program>();
-            TestClass.InitializeTests();
             CommandAttributeUtils.AddCommands<Program>();
 
             if (runInit)
@@ -68,7 +67,7 @@ namespace Console.CLI
         {
             string cmd = ExpanderManager.Expand(command);
             LogCommand(command);
-            Handler.OnSubmitCommand(cmd);
+            Parser.OnSubmitCommand(cmd);
         }
     }
 }

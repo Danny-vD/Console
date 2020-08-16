@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using Console.Core;
-using Console.Core.Console;
+using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
 
 namespace Console.ScriptIOCompat
 {
@@ -16,7 +15,7 @@ namespace Console.ScriptIOCompat
         public static string AutoStartFile;
         public static void AutoStart()
         {
-
+            if (AutoStartFile == null) return;
             AConsoleManager.Instance.Log("Running Auto Start Files: " + AutoStartFile);
             string[] files = AutoStartFile.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string file in files)

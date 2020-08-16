@@ -1,5 +1,5 @@
-﻿using Console.Core.Console;
-using Console.Core.Utils;
+﻿using Console.Core;
+using Console.Core.CommandSystem;
 using Console.Networking.Commands;
 
 namespace Console.Networking

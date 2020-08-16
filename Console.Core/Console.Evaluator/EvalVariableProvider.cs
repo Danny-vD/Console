@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Dynamic;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Console;
+using Console.Core;
+using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
 using Console.EnvironmentVariables;
-using Console.Evaluator.Core;
 using Console.Evaluator.Core.Enums;
-using Console.Evaluator.Core.Interfaces;
 using Console.Evaluator.Core.OPCodes;
 
 namespace Console.Evaluator

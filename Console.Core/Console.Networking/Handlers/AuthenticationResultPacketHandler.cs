@@ -1,6 +1,4 @@
-﻿using Console.Core.Console;
-using Console.Networking.Handlers.Abstract;
-using Console.Networking.Packets.Authentication;
+﻿using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets.AuthenticationResult;
 
 namespace Console.Networking.Handlers

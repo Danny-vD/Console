@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using Console.Core;
+using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
 using Console.EnvironmentVariables;
 
 namespace Console.PropIOCompat

@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Console.Core;
-using Console.Core.Attributes.CommandSystem;
-using Console.Core.Console;
+using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
-using Console.Core.Utils;
 
 namespace Console.CLI
 {
@@ -54,8 +47,7 @@ namespace Console.CLI
             //Running the OnTick Loop
             Thread t = new Thread(Loop);
             t.Start();
-
-            FlagTestClass tc = new FlagTestClass();
+            
 
             if (args.Length != 0)
             {

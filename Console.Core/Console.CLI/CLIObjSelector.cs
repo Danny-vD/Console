@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Console.Core.ObjectSelection;
+using Console.Core;
 
 namespace Console.CLI
 {
