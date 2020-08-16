@@ -5,21 +5,38 @@ using System;
 	
 namespace Console.Core.CommandSystem.Commands
 {
+	/// <summary>
+	/// Command Implementation with 0 Parameter(s)
+	/// </summary>
 	public class Command : AbstractCommand
 	{
 		private readonly Action callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 0 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action commandCallback) : base(0)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} ";
+			return $"{Name} ";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 
@@ -30,21 +47,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 1 Parameter(s)
+	/// </summary>
 	public class Command<TParam0> : AbstractCommand
 	{
 		private readonly Action<TParam0> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 1 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0> commandCallback) : base(1)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}";
+			return $"{Name} {typeof(TParam0).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -57,21 +91,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 2 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 2 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1> commandCallback) : base(2)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -86,21 +137,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 3 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 3 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2> commandCallback) : base(3)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -117,21 +185,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 4 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 4 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3> commandCallback) : base(4)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -150,21 +235,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 5 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 5 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4> commandCallback) : base(5)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -185,21 +287,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 6 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 6 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5> commandCallback) : base(6)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -222,21 +341,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 7 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 7 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> commandCallback) : base(7)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -261,21 +397,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 8 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 8 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> commandCallback) : base(8)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -302,21 +455,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 9 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 9 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> commandCallback) : base(9)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -345,21 +515,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 10 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 10 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> commandCallback) : base(10)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -390,21 +577,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 11 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 11 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> commandCallback) : base(11)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -437,21 +641,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 12 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 12 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11> commandCallback) : base(12)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -486,21 +707,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 13 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 13 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12> commandCallback) : base(13)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -537,21 +775,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 14 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 14 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13> commandCallback) : base(14)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -590,21 +845,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 15 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 15 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> commandCallback) : base(15)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}, {typeof(TParam14).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}, {typeof(TParam14).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
@@ -645,21 +917,38 @@ namespace Console.Core.CommandSystem.Commands
 
 
 
+	/// <summary>
+	/// Command Implementation with 16 Parameter(s)
+	/// </summary>
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> callback;
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with 16 Parameter(s) that gets invoked when the command is executed.</param>
 		public Command(string name, Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> commandCallback) : base(16)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
-			return $"{GetName()} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}, {typeof(TParam14).Name}, {typeof(TParam15).Name}";
+			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}, {typeof(TParam14).Name}, {typeof(TParam15).Name}";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 			if(!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");

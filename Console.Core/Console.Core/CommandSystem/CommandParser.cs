@@ -8,6 +8,10 @@ namespace Console.Core.CommandSystem
 {
 	public class CommandParser
 	{
+        /// <summary>
+        /// Parses and Processes the passed command.
+        /// </summary>
+        /// <param name="command">Command String to be Parsed.</param>
 		public void OnSubmitCommand(string command)
 		{
 			if (ConsoleCoreConfig.ConsolePrefix != string.Empty && !command.StartsWith(ConsoleCoreConfig.ConsolePrefix))
@@ -22,10 +26,14 @@ namespace Console.Core.CommandSystem
 				command = command.Remove(0, ConsoleCoreConfig.ConsolePrefix.Length);
 			}
 
-			ParseArguments(command);
+			InnerParseAndInvoke(command);
 		}
 
-		private static void ParseArguments(string arguments)
+        /// <summary>
+        /// Parses the Command String and Invokes the correct Command with the Correct Parameters
+        /// </summary>
+        /// <param name="arguments">The Argument Part of the Command.</param>
+		private static void InnerParseAndInvoke(string arguments)
 		{
 			string[] commandArguments = Split(arguments, ' ');
             if (commandArguments.Length == 0) return;
@@ -43,45 +51,46 @@ namespace Console.Core.CommandSystem
 
 			if (arguments.Contains(ConsoleCoreConfig.StringChar.ToString()))
 			{
-				CommandManager.Invoke(commandName, GetCorrectParameters(arguments));
+				CommandManager.Invoke(commandName, ParseStringBlocks(arguments));
 			}
 			else
 			{
-				CommandManager.Invoke(commandName, ProcessArguments(arguments));
+				CommandManager.Invoke(commandName, Split(arguments, ' '));
 			}
 		}
 
-		private static object[] ProcessArguments(string arguments)
-		{
-			//List<object> parameters = AConsoleManager.Instance.ObjectSelector.SelectedObjects;
-			
-			List<string> commandArguments = Split(arguments, ' ').ToList();
-			
-			//commandArguments.ForEach(parameters.Add);
-
-			return commandArguments.ToArray();
-		}
-
-		private static string[] Split(string arguments, char split)
+        /// <summary>
+        /// Splits the string at the specified character.
+        /// Does remove empty entries.
+        /// </summary>
+        /// <param name="arguments">The Argument Part of the Command</param>
+        /// <param name="split">The Split Char</param>
+        /// <returns>Result of the Split Operation</returns>
+        private static string[] Split(string arguments, char split)
 		{
 			return arguments.Split(new[] {split}, StringSplitOptions.RemoveEmptyEntries);
 		}
 
-		private static object[] GetCorrectParameters(string commandArguments)
+        /// <summary>
+        /// Parses the Arguments with respect to the string character
+        /// </summary>
+        /// <param name="commandArguments">The Argument Part of the Command.</param>
+        /// <returns>Correctly Parsed Array ofString Blocks</returns>
+		private static string[] ParseStringBlocks(string commandArguments)
 		{
 			string[] sections = commandArguments.Split(' ');
+            
+			List<string> arguments = InnerParseStringBlocks(sections);
 
-			// Split at whitespace, and append the items as long as a section does not contain an stringChar.
-			List<string> arguments = AppendStringArguments(sections);
-
-			//List<object> parameters = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToList();
-			
-			//arguments.ForEach(parameters.Add);
-			
-			return arguments.ToArray();
+            return arguments.ToArray();
 		}
 
-		private static List<string> AppendStringArguments(string[] parts)
+        /// <summary>
+        /// Splits the Arguments based on the Position of the String Character
+        /// </summary>
+        /// <param name="parts">THe Argument Parts of the Command</param>
+        /// <returns>Correctly Parsed Array ofString Blocks</returns>
+		private static List<string> InnerParseStringBlocks(string[] parts)
 		{
 			bool append = false;
 			StringBuilder stringBuilder = null;

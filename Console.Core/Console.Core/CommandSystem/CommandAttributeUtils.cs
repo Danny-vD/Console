@@ -14,13 +14,17 @@ namespace Console.Core.CommandSystem
         /// <summary>
 		/// Call this to add all static commands from a type
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="T">Type containing the Commands.</typeparam>
 		public static void AddCommands<T>()
         {
             Type t = typeof(T);
             AddCommands(t);
         }
 
+        /// <summary>
+        /// Adds all Static Commands contained in this type.
+        /// </summary>
+        /// <param name="type">Type Containing the Commands.</param>
         public static void AddCommands(Type type)
         {
             ReflectionCommand[] cmds = GetStaticCommandData(type).Select(x => new ReflectionCommand(x)).ToArray();
@@ -34,7 +38,7 @@ namespace Console.Core.CommandSystem
         /// <summary>
         /// Call this to add all commands from an instance
         /// </summary>
-        /// <param name="instance"></param>
+        /// <param name="instance">The Instance containing the Commands.</param>
         public static void AddCommands(object instance)
         {
             Type t = instance.GetType();
@@ -50,9 +54,9 @@ namespace Console.Core.CommandSystem
         /// Helper function.
         /// Returns the Methods that satisfy the binding flags and have at least one command attribute
         /// </summary>
-        /// <param name="t"></param>
-        /// <param name="flags"></param>
-        /// <returns></returns>
+        /// <param name="t">Type containing the Commands.</param>
+        /// <param name="flags">Binding Flags for the Reflection Queries</param>
+        /// <returns>Array of Method Infos eligible to be used as commands.</returns>
         private static MethodInfo[] GetCommands(Type t, BindingFlags flags)
         {
             MethodInfo[] i = t.GetMethods(flags).Where(x => x.GetCustomAttributes<CommandAttribute>().Count() != 0)
@@ -65,8 +69,8 @@ namespace Console.Core.CommandSystem
         /// <summary>
         /// Get all Commands from a type(only works for static functions)
         /// </summary>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <param name="t">Type containing the Commands</param>
+        /// <returns>Array of IInvokable Instances</returns>
         private static IInvokable[] GetStaticCommandData(Type t)
         {
             IInvokable[] i =
@@ -78,9 +82,9 @@ namespace Console.Core.CommandSystem
         /// <summary>
         /// Get all commands from a type/instance(only works for non static functions)
         /// </summary>
-        /// <param name="t"></param>
-        /// <param name="instance"></param>
-        /// <returns></returns>
+        /// <param name="t">Type containing the Commands</param>
+        /// <param name="instance">The Instance of the Type containing the Commands.</param>
+        /// <returns>Array of IInvokable Instances</returns>
         private static IInvokable[] GetCommandData(Type t, object instance)
         {
             IInvokable[] i =
@@ -90,11 +94,11 @@ namespace Console.Core.CommandSystem
         }
 
         /// <summary>
-        /// 1:1 implementation of AbstractCommand.ConvertTo but not generic
+        /// Converts the Parameter to the Target Type
         /// </summary>
-        /// <param name="parameter"></param>
-        /// <param name="target"></param>
-        /// <returns></returns>
+        /// <param name="parameter">Parameter to Convert</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>Returns the Changed Parameter</returns>
         public static object ConvertToNonGeneric(object parameter, Type target)
         {
             if (target.IsInstanceOfType(parameter))

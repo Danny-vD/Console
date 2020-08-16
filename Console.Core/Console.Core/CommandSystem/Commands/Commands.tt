@@ -56,7 +56,7 @@ string[] invokeImpl = new string[CommandCount];
 
 
 	string fullNameTypeImpl = "typeof({0}).Name";
-	fullNameImpl[cc] = "{GetName()} ";
+	fullNameImpl[cc] = "{Name} ";
 	for(int i = 1; i < cc; i++)
 	{
 		fullNameImpl[cc] += "{"+ string.Format(fullNameTypeImpl, "TParam"+(i-1))+"}";
@@ -80,21 +80,38 @@ string[] invokeImpl = new string[CommandCount];
 	}
 	invokeCall[cc]+= "\n\t\t\t);";
 #>
+	/// <summary>
+	/// Command Implementation with <#=cc-1#> Parameter(s)
+	/// </summary>
 	<#= classDef[cc] #>
 	{
 		<#= funcDef[cc] #>
 
+		/// <summary>
+        /// Creates a New Command.
+        /// </summary>
+        /// <param name="name">Name of the Command</param>
+        /// <param name="commandCallback">The Callback with <#=cc-1#> Parameter(s) that gets invoked when the command is executed.</param>
 		public <#=className#>(string name, <#= func[cc] #> commandCallback) : base(<#=cc-1#>)
 		{
 			Name = name;
 			callback = commandCallback;
 		}
 
+		
+        /// <summary>
+        /// Returns the name, plus all the parameter types
+        /// </summary>
+        /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName()
 		{
 			return $"<#= fullNameImpl[cc] #>";
 		}
 
+		/// <summary>
+        /// Invokes this Command with the specified parameters.
+        /// </summary>
+        /// <param name="parameters">Parameters of the Command.</param>
 		public override void Invoke(params object[] parameters)
 		{
 <#= invokeImpl[cc] #>

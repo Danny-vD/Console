@@ -6,7 +6,9 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
     public class PropertyCommands
     {
-
+        /// <summary>
+        /// Adds the Property Commands
+        /// </summary>
         public static void AddPropertyCommands()
         {
             CommandAttributeUtils.AddCommands<PropertyCommands>();
@@ -14,12 +16,19 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
 
         #region List Properties
 
+        /// <summary>
+        /// Lists all Property Names
+        /// </summary>
         [Command("list-properties", "Lists all Properties", "lp")]
         private static void ListPropertiesCommand()
         {
             ListPropertiesCommand(string.Empty);
         }
 
+        /// <summary>
+        /// Lists all Properties that start with the specified string
+        /// </summary>
+        /// <param name="start">Search Term.</param>
         [Command("list-properties", "Lists all Properties that start with the specified sequence", "lp")]
         private static void ListPropertiesCommand(string start)
         {
@@ -40,10 +49,17 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
 
         #region Get Properties
 
+        /// <summary>
+        /// Lists All properties and their values.
+        /// </summary>
         [Command("get-property",
             "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
         private static void GetProperty() => GetProperty("");
 
+        /// <summary>
+        /// Lists all Properties(including values) that start with the specified string.
+        /// </summary>
+        /// <param name="propertyPath">Search Term/Property Path</param>
         [Command("get-property",
             "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
         private static void GetProperty(string propertyPath)
@@ -79,6 +95,11 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
 
         #region Set/Add Properties
 
+        /// <summary>
+        /// Sets the Selected Item as the value of the specified property
+        /// </summary>
+        /// <param name="propertyPath">Property Name</param>
+        /// <param name="propertyValue">New Value of the Property</param>
         [Command("set-property-selection", "Sets the specified property to the specified value", "sps")]
         private static void SetPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
@@ -88,6 +109,11 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
+        /// <summary>
+        /// Adds the Selected Item as the value of the specified property
+        /// </summary>
+        /// <param name="propertyPath">Property Name</param>
+        /// <param name="propertyValue">New Value of the Property</param>
         [Command("add-property-selection", "Sets or Adds the specified property to the specified value", "aps")]
         private static void AddPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
@@ -100,6 +126,12 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
             AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
+
+        /// <summary>
+        /// Sets the Specified Item as the value of the specified property
+        /// </summary>
+        /// <param name="propertyPath">Property Name</param>
+        /// <param name="propertyValue">New Value of the Property</param>
         [Command("set-property", "Sets the specified property to the specified value", "sp")]
         private static void SetProperty(string propertyPath, object propertyValue)
         {
@@ -109,6 +141,11 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
+        /// <summary>
+        /// Adds the Specified Item as the value of the specified property
+        /// </summary>
+        /// <param name="propertyPath">Property Name</param>
+        /// <param name="propertyValue">New Value of the Property</param>
         [Command("add-property", "Sets or Adds the specified property to the specified value", "ap")]
         private static void AddProperty(string propertyPath, object propertyValue)
         {

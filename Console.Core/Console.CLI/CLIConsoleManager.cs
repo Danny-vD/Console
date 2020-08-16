@@ -33,7 +33,7 @@ namespace Console.CLI
         }
         public CLIConsoleManager(string extensionPath, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
         {
-            AExtensionInitializer.LoadExtensions(extensionPath);
+            ExtensionLoader.LoadFromFolder(extensionPath);
             InvokeOnFinishInitialize();
         }
 
@@ -61,13 +61,6 @@ namespace Console.CLI
         public override void LogWarning(object @object)
         {
             Log("Warning: " + @object);
-        }
-
-        protected override void SubmitCommand(string command)
-        {
-            string cmd = ExpanderManager.Expand(command);
-            LogCommand(command);
-            Parser.OnSubmitCommand(cmd);
         }
     }
 }

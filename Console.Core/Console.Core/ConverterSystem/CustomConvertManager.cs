@@ -4,18 +4,40 @@ using System.Linq;
 
 namespace Console.Core.ConverterSystem
 {
+    /// <summary>
+    /// Converter System API
+    /// </summary>
     public static class CustomConvertManager
     {
+        /// <summary>
+        /// All Loaded Converters.
+        /// </summary>
         private static List<AConverter> Converters = new List<AConverter>();
 
+        /// <summary>
+        /// Adds a Converter to the List of Loaded Converters.
+        /// </summary>
+        /// <param name="converter">Converter to Add</param>
         public static void AddConverter(AConverter converter)
         {
             Converters.Add(converter);
         }
 
+        /// <summary>
+        /// Returns true when one of the Loaded Converters is able to provide a conversion
+        /// </summary>
+        /// <param name="parameter">Parameter Value</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>True if the conversion can be done</returns>
         public static bool CanConvert(object parameter, Type target) =>
             Converters.Any(x => x.CanConvert(parameter, target));
 
+        /// <summary>
+        /// Returns the Converted Parameter
+        /// </summary>
+        /// <param name="parameter">Parameter Value</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>Converted Value</returns>
         public static object Convert(object parameter, Type target)
         {
             AConverter conv = Converters.FirstOrDefault(x => x.CanConvert(parameter, target));
@@ -26,6 +48,15 @@ namespace Console.Core.ConverterSystem
             return parameter;
         }
 
+
+
+        /// <summary>
+        /// Extension Method.
+        /// Tries to Convert the Specified object into the Specified Parameter.
+        /// </summary>
+        /// <typeparam name="TNewType">Target Type</typeparam>
+        /// <param name="object">Input Value</param>
+        /// <returns>Value of type TNewType</returns>
         public static TNewType ConvertTo<TNewType>(this object @object)
         {
             try

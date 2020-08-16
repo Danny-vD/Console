@@ -7,20 +7,35 @@ using Console.Core.ActivationSystem;
 
 namespace Console.Core.ExtensionSystem
 {
+    /// <summary>
+    /// Extension System API
+    /// </summary>
     public static class ExtensionLoader
     {
         #region Load Extensions
 
+        /// <summary>
+        /// Loads all Extensions contained in the specified folder.
+        /// </summary>
+        /// <param name="folder">Folder Containing Extensions</param>
         public static void LoadFromFolder(string folder)
         {
             LoadExtensionFiles(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
         }
         
+        /// <summary>
+        /// Loads an Extension from File.
+        /// </summary>
+        /// <param name="file">Extension Path</param>
         public static void LoadExtensionFile(string file)
         {
             LoadExtensionFiles(new[] { file });
         }
 
+        /// <summary>
+        /// Loads all specified Extensions
+        /// </summary>
+        /// <param name="paths">Extension Paths</param>
         public static void LoadExtensionFiles(string[] paths)
         {
             AConsoleManager.Instance.Log($"Loading {paths.Length} Extensions...");
@@ -29,6 +44,10 @@ namespace Console.Core.ExtensionSystem
             ProcessLoadOrder(exts.ToArray());
         }
 
+        /// <summary>
+        /// Orders the Extensions in the correct load order.
+        /// </summary>
+        /// <param name="exts">Extensions to be Ordered.</param>
         public static void ProcessLoadOrder(AExtensionInitializer[] exts)
         {
             Dictionary<LoadOrder, List<AExtensionInitializer>> extensions =
@@ -53,6 +72,10 @@ namespace Console.Core.ExtensionSystem
 
         #region Internal
 
+        /// <summary>
+        /// Initializes the Ordered Extensions.
+        /// </summary>
+        /// <param name="extensions">Extensions to Initialize</param>
         private static void InitializeExtensions(Dictionary<LoadOrder, List<AExtensionInitializer>> extensions)
         {
             string s = "Initializing Extensions...";
@@ -66,6 +89,11 @@ namespace Console.Core.ExtensionSystem
             AConsoleManager.Instance.Log(s);
         }
 
+        /// <summary>
+        /// Initializes the Specified Extensions
+        /// </summary>
+        /// <param name="extensions">Extensions to Initialize</param>
+        /// <returns>Loaded Extensions</returns>
         private static int InitializeExtensions(List<AExtensionInitializer> extensions)
         {
             foreach (AExtensionInitializer aExtensionInitializer in extensions)
@@ -75,7 +103,11 @@ namespace Console.Core.ExtensionSystem
             return extensions.Count;
         }
 
-
+        /// <summary>
+        /// Loads all Extension Initializer Instances from an Assembly.
+        /// </summary>
+        /// <param name="path">Path to the Assembly</param>
+        /// <returns>Extension Initializers in the Extension</returns>
         private static AExtensionInitializer[] LoadAssembly(string path)
         {
             try

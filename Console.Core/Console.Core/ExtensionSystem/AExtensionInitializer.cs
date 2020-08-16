@@ -15,13 +15,5 @@ namespace Console.Core.ExtensionSystem
         /// Initializes the Extensions in this Assembly.
         /// </summary>
         public abstract void Initialize();
-
-        public static void LoadExtensions(string folder)
-        {
-            Directory.CreateDirectory(folder);
-            string[] exts = Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories);
-
-            ExtensionLoader.LoadExtensionFiles(exts);
-        }
     }
 }

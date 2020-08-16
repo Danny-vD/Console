@@ -2,6 +2,9 @@
 {
     public class ObjectSelectionCommands
     {
+        /// <summary>
+        /// Adds all Selection Commands
+        /// </summary>
         public static void AddSelectionCommands()
         {
             CommandAttributeUtils.AddCommands<ObjectSelectionCommands>();
@@ -9,6 +12,9 @@
 
         #region List Selection
 
+        /// <summary>
+        /// Prints the Selected objects.
+        /// </summary>
         [Command("list-selection", "Lists all Selected Objects", "sl")]
         private static void ListSelected()
         {
@@ -28,6 +34,9 @@
 
         #region Clear
 
+        /// <summary>
+        /// Clears the Selected Objects List.
+        /// </summary>
         [Command("clear-selection", "Clears all Selected Objects", "sclear")]
         public static void ClearSelection()
         {
