@@ -1,0 +1,5 @@
+var namespace_console_1_1_networking_1_1_packets_1_1_connection_request =
+[
+    [ "ConnectionRequestPacket", "d8/d11/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_packet.html", "d8/d11/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_packet" ],
+    [ "ConnectionRequestSerializer", "d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer.html", "d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer" ]
+];

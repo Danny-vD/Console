@@ -1,0 +1,5 @@
+var namespace_console_1_1_networking_1_1_packets_1_1_authentication_request =
+[
+    [ "AuthenticationRequestPacket", "de/da2/class_console_1_1_networking_1_1_packets_1_1_authentication_request_1_1_authentication_request_packet.html", "de/da2/class_console_1_1_networking_1_1_packets_1_1_authentication_request_1_1_authentication_request_packet" ],
+    [ "AuthenticationRequestPacketSerializer", "d6/dcc/class_console_1_1_networking_1_1_packets_1_1_authentication_request_1_1_authentication_request_packet_serializer.html", "d6/dcc/class_console_1_1_networking_1_1_packets_1_1_authentication_request_1_1_authentication_request_packet_serializer" ]
+];
