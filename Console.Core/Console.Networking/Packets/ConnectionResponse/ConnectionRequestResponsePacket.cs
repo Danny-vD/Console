@@ -1,5 +1,8 @@
 ﻿using Console.Networking.Packets.Abstract;
 
+/// <summary>
+/// ConnectionRequestResponsePacket Classes
+/// </summary>
 namespace Console.Networking.Packets.ConnectionResponse
 {
     /// <summary>

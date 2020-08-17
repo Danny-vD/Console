@@ -1,7 +1,14 @@
 ﻿using Console.Evaluator.Core.Interfaces;
 
+/// <summary>
+/// The Evaluator.Math extension provides the complete System.Math library to the evaluator.
+/// This allows the Evaluator to Evaluate Expressions like: $eval(sin(PI))
+/// </summary>
 namespace Console.Evaluator.Math
 {
+    /// <summary>
+    /// Implements the System.Math api as usable class for the Evaluator Extension
+    /// </summary>
     public class MathEvalFunctions : IEvalFunctions, IVariableBag
     {
         public IEvalFunctions InheritedFunctions() => null;

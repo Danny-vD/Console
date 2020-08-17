@@ -1,6 +1,9 @@
 ﻿using System;
 using Console.Networking.Packets.Abstract;
 
+/// <summary>
+/// AuthenticationPacket Classes
+/// </summary>
 namespace Console.Networking.Packets.Authentication
 {
     /// <summary>
@@ -14,8 +17,16 @@ namespace Console.Networking.Packets.Authentication
         /// </summary>
         public readonly byte[] Data;
 
+
+        /// <summary>
+        /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
+        /// </summary>
         public override bool DoNotEncrypt => true;
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="data"></param>
         public AuthenticationPacket(byte[] data)
         {
             Data = data;

@@ -9,11 +9,27 @@ using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets;
 using Console.Networking.Packets.Abstract;
 
+
+/// <summary>
+/// The Networking Extension is used to Connect 2 Instances of the Console Library to allow running commands and receiving logs on the remote instance.
+/// </summary>
 namespace Console.Networking
 {
+
+
+    /// <summary>
+    /// Initializer of the Networking Extension
+    /// </summary>
     public class NetworkedInitializer : AExtensionInitializer
     {
+        /// <summary>
+        /// The Console Process Instance.
+        /// </summary>
         public static NetworkedConsoleProcess Instance { get; private set; }
+
+        /// <summary>
+        /// Initialization Function
+        /// </summary>
         public override void Initialize()
         {
             IPacketClientHandler[] ch = ActivateOnAttributeUtils.ActivateObjects<IPacketClientHandler>(Assembly.GetExecutingAssembly());
@@ -42,22 +58,6 @@ namespace Console.Networking
             PropertyAttributeUtils.AddProperties<ClientConsoleCommand>();
             PropertyAttributeUtils.AddProperties<SymmetricBlockAuthenticator>();
             Instance = new NetworkedConsoleProcess();
-            //NetworkingSettings.ClientSession.RegisterHandler(new LogClientHandler());
-            //NetworkingSettings.ClientSession.RegisterHandler(new ConnectionRequestResponseClientHandler());
-            //NetworkingSettings.ClientSession.RegisterHandler(new ConnectionAbortPacketClientHandler());
-            //NetworkingSettings.ClientSession.RegisterHandler(new AuthenticationPacketClientHandler());
-            //NetworkingSettings.ClientSession.RegisterHandler(new AuthenticationResultPacketHandler());
-            //NetworkingSettings.HostSession.RegisterHandler(new CommandHostHandler());
-            //NetworkingSettings.HostSession.RegisterHandler(new ConnectionRequestHostHandler());
-            //NetworkingSettings.HostSession.RegisterHandler(new ConnectionAbortPacketHostHandler());
-            //NetworkingSettings.HostSession.RegisterHandler(new ConnectionAuthRequestPacketHostHandler());
-            //SerializerCollection.AddSerializer(new CommandPacketSerializer());
-            //SerializerCollection.AddSerializer(new ConnectionRequestSerializer());
-            //SerializerCollection.AddSerializer(new ConnectionRequestResponseSerializer());
-            //SerializerCollection.AddSerializer(new LogPacketSerializer());
-            //SerializerCollection.AddSerializer(new AuthenticationPacketSerializer());
-            //SerializerCollection.AddSerializer(new AuthenticationResultPacketSerializer());
-            //SerializerCollection.AddSerializer(new AuthenticationRequestPacketSerializer());
 
             AConsoleManager.Instance.Log("Default Salt: " + Cryptography.DefaultSalt);
             AConsoleManager.Instance.Log("Default Vector: " + Cryptography.DefaultVector);

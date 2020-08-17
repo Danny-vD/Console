@@ -6,34 +6,78 @@ using Console.Core;
 using Console.Networking.Authentication;
 using Console.Networking.Packets.Abstract;
 
+/// <summary>
+/// Namespace Containing all Packets in the Networking Extension
+/// </summary>
 namespace Console.Networking.Packets
 {
+    /// <summary>
+    /// Networking Socket for the ConsoleSystem.
+    /// </summary>
     public class ConsoleSocket : IDisposable
     {
-
+        /// <summary>
+        /// Delegate that gets invoked when a Packet Gets Received on this ConsoleSocket
+        /// </summary>
+        /// <param name="package">The Received package</param>
         public delegate void PackageReceive(ANetworkPacket package);
 
+        /// <summary>
+        /// True if the Underlying Resources are disposed.
+        /// </summary>
         public bool IsDisposed { get; private set; }
+        /// <summary>
+        /// True if the Client is Still Connected
+        /// </summary>
         public bool Connected => Client?.Client != null && Client.Connected;
+        /// <summary>
+        /// True if the IAuthenticator Instance authorized the Client
+        /// </summary>
         public bool IsAuthenticated { get; private set; }
+        /// <summary>
+        /// Event that gets invoked when a Packet gets received.
+        /// </summary>
         public event PackageReceive OnPacketReceive;
+        /// <summary>
+        /// The Underlying TCP Client.
+        /// </summary>
         private TcpClient Client;
+        /// <summary>
+        /// Authenticator Instance Backing Field.
+        /// </summary>
         private IAuthenticator _authenticator;
+        /// <summary>
+        /// Authenticator Instance
+        /// </summary>
         private IAuthenticator Authenticator => _authenticator ?? (NetworkingSettings.AuthenticatorInstance);
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
         public ConsoleSocket() { }
 
+        /// <summary>
+        /// Public Construtor
+        /// </summary>
+        /// <param name="client">Underlying TCP Client</param>
         public ConsoleSocket(TcpClient client)
         {
             Client = client;
         }
 
+        /// <summary>
+        /// Sets the Authenticator Instance
+        /// </summary>
+        /// <param name="auth">New IAuthenticator Instance</param>
         public void SetAuthenticator(IAuthenticator auth)
         {
             _authenticator = auth;
             IsAuthenticated = true;
         }
 
+        /// <summary>
+        /// Disposes all underlying resources.
+        /// </summary>
         public void Dispose()
         {
             Client.Dispose();
@@ -41,12 +85,22 @@ namespace Console.Networking.Packets
             IsDisposed = true;
         }
 
+        /// <summary>
+        /// Connects to the Specified Host
+        /// </summary>
+        /// <param name="ip">Host IP</param>
+        /// <param name="port">Host Port</param>
         public void Connect(string ip, int port)
         {
             Client?.Dispose();
             Client = new TcpClient(ip, port);
         }
 
+        /// <summary>
+        /// Tries to send a packet through this socket.
+        /// </summary>
+        /// <param name="packet">Packet to Send</param>
+        /// <returns>True if the Packet got serialized and sent.</returns>
         public bool TrySendPacket(ANetworkPacket packet)
         {
             if (SerializerCollection.CanSerialize(packet.PacketIdentifier))
@@ -73,6 +127,10 @@ namespace Console.Networking.Packets
             return false;
         }
 
+
+        /// <summary>
+        /// Processes the Packets that were received.
+        /// </summary>
         public void ProcessPacket()
         {
             if (Client?.Client == null || !Client.Connected) return;
@@ -133,6 +191,9 @@ namespace Console.Networking.Packets
             }
         }
 
+        /// <summary>
+        /// Removes all remaining bytes from the Connection Buffer
+        /// </summary>
         private void FlushNetworkStream()
         {
             byte[] data = new byte[Client.Available];
@@ -140,6 +201,10 @@ namespace Console.Networking.Packets
             AConsoleManager.Instance.LogWarning($"Flushed {data.Length} Bytes.");
         }
 
+        /// <summary>
+        /// To String Implementation
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Client?.Client?.RemoteEndPoint?.ToString() ?? $"Client not Connected";

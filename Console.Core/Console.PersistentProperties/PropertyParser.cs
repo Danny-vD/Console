@@ -4,8 +4,16 @@ using System.Linq;
 
 namespace Console.PersistentProperties
 {
+    /// <summary>
+    /// Internal Helper Class
+    /// </summary>
     internal static class PropertyParser
     {
+        /// <summary>
+        /// Returns the Property Data from a File.
+        /// </summary>
+        /// <param name="content">The File Content.</param>
+        /// <returns>Property Data</returns>
         public static Dictionary<string, string> LoadProperties(string content)
         {
             List<string> lines = content.Split(new[] {'\n'}).Select(x => x.Trim())

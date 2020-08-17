@@ -5,11 +5,15 @@ using Console.Core.CommandSystem;
 
 namespace Console.ScriptSystem
 {
-    public class ScriptSystem
+    /// <summary>
+    /// Script System Implementation
+    /// </summary>
+    public static class ScriptSystem
     {
-        private ScriptSystem() { }
-
-
+        /// <summary>
+        /// Runs a Text File as if it would be typed into the console line by line.
+        /// </summary>
+        /// <param name="path">Filepath</param>
         [Command("run", "Run a  file.")]
         public static void RunFile(string path)
         {

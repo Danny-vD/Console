@@ -7,8 +7,15 @@ using Console.Core.ReflectionSystem;
 
 namespace Console.UtilExtension
 {
+    /// <summary>
+    /// Utility Commands for the Property System
+    /// </summary>
     public class UtilPropertyCommands
     {
+        /// <summary>
+        /// Adds all Static Properties of the Specified Type
+        /// </summary>
+        /// <param name="qualifiedName">Assembly Qualified Type Name</param>
         [Command("add-properties", "Adds all static Console Properties of the specified Type")]
         private static void AddProperties(string qualifiedName)
         {
@@ -16,12 +23,21 @@ namespace Console.UtilExtension
             PropertyAttributeUtils.AddPropertiesByType(t);
         }
 
+        /// <summary>
+        /// Adds all static public properties of the specified type.
+        /// </summary>
+        /// <param name="qualifiedName">Assembly Qualified Type Name</param>
         [Command("add-properties-any", "Adds all static public Properties of the specified Type with the specified prefix")]
         private static void AddPropertiesAny(string qualifiedName)
         {
             AddPropertiesAny(qualifiedName, "");
         }
 
+        /// <summary>
+        /// Adds all Static public properties of the specified type
+        /// </summary>
+        /// <param name="qualifiedName">Assembly Qualified Type Name</param>
+        /// <param name="prefix">Prefix of the Command</param>
         [Command("add-properties-any", "Adds all static public Properties of the specified Type with the specified prefix")]
         private static void AddPropertiesAny(string qualifiedName, string prefix)
         {
@@ -31,7 +47,11 @@ namespace Console.UtilExtension
         }
         private static bool ValidType(Type t) => t.IsPrimitive || t == typeof(string);
 
-
+        /// <summary>
+        /// Adds all Properties from the Specified type with the specified prefix
+        /// </summary>
+        /// <param name="prefix">Prefix of the Command</param>
+        /// <param name="t">Type containing the commands</param>
         private static void AddAnyPropertiesByType(string prefix, Type t)
         {
             PropertyInfo[] infos = t.GetProperties(BindingFlags.Static | BindingFlags.Public).Where(x => ValidType(x.PropertyType)).ToArray();

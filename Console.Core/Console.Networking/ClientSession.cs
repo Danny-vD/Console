@@ -9,19 +9,62 @@ using Console.Networking.Packets.ConnectionRequest;
 
 namespace Console.Networking
 {
+    /// <summary>
+    /// Client Session Used to Connect to a Host Session
+    /// </summary>
     public class ClientSession
     {
-        public enum ConnectionState { Idle, Connecting, Connected, Error }
+        /// <summary>
+        /// The Connection State of the Client Session
+        /// </summary>
+        public enum ConnectionState
+        {
+            /// <summary>
+            /// The Client Session is Ready to Connect
+            /// </summary>
+            Idle,
+            /// <summary>
+            /// The Client Session is trying to connect to a Host.
+            /// </summary>
+            Connecting,
+            /// <summary>
+            /// The Client Session Successfully Connected to the Host
+            /// </summary>
+            Connected,
+            /// <summary>
+            /// The Connection Failed.
+            /// </summary>
+            Error
+        }
+
+        /// <summary>
+        /// The Socket used to Communicate with the Host.
+        /// </summary>
         public ConsoleSocket Client { get; } = new ConsoleSocket();
+        /// <summary>
+        /// The Connect Thread used to implement non blocking Connect.
+        /// </summary>
         private Thread ConnectThread;
+        /// <summary>
+        /// The Current Client Session State.
+        /// </summary>
         public ConnectionState State;
 
 
+        /// <summary>
+        /// Registers an IPacketClientHandler to the OnPacketReceive Event.
+        /// </summary>
+        /// <param name="handler">Handler to add.</param>
         public void RegisterHandler(IPacketClientHandler handler)
         {
             Client.OnPacketReceive += handler._Handle;
         }
 
+        /// <summary>
+        /// Connects to the Specified Host
+        /// </summary>
+        /// <param name="ip">Host IP</param>
+        /// <param name="port">Host Port</param>
         public void Connect(string ip, int port)
         {
             if (State == ConnectionState.Connecting) return;
@@ -30,6 +73,12 @@ namespace Console.Networking
             ConnectThread = new Thread(() => ConnectionThread(ip, port));
             ConnectThread.Start();
         }
+
+        /// <summary>
+        /// Thread Function. Used to Implement NonBlocking Connection
+        /// </summary>
+        /// <param name="ip">Host IP</param>
+        /// <param name="port">Host Port</param>
         private void ConnectionThread(string ip, int port)
         {
             try
@@ -46,13 +95,20 @@ namespace Console.Networking
         }
 
 
+        /// <summary>
+        /// Gracefully Disconnects the Client from the Host.
+        /// </summary>
         public void Disconnect()
         {
-            Client.TrySendPacket(new ConnectionAbortPacket("Client Disconnected"));
+            Client?.TrySendPacket(new ConnectionAbortPacket("Client Disconnected"));
             Client?.Dispose();
             AConsoleManager.Instance.Log("Disconnected from Host");
         }
 
+        /// <summary>
+        /// Runs a Command on the Host Machine.
+        /// </summary>
+        /// <param name="cmd"></param>
         public void RunCommand(string cmd)
         {
             if (Client == null || !Client.IsAuthenticated || !Client.Connected || !Client.TrySendPacket(new CommandPacket(true, cmd)))
@@ -61,6 +117,9 @@ namespace Console.Networking
             }
         }
 
+        /// <summary>
+        /// Gets Invoked by the NetworkedConsoleProcess Class every ConsoleTick
+        /// </summary>
         public void ProcessLogMessages()
         {
 

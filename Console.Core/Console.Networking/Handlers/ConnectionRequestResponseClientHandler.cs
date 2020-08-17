@@ -5,8 +5,15 @@ using Console.Networking.Packets.ConnectionResponse;
 
 namespace Console.Networking.Handlers
 {
+    /// <summary>
+    /// Handles the ConnectionRequestResponsePacket when sent from the Host.
+    /// </summary>
     public class ConnectionRequestResponseClientHandler : APacketClientHandler<ConnectionRequestResponsePacket>
     {
+        /// <summary>
+        /// Handles the Packet
+        /// </summary>
+        /// <param name="item">The Packet</param>
         public override void Handle(ConnectionRequestResponsePacket packet)
         {
             if (packet is ConnectionRequestResponseFailedPacket failedPacket)

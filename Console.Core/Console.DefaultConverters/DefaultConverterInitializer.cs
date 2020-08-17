@@ -7,10 +7,25 @@ using Console.Core.ConverterSystem;
 using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
 
+
+
+/// <summary>
+/// The DefaultConverters Extension contains a collection of Converters that ease the use of the Command System.
+/// </summary>
 namespace Console.DefaultConverters
 {
+
+
+    /// <summary>
+    /// Initializer of the DefaultConverters Extension
+    /// </summary>
     public class DefaultConverterInitializer : AExtensionInitializer
     {
+
+        /// <summary>
+        /// Prints all Values of an Enum to the Console.
+        /// </summary>
+        /// <param name="qualifiedName"></param>
         [Command("enum-list", "Lists all Values of the Specified Enum")]
         private static void ListEnumValues(string qualifiedName)
         {
@@ -29,8 +44,17 @@ namespace Console.DefaultConverters
             AConsoleManager.Instance.LogWarning("Qualified Name is not recognized or the Type is not an Enum");
         }
 
+
+        /// <summary>
+        /// Version of the DefaultConverters Extension
+        /// </summary>
         [Property("version.defaultconverters")]
         private static Version EnvVersion => Assembly.GetExecutingAssembly().GetName().Version;
+
+
+        /// <summary>
+        /// Initialization Function
+        /// </summary>
         public override void Initialize()
         {
 

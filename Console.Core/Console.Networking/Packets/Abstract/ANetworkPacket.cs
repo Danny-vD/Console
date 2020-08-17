@@ -1,5 +1,11 @@
-﻿namespace Console.Networking.Packets.Abstract
+﻿/// <summary>
+/// Abstract Packet/Serializer Implementations
+/// </summary>
+namespace Console.Networking.Packets.Abstract
 {
+    /// <summary>
+    /// Abstract base class for all Network Packets
+    /// </summary>
     public abstract class ANetworkPacket
     {
         /// <summary>

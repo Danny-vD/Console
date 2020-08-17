@@ -1,5 +1,9 @@
 ﻿using Console.Networking.Packets.Abstract;
 
+
+/// <summary>
+/// CommandPacket Classes
+/// </summary>
 namespace Console.Networking.Packets.Command
 {
 
@@ -18,6 +22,11 @@ namespace Console.Networking.Packets.Command
         /// </summary>
         public readonly string Input;
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="resolved">Determines if the Command was resolved by the client</param>
+        /// <param name="input">The input string,</param>
         public CommandPacket(bool resolved, string input)
         {
             Resolved = resolved;

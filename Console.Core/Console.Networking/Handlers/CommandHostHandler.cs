@@ -5,8 +5,16 @@ using Console.Networking.Packets.Command;
 
 namespace Console.Networking.Handlers
 {
+    /// <summary>
+    /// Handles the CommandPacket when sent from a Client
+    /// </summary>
     public class CommandHostHandler : APacketHostHandler<CommandPacket>
     {
+        /// <summary>
+        /// Handles the packet of type T
+        /// </summary>
+        /// <param name="client">Sending Client</param>
+        /// <param name="item">The Packet</param>
         public override void Handle(ConsoleSocket client, CommandPacket item)
         {
             AConsoleManager.Instance.Log("Running Command on Host: " + item.Input);

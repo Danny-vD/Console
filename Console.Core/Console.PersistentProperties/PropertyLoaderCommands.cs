@@ -6,8 +6,15 @@ using Console.Core.PropertySystem;
 
 namespace Console.PersistentProperties
 {
+    /// <summary>
+    /// Property Loader Command Collection
+    /// </summary>
     public class PropertyLoaderCommands
     {
+        /// <summary>
+        /// Loads a Settings File.
+        /// </summary>
+        /// <param name="file">Filepath</param>
         [Command("load-properties", "Load a settings file")]
         public static void Load(string file)
         {
@@ -19,9 +26,18 @@ namespace Console.PersistentProperties
         }
 
 
+        /// <summary>
+        /// Saves all Properties to a file
+        /// </summary>
+        /// <param name="file">Filepath</param>
         [Command("save-properties", "Save all properties to file")]
         public static void Save(string file) => Save(file, "");
 
+        /// <summary>
+        /// Saves all Properties that start with the search term to a file
+        /// </summary>
+        /// <param name="file">Filepath</param>
+        /// <param name="searchTerm">Search String</param>
         [Command("save-properties", "Save all properties to file that match a search term")]
         public static void Save(string file, string searchTerm)
         {

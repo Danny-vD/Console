@@ -4,15 +4,38 @@ using Console.Core;
 using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
 
+
+
+/// <summary>
+/// Compatibility Layer for the Script System Extension and the IO Extension
+/// Allows execution of a Startup Script
+/// </summary>
 namespace Console.ScriptIOCompat
 {
+
+
+    /// <summary>
+    /// Initializer of the ScriptIOCompat Extension
+    /// </summary>
     public class ScriptIOCompatInitializer : AExtensionInitializer
     {
+        /// <summary>
+        /// Version of the ScriptIOCompat Extension
+        /// </summary>
         [Property("version.scriptiocompat")]
         private static Version EnvVersion => Assembly.GetExecutingAssembly().GetName().Version;
 
+
+        /// <summary>
+        /// The ; Seperated List of scripts to run after the console initialized.
+        /// </summary>
         [Property("scriptiocompat.scripts.autostart")]
         public static string AutoStartFile;
+
+        /// <summary>
+        /// Autostart Routine.
+        /// Does Load the ; separated property scriptiocompat.scripts.autostart and executes all scripts in this list in sequence
+        /// </summary>
         public static void AutoStart()
         {
             if (AutoStartFile == null) return;
@@ -25,6 +48,9 @@ namespace Console.ScriptIOCompat
         }
 
 
+        /// <summary>
+        /// Initialization Function
+        /// </summary>
         public override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<ScriptIOCompatInitializer>();

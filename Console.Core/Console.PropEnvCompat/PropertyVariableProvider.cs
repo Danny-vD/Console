@@ -5,8 +5,14 @@ using Console.EnvironmentVariables;
 namespace Console.PropEnvCompat
 {
 
+    /// <summary>
+    /// VariableContainer Implementation with the FuncName: "props"
+    /// </summary>
     public class PropertyVariableProvider : VariableContainer
     {
+        /// <summary>
+        /// All Environment Variables inside this container
+        /// </summary>
         protected override string EnvList
         {
             get
@@ -23,8 +29,16 @@ namespace Console.PropEnvCompat
             }
         }
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
         public PropertyVariableProvider() : base("props") { }
 
+        /// <summary>
+        /// Returns the Value of the Property
+        /// </summary>
+        /// <param name="parameter">The Property in this container</param>
+        /// <returns>The property value or NO_VALUE when the property is not found</returns>
         public override string GetValue(string parameter)
         {
             if (Providers.ContainsKey(parameter))

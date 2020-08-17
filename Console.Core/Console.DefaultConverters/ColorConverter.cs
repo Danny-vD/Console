@@ -5,14 +5,29 @@ using Console.Core.ConverterSystem;
 
 namespace Console.DefaultConverters
 {
+    /// <summary>
+    /// AConverter Implementation that Converts a #RRGGBB or #AARRGGBB hex string into a C# Color Struct
+    /// </summary>
     public class ColorConverter : AConverter
     {
-
+        /// <summary>
+        /// Returns true when the Converter is Able to Convert the parameter into the target type
+        /// </summary>
+        /// <param name="parameter">Parameter Value</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>True if the conversion can be done</returns>
         public override bool CanConvert(object parameter, Type target)
         {
             return parameter is string s && target == typeof(Color);
         }
 
+
+        /// <summary>
+        /// Converts the Parameter into the Target Type
+        /// </summary>
+        /// <param name="parameter">Parameter Value</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>Converted Value</returns>
         public override object Convert(object parameter, Type target)
         {
             string p = parameter as string;
@@ -44,6 +59,11 @@ namespace Console.DefaultConverters
             return Color.FromName(p);
         }
 
+        /// <summary>
+        /// Converts the Hex Code into a byte
+        /// </summary>
+        /// <param name="hexCode"></param>
+        /// <returns></returns>
         public byte Convert(string hexCode)
         {
             int val = int.Parse(hexCode, NumberStyles.HexNumber);

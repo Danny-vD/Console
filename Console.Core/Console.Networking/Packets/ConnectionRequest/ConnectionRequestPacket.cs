@@ -1,5 +1,8 @@
 ﻿using Console.Networking.Packets.Abstract;
 
+/// <summary>
+/// ConnectionRequestPacket Classes
+/// </summary>
 namespace Console.Networking.Packets.ConnectionRequest
 {
     /// <summary>
@@ -8,12 +11,20 @@ namespace Console.Networking.Packets.ConnectionRequest
     /// </summary>
     public class ConnectionRequestPacket:ANetworkPacket
     {
+
+        /// <summary>
+        /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
+        /// </summary>
         public override bool DoNotEncrypt => true;
         /// <summary>
         /// The Clients Version 
         /// </summary>
         public readonly string Version;
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="version">Console Core Version</param>
         public ConnectionRequestPacket(string version)
         {
             Version = version;

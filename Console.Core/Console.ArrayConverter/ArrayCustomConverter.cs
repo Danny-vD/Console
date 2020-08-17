@@ -8,16 +8,29 @@ using Console.Core.ConverterSystem;
 namespace Console.ArrayConverter
 {
 
+    /// <summary>
+    /// Custom AConverter implementation that does the Array Conversion
+    /// </summary>
     public class ArrayCustomConverter : AConverter
-    {
+    {/// <summary>
+        /// Returns true when the Converter is Able to Convert the parameter into the target type
+        /// </summary>
+        /// <param name="parameter">Parameter Value</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>True if the conversion can be done</returns>
         public override bool CanConvert(object parameter, Type target)
         {
             return (parameter is Array) &&
                    (target.IsArray || (typeof(IList).IsAssignableFrom(target) && target.IsGenericType) ||
                     target.IsAssignableFrom(parameter.GetType().GetElementType()));
         }
-
-        //Used as reflection
+        
+        /// <summary>
+        /// Used by Reflection to Create a List of a specific type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <returns></returns>
         private static List<T> GetAsList<T>(Array arr)
         {
             List<T> list = new List<T>();
@@ -29,6 +42,12 @@ namespace Console.ArrayConverter
             return list;
         }
 
+        /// <summary>
+        /// Converts the Parameter into the Target Type
+        /// </summary>
+        /// <param name="parameter">Parameter Value</param>
+        /// <param name="target">Target Type</param>
+        /// <returns>Converted Value</returns>
         public override object Convert(object parameter, Type target)
         {
             Array paramArr = parameter as Array;

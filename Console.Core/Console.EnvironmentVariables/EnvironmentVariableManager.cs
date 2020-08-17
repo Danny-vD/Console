@@ -7,10 +7,20 @@ using Console.Core.CommandSystem;
 
 namespace Console.EnvironmentVariables
 {
+    /// <summary>
+    /// Static EnvironmentVariable API
+    /// </summary>
     public static class EnvironmentVariableManager
     {
+        /// <summary>
+        /// All Providers
+        /// </summary>
         public static readonly Dictionary<string, VariableProvider> Providers = new Dictionary<string, VariableProvider>();
 
+        /// <summary>
+        /// Returns all Environment Providers
+        /// </summary>
+        /// <returns>; Seperated List of Providers</returns>
         public static string GetEnvironmentList()
         {
             string s = "";
@@ -24,6 +34,11 @@ namespace Console.EnvironmentVariables
             return s;
         }
 
+        /// <summary>
+        /// Adds all Static Methods of a Type that have one string input and string return as VariableProviders.
+        /// </summary>
+        /// <param name="funcPrefix">The Desired prefix</param>
+        /// <param name="qualifiedType">The Qualified Assembly Name of the Type</param>
         [Command("add-env-api", "Adds all public static methods with valid return and one string parameter.")]
         public static void AddStringTransformMethods(string funcPrefix, string qualifiedType)
         {
@@ -37,6 +52,11 @@ namespace Console.EnvironmentVariables
             AddStringTransformMethods(funcPrefix, t);
         }
 
+        /// <summary>
+        /// Adds all Static Methods of a Type that have one string input and string return as VariableProviders.
+        /// </summary>
+        /// <param name="funcPrefix">The Desired prefix</param>
+        /// <param name="qualifiedType">The Type</param>
         public static void AddStringTransformMethods(string funcPrefix, Type type)
         {
             MethodInfo[] mi = type.GetMethods(BindingFlags.Static | BindingFlags.Public);
@@ -54,12 +74,28 @@ namespace Console.EnvironmentVariables
             }
         }
 
+        /// <summary>
+        /// Returns True if the Type is a string or a Primitive
+        /// </summary>
+        /// <param name="t">Type to Check</param>
+        /// <returns>True if the Type is valid as VariableProvider return/input</returns>
         private static bool ValidType(Type t) => t.IsPrimitive || t == typeof(string);
 
+        /// <summary>
+        /// Returns the Variable provider from a MethodInfo Class
+        /// </summary>
+        /// <param name="funcPrefix">Desired FuncName</param>
+        /// <param name="info">The Method that will provide the values.</param>
+        /// <returns></returns>
         public static VariableProvider GetProvider(string funcPrefix, MethodInfo info)
         {
             return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] { s })?.ToString());
         }
+        /// <summary>
+        /// Expands the Input String with the VariableProvider Implementations
+        /// </summary>
+        /// <param name="cmd">Input String</param>
+        /// <returns>Expanded Output String</returns>
         public static string Expand(string cmd)
         {
             string ret = cmd;
@@ -94,6 +130,11 @@ namespace Console.EnvironmentVariables
             return ret;
         }
 
+        /// <summary>
+        /// Finds the Corresponding Closing Tag
+        /// </summary>
+        /// <param name="cmd">Input Command.</param>
+        /// <returns>Index of the Corresponding Closing Tag</returns>
         private static int FindClosing(string cmd)
         {
             int open = 0;
@@ -109,11 +150,19 @@ namespace Console.EnvironmentVariables
             return -1;
         }
 
+        /// <summary>
+        /// Adds a Provider to the EnvironmentVariable Manager.
+        /// </summary>
+        /// <param name="provider">Provider to Add</param>
         public static void AddProvider(VariableProvider provider)
         {
             Providers[provider.FunctionName] = provider;
         }
 
+        /// <summary>
+        /// Removes a Provider from the EnvironmentVariable Manager.
+        /// </summary>
+        /// <param name="funcName">Name of the Provider to Remove</param>
         public static void RemoveProvider(string funcName)
         {
             Providers.Remove(funcName);
