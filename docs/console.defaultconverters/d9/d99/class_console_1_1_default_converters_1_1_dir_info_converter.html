@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('d9/d99/class_console_1_1_default_conve
 <div class="title">Console.DefaultConverters.DirInfoConverter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>AConverter Implementation that converts a Path String into a DirectoryInfo class.  
+ <a href="../../d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.DefaultConverters.DirInfoConverter:</div>
 <div class="dyncontent">
@@ -99,13 +102,16 @@ Inheritance diagram for Console.DefaultConverters.DirInfoConverter:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a96b8110cb622a59fae12687e0b091fe9"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter.html#a96b8110cb622a59fae12687e0b091fe9">CanConvert</a> (object parameter, Type target)</td></tr>
+<tr class="memdesc:a96b8110cb622a59fae12687e0b091fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the Converter is Able to Convert the parameter into the target type  <a href="../../d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter.html#a96b8110cb622a59fae12687e0b091fe9">More...</a><br /></td></tr>
 <tr class="separator:a96b8110cb622a59fae12687e0b091fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5ed351bb29c4267ab8bb74e920f1742"><td class="memItemLeft" align="right" valign="top">override object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter.html#ab5ed351bb29c4267ab8bb74e920f1742">Convert</a> (object parameter, Type target)</td></tr>
+<tr class="memdesc:ab5ed351bb29c4267ab8bb74e920f1742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the Parameter into the Target Type  <a href="../../d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter.html#ab5ed351bb29c4267ab8bb74e920f1742">More...</a><br /></td></tr>
 <tr class="separator:ab5ed351bb29c4267ab8bb74e920f1742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html#l00007">7</a> of file <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html">DirInfoConverter.cs</a>.</p>
+<div class="textblock"><p>AConverter Implementation that converts a Path String into a DirectoryInfo class. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html#l00010">10</a> of file <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html">DirInfoConverter.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a96b8110cb622a59fae12687e0b091fe9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96b8110cb622a59fae12687e0b091fe9">&#9670;&nbsp;</a></span>CanConvert()</h2>
@@ -133,10 +139,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html#l00009">9</a> of file <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html">DirInfoConverter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="keywordflow">return</span> parameter is <span class="keywordtype">string</span> &amp;&amp; target == typeof(DirectoryInfo);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        }</div>
+<p>Returns true when the Converter is Able to Convert the parameter into the target type </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Parameter Value</td></tr>
+    <tr><td class="paramname">target</td><td>Target Type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the conversion can be done</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html#l00018">18</a> of file <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html">DirInfoConverter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> parameter is <span class="keywordtype">string</span> &amp;&amp; target == typeof(DirectoryInfo);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -166,10 +182,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html#l00014">14</a> of file <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html">DirInfoConverter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> DirectoryInfo(parameter.ToString());</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
+<p>Converts the Parameter into the Target Type </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Parameter Value</td></tr>
+    <tr><td class="paramname">target</td><td>Target Type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Converted Value</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html#l00028">28</a> of file <a class="el" href="../../dd/d05/_dir_info_converter_8cs_source.html">DirInfoConverter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> DirectoryInfo(parameter.ToString());</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -14,4 +14,5 @@ call GenerateDocumentation.bat console.propiocompat
 call GenerateDocumentation.bat console.scriptiocompat
 call GenerateDocumentation.bat console.scriptsystem
 call GenerateDocumentation.bat console.utilextension
+call GenerateDocumentation.bat console
 pause

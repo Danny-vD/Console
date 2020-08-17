@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['parser_2ecs_303',['Parser.cs',['../dc/d93/_parser_8cs.html',1,'']]],
-  ['parsersyntax_2ecs_304',['ParserSyntax.cs',['../d3/d94/_parser_syntax_8cs.html',1,'']]],
-  ['priority_2ecs_305',['Priority.cs',['../d9/d4b/_priority_8cs.html',1,'']]]
+  ['tokenizer_2ecs_304',['Tokenizer.cs',['../d2/db2/_tokenizer_8cs.html',1,'']]],
+  ['tokentype_2ecs_305',['TokenType.cs',['../d3/d15/_token_type_8cs.html',1,'']]]
 ];

@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('dd/dfa/class_console_1_1_prop_i_o_comp
 <div class="title">Console.PropIOCompat.FilesVariableProvider Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>VariableProvider Implementation that returns the Files in the Specified Directory.  
+ <a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.PropIOCompat.FilesVariableProvider:</div>
 <div class="dyncontent">
@@ -101,21 +104,25 @@ Inheritance diagram for Console.PropIOCompat.FilesVariableProvider:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e814d899bcde3463b1d455a4c078f2f"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a9e814d899bcde3463b1d455a4c078f2f">GetValue</a> (string parameter)</td></tr>
+<tr class="memdesc:a9e814d899bcde3463b1d455a4c078f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Files in the Specified Directory  <a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a9e814d899bcde3463b1d455a4c078f2f">More...</a><br /></td></tr>
 <tr class="separator:a9e814d899bcde3463b1d455a4c078f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e9b6369435c340c83679bd20144d8df"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">ToList</a> (string[] li)</td></tr>
+<tr class="memdesc:a5e9b6369435c340c83679bd20144d8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper Function that turns a String Array into a ; seperated list.  <a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">More...</a><br /></td></tr>
 <tr class="separator:a5e9b6369435c340c83679bd20144d8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a9e58b7b36e3dd481bee8a48267b86f0b"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a9e58b7b36e3dd481bee8a48267b86f0b">FunctionName</a> =&gt; &quot;files&quot;</td></tr>
+<tr class="memdesc:a9e58b7b36e3dd481bee8a48267b86f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Function name that is used to get this Variable.  <a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a9e58b7b36e3dd481bee8a48267b86f0b">More...</a><br /></td></tr>
 <tr class="separator:a9e58b7b36e3dd481bee8a48267b86f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00006">6</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<div class="textblock"><p>VariableProvider Implementation that returns the Files in the Specified Directory. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00011">11</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9e814d899bcde3463b1d455a4c078f2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e814d899bcde3463b1d455a4c078f2f">&#9670;&nbsp;</a></span>GetValue()</h2>
@@ -133,10 +140,19 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00019">19</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">ToList</a>(Directory.GetFiles(parameter, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly));</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<p>Returns the Files in the Specified Directory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Path of the directory to be searched.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of Files</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00039">39</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">ToList</a>(Directory.GetFiles(parameter, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -164,15 +180,24 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00008">8</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s1 <span class="keywordflow">in</span> li)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                s += s1 + <span class="stringliteral">&quot;; &quot;</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
+<p>Helper Function that turns a String Array into a ; seperated list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">li</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00018">18</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s1 <span class="keywordflow">in</span> li)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                s += s1 + <span class="stringliteral">&quot;; &quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -189,7 +214,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00018">18</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<p>The Function name that is used to get this Variable. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00031">31</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
 
 </div>
 </div>
@@ -198,7 +225,7 @@ Public Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_prop_i_o_compat_1_1_files_variable_provider_html_a5e9b6369435c340c83679bd20144d8df"><div class="ttname"><a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">Console.PropIOCompat.FilesVariableProvider.ToList</a></div><div class="ttdeci">static string ToList(string[] li)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_files_variable_provider_8cs_source.html#l00008">FilesVariableProvider.cs:8</a></div></div>
+<div class="ttc" id="aclass_console_1_1_prop_i_o_compat_1_1_files_variable_provider_html_a5e9b6369435c340c83679bd20144d8df"><div class="ttname"><a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">Console.PropIOCompat.FilesVariableProvider.ToList</a></div><div class="ttdeci">static string ToList(string[] li)</div><div class="ttdoc">Helper Function that turns a String Array into a ; seperated list.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_files_variable_provider_8cs_source.html#l00018">FilesVariableProvider.cs:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

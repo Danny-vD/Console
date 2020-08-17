@@ -91,46 +91,58 @@ $(document).ready(function(){initNavTree('d0/dbe/class_console_1_1_environment_v
 <div class="title">Console.EnvironmentVariables.VariableContainer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Variable Container Implementation. Allows for Grouping Environment Variables  
+ <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.EnvironmentVariables.VariableContainer:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.png" usemap="#Console.EnvironmentVariables.VariableContainer_map" alt=""/>
   <map id="Console.EnvironmentVariables.VariableContainer_map" name="Console.EnvironmentVariables.VariableContainer_map">
-<area href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html" alt="Console.EnvironmentVariables.VariableProvider" shape="rect" coords="0,0,293,24"/>
-<area href="../../d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html" alt="Console.EnvironmentVariables.DefaultVariables" shape="rect" coords="0,112,293,136"/>
+<area href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html" title="Abstract Variable Provider. Can be Inherited to create a VariableProvider for the EnvironmentVariable..." alt="Console.EnvironmentVariables.VariableProvider" shape="rect" coords="0,0,293,24"/>
+<area href="../../d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html" title="VariableContainer Implementation that has no func name and provides default environment variables." alt="Console.EnvironmentVariables.DefaultVariables" shape="rect" coords="0,112,293,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0252795c906f7165f57b560ac3900bcd"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a0252795c906f7165f57b560ac3900bcd">GetValue</a> (string parameter)</td></tr>
+<tr class="memdesc:a0252795c906f7165f57b560ac3900bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Value of the Provider  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a0252795c906f7165f57b560ac3900bcd">More...</a><br /></td></tr>
 <tr class="separator:a0252795c906f7165f57b560ac3900bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae65801b29cfb40985fc68a1eef452d34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">AddProvider</a> (<a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html">VariableProvider</a> provider)</td></tr>
+<tr class="memdesc:ae65801b29cfb40985fc68a1eef452d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a Provider to the EnvironmentVariable Manager.  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">More...</a><br /></td></tr>
 <tr class="separator:ae65801b29cfb40985fc68a1eef452d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8875ebf752d6d7339bd1babbabaa090"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ab8875ebf752d6d7339bd1babbabaa090">RemoveProvider</a> (string providerName)</td></tr>
+<tr class="memdesc:ab8875ebf752d6d7339bd1babbabaa090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a Provider from the EnvironmentVariable Manager.  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ab8875ebf752d6d7339bd1babbabaa090">More...</a><br /></td></tr>
 <tr class="separator:ab8875ebf752d6d7339bd1babbabaa090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a209f7781d17b4bc22e7e89c8d59b005d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a209f7781d17b4bc22e7e89c8d59b005d">VariableContainer</a> (string funcName)</td></tr>
+<tr class="memdesc:a209f7781d17b4bc22e7e89c8d59b005d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public Constructor.  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a209f7781d17b4bc22e7e89c8d59b005d">More...</a><br /></td></tr>
 <tr class="separator:a209f7781d17b4bc22e7e89c8d59b005d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a147354ad5e40ab550a91a7a99d0fc6ae"><td class="memItemLeft" align="right" valign="top">readonly Dictionary&lt; string, <a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html">VariableProvider</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a> = new Dictionary&lt;string, <a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html">VariableProvider</a>&gt;()</td></tr>
+<tr class="memdesc:a147354ad5e40ab550a91a7a99d0fc6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contained Providers  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">More...</a><br /></td></tr>
 <tr class="separator:a147354ad5e40ab550a91a7a99d0fc6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:ad14c1b117c2dd12b2c13105b6a125374"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">EnvList</a><code> [get]</code></td></tr>
+<tr class="memdesc:ad14c1b117c2dd12b2c13105b6a125374"><td class="mdescLeft">&#160;</td><td class="mdescRight">; Seperated list of contained VariableProviders.  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">More...</a><br /></td></tr>
 <tr class="separator:ad14c1b117c2dd12b2c13105b6a125374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa79372c5052730e5987adf46a7950961"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">FunctionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa79372c5052730e5987adf46a7950961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the Container Function  <a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">More...</a><br /></td></tr>
 <tr class="separator:aa79372c5052730e5987adf46a7950961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_console_1_1_environment_variables_1_1_variable_provider"><td colspan="2" onclick="javascript:toggleInherit('properties_class_console_1_1_environment_variables_1_1_variable_provider')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html">Console.EnvironmentVariables.VariableProvider</a></td></tr>
 <tr class="memitem:a3852ab1b743497499890263e6ee7d9f3 inherit properties_class_console_1_1_environment_variables_1_1_variable_provider"><td class="memItemLeft" align="right" valign="top">abstract string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html#a3852ab1b743497499890263e6ee7d9f3">FunctionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3852ab1b743497499890263e6ee7d9f3 inherit properties_class_console_1_1_environment_variables_1_1_variable_provider"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Function Name  <a href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html#a3852ab1b743497499890263e6ee7d9f3">More...</a><br /></td></tr>
 <tr class="separator:a3852ab1b743497499890263e6ee7d9f3 inherit properties_class_console_1_1_environment_variables_1_1_variable_provider"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00006">6</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="textblock"><p>Variable Container Implementation. Allows for Grouping Environment Variables </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a209f7781d17b4bc22e7e89c8d59b005d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a209f7781d17b4bc22e7e89c8d59b005d">&#9670;&nbsp;</a></span>VariableContainer()</h2>
@@ -148,11 +160,19 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00043">43</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">FunctionName</a> = funcName;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">AddProvider</a>(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;envs&quot;</span>, s =&gt; <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">EnvList</a>));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<p>Public Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">funcName</td><td>Name of the Variable Container.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00074">74</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">FunctionName</a> = funcName;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">AddProvider</a>(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;envs&quot;</span>, s =&gt; <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">EnvList</a>));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -173,10 +193,18 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>[provider.FunctionName] = provider;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<p>Adds a Provider to the EnvironmentVariable Manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">provider</td><td>Provider to Add</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00058">58</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>[provider.FunctionName] = provider;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,16 +232,25 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the Value of the Provider </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Input Data</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Value of the Provider</dd></dl>
+
 <p>Implements <a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html#adc951ac993bd190dc7fc1c3402f77743">Console.EnvironmentVariables.VariableProvider</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.TryGetValue(parameter, out VariableProvider prov))</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> prov.GetValue(parameter);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;NO_VALUE&quot;</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00045">45</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.TryGetValue(parameter, out VariableProvider prov))</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> prov.GetValue(parameter);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;NO_VALUE&quot;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,6 +269,14 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes a Provider from the EnvironmentVariable Manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">funcName</td><td>Name of the Provider to Remove</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -256,7 +301,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<p>Contained Providers </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
 
 </div>
 </div>
@@ -281,21 +328,23 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            <span class="keyword">get</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                List&lt;string&gt; keys = <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.Keys.ToList();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; keys.Count; i++)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                    <span class="keywordtype">string</span> instanceProvider = keys[i];</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                    s += instanceProvider;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                    <span class="keywordflow">if</span> (i != keys.Count - 1) s += <span class="stringliteral">&quot;; &quot;</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<p>; Seperated list of contained VariableProviders. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keyword">get</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                List&lt;string&gt; keys = <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.Keys.ToList();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; keys.Count; i++)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <span class="keywordtype">string</span> instanceProvider = keys[i];</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    s += instanceProvider;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    <span class="keywordflow">if</span> (i != keys.Count - 1) s += <span class="stringliteral">&quot;; &quot;</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -319,8 +368,10 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p>Name of the Container Function </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00038">38</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -329,10 +380,10 @@ Properties</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_a147354ad5e40ab550a91a7a99d0fc6ae"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Console.EnvironmentVariables.VariableContainer.Providers</a></div><div class="ttdeci">readonly Dictionary&lt; string, VariableProvider &gt; Providers</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00009">VariableContainer.cs:9</a></div></div>
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ae65801b29cfb40985fc68a1eef452d34"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">Console.EnvironmentVariables.VariableContainer.AddProvider</a></div><div class="ttdeci">void AddProvider(VariableProvider provider)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00036">VariableContainer.cs:36</a></div></div>
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_aa79372c5052730e5987adf46a7950961"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">Console.EnvironmentVariables.VariableContainer.FunctionName</a></div><div class="ttdeci">override string FunctionName</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00026">VariableContainer.cs:26</a></div></div>
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ad14c1b117c2dd12b2c13105b6a125374"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">Console.EnvironmentVariables.VariableContainer.EnvList</a></div><div class="ttdeci">virtual string EnvList</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00010">VariableContainer.cs:11</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_a147354ad5e40ab550a91a7a99d0fc6ae"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Console.EnvironmentVariables.VariableContainer.Providers</a></div><div class="ttdeci">readonly Dictionary&lt; string, VariableProvider &gt; Providers</div><div class="ttdoc">Contained Providers</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00015">VariableContainer.cs:15</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ae65801b29cfb40985fc68a1eef452d34"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">Console.EnvironmentVariables.VariableContainer.AddProvider</a></div><div class="ttdeci">void AddProvider(VariableProvider provider)</div><div class="ttdoc">Adds a Provider to the EnvironmentVariable Manager.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00058">VariableContainer.cs:58</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_aa79372c5052730e5987adf46a7950961"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">Console.EnvironmentVariables.VariableContainer.FunctionName</a></div><div class="ttdeci">override string FunctionName</div><div class="ttdoc">Name of the Container Function</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00038">VariableContainer.cs:38</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ad14c1b117c2dd12b2c13105b6a125374"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">Console.EnvironmentVariables.VariableContainer.EnvList</a></div><div class="ttdeci">virtual string EnvList</div><div class="ttdoc">; Seperated list of contained VariableProviders.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00019">VariableContainer.cs:20</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

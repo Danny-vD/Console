@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('d9/d2e/class_console_1_1_environment_v
 <div class="title">Console.EnvironmentVariables.EnvInitializer.EnvExpander Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>AExpander Implementation for the environment variables  
+ <a href="../../d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.EnvironmentVariables.EnvInitializer.EnvExpander:</div>
 <div class="dyncontent">
@@ -99,11 +102,13 @@ Inheritance diagram for Console.EnvironmentVariables.EnvInitializer.EnvExpander:
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0438daaa16157570ae4e74de195773b"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander.html#aa0438daaa16157570ae4e74de195773b">Expand</a> (string input)</td></tr>
+<tr class="memdesc:aa0438daaa16157570ae4e74de195773b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Expanded String based on the Input String  <a href="../../d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander.html#aa0438daaa16157570ae4e74de195773b">More...</a><br /></td></tr>
 <tr class="separator:aa0438daaa16157570ae4e74de195773b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<div class="textblock"><p>AExpander Implementation for the environment variables </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00031">31</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa0438daaa16157570ae4e74de195773b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0438daaa16157570ae4e74de195773b">&#9670;&nbsp;</a></span>Expand()</h2>
@@ -121,10 +126,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordflow">return</span> EnvironmentVariableManager.Expand(input);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            }</div>
+<p>Returns the Expanded String based on the Input String </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input String</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Expanded String</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00038">38</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> EnvironmentVariableManager.Expand(input);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
 </div><!-- fragment -->
 </div>
 </div>

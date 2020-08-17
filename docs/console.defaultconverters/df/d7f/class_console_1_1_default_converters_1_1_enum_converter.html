@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('df/d7f/class_console_1_1_default_conve
 <div class="title">Console.DefaultConverters.EnumConverter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>AConverter Implementation that converts the name of an enum to the corresponding enum value  
+ <a href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.DefaultConverters.EnumConverter:</div>
 <div class="dyncontent">
@@ -100,18 +103,22 @@ Inheritance diagram for Console.DefaultConverters.EnumConverter:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5417151e7fce81039e52f48aabb744e8"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a5417151e7fce81039e52f48aabb744e8">CanConvert</a> (object parameter, Type target)</td></tr>
+<tr class="memdesc:a5417151e7fce81039e52f48aabb744e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the Converter is Able to Convert the parameter into the target type  <a href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a5417151e7fce81039e52f48aabb744e8">More...</a><br /></td></tr>
 <tr class="separator:a5417151e7fce81039e52f48aabb744e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f1c43bc4df90fcd28a7f4db9b5fd3b"><td class="memItemLeft" align="right" valign="top">override object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a95f1c43bc4df90fcd28a7f4db9b5fd3b">Convert</a> (object parameter, Type target)</td></tr>
+<tr class="memdesc:a95f1c43bc4df90fcd28a7f4db9b5fd3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the Parameter into the Target Type  <a href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a95f1c43bc4df90fcd28a7f4db9b5fd3b">More...</a><br /></td></tr>
 <tr class="separator:a95f1c43bc4df90fcd28a7f4db9b5fd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a0495b6725a941b7eea43773c749dc87b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a0495b6725a941b7eea43773c749dc87b">CaseSensitive</a> = true</td></tr>
+<tr class="memdesc:a0495b6725a941b7eea43773c749dc87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag that if set to true will Parse the Names in case sensitive.  <a href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a0495b6725a941b7eea43773c749dc87b">More...</a><br /></td></tr>
 <tr class="separator:a0495b6725a941b7eea43773c749dc87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00007">7</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
+<div class="textblock"><p>AConverter Implementation that converts the name of an enum to the corresponding enum value </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5417151e7fce81039e52f48aabb744e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5417151e7fce81039e52f48aabb744e8">&#9670;&nbsp;</a></span>CanConvert()</h2>
@@ -139,10 +146,20 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00014">14</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">return</span> parameter is <span class="keywordtype">string</span> &amp;&amp; typeof(Enum).IsAssignableFrom(target);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
+<p>Returns true when the Converter is Able to Convert the parameter into the target type </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Parameter Value</td></tr>
+    <tr><td class="paramname">target</td><td>Target Type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the conversion can be done</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00025">25</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> parameter is <span class="keywordtype">string</span> &amp;&amp; typeof(Enum).IsAssignableFrom(target);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -172,12 +189,22 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordtype">string</span> s = parameter.ToString();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">if</span> (s.StartsWith(target.Name)) s = s.Remove(0, target.Name.Length);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> Enum.Parse(target, s, !<a class="code" href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a0495b6725a941b7eea43773c749dc87b">CaseSensitive</a>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<p>Converts the Parameter into the Target Type </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td>Parameter Value</td></tr>
+    <tr><td class="paramname">target</td><td>Target Type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Converted Value</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordtype">string</span> s = parameter.ToString();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (s.StartsWith(target.Name)) s = s.Remove(0, target.Name.Length);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> Enum.Parse(target, s, !<a class="code" href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a0495b6725a941b7eea43773c749dc87b">CaseSensitive</a>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -202,7 +229,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
+<p>Flag that if set to true will Parse the Names in case sensitive. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d9/d81/_enum_converter_8cs_source.html">EnumConverter.cs</a>.</p>
 
 </div>
 </div>
@@ -211,7 +240,7 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_default_converters_1_1_enum_converter_html_a0495b6725a941b7eea43773c749dc87b"><div class="ttname"><a href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a0495b6725a941b7eea43773c749dc87b">Console.DefaultConverters.EnumConverter.CaseSensitive</a></div><div class="ttdeci">static bool CaseSensitive</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d81/_enum_converter_8cs_source.html#l00012">EnumConverter.cs:12</a></div></div>
+<div class="ttc" id="aclass_console_1_1_default_converters_1_1_enum_converter_html_a0495b6725a941b7eea43773c749dc87b"><div class="ttname"><a href="../../df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html#a0495b6725a941b7eea43773c749dc87b">Console.DefaultConverters.EnumConverter.CaseSensitive</a></div><div class="ttdeci">static bool CaseSensitive</div><div class="ttdoc">Flag that if set to true will Parse the Names in case sensitive.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d81/_enum_converter_8cs_source.html#l00017">EnumConverter.cs:17</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

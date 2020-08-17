@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['console_2eclassqueries_2eassemblyinfo_2ecs_6',['Console.ClassQueries.AssemblyInfo.cs',['../d4/dd4/_debug_2netstandard2_80_2_console_8_class_queries_8_assembly_info_8cs.html',1,'']]]
+  ['envversion_6',['EnvVersion',['../d5/d12/class_console_1_1_class_queries_1_1_class_query_initializer.html#a9d4648bff7c54c24e49cbc903139c599',1,'Console::ClassQueries::ClassQueryInitializer']]]
 ];

@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('de/ded/class_console_1_1_prop_i_o_comp
 <div class="title">Console.PropIOCompat.IOCompatInitializer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Initializer of the <a class="el" href="../../d1/d27/namespace_console_1_1_prop_i_o_compat.html" title="Compatibility Layer for the Property System and the IO Extension Allows the Usage of environment vari...">PropIOCompat</a> Extension  
+ <a href="../../de/ded/class_console_1_1_prop_i_o_compat_1_1_i_o_compat_initializer.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.PropIOCompat.IOCompatInitializer:</div>
 <div class="dyncontent">
@@ -100,16 +103,19 @@ Inheritance diagram for Console.PropIOCompat.IOCompatInitializer:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:addad54b2e78d1cdf116ced8e56e8d13d"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/ded/class_console_1_1_prop_i_o_compat_1_1_i_o_compat_initializer.html#addad54b2e78d1cdf116ced8e56e8d13d">Initialize</a> ()</td></tr>
+<tr class="memdesc:addad54b2e78d1cdf116ced8e56e8d13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization Function  <a href="../../de/ded/class_console_1_1_prop_i_o_compat_1_1_i_o_compat_initializer.html#addad54b2e78d1cdf116ced8e56e8d13d">More...</a><br /></td></tr>
 <tr class="separator:addad54b2e78d1cdf116ced8e56e8d13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:aa924a5b4ba244a8534583e9ee332737d"><td class="memItemLeft" align="right" valign="top">static Version&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/ded/class_console_1_1_prop_i_o_compat_1_1_i_o_compat_initializer.html#aa924a5b4ba244a8534583e9ee332737d">EnvVersion</a> =&gt; Assembly.GetExecutingAssembly().GetName().Version</td></tr>
+<tr class="memdesc:aa924a5b4ba244a8534583e9ee332737d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version of the <a class="el" href="../../d1/d27/namespace_console_1_1_prop_i_o_compat.html" title="Compatibility Layer for the Property System and the IO Extension Allows the Usage of environment vari...">PropIOCompat</a> Extension  <a href="../../de/ded/class_console_1_1_prop_i_o_compat_1_1_i_o_compat_initializer.html#aa924a5b4ba244a8534583e9ee332737d">More...</a><br /></td></tr>
 <tr class="separator:aa924a5b4ba244a8534583e9ee332737d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html">IOCompatInitializer.cs</a>.</p>
+<div class="textblock"><p>Initializer of the <a class="el" href="../../d1/d27/namespace_console_1_1_prop_i_o_compat.html" title="Compatibility Layer for the Property System and the IO Extension Allows the Usage of environment vari...">PropIOCompat</a> Extension </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html">IOCompatInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="addad54b2e78d1cdf116ced8e56e8d13d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addad54b2e78d1cdf116ced8e56e8d13d">&#9670;&nbsp;</a></span>Initialize()</h2>
@@ -126,15 +132,17 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html">IOCompatInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            PropertyAttributeUtils.AddProperties&lt;IOCompatInitializer&gt;();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> FilesVariableProvider());</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> DirectoriesVariableProvider());</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            DefaultVariables.Instance.AddProvider(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;cd&quot;</span>, s =&gt; Directory.GetCurrentDirectory()));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            DefaultVariables.Instance.AddProvider(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;files&quot;</span>, s =&gt; FilesVariableProvider.ToList(Directory.GetFiles(<span class="stringliteral">&quot;.\\&quot;</span>, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly))));</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            DefaultVariables.Instance.AddProvider(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;dirs&quot;</span>, s =&gt; FilesVariableProvider.ToList(Directory.GetDirectories(<span class="stringliteral">&quot;.\\&quot;</span>, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly))));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
+<p>Initialization Function </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html">IOCompatInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            PropertyAttributeUtils.AddProperties&lt;IOCompatInitializer&gt;();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> FilesVariableProvider());</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> DirectoriesVariableProvider());</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            DefaultVariables.Instance.AddProvider(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;cd&quot;</span>, s =&gt; Directory.GetCurrentDirectory()));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            DefaultVariables.Instance.AddProvider(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;files&quot;</span>, s =&gt; FilesVariableProvider.ToList(Directory.GetFiles(<span class="stringliteral">&quot;.\\&quot;</span>, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly))));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            DefaultVariables.Instance.AddProvider(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;dirs&quot;</span>, s =&gt; FilesVariableProvider.ToList(Directory.GetDirectories(<span class="stringliteral">&quot;.\\&quot;</span>, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly))));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -159,7 +167,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html#l00014">14</a> of file <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html">IOCompatInitializer.cs</a>.</p>
+<p>Version of the <a class="el" href="../../d1/d27/namespace_console_1_1_prop_i_o_compat.html" title="Compatibility Layer for the Property System and the IO Extension Allows the Usage of environment vari...">PropIOCompat</a> Extension </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d1/d09/_i_o_compat_initializer_8cs_source.html">IOCompatInitializer.cs</a>.</p>
 
 </div>
 </div>

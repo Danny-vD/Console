@@ -93,36 +93,32 @@ $(document).ready(function(){initNavTree('da/de0/_script_system_8cs_source.html'
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d6/dca/namespace_console_1_1_script_system.html">    6</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d6/dca/namespace_console_1_1_script_system.html">Console.ScriptSystem</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html">    8</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html">ScriptSystem</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a5f088d1cf76400fd446336313165cc1d">   10</a></span>&#160;        <span class="keyword">private</span> <a class="code" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a5f088d1cf76400fd446336313165cc1d">ScriptSystem</a>() { }</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        [Command(<span class="stringliteral">&quot;run&quot;</span>, <span class="stringliteral">&quot;Run a  file.&quot;</span>)]</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">   14</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">RunFile</a>(<span class="keywordtype">string</span> path)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="keywordtype">string</span>[] lines = File.ReadAllLines(path).Where(x=&gt;!<span class="keywordtype">string</span>.IsNullOrEmpty(x.Trim())).ToArray();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                    AConsoleManager.Instance.EnterCommand(line);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html">   11</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html">ScriptSystem</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        [Command(<span class="stringliteral">&quot;run&quot;</span>, <span class="stringliteral">&quot;Run a  file.&quot;</span>)]</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">   18</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">RunFile</a>(<span class="keywordtype">string</span> path)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordtype">string</span>[] lines = File.ReadAllLines(path).Where(x=&gt;!<span class="keywordtype">string</span>.IsNullOrEmpty(x.Trim())).ToArray();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    AConsoleManager.Instance.EnterCommand(line);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_html"><div class="ttname"><a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html">Console.ScriptSystem.ScriptSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00008">ScriptSystem.cs:9</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_html_a5f088d1cf76400fd446336313165cc1d"><div class="ttname"><a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a5f088d1cf76400fd446336313165cc1d">Console.ScriptSystem.ScriptSystem.ScriptSystem</a></div><div class="ttdeci">ScriptSystem()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00010">ScriptSystem.cs:10</a></div></div>
-<div class="ttc" id="anamespace_console_1_1_script_system_html"><div class="ttname"><a href="../../d6/dca/namespace_console_1_1_script_system.html">Console.ScriptSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00006">ScriptSystem.cs:7</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_html"><div class="ttname"><a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html">Console.ScriptSystem.ScriptSystem</a></div><div class="ttdoc">Script System Implementation</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00011">ScriptSystem.cs:12</a></div></div>
+<div class="ttc" id="anamespace_console_1_1_script_system_html"><div class="ttname"><a href="../../d6/dca/namespace_console_1_1_script_system.html">Console.ScriptSystem</a></div><div class="ttdoc">The Script System Extension implements functionality that allows running of scripts as if they were t...</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00006">ScriptSystem.cs:7</a></div></div>
 <div class="ttc" id="anamespace_console_html"><div class="ttname"><a href="../../d8/db5/namespace_console.html">Console</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00006">ScriptSystem.cs:7</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_html_a883ca787c6d53a2b8884a56295f4b86a"><div class="ttname"><a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">Console.ScriptSystem.ScriptSystem.RunFile</a></div><div class="ttdeci">static void RunFile(string path)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00014">ScriptSystem.cs:14</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_html_a883ca787c6d53a2b8884a56295f4b86a"><div class="ttname"><a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">Console.ScriptSystem.ScriptSystem.RunFile</a></div><div class="ttdeci">static void RunFile(string path)</div><div class="ttdoc">Runs a Text File as if it would be typed into the console line by line.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/_script_system_8cs_source.html#l00018">ScriptSystem.cs:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

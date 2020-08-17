@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('da/d2f/class_console_1_1_persistent_pr
 <div class="title">Console.PersistentProperties.PersistentPropertiesInitializer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Initializer of the <a class="el" href="../../d9/dbc/namespace_console_1_1_persistent_properties.html" title="The PersistentProperties Extension is implementing the Funcionality to Load/Save properties in a huma...">PersistentProperties</a> Extension  
+ <a href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.PersistentProperties.PersistentPropertiesInitializer:</div>
 <div class="dyncontent">
@@ -101,6 +104,7 @@ Inheritance diagram for Console.PersistentProperties.PersistentPropertiesInitial
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a82b2b1db61bc02e52fea69a0696b69c2"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#a82b2b1db61bc02e52fea69a0696b69c2">Initialize</a> ()</td></tr>
+<tr class="memdesc:a82b2b1db61bc02e52fea69a0696b69c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization Function  <a href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#a82b2b1db61bc02e52fea69a0696b69c2">More...</a><br /></td></tr>
 <tr class="separator:a82b2b1db61bc02e52fea69a0696b69c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -113,11 +117,13 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:af0e49424f5c21bfde970d1d63cc4dde9"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">InitPropertyPath</a> = &quot;.\\configs\\init.cfg&quot;</td></tr>
 <tr class="separator:af0e49424f5c21bfde970d1d63cc4dde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69dc73efa15c33e5ca2db84e5bf1e733"><td class="memItemLeft" align="right" valign="top">static Version&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#a69dc73efa15c33e5ca2db84e5bf1e733">PersistentPropertiesVersion</a> =&gt; Assembly.GetExecutingAssembly().GetName().Version</td></tr>
+<tr class="memdesc:a69dc73efa15c33e5ca2db84e5bf1e733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version of the Persistent Properties Extension  <a href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#a69dc73efa15c33e5ca2db84e5bf1e733">More...</a><br /></td></tr>
 <tr class="separator:a69dc73efa15c33e5ca2db84e5bf1e733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
+<div class="textblock"><p>Initializer of the <a class="el" href="../../d9/dbc/namespace_console_1_1_persistent_properties.html" title="The PersistentProperties Extension is implementing the Funcionality to Load/Save properties in a huma...">PersistentProperties</a> Extension </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a82b2b1db61bc02e52fea69a0696b69c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a82b2b1db61bc02e52fea69a0696b69c2">&#9670;&nbsp;</a></span>Initialize()</h2>
@@ -134,13 +140,15 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            PropertyAttributeUtils.AddProperties&lt;PersistentPropertiesInitializer&gt;();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            CommandAttributeUtils.AddCommands&lt;PropertyLoaderCommands&gt;();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">if</span> (File.Exists(<a class="code" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">InitPropertyPath</a>))</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                PropertyLoaderCommands.Load(<a class="code" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">InitPropertyPath</a>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<p>Initialization Function </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00034">34</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            PropertyAttributeUtils.AddProperties&lt;PersistentPropertiesInitializer&gt;();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            CommandAttributeUtils.AddCommands&lt;PropertyLoaderCommands&gt;();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> (File.Exists(<a class="code" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">InitPropertyPath</a>))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                PropertyLoaderCommands.Load(<a class="code" href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">InitPropertyPath</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -165,7 +173,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -181,7 +189,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -205,7 +213,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
+<p>Version of the Persistent Properties Extension </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html">PersistentPropertiesInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -214,7 +224,7 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_persistent_properties_1_1_persistent_properties_initializer_html_af0e49424f5c21bfde970d1d63cc4dde9"><div class="ttname"><a href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">Console.PersistentProperties.PersistentPropertiesInitializer.InitPropertyPath</a></div><div class="ttdeci">const string InitPropertyPath</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00012">PersistentPropertiesInitializer.cs:12</a></div></div>
+<div class="ttc" id="aclass_console_1_1_persistent_properties_1_1_persistent_properties_initializer_html_af0e49424f5c21bfde970d1d63cc4dde9"><div class="ttname"><a href="../../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#af0e49424f5c21bfde970d1d63cc4dde9">Console.PersistentProperties.PersistentPropertiesInitializer.InitPropertyPath</a></div><div class="ttdeci">const string InitPropertyPath</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dd1/_persistent_properties_initializer_8cs_source.html#l00020">PersistentPropertiesInitializer.cs:20</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

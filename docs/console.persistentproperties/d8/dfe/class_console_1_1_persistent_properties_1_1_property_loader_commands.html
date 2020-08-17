@@ -89,19 +89,26 @@ $(document).ready(function(){initNavTree('d8/dfe/class_console_1_1_persistent_pr
 <div class="title">Console.PersistentProperties.PropertyLoaderCommands Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Property Loader Command Collection  
+ <a href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a26c343e6289dfa67fc672fd500ed73a1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#a26c343e6289dfa67fc672fd500ed73a1">Load</a> (string file)</td></tr>
+<tr class="memdesc:a26c343e6289dfa67fc672fd500ed73a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a Settings File.  <a href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#a26c343e6289dfa67fc672fd500ed73a1">More...</a><br /></td></tr>
 <tr class="separator:a26c343e6289dfa67fc672fd500ed73a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6a82ccf63a334540410f91383571f93"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#ae6a82ccf63a334540410f91383571f93">Save</a> (string file)</td></tr>
+<tr class="memdesc:ae6a82ccf63a334540410f91383571f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves all Properties to a file  <a href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#ae6a82ccf63a334540410f91383571f93">More...</a><br /></td></tr>
 <tr class="separator:ae6a82ccf63a334540410f91383571f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab632a2113756fadf99a4730b3863ff3d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#ab632a2113756fadf99a4730b3863ff3d">Save</a> (string file, string searchTerm)</td></tr>
+<tr class="memdesc:ab632a2113756fadf99a4730b3863ff3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves all Properties that start with the search term to a file  <a href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#ab632a2113756fadf99a4730b3863ff3d">More...</a><br /></td></tr>
 <tr class="separator:ab632a2113756fadf99a4730b3863ff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
+<div class="textblock"><p>Property Loader Command Collection </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a26c343e6289dfa67fc672fd500ed73a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26c343e6289dfa67fc672fd500ed73a1">&#9670;&nbsp;</a></span>Load()</h2>
@@ -127,14 +134,22 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <span class="keywordflow">if</span> (File.Exists(file))</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                Dictionary&lt;string, string&gt; v = PropertyParser.LoadProperties(File.ReadAllText(file));</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                v.ToList().ForEach(x =&gt; PropertyManager.TrySetValue(x.Key, x.Value));</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
+<p>Loads a Settings File. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Filepath</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span> (File.Exists(file))</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                Dictionary&lt;string, string&gt; v = PropertyParser.LoadProperties(File.ReadAllText(file));</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                v.ToList().ForEach(x =&gt; PropertyManager.TrySetValue(x.Key, x.Value));</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -161,6 +176,14 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Saves all Properties to a file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Filepath</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -198,19 +221,28 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            List&lt;string&gt; p = PropertyManager.AllPropertyPaths.Where(x =&gt; x.StartsWith(searchTerm)).ToList();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; p.Count; i++)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (PropertyManager.TryGetValue(p[i], out <span class="keywordtype">object</span> obj))</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    ret.Add($<span class="stringliteral">&quot;{p[i]}={obj}&quot;</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            File.WriteAllLines(file, ret);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<p>Saves all Properties that start with the search term to a file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Filepath</td></tr>
+    <tr><td class="paramname">searchTerm</td><td>Search String</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            List&lt;string&gt; p = PropertyManager.AllPropertyPaths.Where(x =&gt; x.StartsWith(searchTerm)).ToList();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; p.Count; i++)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> (PropertyManager.TryGetValue(p[i], out <span class="keywordtype">object</span> obj))</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    ret.Add($<span class="stringliteral">&quot;{p[i]}={obj}&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            File.WriteAllLines(file, ret);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

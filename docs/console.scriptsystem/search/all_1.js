@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['console_2escriptsystem_2eassemblyinfo_2ecs_2',['Console.ScriptSystem.AssemblyInfo.cs',['../d3/d70/_debug_2netstandard2_80_2_console_8_script_system_8_assembly_info_8cs.html',1,'']]]
+  ['initialize_2',['Initialize',['../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#aabe026df4908f356acc89e423fe70a0d',1,'Console::ScriptSystem::ScriptSystemInitializer']]]
 ];

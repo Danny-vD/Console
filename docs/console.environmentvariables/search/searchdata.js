@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "acdefgioprv",
   1: "dev",
   2: "c",
-  3: "derv",
+  3: "dev",
   4: "adefgirv",
   5: "eiop",
   6: "ef"

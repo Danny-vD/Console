@@ -1,0 +1,7 @@
+var namespace_console_1_1_networking_1_1_packets_1_1_connection_response =
+[
+    [ "ConnectionRequestResponseFailedPacket", "d9/d75/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_failed_packet.html", "d9/d75/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_failed_packet" ],
+    [ "ConnectionRequestResponsePacket", "d0/d3f/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_packet.html", "d0/d3f/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_packet" ],
+    [ "ConnectionRequestResponseSerializer", "de/dae/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_serializer.html", "de/dae/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_serializer" ],
+    [ "ConnectionRequestResponseSuccessPacket", "db/dbc/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_success_packet.html", "db/dbc/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_success_packet" ]
+];

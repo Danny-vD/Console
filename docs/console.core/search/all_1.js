@@ -27,7 +27,7 @@ var searchData=
   ['commands_2ecs_71',['Commands.cs',['../db/d2f/_commands_8cs.html',1,'']]],
   ['commandsystem_72',['CommandSystem',['../de/de3/namespace_console_1_1_core_1_1_command_system.html',1,'Console::Core']]],
   ['console_73',['Console',['../d8/db5/namespace_console.html',1,'']]],
-  ['consolecoreconfig_74',['ConsoleCoreConfig',['../d6/dce/class_console_1_1_core_1_1_console_core_config.html',1,'Console.Core.ConsoleCoreConfig'],['../d6/dce/class_console_1_1_core_1_1_console_core_config.html#a5747c45669fe619d8943f40d703a7af1',1,'Console.Core.ConsoleCoreConfig.ConsoleCoreConfig()']]],
+  ['consolecoreconfig_74',['ConsoleCoreConfig',['../d6/dce/class_console_1_1_core_1_1_console_core_config.html',1,'Console::Core']]],
   ['consolecoreconfig_2ecs_75',['ConsoleCoreConfig.cs',['../d0/d3b/_console_core_config_8cs.html',1,'']]],
   ['consoleinitoptions_76',['ConsoleInitOptions',['../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a6b7869795f33b0e3d83a30d09fbea705',1,'Console::Core::AConsoleManager']]],
   ['consoleprefix_77',['ConsolePrefix',['../d6/dce/class_console_1_1_core_1_1_console_core_config.html#affe33594001ef49c146ae4b6b744dcc2',1,'Console::Core::ConsoleCoreConfig']]],

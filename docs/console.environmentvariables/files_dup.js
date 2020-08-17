@@ -1,8 +1,5 @@
 var files_dup =
 [
-    [ "Debug/netstandard2.0/Console.EnvironmentVariables.AssemblyInfo.cs", "d2/dc6/_debug_2netstandard2_80_2_console_8_environment_variables_8_assembly_info_8cs.html", null ],
-    [ "Release/netstandard2.0/Console.EnvironmentVariables.AssemblyInfo.cs", "d0/d5c/_release_2netstandard2_80_2_console_8_environment_variables_8_assembly_info_8cs.html", null ],
-    [ "Release/netstandard2.0/win-x64/Console.EnvironmentVariables.AssemblyInfo.cs", "d9/dca/_release_2netstandard2_80_2win-x64_2_console_8_environment_variables_8_assembly_info_8cs.html", null ],
     [ "DefaultVariables.cs", "d9/d05/_default_variables_8cs.html", [
       [ "DefaultVariables", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables" ]
     ] ],

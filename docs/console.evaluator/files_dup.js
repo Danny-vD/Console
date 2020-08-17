@@ -1,6 +1,5 @@
 var files_dup =
 [
-    [ "Console.Evaluator.AssemblyInfo.cs", "d6/d6e/_console_8_evaluator_8_assembly_info_8cs.html", null ],
     [ "EvalInitializer.cs", "d2/dde/_eval_initializer_8cs.html", [
       [ "EvalInitializer", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer" ]
     ] ],

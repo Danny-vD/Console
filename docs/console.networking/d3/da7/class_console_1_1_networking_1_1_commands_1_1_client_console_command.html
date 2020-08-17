@@ -89,19 +89,26 @@ $(document).ready(function(){initNavTree('d3/da7/class_console_1_1_networking_1_
 <div class="title">Console.Networking.Commands.ClientConsoleCommand Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Client Side <a class="el" href="../../d9/da4/namespace_console_1_1_networking_1_1_commands.html" title="Commands used to control the Networking System">Commands</a>.  
+ <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aefab293df58d28ddc59976ec8e36396c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#aefab293df58d28ddc59976ec8e36396c">ConnectConsoleCommand</a> (string ip, int port)</td></tr>
+<tr class="memdesc:aefab293df58d28ddc59976ec8e36396c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to Connect to a hosting console.  <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#aefab293df58d28ddc59976ec8e36396c">More...</a><br /></td></tr>
 <tr class="separator:aefab293df58d28ddc59976ec8e36396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2494e868457e8fe505105ccac4ef5993"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a2494e868457e8fe505105ccac4ef5993">DisconnectConsoleCommand</a> ()</td></tr>
+<tr class="memdesc:a2494e868457e8fe505105ccac4ef5993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to Disconnect from a hosting console.  <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a2494e868457e8fe505105ccac4ef5993">More...</a><br /></td></tr>
 <tr class="separator:a2494e868457e8fe505105ccac4ef5993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2cc96fd9de42825509c5306471a9d78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#ab2cc96fd9de42825509c5306471a9d78">RunHostCommand</a> (string command)</td></tr>
+<tr class="memdesc:ab2cc96fd9de42825509c5306471a9d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a Command on the Remote <a class="el" href="../../d8/db5/namespace_console.html">Console</a>.  <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#ab2cc96fd9de42825509c5306471a9d78">More...</a><br /></td></tr>
 <tr class="separator:ab2cc96fd9de42825509c5306471a9d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00005">5</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="textblock"><p>Client Side <a class="el" href="../../d9/da4/namespace_console_1_1_networking_1_1_commands.html" title="Commands used to control the Networking System">Commands</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aefab293df58d28ddc59976ec8e36396c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aefab293df58d28ddc59976ec8e36396c">&#9670;&nbsp;</a></span>ConnectConsoleCommand()</h2>
@@ -137,10 +144,19 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            NetworkingSettings.ClientSession.Connect(ip, port);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        }</div>
+<p>Tries to Connect to a hosting console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>Host IP</td></tr>
+    <tr><td class="paramname">port</td><td>Host Port</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            NetworkingSettings.ClientSession.Connect(ip, port);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -167,10 +183,12 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            NetworkingSettings.ClientSession.Disconnect();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<p>Tries to Disconnect from a hosting console. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00031">31</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            NetworkingSettings.ClientSession.Disconnect();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,10 +216,18 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00023">23</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            NetworkingSettings.ClientSession.RunCommand(command);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<p>Runs a Command on the Remote <a class="el" href="../../d8/db5/namespace_console.html">Console</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00040">40</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            NetworkingSettings.ClientSession.RunCommand(command);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

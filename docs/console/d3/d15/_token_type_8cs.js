@@ -1,0 +1,35 @@
+var _token_type_8cs =
+[
+    [ "TokenType", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9", [
+      [ "None", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "EndOfFormula", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9adf3b6d0a1e26d089249eefeb2304328f", null ],
+      [ "OperatorPlus", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a12ae97152416ba980377a734028f015e", null ],
+      [ "OperatorMinus", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a1d538ae50abc7d40fb21feaecee5eaf2", null ],
+      [ "OperatorMul", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a6a1bbc86cd3f5a7dc8a4ebc8bf57b073", null ],
+      [ "OperatorDiv", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a073d66f8fb58a7056c1e31811dfa90c4", null ],
+      [ "OperatorPercent", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a971072c9b4d243d850ac8cc7869d18a5", null ],
+      [ "OpenParenthesis", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9ae0e1286eb00c2fac6e215cc691c6b8e9", null ],
+      [ "Comma", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a58be47db9455679e6a44df2eff9c9fa6", null ],
+      [ "Dot", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9aaf6c6cf7a454b4ef4a850ac4d960a2cc", null ],
+      [ "CloseParenthesis", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9ad55042b8c3b1950160b9013fcf44a3d4", null ],
+      [ "OperatorNe", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a2d48e1d64e702cd422b660b6ef6a51b5", null ],
+      [ "OperatorGt", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a45f8f46ab0c40697da3f3050df7b17ec", null ],
+      [ "OperatorGe", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a63db939d63d2aa6209b0b6fbf5c22459", null ],
+      [ "OperatorEq", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9ac47025e0481ee4bab8e0c54ffe1752b2", null ],
+      [ "OperatorLe", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a83746a870f47767b0a426ad005bb0cbe", null ],
+      [ "OperatorLt", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a377f529c593d6aa13070849d009a43a4", null ],
+      [ "OperatorAnd", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a2f14b9f49d4f4d46d20f6a21d2e93147", null ],
+      [ "OperatorOr", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a027c1c4aa8e8e629972d3573ae05d7c8", null ],
+      [ "OperatorNot", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9ab69967693fbb2bac944553fbd0f11717", null ],
+      [ "OperatorConcat", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9aedcd5e7662e1f762c12879a330a10b1c", null ],
+      [ "OperatorIf", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9afbbe55de28ac73fa71798e45925b2695", null ],
+      [ "ValueIdentifier", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a6d8b08e516a79f6df2ff5fd206df8b3e", null ],
+      [ "ValueTrue", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a5c464282dff39a069fdbba9eedcb3174", null ],
+      [ "ValueFalse", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9abfc7d890693be63bf017e1a7e17d1e14", null ],
+      [ "ValueNumber", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a96622b16a7440579216cf46353b0dc84", null ],
+      [ "ValueString", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a605374fc2419ea72c65a3b7fb4185647", null ],
+      [ "ValueDate", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a5ce17fb611d6b3f21aeb6a7d80e335b5", null ],
+      [ "OpenBracket", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9a8ee1f3d3bba931acdcbde13ad0ae8b9e", null ],
+      [ "CloseBracket", "d3/d15/_token_type_8cs.html#af3f8ffb2e26a6149c6ec780076c9c8d9af252cb560619c12a579bd64f2d05ec4a", null ]
+    ] ]
+];

@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "_abcdefgimnoprstuv",
   1: "egioptv",
   2: "c",
-  3: "cegioptv",
+  3: "egioptv",
   4: "abcdegimnoprstv",
   5: "_cefmprstv",
   6: "eptv",

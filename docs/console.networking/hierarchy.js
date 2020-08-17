@@ -20,7 +20,7 @@ var hierarchy =
       [ "Console.Networking.Handlers.AuthenticationPacketClientHandler", "dd/d17/class_console_1_1_networking_1_1_handlers_1_1_authentication_packet_client_handler.html", null ]
     ] ],
     [ "Console.Networking.Handlers.Abstract.APacketClientHandler< AuthenticationResultPacket >", "df/d4f/class_console_1_1_networking_1_1_handlers_1_1_abstract_1_1_a_packet_client_handler.html", [
-      [ "Console.Networking.Handlers.AuthenticationResultPacketHandler", "da/d6f/class_console_1_1_networking_1_1_handlers_1_1_authentication_result_packet_handler.html", null ]
+      [ "Console.Networking.Handlers.AuthenticationResultPacketClientHandler", "d2/d0f/class_console_1_1_networking_1_1_handlers_1_1_authentication_result_packet_client_handler.html", null ]
     ] ],
     [ "Console.Networking.Handlers.Abstract.APacketClientHandler< ConnectionAbortPacket >", "df/d4f/class_console_1_1_networking_1_1_handlers_1_1_abstract_1_1_a_packet_client_handler.html", [
       [ "Console.Networking.Handlers.ConnectionAbortPacketClientHandler", "dd/d43/class_console_1_1_networking_1_1_handlers_1_1_connection_abort_packet_client_handler.html", null ]

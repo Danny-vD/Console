@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['console_2epropenvcompat_2eassemblyinfo_2ecs_16',['Console.PropEnvCompat.AssemblyInfo.cs',['../d3/d7e/_debug_2netstandard2_80_2_console_8_prop_env_compat_8_assembly_info_8cs.html',1,'']]]
+  ['propcompatinitializer_2ecs_14',['PropCompatInitializer.cs',['../d1/df4/_prop_compat_initializer_8cs.html',1,'']]],
+  ['propertyvariableprovider_2ecs_15',['PropertyVariableProvider.cs',['../d0/daa/_property_variable_provider_8cs.html',1,'']]]
 ];

@@ -84,56 +84,26 @@ $(document).ready(function(){initNavTree('d5/d89/class_console_1_1_script_system
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="../../da/d74/class_console_1_1_script_system_1_1_script_system-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Console.ScriptSystem.ScriptSystem Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Script System Implementation  
+ <a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a883ca787c6d53a2b8884a56295f4b86a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">RunFile</a> (string path)</td></tr>
+<tr class="memdesc:a883ca787c6d53a2b8884a56295f4b86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a Text File as if it would be typed into the console line by line.  <a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">More...</a><br /></td></tr>
 <tr class="separator:a883ca787c6d53a2b8884a56295f4b86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a5f088d1cf76400fd446336313165cc1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a5f088d1cf76400fd446336313165cc1d">ScriptSystem</a> ()</td></tr>
-<tr class="separator:a5f088d1cf76400fd446336313165cc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00008">8</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5f088d1cf76400fd446336313165cc1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f088d1cf76400fd446336313165cc1d">&#9670;&nbsp;</a></span>ScriptSystem()</h2>
+<div class="textblock"><p>Script System Implementation </p>
 
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Console.ScriptSystem.ScriptSystem.ScriptSystem </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00010">10</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{ }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00011">11</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a883ca787c6d53a2b8884a56295f4b86a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a883ca787c6d53a2b8884a56295f4b86a">&#9670;&nbsp;</a></span>RunFile()</h2>
 
@@ -158,21 +128,29 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00014">14</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="keywordtype">string</span>[] lines = File.ReadAllLines(path).Where(x=&gt;!<span class="keywordtype">string</span>.IsNullOrEmpty(x.Trim())).ToArray();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                    AConsoleManager.Instance.EnterCommand(line);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
+<p>Runs a Text File as if it would be typed into the console line by line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Filepath</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00018">18</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordtype">string</span>[] lines = File.ReadAllLines(path).Where(x=&gt;!<span class="keywordtype">string</span>.IsNullOrEmpty(x.Trim())).ToArray();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    AConsoleManager.Instance.EnterCommand(line);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -69,7 +69,7 @@ var searchData=
   ['createkey_116',['CreateKey',['../de/d13/class_console_1_1_networking_1_1_authentication_1_1_symmetric_block_authenticator.html#a38041777882106750d948145ebe6f8d3',1,'Console::Networking::Authentication::SymmetricBlockAuthenticator']]],
   ['createprovider_117',['CreateProvider',['../de/d13/class_console_1_1_networking_1_1_authentication_1_1_symmetric_block_authenticator.html#ae2389e6ff13834e6bac8549c7c43570b',1,'Console::Networking::Authentication::SymmetricBlockAuthenticator']]],
   ['createresponse_118',['CreateResponse',['../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6f6146656f1d358f0911915c770ed775',1,'Console::Networking::Packets::Authentication::AuthenticationPacket']]],
-  ['cryptography_119',['Cryptography',['../dc/d76/class_console_1_1_networking_1_1_authentication_1_1_cryptography.html',1,'Console.Networking.Authentication.Cryptography'],['../dc/d76/class_console_1_1_networking_1_1_authentication_1_1_cryptography.html#a56115d16fb0c971a4fd58d7eeebbc430',1,'Console.Networking.Authentication.Cryptography.Cryptography()']]],
+  ['cryptography_119',['Cryptography',['../dc/d76/class_console_1_1_networking_1_1_authentication_1_1_cryptography.html',1,'Console::Networking::Authentication']]],
   ['cryptography_2ecs_120',['Cryptography.cs',['../d3/d1f/_cryptography_8cs.html',1,'']]],
   ['handlers_121',['Handlers',['../df/dd8/namespace_console_1_1_networking_1_1_handlers.html',1,'Console::Networking']]],
   ['log_122',['Log',['../d1/d12/namespace_console_1_1_networking_1_1_packets_1_1_log.html',1,'Console::Networking::Packets']]],

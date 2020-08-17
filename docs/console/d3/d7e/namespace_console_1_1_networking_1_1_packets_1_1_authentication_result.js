@@ -1,0 +1,5 @@
+var namespace_console_1_1_networking_1_1_packets_1_1_authentication_result =
+[
+    [ "AuthenticationResultPacket", "d1/d73/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet.html", "d1/d73/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet" ],
+    [ "AuthenticationResultPacketSerializer", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer.html", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer" ]
+];

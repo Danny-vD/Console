@@ -27,8 +27,8 @@ var files_dup =
     [ "AuthenticationResultPacket.cs", "d7/d50/_authentication_result_packet_8cs.html", [
       [ "AuthenticationResultPacket", "d1/d73/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet.html", "d1/d73/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet" ]
     ] ],
-    [ "AuthenticationResultPacketHandler.cs", "d5/d9c/_authentication_result_packet_handler_8cs.html", [
-      [ "AuthenticationResultPacketHandler", "da/d6f/class_console_1_1_networking_1_1_handlers_1_1_authentication_result_packet_handler.html", "da/d6f/class_console_1_1_networking_1_1_handlers_1_1_authentication_result_packet_handler" ]
+    [ "AuthenticationResultPacketClientHandler.cs", "db/de7/_authentication_result_packet_client_handler_8cs.html", [
+      [ "AuthenticationResultPacketClientHandler", "d2/d0f/class_console_1_1_networking_1_1_handlers_1_1_authentication_result_packet_client_handler.html", "d2/d0f/class_console_1_1_networking_1_1_handlers_1_1_authentication_result_packet_client_handler" ]
     ] ],
     [ "AuthenticationResultPacketSerializer.cs", "de/d5c/_authentication_result_packet_serializer_8cs.html", [
       [ "AuthenticationResultPacketSerializer", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer.html", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer" ]
@@ -87,9 +87,6 @@ var files_dup =
     [ "ConnectionRequestSerializer.cs", "d3/dbd/_connection_request_serializer_8cs.html", [
       [ "ConnectionRequestSerializer", "d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer.html", "d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer" ]
     ] ],
-    [ "Debug/netstandard2.0/Console.Networking.AssemblyInfo.cs", "d8/dc3/_debug_2netstandard2_80_2_console_8_networking_8_assembly_info_8cs.html", null ],
-    [ "Release/netstandard2.0/Console.Networking.AssemblyInfo.cs", "da/d52/_release_2netstandard2_80_2_console_8_networking_8_assembly_info_8cs.html", null ],
-    [ "Release/netstandard2.0/win-x64/Console.Networking.AssemblyInfo.cs", "d7/d00/_release_2netstandard2_80_2win-x64_2_console_8_networking_8_assembly_info_8cs.html", null ],
     [ "ConsoleSocket.cs", "db/d44/_console_socket_8cs.html", [
       [ "ConsoleSocket", "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html", "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket" ]
     ] ],

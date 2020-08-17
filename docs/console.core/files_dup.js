@@ -64,9 +64,6 @@ var files_dup =
       [ "Command", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
       [ "Command", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command" ]
     ] ],
-    [ "Debug/netstandard2.0/Console.Core.AssemblyInfo.cs", "d7/dac/_debug_2netstandard2_80_2_console_8_core_8_assembly_info_8cs.html", null ],
-    [ "Release/netstandard2.0/Console.Core.AssemblyInfo.cs", "dd/d31/_release_2netstandard2_80_2_console_8_core_8_assembly_info_8cs.html", null ],
-    [ "Release/netstandard2.0/win-x64/Console.Core.AssemblyInfo.cs", "d7/d39/_release_2netstandard2_80_2win-x64_2_console_8_core_8_assembly_info_8cs.html", null ],
     [ "ConsoleCoreConfig.cs", "d0/d3b/_console_core_config_8cs.html", [
       [ "ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", "d6/dce/class_console_1_1_core_1_1_console_core_config" ]
     ] ],

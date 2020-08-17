@@ -93,43 +93,53 @@ $(document).ready(function(){initNavTree('d3/d8e/class_console_1_1_networking_1_
 <div class="title">Console.Networking.Packets.SerializerCollection Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Static Collection of Serializers.  
+ <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d00/class_console_1_1_networking_1_1_packets_1_1_serializer_collection_1_1_serializer_exception.html">SerializerException</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializer Exception that gets thrown when the <a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html" title="Static Collection of Serializers.">SerializerCollection</a> is not able to De/Serialize a Packet.  <a href="../../d9/d00/class_console_1_1_networking_1_1_packets_1_1_serializer_collection_1_1_serializer_exception.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa3489bde5c1ff007815d2d12d2e7cc02"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#aa3489bde5c1ff007815d2d12d2e7cc02">CanSerialize</a> (string identifier)</td></tr>
+<tr class="memdesc:aa3489bde5c1ff007815d2d12d2e7cc02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the <a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html" title="Static Collection of Serializers.">SerializerCollection</a> contains a serializer that can serialize the class associated to the identifier  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#aa3489bde5c1ff007815d2d12d2e7cc02">More...</a><br /></td></tr>
 <tr class="separator:aa3489bde5c1ff007815d2d12d2e7cc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353645ce858ddbaa2c44a044ed11fff4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a353645ce858ddbaa2c44a044ed11fff4">CanDeserialize</a> (string identifier)</td></tr>
+<tr class="memdesc:a353645ce858ddbaa2c44a044ed11fff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the <a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html" title="Static Collection of Serializers.">SerializerCollection</a> contains a serializer that can deserialize the class associated to the identifier  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a353645ce858ddbaa2c44a044ed11fff4">More...</a><br /></td></tr>
 <tr class="separator:a353645ce858ddbaa2c44a044ed11fff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a374839dc10c1d303ccf93b61d9b895f1"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a374839dc10c1d303ccf93b61d9b895f1">Deserialize&lt; T &gt;</a> (string identifier, byte[] data)</td></tr>
+<tr class="memdesc:a374839dc10c1d303ccf93b61d9b895f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes the data with the serializer that is associated with the identifier  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a374839dc10c1d303ccf93b61d9b895f1">More...</a><br /></td></tr>
 <tr class="separator:a374839dc10c1d303ccf93b61d9b895f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefc5cfafab7d6d9107ad4f7815208519"><td class="memItemLeft" align="right" valign="top">static byte[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#aefc5cfafab7d6d9107ad4f7815208519">Serialize&lt; T &gt;</a> (T item)</td></tr>
+<tr class="memdesc:aefc5cfafab7d6d9107ad4f7815208519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the Packet with the serializer that is associated with the identifier of the packet.  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#aefc5cfafab7d6d9107ad4f7815208519">More...</a><br /></td></tr>
 <tr class="separator:aefc5cfafab7d6d9107ad4f7815208519"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-static-methods"></a>
 Static Package Functions</h2></td></tr>
 <tr class="memitem:af9f2683425f062f0f2550efdc85f7aeb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#af9f2683425f062f0f2550efdc85f7aeb">AddSerializer</a> (<a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a> serializer)</td></tr>
+<tr class="memdesc:af9f2683425f062f0f2550efdc85f7aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal Function to add a serializer to the system.  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#af9f2683425f062f0f2550efdc85f7aeb">More...</a><br /></td></tr>
 <tr class="separator:af9f2683425f062f0f2550efdc85f7aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a7f03deb1928eb4ce62495852274cddf8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">GetSerializer</a> (string identifier)</td></tr>
+<tr class="memdesc:a7f03deb1928eb4ce62495852274cddf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Serializer that matches the Identifier  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">More...</a><br /></td></tr>
 <tr class="separator:a7f03deb1928eb4ce62495852274cddf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03c54b3b4a7a35cb0e8304e565b9bca"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#ac03c54b3b4a7a35cb0e8304e565b9bca">ReadIdentifier</a> (byte[] data, out int position)</td></tr>
-<tr class="separator:ac03c54b3b4a7a35cb0e8304e565b9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a0610158bce93322d1ef016acddfaf3d5"><td class="memItemLeft" align="right" valign="top">static readonly List&lt; <a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a0610158bce93322d1ef016acddfaf3d5">Serializers</a> = new List&lt;<a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a>&gt;()</td></tr>
+<tr class="memdesc:a0610158bce93322d1ef016acddfaf3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">All available Serializers  <a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a0610158bce93322d1ef016acddfaf3d5">More...</a><br /></td></tr>
 <tr class="separator:a0610158bce93322d1ef016acddfaf3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
+<div class="textblock"><p>Static Collection of Serializers. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af9f2683425f062f0f2550efdc85f7aeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9f2683425f062f0f2550efdc85f7aeb">&#9670;&nbsp;</a></span>AddSerializer()</h2>
@@ -155,10 +165,18 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00013">13</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a0610158bce93322d1ef016acddfaf3d5">Serializers</a>.Add(serializer);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
+<p>Internal Function to add a serializer to the system. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serializer</td><td>The Serializer to Add</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00022">22</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a0610158bce93322d1ef016acddfaf3d5">Serializers</a>.Add(serializer);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -186,6 +204,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true when the <a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html" title="Static Collection of Serializers.">SerializerCollection</a> contains a serializer that can deserialize the class associated to the identifier </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>The Class Identifier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True when deserializable</dd></dl>
+
 </div>
 </div>
 <a id="aa3489bde5c1ff007815d2d12d2e7cc02"></a>
@@ -211,6 +238,15 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true when the <a class="el" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html" title="Static Collection of Serializers.">SerializerCollection</a> contains a serializer that can serialize the class associated to the identifier </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>The Class Identifier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True when serializable</dd></dl>
 
 </div>
 </div>
@@ -247,6 +283,22 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Deserializes the data with the serializer that is associated with the identifier </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Target Type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Class Identifier</td></tr>
+    <tr><td class="paramname">data</td><td>Data to Deserialize</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Deserialized Network Packet</dd></dl>
 <div class="typeconstraint">
 <dl><dt><b>Type Constraints</b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -256,18 +308,18 @@ Static Private Attributes</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                                               : <a class="code" href="../../df/d15/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet.html">ANetworkPacket</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordtype">byte</span>[] content = <span class="keyword">new</span> <span class="keywordtype">byte</span>[data.Length];</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            data.CopyTo(content,0);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a> s = <a class="code" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">GetSerializer</a>(identifier);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">if</span> (s != <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> (T)s.<a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#a01be22c02e16619453d5d78f317e9c73">_Deserialize</a>(content);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> SerializerException(<span class="stringliteral">&quot;Can not Deserialize: &quot;</span> + identifier);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00055">55</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                                               : <a class="code" href="../../df/d15/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet.html">ANetworkPacket</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordtype">byte</span>[] content = <span class="keyword">new</span> <span class="keywordtype">byte</span>[data.Length];</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            data.CopyTo(content,0);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a> s = <a class="code" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">GetSerializer</a>(identifier);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">if</span> (s != <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">return</span> (T)s.<a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#a01be22c02e16619453d5d78f317e9c73">_Deserialize</a>(content);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> SerializerException(<span class="stringliteral">&quot;Can not Deserialize: &quot;</span> + identifier);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -295,49 +347,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ac03c54b3b4a7a35cb0e8304e565b9bca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac03c54b3b4a7a35cb0e8304e565b9bca">&#9670;&nbsp;</a></span>ReadIdentifier()</h2>
+<p>Returns the Serializer that matches the Identifier </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static string Console.Networking.Packets.SerializerCollection.ReadIdentifier </td>
-          <td>(</td>
-          <td class="paramtype">byte[]&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">out int&#160;</td>
-          <td class="paramname"><em>position</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00051">51</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordtype">int</span> len = BitConverter.ToInt32(data, 0);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            position = len + <span class="keyword">sizeof</span>(int);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> NetworkingSettings.EncodingInstance.GetString(data, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>), len);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="aefc5cfafab7d6d9107ad4f7815208519"></a>
@@ -363,6 +381,21 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Serializes the Packet with the serializer that is associated with the identifier of the packet. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Target Type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Packet to Serialize</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Serialized Network Packet</dd></dl>
 <div class="typeconstraint">
 <dl><dt><b>Type Constraints</b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -372,16 +405,16 @@ Static Private Attributes</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                                          : <a class="code" href="../../df/d15/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet.html">ANetworkPacket</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a> s = <a class="code" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">GetSerializer</a>(item.PacketIdentifier);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (s != <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> s.<a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#aca962553c88728688583804bc3749abd">_Serialize</a>(item);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> SerializerException(<span class="stringliteral">&quot;Can not Serialize: &quot;</span> + item);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00073">73</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                                          : <a class="code" href="../../df/d15/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet.html">ANetworkPacket</a></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">IPacketSerializer</a> s = <a class="code" href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">GetSerializer</a>(item.PacketIdentifier);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> (s != <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> s.<a class="code" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#aca962553c88728688583804bc3749abd">_Serialize</a>(item);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> SerializerException(<span class="stringliteral">&quot;Can not Serialize: &quot;</span> + item);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -406,7 +439,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
+<p>All available Serializers </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d2/d07/_serializer_collection_8cs_source.html">SerializerCollection.cs</a>.</p>
 
 </div>
 </div>
@@ -415,12 +450,12 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ainterface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer_html_aca962553c88728688583804bc3749abd"><div class="ttname"><a href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#aca962553c88728688583804bc3749abd">Console.Networking.Packets.Abstract.IPacketSerializer._Serialize</a></div><div class="ttdeci">byte[] _Serialize(ANetworkPacket item)</div></div>
-<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_serializer_collection_html_a0610158bce93322d1ef016acddfaf3d5"><div class="ttname"><a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a0610158bce93322d1ef016acddfaf3d5">Console.Networking.Packets.SerializerCollection.Serializers</a></div><div class="ttdeci">static readonly List&lt; IPacketSerializer &gt; Serializers</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d07/_serializer_collection_8cs_source.html#l00011">SerializerCollection.cs:11</a></div></div>
-<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_serializer_collection_html_a7f03deb1928eb4ce62495852274cddf8"><div class="ttname"><a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">Console.Networking.Packets.SerializerCollection.GetSerializer</a></div><div class="ttdeci">static IPacketSerializer GetSerializer(string identifier)</div></div>
-<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet_html"><div class="ttname"><a href="../../df/d15/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet.html">Console.Networking.Packets.Abstract.ANetworkPacket</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d60/_a_network_packet_8cs_source.html#l00003">ANetworkPacket.cs:4</a></div></div>
-<div class="ttc" id="ainterface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer_html_a01be22c02e16619453d5d78f317e9c73"><div class="ttname"><a href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#a01be22c02e16619453d5d78f317e9c73">Console.Networking.Packets.Abstract.IPacketSerializer._Deserialize</a></div><div class="ttdeci">ANetworkPacket _Deserialize(byte[] data)</div></div>
-<div class="ttc" id="ainterface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer_html"><div class="ttname"><a href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">Console.Networking.Packets.Abstract.IPacketSerializer</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da6/_i_packet_serializer_8cs_source.html#l00005">IPacketSerializer.cs:6</a></div></div>
+<div class="ttc" id="ainterface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer_html_aca962553c88728688583804bc3749abd"><div class="ttname"><a href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#aca962553c88728688583804bc3749abd">Console.Networking.Packets.Abstract.IPacketSerializer._Serialize</a></div><div class="ttdeci">byte[] _Serialize(ANetworkPacket item)</div><div class="ttdoc">Serializes the Packet into a byte array</div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_serializer_collection_html_a0610158bce93322d1ef016acddfaf3d5"><div class="ttname"><a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a0610158bce93322d1ef016acddfaf3d5">Console.Networking.Packets.SerializerCollection.Serializers</a></div><div class="ttdeci">static readonly List&lt; IPacketSerializer &gt; Serializers</div><div class="ttdoc">All available Serializers</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d07/_serializer_collection_8cs_source.html#l00016">SerializerCollection.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_serializer_collection_html_a7f03deb1928eb4ce62495852274cddf8"><div class="ttname"><a href="../../d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a7f03deb1928eb4ce62495852274cddf8">Console.Networking.Packets.SerializerCollection.GetSerializer</a></div><div class="ttdeci">static IPacketSerializer GetSerializer(string identifier)</div><div class="ttdoc">Returns the Serializer that matches the Identifier</div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet_html"><div class="ttname"><a href="../../df/d15/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_a_network_packet.html">Console.Networking.Packets.Abstract.ANetworkPacket</a></div><div class="ttdoc">Abstract base class for all Network Packets</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d60/_a_network_packet_8cs_source.html#l00009">ANetworkPacket.cs:10</a></div></div>
+<div class="ttc" id="ainterface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer_html_a01be22c02e16619453d5d78f317e9c73"><div class="ttname"><a href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#a01be22c02e16619453d5d78f317e9c73">Console.Networking.Packets.Abstract.IPacketSerializer._Deserialize</a></div><div class="ttdeci">ANetworkPacket _Deserialize(byte[] data)</div><div class="ttdoc">Deserializes the Data into a ANetworkPacket</div></div>
+<div class="ttc" id="ainterface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer_html"><div class="ttname"><a href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html">Console.Networking.Packets.Abstract.IPacketSerializer</a></div><div class="ttdoc">PacketSerializer Interface.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da6/_i_packet_serializer_8cs_source.html#l00008">IPacketSerializer.cs:9</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
