@@ -5,6 +5,10 @@ using System.Reflection;
 using System.Runtime.ExceptionServices;
 using Console.Core.ReflectionSystem.Interfaces;
 
+
+/// <summary>
+/// The Console.Core.ReflectionSystem namespace contains the abstractions and helper classes to interface with the C# Reflection System.
+/// </summary>
 namespace Console.Core.ReflectionSystem
 {
     /// <summary>

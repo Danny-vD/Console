@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
 
+
+/// <summary>
+/// The Console.Core.ExpanderSystem namespace contains the AExpander Class that can be used to dynamically expand the input command of the console before it gets processed.
+/// </summary>
 namespace Console.Core.ExpanderSystem
 {
 

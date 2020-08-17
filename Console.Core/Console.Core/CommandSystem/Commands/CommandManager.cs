@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Console.Core.CommandSystem.Commands
 {
+
+    /// <summary>
+    /// Contains all Loaded Commands and Implements the Core Command Logic like Adding/Removing/Renaming/...
+    /// </summary>
     public static class CommandManager
     {
         /// <summary>

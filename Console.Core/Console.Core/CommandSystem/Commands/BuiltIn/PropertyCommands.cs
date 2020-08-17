@@ -4,6 +4,9 @@ using Console.Core.PropertySystem;
 
 namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
+    /// <summary>
+    /// Default Commands that allow to interface with the property system
+    /// </summary>
     public class PropertyCommands
     {
         /// <summary>

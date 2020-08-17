@@ -1,8 +1,12 @@
-﻿namespace Console.Core.CommandSystem.Commands.BuiltIn
+﻿
+/// <summary>
+/// The Console.Core.CommandSystem.Commands.BuiltIn namespace contains all BuiltIn Commands of the System
+/// </summary>
+namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
 
     /// <summary>
-    /// Console Default Commands
+    /// Console Default Commands like clear/help/echo
     /// </summary>
     public class DefaultCommands
     {

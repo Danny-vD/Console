@@ -4,8 +4,14 @@ using System.Linq;
 using System.Text;
 using Console.Core.CommandSystem.Commands;
 
+/// <summary>
+/// The Console.Core.CommandSystem namespace contains the Parsing Logic as well as BuiltIn Commands and Classes Related to Command Execution.
+/// </summary>
 namespace Console.Core.CommandSystem
 {
+    /// <summary>
+    /// Command Parser does the Parsing and Invocation of the Input Command
+    /// </summary>
 	public class CommandParser
 	{
         /// <summary>

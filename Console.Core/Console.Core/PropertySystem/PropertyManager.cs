@@ -2,6 +2,11 @@
 using System.Linq;
 using Console.Core.ReflectionSystem;
 using Console.Core.ReflectionSystem.Interfaces;
+
+
+/// <summary>
+/// The Console.Core.PropertySystem namespace is providing the Framework to Store/Retrieve Properties with reflection
+/// </summary>
 namespace Console.Core.PropertySystem
 {
     /// <summary>

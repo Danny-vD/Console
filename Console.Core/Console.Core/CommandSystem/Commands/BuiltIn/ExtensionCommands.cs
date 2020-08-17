@@ -2,6 +2,9 @@
 
 namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
+    /// <summary>
+    /// Contains Default Commands to load Extensions from Files.
+    /// </summary>
     public class ExtensionCommands
     {
 

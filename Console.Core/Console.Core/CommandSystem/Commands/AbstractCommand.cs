@@ -3,6 +3,9 @@ using System.Linq;
 using System.Text;
 using Console.Core.ConverterSystem;
 
+/// <summary>
+/// The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implementations
+/// </summary>
 namespace Console.Core.CommandSystem.Commands
 {
     /// <summary>

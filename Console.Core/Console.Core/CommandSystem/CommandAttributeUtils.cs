@@ -8,6 +8,9 @@ using Console.Core.ReflectionSystem.Interfaces;
 
 namespace Console.Core.CommandSystem
 {
+    /// <summary>
+    /// Utilities for adding commands marked with the CommandAttribute
+    /// </summary>
     public static class CommandAttributeUtils
     {
 

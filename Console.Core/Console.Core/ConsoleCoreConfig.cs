@@ -7,13 +7,8 @@ namespace Console.Core
     /// <summary>
     /// Core Configuration File of the Console System.
     /// </summary>
-    public class ConsoleCoreConfig
+    public static class ConsoleCoreConfig
     {
-        private ConsoleCoreConfig()
-        {
-        }
-
-
         #region Console Properties
 
         /// <summary>

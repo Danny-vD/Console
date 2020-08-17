@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// The Console.Core.ConverterSystem namespace is providing the abstract AConverter class that can be inherited to create custom converters for the command input parameters
+/// </summary>
 namespace Console.Core.ConverterSystem
 {
     /// <summary>

@@ -3,6 +3,9 @@ using Console.Core.ReflectionSystem;
 
 namespace Console.Core.PropertySystem
 {
+    /// <summary>
+    /// Utilities for adding Properties from Fields/Properties decorated with the PropertyAttribute
+    /// </summary>
     public class PropertyAttributeUtils
     {
         #region Add Properties

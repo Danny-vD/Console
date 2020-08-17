@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+/// The Console.Core.ActivationSystem enables the Instanciation of any Type that is decorated with the ActivateOnAttribute
+/// </summary>
 namespace Console.Core.ActivationSystem
 {
     /// <summary>

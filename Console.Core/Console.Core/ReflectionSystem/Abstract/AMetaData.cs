@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Console.Core.ReflectionSystem.Interfaces;
 
+/// <summary>
+/// The Console.Core.ReflectionSystem.Abstract namespace provides the Abstract Implementations for the Reflection System
+/// </summary>
 namespace Console.Core.ReflectionSystem.Abstract
 {
     /// <summary>

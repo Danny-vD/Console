@@ -5,6 +5,10 @@ using System.Linq;
 using System.Reflection;
 using Console.Core.ActivationSystem;
 
+/// <summary>
+/// The Console.Core.ExtensionSystem namespace is used by the Core Library to load Extensions.
+/// This namespace contains the AExtensionInitializer class that can be used to execute any initialization logic on load from within the extension
+/// </summary>
 namespace Console.Core.ExtensionSystem
 {
     /// <summary>

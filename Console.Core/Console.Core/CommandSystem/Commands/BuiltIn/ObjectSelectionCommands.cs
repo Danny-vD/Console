@@ -1,5 +1,8 @@
 ﻿namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
+    /// <summary>
+    /// Default command to clear and list all selected objects
+    /// </summary>
     public class ObjectSelectionCommands
     {
         /// <summary>

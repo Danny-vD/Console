@@ -1,5 +1,9 @@
 ﻿using System;
 
+
+/// <summary>
+/// The Console.Core.ReflectionSystem.Interfaces namespace contains the Interfaces that are used to abstract the Generic Classes in Console.Core.ReflectionSystem.Abstract.
+/// </summary>
 namespace Console.Core.ReflectionSystem.Interfaces
 {
     /// <summary>

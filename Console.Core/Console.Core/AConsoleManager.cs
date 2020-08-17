@@ -4,8 +4,22 @@ using Console.Core.CommandSystem.Commands.BuiltIn;
 using Console.Core.ExpanderSystem;
 using Console.Core.PropertySystem;
 
+/// <summary>
+/// The Namespace Root of all Extensions and the Core Library.
+/// </summary>
+namespace Console
+{
+
+}
+/// <summary>
+/// The Root Namespace of the Console.Core Library.
+/// </summary>
 namespace Console.Core
 {
+    /// <summary>
+    /// Abstract Console Manager Implementations.
+    /// Has to be Implemented by the User.
+    /// </summary>
     public abstract class AConsoleManager
     {
         [Flags]
@@ -92,7 +106,7 @@ namespace Console.Core
         {
             Instance = this;
             Parser = new CommandParser();
-            PropertyAttributeUtils.AddProperties<ConsoleCoreConfig>();
+            PropertyAttributeUtils.AddPropertiesByType(typeof(ConsoleCoreConfig));
             if ((options & ConsoleInitOptions.DefaultCommands) != 0)
                 DefaultCommands.AddDefaultCommands();
             if ((options & ConsoleInitOptions.ExtensionCommands) != 0)
