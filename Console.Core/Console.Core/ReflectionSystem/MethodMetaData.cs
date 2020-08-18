@@ -49,7 +49,7 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Invocation Return</returns>
         public object Invoke(object[] parameter)
         {
-            return InvokeDirect(parameter.Length == 0 ? null : Cast(parameter));
+            return InvokeDirect(Cast(parameter));
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Invocation Return</returns>
         public object InvokeDirect(object[] parameter)
         {
-            return ReflectedInfo.InvokePreserveStack(Instance, parameter);
+            return ReflectedInfo.InvokePreserveStack(Instance, parameter.Length == 0 ? null : parameter);
         }
 
         /// <summary>
