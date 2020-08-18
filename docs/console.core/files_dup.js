@@ -88,6 +88,9 @@ var files_dup =
     [ "FieldMetaData.cs", "de/d36/_field_meta_data_8cs.html", [
       [ "FieldMetaData", "d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html", "d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data" ]
     ] ],
+    [ "FlagTests.cs", "dd/d59/_flag_tests_8cs.html", [
+      [ "FlagTests", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests.html", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests" ]
+    ] ],
     [ "IAttributeCollection.cs", "d5/dee/_i_attribute_collection_8cs.html", [
       [ "IAttributeCollection", "d3/d76/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_attribute_collection.html", "d3/d76/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_attribute_collection" ]
     ] ],
@@ -148,5 +151,6 @@ var files_dup =
     ] ],
     [ "StaticPropertyMetaData.cs", "d0/d86/_static_property_meta_data_8cs.html", [
       [ "StaticPropertyMetaData", "d5/d86/class_console_1_1_core_1_1_reflection_system_1_1_static_property_meta_data.html", "d5/d86/class_console_1_1_core_1_1_reflection_system_1_1_static_property_meta_data" ]
-    ] ]
+    ] ],
+    [ "ToStringMode.cs", "d6/d7b/_to_string_mode_8cs.html", "d6/d7b/_to_string_mode_8cs" ]
 ];

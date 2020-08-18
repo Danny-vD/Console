@@ -259,6 +259,9 @@ var files_dup =
     [ "FilesVariableProvider.cs", "dc/da3/_files_variable_provider_8cs.html", [
       [ "FilesVariableProvider", "dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html", "dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider" ]
     ] ],
+    [ "FlagTests.cs", "dd/d59/_flag_tests_8cs.html", [
+      [ "FlagTests", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests.html", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests" ]
+    ] ],
     [ "Globals.cs", "d1/d64/_globals_8cs.html", [
       [ "Globals", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals.html", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals" ]
     ] ],
@@ -462,6 +465,7 @@ var files_dup =
       [ "tokenizer", "d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html", "d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer" ]
     ] ],
     [ "TokenType.cs", "d3/d15/_token_type_8cs.html", "d3/d15/_token_type_8cs" ],
+    [ "ToStringMode.cs", "d6/d7b/_to_string_mode_8cs.html", "d6/d7b/_to_string_mode_8cs" ],
     [ "UtilCommandCommands.cs", "d6/dc0/_util_command_commands_8cs.html", [
       [ "UtilCommandCommands", "da/dbc/class_console_1_1_util_extension_1_1_util_command_commands.html", "da/dbc/class_console_1_1_util_extension_1_1_util_command_commands" ]
     ] ],

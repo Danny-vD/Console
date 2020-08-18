@@ -3,12 +3,12 @@ var indexSectionsWithContent =
   0: "acdefghilmnoprstvw",
   1: "acdefimoprs",
   2: "c",
-  3: "acdefilmoprs",
+  3: "acdefilmoprst",
   4: "acefghilmoprst",
   5: "acefhimnoprsvw",
-  6: "cl",
-  7: "adefnps",
-  8: "acinoprsv",
+  6: "clt",
+  7: "adeflnps",
+  8: "acfinoprsv",
   9: "o"
 };
 
