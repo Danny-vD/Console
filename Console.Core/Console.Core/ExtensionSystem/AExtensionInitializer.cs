@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Console.Core.ActivationSystem;
+﻿using Console.Core.ActivationSystem;
 
 namespace Console.Core.ExtensionSystem
 {

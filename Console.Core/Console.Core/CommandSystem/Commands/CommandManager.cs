@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -21,11 +20,11 @@ namespace Console.Core.CommandSystem.Commands
         /// </summary>
         /// <param name="commandName">Name of the Command to Invoke</param>
         /// <param name="parameters">The Command Parameters</param>
-        public static void Invoke(string commandName, params object[] parameters)
+        public static void Invoke(string commandName, params string[] parameters)
         {
             // 16 is the max amount of parameters we allow, because system.Action only goes up to 16 generics
-            int paramsCount = Math.Min(parameters.Length, 16);
-            AbstractCommand command = GetCommand(commandName, paramsCount);
+            int paramsCount = parameters.Count(x => !x.StartsWith("-"));
+            AbstractCommand command = GetCommand(commandName, parameters.Length, parameters.Length - paramsCount);
 
             command?.Invoke(parameters);
         }
@@ -87,19 +86,23 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="commandName">Command Name</param>
         /// <param name="paramsCount">Parameter Count</param>
         /// <returns>Returns the Command that Fits the Name/Parameter Count Combination</returns>
-        private static AbstractCommand Find(string commandName, int paramsCount)
+        private static AbstractCommand Find(string commandName, int paramsCount, int flagCount = 0)
         {
             foreach (AbstractCommand abstractCommand in commands)
             {
                 if (!abstractCommand.HasName(commandName)) continue;
 
-                if (abstractCommand is ReflectionCommand refl && abstractCommand.ParametersCount.Contains(paramsCount))
+                int pc = paramsCount - flagCount;
+                if (abstractCommand is ReflectionCommand refl)
                 {
-                    int flagC = refl.FlagAttributeCount - (paramsCount - refl.ParametersCount.Min);
-                    int parC = paramsCount + refl.SelectionAttributeCount + flagC;
-                    if (refl.ParametersCount.Contains(parC))
+                    if (abstractCommand.ParametersCount.Min == pc)
                     {
-                        return refl;
+                        int flagC = refl.FlagAttributeCount - (paramsCount - refl.ParametersCount.Min);
+                        int parC = paramsCount + refl.SelectionAttributeCount + flagC;
+                        if (refl.ParametersCount.Contains(paramsCount))
+                        {
+                            return refl;
+                        }
                     }
                 }
                 else if (abstractCommand.ParametersCount.Contains(paramsCount))
@@ -116,9 +119,9 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="commandName">Command Name</param>
         /// <param name="paramsCount">Parameter Count</param>
         /// <returns>Command that fits the Search Criteria</returns>
-        public static AbstractCommand GetCommand(string commandName, int paramsCount)
+        public static AbstractCommand GetCommand(string commandName, int paramsCount, int flagCount = 0)
         {
-            AbstractCommand command = Find(commandName, paramsCount);
+            AbstractCommand command = Find(commandName, paramsCount, flagCount);
 
             if (command == null)
             {
@@ -171,11 +174,26 @@ namespace Console.Core.CommandSystem.Commands
             }
 
 
-            AbstractCommand cmd = commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Overlaps(command.ParametersCount));
+            AbstractCommand cmd = null;//commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Contains(command.ParametersCount.Max-command.FlagAttributeCount));
+
+            for (int i = 0; i < commands.Count; i++)
+            {
+                AbstractCommand item = commands[i];
+                if (item.HasName(command.GetAllNames()) && item.ParametersCount.Min == command.ParametersCount.Min)
+                {
+                    cmd = item;
+                    break;
+                }
+            }
+
             if (cmd != null)
             {
-                AConsoleManager.Instance.LogError(
-                    $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
+                if(ConsoleCoreConfig.AllowOverlappingCommands)
+                    AConsoleManager.Instance.LogWarning(
+                        $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
+                else
+                    AConsoleManager.Instance.LogError(
+                        $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
                 return;
             }
 

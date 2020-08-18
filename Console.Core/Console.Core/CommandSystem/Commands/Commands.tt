@@ -21,6 +21,7 @@ string[] func = new string[CommandCount];
 string[] funcDef = new string[CommandCount];
 string[] classDef = new string[CommandCount];
 string[] fullNameImpl = new string[CommandCount];
+string[] shortNameImpl = new string[CommandCount];
 string[] invokeCall = new string[CommandCount];
 string[] invokeImpl = new string[CommandCount];
 	
@@ -56,6 +57,7 @@ string[] invokeImpl = new string[CommandCount];
 
 
 	string fullNameTypeImpl = "typeof({0}).Name";
+	shortNameImpl[cc] = "{Name} Parameter Count: " + $"{cc-1}";
 	fullNameImpl[cc] = "{Name} ";
 	for(int i = 1; i < cc; i++)
 	{
@@ -86,6 +88,19 @@ string[] invokeImpl = new string[CommandCount];
 	<#= classDef[cc] #>
 	{
 		<#= funcDef[cc] #>
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -103,8 +118,12 @@ string[] invokeImpl = new string[CommandCount];
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"<#= shortNameImpl[cc] #>";
+
+			
 			return $"<#= fullNameImpl[cc] #>";
 		}
 

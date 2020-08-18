@@ -13,7 +13,7 @@
         /// Maximum Parameter Count
         /// </summary>
         public int Max;
-
+        
         /// <summary>
         /// Creates a Parameter Range with only one possible parameter count
         /// </summary>
@@ -46,7 +46,7 @@
         /// </summary>
         /// <param name="other">Other Range to check overlapping.</param>
         /// <returns>True if the two Ranges are overlapping</returns>
-        public bool Overlaps(ParameterRange other) => !(Min > other.Max || Max < other.Min);
+        //public bool Overlaps(ParameterRange other) => !(Min > other.Max || Max < other.Min);
 
         /// <summary>
         /// To String Implementation

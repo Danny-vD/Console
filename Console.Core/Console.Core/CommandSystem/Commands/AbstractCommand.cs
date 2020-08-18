@@ -8,6 +8,15 @@ using Console.Core.ConverterSystem;
 /// </summary>
 namespace Console.Core.CommandSystem.Commands
 {
+
+    public enum ToStringMode
+    {
+        Default = 0,
+        Short = 1,
+        Long = 2,
+        None = 3,
+    }
+
     /// <summary>
     /// Abstract Command Base Class.
     /// </summary>
@@ -17,6 +26,17 @@ namespace Console.Core.CommandSystem.Commands
         /// The Parameter Range of the Command
         /// </summary>
         public ParameterRange ParametersCount { get; protected set; }
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+        public abstract int FlagAttributeCount { get; }
+
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+        public abstract int SelectionAttributeCount { get; }
 
         /// <summary>
         /// Command Name.
@@ -101,7 +121,7 @@ namespace Console.Core.CommandSystem.Commands
         {
             Name = name;
         }
-        
+
 
         /// <summary>
         /// Returns all Command Names including Aliases.
@@ -120,7 +140,7 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-        public abstract string GetFullName();
+        public abstract string GetFullName(ToStringMode mode);
 
         /// <summary>
         /// Returns true if the Command has this Name or Alias.
@@ -173,18 +193,28 @@ namespace Console.Core.CommandSystem.Commands
         {
             HelpMessage = message;
         }
+
+
         
+        public override string ToString()
+        {
+            return ToString(ToStringMode.Default);
+        }
+
         /// <summary>
         /// To String Implementation
         /// </summary>
         /// <returns>String Representation of a Command.</returns>
-        public override string ToString()
+        public string ToString(ToStringMode mode)
         {
+            if (mode == ToStringMode.None) return "";
             StringBuilder stringBuilder = new StringBuilder(ConsoleCoreConfig.ConsolePrefix);
 
-            stringBuilder.Append(GetFullName());
+            stringBuilder.Append(GetFullName(mode));
+            if (mode == ToStringMode.Short) return stringBuilder.ToString();
             stringBuilder.Append(": \n");
             stringBuilder.AppendLine("\t" + HelpMessage);
+            if (mode == ToStringMode.Default) return stringBuilder.ToString();
 
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Aliases: ");

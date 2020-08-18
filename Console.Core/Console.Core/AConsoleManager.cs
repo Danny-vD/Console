@@ -49,6 +49,10 @@ namespace Console.Core
             /// Commands that allow viewing and clearing the selected object list
             /// </summary>
             SelectionCommands = 8,
+            /// <summary>
+            /// Commands that Test the behaviour of Flag Attributes.
+            /// </summary>
+            FlagTests = 16,
         }
 
         /// <summary>
@@ -115,6 +119,8 @@ namespace Console.Core
                 PropertyCommands.AddPropertyCommands();
             if ((options & ConsoleInitOptions.SelectionCommands) != 0)
                 ObjectSelectionCommands.AddSelectionCommands();
+            if ((options & ConsoleInitOptions.FlagTests) != 0)
+                FlagTests.AddFlagTestCommands();
         }
 
         /// <summary>

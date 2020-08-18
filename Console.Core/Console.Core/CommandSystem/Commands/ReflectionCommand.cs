@@ -26,13 +26,13 @@ namespace Console.Core.CommandSystem.Commands
         /// <summary>
         /// Amount of Parameters that are decorated with the CommandFlagAttribute
         /// </summary>
-        public int FlagAttributeCount =>
+        public override int FlagAttributeCount =>
             RefData.ParameterTypes.Count(x => x.Attributes.Count(y => y is CommandFlagAttribute) != 0);
 
         /// <summary>
         /// Amount of Parameters that are decorated with the SelectionPropertyAttribute
         /// </summary>
-        public int SelectionAttributeCount =>
+        public override int SelectionAttributeCount =>
             RefData.ParameterTypes.Count(x => x.Attributes.Count(y => y is SelectionPropertyAttribute) != 0);
 
         /// <summary>
@@ -67,8 +67,10 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-        public override string GetFullName()
+        public override string GetFullName(ToStringMode mode)
         {
+            if (mode == ToStringMode.None) return "";
+            if (mode == ToStringMode.Short) return $"{Name} Parameter Count: " + RefData.ParameterCount;
             ParameterMetaData[] parameters = RefData.ParameterTypes;
 
             StringBuilder stringBuilder = new StringBuilder();

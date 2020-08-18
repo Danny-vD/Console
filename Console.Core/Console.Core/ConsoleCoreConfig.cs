@@ -35,6 +35,12 @@ namespace Console.Core
         [Property("core.input.stringchar")]
         public static char StringChar = '"';
 
+        /// <summary>
+        /// If true the Console does not check if commands can be invoked or are hidden by other commands.
+        /// </summary>
+        [Property("core.commands.allowoverlapping")]
+        public static bool AllowOverlappingCommands=true;
+
         #endregion
 
     }

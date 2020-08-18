@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Console.Core.CommandSystem.Commands;
 
@@ -45,7 +44,7 @@ namespace Console.Core.CommandSystem
             if (commandArguments.Length == 0) return;
 			string commandName = commandArguments[0];
 
-			if (commandArguments.Length == 1 &&
+			if (commandArguments.Length == 1 && //No Arguments
 				AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
 			{
 				CommandManager.Invoke(commandName);

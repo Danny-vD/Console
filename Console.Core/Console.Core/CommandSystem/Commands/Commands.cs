@@ -11,6 +11,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command : AbstractCommand
 	{
 		private readonly Action callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -28,8 +41,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 0";
+
+			
 			return $"{Name} ";
 		}
 
@@ -53,6 +70,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0> : AbstractCommand
 	{
 		private readonly Action<TParam0> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -70,8 +100,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 1";
+
+			
 			return $"{Name} {typeof(TParam0).Name}";
 		}
 
@@ -97,6 +131,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -114,8 +161,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 2";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}";
 		}
 
@@ -143,6 +194,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -160,8 +224,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 3";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}";
 		}
 
@@ -191,6 +259,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -208,8 +289,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 4";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}";
 		}
 
@@ -241,6 +326,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -258,8 +356,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 5";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}";
 		}
 
@@ -293,6 +395,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -310,8 +425,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 6";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}";
 		}
 
@@ -347,6 +466,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -364,8 +496,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 7";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}";
 		}
 
@@ -403,6 +539,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -420,8 +569,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 8";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}";
 		}
 
@@ -461,6 +614,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -478,8 +644,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 9";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}";
 		}
 
@@ -521,6 +691,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -538,8 +721,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 10";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}";
 		}
 
@@ -583,6 +770,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -600,8 +800,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 11";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}";
 		}
 
@@ -647,6 +851,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -664,8 +881,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 12";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}";
 		}
 
@@ -713,6 +934,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -730,8 +964,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 13";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}";
 		}
 
@@ -781,6 +1019,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -798,8 +1049,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 14";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}";
 		}
 
@@ -851,6 +1106,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -868,8 +1136,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 15";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}, {typeof(TParam14).Name}";
 		}
 
@@ -923,6 +1195,19 @@ namespace Console.Core.CommandSystem.Commands
 	public class Command<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> : AbstractCommand
 	{
 		private readonly Action<TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14, TParam15> callback;
+		
+		
+
+        /// <summary>
+        /// Amount of CommandFlag attributes in the Command
+        /// </summary>
+		public override int FlagAttributeCount => 0;
+		
+
+        /// <summary>
+        /// Amount of Selection attributes in the Command
+        /// </summary>
+		public override int SelectionAttributeCount => 0;
 
 		/// <summary>
         /// Creates a New Command.
@@ -940,8 +1225,12 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns the name, plus all the parameter types
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
-		public override string GetFullName()
+		public override string GetFullName(ToStringMode mode)
 		{
+			if(mode==ToStringMode.Short)
+				return $"{Name} Parameter Count: 16";
+
+			
 			return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}, {typeof(TParam3).Name}, {typeof(TParam4).Name}, {typeof(TParam5).Name}, {typeof(TParam6).Name}, {typeof(TParam7).Name}, {typeof(TParam8).Name}, {typeof(TParam9).Name}, {typeof(TParam10).Name}, {typeof(TParam11).Name}, {typeof(TParam12).Name}, {typeof(TParam13).Name}, {typeof(TParam14).Name}, {typeof(TParam15).Name}";
 		}
 
