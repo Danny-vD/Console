@@ -178,6 +178,7 @@ var files_dup =
     [ "ConsoleCoreConfig.cs", "d0/d3b/_console_core_config_8cs.html", [
       [ "ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", "d6/dce/class_console_1_1_core_1_1_console_core_config" ]
     ] ],
+    [ "ConsoleManagerComponent.cs", "d6/d92/_console_manager_component_8cs.html", "d6/d92/_console_manager_component_8cs" ],
     [ "ConsoleSocket.cs", "db/d44/_console_socket_8cs.html", [
       [ "ConsoleSocket", "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html", "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket" ]
     ] ],
@@ -198,6 +199,9 @@ var files_dup =
     ] ],
     [ "DefaultConverterInitializer.cs", "d3/d74/_default_converter_initializer_8cs.html", [
       [ "DefaultConverterInitializer", "de/d19/class_console_1_1_default_converters_1_1_default_converter_initializer.html", "de/d19/class_console_1_1_default_converters_1_1_default_converter_initializer" ]
+    ] ],
+    [ "DefaultLogReader.cs", "dd/d23/_default_log_reader_8cs.html", [
+      [ "DefaultLogReader", "d1/d0f/class_console_1_1_unity_1_1_default_log_reader.html", "d1/d0f/class_console_1_1_unity_1_1_default_log_reader" ]
     ] ],
     [ "DefaultVariables.cs", "d9/d05/_default_variables_8cs.html", [
       [ "DefaultVariables", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables" ]
@@ -261,6 +265,9 @@ var files_dup =
     ] ],
     [ "FlagTests.cs", "dd/d59/_flag_tests_8cs.html", [
       [ "FlagTests", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests.html", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests" ]
+    ] ],
+    [ "GameObjectComponentConverter.cs", "d0/d69/_game_object_component_converter_8cs.html", [
+      [ "GameObjectComponentConverter", "df/d25/class_console_1_1_unity_1_1_game_object_component_converter.html", "df/d25/class_console_1_1_unity_1_1_game_object_component_converter" ]
     ] ],
     [ "Globals.cs", "d1/d64/_globals_8cs.html", [
       [ "Globals", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals.html", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals" ]
@@ -349,6 +356,9 @@ var files_dup =
     ] ],
     [ "ObjectSelectionCommands.cs", "d9/da6/_object_selection_commands_8cs.html", [
       [ "ObjectSelectionCommands", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands" ]
+    ] ],
+    [ "ObjectSelectorComponent.cs", "dc/d57/_object_selector_component_8cs.html", [
+      [ "ObjectSelectorComponent", "dc/d2f/class_console_1_1_unity_1_1_components_1_1_object_selector_component.html", "dc/d2f/class_console_1_1_unity_1_1_components_1_1_object_selector_component" ]
     ] ],
     [ "OPCode.cs", "d1/da3/_o_p_code_8cs.html", [
       [ "OPCode", "d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html", "d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code" ]
@@ -442,6 +452,9 @@ var files_dup =
     [ "ScriptSystemInitializer.cs", "d7/ddf/_script_system_initializer_8cs.html", [
       [ "ScriptSystemInitializer", "d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html", "d5/d43/class_console_1_1_script_system_1_1_script_system_initializer" ]
     ] ],
+    [ "SelectedObjectsVisualiser.cs", "d1/def/_selected_objects_visualiser_8cs.html", [
+      [ "SelectedObjectsVisualiser", "d3/da2/class_console_1_1_unity_1_1_components_1_1_selected_objects_visualiser.html", "d3/da2/class_console_1_1_unity_1_1_components_1_1_selected_objects_visualiser" ]
+    ] ],
     [ "SelectionPropertyAttribute.cs", "da/dd1/_selection_property_attribute_8cs.html", [
       [ "SelectionPropertyAttribute", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute" ]
     ] ],
@@ -466,6 +479,12 @@ var files_dup =
     ] ],
     [ "TokenType.cs", "d3/d15/_token_type_8cs.html", "d3/d15/_token_type_8cs" ],
     [ "ToStringMode.cs", "d6/d7b/_to_string_mode_8cs.html", "d6/d7b/_to_string_mode_8cs" ],
+    [ "UnityConsoleManager.cs", "d2/d7c/_unity_console_manager_8cs.html", [
+      [ "UnityConsoleManager", "d9/d40/class_console_1_1_unity_1_1_unity_console_manager.html", "d9/d40/class_console_1_1_unity_1_1_unity_console_manager" ]
+    ] ],
+    [ "UnityObjectSelector.cs", "df/d02/_unity_object_selector_8cs.html", [
+      [ "UnityObjectSelector", "df/dfb/class_console_1_1_unity_1_1_unity_object_selector.html", "df/dfb/class_console_1_1_unity_1_1_unity_object_selector" ]
+    ] ],
     [ "UtilCommandCommands.cs", "d6/dc0/_util_command_commands_8cs.html", [
       [ "UtilCommandCommands", "da/dbc/class_console_1_1_util_extension_1_1_util_command_commands.html", "da/dbc/class_console_1_1_util_extension_1_1_util_command_commands" ]
     ] ],

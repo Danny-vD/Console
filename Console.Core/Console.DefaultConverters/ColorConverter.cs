@@ -6,7 +6,8 @@ using Console.Core.ConverterSystem;
 namespace Console.DefaultConverters
 {
     /// <summary>
-    /// AConverter Implementation that Converts a #RRGGBB or #AARRGGBB hex string into a C# Color Struct
+    /// AConverter Implementation that Converts a RRGGBB or AARRGGBB hex string into a C# Color Struct if Prepended with a Hashtag
+    /// If a Hashtag is not present the color gets interpreted by name(e.g. Red == FFFF0000 OR FF0000)
     /// </summary>
     public class ColorConverter : AConverter
     {

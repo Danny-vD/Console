@@ -14,5 +14,6 @@ var namespace_console =
     [ "PropIOCompat", "d1/d27/namespace_console_1_1_prop_i_o_compat.html", "d1/d27/namespace_console_1_1_prop_i_o_compat" ],
     [ "ScriptIOCompat", "d9/d10/namespace_console_1_1_script_i_o_compat.html", "d9/d10/namespace_console_1_1_script_i_o_compat" ],
     [ "ScriptSystem", "d6/dca/namespace_console_1_1_script_system.html", "d6/dca/namespace_console_1_1_script_system" ],
+    [ "Unity", "d2/d3f/namespace_console_1_1_unity.html", "d2/d3f/namespace_console_1_1_unity" ],
     [ "UtilExtension", "d4/d5a/namespace_console_1_1_util_extension.html", "d4/d5a/namespace_console_1_1_util_extension" ]
 ];

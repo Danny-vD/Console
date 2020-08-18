@@ -64,7 +64,7 @@ namespace Console.EnvironmentVariables
         /// <summary>
         /// Removes a Provider from the EnvironmentVariable Manager.
         /// </summary>
-        /// <param name="funcName">Name of the Provider to Remove</param>
+        /// <param name="providerName">Name of the Provider to Remove</param>
         public void RemoveProvider(string providerName) => Providers.Remove(providerName);
 
         /// <summary>

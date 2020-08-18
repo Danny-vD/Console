@@ -12,7 +12,7 @@ namespace Console.IO
         /// <summary>
         /// Changes the Current Directory.
         /// </summary>
-        /// <param name="dir"></param>
+        /// <param name="dir">Relative Path</param>
         [Command("change-dir", "Changes the Current Directory", "cd")]
         private static void ChangeDir(string dir)
         {
@@ -45,7 +45,7 @@ namespace Console.IO
         /// Lists files in the specified directory and all subdirectories that match the search term
         /// </summary>
         /// <param name="folder">Specified Directory</param>
-        /// <param name="searchTerm">The Search Term</param>
+        /// <param name="searchTerms">The Search Term</param>
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         [Command("list-files", "Lists files in the selected directory that match the search pattern. Optionally recursing into the subdirectories", "ls", "dir")]
         private static void ListFiles(string folder, string searchTerms, bool recursive)
@@ -84,7 +84,7 @@ namespace Console.IO
         /// Lists Directories in the specified directory and all subdirectories that match the search term
         /// </summary>
         /// <param name="folder">Specified Directory</param>
-        /// <param name="searchTerm">The Search Term</param>
+        /// <param name="searchTerms">The Search Term</param>
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         [Command("list-dir", "Lists directories in the selected directory that match the search pattern. Optionally recursing into the subdirectories", "ld", "dirs")]
         private static void ListDirectories(string folder, string searchTerms, bool recursive)

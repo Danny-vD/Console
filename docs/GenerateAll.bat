@@ -1,3 +1,7 @@
+@echo off
+if not exist "logs" mkdir logs
+SET DOXYPATH=D:\Program Files\doxygen\bin\doxygen.exe
+
 call GenerateDocumentation.bat console.arrayconverter
 call GenerateDocumentation.bat console.classqueries
 call GenerateDocumentation.bat console.cli
@@ -14,5 +18,6 @@ call GenerateDocumentation.bat console.propiocompat
 call GenerateDocumentation.bat console.scriptiocompat
 call GenerateDocumentation.bat console.scriptsystem
 call GenerateDocumentation.bat console.utilextension
+call GenerateDocumentation.bat console.unity
 call GenerateDocumentation.bat console
 pause

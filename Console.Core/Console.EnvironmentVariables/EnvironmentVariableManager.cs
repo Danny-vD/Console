@@ -56,7 +56,7 @@ namespace Console.EnvironmentVariables
         /// Adds all Static Methods of a Type that have one string input and string return as VariableProviders.
         /// </summary>
         /// <param name="funcPrefix">The Desired prefix</param>
-        /// <param name="qualifiedType">The Type</param>
+        /// <param name="type">The Type</param>
         public static void AddStringTransformMethods(string funcPrefix, Type type)
         {
             MethodInfo[] mi = type.GetMethods(BindingFlags.Static | BindingFlags.Public);

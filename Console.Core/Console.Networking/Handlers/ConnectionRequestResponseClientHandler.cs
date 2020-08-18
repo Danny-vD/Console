@@ -13,7 +13,7 @@ namespace Console.Networking.Handlers
         /// <summary>
         /// Handles the Packet
         /// </summary>
-        /// <param name="item">The Packet</param>
+        /// <param name="packet">The Packet</param>
         public override void Handle(ConnectionRequestResponsePacket packet)
         {
             if (packet is ConnectionRequestResponseFailedPacket failedPacket)

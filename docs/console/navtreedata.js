@@ -47,7 +47,11 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Typedefs", "globals_type.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
@@ -55,12 +59,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d3/d12/class_console_1_1_networking_1_1_packets_1_1_connection_abort_1_1_connection_abort_packet.html",
-"d5/d9c/class_console_1_1_core_1_1_a_object_selector.html#afe724ce2b903a368b3e7e4a2ff898561",
-"d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html",
-"db/dbc/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_success_packet.html#a05107211c7b35120bf073ddeceb129c1",
-"dd/dc3/_connection_abort_packet_8cs_source.html",
-"functions_u.html"
+"d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html#a5bc3055275d87c4a889b3c2e513c95e6",
+"d5/d73/class_console_1_1_util_extension_1_1_util_extension_initializer.html",
+"d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#a26c343e6289dfa67fc672fd500ed73a1",
+"db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html",
+"dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#ad1486cb300e22e8e84243ab4f78ff7d4",
+"df/d94/class_console_1_1_unity_1_1_components_1_1_console_manager_component.html#a2b240def17d7521585bf75f30fb9ecd2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
