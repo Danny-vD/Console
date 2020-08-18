@@ -107,6 +107,90 @@ namespace Console.Evaluator
             eval.AddEnvironmentFunctions(obj);
         }
 
+        [Command("if", "If the Expression is evaluated to true the command is executed.")]
+        private void ConditionalIf(string expr, string command)
+        {
+            Setup();
+            OPCode ret = eval.Parse(expr);
+            if (ret != null && ret.CanReturn(EvalType.Boolean))
+            {
+                bool r = (bool)ret.Value;
+                if (r)
+                {
+                    AConsoleManager.Instance.EnterCommand(command);
+                }
+            }
+        }
+        [Command("ifelse", "Invokes a command based on the expression.")]
+        private void IfElse(string expr, string commandIfTrue, string commandIfFalse)
+        {
+            Setup();
+            OPCode ret = eval.Parse(expr);
+            if (ret != null && ret.CanReturn(EvalType.Boolean))
+            {
+                bool r = (bool)ret.Value;
+                if (r)
+                {
+                    AConsoleManager.Instance.EnterCommand(commandIfTrue);
+                }
+                else
+                {
+                    AConsoleManager.Instance.EnterCommand(commandIfFalse);
+                }
+            }
+        }
+
+        [Command("ifelseif", "Invokes a command based on the expression.")]
+        private void IfElseIf(string expr1, string commandExpr1, string expr2, string commandExpr2)
+        {
+            Setup();
+            OPCode ret = eval.Parse(expr1);
+            if (ret != null && ret.CanReturn(EvalType.Boolean))
+            {
+                bool r = (bool)ret.Value;
+                OPCode ret2 = eval.Parse(expr2);
+                if (ret2 != null && ret.CanReturn(EvalType.Boolean))
+                {
+                    bool r2 = (bool)ret.Value;
+                    if (r)
+                    {
+                        AConsoleManager.Instance.EnterCommand(commandExpr1);
+                    }
+                    else if (r2)
+                    {
+                        AConsoleManager.Instance.EnterCommand(commandExpr2);
+                    }
+                }
+            }
+        }
+        [Command("ifelseif", "Invokes a command based on the expressions.")]
+        private void IfElseIf(string expr1, string commandExpr1, string expr2, string commandExpr2, string elseCommand)
+        {
+            Setup();
+            OPCode ret = eval.Parse(expr1);
+            if (ret != null && ret.CanReturn(EvalType.Boolean))
+            {
+                bool r = (bool)ret.Value;
+                OPCode ret2 = eval.Parse(expr2);
+                if (ret2 != null && ret.CanReturn(EvalType.Boolean))
+                {
+                    bool r2 = (bool)ret.Value;
+                    if (r)
+                    {
+                        AConsoleManager.Instance.EnterCommand(commandExpr1);
+                    }
+                    else if (r2)
+                    {
+                        AConsoleManager.Instance.EnterCommand(commandExpr2);
+                    }
+                    else
+                    {
+                        AConsoleManager.Instance.EnterCommand(elseCommand);
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Remove all Variables and Functions of the selected type.
         /// </summary>
@@ -114,7 +198,7 @@ namespace Console.Evaluator
         [Command("eval-rem-var", "Removes a variable/function container from the evaluator")]
         public void RemoveVariable(string qualifiedName)
         {
-            if (eval == null) return;
+            Setup();
             for (int i = eval.mEnvironmentFunctionsList.Count - 1; i >= 0; i--)
             {
                 if (eval.mEnvironmentFunctionsList[i] != null &&

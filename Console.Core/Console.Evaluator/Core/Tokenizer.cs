@@ -334,7 +334,7 @@ namespace Console.Evaluator.Core
                 NextChar();
             }
 
-            switch (value.ToString() ?? "")
+            switch (value.ToString().ToLower() ?? "")
             {
                 case "and":
                     {

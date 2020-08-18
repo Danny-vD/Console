@@ -588,7 +588,7 @@ namespace Console.Evaluator.Core
             mTokenizer.NextToken();
             bool isBrackets = default(bool);
             parameters = ParseParameters(ref isBrackets);
-            if (parameters is object)
+            if (parameters != null)
             {
                 ArrayList EmptyParameters = new ArrayList();
                 bool ParamsNotUsed = default(bool);
@@ -636,7 +636,7 @@ namespace Console.Evaluator.Core
                     {
                         MemberInfo mi;
                         mi = GetMemberInfo(t, null, parameters);
-                        if (mi is object)
+                        if (!(mi is null))
                         {
                             ValueLeft = OPCodeCallMethod.GetNew(mTokenizer, ValueLeft, mi, parameters);
                         }
