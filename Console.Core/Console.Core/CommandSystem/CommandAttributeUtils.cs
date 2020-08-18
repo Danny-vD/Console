@@ -92,7 +92,7 @@ namespace Console.Core.CommandSystem
         {
             IInvokable[] i =
                 GetCommands(t, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                    .Select(x => new StaticMethodMetaData(x)).ToArray();
+                    .Select(x => new MethodMetaData(instance,x)).ToArray();
             return i;
         }
 
