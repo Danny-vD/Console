@@ -5,37 +5,6 @@
 
 namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
-
-    public class FlagTests
-    {
-        public static void AddFlagTestCommands()
-        {
-            CommandAttributeUtils.AddCommands<FlagTests>();
-        }
-
-        [Command("ft", "Flag Test. This Command is Legal")]
-        private static void FlagTest(string arg0, int arg1, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //(2-4)
-        {
-            AConsoleManager.Instance.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1 + "\ny: " + flag2);
-        }
-        [Command("ft", "Flag Test. This Command is Illegal)")]
-        private static void FlagTest(string arg0, int arg1, [CommandFlag("x")] bool flag1) //Illegal (2-3)
-        {
-            AConsoleManager.Instance.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1);
-        }
-
-        [Command("ft", "Flag Test. This Command is Legal")]
-        private static void FlagTest(string arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //Legal(1-3)
-        {
-            AConsoleManager.Instance.Log("(string)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
-        }
-        [Command("ft", "Flag Test. This Command is Illegal")]
-        private static void FlagTest(int arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //Illegal(1-3)
-        {
-            AConsoleManager.Instance.Log("(int)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
-        }
-    }
-
     /// <summary>
     /// Console Default Commands like clear/help/echo
     /// </summary>
@@ -101,7 +70,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
 
         /// <summary>
         /// Echo Command.
-        /// </summary>[Flag
+        /// </summary>
         /// <param name="value">Value to Write to the Console.</param>
         [Command("echo", "Echos the input")]
         private static void Echo(string value) => AConsoleManager.Instance.Log(value);

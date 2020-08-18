@@ -41,12 +41,6 @@
         /// <returns>True if the Value is within the range.</returns>
         public bool Contains(int value) => Min <= value && Max >= value;
 
-        /// <summary>
-        /// Returns true when this and the specified range do have any Parameter Counts in common.
-        /// </summary>
-        /// <param name="other">Other Range to check overlapping.</param>
-        /// <returns>True if the two Ranges are overlapping</returns>
-        //public bool Overlaps(ParameterRange other) => !(Min > other.Max || Max < other.Min);
 
         /// <summary>
         /// To String Implementation

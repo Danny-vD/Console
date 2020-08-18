@@ -8,15 +8,6 @@ using Console.Core.ConverterSystem;
 /// </summary>
 namespace Console.Core.CommandSystem.Commands
 {
-
-    public enum ToStringMode
-    {
-        Default = 0,
-        Short = 1,
-        Long = 2,
-        None = 3,
-    }
-
     /// <summary>
     /// Abstract Command Base Class.
     /// </summary>
@@ -138,6 +129,7 @@ namespace Console.Core.CommandSystem.Commands
 
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
         public abstract string GetFullName(ToStringMode mode);
@@ -195,7 +187,10 @@ namespace Console.Core.CommandSystem.Commands
         }
 
 
-        
+        /// <summary>
+        /// To String Implementation
+        /// </summary>
+        /// <returns>String Representation of a Command</returns>
         public override string ToString()
         {
             return ToString(ToStringMode.Default);
@@ -203,6 +198,7 @@ namespace Console.Core.CommandSystem.Commands
 
         /// <summary>
         /// To String Implementation
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>String Representation of a Command.</returns>
         public string ToString(ToStringMode mode)

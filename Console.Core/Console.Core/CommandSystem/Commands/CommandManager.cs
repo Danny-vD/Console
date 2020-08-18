@@ -85,6 +85,7 @@ namespace Console.Core.CommandSystem.Commands
         /// </summary>
         /// <param name="commandName">Command Name</param>
         /// <param name="paramsCount">Parameter Count</param>
+        /// <param name="flagCount">The amount of Parameters with the CommandFlagAttribute</param>
         /// <returns>Returns the Command that Fits the Name/Parameter Count Combination</returns>
         private static AbstractCommand Find(string commandName, int paramsCount, int flagCount = 0)
         {
@@ -118,6 +119,7 @@ namespace Console.Core.CommandSystem.Commands
         /// </summary>
         /// <param name="commandName">Command Name</param>
         /// <param name="paramsCount">Parameter Count</param>
+        /// <param name="flagCount">The amount of Parameters with the CommandFlagAttribute</param>
         /// <returns>Command that fits the Search Criteria</returns>
         public static AbstractCommand GetCommand(string commandName, int paramsCount, int flagCount = 0)
         {

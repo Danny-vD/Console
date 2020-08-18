@@ -39,6 +39,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -98,6 +99,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -159,6 +161,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -222,6 +225,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -287,6 +291,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -354,6 +359,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -423,6 +429,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -494,6 +501,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -567,6 +575,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -642,6 +651,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -719,6 +729,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -798,6 +809,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -879,6 +891,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -962,6 +975,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -1047,6 +1061,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -1134,6 +1149,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
@@ -1223,6 +1239,7 @@ namespace Console.Core.CommandSystem.Commands
 		
         /// <summary>
         /// Returns the name, plus all the parameter types
+        /// <param name="mode">The ToStringMode</param>
         /// </summary>
         /// <returns>The Full Name including Signature</returns>
 		public override string GetFullName(ToStringMode mode)
