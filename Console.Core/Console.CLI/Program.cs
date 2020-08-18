@@ -5,31 +5,55 @@ using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
 
+/// <summary>
+/// Commandline Interface Test Application
+/// </summary>
 namespace Console.CLI
 {
+    /// <summary>
+    /// CLI Entry Class
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// Path of the Extensions
+        /// </summary>
         private const string ExtensionPath = ".\\extensions\\";
+
+        /// <summary>
+        /// Defines in what intervall the console tick event gets invoked
+        /// </summary>
         [Property("networking.tick")]
         private static float ConsoleTick = 0.2f;
 
+        /// <summary>
+        /// The Commandline Interface Version
+        /// </summary>
         [Property("version.cli")]
         private static Version CLIVersion => Assembly.GetExecutingAssembly().GetName().Version;
 
-
+        /// <summary>
+        /// Closes the Commandline with Error Code 0
+        /// </summary>
         [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
         private static void Exit()
         {
             Exit(0);
         }
-
+        /// <summary>
+        /// Closes the Commandline with a specified ErrorCode
+        /// </summary>
+        /// <param name="exitCode">Exit Code</param>
         [Command("exit", "Closes the application with the specified Exit Code.", "Exit", "Quit", "quit")]
         private static void Exit(int exitCode)
         {
             Environment.Exit(exitCode);
         }
 
-
+        /// <summary>
+        /// Main Entry Point
+        /// </summary>
+        /// <param name="args">CLI parameter</param>
         static void Main(string[] args)
         {
             //List<AExtensionInitializer> ii = new List<AExtensionInitializer>
@@ -66,6 +90,9 @@ namespace Console.CLI
             }
         }
 
+        /// <summary>
+        /// Thread that invokes the OnTickEvent
+        /// </summary>
         private static void Loop()
         {
             while (true)
