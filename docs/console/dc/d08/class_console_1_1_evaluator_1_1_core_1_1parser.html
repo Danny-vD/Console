@@ -1056,7 +1056,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <a class="code" href="../../dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html#ae501d3d10cc52193c77400d20b7bc09a">mTokenizer</a>.<a class="code" href="../../d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html#a5b959776341764aa07d20bfb8c3f3cef">NextToken</a>();</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;            <span class="keywordtype">bool</span> isBrackets = <span class="keywordflow">default</span>(<span class="keywordtype">bool</span>);</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            parameters = <a class="code" href="../../dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html#ab2cbda268cb6d5e47bb40b39eb28e4d6">ParseParameters</a>(ref isBrackets);</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            <span class="keywordflow">if</span> (parameters is <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            <span class="keywordflow">if</span> (parameters != <span class="keyword">null</span>)</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;            {</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                ArrayList EmptyParameters = <span class="keyword">new</span> ArrayList();</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                <span class="keywordtype">bool</span> ParamsNotUsed = <span class="keywordflow">default</span>(<span class="keywordtype">bool</span>);</div>
@@ -1104,7 +1104,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                    {</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                        MemberInfo mi;</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                        mi = <a class="code" href="../../dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html#a414a46f7729dbd30dfb18a8e01425740">GetMemberInfo</a>(t, <span class="keyword">null</span>, parameters);</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                        <span class="keywordflow">if</span> (mi is <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                        <span class="keywordflow">if</span> (!(mi is <span class="keyword">null</span>))</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                        {</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                            ValueLeft = <a class="code" href="../../df/d00/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_call_method.html">OPCodeCallMethod</a>.<a class="code" href="../../df/d00/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_call_method.html#a6cfb0f9ac76e0e68a2db91fa04e5969c">GetNew</a>(<a class="code" href="../../dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html#ae501d3d10cc52193c77400d20b7bc09a">mTokenizer</a>, ValueLeft, mi, parameters);</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                        }</div>

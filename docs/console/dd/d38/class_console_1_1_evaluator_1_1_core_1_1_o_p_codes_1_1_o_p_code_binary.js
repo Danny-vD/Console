@@ -2,6 +2,8 @@ var class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary =
 [
     [ "OPCodeBinary", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a6812e918af8ffee197e471101070ff53", null ],
     [ "BOOL_AND_BOOL", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#aee6318c2fdee363244ec708fd2967136", null ],
+    [ "BOOL_EQ_BOOL", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a3a9e67d1901d521abc8059752a49ecb2", null ],
+    [ "BOOL_NE_BOOL", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a47831e8df4e70b83f26e166ea0846901", null ],
     [ "BOOL_OR_BOOL", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a7fdb381a4d7a2affbc9744faa645b10a", null ],
     [ "BOOL_XOR_BOOL", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#ab4fd451c7344bd0636566a535fb6dbd0", null ],
     [ "DATE_MINUS_DATE", "dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a6667317dfbd83a3d045704c54f001ca3", null ],

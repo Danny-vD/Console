@@ -418,7 +418,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/dee/_method_meta_data_8cs_source.html#l00050">50</a> of file <a class="el" href="../../d0/dee/_method_meta_data_8cs_source.html">MethodMetaData.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../de/dc8/class_console_1_1_core_1_1_reflection_system_1_1_method_meta_data.html#aaa2d05338d35a50ddf16a2fac649a3dd">InvokeDirect</a>(parameter.Length == 0 ? <span class="keyword">null</span> : <a class="code" href="../../de/dc8/class_console_1_1_core_1_1_reflection_system_1_1_method_meta_data.html#aa279b79525cef91052dea7cc3e26dfa3">Cast</a>(parameter));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../de/dc8/class_console_1_1_core_1_1_reflection_system_1_1_method_meta_data.html#aaa2d05338d35a50ddf16a2fac649a3dd">InvokeDirect</a>(<a class="code" href="../../de/dc8/class_console_1_1_core_1_1_reflection_system_1_1_method_meta_data.html#aa279b79525cef91052dea7cc3e26dfa3">Cast</a>(parameter));</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -450,7 +450,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d0/dee/_method_meta_data_8cs_source.html#l00061">61</a> of file <a class="el" href="../../d0/dee/_method_meta_data_8cs_source.html">MethodMetaData.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> ReflectedInfo.InvokePreserveStack(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>, parameter);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> ReflectedInfo.InvokePreserveStack(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>, parameter.Length == 0 ? <span class="keyword">null</span> : parameter);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>

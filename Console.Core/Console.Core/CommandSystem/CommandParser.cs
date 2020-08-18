@@ -95,6 +95,7 @@ namespace Console.Core.CommandSystem
         /// Removes all Non-Escaped chars from the string
         /// </summary>
         /// <param name="part">String with escaped chars</param>
+        /// <param name="chars">The Escaped Chars</param>
         /// <returns>Un escaped string</returns>
         private static string RemoveNonEscapedChars(string part, params char[] chars)
         {
