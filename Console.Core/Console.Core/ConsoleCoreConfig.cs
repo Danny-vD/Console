@@ -34,12 +34,15 @@ namespace Console.Core
         /// </summary>
         [Property("core.input.stringchar")]
         public static char StringChar = '"';
+        [Property("core.input.escapechar")]
+        public static char EscapeChar = '\\';
+        public static char[] EscapableChars => new[] { StringChar, EscapeChar };
 
         /// <summary>
         /// If true the Console does not check if commands can be invoked or are hidden by other commands.
         /// </summary>
         [Property("core.commands.allowoverlapping")]
-        public static bool AllowOverlappingCommands=true;
+        public static bool AllowOverlappingCommands;
 
         #endregion
 
