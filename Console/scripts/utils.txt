@@ -1,22 +1,37 @@
 
 echo "Loading Utils"
 
-function _PrintDivider {
-	echo "_____________________"
-}
-
-function _DoubleDivider {
-	run-seq _PrintDivider
-	run-seq _PrintDivider
-}
-
 function _GetVersions {
 	echo "Versions:"
 	get-property version.
 }
 
-function _GetMachineInfo {
-	echo "PC Info:"
-	echo "User: $(user)"
-	echo "Machine: $(machine)"
+function _WhoAmI {
+	echo "$(user)"
 }
+function _Uname {
+	echo "$(machine)"
+}
+
+function _CurrentDirectory {
+	echo "$(cd)"
+}
+
+function _UnloadUtils {
+	remove-command unload-utils
+	remove-command cd
+	remove-command whoami
+	remove-command uname
+	remove-command versions
+	delete-seq _GetVersions
+	delete-seq _WhoAmI
+	delete-seq _Uname
+	delete-seq _CurrentDirectory
+	delete-seq _UnloadUtils
+}
+
+sequence-to-command _UnloadUtils unload-utils "Unloads all Commands added from the Utils Script"
+sequence-to-command _CurrentDirectory cd "Prints the Current Directory"
+sequence-to-command _WhoAmI whoami "Displays the Username"
+sequence-to-command _Uname uname "Displays the Machine Name"
+sequence-to-command _GetVersions versions "Displays the Versions of Extensions who supply a version with the following pattern: \"version.<extensionname>\""
