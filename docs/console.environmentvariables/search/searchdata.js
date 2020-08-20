@@ -4,8 +4,8 @@ var indexSectionsWithContent =
   1: "dev",
   2: "c",
   3: "dev",
-  4: "adefgirv",
-  5: "eiop",
+  4: "adegirv",
+  5: "ceiop",
   6: "ef"
 };
 

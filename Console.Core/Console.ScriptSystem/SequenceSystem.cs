@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using Console.Core;
 using Console.Core.CommandSystem;
-using Console.ScriptSystem.BlockSequencer;
+using Console.ScriptSystem.Deblocker;
 
 namespace Console.ScriptSystem
 {
@@ -13,6 +13,10 @@ namespace Console.ScriptSystem
     /// </summary>
     public static class SequenceSystem
     {
+        /// <summary>
+        /// Flag that is used to force overwriting when creating a sequence
+        /// Used in the Deblocker to minimize script length
+        /// </summary>
         public const string SequenceCreateOverwrite = "-overwrite";
 
         /// <summary>
@@ -196,7 +200,7 @@ namespace Console.ScriptSystem
                     return;
                 CreateSequence(name, false);
             }
-            string[] lines = Sequencer.Parse(File.ReadAllText(file)).ToArray();
+            string[] lines = DeblockerCollection.Parse(File.ReadAllText(file)).ToArray();
             string s2 = "";
             foreach (string s1 in lines)
             {

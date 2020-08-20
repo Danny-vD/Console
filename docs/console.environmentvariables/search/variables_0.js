@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['envversion_60',['EnvVersion',['../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a9c4136ac0a9b624a3da5ce518bd4c117',1,'Console::EnvironmentVariables::EnvInitializer']]]
+  ['closebracket_60',['CloseBracket',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#a06554f1074a526ae27fe72767527d2de',1,'Console::EnvironmentVariables::EnvironmentVariableManager']]]
 ];

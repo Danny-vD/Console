@@ -34,12 +34,25 @@ namespace Console.Core
         /// </summary>
         [Property("core.input.stringchar")]
         public static char StringChar = '"';
+
+        /// <summary>
+        /// The Character that is used to seperate input in the console.
+        /// </summary>
         [Property("core.input.commandseparator")]
         public static char CommandInputSeparator = ' ';
+        /// <summary>
+        /// The Character that is used to escape the EscapableChars
+        /// </summary>
         [Property("core.input.escapechar")]
         public static char EscapeChar = '\\';
+        /// <summary>
+        /// Console Newline Character
+        /// </summary>
         public static char NewLine = '\n';
 
+        /// <summary>
+        /// Collection of Characters that have to be Escaped.
+        /// </summary>
         public static char[] EscapableChars => new[] { StringChar };
 
         /// <summary>
@@ -53,6 +66,10 @@ namespace Console.Core
         /// Finds the Corresponding Closing Tag
         /// </summary>
         /// <param name="cmd">Input Command.</param>
+        /// <param name="openBracket">The Character used to Open a Block</param>
+        /// <param name="closeBracket">The Character used to Close a Block</param>
+        /// <param name="start">The Start index from where the search begins</param>
+        /// <param name="openBrackets">The Amount of open brackets that were already found.</param>
         /// <returns>Index of the Corresponding Closing Tag</returns>
         public static int FindClosing(string cmd, char openBracket, char closeBracket, int start = 0, int openBrackets = 0)
         {

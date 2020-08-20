@@ -102,7 +102,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Script System Implementation </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00011">11</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00013">13</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a883ca787c6d53a2b8884a56295f4b86a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a883ca787c6d53a2b8884a56295f4b86a">&#9670;&nbsp;</a></span>RunFile()</h2>
@@ -136,21 +136,21 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00018">18</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordtype">string</span>[] lines = File.ReadAllLines(path).Where(x=&gt;!<span class="keywordtype">string</span>.IsNullOrEmpty(x.Trim())).ToArray();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">EnterCommand</a>(line);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a100f063695aa9868eaae61aa337337df">LogWarning</a>(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00020">20</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                List&lt;string&gt; lines = <a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">DeblockerCollection</a>.<a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#afa3ce05e3c2c28d5fc36fc5306ae996a">Parse</a>(File.ReadAllText(path));</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">EnterCommand</a>(line);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a100f063695aa9868eaae61aa337337df">LogWarning</a>(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -160,9 +160,11 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_a100f063695aa9868eaae61aa337337df"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a100f063695aa9868eaae61aa337337df">Console.Core.AConsoleManager.LogWarning</a></div><div class="ttdeci">abstract void LogWarning(object @object)</div><div class="ttdoc">Writes a Log Warning</div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_ab9b1d7ba7f1b176a9925f32b9ac2ae10"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">Console.Core.AConsoleManager.EnterCommand</a></div><div class="ttdeci">void EnterCommand(string command)</div><div class="ttdoc">Enters a Command into the Console.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00164">AConsoleManager.cs:164</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_ab9b1d7ba7f1b176a9925f32b9ac2ae10"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">Console.Core.AConsoleManager.EnterCommand</a></div><div class="ttdeci">void EnterCommand(string command)</div><div class="ttdoc">Enters a Command into the Console.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00169">AConsoleManager.cs:169</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html_afa3ce05e3c2c28d5fc36fc5306ae996a"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#afa3ce05e3c2c28d5fc36fc5306ae996a">Console.ScriptSystem.Deblocker.DeblockerCollection.Parse</a></div><div class="ttdeci">static List&lt; string &gt; Parse(List&lt; Line &gt; lines)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00061">DeblockerCollection.cs:61</a></div></div>
 <div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">Console.Core.AConsoleManager</a></div><div class="ttdoc">Abstract Console Manager Implementations. Has to be Implemented by the User.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00023">AConsoleManager.cs:24</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_a206089927a2d283101cc4cbd1386b8ab"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Console.Core.AConsoleManager.Instance</a></div><div class="ttdeci">static AConsoleManager Instance</div><div class="ttdoc">Singleton Instance of the Console</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00098">AConsoleManager.cs:98</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">Console.ScriptSystem.Deblocker.DeblockerCollection</a></div><div class="ttdoc">Static Minimal DeblockerCollection Parsing API</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00014">DeblockerCollection.cs:15</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_a206089927a2d283101cc4cbd1386b8ab"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Console.Core.AConsoleManager.Instance</a></div><div class="ttdeci">static AConsoleManager Instance</div><div class="ttdoc">Singleton Instance of the Console</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00103">AConsoleManager.cs:103</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

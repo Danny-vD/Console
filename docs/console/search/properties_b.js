@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['refdata_2020',['RefData',['../d9/d9d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_reflection_command.html#aff4ae4abc07c041dc1a193db596f2bc5',1,'Console::Core::CommandSystem::Commands::ReflectionCommand']]],
-  ['returntype_2021',['ReturnType',['../d8/dcb/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_invokable.html#ab38d02296ff222946b4aec4f5c79f467',1,'Console::Core::ReflectionSystem::Interfaces::IInvokable']]]
+  ['objectselector_2152',['ObjectSelector',['../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#a5d3f3a93f6645e60f403d0928eea0642',1,'Console.CLI.CLIConsoleManager.ObjectSelector()'],['../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#afc21138964824fc854899336542417ac',1,'Console.Core.AConsoleManager.ObjectSelector()']]]
 ];

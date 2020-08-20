@@ -98,6 +98,11 @@ namespace Console.Core.CommandSystem
             return arguments.ToArray();
         }
 
+        /// <summary>
+        /// Removes all String Characters that are not escaped.
+        /// </summary>
+        /// <param name="content">Content to Check</param>
+        /// <returns>Cleaned Content</returns>
         public static string CleanContent(string content)
         {
             StringBuilder sb = new StringBuilder();
@@ -112,6 +117,13 @@ namespace Console.Core.CommandSystem
             return sb.ToString();
         }
 
+        /// <summary>
+        /// UnEscape is reversing the Escape Encoding
+        /// </summary>
+        /// <param name="content">Content to Unescape</param>
+        /// <param name="escChar">The Character that is used to escape other characters</param>
+        /// <param name="escapeChars">The Characters that need to be Escaped.</param>
+        /// <returns>UnEscaped String</returns>
         public static string UnEscape(string content, char escChar, params char[] escapeChars)
         {
             string ret = content;
@@ -126,6 +138,13 @@ namespace Console.Core.CommandSystem
             return ret;
         }
 
+        /// <summary>
+        /// Escape is Masking the specified escapeChars with the escChar character.
+        /// </summary>
+        /// <param name="content">Content to Escape</param>
+        /// <param name="escChar">The Character that is used to escape other characters</param>
+        /// <param name="escapeChars">The Characters that need to be Escaped.</param>
+        /// <returns>Escaped String</returns>
         public static string Escape(string content, char escChar, params char[] escapeChars)
         {
             string ret = content;

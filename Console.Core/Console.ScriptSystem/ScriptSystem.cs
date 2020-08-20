@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Console.Core;
 using Console.Core.CommandSystem;
-using Console.ScriptSystem.BlockSequencer;
+using Console.ScriptSystem.Deblocker;
 
 namespace Console.ScriptSystem
 {
@@ -21,7 +21,7 @@ namespace Console.ScriptSystem
         {
             if (File.Exists(path))
             {
-                List<string> lines = Sequencer.Parse(File.ReadAllText(path));
+                List<string> lines = DeblockerCollection.Parse(File.ReadAllText(path));
                 foreach (string line in lines)
                 {
                     AConsoleManager.Instance.EnterCommand(line);

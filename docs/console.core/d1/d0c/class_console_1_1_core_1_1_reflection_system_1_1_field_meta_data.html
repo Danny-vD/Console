@@ -163,7 +163,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IValueTypeContainer Implementation using a FieldInfo type as backend </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00011">11</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00013">13</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acbc7895465502d768a1f23e7903cf8f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbc7895465502d768a1f23e7903cf8f4">&#9670;&nbsp;</a></span>FieldMetaData()</h2>
@@ -200,11 +200,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00032">32</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                                              : base(instance, info)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00034">34</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                                              : base(instance, info)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -255,10 +255,10 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of the Property</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00059">59</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> (T)<a class="code" href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a12e15bea024f430cd0c50c25cd0c7644">Get</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00058">58</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> (T)<a class="code" href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a12e15bea024f430cd0c50c25cd0c7644">Get</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -288,13 +288,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d3a/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_settable.html#a7f505b90a04233f425f8fe07e9848274">Console.Core.ReflectionSystem.Interfaces.ISettable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00041">41</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a8a710f11e2fb3a221a3ed6091db946ef">ValueType</a>.IsInstanceOfType(value) || value == <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                ReflectedInfo.SetValue(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>, value);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00043">43</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            ReflectedInfo.SetValue(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>, <a class="code" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html">CommandAttributeUtils</a>.<a class="code" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#a658b70222e8137955f27479d113d9006">ConvertToNonGeneric</a>(value, <a class="code" href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a8a710f11e2fb3a221a3ed6091db946ef">ValueType</a>));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -313,7 +310,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Flag that determines if the Value can be Read </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00021">21</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00023">23</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
 
 </div>
 </div>
@@ -331,7 +328,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Flag that determines if the Value can be Written </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00016">16</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00018">18</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
 
 </div>
 </div>
@@ -349,7 +346,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Type of the Value </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00025">25</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html#l00027">27</a> of file <a class="el" href="../../de/d36/_field_meta_data_8cs_source.html">FieldMetaData.cs</a>.</p>
 
 </div>
 </div>
@@ -359,8 +356,10 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data_html_ab074adf6e8c7389f59e75ef6ea72af84"><div class="ttname"><a href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Console.Core.ReflectionSystem.Abstract.AInstancedMetaData&lt; FieldInfo &gt;::Instance</a></div><div class="ttdeci">readonly object Instance</div><div class="ttdoc">The Object Instance that contains the Member</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/daa/_a_instanced_meta_data_8cs_source.html#l00015">AInstancedMetaData.cs:15</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_field_meta_data_html_a8a710f11e2fb3a221a3ed6091db946ef"><div class="ttname"><a href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a8a710f11e2fb3a221a3ed6091db946ef">Console.Core.ReflectionSystem.FieldMetaData.ValueType</a></div><div class="ttdeci">Type ValueType</div><div class="ttdoc">The Type of the Value</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/_field_meta_data_8cs_source.html#l00025">FieldMetaData.cs:25</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_command_attribute_utils_html_a658b70222e8137955f27479d113d9006"><div class="ttname"><a href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#a658b70222e8137955f27479d113d9006">Console.Core.CommandSystem.CommandAttributeUtils.ConvertToNonGeneric</a></div><div class="ttdeci">static object ConvertToNonGeneric(object parameter, Type target)</div><div class="ttdoc">Converts the Parameter to the Target Type</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00105">CommandAttributeUtils.cs:105</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_field_meta_data_html_a8a710f11e2fb3a221a3ed6091db946ef"><div class="ttname"><a href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a8a710f11e2fb3a221a3ed6091db946ef">Console.Core.ReflectionSystem.FieldMetaData.ValueType</a></div><div class="ttdeci">Type ValueType</div><div class="ttdoc">The Type of the Value</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/_field_meta_data_8cs_source.html#l00027">FieldMetaData.cs:27</a></div></div>
 <div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_field_meta_data_html_a12e15bea024f430cd0c50c25cd0c7644"><div class="ttname"><a href="../../d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html#a12e15bea024f430cd0c50c25cd0c7644">Console.Core.ReflectionSystem.FieldMetaData.Get</a></div><div class="ttdeci">object Get()</div><div class="ttdoc">Gets the Value of the Field Info</div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_command_attribute_utils_html"><div class="ttname"><a href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html">Console.Core.CommandSystem.CommandAttributeUtils</a></div><div class="ttdoc">Utilities for adding commands marked with the CommandAttribute</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00014">CommandAttributeUtils.cs:15</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

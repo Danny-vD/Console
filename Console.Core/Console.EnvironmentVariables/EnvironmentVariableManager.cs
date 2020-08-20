@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.PropertySystem;
 
 namespace Console.EnvironmentVariables
 {
@@ -12,7 +13,12 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public static class EnvironmentVariableManager
     {
+        /// <summary>
+        /// Character used to Start the Content section of the Environment Expander
+        /// </summary>
+        [Property("environmentvariables.syntax.open")]
         public static char OpenBracket = '(';
+        [Property("environmentvariables.syntax.close")]
         public static char CloseBracket = ')';
 
         /// <summary>
