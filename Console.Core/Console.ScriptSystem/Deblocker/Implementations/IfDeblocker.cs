@@ -25,8 +25,10 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         /// <returns>List of Deblocked Content</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            List<string> _begin=new List<string>();
-            List<string> _end=new List<string>();
+            if(DeblockerSettings.WriteDeblockLogs)
+            AConsoleManager.Instance.Log($"Deblocking {Key}: " + line.CleanedLine);
+            List<string> _begin = new List<string>();
+            List<string> _end = new List<string>();
             begin = new List<string>();
             end = new List<string>();
             List<string> ret = new List<string>();
@@ -40,7 +42,7 @@ namespace Console.ScriptSystem.Deblocker.Implementations
                 string rep = $"\"{SequenceSystem.SequenceRun} {ifBlockSeq}\"";
                 //if (i != line.Blocks.Count - 1) rep = rep + ConsoleCoreConfig.CommandInputSeparator;
                 invocation = invocation.Replace(DeblockerSettings.GetKey(i), rep);
-                _begin.InsertRange(0,bbegin);
+                _begin.InsertRange(0, bbegin);
                 _end.AddRange(bend);
             }
 

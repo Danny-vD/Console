@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Console.Core;
+using Console.Core.CommandSystem;
 
 namespace Console.ScriptSystem.Deblocker.Implementations
 {
-
     /// <summary>
     /// FunctionDeblocker Implementation with key "local-function"
     /// Creates a Sequence that is only usable in the same script as it is created.
@@ -27,9 +27,18 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         /// <returns>List of Deblocked Content</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            Line l = new Line(SequenceSystem.SequenceAdd + line.OriginalLine.Remove(0, Key.Length));
-            List<string> s = base.Deblock(l, out begin, out end).ToList();
+            FunctionSignatureParser.FunctionSignature signature =
+                FunctionSignatureParser.ParseFunctionSignature(line, out int sigStart, out int sigLength);
+            Line l = new Line(SequenceSystem.SequenceAdd +
+                              line.OriginalLine.Remove(sigStart, sigLength).Remove(0, Key.Length));
+
             string[] parts = l.CleanParts;
+
+            if (DeblockerSettings.WriteDeblockLogs)
+                AConsoleManager.Instance.Log("Deblocking Local Function: " + parts[1] + signature);
+            List<string> s = base.Deblock(l, out begin, out end).ToList();
+
+
             if (parts.Length < 2)
             {
                 AConsoleManager.Instance.LogWarning("Can not Deblock Line: " + l);
@@ -37,7 +46,8 @@ namespace Console.ScriptSystem.Deblocker.Implementations
                 end = new List<string>();
                 return base.Deblock(line, out begin, out end);
             }
-            s.Insert(0, $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create after Delete
+            s.Insert(0,
+                $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create after Delete
             end.Add($"{SequenceSystem.SequenceDelete} {parts[1]}"); // Delete to make sure the name is free
             return s.ToArray();
         }

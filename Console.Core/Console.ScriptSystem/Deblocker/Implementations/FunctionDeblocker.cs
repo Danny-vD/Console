@@ -25,9 +25,15 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         /// <returns>List of Deblocked Content</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            Line l = new Line(SequenceSystem.SequenceAdd + line.OriginalLine.Remove(0, Key.Length));
-            List<string> s = base.Deblock(l, out begin, out end).ToList();
+            FunctionSignatureParser.FunctionSignature signature = FunctionSignatureParser.ParseFunctionSignature(line, out int sigStart, out int sigLength);
+            Line l = new Line(SequenceSystem.SequenceAdd +
+                              line.OriginalLine.Remove(sigStart, sigLength).Remove(0, Key.Length));
+
+
             string[] parts = l.CleanParts;
+            if (DeblockerSettings.WriteDeblockLogs)
+                AConsoleManager.Instance.Log("Deblocking Function: " + parts[1] + signature);
+            List<string> s = base.Deblock(l, out begin, out end).ToList();
             if (parts.Length < 2)
             {
                 AConsoleManager.Instance.LogWarning("Can not Deblock Line: " + l);

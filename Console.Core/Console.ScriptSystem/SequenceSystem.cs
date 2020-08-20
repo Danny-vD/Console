@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Commands;
 using Console.ScriptSystem.Deblocker;
 
 namespace Console.ScriptSystem
@@ -13,6 +15,21 @@ namespace Console.ScriptSystem
     /// </summary>
     public static class SequenceSystem
     {
+        public static string SequenceText
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder("Sequences:\n");
+                foreach (string sequencesKey in LoadedSequences)
+                {
+                    sb.AppendLine($"\t{sequencesKey}");
+                }
+                return sb.ToString();
+            }
+        }
+
+        public static string[] LoadedSequences => Sequences.Keys.ToArray();
+
         /// <summary>
         /// Flag that is used to force overwriting when creating a sequence
         /// Used in the Deblocker to minimize script length
@@ -43,6 +60,16 @@ namespace Console.ScriptSystem
         /// Run Sequence Name
         /// </summary>
         public const string SequenceRun = "run-sequence";
+
+        /// <summary>
+        /// Sequence to Command Name
+        /// </summary>
+        public const string SequenceToCommand = "sequence-to-command";
+
+        /// <summary>
+        /// File to Command Name
+        /// </summary>
+        public const string FileToCommand = "file-to-command";
 
         /// <summary>
         /// Internal Dictionary of Sequences.
@@ -134,15 +161,7 @@ namespace Console.ScriptSystem
         /// Lists all Loaded Sequences by name
         /// </summary>
         [Command("list-sequences", "Lists all Loaded Sequence Names", "list-seq")]
-        public static void ListSequences()
-        {
-            StringBuilder sb = new StringBuilder("Sequences:\n");
-            foreach (string sequencesKey in Sequences.Keys)
-            {
-                sb.AppendLine($"\t{sequencesKey}");
-            }
-            AConsoleManager.Instance.Log(sb.ToString());
-        }
+        private static void ListSequences() => AConsoleManager.Instance.Log(SequenceText);
 
         /// <summary>
         /// Runs a Sequence by Name
@@ -210,6 +229,56 @@ namespace Console.ScriptSystem
             {
                 AddToSequence(name, s, false);
             }
+        }
+
+        /// <summary>
+        /// Creates and Adds a Command that when invoked will run the specified file
+        /// </summary>
+        /// <param name="fileName">The File that will be run</param>
+        /// <param name="commandName">The Command name</param>
+        [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file", "file-to-cmd")]
+        private static void CreateCommandFromFile(string fileName, string commandName) =>
+            CreateCommandFromFile(fileName, commandName, "Runs File: " + fileName);
+
+
+        /// <summary>
+        /// Creates and Adds a Command that when invoked will run the specified file
+        /// </summary>
+        /// <param name="fileName">The File that will be run</param>
+        /// <param name="commandName">The Command name</param>
+        /// <param name="helpText">The Help Text that will be set for this command</param>
+        [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file", "file-to-cmd")]
+        private static void CreateCommandFromFile(string fileName, string commandName, string helpText)
+        {
+            Command cmd = new Command(commandName,
+                () => ScriptSystem.RunFile(fileName));
+            cmd.SetHelpMessage(helpText);
+            CommandManager.AddCommand(cmd);
+        }
+
+
+        /// <summary>
+        /// Creates and Adds a Command that when invoked will run the specified sequence
+        /// </summary>
+        /// <param name="sequenceName">The Sequence that will be run</param>
+        /// <param name="commandName">The Command Name</param>
+        [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence", "seq-to-cmd")]
+        private static void CreateCommandFromSequence(string sequenceName, string commandName) =>
+            CreateCommandFromSequence(sequenceName, commandName, "Runs Sequence: " + sequenceName);
+
+        /// <summary>
+        /// Creates and Adds a Command that when invoked will run the specified sequence
+        /// </summary>
+        /// <param name="sequenceName">The Sequence that will be run</param>
+        /// <param name="commandName">The Command Name</param>
+        /// <param name="helpText">The Help Text that will be set for this command</param>
+        [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence", "seq-to-cmd")]
+        private static void CreateCommandFromSequence(string sequenceName, string commandName, string helpText)
+        {
+            Command cmd = new Command(commandName,
+                () => RunSequence(sequenceName));
+            cmd.SetHelpMessage(helpText);
+            CommandManager.AddCommand(cmd);
         }
     }
 }

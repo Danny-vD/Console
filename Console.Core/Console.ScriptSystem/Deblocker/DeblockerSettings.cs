@@ -10,6 +10,10 @@ namespace Console.ScriptSystem.Deblocker
     /// </summary>
     public static class DeblockerSettings
     {
+
+        [Property("console.scripts.block.writelogs")]
+        public static bool WriteDeblockLogs;
+
         /// <summary>
         /// Open Block Bracket
         /// </summary>
@@ -20,6 +24,21 @@ namespace Console.ScriptSystem.Deblocker
         /// </summary>
         [Property("console.scripts.block.close")]
         public static char BlockBracketClosed = '}';
+
+
+        /// <summary>
+        /// The Open Tag for the Function Signature
+        /// </summary>
+        [Property("console.scripts.function.open")]
+        public static char OpenFunctionBracket='(';
+
+
+        /// <summary>
+        /// The Close Tag for the Function Signature
+        /// </summary>
+        [Property("console.scripts.function.close")]
+        public static char CloseFunctionBracket=')';
+
         /// <summary>
         /// Helper Function that provides a Unique Key Sequence
         /// </summary>

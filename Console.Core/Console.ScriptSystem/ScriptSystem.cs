@@ -13,10 +13,15 @@ namespace Console.ScriptSystem
     public static class ScriptSystem
     {
         /// <summary>
+        /// Run Command Name
+        /// </summary>
+        public const string RunCommandName = "run";
+
+        /// <summary>
         /// Runs a Text File as if it would be typed into the console line by line.
         /// </summary>
         /// <param name="path">Filepath</param>
-        [Command("run", "Run a  file.")]
+        [Command(RunCommandName, "Run a  file.")]
         public static void RunFile(string path)
         {
             if (File.Exists(path))

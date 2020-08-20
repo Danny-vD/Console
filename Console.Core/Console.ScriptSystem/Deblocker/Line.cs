@@ -23,7 +23,7 @@ namespace Console.ScriptSystem.Deblocker
         /// <param name="line"></param>
         public Line(string line)
         {
-            OriginalLine = line;
+            _originalLine = line;
         }
 
         /// <summary>
@@ -42,7 +42,6 @@ namespace Console.ScriptSystem.Deblocker
                 {
                     int close = ConsoleCoreConfig.FindClosing(originalLine, DeblockerSettings.BlockBracketOpen,
                         DeblockerSettings.BlockBracketClosed, i);
-                    //int close = OriginalLine.IndexOf(DeblockerSettings.BlockBracketClosed, i);
                     close = close == -1 ? originalLine.Length : close;
                     string l = originalLine.Substring(i + 1, close - i - 1);
                     List<string> subl = DeblockerCollection.Parse(l);
@@ -62,9 +61,14 @@ namespace Console.ScriptSystem.Deblocker
         }
 
         /// <summary>
-        /// The Original Line
+        /// The Original Line Backing Field
         /// </summary>
-        public readonly string OriginalLine;
+        public string OriginalLine => _originalLine;
+
+        /// <summary>
+        /// The Original Line Backing Field
+        /// </summary>
+        private string _originalLine;
 
         /// <summary>
         /// Backing Field for CleanedLine
