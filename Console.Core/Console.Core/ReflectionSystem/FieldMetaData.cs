@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection;
+using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Commands;
 using Console.Core.ReflectionSystem.Abstract;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -40,10 +42,7 @@ namespace Console.Core.ReflectionSystem
         /// <param name="value">New Value</param>
         public void Set(object value)
         {
-            if (ValueType.IsInstanceOfType(value) || value == null)
-            {
-                ReflectedInfo.SetValue(Instance, value);
-            }
+            ReflectedInfo.SetValue(Instance, CommandAttributeUtils.ConvertToNonGeneric(value, ValueType));
         }
         /// <summary>
         /// Gets the Value of the Field Info

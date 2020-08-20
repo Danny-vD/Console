@@ -149,9 +149,9 @@ namespace Console.Evaluator
             {
                 bool r = (bool)ret.Value;
                 OPCode ret2 = eval.Parse(expr2);
-                if (ret2 != null && ret.CanReturn(EvalType.Boolean))
+                if (ret2 != null && ret2.CanReturn(EvalType.Boolean))
                 {
-                    bool r2 = (bool)ret.Value;
+                    bool r2 = (bool)ret2.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(commandExpr1);
@@ -172,9 +172,9 @@ namespace Console.Evaluator
             {
                 bool r = (bool)ret.Value;
                 OPCode ret2 = eval.Parse(expr2);
-                if (ret2 != null && ret.CanReturn(EvalType.Boolean))
+                if (ret2 != null && ret2.CanReturn(EvalType.Boolean))
                 {
-                    bool r2 = (bool)ret.Value;
+                    bool r2 = (bool)ret2.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(commandExpr1);

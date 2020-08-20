@@ -12,6 +12,9 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public static class EnvironmentVariableManager
     {
+        public static char OpenBracket = '(';
+        public static char CloseBracket = ')';
+
         /// <summary>
         /// All Providers
         /// </summary>
@@ -103,18 +106,18 @@ namespace Console.EnvironmentVariables
             while ((idx = ret.IndexOf("$", StringComparison.InvariantCulture)) != -1)
             {
 
-                int bracketOpen = ret.IndexOf('(', idx);
+                int bracketOpen = ret.IndexOf(OpenBracket, idx);
                 if (bracketOpen == -1) return cmd;
                 int funcLen = bracketOpen - idx - 1;
                 if (funcLen < 0) return cmd;
                 string funcName = ret.Substring(idx + 1, funcLen);
-                int bracketClose = FindClosing(ret);
+                int bracketClose = ConsoleCoreConfig.FindClosing(ret, OpenBracket, CloseBracket);
                 if (bracketClose == -1) return cmd;
                 string content = ret.Substring(bracketOpen + 1, bracketClose - bracketOpen - 1);
                 string expandedContent = Expand(content);
                 string exp;
 
-                string rep = $"${funcName}({content})";
+                string rep = $"${funcName}{OpenBracket}{content}{CloseBracket}";
                 if (Providers.TryGetValue(funcName, out VariableProvider prov))
                 {
                     exp = prov.GetValue(expandedContent);
@@ -130,25 +133,7 @@ namespace Console.EnvironmentVariables
             return ret;
         }
 
-        /// <summary>
-        /// Finds the Corresponding Closing Tag
-        /// </summary>
-        /// <param name="cmd">Input Command.</param>
-        /// <returns>Index of the Corresponding Closing Tag</returns>
-        private static int FindClosing(string cmd)
-        {
-            int open = 0;
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                if (cmd[i] == '(') open++;
-                else if (cmd[i] == ')')
-                {
-                    open--;
-                    if (open == 0) return i;
-                }
-            }
-            return -1;
-        }
+
 
         /// <summary>
         /// Adds a Provider to the EnvironmentVariable Manager.

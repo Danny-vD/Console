@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Console.Core.CommandSystem.Commands;
 
@@ -31,6 +32,7 @@ namespace Console.Core.CommandSystem
                 command = command.Remove(0, ConsoleCoreConfig.ConsolePrefix.Length);
             }
 
+
             InnerParseAndInvoke(command);
         }
 
@@ -40,9 +42,10 @@ namespace Console.Core.CommandSystem
         /// <param name="arguments">The Argument Part of the Command.</param>
 		private static void InnerParseAndInvoke(string arguments)
         {
-            string[] commandArguments = Split(arguments, ' ');
+            string[] commandArguments = Split(arguments, ConsoleCoreConfig.CommandInputSeparator);
             if (commandArguments.Length == 0) return;
-            string commandName = commandArguments[0];
+            string commandName = commandArguments[0].Trim();
+            if (string.IsNullOrEmpty(commandName)) return;
 
             if (commandArguments.Length == 1 && //No Arguments
                 AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
@@ -50,9 +53,13 @@ namespace Console.Core.CommandSystem
                 CommandManager.Invoke(commandName);
                 return;
             }
+            //System.Console.WriteLine("Next Command: " + arguments);
 
             arguments = arguments.Remove(0, commandName.Length);
             arguments = arguments.Trim();
+
+
+            //System.Console.ReadLine();
 
             if (arguments.Contains(ConsoleCoreConfig.StringChar.ToString()))
             {
@@ -60,7 +67,7 @@ namespace Console.Core.CommandSystem
             }
             else
             {
-                CommandManager.Invoke(commandName, Split(arguments, ' '));
+                CommandManager.Invoke(commandName, Split(arguments, ConsoleCoreConfig.CommandInputSeparator));
             }
         }
 
@@ -81,41 +88,54 @@ namespace Console.Core.CommandSystem
         /// </summary>
         /// <param name="commandArguments">The Argument Part of the Command.</param>
         /// <returns>Correctly Parsed Array ofString Blocks</returns>
-		private static string[] ParseStringBlocks(string commandArguments)
+		public static string[] ParseStringBlocks(string commandArguments)
         {
-            string[] sections = commandArguments.Split(' ');
+            if (commandArguments == null) return new string[0];
+            string[] sections = commandArguments.Split(ConsoleCoreConfig.CommandInputSeparator);
 
             List<string> arguments = InnerParseStringBlocks(sections);
 
             return arguments.ToArray();
         }
 
-
-        /// <summary>
-        /// Removes all Non-Escaped chars from the string
-        /// </summary>
-        /// <param name="part">String with escaped chars</param>
-        /// <param name="chars">The Escaped Chars</param>
-        /// <returns>Un escaped string</returns>
-        private static string RemoveNonEscapedChars(string part, params char[] chars)
+        public static string CleanContent(string content)
         {
-            string ret = "";
-            for (int i = 0; i < part.Length; i++)
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < content.Length; i++)
             {
-                bool isChar = false;
-                for (int j = 0; j < chars.Length; j++)
+                if (content[i] == ConsoleCoreConfig.StringChar && !IsEscaped(content, i))
                 {
-                    if (chars[j] == part[i])
-                    {
-                        isChar = true;
-                        break;
-                    }
+                    continue;
                 }
-                bool esc = IsEscaped(part, i);
-                if (!isChar || esc)
-                {
-                    ret += part[i];
-                }
+                sb.Append(content[i]);
+            }
+            return sb.ToString();
+        }
+
+        public static string UnEscape(string content, char escChar, params char[] escapeChars)
+        {
+            string ret = content;
+            for (int i = 0; i < escapeChars.Length; i++)
+            {
+
+                ret = ret.Replace(escChar + escapeChars[i].ToString(), escapeChars[i].ToString());
+
+            }
+
+            ret = ret.Replace(escChar.ToString() + escChar, escChar.ToString());
+            return ret;
+        }
+
+        public static string Escape(string content, char escChar, params char[] escapeChars)
+        {
+            string ret = content;
+
+            ret = ret.Replace(escChar.ToString(), escChar + escChar.ToString());
+            for (int i = 0; i < escapeChars.Length; i++)
+            {
+
+                ret = ret.Replace(escapeChars[i].ToString(), escChar.ToString() + escapeChars[i]);
+
             }
             return ret;
         }
@@ -128,7 +148,7 @@ namespace Console.Core.CommandSystem
         /// <returns>True if the Character is escaped.</returns>
         private static bool IsEscaped(string part, int idx)
         {
-            if (idx == 0) return false;
+            if (idx <= 0) return false;
             if (part[idx - 1] == ConsoleCoreConfig.EscapeChar) //Previous Char is Escape Char
             {
                 //If the previous char is not escaped this char is escaped
@@ -154,13 +174,17 @@ namespace Console.Core.CommandSystem
 
             for (int i = 0; i < parts.Length; i++)
             {
-                int strCharIdx = parts[i].IndexOf(ConsoleCoreConfig.StringChar);
-                bool containsStringChar = strCharIdx != -1;
-                if (containsStringChar && strCharIdx > 0 && parts[i][strCharIdx - 1] == '\\')
+                bool containsStringChar = false;
+                int strCharIdx = -1;
+                while ((strCharIdx = parts[i].IndexOf(ConsoleCoreConfig.StringChar, strCharIdx + 1)) != -1)
                 {
-                    containsStringChar = false;
-                    //append = true;
+                    if (!IsEscaped(parts[i], strCharIdx))
+                    {
+                        containsStringChar = true;
+                        break;
+                    }
                 }
+
                 if (!append && containsStringChar)
                 {
                     append = true;
@@ -170,7 +194,7 @@ namespace Console.Core.CommandSystem
                     {
                         string argumentString = stringBuilder.ToString();
                         stringBuilder.Clear();
-                        arguments.Add(RemoveNonEscapedChars(argumentString, ConsoleCoreConfig.EscapableChars));
+                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars));
                         append = false;
                     }
 
@@ -185,22 +209,20 @@ namespace Console.Core.CommandSystem
                     {
                         string argumentString = stringBuilder.ToString();
                         stringBuilder.Clear();
-                        arguments.Add(RemoveNonEscapedChars(argumentString, ConsoleCoreConfig.EscapableChars));
+                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars));
                         append = false;
                     }
 
                     continue;
                 }
 
-                arguments.Add(RemoveNonEscapedChars(parts[i], ConsoleCoreConfig.EscapableChars));
+                arguments.Add(CleanContent(parts[i]));
             }
 
-            // ReSharper disable once PossibleNullReferenceException
-            // Reason: false positive (it's guaranteed to be initialised)
-            if (stringBuilder.Length != 0)
+            if (stringBuilder != null && stringBuilder.Length != 0)
             {
                 string argumentString = stringBuilder.ToString();
-                arguments.Add(RemoveNonEscapedChars(argumentString, ConsoleCoreConfig.EscapableChars));
+                arguments.Add(CleanContent(argumentString));
             }
 
             return arguments;

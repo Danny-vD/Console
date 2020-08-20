@@ -163,6 +163,7 @@ namespace Console.Core
         /// <param name="command">Command that is entered.</param>
         public void EnterCommand(string command)
         {
+            if (string.IsNullOrEmpty(command)) return;
             string text = ExpanderManager.Expand(command);
             OnSubmitCommand(text);
             LogCommand(command);

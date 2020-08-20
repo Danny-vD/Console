@@ -34,15 +34,42 @@ namespace Console.Core
         /// </summary>
         [Property("core.input.stringchar")]
         public static char StringChar = '"';
+        [Property("core.input.commandseparator")]
+        public static char CommandInputSeparator = ' ';
         [Property("core.input.escapechar")]
         public static char EscapeChar = '\\';
-        public static char[] EscapableChars => new[] { StringChar, EscapeChar };
+        public static char NewLine = '\n';
+
+        public static char[] EscapableChars => new[] { StringChar };
 
         /// <summary>
         /// If true the Console does not check if commands can be invoked or are hidden by other commands.
         /// </summary>
         [Property("core.commands.allowoverlapping")]
         public static bool AllowOverlappingCommands;
+
+
+        /// <summary>
+        /// Finds the Corresponding Closing Tag
+        /// </summary>
+        /// <param name="cmd">Input Command.</param>
+        /// <returns>Index of the Corresponding Closing Tag</returns>
+        public static int FindClosing(string cmd, char openBracket, char closeBracket, int start = 0, int openBrackets = 0)
+        {
+            int open = openBrackets;
+            for (int i = start; i < cmd.Length; i++)
+            {
+                char c = cmd[i];
+                if (c == openBracket) open++;
+                else if (c == closeBracket)
+                {
+                    open--;
+                    if (open == 0) return i;
+                }
+            }
+            return -1;
+        }
+
 
         #endregion
 

@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.ScriptSystem.BlockSequencer;
 
 namespace Console.ScriptSystem
 {
@@ -19,7 +21,7 @@ namespace Console.ScriptSystem
         {
             if (File.Exists(path))
             {
-                string[] lines = File.ReadAllLines(path).Where(x=>!string.IsNullOrEmpty(x.Trim())).ToArray();
+                List<string> lines = Sequencer.Parse(File.ReadAllText(path));
                 foreach (string line in lines)
                 {
                     AConsoleManager.Instance.EnterCommand(line);

@@ -138,7 +138,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         [Command("set-property", "Sets the specified property to the specified value", "sp")]
         private static void SetProperty(string propertyPath, object propertyValue)
         {
-            if (!PropertyManager.HasProperty(propertyPath)) return;
+            if (!PropertyManager.HasProperty(propertyPath))
+                return;
 
             AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
