@@ -111,7 +111,7 @@ namespace Console.EnvironmentVariables
                 int funcLen = bracketOpen - idx - 1;
                 if (funcLen < 0) return cmd;
                 string funcName = ret.Substring(idx + 1, funcLen);
-                int bracketClose = ConsoleCoreConfig.FindClosing(ret, OpenBracket, CloseBracket);
+                int bracketClose = ConsoleCoreConfig.FindClosing(ret, OpenBracket, CloseBracket, bracketOpen);
                 if (bracketClose == -1) return cmd;
                 string content = ret.Substring(bracketOpen + 1, bracketClose - bracketOpen - 1);
                 string expandedContent = Expand(content);

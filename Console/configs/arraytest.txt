@@ -1,3 +1,0 @@
-sp test.object
-sp test.array
-sp test.list

@@ -1,0 +1,22 @@
+
+echo "Loading Utils"
+
+function _PrintDivider {
+	echo "_____________________"
+}
+
+function _DoubleDivider {
+	run-seq _PrintDivider
+	run-seq _PrintDivider
+}
+
+function _GetVersions {
+	echo "Versions:"
+	get-property version.
+}
+
+function _GetMachineInfo {
+	echo "PC Info:"
+	echo "User: $(user)"
+	echo "Machine: $(machine)"
+}

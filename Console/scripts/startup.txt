@@ -1,0 +1,12 @@
+echo "Console Startup Script.."
+run scripts/utils.txt
+echo ""
+
+run-seq _GetMachineInfo
+
+echo ""
+echo "Running Extension Scripts"
+
+run scripts/networking.txt
+echo ""
+run scripts/misc/envs-help.txt

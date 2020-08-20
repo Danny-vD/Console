@@ -59,9 +59,6 @@ namespace Console.Networking
             PropertyAttributeUtils.AddProperties<SymmetricBlockAuthenticator>();
             Instance = new NetworkedConsoleProcess();
 
-            AConsoleManager.Instance.Log("Default Salt: " + Cryptography.DefaultSalt);
-            AConsoleManager.Instance.Log("Default Vector: " + Cryptography.DefaultVector);
-
         }
     }
 }

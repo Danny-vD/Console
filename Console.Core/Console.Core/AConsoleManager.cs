@@ -28,7 +28,7 @@ namespace Console.Core
             /// <summary>
             /// Add all Default Commands
             /// </summary>
-            All = -1,
+            All = -1 & ~FlagTests,
             /// <summary>
             /// Do not add any Default Commands
             /// </summary>
@@ -90,7 +90,12 @@ namespace Console.Core
         /// <summary>
         /// Allows the Inheriting Class to invoke the OnInitializationFinished Event
         /// </summary>
-        protected void InvokeOnFinishInitialize() => OnInitializationFinished?.Invoke();
+        protected void InvokeOnFinishInitialize()
+        {
+            OnInitializationFinished?.Invoke();
+
+            Log("Console Initialized.");
+        }
 
         /// <summary>
         /// Singleton Instance of the Console
