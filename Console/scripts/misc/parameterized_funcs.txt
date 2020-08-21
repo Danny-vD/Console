@@ -1,0 +1,10 @@
+local-function Test(x,y){
+	echo "Value X: $param(x)"
+	echo "Value Y: $param(y)"
+	local-function Test_Inner(y){
+		echo "Value X: $param(y)"
+	}
+	run-seq Test_Inner $param(x)
+}
+
+run-seq Test

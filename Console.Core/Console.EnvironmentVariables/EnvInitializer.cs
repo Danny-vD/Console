@@ -4,6 +4,7 @@ using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.ExpanderSystem;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 
@@ -20,6 +21,14 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public class EnvInitializer : AExtensionInitializer
     {
+        [Property("environmentvariables.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
+
         /// <summary>
         /// The Load Order of the EnvironmentVariable Extensions
         /// </summary>
@@ -52,10 +61,12 @@ namespace Console.EnvironmentVariables
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
+            ConsoleCoreConfig.AddEscapeChar(EnvironmentVariableManager.ActivationPrefix);
             PropertyAttributeUtils.AddProperties<EnvInitializer>();
             EnvironmentVariableManager.AddProvider(DefaultVariables.Instance);
+            EnvironmentVariableManager.AddProvider(new RangeVariableProvider());
             CommandAttributeUtils.AddCommands(typeof(EnvironmentVariableManager));
             AConsoleManager.ExpanderManager.AddExpander(new EnvExpander());
         }

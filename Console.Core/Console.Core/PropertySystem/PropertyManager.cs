@@ -92,7 +92,7 @@ namespace Console.Core.PropertySystem
             if (Properties[propertyPath].CanWrite)
                 Properties[propertyPath].Set(value);
             else
-                AConsoleManager.Instance.LogWarning("Can not Write property: " + propertyPath + " its already existing and readonly");
+                ConsoleCoreConfig.CoreLogger.LogWarning("Can not Write property: " + propertyPath + " its already existing and readonly");
         }
 
         /// <summary>

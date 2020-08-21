@@ -1,12 +1,6 @@
-echo "Console Startup Script.."
-run scripts/utils.txt
+echo "Running Startup Scripts"
 
-echo ""
-echo "Running Extension Scripts"
-
-run scripts/networking.txt
-echo ""
-run scripts/misc/envs-help.txt
-
-
-run scripts/pfuncs.txt
+for-all "$files(./scripts/startupscripts/)" {
+	echo "Running File: $param(item)"
+	run "$param(item)"
+}

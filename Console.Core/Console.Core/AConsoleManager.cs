@@ -94,7 +94,7 @@ namespace Console.Core
         {
             OnInitializationFinished?.Invoke();
 
-            Log("Console Initialized.");
+           ConsoleCoreConfig.CoreLogger. Log("Console Initialized.");
         }
 
         /// <summary>
@@ -137,17 +137,21 @@ namespace Console.Core
         /// Writes a Log
         /// </summary>
         /// <param name="object">Object to Log</param>
-        public abstract void Log(object @object);
+        protected abstract void Log(object @object);
+        internal void _Log(object obj) => Log(obj);
         /// <summary>
         /// Writes a Log Warning
         /// </summary>
         /// <param name="object">Object to Log</param>
-        public abstract void LogWarning(object @object);
+        protected abstract void LogWarning(object @object);
+        internal void _LogWarning(object obj) => LogWarning(obj);
+
         /// <summary>
         /// Writes a Log Error
         /// </summary>
         /// <param name="object">Object to Log</param>
-        public abstract void LogError(object @object);
+        protected abstract void LogError(object @object);
+        internal void _LogError(object obj) => LogError(obj);
         /// <summary>
         /// Writes the Entered Command into the Console Output if ConsoleCoreConfig.WriteCommand is set to true
         /// </summary>

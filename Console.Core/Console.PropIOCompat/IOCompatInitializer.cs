@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 using Console.EnvironmentVariables;
 
@@ -20,6 +21,13 @@ namespace Console.PropIOCompat
     /// </summary>
     public class IOCompatInitializer : AExtensionInitializer
     {
+        [Property("propiocompat.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// Version of the PropIOCompat Extension
@@ -30,7 +38,7 @@ namespace Console.PropIOCompat
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<IOCompatInitializer>();
             EnvironmentVariableManager.AddProvider(new FilesVariableProvider());

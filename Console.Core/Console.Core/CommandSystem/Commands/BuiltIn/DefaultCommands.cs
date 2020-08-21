@@ -3,6 +3,8 @@
 /// The Console.Core.CommandSystem.Commands.BuiltIn namespace contains all BuiltIn Commands of the System
 /// </summary>
 
+using Console.Core.LogSystem;
+
 namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
     /// <summary>
@@ -10,6 +12,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class DefaultCommands
     {
+        private static PrefixLogger EchoLogger = new PrefixLogger("echo");
+        private static PrefixLogger HelpLogger = new PrefixLogger("help");
 
         #region Internal Data
 
@@ -50,7 +54,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             foreach (AbstractCommand command in CommandManager.commands)
             {
-                AConsoleManager.Instance.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) + "\n--------------------------");
+                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) + "\n--------------------------");
             }
         }
 
@@ -64,7 +68,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             foreach (AbstractCommand command in CommandManager.GetCommands(commandName, true))
             {
-                AConsoleManager.Instance.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) + "\n--------------------------");
+                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) + "\n--------------------------");
             }
         }
 
@@ -73,7 +77,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="value">Value to Write to the Console.</param>
         [Command("echo", "Echos the input")]
-        private static void Echo(string value) => AConsoleManager.Instance.Log(value);
+        private static void Echo(string value) => EchoLogger.Log(value);
 
         #endregion
     }

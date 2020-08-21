@@ -25,18 +25,24 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         /// <returns>List of Deblocked Content</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            if(DeblockerSettings.WriteDeblockLogs)
-            AConsoleManager.Instance.Log($"Deblocking {Key}: " + line.CleanedLine);
+            return Deblock(line, new string[0], out begin, out end);
+        }
+
+        protected string[] Deblock(Line line, string[] parameters, out List<string> begin, out List<string> end)
+        {
+            if (DeblockerSettings.WriteDeblockLogs)
+                ScriptSystemInitializer.Logger.Log($"Deblocking {Key}: " + line.CleanedLine);
             List<string> _begin = new List<string>();
             List<string> _end = new List<string>();
             begin = new List<string>();
             end = new List<string>();
             List<string> ret = new List<string>();
             string invocation = line.CleanedLine;
+            
             for (int i = 0; i < line.Blocks.Count; i++)
             {
                 string ifBlockSeq = DeblockerSettings.GetBlockName();
-                List<string> ifBlockContent = CreateBlock(ifBlockSeq, line.Blocks[i], out List<string> bbegin,
+                List<string> ifBlockContent = CreateBlock(ifBlockSeq, line.Blocks[i], parameters, out List<string> bbegin,
                     out List<string> bend);
                 ret.AddRange(ifBlockContent);
                 string rep = $"\"{SequenceSystem.SequenceRun} {ifBlockSeq}\"";
@@ -52,7 +58,7 @@ namespace Console.ScriptSystem.Deblocker.Implementations
             return ret.ToArray();
         }
 
-        private List<string> CreateBlock(string name, string[] content, out List<string> begin, out List<string> end)
+        protected List<string> CreateBlock(string name, string[] content, string[] parameters, out List<string> begin, out List<string> end)
         {
             begin = new List<string>();
             end = new List<string>();
@@ -60,6 +66,10 @@ namespace Console.ScriptSystem.Deblocker.Implementations
 
             //ret.Add($"{SequenceSystem.SequenceDelete} {name}"); // Make sure the Block is Free
             ret.Add($"{SequenceSystem.SequenceCreate} {name} {SequenceSystem.SequenceCreateOverwrite}"); // Create
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                ret.Add($"{SequenceSystem.SequenceAddParameter} {name} {parameters[i]}");
+            }
 
             foreach (string s in content)
             {

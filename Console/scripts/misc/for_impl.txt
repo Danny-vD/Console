@@ -1,0 +1,23 @@
+local-function while(expr,cmd) {
+	if $param(expr) {
+		$param(cmd)
+		run-seq while
+	}
+}
+
+
+local-function for(var,start,end,step,cmd) {
+	local-function _for(var,start,end,step,cmd) {
+		if "$props($param(var))<$param(end)" {
+			$param(cmd)
+			ap $param(var) $eval($props($param(var))+$param(step))
+			run-seq _for "$param(var),$param(start),$param(end),$param(step),$param(cmd)"
+		}
+	}
+	ap $param(var) $param(start)
+	run-seq _for "$param(var),$param(start),$param(end),$param(step),$param(cmd)"
+}
+
+
+
+run-seq for "i,0,10,1,echo LMAO"

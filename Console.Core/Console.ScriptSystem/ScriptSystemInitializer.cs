@@ -3,7 +3,9 @@ using System.Reflection;
 using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
+using Console.EnvironmentVariables;
 using Console.ScriptSystem.Deblocker;
 using Console.ScriptSystem.Deblocker.Implementations;
 
@@ -20,6 +22,13 @@ namespace Console.ScriptSystem
     /// </summary>
     public class ScriptSystemInitializer : AExtensionInitializer
     {
+        [Property("scriptsystem.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// Version of the ScriptSystem Extension
@@ -30,8 +39,9 @@ namespace Console.ScriptSystem
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
+            EnvironmentVariableManager.AddProvider(new ParameterVariableContainer());
             PropertyAttributeUtils.AddProperties<ScriptSystemInitializer>();
             CommandAttributeUtils.AddCommands(typeof(ScriptSystem));
             CommandAttributeUtils.AddCommands(typeof(SequenceSystem));

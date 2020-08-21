@@ -22,7 +22,7 @@ namespace Console.Core.CommandSystem
         {
             if (ConsoleCoreConfig.ConsolePrefix != string.Empty && !command.StartsWith(ConsoleCoreConfig.ConsolePrefix))
             {
-                AConsoleManager.Instance.LogWarning(
+                ConsoleCoreConfig.CoreLogger.LogWarning(
                     $"Command does not start with prefix: " + ConsoleCoreConfig.ConsolePrefix);
                 return;
             }
@@ -165,7 +165,7 @@ namespace Console.Core.CommandSystem
         /// <param name="part">Containing Part</param>
         /// <param name="idx">Index of the character to check</param>
         /// <returns>True if the Character is escaped.</returns>
-        private static bool IsEscaped(string part, int idx)
+        public static bool IsEscaped(string part, int idx)
         {
             if (idx <= 0) return false;
             if (part[idx - 1] == ConsoleCoreConfig.EscapeChar) //Previous Char is Escape Char

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -8,20 +9,20 @@ namespace Console.ScriptSystem.Deblocker.Implementations
     {
         public struct FunctionSignature
         {
-            public string[] ParameterNames;
+            public List<string> ParameterNames;
 
 
             public FunctionSignature(string[] parameterNames)
             {
-                ParameterNames = parameterNames.Select(x => x.Trim()).ToArray();
+                ParameterNames = parameterNames.Select(x => x.Trim()).ToList();
             }
 
             public override string ToString()
             {
-                if (ParameterNames.Length == 0)
+                if (ParameterNames.Count == 0)
                     return $"{DeblockerSettings.OpenFunctionBracket}{DeblockerSettings.CloseFunctionBracket}";
                 StringBuilder sb = new StringBuilder($"{DeblockerSettings.OpenFunctionBracket}{ParameterNames[0]}");
-                for (int i = 1; i < ParameterNames.Length; i++)
+                for (int i = 1; i < ParameterNames.Count; i++)
                 {
                     string parameterName = ParameterNames[i];
                     sb.Append(", " + parameterName);

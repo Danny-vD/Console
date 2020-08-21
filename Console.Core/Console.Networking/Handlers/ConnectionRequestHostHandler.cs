@@ -25,7 +25,7 @@ namespace Console.Networking.Handlers
             else ret = new ConnectionRequestResponseSuccessPacket(NetworkingSettings.Authenticator);
             if (!client.TrySendPacket(ret))
             {
-                AConsoleManager.Instance.LogWarning("Can not send Packet " + item);
+                NetworkedInitializer.Logger.LogWarning("Can not send Packet " + item);
             }
         }
     }

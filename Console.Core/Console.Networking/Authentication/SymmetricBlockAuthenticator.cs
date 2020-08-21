@@ -217,7 +217,7 @@ namespace Console.Networking.Authentication
                 client.TrySendPacket(new ConnectionAbortPacket("Invalid Password."));
             }
 
-            AConsoleManager.Instance.Log("Authenticated: " + suc);
+            NetworkedInitializer.Logger.Log("Authenticated: " + suc);
 
             client.TrySendPacket(new AuthenticationResultPacket(suc));
             AuthenticationSessions.Remove(client);

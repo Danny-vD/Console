@@ -2,7 +2,6 @@
 
 namespace Console.EnvironmentVariables
 {
-
     /// <summary>
     /// Delegate Implementation of the Variable Provider.
     /// Allows Creation of Variable Providers without adding more classes.

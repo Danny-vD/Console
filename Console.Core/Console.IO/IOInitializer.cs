@@ -2,6 +2,7 @@
 using System.Reflection;
 using Console.Core.CommandSystem;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 /// <summary>
@@ -17,7 +18,13 @@ namespace Console.IO
     /// </summary>
     public class IOInitializer : AExtensionInitializer
     {
-
+        [Property("io.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// Version of the IO Extension
@@ -29,7 +36,7 @@ namespace Console.IO
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<IOInitializer>();
             CommandAttributeUtils.AddCommands<IOCommands>();

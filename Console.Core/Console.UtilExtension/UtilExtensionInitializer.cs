@@ -10,15 +10,11 @@ using Console.Core.PropertySystem;
 /// </summary>
 namespace Console.UtilExtension
 {
-
-
-
     /// <summary>
     /// Initializer of the UtilExtension Extension
     /// </summary>
     public class UtilExtensionInitializer : AExtensionInitializer
     {
-
         /// <summary>
         /// Version of the UtilExtension Extension
         /// </summary>
@@ -29,7 +25,7 @@ namespace Console.UtilExtension
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<UtilExtensionInitializer>();
             CommandAttributeUtils.AddCommands<UtilCommandCommands>();

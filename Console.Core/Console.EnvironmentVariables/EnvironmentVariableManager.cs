@@ -13,6 +13,17 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public static class EnvironmentVariableManager
     {
+        public static char ActivationPrefix
+        {
+            get => _activationPrefix;
+            set
+            {
+                ConsoleCoreConfig.ReplaceChar(_activationPrefix, value);
+                _activationPrefix = value;
+            }
+        }
+        private static char _activationPrefix = '$';
+
         /// <summary>
         /// Character used to Start the Content section of the Environment Expander
         /// </summary>
@@ -55,7 +66,7 @@ namespace Console.EnvironmentVariables
 
             if (t == null)
             {
-                AConsoleManager.Instance.LogWarning("Can not find Type with name: " + qualifiedType);
+                EnvInitializer.Logger.LogWarning("Can not find Type with name: " + qualifiedType);
                 return;
             }
             AddStringTransformMethods(funcPrefix, t);
@@ -109,9 +120,18 @@ namespace Console.EnvironmentVariables
         {
             string ret = cmd;
             int idx;
-            while ((idx = ret.IndexOf("$", StringComparison.InvariantCulture)) != -1)
+            int start = 0;
+            while ((idx = ret.IndexOf(ActivationPrefix, start)) != -1)
             {
-
+                if (CommandParser.IsEscaped(ret, idx))
+                {
+                    start = idx + 1;
+                    continue;
+                }
+                else
+                {
+                    start = 0;
+                }
                 int bracketOpen = ret.IndexOf(OpenBracket, idx);
                 if (bracketOpen == -1) return cmd;
                 int funcLen = bracketOpen - idx - 1;
@@ -132,7 +152,6 @@ namespace Console.EnvironmentVariables
                 {
                     exp = "PARSE_ERROR";
                 }
-
                 ret = ret.Replace(rep, exp);
             }
 

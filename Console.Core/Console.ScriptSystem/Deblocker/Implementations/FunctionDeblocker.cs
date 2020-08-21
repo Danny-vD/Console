@@ -32,15 +32,17 @@ namespace Console.ScriptSystem.Deblocker.Implementations
 
             string[] parts = l.CleanParts;
             if (DeblockerSettings.WriteDeblockLogs)
-                AConsoleManager.Instance.Log("Deblocking Function: " + parts[1] + signature);
+                ScriptSystemInitializer.Logger.Log("Deblocking Function: " + parts[1] + signature);
             List<string> s = base.Deblock(l, out begin, out end).ToList();
             if (parts.Length < 2)
             {
-                AConsoleManager.Instance.LogWarning("Can not Deblock Line: " + l);
+                ScriptSystemInitializer.Logger.LogWarning("Can not Deblock Line: " + l);
                 begin = new List<string>();
                 end = new List<string>();
                 return base.Deblock(line, out begin, out end);
             }
+
+            s.InsertRange(0, signature.ParameterNames.Select(x => $"{SequenceSystem.SequenceAddParameter} {parts[1]} {x}"));
             s.Insert(0, $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create after Delete
             //s.Insert(0, $"{SequenceSystem.SequenceDelete} {parts[1]}"); // Delete to make sure the name is free
             return s.ToArray();

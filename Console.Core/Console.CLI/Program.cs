@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Threading;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 /// <summary>
@@ -15,6 +17,14 @@ namespace Console.CLI
     /// </summary>
     class Program
     {
+        [Property("cli.logs.mute")]
+        private bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        internal static readonly ALogger Logger = new PrefixLogger(Assembly.GetExecutingAssembly().GetName().Name);
+
         /// <summary>
         /// Path of the Extensions
         /// </summary>
@@ -56,6 +66,8 @@ namespace Console.CLI
         /// <param name="args">CLI parameter</param>
         static void Main(string[] args)
         {
+
+            string initDir = Directory.GetCurrentDirectory();
             //List<AExtensionInitializer> ii = new List<AExtensionInitializer>
             //{
             //    new ClassQueryInitializer(),
@@ -71,7 +83,7 @@ namespace Console.CLI
             //Running the OnTick Loop
             Thread t = new Thread(Loop);
             t.Start();
-            
+
 
             if (args.Length != 0)
             {
@@ -83,7 +95,7 @@ namespace Console.CLI
 
             while (true)
             {
-                System.Console.Write("CLI>");
+                System.Console.Write($"{Directory.GetCurrentDirectory().Replace(initDir, "").Replace('\\', '/')}/>");
                 string cmd = System.Console.ReadLine();
                 //if (cmd != null && cmd.ToLower() == "exit") break;
                 cm.EnterCommand(cmd);

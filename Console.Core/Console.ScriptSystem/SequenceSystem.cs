@@ -6,10 +6,18 @@ using System.Text;
 using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.CommandSystem.Commands;
+using Console.EnvironmentVariables;
 using Console.ScriptSystem.Deblocker;
+using Console.ScriptSystem.Deblocker.Implementations;
 
 namespace Console.ScriptSystem
 {
+    public class ParameterVariableContainer : VariableProvider
+    {
+        public override string FunctionName => "param";
+        public override string GetValue(string parameter) => ParameterCollection.GetParameter(parameter);
+    }
+
     /// <summary>
     /// Static SequenceSystem API
     /// </summary>
@@ -44,6 +52,7 @@ namespace Console.ScriptSystem
         /// Add To Sequence Name
         /// </summary>
         public const string SequenceAdd = "add-to-sequence";
+        public const string SequenceAddParameter = "sequence-add-param";
         /// <summary>
         /// Delete Sequence Name
         /// </summary>
@@ -74,7 +83,19 @@ namespace Console.ScriptSystem
         /// <summary>
         /// Internal Dictionary of Sequences.
         /// </summary>
-        private static readonly Dictionary<string, List<string>> Sequences = new Dictionary<string, List<string>>();
+        private static readonly Dictionary<string, Sequence> Sequences = new Dictionary<string, Sequence>();
+
+        private class Sequence
+        {
+            public readonly FunctionSignatureParser.FunctionSignature Signature;
+            public readonly List<string> Lines;
+
+            public Sequence()
+            {
+                Lines = new List<string>();
+                Signature = new FunctionSignatureParser.FunctionSignature(new string[0]);
+            }
+        }
 
         /// <summary>
         /// Creates a Sequence by name
@@ -89,7 +110,16 @@ namespace Console.ScriptSystem
                 //AConsoleManager.Instance.LogWarning($"A Sequence with the name: {name} does already exist");
                 if (!overwrite) return;
             }
-            Sequences[name] = new List<string>();
+            Sequences[name] = new Sequence();
+        }
+
+        [Command(SequenceAddParameter, "Adds a Parameter to the Sequence", "seq-add-param")]
+        private static void AddParameterToSequence(string sequence, string parameterName)
+        {
+            if (Sequences.ContainsKey(sequence))
+            {
+                Sequences[sequence].Signature.ParameterNames.Add(parameterName);
+            }
         }
 
         /// <summary>
@@ -111,7 +141,7 @@ namespace Console.ScriptSystem
             //string s = command.StartsWith(ConsoleCoreConfig.StringChar.ToString()) ? CommandParser.CleanContent(command) : command;
 
             //AConsoleManager.Instance.Log("Before: " + command + "\nAfter: " + s);
-            Sequences[name].Add(command);
+            Sequences[name].Lines.Add(command);
         }
 
         /// <summary>
@@ -134,7 +164,7 @@ namespace Console.ScriptSystem
         public static void ClearSequences()
         {
             Sequences.Clear();
-            AConsoleManager.Instance.Log($"Sequences Cleared.");
+            ScriptSystemInitializer.Logger.Log($"Sequences Cleared.");
         }
 
         /// <summary>
@@ -146,39 +176,51 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                AConsoleManager.Instance.LogWarning($"A Sequence with the name {name} does not exist.");
+                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
             StringBuilder builder = new StringBuilder($"Sequence \"{name}\"\n");
-            for (int i = 0; i < Sequences[name].Count; i++)
+            for (int i = 0; i < Sequences[name].Lines.Count; i++)
             {
-                builder.AppendLine($"\t{i}: {Sequences[name][i]}");
+                builder.AppendLine($"\t{i}: {Sequences[name].Lines[i]}");
             }
-            AConsoleManager.Instance.Log(builder.ToString());
+            ScriptSystemInitializer.Logger.Log(builder.ToString());
         }
 
         /// <summary>
         /// Lists all Loaded Sequences by name
         /// </summary>
         [Command("list-sequences", "Lists all Loaded Sequence Names", "list-seq")]
-        private static void ListSequences() => AConsoleManager.Instance.Log(SequenceText);
+        private static void ListSequences() => ScriptSystemInitializer.Logger.LogWarning(SequenceText);
 
         /// <summary>
         /// Runs a Sequence by Name
         /// </summary>
         /// <param name="name"></param>
+        /// <param name="parameter"></param>
         [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
-        public static void RunSequence(string name)
+        public static void RunSequence(string name) => RunSequence(name, "");
+        /// <summary>
+        /// Runs a Sequence by Name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="parameter"></param>
+        [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
+        public static void RunSequence(string name, string parameter)
         {
             if (!Sequences.ContainsKey(name))
             {
-                AConsoleManager.Instance.LogWarning($"A Sequence with the name {name} does not exist.");
+                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            foreach (string s in Sequences[name])
+            ParameterCollection spc = ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
+            foreach (string s in Sequences[name].Lines)
             {
+                if (!name.StartsWith("BLOCK_"))
+                    ParameterCollection.MakeCurrent(spc);
                 AConsoleManager.Instance.EnterCommand(s);
             }
+            ParameterCollection.MakeCurrent(null);
         }
 
 
@@ -192,10 +234,10 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                AConsoleManager.Instance.LogWarning($"A Sequence with the name {name} does not exist.");
+                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            File.WriteAllLines(file, Sequences[name]);
+            File.WriteAllLines(file, Sequences[name].Lines);
         }
 
         /// <summary>
@@ -209,12 +251,12 @@ namespace Console.ScriptSystem
         {
             if (!File.Exists(file))
             {
-                AConsoleManager.Instance.LogWarning($"The File {file} does not exist.");
+                ScriptSystemInitializer.Logger.LogWarning($"The File {file} does not exist.");
                 return;
             }
             if (!Sequences.ContainsKey(name))
             {
-                AConsoleManager.Instance.LogWarning($"A Sequence with the name {name} does not exist.");
+                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
                 if (!create)
                     return;
                 CreateSequence(name, false);

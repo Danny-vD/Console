@@ -2,6 +2,7 @@
 using Console.Core;
 using Console.Core.ActivationSystem;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 using Console.Networking.Authentication;
 using Console.Networking.Commands;
@@ -22,6 +23,10 @@ namespace Console.Networking
     /// </summary>
     public class NetworkedInitializer : AExtensionInitializer
     {
+        
+
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
+
         /// <summary>
         /// The Console Process Instance.
         /// </summary>
@@ -30,7 +35,7 @@ namespace Console.Networking
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             IPacketClientHandler[] ch = ActivateOnAttributeUtils.ActivateObjects<IPacketClientHandler>(Assembly.GetExecutingAssembly());
             IPacketHostHandler[] hh = ActivateOnAttributeUtils.ActivateObjects<IPacketHostHandler>(Assembly.GetExecutingAssembly());

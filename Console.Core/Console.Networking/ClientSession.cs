@@ -69,7 +69,7 @@ namespace Console.Networking
         {
             if (State == ConnectionState.Connecting) return;
             State = ConnectionState.Connecting;
-            AConsoleManager.Instance.Log("Connecting...");
+            NetworkedInitializer.Logger.Log("Connecting...");
             ConnectThread = new Thread(() => ConnectionThread(ip, port));
             ConnectThread.Start();
         }
@@ -89,7 +89,7 @@ namespace Console.Networking
             }
             catch (Exception e)
             {
-                AConsoleManager.Instance.LogWarning("Error Connecting: " + e);
+                NetworkedInitializer.Logger.LogWarning("Error Connecting: " + e);
                 State = ConnectionState.Error;
             }
         }
@@ -102,7 +102,7 @@ namespace Console.Networking
         {
             Client?.TrySendPacket(new ConnectionAbortPacket("Client Disconnected"));
             Client?.Dispose();
-            AConsoleManager.Instance.Log("Disconnected from Host");
+            NetworkedInitializer.Logger.Log("Disconnected from Host");
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Console.Networking
         {
             if (Client == null || !Client.IsAuthenticated || !Client.Connected || !Client.TrySendPacket(new CommandPacket(true, cmd)))
             {
-                AConsoleManager.Instance.LogWarning("Can not run command. No connection to host.\nRun connect-console command to connect to a host");
+                NetworkedInitializer.Logger.LogWarning("Can not run command. No connection to host.\nRun connect-console command to connect to a host");
             }
         }
 
@@ -125,12 +125,12 @@ namespace Console.Networking
 
             if (State == ConnectionState.Error)
             {
-                AConsoleManager.Instance.LogWarning("Can not connect..");
+                NetworkedInitializer.Logger.LogWarning("Can not connect..");
                 State = ConnectionState.Idle;
             }
             if (State == ConnectionState.Connected)
             {
-                AConsoleManager.Instance.Log("Connected.");
+                NetworkedInitializer.Logger.Log("Connected.");
                 State = ConnectionState.Idle;
             }
 

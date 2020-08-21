@@ -144,7 +144,7 @@ namespace Console.Networking.Packets
 
                 if (len <= 0 || len > NetworkingSettings.PacketIdentifierMaxSize)
                 {
-                    AConsoleManager.Instance.LogWarning("Network Package Read Error: Packet Identifier size is not valid: " + len);
+                    NetworkedInitializer.Logger.LogWarning("Network Package Read Error: Packet Identifier size is not valid: " + len);
                     FlushNetworkStream();
                     return;
                 }
@@ -166,7 +166,7 @@ namespace Console.Networking.Packets
                     int dataLen = BitConverter.ToInt32(dataLenBuf, 0);
                     if (dataLen <= 0 || dataLen > NetworkingSettings.PacketDataMaxSize)
                     {
-                        AConsoleManager.Instance.LogWarning("Network Package Read Error: Packet Data size is not valid: " + dataLen);
+                        NetworkedInitializer.Logger.LogWarning("Network Package Read Error: Packet Data size is not valid: " + dataLen);
                         FlushNetworkStream();
                         return;
                     }
@@ -185,7 +185,7 @@ namespace Console.Networking.Packets
                 }
                 else
                 {
-                    AConsoleManager.Instance.LogWarning("Can not Deserialize Packet: " + id);
+                    NetworkedInitializer.Logger.LogWarning("Can not Deserialize Packet: " + id);
                     FlushNetworkStream();
                 }
             }
@@ -198,7 +198,7 @@ namespace Console.Networking.Packets
         {
             byte[] data = new byte[Client.Available];
             Client.GetStream().Read(data, 0, data.Length);
-            AConsoleManager.Instance.LogWarning($"Flushed {data.Length} Bytes.");
+            NetworkedInitializer.Logger.LogWarning($"Flushed {data.Length} Bytes.");
         }
 
         /// <summary>

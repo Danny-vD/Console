@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 using Console.EnvironmentVariables;
 
@@ -16,6 +17,13 @@ namespace Console.ClassQueries
     /// </summary>
     public class ClassQueryInitializer : AExtensionInitializer
     {
+        [Property("classqueries.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// Version of the ClassQueries Extension
@@ -26,7 +34,7 @@ namespace Console.ClassQueries
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<ClassQueryInitializer>();
             EnvironmentVariableManager.AddProvider(new ClassQueryProvider());

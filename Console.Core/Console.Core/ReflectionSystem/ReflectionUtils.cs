@@ -39,7 +39,7 @@ namespace Console.Core.ReflectionSystem
                 }
                 catch (Exception exception)
                 {
-                    AConsoleManager.Instance.LogWarning(exception.Message);
+                    ConsoleCoreConfig.CoreLogger.LogWarning(exception.Message);
                     //throw actual;
                 }
                 return null;

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 namespace Console.Core
@@ -10,6 +12,8 @@ namespace Console.Core
     public static class ConsoleCoreConfig
     {
         #region Console Properties
+
+        internal static readonly ALogger CoreLogger = new PrefixLogger(Assembly.GetExecutingAssembly().GetName().Name);
 
         /// <summary>
         /// The Version of the Core Library
@@ -33,7 +37,16 @@ namespace Console.Core
         /// The Character that is used to enclose string blocks.
         /// </summary>
         [Property("core.input.stringchar")]
-        public static char StringChar = '"';
+        public static char StringChar
+        {
+            get => _stringChar;
+            set
+            {
+                ReplaceChar(_stringChar, value);
+                _stringChar = value;
+            }
+        }
+        private static char _stringChar = '"';
 
         /// <summary>
         /// The Character that is used to seperate input in the console.
@@ -53,7 +66,25 @@ namespace Console.Core
         /// <summary>
         /// Collection of Characters that have to be Escaped.
         /// </summary>
-        public static char[] EscapableChars => new[] { StringChar };
+        public static char[] EscapableChars => _escapableChars.ToArray();
+
+        private static List<char> _escapableChars = new List<char> { StringChar };
+
+        public static void AddEscapeChar(char escChar)
+        {
+            if (!_escapableChars.Contains(escChar)) _escapableChars.Add(escChar);
+        }
+
+        public static void RemoveEscapeChar(char escChar)
+        {
+            if (_escapableChars.Contains(escChar)) _escapableChars.Remove(escChar);
+        }
+
+        public static void ReplaceChar(char oldChar, char newChar)
+        {
+            RemoveEscapeChar(oldChar);
+            AddEscapeChar(newChar);
+        }
 
         /// <summary>
         /// If true the Console does not check if commands can be invoked or are hidden by other commands.

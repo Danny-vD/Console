@@ -17,7 +17,7 @@ namespace Console.Networking.Handlers
         /// <param name="item">The Packet</param>
         public override void Handle(ConsoleSocket client, CommandPacket item)
         {
-            AConsoleManager.Instance.Log("Running Command on Host: " + item.Input);
+            NetworkedInitializer.Logger.Log("Running Command on Host: " + item.Input);
             AConsoleManager.Instance.EnterCommand(item.Input);
         }
     }

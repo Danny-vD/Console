@@ -71,7 +71,7 @@ namespace Console.CLI
         /// Writes a Log
         /// </summary>
         /// <param name="object">Object to Log</param>
-        public override void Log(object @object)
+        protected override void Log(object @object)
         {
             InvokeLogEvent(@object.ToString());
             System.Console.WriteLine(@object);
@@ -82,9 +82,9 @@ namespace Console.CLI
         /// Writes a Log Error
         /// </summary>
         /// <param name="object">Error Object to Log</param>
-        public override void LogError(object @object)
+        protected override void LogError(object @object)
         {
-            Log("Error: " + @object);
+            Log(@object);
         }
 
 
@@ -101,9 +101,9 @@ namespace Console.CLI
         /// Writes a Log Warning
         /// </summary>
         /// <param name="object">Warning Object to Log</param>
-        public override void LogWarning(object @object)
+        protected override void LogWarning(object @object)
         {
-            Log("Warning: " + @object);
+            Log(@object);
         }
     }
 }

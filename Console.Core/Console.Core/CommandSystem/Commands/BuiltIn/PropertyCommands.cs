@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 namespace Console.Core.CommandSystem.Commands.BuiltIn
@@ -9,6 +10,9 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class PropertyCommands
     {
+        private static PrefixLogger ListPropertiesLogger = new PrefixLogger("list-properties");
+        private static PrefixLogger GetPropertiesLogger = new PrefixLogger("get-properties");
+
         /// <summary>
         /// Adds the Property Commands
         /// </summary>
@@ -45,7 +49,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                     if (i != p.Count - 1) ret += "\n\t";
                 }
             }
-            AConsoleManager.Instance.Log(ret);
+            ListPropertiesLogger.Log(ret);
         }
 
         #endregion
@@ -72,7 +76,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                 List<string> targets = PropertyManager.AllPropertyPaths.Where(x => x.StartsWith(propertyPath)).ToList();
                 if (targets.Count == 0)
                 {
-                    AConsoleManager.Instance.LogWarning("Can not find property path: " + propertyPath);
+                    GetPropertiesLogger.LogWarning("Can not find property path: " + propertyPath);
                 }
                 else
                 {
@@ -83,15 +87,15 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                         if (!PropertyManager.TryGetValue(target, out v)) v = "ERROR";
                         s += $"\n\t{target} = {v ?? "NULL"}";
                     }
-                    AConsoleManager.Instance.Log(s);
+                    GetPropertiesLogger.Log(s);
                 }
                 return;
             }
             if (!PropertyManager.TryGetValue(propertyPath, out object value))
             {
-                AConsoleManager.Instance.LogWarning("Can not get the value at path: " + propertyPath);
+                GetPropertiesLogger.LogWarning("Can not get the value at path: " + propertyPath);
             }
-            AConsoleManager.Instance.Log($"{propertyPath} = {value}");
+            GetPropertiesLogger.Log($"{propertyPath} = {value}");
         }
 
         #endregion
@@ -107,8 +111,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         private static void SetPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath)) return;
-
-            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
+            
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
@@ -125,8 +128,6 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                 PropertyManager.AddProperty(propertyPath, propertyValue);
                 return;
             }
-
-            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
@@ -140,8 +141,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             if (!PropertyManager.HasProperty(propertyPath))
                 return;
-
-            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
+            
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
@@ -158,8 +158,6 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                 PropertyManager.AddProperty(propertyPath, propertyValue);
                 return;
             }
-
-            AConsoleManager.Instance.Log("Setting Property: " + propertyPath + " to Value: " + propertyValue);
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 

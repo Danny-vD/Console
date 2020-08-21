@@ -11,6 +11,12 @@ namespace Console.Networking
     /// </summary>
     public class NetworkingSettings
     {
+        [Property("networking.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => NetworkedInitializer. Logger.Mute;
+            set => NetworkedInitializer. Logger.Mute = value;
+        }
 
         /// <summary>
         /// Encoding that is used for communication

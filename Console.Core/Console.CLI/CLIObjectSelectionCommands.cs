@@ -35,9 +35,9 @@ namespace Console.CLI
         {
             if (SelectableObjects.ContainsKey(key))
             {
-                AConsoleManager.Instance.Log("Selecting Object: " + SelectableObjects[key]);
+                Program.Logger.Log("Selecting Object: " + SelectableObjects[key]);
                 AConsoleManager.Instance.ObjectSelector.AddToSelection(SelectableObjects[key]);
-                AConsoleManager.Instance.Log("Selected Objects: " + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);
+                Program.Logger.Log("Selected Objects: " + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);
             }
         }
 
@@ -78,7 +78,7 @@ namespace Console.CLI
             {
                 s += "\n\t" + selectableObject.Key + " = " + selectableObject.Value;
             }
-            AConsoleManager.Instance.Log(s);
+            Program.Logger.Log(s);
         }
     }
 }

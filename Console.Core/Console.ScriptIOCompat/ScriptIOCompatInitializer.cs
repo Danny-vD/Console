@@ -2,6 +2,7 @@
 using System.Reflection;
 using Console.Core;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 
@@ -19,6 +20,13 @@ namespace Console.ScriptIOCompat
     /// </summary>
     public class ScriptIOCompatInitializer : AExtensionInitializer
     {
+        [Property("scriptiocompat.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
         /// <summary>
         /// Version of the ScriptIOCompat Extension
         /// </summary>
@@ -39,7 +47,7 @@ namespace Console.ScriptIOCompat
         public static void AutoStart()
         {
             if (AutoStartFile == null) return;
-            AConsoleManager.Instance.Log("Running Auto Start Files: " + AutoStartFile);
+            Logger.Log("Running Auto Start Files: " + AutoStartFile);
             string[] files = AutoStartFile.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string file in files)
             {
@@ -51,7 +59,7 @@ namespace Console.ScriptIOCompat
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<ScriptIOCompatInitializer>();
             AConsoleManager.OnInitializationFinished += AutoStart;

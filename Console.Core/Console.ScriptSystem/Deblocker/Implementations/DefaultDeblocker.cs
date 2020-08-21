@@ -33,7 +33,7 @@ namespace Console.ScriptSystem.Deblocker.Implementations
             int maxCount = line.Blocks.Max(strings => strings.Length);
             for (int i = 0; i < maxCount; i++)
             {
-                string value = line.CleanedLine.ToString();
+                string value = line.CleanedLine;
                 for (int j = 0; j < line.Blocks.Count; j++)
                 {
                     value = value.Replace(DeblockerSettings.GetKey(j),

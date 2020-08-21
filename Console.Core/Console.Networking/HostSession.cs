@@ -115,7 +115,7 @@ namespace Console.Networking
         /// <param name="port"></param>
         public void StartHost(int port)
         {
-            AConsoleManager.Instance.Log("Starting Console Host on port: " + port);
+            NetworkedInitializer.Logger.Log("Starting Console Host on port: " + port);
             AConsoleManager.OnLog += OnLog;
             Listener?.Stop();
             Listener = TcpListener.Create(port);
@@ -124,7 +124,7 @@ namespace Console.Networking
             IsRunning = true;
             LoopThread = new Thread(ListenerLoop);
             LoopThread.Start();
-            AConsoleManager.Instance.Log("Host Initialized.");
+            NetworkedInitializer.Logger.Log("Host Initialized.");
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Console.Networking
         public void StopHost()
         {
             AConsoleManager.OnLog -= OnLog;
-            AConsoleManager.Instance.Log("Stopping Console Host");
+            NetworkedInitializer.Logger.Log("Stopping Console Host");
             IsRunning = false;
             Listener?.Stop();
         }
@@ -144,7 +144,7 @@ namespace Console.Networking
         public void ForceStopHost()
         {
             AConsoleManager.OnLog -= OnLog;
-            AConsoleManager.Instance.LogWarning("Force Stopping Console Host");
+            NetworkedInitializer.Logger.LogWarning("Force Stopping Console Host");
             IsRunning = false;
             Listener?.Stop();
             LoopThread?.Abort();
@@ -177,7 +177,7 @@ namespace Console.Networking
                 if (Listener.Pending())
                 {
                     ConsoleSocket cs = new ConsoleSocket(Listener.AcceptTcpClient());
-                    AConsoleManager.Instance.Log($"Client {cs} connected.");
+                    NetworkedInitializer.Logger.Log($"Client {cs} connected.");
 
                     if (NetworkingSettings.AllowConnections)
                     {
@@ -187,7 +187,7 @@ namespace Console.Networking
                     }
                     else
                     {
-                        AConsoleManager.Instance.LogWarning($"Client {cs} closed. (Connection not Allowed)");
+                        NetworkedInitializer.Logger.LogWarning($"Client {cs} closed. (Connection not Allowed)");
                         cs.TrySendPacket(new ConnectionAbortPacket("Host does not allow Connections at this point."));
                         cs.Dispose();
                     }

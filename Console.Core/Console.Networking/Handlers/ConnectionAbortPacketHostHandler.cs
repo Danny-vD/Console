@@ -17,7 +17,7 @@ namespace Console.Networking.Handlers
         /// <param name="item">The Packet</param>
         public override void Handle(ConsoleSocket client, ConnectionAbortPacket item)
         {
-            AConsoleManager.Instance.LogWarning("Client aborted the Connection with Reason: " + item.Reason);
+            NetworkedInitializer.Logger.LogWarning("Client aborted the Connection with Reason: " + item.Reason);
             NetworkingSettings.HostSession.RemoveClient(client);
         }
     }

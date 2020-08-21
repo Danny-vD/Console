@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
@@ -100,11 +101,24 @@ namespace Console.Evaluator
             }
             catch (Exception e)
             {
-                AConsoleManager.Instance.LogWarning("Can not Create instance of type: " + qualifiedName);
+                EvalInitializer.Logger.LogWarning("Can not Create instance of type: " + qualifiedName);
                 return;
             }
 
             eval.AddEnvironmentFunctions(obj);
+        }
+
+        [Command("for-all", "Runs the specified command for each Item in the List")]
+        private void ForAll(string list, string command)
+        {
+            string[] li = list.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+            for (int i = 0; i < li.Length; i++)
+            {
+                ParameterCollection pc = ParameterCollection.CreateCollection(new[] { "item" }, li[i].Trim());
+                ParameterCollection.MakeCurrent(pc);
+                AConsoleManager.Instance.EnterCommand(command);
+                ParameterCollection.MakeCurrent(null);
+            }
         }
 
         [Command("if", "If the Expression is evaluated to true the command is executed.")]

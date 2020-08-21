@@ -116,7 +116,7 @@ namespace Console.Core.CommandSystem
             }
             catch (Exception e)
             {
-                AConsoleManager.Instance.LogError($"Can not cast value: \"{parameter}\"  to type: {target.Name}");
+                ConsoleCoreConfig.CoreLogger.LogError($"Can not cast value: \"{parameter}\"  to type: {target.Name}");
                 if (target.IsValueType)
                     return null;//Return Default value if the target is int/float/...
                 throw e;

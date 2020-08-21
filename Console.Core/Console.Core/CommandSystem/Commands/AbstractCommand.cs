@@ -83,7 +83,7 @@ namespace Console.Core.CommandSystem.Commands
             }
             catch
             {
-                AConsoleManager.Instance.LogError(
+                ConsoleCoreConfig.CoreLogger.LogError(
                     $"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!");
                 return false;
             }

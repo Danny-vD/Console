@@ -24,6 +24,7 @@ namespace Console.ScriptSystem
         [Command(RunCommandName, "Run a  file.")]
         public static void RunFile(string path)
         {
+
             if (File.Exists(path))
             {
                 List<string> lines = DeblockerCollection.Parse(File.ReadAllText(path));
@@ -34,7 +35,7 @@ namespace Console.ScriptSystem
             }
             else
             {
-                AConsoleManager.Instance.LogWarning("File does not exist: " + path);
+                ScriptSystemInitializer.Logger.LogWarning("File does not exist: " + path);
             }
         }
     }

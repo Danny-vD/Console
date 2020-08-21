@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Console.Core\Console.Core.csproj" />
+    <ProjectReference Include="..\Console.EnvironmentVariables\Console.EnvironmentVariables.csproj" />
   </ItemGroup>
 
 </Project>

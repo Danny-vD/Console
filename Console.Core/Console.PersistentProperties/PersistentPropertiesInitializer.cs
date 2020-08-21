@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using Console.Core.CommandSystem;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 /// <summary>
@@ -17,6 +18,14 @@ namespace Console.PersistentProperties
     /// </summary>
     public class PersistentPropertiesInitializer : AExtensionInitializer
     {
+        [Property("persistentproperties.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+
+        public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
         private const string InitPropertyPath = ".\\configs\\init.cfg";
 
 
@@ -31,7 +40,7 @@ namespace Console.PersistentProperties
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
             PropertyAttributeUtils.AddProperties<PersistentPropertiesInitializer>();
             CommandAttributeUtils.AddCommands<PropertyLoaderCommands>();

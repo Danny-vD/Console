@@ -41,7 +41,7 @@ namespace Console.Core.CommandSystem.Commands
 
             if (commands.Any(item => item.HasName(newName)))
             {
-                AConsoleManager.Instance.LogError($"Rename failed! A command with name {newName} already exists!");
+                ConsoleCoreConfig.CoreLogger.LogError($"Rename failed! A command with name {newName} already exists!");
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace Console.Core.CommandSystem.Commands
 
             if (commands.Any(item => item.HasName(alias)))
             {
-                AConsoleManager.Instance.LogError($"Rename failed! A command with name {alias} already exists!");
+                ConsoleCoreConfig.CoreLogger.LogError($"Rename failed! A command with name {alias} already exists!");
                 return;
             }
 
@@ -127,7 +127,7 @@ namespace Console.Core.CommandSystem.Commands
 
             if (command == null)
             {
-                AConsoleManager.Instance.LogWarning(
+                ConsoleCoreConfig.CoreLogger.LogWarning(
                     $"A command with name {commandName} and {paramsCount} parameter(s) does not exist!\n");
             }
 
@@ -157,7 +157,7 @@ namespace Console.Core.CommandSystem.Commands
             if (tempCommands.Count == 0)
             {
                 string s = $"A command with name {commandName} does not exist!\n";
-                AConsoleManager.Instance.LogWarning(s);
+                ConsoleCoreConfig.CoreLogger.LogWarning(s);
             }
 
             return tempCommands;
@@ -171,7 +171,7 @@ namespace Console.Core.CommandSystem.Commands
         {
             if (command.GetAllNames().Any(name => name.Contains(" ")))
             {
-                AConsoleManager.Instance.LogError("A command name cannot contain a whitespace character!");
+                ConsoleCoreConfig.CoreLogger.LogError("A command name cannot contain a whitespace character!");
                 return;
             }
 
@@ -191,10 +191,10 @@ namespace Console.Core.CommandSystem.Commands
             if (cmd != null)
             {
                 if(ConsoleCoreConfig.AllowOverlappingCommands)
-                    AConsoleManager.Instance.LogWarning(
+                    ConsoleCoreConfig.CoreLogger.LogWarning(
                         $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
                 else
-                    AConsoleManager.Instance.LogError(
+                    ConsoleCoreConfig.CoreLogger.LogError(
                         $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
                 return;
             }

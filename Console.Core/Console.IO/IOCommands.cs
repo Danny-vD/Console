@@ -23,23 +23,15 @@ namespace Console.IO
         /// Lists files in the current directory
         /// </summary>
         [Command("list-files", "Lists files in the current directory", "ls", "dir")]
-        private static void ListFiles() => ListFiles(".\\");
+        private static void ListFiles([CommandFlag]bool recursive, [CommandFlag]bool names) => ListFiles(".\\", recursive, names);
 
         /// <summary>
         /// Lists files in the specified directory
         /// </summary>
         /// <param name="folder">Specified Directory</param>
         [Command("list-files", "Lists files in the specified directory", "ls", "dir")]
-        private static void ListFiles(string folder) => ListFiles(folder, "*");
+        private static void ListFiles(string folder, [CommandFlag]bool recursive, [CommandFlag]bool names) => ListFiles(folder, "*", recursive, names);
 
-
-        /// <summary>
-        /// Lists files in the specified directory that match the search term
-        /// </summary>
-        /// <param name="folder">Specified Directory</param>
-        /// <param name="searchTerm">The Search Term</param>
-        [Command("list-files", "Lists files in the selected directory that match the search pattern", "ls", "dir")]
-        private static void ListFiles(string folder, string searchTerm) => ListFiles(folder, searchTerm, false);
 
         /// <summary>
         /// Lists files in the specified directory and all subdirectories that match the search term
@@ -47,8 +39,9 @@ namespace Console.IO
         /// <param name="folder">Specified Directory</param>
         /// <param name="searchTerms">The Search Term</param>
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+        /// <param name="names">Only displays names</param>
         [Command("list-files", "Lists files in the selected directory that match the search pattern. Optionally recursing into the subdirectories", "ls", "dir")]
-        private static void ListFiles(string folder, string searchTerms, bool recursive)
+        private static void ListFiles(string folder, string searchTerms, [CommandFlag]bool recursive, [CommandFlag]bool names)
         {
             string path = Path.GetFullPath(folder);
             string[] files = Directory.GetFiles(path, searchTerms,
@@ -56,30 +49,22 @@ namespace Console.IO
             string s = "Files in " + path + "\n";
             foreach (string file in files)
             {
-                s += "\t" + file + "\n";
+                s += "\t" + (names ? file.Replace(Path.GetFullPath(folder), "") : file) + "\n";
             }
-            AConsoleManager.Instance.Log(s);
+            IOInitializer.Logger.Log(s);
         }
 
         /// <summary>
         /// Lists files in the current directory
         /// </summary>
         [Command("list-dir", "Lists directories in the current directory", "ld", "dirs")]
-        private static void ListDirectories() => ListDirectories(".\\");
+        private static void ListDirectories([CommandFlag]bool recursive, [CommandFlag]bool names) => ListDirectories(".\\", recursive, names);
         /// <summary>
         /// Lists files in the specified directory
         /// </summary>
         /// <param name="folder">Specified Directory</param>
         [Command("list-dir", "Lists directories in the specified directory", "ld", "dirs")]
-        private static void ListDirectories(string folder) => ListDirectories(folder, "*");
-        /// <summary>
-        /// Lists files in the specified directory that match the search term
-        /// </summary>
-        /// <param name="folder">Specified Directory</param>
-        /// <param name="searchTerm">The Search Term</param>
-        [Command("list-dir", "Lists directories in the selected directory that match the search pattern", "ld", "dirs")]
-        private static void ListDirectories(string folder, string searchTerm) => ListDirectories(folder, searchTerm, false);
-
+        private static void ListDirectories(string folder, [CommandFlag]bool recursive, [CommandFlag]bool names) => ListDirectories(folder, "*", recursive, names);
         /// <summary>
         /// Lists Directories in the specified directory and all subdirectories that match the search term
         /// </summary>
@@ -87,7 +72,7 @@ namespace Console.IO
         /// <param name="searchTerms">The Search Term</param>
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         [Command("list-dir", "Lists directories in the selected directory that match the search pattern. Optionally recursing into the subdirectories", "ld", "dirs")]
-        private static void ListDirectories(string folder, string searchTerms, bool recursive)
+        private static void ListDirectories(string folder, string searchTerms, [CommandFlag]bool recursive, [CommandFlag]bool names)
         {
             string path = Path.GetFullPath(folder);
             string[] files = Directory.GetDirectories(path, searchTerms,
@@ -95,9 +80,9 @@ namespace Console.IO
             string s = "Directories in " + path + "\n";
             foreach (string file in files)
             {
-                s += "\t" + file + "\n";
+                s += "\t" + (names ? file.Replace(Path.GetFullPath(folder),"") : file) + "\n";
             }
-            AConsoleManager.Instance.Log(s);
+            IOInitializer.Logger.Log(s);
         }
 
         /// <summary>

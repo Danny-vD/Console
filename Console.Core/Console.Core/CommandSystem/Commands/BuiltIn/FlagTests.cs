@@ -23,7 +23,7 @@
         [Command("ft", "Flag Test. This Command is Legal")]
         private static void FlagTest1(string arg0, int arg1, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //(2-4)
         {
-            AConsoleManager.Instance.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1 + "\ny: " + flag2);
+            ConsoleCoreConfig.CoreLogger.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1 + "\ny: " + flag2);
         }
         /// <summary>
         /// Flag Test Command. 2 normal arguments, 1 Flag.
@@ -35,7 +35,7 @@
         [Command("ft", "Flag Test. This Command is Illegal  when FlagTest1 is added")]
         private static void FlagTest2(string arg0, int arg1, [CommandFlag("x")] bool flag1) //Illegal (2-3)
         {
-            AConsoleManager.Instance.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1);
+            ConsoleCoreConfig.CoreLogger.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@
         [Command("ft", "Flag Test. This Command is Legal")]
         private static void FlagTest3(string arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //Legal(1-3)
         {
-            AConsoleManager.Instance.Log("(string)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
+            ConsoleCoreConfig.CoreLogger.Log("(string)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@
         [Command("ft", "Flag Test. This Command is Illegal when FlagTest3 is added")]
         private static void FlagTest4(int arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //Illegal(1-3)
         {
-            AConsoleManager.Instance.Log("(int)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
+            ConsoleCoreConfig.CoreLogger.Log("(int)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
         }
     }
 }

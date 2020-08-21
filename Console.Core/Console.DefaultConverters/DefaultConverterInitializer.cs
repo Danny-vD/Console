@@ -5,6 +5,7 @@ using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
 using Console.Core.ConverterSystem;
 using Console.Core.ExtensionSystem;
+using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 
@@ -21,6 +22,13 @@ namespace Console.DefaultConverters
     /// </summary>
     public class DefaultConverterInitializer : AExtensionInitializer
     {
+        [Property("defaultconverters.logs.mute")]
+        private static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
+        internal static ALogger Logger => AExtensionInitializer.GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// Prints all Values of an Enum to the Console.
@@ -38,10 +46,10 @@ namespace Console.DefaultConverters
                 {
                     s += "\t" + Enum.GetName(t, val) + "=" + (int)val + "\n";
                 }
-                AConsoleManager.Instance.Log(s);
+                Logger.Log(s);
                 return;
             }
-            AConsoleManager.Instance.LogWarning("Qualified Name is not recognized or the Type is not an Enum");
+            Logger.LogWarning("Qualified Name is not recognized or the Type is not an Enum");
         }
 
 
@@ -55,7 +63,7 @@ namespace Console.DefaultConverters
         /// <summary>
         /// Initialization Function
         /// </summary>
-        public override void Initialize()
+        protected override void Initialize()
         {
 
             CommandAttributeUtils.AddCommands<DefaultConverterInitializer>();

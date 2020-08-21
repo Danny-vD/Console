@@ -42,7 +42,7 @@ namespace Console.Core.ExtensionSystem
         /// <param name="paths">Extension Paths</param>
         public static void LoadExtensionFiles(string[] paths)
         {
-            AConsoleManager.Instance.Log($"Loading {paths.Length} Extensions...");
+            ConsoleCoreConfig.CoreLogger.Log($"Loading {paths.Length} Extensions...");
             List<AExtensionInitializer> exts = new List<AExtensionInitializer>();
             paths.Select(LoadAssembly).Where(x => x != null).ToList().ForEach(x => exts.AddRange(x));
             ProcessLoadOrder(exts.ToArray());
@@ -82,7 +82,7 @@ namespace Console.Core.ExtensionSystem
         /// <param name="extensions">Extensions to Initialize</param>
         private static void InitializeExtensions(Dictionary<LoadOrder, List<AExtensionInitializer>> extensions)
         {
-            string s = "Initializing Extensions...";
+            string s = "\nInitializing Extensions...";
             int i = InitializeExtensions(extensions[LoadOrder.First]);
             s += "\nLoadOrder.First: " + extensions[LoadOrder.First].Count;
             i += InitializeExtensions(extensions[LoadOrder.Default]);
@@ -90,7 +90,7 @@ namespace Console.Core.ExtensionSystem
             i += InitializeExtensions(extensions[LoadOrder.After]);
             s += "\nLoadOrder.After: " + extensions[LoadOrder.After].Count;
             s += "\nTotal Initialized Extensions: " + i + "\n";
-            AConsoleManager.Instance.Log(s);
+            ConsoleCoreConfig.CoreLogger.Log(s);
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Console.Core.ExtensionSystem
         {
             foreach (AExtensionInitializer aExtensionInitializer in extensions)
             {
-                aExtensionInitializer.Initialize();
+                aExtensionInitializer._InnerInitialize();
             }
             return extensions.Count;
         }
@@ -119,13 +119,13 @@ namespace Console.Core.ExtensionSystem
                 Assembly asm = Assembly.LoadFrom(path);
                 AExtensionInitializer[] inits = ActivateOnAttributeUtils.ActivateObjects<AExtensionInitializer>(asm);
                 if (inits.Length == 0)
-                    AConsoleManager.Instance.LogWarning("Assembly " + asm.GetName().Name + " does not have an Initializer but is loaded.");
+                    ConsoleCoreConfig.CoreLogger.LogWarning("Assembly " + asm.GetName().Name + " does not have an Initializer but is loaded.");
                 return inits;
             }
             catch (Exception e)
             {
-                AConsoleManager.Instance.LogWarning("Can not load Extension: " + path);
-                AConsoleManager.Instance.LogWarning(e);
+                ConsoleCoreConfig.CoreLogger.LogWarning("Can not load Extension: " + path);
+                ConsoleCoreConfig.CoreLogger.LogWarning(e);
                 return new AExtensionInitializer[0];
             }
         }

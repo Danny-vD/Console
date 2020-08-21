@@ -64,7 +64,8 @@ namespace Console.ScriptSystem.Deblocker
             List<string> _end = new List<string>();
             foreach (Line line in lines)
             {
-                if (line.OriginalLine == "}") continue;
+                if (line.OriginalLine == "}")
+                    continue;
 
                 if (line.IsAtomic)
                 {
@@ -110,7 +111,6 @@ namespace Console.ScriptSystem.Deblocker
                     int closeIdx = ConsoleCoreConfig.FindClosing(content, DeblockerSettings.BlockBracketOpen,
                         DeblockerSettings.BlockBracketClosed, i + 1, 1);
                     string s = content.Substring(i, closeIdx - i + 1);
-                    //int closeIdx = content.IndexOf(DeblockerSettings.BlockBracketClosed, i + 1);
                     i = closeIdx;
                 }
                 else if (content[i] == ConsoleCoreConfig.NewLine)
