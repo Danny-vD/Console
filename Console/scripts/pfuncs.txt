@@ -1,7 +1,0 @@
-function TestFunction {
-	echo "Empty Test Function with no header."
-}
-
-function TestFunctionWS(x , y,c,g) {
-	echo "Empty Test Function with header."
-}

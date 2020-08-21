@@ -1,0 +1,25 @@
+local-function Test0 {
+	local-function Test1 {
+		local-function Test2 {
+				local-function Test3 {
+					local-function Test4 {
+						local-function Test5 {
+							echo FFF
+						}
+					echo EEE
+					run-seq Test5
+				}
+				echo DDD
+				run-seq Test4
+			}
+			echo CCC
+			run-seq Test3
+		}
+		echo BBB
+		run-seq Test2
+	}
+	echo AAA
+	run-seq Test1
+}
+
+run-seq Test0

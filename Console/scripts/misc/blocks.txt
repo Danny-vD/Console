@@ -1,0 +1,40 @@
+local-function TestFunc3 (a){
+	echo "Correct 3"
+}
+
+local-function TestFunc7 (a,b){
+	echo "Correct 7"
+}
+
+local-function TestFunc5 (a) {
+	echo "Correct 5"
+}
+
+local-function TestFunc0{
+	echo "Correct 0"
+}
+
+local-function TestFunc1 {
+	echo "Correct 1"
+}
+
+local-function TestFunc2(a){
+	echo "Correct 2"
+}
+
+local-function TestFunc4(a) {
+	echo "Correct 4"
+}
+
+local-function TestFunc6(a,b){
+	echo "Correct 6"
+}
+
+local-function TestFunc8 (a,b) {
+	echo "Correct 8"
+}
+
+for-all "$range(0;9)" {
+	echo "Sequence: $param(item)"
+	run-seq "TestFunc$param(item)"
+}

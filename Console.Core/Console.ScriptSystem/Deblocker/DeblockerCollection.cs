@@ -39,22 +39,22 @@ namespace Console.ScriptSystem.Deblocker
         {
             List<Line> ret = new List<Line>();
             int start = begin;
-            int end = GetEndOfLine(content, start);
-            while (end != content.Length)
+            int end;
+            do
             {
+                end = GetEndOfLine(content, start);
                 string l = content.Substring(start, end - start).Trim();
                 if (!string.IsNullOrWhiteSpace(l))
                 {
                     ret.Add(new Line(l));
                 }
                 start = end + 1;
-                end = GetEndOfLine(content, start);
-                if (end == content.Length)
-                {
-                    string cline = content.Substring(start, end - start).Trim();
-                    ret.Add(new Line(cline));
-                }
-            }
+                //if (end == content.Length)
+                //{
+                //    string cline = content.Substring(start, end - start).Trim();
+                //    ret.Add(new Line(cline));
+                //}
+            } while (end != content.Length);
             return ret;
         }
 

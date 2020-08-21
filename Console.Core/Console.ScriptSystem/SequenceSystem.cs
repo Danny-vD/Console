@@ -93,7 +93,7 @@ namespace Console.ScriptSystem
             public Sequence()
             {
                 Lines = new List<string>();
-                Signature = new FunctionSignatureParser.FunctionSignature(new string[0]);
+                Signature = new FunctionSignatureParser.FunctionSignature("");
             }
         }
 

@@ -1,7 +1,0 @@
-echo "Environment Variable System Help:"
-
-echo {
-	View Environment Default Variables: <dollar>(envs)
-	View Environment Variables: <dollar>(envs-all)
-	View Properties: lp or echo <dollar>props(envs)
-}

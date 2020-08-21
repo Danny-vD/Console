@@ -41,19 +41,19 @@ namespace Console.Unity
         /// Writes a Log to the Console Output
         /// </summary>
         /// <param name="object">The Log to Write</param>
-        public override void Log(object @object) => ConsoleManagerComponent.Log(@object);
+        protected override void Log(object @object) => ConsoleManagerComponent.Log(@object);
 
         /// <summary>
         /// Writes a Log Warning to the Console Output
         /// </summary>
         /// <param name="object">The Log Warning to Write</param>
-        public override void LogWarning(object @object) => ConsoleManagerComponent.LogWarning(@object);
+        protected override void LogWarning(object @object) => ConsoleManagerComponent.LogWarning(@object);
 
         /// <summary>
         /// Writes a Log Error to the Console Output
         /// </summary>
         /// <param name="object">The Log Error to Write</param>
-        public override void LogError(object @object) => ConsoleManagerComponent.LogError(@object);
+        protected override void LogError(object @object) => ConsoleManagerComponent.LogError(@object);
         /// <summary>
         /// Clears the Console Output
         /// </summary>

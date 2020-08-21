@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.ConverterSystem;
@@ -94,7 +95,7 @@ namespace Console.Unity.Components
         [Property("unity.ui.cooldown")]
         private float toggleCooldown = 0.3f;
 
-        
+
         /// <summary>
         /// The Color of Normal Logs
         /// </summary>
@@ -186,6 +187,10 @@ namespace Console.Unity.Components
         /// </summary>
         private void Awake()
         {
+            string s = Path.GetDirectoryName(Application.dataPath);
+            if (Application.isEditor)
+                Directory.SetCurrentDirectory(s);
+
             Instance = this;
 
             ConsoleCoreConfig.StringChar = stringChar;
@@ -198,7 +203,7 @@ namespace Console.Unity.Components
             //Console Setup
             CommandAttributeUtils.AddCommands(this);
             PropertyAttributeUtils.AddProperties(this);
-            
+
 
 
             DontDestroyOnLoad(gameObject);

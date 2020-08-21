@@ -29,8 +29,9 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         {
             FunctionSignatureParser.FunctionSignature signature =
                 FunctionSignatureParser.ParseFunctionSignature(line, out int sigStart, out int sigLength);
-            Line l = new Line(SequenceSystem.SequenceAdd +
-                              line.OriginalLine.Remove(sigStart, sigLength).Remove(0, Key.Length));
+            string newL = SequenceSystem.SequenceAdd +
+                          line.OriginalLine.Remove(sigStart, sigLength).Remove(0, Key.Length);
+            Line l = new Line(newL);
 
             string[] parts = l.CleanParts;
 

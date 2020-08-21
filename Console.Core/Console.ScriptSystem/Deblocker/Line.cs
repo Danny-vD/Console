@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Console.Core;
 using Console.Core.CommandSystem;
@@ -43,7 +44,7 @@ namespace Console.ScriptSystem.Deblocker
                     int close = ConsoleCoreConfig.FindClosing(originalLine, DeblockerSettings.BlockBracketOpen,
                         DeblockerSettings.BlockBracketClosed, i);
                     close = close == -1 ? originalLine.Length : close;
-                    string l = originalLine.Substring(i + 1, close - i - 1);
+                    string l = originalLine.Substring(i + 1, close - i - 1).Trim();
                     List<string> subl = DeblockerCollection.Parse(l);
                     blocks.Add(subl.ToArray());
                     string ln = DeblockerSettings.GetKey(blocks.Count - 1);
@@ -56,8 +57,10 @@ namespace Console.ScriptSystem.Deblocker
                     continue;
                 }
                 line.Append(originalLine[i]);
+
             }
-            return line.ToString();
+            string s = line.ToString();
+            return s;
         }
 
         /// <summary>
@@ -127,7 +130,7 @@ namespace Console.ScriptSystem.Deblocker
         private void Parse()
         {
             _cleanedLine = GetCleanedLine(OriginalLine, out _blocks);
-            _cleanParts = CommandParser.ParseStringBlocks(_cleanedLine);
+            _cleanParts = CommandParser.ParseStringBlocks(_cleanedLine).Select(x=>x.Trim()).ToArray();
         }
 
 

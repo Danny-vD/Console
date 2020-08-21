@@ -1,0 +1,7 @@
+
+for-all "$files(scripts/misc)" {
+	echo "$param(item)"
+}
+
+ap testvar "$eval(10*10)"
+echo "$props(testvar)"

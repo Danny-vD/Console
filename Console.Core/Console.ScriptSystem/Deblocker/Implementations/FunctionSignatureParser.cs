@@ -9,12 +9,14 @@ namespace Console.ScriptSystem.Deblocker.Implementations
     {
         public struct FunctionSignature
         {
+            public string OriginalSignature;
             public List<string> ParameterNames;
 
 
-            public FunctionSignature(string[] parameterNames)
+            public FunctionSignature(string parameterNames)
             {
-                ParameterNames = parameterNames.Select(x => x.Trim()).ToList();
+                OriginalSignature = parameterNames;
+                ParameterNames = parameterNames.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToList();
             }
 
             public override string ToString()
@@ -35,21 +37,27 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         public static FunctionSignature ParseFunctionSignature(Line line, out int sigStart, out int sigLength)
         {
 
-            int open = line.CleanedLine.IndexOf(DeblockerSettings.OpenFunctionBracket);
-            int close = line.CleanedLine.IndexOf(DeblockerSettings.CloseFunctionBracket, open + 1);
+            int open = line.OriginalLine.IndexOf(DeblockerSettings.OpenFunctionBracket);
+            int close = line.OriginalLine.IndexOf(DeblockerSettings.CloseFunctionBracket, open + 1);
             if (open != -1 && close != -1 && open < close)
             {
-                string sigP = line.CleanedLine.Substring(open + 1, close - open - 1);
+                string sigP = line.OriginalLine.Substring(open + 1, close - open - 1);
                 sigStart = open;
-                sigLength = close - open + 1;
+                sigLength = sigP.Length+2;
+                string s = line.OriginalLine.Substring(sigStart, sigLength);
                 FunctionSignature sig =
-                    new FunctionSignature(sigP.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+                    new FunctionSignature(sigP);
+                if (open != 0 && line.OriginalLine[open - 1] == ' ' &&
+                    close!=line.OriginalLine.Length-1 && line.OriginalLine[close+1] ==' ')
+                {
+                    sigLength++; //Removing one of the Spaces if there are 2
+                }
                 return sig;
             }
             if (open == -1 && close == -1)
             {
                 sigStart = sigLength = 0;
-                return new FunctionSignature(new string[0]);
+                return new FunctionSignature("");
             }
 
             throw new FunctionSignatureException("Invalid Function Signature: " + line.CleanedLine +
