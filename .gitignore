@@ -15,3 +15,12 @@ Temp/
 obj/
 Build/
 bin/
+
+# Ignoring Nuget Packages
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.assets.json
