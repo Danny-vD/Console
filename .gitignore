@@ -1,5 +1,6 @@
 # Solution and project files
 *.sln
+!Console.Form.sln
 !Console.Core.sln
 *.csproj
 !Console*.csproj
