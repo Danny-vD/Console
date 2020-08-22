@@ -187,20 +187,28 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html">FunctionDeblocker.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            Line l = <span class="keyword">new</span> Line(SequenceSystem.SequenceAdd + line.OriginalLine.Remove(0, <a class="code" href="../../df/d8e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_deblocker.html#a131764532ac34c70d4be710d4cb83fe7">Key</a>.Length));</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            List&lt;string&gt; s = base.Deblock(l, out begin, out end).ToList();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">string</span>[] parts = l.CleanParts;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (parts.Length &lt; 2)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;Can not Deblock Line: &quot;</span> + l);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                end = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">return</span> base.Deblock(line, out begin, out end);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            s.Insert(0, $<span class="stringliteral">&quot;{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}&quot;</span>); <span class="comment">// Create after Delete</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="comment">//s.Insert(0, $&quot;{SequenceSystem.SequenceDelete} {parts[1]}&quot;); // Delete to make sure the name is free</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> s.ToArray();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            FunctionSignatureParser.FunctionSignature signature = FunctionSignatureParser.ParseFunctionSignature(line, out <span class="keywordtype">int</span> sigStart, out <span class="keywordtype">int</span> sigLength);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            Line l = <span class="keyword">new</span> Line(SequenceSystem.SequenceAdd +</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                              line.OriginalLine.Remove(sigStart, sigLength).Remove(0, <a class="code" href="../../df/d8e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_deblocker.html#a131764532ac34c70d4be710d4cb83fe7">Key</a>.Length));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordtype">string</span>[] parts = l.CleanParts;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (DeblockerSettings.WriteDeblockLogs)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                ScriptSystemInitializer.Logger.Log(<span class="stringliteral">&quot;Deblocking Function: &quot;</span> + parts[1] + signature);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            List&lt;string&gt; s = base.Deblock(l, out begin, out end).ToList();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">if</span> (parts.Length &lt; 2)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                ScriptSystemInitializer.Logger.LogWarning(<span class="stringliteral">&quot;Can not Deblock Line: &quot;</span> + l);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                end = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> base.Deblock(line, out begin, out end);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            s.InsertRange(0, signature.ParameterNames.Select(x =&gt; $<span class="stringliteral">&quot;{SequenceSystem.SequenceAddParameter} {parts[1]} {x}&quot;</span>));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            s.Insert(0, $<span class="stringliteral">&quot;{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}&quot;</span>); <span class="comment">// Create after Delete</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">//s.Insert(0, $&quot;{SequenceSystem.SequenceDelete} {parts[1]}&quot;); // Delete to make sure the name is free</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> s.ToArray();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -22,6 +22,7 @@ var hierarchy =
     ] ],
     [ "Console.Core.AConsoleManager", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html", [
       [ "Console.CLI.CLIConsoleManager", "d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html", null ],
+      [ "Console.Form.FormConsoleManager", "dd/d81/class_console_1_1_form_1_1_form_console_manager.html", null ],
       [ "Console.Unity.UnityConsoleManager", "d9/d40/class_console_1_1_unity_1_1_unity_console_manager.html", null ]
     ] ],
     [ "Console.Core.ConverterSystem.AConverter", "db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html", [
@@ -39,8 +40,10 @@ var hierarchy =
       [ "Console.ScriptSystem.Deblocker.Implementations.DefaultDeblocker", "d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html", [
         [ "Console.ScriptSystem.Deblocker.Implementations.FunctionDeblocker", "df/d8e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_deblocker.html", null ],
         [ "Console.ScriptSystem.Deblocker.Implementations.IfDeblocker", "d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html", [
+          [ "Console.ScriptSystem.Deblocker.Implementations.ForAllDeblocker", "da/da0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_for_all_deblocker.html", null ],
           [ "Console.ScriptSystem.Deblocker.Implementations.IfElseDeblocker", "da/dee/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_deblocker.html", null ],
-          [ "Console.ScriptSystem.Deblocker.Implementations.IfElseIfDeblocker", "dc/d17/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_if_deblocker.html", null ]
+          [ "Console.ScriptSystem.Deblocker.Implementations.IfElseIfDeblocker", "dc/d17/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_if_deblocker.html", null ],
+          [ "Console.ScriptSystem.Deblocker.Implementations.WhileDeblocker", "db/dfd/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_while_deblocker.html", null ]
         ] ],
         [ "Console.ScriptSystem.Deblocker.Implementations.LocalFunctionDeblocker", "d1/daf/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_local_function_deblocker.html", null ]
       ] ]
@@ -78,6 +81,10 @@ var hierarchy =
         [ "Console.Core.ReflectionSystem.StaticPropertyMetaData", "d5/d86/class_console_1_1_core_1_1_reflection_system_1_1_static_property_meta_data.html", null ]
       ] ]
     ] ],
+    [ "Console.Core.LogSystem.ALogger", "d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html", [
+      [ "Console.Core.LogSystem.DefaultLogger", "d6/da4/class_console_1_1_core_1_1_log_system_1_1_default_logger.html", null ],
+      [ "Console.Core.LogSystem.PrefixLogger", "d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html", null ]
+    ] ],
     [ "Console.Core.ReflectionSystem.Abstract.AMetaData< T >", "d0/d7e/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_meta_data.html", [
       [ "Console.Core.ReflectionSystem.Abstract.AInstancedMetaData< T >", "da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html", null ]
     ] ],
@@ -96,6 +103,7 @@ var hierarchy =
     ] ],
     [ "Console.Core.AObjectSelector", "d5/d9c/class_console_1_1_core_1_1_a_object_selector.html", [
       [ "Console.CLI.CLIObjSelector", "d9/d69/class_console_1_1_c_l_i_1_1_c_l_i_obj_selector.html", null ],
+      [ "Console.Form.FormObjSelector", "d2/db9/class_console_1_1_form_1_1_form_obj_selector.html", null ],
       [ "Console.Unity.UnityObjectSelector", "df/dfb/class_console_1_1_unity_1_1_unity_object_selector.html", null ]
     ] ],
     [ "Console.Networking.Handlers.Abstract.APacketClientHandler< AuthenticationPacket >", "df/d4f/class_console_1_1_networking_1_1_handlers_1_1_abstract_1_1_a_packet_client_handler.html", [
@@ -135,12 +143,12 @@ var hierarchy =
     [ "Console.Networking.Commands.ClientConsoleCommand", "d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html", null ],
     [ "Console.Networking.ClientSession", "db/d18/class_console_1_1_networking_1_1_client_session.html", null ],
     [ "Console.CLI.CLIObjectSelectionCommands", "d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
@@ -155,6 +163,8 @@ var hierarchy =
     [ "Console.Core.CommandSystem.Commands.CommandManager", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html", null ],
     [ "Console.Core.CommandSystem.CommandParser", "d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html", null ],
     [ "Console.Core.ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", null ],
+    [ "Console.Form.ConsoleExtensions", "dc/d9d/class_console_1_1_form_1_1_console_extensions.html", null ],
+    [ "Console.Form.ConsoleForm.ConsoleLine", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html", null ],
     [ "Console.Networking.Authentication.Cryptography", "dc/d76/class_console_1_1_networking_1_1_authentication_1_1_cryptography.html", null ],
     [ "Console.Core.ConverterSystem.CustomConvertManager", "d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html", null ],
     [ "Console.ScriptSystem.Deblocker.DeblockerCollection", "dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html", null ],
@@ -165,12 +175,19 @@ var hierarchy =
     [ "Exception", null, [
       [ "Console.Evaluator.Core.Evaluator.parserException", "d3/d10/class_console_1_1_evaluator_1_1_core_1_1_evaluator_1_1parser_exception.html", null ],
       [ "Console.Evaluator.Core.VariableNotFoundException", "d6/d10/class_console_1_1_evaluator_1_1_core_1_1_variable_not_found_exception.html", null ],
-      [ "Console.Networking.Packets.SerializerCollection.SerializerException", "d9/d00/class_console_1_1_networking_1_1_packets_1_1_serializer_collection_1_1_serializer_exception.html", null ]
+      [ "Console.Networking.Packets.SerializerCollection.SerializerException", "d9/d00/class_console_1_1_networking_1_1_packets_1_1_serializer_collection_1_1_serializer_exception.html", null ],
+      [ "Console.ScriptSystem.Deblocker.Implementations.FunctionSignatureParser.FunctionSignatureException", "d1/d3d/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_065c28c9fb1a9df43e18a35db4d27c7a.html", null ]
     ] ],
     [ "Console.Core.ExpanderSystem.ExpanderManager", "d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html", null ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands.html", null ],
+    [ "Console.Core.ExtensionSystem.ExtensionData", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data.html", null ],
     [ "Console.Core.ExtensionSystem.ExtensionLoader", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html", null ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.FlagTests", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests.html", null ],
+    [ "Form", null, [
+      [ "Console.Form.ConsoleForm", "d0/d67/class_console_1_1_form_1_1_console_form.html", null ]
+    ] ],
+    [ "Console.ScriptSystem.Deblocker.Implementations.FunctionSignatureParser.FunctionSignature", "db/dbb/struct_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_1_1_function_signature.html", null ],
+    [ "Console.ScriptSystem.Deblocker.Implementations.FunctionSignatureParser", "d6/d27/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser.html", null ],
     [ "Console.Evaluator.Core.Globals", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals.html", null ],
     [ "Console.Networking.Commands.HostConsoleCommand", "dd/d12/class_console_1_1_networking_1_1_commands_1_1_host_console_command.html", null ],
     [ "Console.Networking.HostSession", "d2/dd1/class_console_1_1_networking_1_1_host_session.html", null ],
@@ -268,9 +285,11 @@ var hierarchy =
     [ "Console.Networking.Packets.Abstract.PacketSerializer< LogPacket >", "d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html", [
       [ "Console.Networking.Packets.Log.LogPacketSerializer", "d3/d01/class_console_1_1_networking_1_1_packets_1_1_log_1_1_log_packet_serializer.html", null ]
     ] ],
+    [ "Console.Core.ParameterCollection", "d5/d16/class_console_1_1_core_1_1_parameter_collection.html", null ],
     [ "Console.Core.CommandSystem.Commands.ParameterRange", "d5/d2a/struct_console_1_1_core_1_1_command_system_1_1_commands_1_1_parameter_range.html", null ],
     [ "Console.Evaluator.Core.parser", "dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html", null ],
     [ "Console.CLI.Program", "de/d2f/class_console_1_1_c_l_i_1_1_program.html", null ],
+    [ "Console.Form.Program", "d3/d9c/class_console_1_1_form_1_1_program.html", null ],
     [ "Console.Core.PropertySystem.PropertyAttributeUtils", "d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html", null ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html", null ],
     [ "Console.PersistentProperties.PropertyLoaderCommands", "d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html", null ],
@@ -278,6 +297,7 @@ var hierarchy =
     [ "Console.PersistentProperties.PropertyParser", "d9/d98/class_console_1_1_persistent_properties_1_1_property_parser.html", null ],
     [ "Console.Core.ReflectionSystem.ReflectionUtils", "d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html", null ],
     [ "Console.ScriptSystem.ScriptSystem", "d5/d89/class_console_1_1_script_system_1_1_script_system.html", null ],
+    [ "Console.ScriptSystem.SequenceSystem.Sequence", "db/d0f/class_console_1_1_script_system_1_1_sequence_system_1_1_sequence.html", null ],
     [ "Console.ScriptSystem.SequenceSystem", "df/d39/class_console_1_1_script_system_1_1_sequence_system.html", null ],
     [ "Console.Networking.Packets.SerializerCollection", "d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html", null ],
     [ "Console.Evaluator.Core.tokenizer", "d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html", null ],
@@ -286,12 +306,14 @@ var hierarchy =
     [ "Console.EnvironmentVariables.VariableProvider", "dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html", [
       [ "Console.ClassQueries.ClassQueryProvider", "d1/d20/class_console_1_1_class_queries_1_1_class_query_provider.html", null ],
       [ "Console.EnvironmentVariables.DelegateVariableProvider", "dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider.html", null ],
+      [ "Console.EnvironmentVariables.RangeVariableProvider", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider.html", null ],
       [ "Console.EnvironmentVariables.VariableContainer", "d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html", [
         [ "Console.EnvironmentVariables.DefaultVariables", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html", null ],
         [ "Console.Evaluator.EvalVariableProvider", "d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html", null ],
         [ "Console.PropEnvCompat.PropertyVariableProvider", "d5/d78/class_console_1_1_prop_env_compat_1_1_property_variable_provider.html", null ]
       ] ],
       [ "Console.PropIOCompat.DirectoriesVariableProvider", "d6/db3/class_console_1_1_prop_i_o_compat_1_1_directories_variable_provider.html", null ],
-      [ "Console.PropIOCompat.FilesVariableProvider", "dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html", null ]
+      [ "Console.PropIOCompat.FilesVariableProvider", "dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html", null ],
+      [ "Console.ScriptSystem.ParameterVariableContainer", "d7/dcf/class_console_1_1_script_system_1_1_parameter_variable_container.html", null ]
     ] ]
 ];

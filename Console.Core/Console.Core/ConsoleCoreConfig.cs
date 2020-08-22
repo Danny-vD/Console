@@ -13,7 +13,10 @@ namespace Console.Core
     {
         #region Console Properties
 
-        internal static readonly ALogger CoreLogger = new PrefixLogger(Assembly.GetExecutingAssembly().GetName().Name);
+        /// <summary>
+        /// Logger used to Write Logs from the Core Library
+        /// </summary>
+        internal static readonly ALogger CoreLogger = TypedLogger.CreateTypedWithPrefix(Assembly.GetExecutingAssembly().GetName().Name);
 
         /// <summary>
         /// The Version of the Core Library
@@ -46,6 +49,9 @@ namespace Console.Core
                 _stringChar = value;
             }
         }
+        /// <summary>
+        /// Backing field for the StringChar Property
+        /// </summary>
         private static char _stringChar = '"';
 
         /// <summary>
@@ -68,18 +74,34 @@ namespace Console.Core
         /// </summary>
         public static char[] EscapableChars => _escapableChars.ToArray();
 
+        /// <summary>
+        /// Backing Field of the Escapable Character Array
+        /// </summary>
         private static List<char> _escapableChars = new List<char> { StringChar };
 
+        /// <summary>
+        /// Adds a Character to the EscapeChars
+        /// </summary>
+        /// <param name="escChar">Character to add</param>
         public static void AddEscapeChar(char escChar)
         {
             if (!_escapableChars.Contains(escChar)) _escapableChars.Add(escChar);
         }
 
+        /// <summary>
+        /// Removes a Character from the Escape Chars
+        /// </summary>
+        /// <param name="escChar"></param>
         public static void RemoveEscapeChar(char escChar)
         {
             if (_escapableChars.Contains(escChar)) _escapableChars.Remove(escChar);
         }
 
+        /// <summary>
+        /// Replaces a Character from the Escape Chars
+        /// </summary>
+        /// <param name="oldChar">Character to Replace</param>
+        /// <param name="newChar">Replacement Char</param>
         public static void ReplaceChar(char oldChar, char newChar)
         {
             RemoveEscapeChar(oldChar);

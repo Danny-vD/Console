@@ -6,23 +6,22 @@ using System.Text;
 using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.CommandSystem.Commands;
-using Console.EnvironmentVariables;
+using Console.Core.LogSystem;
 using Console.ScriptSystem.Deblocker;
-using Console.ScriptSystem.Deblocker.Implementations;
+using Console.ScriptSystem.Deblocker.Parameters;
 
 namespace Console.ScriptSystem
 {
-    public class ParameterVariableContainer : VariableProvider
-    {
-        public override string FunctionName => "param";
-        public override string GetValue(string parameter) => ParameterCollection.GetParameter(parameter);
-    }
-
     /// <summary>
     /// Static SequenceSystem API
     /// </summary>
     public static class SequenceSystem
     {
+        private static ALogger SequenceOut = TypedLogger.CreateTypedWithPrefix("SequenceSystem");
+
+        /// <summary>
+        /// All Sequences listed like they get displayed on the console.
+        /// </summary>
         public static string SequenceText
         {
             get
@@ -36,6 +35,9 @@ namespace Console.ScriptSystem
             }
         }
 
+        /// <summary>
+        /// List of Sequences.
+        /// </summary>
         public static string[] LoadedSequences => Sequences.Keys.ToArray();
 
         /// <summary>
@@ -52,6 +54,9 @@ namespace Console.ScriptSystem
         /// Add To Sequence Name
         /// </summary>
         public const string SequenceAdd = "add-to-sequence";
+        /// <summary>
+        /// Add Parameter to Sequence Name
+        /// </summary>
         public const string SequenceAddParameter = "sequence-add-param";
         /// <summary>
         /// Delete Sequence Name
@@ -85,17 +90,6 @@ namespace Console.ScriptSystem
         /// </summary>
         private static readonly Dictionary<string, Sequence> Sequences = new Dictionary<string, Sequence>();
 
-        private class Sequence
-        {
-            public readonly FunctionSignatureParser.FunctionSignature Signature;
-            public readonly List<string> Lines;
-
-            public Sequence()
-            {
-                Lines = new List<string>();
-                Signature = new FunctionSignatureParser.FunctionSignature("");
-            }
-        }
 
         /// <summary>
         /// Creates a Sequence by name
@@ -107,12 +101,17 @@ namespace Console.ScriptSystem
         {
             if (Sequences.ContainsKey(name))
             {
-                //AConsoleManager.Instance.LogWarning($"A Sequence with the name: {name} does already exist");
+                SequenceOut.LogWarning($"A Sequence with the name: {name} does already exist");
                 if (!overwrite) return;
             }
             Sequences[name] = new Sequence();
         }
 
+        /// <summary>
+        /// Adds a parameter to the Specified Sequence
+        /// </summary>
+        /// <param name="sequence">Sequence Name</param>
+        /// <param name="parameterName">Parameter Name</param>
         [Command(SequenceAddParameter, "Adds a Parameter to the Sequence", "seq-add-param")]
         private static void AddParameterToSequence(string sequence, string parameterName)
         {
@@ -133,14 +132,14 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                //AConsoleManager.Instance.LogWarning($"A Sequence with the name {name} does not exist.");
+                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 if (!create)
                     return;
                 CreateSequence(name, false);
             }
-            //string s = command.StartsWith(ConsoleCoreConfig.StringChar.ToString()) ? CommandParser.CleanContent(command) : command;
+            string s = command.StartsWith(ConsoleCoreConfig.StringChar.ToString()) ? CommandParser.CleanContent(command) : command;
 
-            //AConsoleManager.Instance.Log("Before: " + command + "\nAfter: " + s);
+            SequenceOut.Log("Before: " + command + "\nAfter: " + s);
             Sequences[name].Lines.Add(command);
         }
 
@@ -157,14 +156,14 @@ namespace Console.ScriptSystem
             }
             Sequences.Remove(name);
 
-            //AConsoleManager.Instance.Log("Deleted Sequence: " + name);
+            SequenceOut.Log("Deleted Sequence: " + name);
         }
 
         [Command("clear-sequences", "Clears all Loaded Sequences", "clear-seq")]
         public static void ClearSequences()
         {
             Sequences.Clear();
-            ScriptSystemInitializer.Logger.Log($"Sequences Cleared.");
+            SequenceOut.Log($"Sequences Cleared.");
         }
 
         /// <summary>
@@ -176,7 +175,7 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
+                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
             StringBuilder builder = new StringBuilder($"Sequence \"{name}\"\n");
@@ -210,14 +209,15 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
+                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            ParameterCollection spc = ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
+            ParameterCollection spc = name.StartsWith("BLOCK_") ? 
+                ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter) :
+                ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
             foreach (string s in Sequences[name].Lines)
             {
-                if (!name.StartsWith("BLOCK_"))
-                    ParameterCollection.MakeCurrent(spc);
+                ParameterCollection.MakeCurrent(spc);
                 AConsoleManager.Instance.EnterCommand(s);
             }
             ParameterCollection.MakeCurrent(null);
@@ -234,7 +234,7 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
+                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
             File.WriteAllLines(file, Sequences[name].Lines);
@@ -251,15 +251,22 @@ namespace Console.ScriptSystem
         {
             if (!File.Exists(file))
             {
-                ScriptSystemInitializer.Logger.LogWarning($"The File {file} does not exist.");
+                SequenceOut.LogWarning($"The File {file} does not exist.");
                 return;
             }
             if (!Sequences.ContainsKey(name))
             {
-                ScriptSystemInitializer.Logger.LogWarning($"A Sequence with the name {name} does not exist.");
+                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 if (!create)
                     return;
                 CreateSequence(name, false);
+            }
+            else
+            {
+                if (!create)
+                    return;
+                CreateSequence(name, true);
+
             }
             string[] lines = DeblockerCollection.Parse(File.ReadAllText(file)).ToArray();
             string s2 = "";
@@ -321,6 +328,19 @@ namespace Console.ScriptSystem
                 () => RunSequence(sequenceName));
             cmd.SetHelpMessage(helpText);
             CommandManager.AddCommand(cmd);
+        }
+
+        [Command("for-all", "Runs the specified command for each Item in the List")]
+        private static void ForAll(string list, string command)
+        {
+            string[] li = list.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+            for (int i = 0; i < li.Length; i++)
+            {
+                ParameterCollection pc = ParameterCollection.CreateCollection(new[] { "item" }, li[i].Trim());
+                ParameterCollection.MakeCurrent(pc);
+                AConsoleManager.Instance.EnterCommand(command);
+                ParameterCollection.MakeCurrent(null);
+            }
         }
     }
 }

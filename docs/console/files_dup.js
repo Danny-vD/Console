@@ -27,6 +27,9 @@ var files_dup =
     [ "AInstancedMetaData.cs", "dd/daa/_a_instanced_meta_data_8cs.html", [
       [ "AInstancedMetaData", "da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html", "da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data" ]
     ] ],
+    [ "ALogger.cs", "dc/db4/_a_logger_8cs.html", [
+      [ "ALogger", "d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html", "d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger" ]
+    ] ],
     [ "AMetaData.cs", "d9/ddd/_a_meta_data_8cs.html", [
       [ "AMetaData", "d0/d7e/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_meta_data.html", "d0/d7e/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_meta_data" ]
     ] ],
@@ -181,6 +184,13 @@ var files_dup =
     [ "ConsoleCoreConfig.cs", "d0/d3b/_console_core_config_8cs.html", [
       [ "ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", "d6/dce/class_console_1_1_core_1_1_console_core_config" ]
     ] ],
+    [ "ConsoleExtensions.cs", "d2/dbf/_console_extensions_8cs.html", [
+      [ "ConsoleExtensions", "dc/d9d/class_console_1_1_form_1_1_console_extensions.html", "dc/d9d/class_console_1_1_form_1_1_console_extensions" ]
+    ] ],
+    [ "ConsoleForm.cs", "dc/d6e/_console_form_8cs.html", [
+      [ "ConsoleForm", "d0/d67/class_console_1_1_form_1_1_console_form.html", "d0/d67/class_console_1_1_form_1_1_console_form" ],
+      [ "ConsoleLine", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line" ]
+    ] ],
     [ "ConsoleManagerComponent.cs", "d6/d92/_console_manager_component_8cs.html", "d6/d92/_console_manager_component_8cs" ],
     [ "ConsoleSocket.cs", "db/d44/_console_socket_8cs.html", [
       [ "ConsoleSocket", "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html", "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket" ]
@@ -211,6 +221,9 @@ var files_dup =
     ] ],
     [ "DefaultDeblocker.cs", "d8/d83/_default_deblocker_8cs.html", [
       [ "DefaultDeblocker", "d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html", "d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker" ]
+    ] ],
+    [ "DefaultLogger.cs", "d9/d8e/_default_logger_8cs.html", [
+      [ "DefaultLogger", "d6/da4/class_console_1_1_core_1_1_log_system_1_1_default_logger.html", null ]
     ] ],
     [ "DefaultLogReader.cs", "dd/d23/_default_log_reader_8cs.html", [
       [ "DefaultLogReader", "d1/d0f/class_console_1_1_unity_1_1_default_log_reader.html", "d1/d0f/class_console_1_1_unity_1_1_default_log_reader" ]
@@ -260,6 +273,9 @@ var files_dup =
     [ "ExtensionCommands.cs", "db/d7c/_extension_commands_8cs.html", [
       [ "ExtensionCommands", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands.html", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands" ]
     ] ],
+    [ "ExtensionData.cs", "df/d8d/_extension_data_8cs.html", [
+      [ "ExtensionData", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data.html", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data" ]
+    ] ],
     [ "ExtensionLoader.cs", "d6/d72/_extension_loader_8cs.html", [
       [ "ExtensionLoader", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader" ]
     ] ],
@@ -278,8 +294,22 @@ var files_dup =
     [ "FlagTests.cs", "dd/d59/_flag_tests_8cs.html", [
       [ "FlagTests", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests.html", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests" ]
     ] ],
+    [ "ForAllDeblocker.cs", "d5/dc3/_for_all_deblocker_8cs.html", [
+      [ "ForAllDeblocker", "da/da0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_for_all_deblocker.html", "da/da0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_for_all_deblocker" ]
+    ] ],
+    [ "FormConsoleManager.cs", "d1/d91/_form_console_manager_8cs.html", [
+      [ "FormConsoleManager", "dd/d81/class_console_1_1_form_1_1_form_console_manager.html", "dd/d81/class_console_1_1_form_1_1_form_console_manager" ]
+    ] ],
+    [ "FormObjSelector.cs", "d7/dfe/_form_obj_selector_8cs.html", [
+      [ "FormObjSelector", "d2/db9/class_console_1_1_form_1_1_form_obj_selector.html", "d2/db9/class_console_1_1_form_1_1_form_obj_selector" ]
+    ] ],
     [ "FunctionDeblocker.cs", "d5/dbe/_function_deblocker_8cs.html", [
       [ "FunctionDeblocker", "df/d8e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_deblocker.html", "df/d8e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_deblocker" ]
+    ] ],
+    [ "FunctionSignatureParser.cs", "d9/d4d/_function_signature_parser_8cs.html", [
+      [ "FunctionSignatureParser", "d6/d27/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser.html", "d6/d27/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser" ],
+      [ "FunctionSignature", "db/dbb/struct_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_1_1_function_signature.html", "db/dbb/struct_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_1_1_function_signature" ],
+      [ "FunctionSignatureException", "d1/d3d/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_065c28c9fb1a9df43e18a35db4d27c7a.html", "d1/d3d/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_065c28c9fb1a9df43e18a35db4d27c7a" ]
     ] ],
     [ "GameObjectComponentConverter.cs", "d0/d69/_game_object_component_converter_8cs.html", [
       [ "GameObjectComponentConverter", "df/d25/class_console_1_1_unity_1_1_game_object_component_converter.html", "df/d25/class_console_1_1_unity_1_1_game_object_component_converter" ]
@@ -423,11 +453,17 @@ var files_dup =
     [ "PacketSerializer.cs", "d5/da7/_packet_serializer_8cs.html", [
       [ "PacketSerializer", "d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html", "d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer" ]
     ] ],
+    [ "ParameterCollection.cs", "d4/d84/_parameter_collection_8cs.html", [
+      [ "ParameterCollection", "d5/d16/class_console_1_1_core_1_1_parameter_collection.html", "d5/d16/class_console_1_1_core_1_1_parameter_collection" ]
+    ] ],
     [ "ParameterMetaData.cs", "de/dac/_parameter_meta_data_8cs.html", [
       [ "ParameterMetaData", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data.html", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data" ]
     ] ],
     [ "ParameterRange.cs", "d1/d4c/_parameter_range_8cs.html", [
       [ "ParameterRange", "d5/d2a/struct_console_1_1_core_1_1_command_system_1_1_commands_1_1_parameter_range.html", "d5/d2a/struct_console_1_1_core_1_1_command_system_1_1_commands_1_1_parameter_range" ]
+    ] ],
+    [ "ParameterVariableContainer.cs", "de/d9c/_parameter_variable_container_8cs.html", [
+      [ "ParameterVariableContainer", "d7/dcf/class_console_1_1_script_system_1_1_parameter_variable_container.html", "d7/dcf/class_console_1_1_script_system_1_1_parameter_variable_container" ]
     ] ],
     [ "Parser.cs", "dc/d93/_parser_8cs.html", [
       [ "parser", "dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html", "dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser" ]
@@ -436,9 +472,15 @@ var files_dup =
     [ "PersistentPropertiesInitializer.cs", "d7/dd1/_persistent_properties_initializer_8cs.html", [
       [ "PersistentPropertiesInitializer", "da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html", "da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer" ]
     ] ],
+    [ "PrefixLogger.cs", "dd/de2/_prefix_logger_8cs.html", [
+      [ "PrefixLogger", "d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html", "d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger" ]
+    ] ],
     [ "Priority.cs", "d9/d4b/_priority_8cs.html", "d9/d4b/_priority_8cs" ],
-    [ "Program.cs", "dd/d5c/_program_8cs.html", [
+    [ "Console.Core/Console.CLI/Program.cs", "d4/d55/_console_8_core_2_console_8_c_l_i_2_program_8cs.html", [
       [ "Program", "de/d2f/class_console_1_1_c_l_i_1_1_program.html", "de/d2f/class_console_1_1_c_l_i_1_1_program" ]
+    ] ],
+    [ "Console.Form/Console.Form/Program.cs", "d8/d90/_console_8_form_2_console_8_form_2_program_8cs.html", [
+      [ "Program", "d3/d9c/class_console_1_1_form_1_1_program.html", "d3/d9c/class_console_1_1_form_1_1_program" ]
     ] ],
     [ "PropCompatInitializer.cs", "d1/df4/_prop_compat_initializer_8cs.html", [
       [ "PropCompatInitializer", "d2/d49/class_console_1_1_prop_env_compat_1_1_prop_compat_initializer.html", "d2/d49/class_console_1_1_prop_env_compat_1_1_prop_compat_initializer" ]
@@ -467,6 +509,9 @@ var files_dup =
     [ "PropertyVariableProvider.cs", "d0/daa/_property_variable_provider_8cs.html", [
       [ "PropertyVariableProvider", "d5/d78/class_console_1_1_prop_env_compat_1_1_property_variable_provider.html", "d5/d78/class_console_1_1_prop_env_compat_1_1_property_variable_provider" ]
     ] ],
+    [ "RangeVariableProvider.cs", "d2/de2/_range_variable_provider_8cs.html", [
+      [ "RangeVariableProvider", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider.html", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider" ]
+    ] ],
     [ "ReflectionCommand.cs", "d1/dc7/_reflection_command_8cs.html", [
       [ "ReflectionCommand", "d9/d9d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_reflection_command.html", "d9/d9d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_reflection_command" ]
     ] ],
@@ -489,7 +534,8 @@ var files_dup =
       [ "SelectionPropertyAttribute", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute" ]
     ] ],
     [ "SequenceSystem.cs", "da/d6d/_sequence_system_8cs.html", [
-      [ "SequenceSystem", "df/d39/class_console_1_1_script_system_1_1_sequence_system.html", "df/d39/class_console_1_1_script_system_1_1_sequence_system" ]
+      [ "SequenceSystem", "df/d39/class_console_1_1_script_system_1_1_sequence_system.html", "df/d39/class_console_1_1_script_system_1_1_sequence_system" ],
+      [ "Sequence", "db/d0f/class_console_1_1_script_system_1_1_sequence_system_1_1_sequence.html", "db/d0f/class_console_1_1_script_system_1_1_sequence_system_1_1_sequence" ]
     ] ],
     [ "SerializerCollection.cs", "d2/d07/_serializer_collection_8cs.html", [
       [ "SerializerCollection", "d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html", "d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection" ],
@@ -537,5 +583,8 @@ var files_dup =
     ] ],
     [ "VariableProvider.cs", "de/dfc/_variable_provider_8cs.html", [
       [ "VariableProvider", "dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html", "dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider" ]
+    ] ],
+    [ "WhileDeblocker.cs", "da/d0c/_while_deblocker_8cs.html", [
+      [ "WhileDeblocker", "db/dfd/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_while_deblocker.html", "db/dfd/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_while_deblocker" ]
     ] ]
 ];

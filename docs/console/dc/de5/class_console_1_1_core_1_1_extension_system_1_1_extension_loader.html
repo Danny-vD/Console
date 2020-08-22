@@ -160,7 +160,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d72/_extension_loader_8cs_source.html#l00083">83</a> of file <a class="el" href="../../d6/d72/_extension_loader_8cs_source.html">ExtensionLoader.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;Initializing Extensions...&quot;</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;\nInitializing Extensions...&quot;</span>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordtype">int</span> i = <a class="code" href="../../dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html#abf5f0b4398ec0aac85b556fafe518f9e">InitializeExtensions</a>(extensions[<a class="code" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html#a4a359e257b0719c9bb4d66dd3faea177">LoadOrder</a>.First]);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            s += <span class="stringliteral">&quot;\nLoadOrder.First: &quot;</span> + extensions[<a class="code" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html#a4a359e257b0719c9bb4d66dd3faea177">LoadOrder</a>.First].Count;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            i += <a class="code" href="../../dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html#abf5f0b4398ec0aac85b556fafe518f9e">InitializeExtensions</a>(extensions[<a class="code" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html#a4a359e257b0719c9bb4d66dd3faea177">LoadOrder</a>.Default]);</div>
@@ -168,7 +168,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            i += <a class="code" href="../../dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html#abf5f0b4398ec0aac85b556fafe518f9e">InitializeExtensions</a>(extensions[<a class="code" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html#a4a359e257b0719c9bb4d66dd3faea177">LoadOrder</a>.After]);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            s += <span class="stringliteral">&quot;\nLoadOrder.After: &quot;</span> + extensions[<a class="code" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html#a4a359e257b0719c9bb4d66dd3faea177">LoadOrder</a>.After].Count;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            s += <span class="stringliteral">&quot;\nTotal Initialized Extensions: &quot;</span> + i + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            AConsoleManager.Instance.Log(s);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            ConsoleCoreConfig.CoreLogger.Log(s);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -210,7 +210,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">foreach</span> (AExtensionInitializer aExtensionInitializer <span class="keywordflow">in</span> extensions)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                aExtensionInitializer.Initialize();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                aExtensionInitializer._InnerInitialize();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">return</span> extensions.Count;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
@@ -257,13 +257,13 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                Assembly <span class="keyword">asm</span> = Assembly.LoadFrom(path);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                AExtensionInitializer[] inits = <a class="code" href="../../d0/d57/class_console_1_1_core_1_1_activation_system_1_1_activate_on_attribute_utils.html">ActivateOnAttributeUtils</a>.<a class="code" href="../../d0/d57/class_console_1_1_core_1_1_activation_system_1_1_activate_on_attribute_utils.html#ae46186bf29e4f821a75e20f31a20f98e">ActivateObjects</a>&lt;AExtensionInitializer&gt;(<span class="keyword">asm</span>);</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">if</span> (inits.Length == 0)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;Assembly &quot;</span> + <span class="keyword">asm</span>.GetName().Name + <span class="stringliteral">&quot; does not have an Initializer but is loaded.&quot;</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    ConsoleCoreConfig.CoreLogger.LogWarning(<span class="stringliteral">&quot;Assembly &quot;</span> + <span class="keyword">asm</span>.GetName().Name + <span class="stringliteral">&quot; does not have an Initializer but is loaded.&quot;</span>);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">return</span> inits;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;Can not load Extension: &quot;</span> + path);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                AConsoleManager.Instance.LogWarning(e);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                ConsoleCoreConfig.CoreLogger.LogWarning(<span class="stringliteral">&quot;Can not load Extension: &quot;</span> + path);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                ConsoleCoreConfig.CoreLogger.LogWarning(e);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> AExtensionInitializer[0];</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            }</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
@@ -343,7 +343,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d72/_extension_loader_8cs_source.html#l00043">43</a> of file <a class="el" href="../../d6/d72/_extension_loader_8cs_source.html">ExtensionLoader.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            AConsoleManager.Instance.Log($<span class="stringliteral">&quot;Loading {paths.Length} Extensions...&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            ConsoleCoreConfig.CoreLogger.Log($<span class="stringliteral">&quot;Loading {paths.Length} Extensions...&quot;</span>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            List&lt;AExtensionInitializer&gt; exts = <span class="keyword">new</span> List&lt;AExtensionInitializer&gt;();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            paths.Select(<a class="code" href="../../dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html#ae6cc1521cd1424325d65241b487142f6">LoadAssembly</a>).Where(x =&gt; x != <span class="keyword">null</span>).ToList().ForEach(x =&gt; exts.AddRange(x));</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <a class="code" href="../../dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html#ac22eb10483e10ee3e11650117ff9b6ce">ProcessLoadOrder</a>(exts.ToArray());</div>

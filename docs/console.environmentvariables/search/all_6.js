@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['initialize_21',['Initialize',['../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a70b8a91d2a53e979bf42567c4a09b8c8',1,'Console::EnvironmentVariables::EnvInitializer']]],
-  ['instance_22',['Instance',['../d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html#a08ff8a60cbe473e8e71ed5a95642f9bf',1,'Console::EnvironmentVariables::DefaultVariables']]]
+  ['getenvironmentlist_21',['GetEnvironmentList',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#aa12d7d85df4f932494d9d32ed1745fbf',1,'Console::EnvironmentVariables::EnvironmentVariableManager']]],
+  ['getprovider_22',['GetProvider',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#a63a05d5ce198477b02928d7031e04e3a',1,'Console::EnvironmentVariables::EnvironmentVariableManager']]],
+  ['getvalue_23',['GetValue',['../dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider.html#ac478717367e5af3e7a09ec9492f634cf',1,'Console.EnvironmentVariables.DelegateVariableProvider.GetValue()'],['../df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider.html#af52fc3a45a0c4a1fb66a8e9ef514af1a',1,'Console.EnvironmentVariables.RangeVariableProvider.GetValue()'],['../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a0252795c906f7165f57b560ac3900bcd',1,'Console.EnvironmentVariables.VariableContainer.GetValue()'],['../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html#adc951ac993bd190dc7fc1c3402f77743',1,'Console.EnvironmentVariables.VariableProvider.GetValue()']]]
 ];

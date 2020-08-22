@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tolist_12',['ToList',['../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df',1,'Console::PropIOCompat::FilesVariableProvider']]]
+  ['logger_12',['Logger',['../de/ded/class_console_1_1_prop_i_o_compat_1_1_i_o_compat_initializer.html#acedddb9d4494dd8cb87032c42bf20fb1',1,'Console::PropIOCompat::IOCompatInitializer']]]
 ];

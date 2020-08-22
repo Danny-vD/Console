@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['parse_52',['Parse',['../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#afa3ce05e3c2c28d5fc36fc5306ae996a',1,'Console.ScriptSystem.Deblocker.DeblockerCollection.Parse(List&lt; Line &gt; lines)'],['../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#ac66cc7357272742a03c9ad1c8150f061',1,'Console.ScriptSystem.Deblocker.DeblockerCollection.Parse(string content)'],['../d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#ab84b90f148b009ffe9ae92e66a28cf46',1,'Console.ScriptSystem.Deblocker.Line.Parse()']]],
-  ['parselines_53',['ParseLines',['../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#a77474339addc07d00aee5f1ff930fc0e',1,'Console::ScriptSystem::Deblocker::DeblockerCollection']]]
+  ['openfunctionbracket_69',['OpenFunctionBracket',['../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a566deeff9af90d7ba1d2422ad0b07fa7',1,'Console::ScriptSystem::Deblocker::DeblockerSettings']]],
+  ['originalline_70',['OriginalLine',['../d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a6041e3fd9238f346bca6a7458109068b',1,'Console::ScriptSystem::Deblocker::Line']]],
+  ['originalsignature_71',['OriginalSignature',['../db/dbb/struct_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_function_signature_parser_1_1_function_signature.html#a8b565ded99402bc783de0ee5ff385e11',1,'Console::ScriptSystem::Deblocker::Implementations::FunctionSignatureParser::FunctionSignature']]]
 ];

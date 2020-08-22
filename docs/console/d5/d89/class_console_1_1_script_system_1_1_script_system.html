@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('d5/d89/class_console_1_1_script_system
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../da/d74/class_console_1_1_script_system_1_1_script_system-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Console.ScriptSystem.ScriptSystem Class Reference</div>  </div>
@@ -98,6 +99,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a883ca787c6d53a2b8884a56295f4b86a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">RunFile</a> (string path)</td></tr>
 <tr class="memdesc:a883ca787c6d53a2b8884a56295f4b86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a Text File as if it would be typed into the console line by line.  <a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a883ca787c6d53a2b8884a56295f4b86a">More...</a><br /></td></tr>
 <tr class="separator:a883ca787c6d53a2b8884a56295f4b86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a388b6fd5ab5df9cfa705d6a3863010ce"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a388b6fd5ab5df9cfa705d6a3863010ce">RunCommandName</a> = &quot;run&quot;</td></tr>
+<tr class="memdesc:a388b6fd5ab5df9cfa705d6a3863010ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run Command Name  <a href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html#a388b6fd5ab5df9cfa705d6a3863010ce">More...</a><br /></td></tr>
+<tr class="separator:a388b6fd5ab5df9cfa705d6a3863010ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Script System Implementation </p>
@@ -136,22 +143,50 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00020">20</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                List&lt;string&gt; lines = <a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">DeblockerCollection</a>.<a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#afa3ce05e3c2c28d5fc36fc5306ae996a">Parse</a>(File.ReadAllText(path));</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">EnterCommand</a>(line);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a100f063695aa9868eaae61aa337337df">LogWarning</a>(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00025">25</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">if</span> (File.Exists(path))</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                List&lt;string&gt; lines = <a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">DeblockerCollection</a>.<a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#afa3ce05e3c2c28d5fc36fc5306ae996a">Parse</a>(File.ReadAllText(path));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                    <a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">AConsoleManager</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a206089927a2d283101cc4cbd1386b8ab">Instance</a>.<a class="code" href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">EnterCommand</a>(line);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                ScriptSystemInitializer.Logger.LogWarning(<span class="stringliteral">&quot;File does not exist: &quot;</span> + path);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a388b6fd5ab5df9cfa705d6a3863010ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a388b6fd5ab5df9cfa705d6a3863010ce">&#9670;&nbsp;</a></span>RunCommandName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string Console.ScriptSystem.ScriptSystem.RunCommandName = &quot;run&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Run Command Name </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/de0/_script_system_8cs_source.html#l00018">18</a> of file <a class="el" href="../../da/de0/_script_system_8cs_source.html">ScriptSystem.cs</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -159,8 +194,7 @@ Static Public Member Functions</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_a100f063695aa9868eaae61aa337337df"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a100f063695aa9868eaae61aa337337df">Console.Core.AConsoleManager.LogWarning</a></div><div class="ttdeci">abstract void LogWarning(object @object)</div><div class="ttdoc">Writes a Log Warning</div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_ab9b1d7ba7f1b176a9925f32b9ac2ae10"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">Console.Core.AConsoleManager.EnterCommand</a></div><div class="ttdeci">void EnterCommand(string command)</div><div class="ttdoc">Enters a Command into the Console.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00169">AConsoleManager.cs:169</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html_ab9b1d7ba7f1b176a9925f32b9ac2ae10"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10">Console.Core.AConsoleManager.EnterCommand</a></div><div class="ttdeci">void EnterCommand(string command)</div><div class="ttdoc">Enters a Command into the Console.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00173">AConsoleManager.cs:173</a></div></div>
 <div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html_afa3ce05e3c2c28d5fc36fc5306ae996a"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#afa3ce05e3c2c28d5fc36fc5306ae996a">Console.ScriptSystem.Deblocker.DeblockerCollection.Parse</a></div><div class="ttdeci">static List&lt; string &gt; Parse(List&lt; Line &gt; lines)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00061">DeblockerCollection.cs:61</a></div></div>
 <div class="ttc" id="aclass_console_1_1_core_1_1_a_console_manager_html"><div class="ttname"><a href="../../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html">Console.Core.AConsoleManager</a></div><div class="ttdoc">Abstract Console Manager Implementations. Has to be Implemented by the User.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df4/_a_console_manager_8cs_source.html#l00023">AConsoleManager.cs:24</a></div></div>
 <div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">Console.ScriptSystem.Deblocker.DeblockerCollection</a></div><div class="ttdoc">Static Minimal DeblockerCollection Parsing API</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00014">DeblockerCollection.cs:15</a></div></div>

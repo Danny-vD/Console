@@ -198,7 +198,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#a02b09f5f942ee8b3a1986c5addb912a8">commands</a>.Any(item =&gt; item.HasName(alias)))</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                AConsoleManager.Instance.LogError($<span class="stringliteral">&quot;Rename failed! A command with name {alias} already exists!&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                ConsoleCoreConfig.CoreLogger.LogError($<span class="stringliteral">&quot;Rename failed! A command with name {alias} already exists!&quot;</span>);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
@@ -243,7 +243,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        {</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keywordflow">if</span> (command.GetAllNames().Any(name =&gt; name.Contains(<span class="stringliteral">&quot; &quot;</span>)))</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                AConsoleManager.Instance.LogError(<span class="stringliteral">&quot;A command name cannot contain a whitespace character!&quot;</span>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                ConsoleCoreConfig.CoreLogger.LogError(<span class="stringliteral">&quot;A command name cannot contain a whitespace character!&quot;</span>);</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
@@ -263,10 +263,10 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keywordflow">if</span> (cmd != <span class="keyword">null</span>)</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            {</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                <span class="keywordflow">if</span>(ConsoleCoreConfig.AllowOverlappingCommands)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    AConsoleManager.Instance.LogWarning(</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    ConsoleCoreConfig.CoreLogger.LogWarning(</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                        $<span class="stringliteral">&quot;A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!&quot;</span>);</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                    AConsoleManager.Instance.LogError(</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                    ConsoleCoreConfig.CoreLogger.LogError(</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                        $<span class="stringliteral">&quot;A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!&quot;</span>);</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            }</div>
@@ -430,7 +430,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">if</span> (command == <span class="keyword">null</span>)</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                AConsoleManager.Instance.LogWarning(</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                ConsoleCoreConfig.CoreLogger.LogWarning(</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    $<span class="stringliteral">&quot;A command with name {commandName} and {paramsCount} parameter(s) does not exist!\n&quot;</span>);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
@@ -499,7 +499,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordflow">if</span> (tempCommands.Count == 0)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            {</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordtype">string</span> s = $<span class="stringliteral">&quot;A command with name {commandName} does not exist!\n&quot;</span>;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                AConsoleManager.Instance.LogWarning(s);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                ConsoleCoreConfig.CoreLogger.LogWarning(s);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            }</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">return</span> tempCommands;</div>
@@ -767,7 +767,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#a02b09f5f942ee8b3a1986c5addb912a8">commands</a>.Any(item =&gt; item.HasName(newName)))</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                AConsoleManager.Instance.LogError($<span class="stringliteral">&quot;Rename failed! A command with name {newName} already exists!&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                ConsoleCoreConfig.CoreLogger.LogError($<span class="stringliteral">&quot;Rename failed! A command with name {newName} already exists!&quot;</span>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>

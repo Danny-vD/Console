@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['order_28',['Order',['../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#a93d780cd43a2bc163fb9ce5ad02781e5',1,'Console::PersistentProperties::PersistentPropertiesInitializer']]]
+  ['logger_30',['Logger',['../da/d2f/class_console_1_1_persistent_properties_1_1_persistent_properties_initializer.html#a5f663a9de26ce116cdd8dd630c480d63',1,'Console::PersistentProperties::PersistentPropertiesInitializer']]]
 ];

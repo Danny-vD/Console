@@ -7,8 +7,9 @@ var class_console_1_1_script_system_1_1_deblocker_1_1_line =
     [ "_blocks", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#ac2694fd198210b4ffc9354e2558d9258", null ],
     [ "_cleanedLine", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a114d259f4306507847fe713326ea1323", null ],
     [ "_cleanParts", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a82d1ca820ffdd90d2eb398d176f58724", null ],
+    [ "_originalLine", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a2121e88740ba34045701d2edeac35e8d", null ],
     [ "IsAtomic", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a0c278009a1a9b90dc375954a86fb6e1d", null ],
-    [ "OriginalLine", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a30c1f09c6a43a8e28d97a49504c4179d", null ],
+    [ "OriginalLine", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#a6041e3fd9238f346bca6a7458109068b", null ],
     [ "Blocks", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#adc60b647cf70c38d73743e38e3561350", null ],
     [ "CleanedLine", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#aeede5be80036a631ba5d8442ade499ec", null ],
     [ "CleanParts", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html#ad559b67bad6f70ecb97a783b28f5b83c", null ]

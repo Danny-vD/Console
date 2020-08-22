@@ -8,6 +8,7 @@ using Console.Core.PropertySystem;
 using Console.EnvironmentVariables;
 using Console.ScriptSystem.Deblocker;
 using Console.ScriptSystem.Deblocker.Implementations;
+using Console.ScriptSystem.Deblocker.Parameters;
 
 /// <summary>
 /// The Script System Extension implements functionality that allows running of scripts as if they were typed in the console input line by line.

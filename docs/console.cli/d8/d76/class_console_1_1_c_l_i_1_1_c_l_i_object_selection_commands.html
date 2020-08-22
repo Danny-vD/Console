@@ -193,7 +193,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                s += <span class="stringliteral">&quot;\n\t&quot;</span> + selectableObject.Key + <span class="stringliteral">&quot; = &quot;</span> + selectableObject.Value;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            AConsoleManager.Instance.Log(s);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            Program.Logger.Log(s);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -299,9 +299,9 @@ Static Private Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>.ContainsKey(key))</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                AConsoleManager.Instance.Log(<span class="stringliteral">&quot;Selecting Object: &quot;</span> + <a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                Program.Logger.Log(<span class="stringliteral">&quot;Selecting Object: &quot;</span> + <a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                AConsoleManager.Instance.ObjectSelector.AddToSelection(<a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                AConsoleManager.Instance.Log(<span class="stringliteral">&quot;Selected Objects: &quot;</span> + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                Program.Logger.Log(<span class="stringliteral">&quot;Selected Objects: &quot;</span> + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
 </div><!-- fragment -->

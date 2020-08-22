@@ -10,8 +10,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class PropertyCommands
     {
-        private static PrefixLogger ListPropertiesLogger = new PrefixLogger("list-properties");
-        private static PrefixLogger GetPropertiesLogger = new PrefixLogger("get-properties");
+        private static ALogger ListPropertiesLogger = TypedLogger.CreateTypedWithPrefix("list-properties");
+        private static ALogger GetPropertiesLogger = TypedLogger.CreateTypedWithPrefix("get-properties");
 
         /// <summary>
         /// Adds the Property Commands
@@ -111,7 +111,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         private static void SetPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath)) return;
-            
+
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
@@ -141,7 +141,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             if (!PropertyManager.HasProperty(propertyPath))
                 return;
-            
+
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
@@ -159,6 +159,14 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                 return;
             }
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
+        }
+
+        private static void DeleteProperty(string propertyPath)
+        {
+            if (PropertyManager.HasProperty(propertyPath))
+            {
+                PropertyManager.Remove(propertyPath);
+            }
         }
 
         #endregion

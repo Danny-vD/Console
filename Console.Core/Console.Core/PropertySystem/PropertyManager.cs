@@ -95,6 +95,16 @@ namespace Console.Core.PropertySystem
                 ConsoleCoreConfig.CoreLogger.LogWarning("Can not Write property: " + propertyPath + " its already existing and readonly");
         }
 
+
+        /// <summary>
+        /// Removes a Property from the Property System
+        /// </summary>
+        /// <param name="propertyPath">Property name to Remove</param>
+        public static void Remove(string propertyPath)
+        {
+            if (Properties.ContainsKey(propertyPath)) Properties.Remove(propertyPath);
+        }
+
         /// <summary>
         /// Returns true if the Property Value has been set.
         /// </summary>

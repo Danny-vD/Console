@@ -24,6 +24,9 @@ var files_dup =
     [ "AInstancedMetaData.cs", "dd/daa/_a_instanced_meta_data_8cs.html", [
       [ "AInstancedMetaData", "da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html", "da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data" ]
     ] ],
+    [ "ALogger.cs", "dc/db4/_a_logger_8cs.html", [
+      [ "ALogger", "d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html", "d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger" ]
+    ] ],
     [ "AMetaData.cs", "d9/ddd/_a_meta_data_8cs.html", [
       [ "AMetaData", "d0/d7e/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_meta_data.html", "d0/d7e/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_meta_data" ]
     ] ],
@@ -73,11 +76,17 @@ var files_dup =
     [ "DefaultCommands.cs", "d5/d2b/_default_commands_8cs.html", [
       [ "DefaultCommands", "d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html", "d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands" ]
     ] ],
+    [ "DefaultLogger.cs", "d9/d8e/_default_logger_8cs.html", [
+      [ "DefaultLogger", "d6/da4/class_console_1_1_core_1_1_log_system_1_1_default_logger.html", null ]
+    ] ],
     [ "ExpanderManager.cs", "d3/da9/_expander_manager_8cs.html", [
       [ "ExpanderManager", "d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html", "d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager" ]
     ] ],
     [ "ExtensionCommands.cs", "db/d7c/_extension_commands_8cs.html", [
       [ "ExtensionCommands", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands.html", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands" ]
+    ] ],
+    [ "ExtensionData.cs", "df/d8d/_extension_data_8cs.html", [
+      [ "ExtensionData", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data.html", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data" ]
     ] ],
     [ "ExtensionLoader.cs", "d6/d72/_extension_loader_8cs.html", [
       [ "ExtensionLoader", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader" ]
@@ -113,11 +122,17 @@ var files_dup =
     [ "ObjectSelectionCommands.cs", "d9/da6/_object_selection_commands_8cs.html", [
       [ "ObjectSelectionCommands", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands" ]
     ] ],
+    [ "ParameterCollection.cs", "d4/d84/_parameter_collection_8cs.html", [
+      [ "ParameterCollection", "d5/d16/class_console_1_1_core_1_1_parameter_collection.html", "d5/d16/class_console_1_1_core_1_1_parameter_collection" ]
+    ] ],
     [ "ParameterMetaData.cs", "de/dac/_parameter_meta_data_8cs.html", [
       [ "ParameterMetaData", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data.html", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data" ]
     ] ],
     [ "ParameterRange.cs", "d1/d4c/_parameter_range_8cs.html", [
       [ "ParameterRange", "d5/d2a/struct_console_1_1_core_1_1_command_system_1_1_commands_1_1_parameter_range.html", "d5/d2a/struct_console_1_1_core_1_1_command_system_1_1_commands_1_1_parameter_range" ]
+    ] ],
+    [ "PrefixLogger.cs", "dd/de2/_prefix_logger_8cs.html", [
+      [ "PrefixLogger", "d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html", "d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger" ]
     ] ],
     [ "PropertyAttribute.cs", "d7/d43/_property_attribute_8cs.html", [
       [ "PropertyAttribute", "dc/dfa/class_console_1_1_core_1_1_property_system_1_1_property_attribute.html", "dc/dfa/class_console_1_1_core_1_1_property_system_1_1_property_attribute" ]

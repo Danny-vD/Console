@@ -116,6 +116,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0db9ce6be99afc2baef5e3def64b2fd5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a0db9ce6be99afc2baef5e3def64b2fd5">SetPropertyValue</a> (string propertyPath, object value)</td></tr>
 <tr class="memdesc:a0db9ce6be99afc2baef5e3def64b2fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Property Value of the Specified Path to the passed object.  <a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a0db9ce6be99afc2baef5e3def64b2fd5">More...</a><br /></td></tr>
 <tr class="separator:a0db9ce6be99afc2baef5e3def64b2fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6123e5e16bb35e606be963af7bcdb7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6c6123e5e16bb35e606be963af7bcdb7">Remove</a> (string propertyPath)</td></tr>
+<tr class="separator:a6c6123e5e16bb35e606be963af7bcdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b19f4a10f0b786ca2590130072bfe17"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a8b19f4a10f0b786ca2590130072bfe17">TrySetValue</a> (string propertyPath, object value, bool create=false)</td></tr>
 <tr class="memdesc:a8b19f4a10f0b786ca2590130072bfe17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Property Value has been set.  <a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a8b19f4a10f0b786ca2590130072bfe17">More...</a><br /></td></tr>
 <tr class="separator:a8b19f4a10f0b786ca2590130072bfe17"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,13 +230,13 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html#l00127">127</a> of file <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html">PropertyManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">foreach</span> (KeyValuePair&lt;PropertyAttribute, IValueTypeContainer&gt; propertyInfo <span class="keywordflow">in</span> infos)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6230c33324c760bf136e1c564dcc2eba">Properties</a>[propertyInfo.Key.PropertyPath] = propertyInfo.Value;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html#l00133">133</a> of file <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html">PropertyManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordflow">foreach</span> (KeyValuePair&lt;PropertyAttribute, IValueTypeContainer&gt; propertyInfo <span class="keywordflow">in</span> infos)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6230c33324c760bf136e1c564dcc2eba">Properties</a>[propertyInfo.Key.PropertyPath] = propertyInfo.Value;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -306,6 +308,37 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the Property Exists</dd></dl>
 
+</div>
+</div>
+<a id="a6c6123e5e16bb35e606be963af7bcdb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6123e5e16bb35e606be963af7bcdb7">&#9670;&nbsp;</a></span>Remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Console.Core.PropertySystem.PropertyManager.Remove </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>propertyPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html#l00099">99</a> of file <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html">PropertyManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6230c33324c760bf136e1c564dcc2eba">Properties</a>.ContainsKey(propertyPath)) <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6230c33324c760bf136e1c564dcc2eba">Properties</a>.Remove(propertyPath);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac288e9ff312fe8fc0b935c4bc12c01ad"></a>
@@ -406,7 +439,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6230c33324c760bf136e1c564dcc2eba">Properties</a>[propertyPath].CanWrite)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a6230c33324c760bf136e1c564dcc2eba">Properties</a>[propertyPath].Set(value);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;Can not Write property: &quot;</span> + propertyPath + <span class="stringliteral">&quot; its already existing and readonly&quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                ConsoleCoreConfig.CoreLogger.LogWarning(<span class="stringliteral">&quot;Can not Write property: &quot;</span> + propertyPath + <span class="stringliteral">&quot; its already existing and readonly&quot;</span>);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -516,20 +549,20 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the Value was set</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html#l00105">105</a> of file <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html">PropertyManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a9eb78b5548221867fd6564f856812471">HasProperty</a>(propertyPath))</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span> (create)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a97c53a6ca57210464a7b68d498fd66bd">AddProperty</a>(propertyPath, value);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a0db9ce6be99afc2baef5e3def64b2fd5">SetPropertyValue</a>(propertyPath, value);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html#l00111">111</a> of file <a class="el" href="../../d0/ddf/_property_manager_8cs_source.html">PropertyManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a9eb78b5548221867fd6564f856812471">HasProperty</a>(propertyPath))</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordflow">if</span> (create)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a97c53a6ca57210464a7b68d498fd66bd">AddProperty</a>(propertyPath, value);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a0db9ce6be99afc2baef5e3def64b2fd5">SetPropertyValue</a>(propertyPath, value);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

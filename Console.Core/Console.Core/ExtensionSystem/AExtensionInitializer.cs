@@ -6,18 +6,6 @@ using Console.Core.LogSystem;
 
 namespace Console.Core.ExtensionSystem
 {
-    internal class ExtensionData
-    {
-        public readonly Assembly Assembly;
-        public readonly ALogger Logger;
-
-        public ExtensionData(Assembly asm)
-        {
-            Assembly = asm;
-            Logger = new PrefixLogger($"[{asm.GetName().Name}]");
-        }
-    }
-
     /// <summary>
     /// Helper Class that has to be implemented with an empty public constructor to be detected and loaded by the console system
     /// </summary>
@@ -46,7 +34,7 @@ namespace Console.Core.ExtensionSystem
 
         internal void _InnerInitialize()
         {
-            SetLogger(new PrefixLogger(LoggerPrefix));
+            SetLogger(TypedLogger.CreateTypedWithPrefix(LoggerPrefix));
             Initialize();
         }
     }

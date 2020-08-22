@@ -40,6 +40,10 @@ var hierarchy =
         [ "Console.Core.ReflectionSystem.StaticPropertyMetaData", "d5/d86/class_console_1_1_core_1_1_reflection_system_1_1_static_property_meta_data.html", null ]
       ] ]
     ] ],
+    [ "Console.Core.LogSystem.ALogger", "d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html", [
+      [ "Console.Core.LogSystem.DefaultLogger", "d6/da4/class_console_1_1_core_1_1_log_system_1_1_default_logger.html", null ],
+      [ "Console.Core.LogSystem.PrefixLogger", "d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html", null ]
+    ] ],
     [ "Console.Core.ReflectionSystem.Abstract.AMetaData< T >", "d0/d7e/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_meta_data.html", [
       [ "Console.Core.ReflectionSystem.Abstract.AInstancedMetaData< T >", "da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html", null ]
     ] ],
@@ -51,22 +55,22 @@ var hierarchy =
       [ "Console.Core.CommandSystem.SelectionPropertyAttribute", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html", null ],
       [ "Console.Core.PropertySystem.PropertyAttribute", "dc/dfa/class_console_1_1_core_1_1_property_system_1_1_property_attribute.html", null ]
     ] ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.CommandAttributeUtils", "da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html", null ],
     [ "Console.Core.CommandSystem.Commands.CommandManager", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html", null ],
     [ "Console.Core.CommandSystem.CommandParser", "d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html", null ],
@@ -75,6 +79,7 @@ var hierarchy =
     [ "Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands", "d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html", null ],
     [ "Console.Core.ExpanderSystem.ExpanderManager", "d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html", null ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands.html", null ],
+    [ "Console.Core.ExtensionSystem.ExtensionData", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data.html", null ],
     [ "Console.Core.ExtensionSystem.ExtensionLoader", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html", null ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.FlagTests", "d3/d3d/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_flag_tests.html", null ],
     [ "Console.Core.ReflectionSystem.Interfaces.IAttributeCollection", "d3/d76/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_attribute_collection.html", [
@@ -95,6 +100,7 @@ var hierarchy =
       [ "Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer", "da/da7/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_value_type_container.html", null ]
     ] ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html", null ],
+    [ "Console.Core.ParameterCollection", "d5/d16/class_console_1_1_core_1_1_parameter_collection.html", null ],
     [ "Console.Core.CommandSystem.Commands.ParameterRange", "d5/d2a/struct_console_1_1_core_1_1_command_system_1_1_commands_1_1_parameter_range.html", null ],
     [ "Console.Core.PropertySystem.PropertyAttributeUtils", "d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html", null ],
     [ "Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html", null ],

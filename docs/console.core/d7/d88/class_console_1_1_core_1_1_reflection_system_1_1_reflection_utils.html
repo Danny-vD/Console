@@ -677,7 +677,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">catch</span> (Exception exception)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    AConsoleManager.Instance.LogWarning(exception.Message);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    ConsoleCoreConfig.CoreLogger.LogWarning(exception.Message);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="comment">//throw actual;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>

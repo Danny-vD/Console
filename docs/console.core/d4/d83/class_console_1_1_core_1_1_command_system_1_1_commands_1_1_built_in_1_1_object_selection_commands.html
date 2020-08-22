@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('d4/d83/class_console_1_1_core_1_1_comm
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="../../d8/daa/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands Class Reference</div>  </div>
@@ -108,11 +109,18 @@ Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a6bb2a70facfb51b0acbdcfcf2beb80e6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#a6bb2a70facfb51b0acbdcfcf2beb80e6">ListSelected</a> ()</td></tr>
 <tr class="memdesc:a6bb2a70facfb51b0acbdcfcf2beb80e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the Selected objects.  <a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#a6bb2a70facfb51b0acbdcfcf2beb80e6">More...</a><br /></td></tr>
 <tr class="separator:a6bb2a70facfb51b0acbdcfcf2beb80e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:acd11a54df15ab1ffaad0677fc98c35c4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#acd11a54df15ab1ffaad0677fc98c35c4">SelectedObjectLogger</a> = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;list-selection&quot;)</td></tr>
+<tr class="separator:acd11a54df15ab1ffaad0677fc98c35c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab998eaecb77d9c829fda15c63666de1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ab998eaecb77d9c829fda15c63666de1e">SelectedObjectClearLogger</a> = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;clear-selection&quot;)</td></tr>
+<tr class="separator:ab998eaecb77d9c829fda15c63666de1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Default command to clear and list all selected objects </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00006">6</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00008">8</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab238f0a01694f2551a8e3f7e99d1305d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab238f0a01694f2551a8e3f7e99d1305d">&#9670;&nbsp;</a></span>AddSelectionCommands()</h2>
@@ -139,10 +147,10 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Adds all Selection <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            CommandAttributeUtils.AddCommands&lt;ObjectSelectionCommands&gt;();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            CommandAttributeUtils.AddCommands&lt;ObjectSelectionCommands&gt;();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -171,11 +179,11 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Clears the Selected Objects List. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            AConsoleManager.Instance.Log(<span class="stringliteral">&quot;Cleared Selected Objects&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            AConsoleManager.Instance.ObjectSelector.ClearSelection();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ab998eaecb77d9c829fda15c63666de1e">SelectedObjectClearLogger</a>.<a class="code" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Log</a>(<span class="stringliteral">&quot;Cleared Selected Objects&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            AConsoleManager.Instance.ObjectSelector.ClearSelection();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,20 +212,69 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Prints the Selected objects. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00022">22</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;Selected Objects:\n\t&quot;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count; i++)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                s += AConsoleManager.Instance.ObjectSelector.SelectedObjects[i].ToString();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordflow">if</span> (i != AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count - 1)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    s += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            AConsoleManager.Instance.Log(s);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;\nSelected Objects:\n\t&quot;</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count; i++)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                s += AConsoleManager.Instance.ObjectSelector.SelectedObjects[i].ToString();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">if</span> (i != AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count - 1)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    s += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#acd11a54df15ab1ffaad0677fc98c35c4">SelectedObjectLogger</a>.<a class="code" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Log</a>(s);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab998eaecb77d9c829fda15c63666de1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab998eaecb77d9c829fda15c63666de1e">&#9670;&nbsp;</a></span>SelectedObjectClearLogger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a> Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectClearLogger = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;clear-selection&quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
+
+</div>
+</div>
+<a id="acd11a54df15ab1ffaad0677fc98c35c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd11a54df15ab1ffaad0677fc98c35c4">&#9670;&nbsp;</a></span>SelectedObjectLogger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a> Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectLogger = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;list-selection&quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -225,6 +282,9 @@ Static Private Member Functions</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_prefix_logger_html_ab2798f98c5fe239287e2bb7facbb1e33"><div class="ttname"><a href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Console.Core.LogSystem.PrefixLogger.Log</a></div><div class="ttdeci">override void Log(object value)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/de2/_prefix_logger_8cs_source.html#l00017">PrefixLogger.cs:17</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands_html_acd11a54df15ab1ffaad0677fc98c35c4"><div class="ttname"><a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#acd11a54df15ab1ffaad0677fc98c35c4">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectLogger</a></div><div class="ttdeci">static PrefixLogger SelectedObjectLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/_object_selection_commands_8cs_source.html#l00010">ObjectSelectionCommands.cs:10</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands_html_ab998eaecb77d9c829fda15c63666de1e"><div class="ttname"><a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ab998eaecb77d9c829fda15c63666de1e">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectClearLogger</a></div><div class="ttdeci">static PrefixLogger SelectedObjectClearLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/_object_selection_commands_8cs_source.html#l00011">ObjectSelectionCommands.cs:11</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -13,6 +13,9 @@ var files_dup =
     [ "EnvironmentVariableManager.cs", "de/d79/_environment_variable_manager_8cs.html", [
       [ "EnvironmentVariableManager", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager" ]
     ] ],
+    [ "RangeVariableProvider.cs", "d2/de2/_range_variable_provider_8cs.html", [
+      [ "RangeVariableProvider", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider.html", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider" ]
+    ] ],
     [ "VariableContainer.cs", "d9/d8f/_variable_container_8cs.html", [
       [ "VariableContainer", "d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html", "d0/dbe/class_console_1_1_environment_variables_1_1_variable_container" ]
     ] ],

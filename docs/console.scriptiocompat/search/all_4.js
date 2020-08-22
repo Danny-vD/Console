@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['scriptiocompatinitializer_6',['ScriptIOCompatInitializer',['../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html',1,'Console::ScriptIOCompat']]],
-  ['scriptiocompatinitializer_2ecs_7',['ScriptIOCompatInitializer.cs',['../d6/d05/_script_i_o_compat_initializer_8cs.html',1,'']]]
+  ['logger_6',['Logger',['../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6',1,'Console::ScriptIOCompat::ScriptIOCompatInitializer']]]
 ];

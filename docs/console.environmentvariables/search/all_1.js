@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['closebracket_2',['CloseBracket',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#a06554f1074a526ae27fe72767527d2de',1,'Console::EnvironmentVariables::EnvironmentVariableManager']]],
-  ['console_3',['Console',['../d8/db5/namespace_console.html',1,'']]],
-  ['environmentvariables_4',['EnvironmentVariables',['../db/d36/namespace_console_1_1_environment_variables.html',1,'Console']]]
+  ['activationprefix_1',['ActivationPrefix',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#a84ef6746221ee16ccfb5334b6e938596',1,'Console::EnvironmentVariables::EnvironmentVariableManager']]],
+  ['addprovider_2',['AddProvider',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#ab2620cdf06787d975fd200098353ae64',1,'Console.EnvironmentVariables.EnvironmentVariableManager.AddProvider()'],['../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34',1,'Console.EnvironmentVariables.VariableContainer.AddProvider()']]],
+  ['addstringtransformmethods_3',['AddStringTransformMethods',['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#a8192f895e1ae07bd0433e376085071b6',1,'Console.EnvironmentVariables.EnvironmentVariableManager.AddStringTransformMethods(string funcPrefix, string qualifiedType)'],['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#afb651e01a5149b596a37b00cb24cc212',1,'Console.EnvironmentVariables.EnvironmentVariableManager.AddStringTransformMethods(string funcPrefix, Type type)']]]
 ];

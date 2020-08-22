@@ -108,16 +108,29 @@ namespace Console.Evaluator
             eval.AddEnvironmentFunctions(obj);
         }
 
-        [Command("for-all", "Runs the specified command for each Item in the List")]
-        private void ForAll(string list, string command)
+        [Command("while", "Runs the Specified command until the expression evaluates to true.")]
+        private void While(string expr, string command)
         {
-            string[] li = list.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
-            for (int i = 0; i < li.Length; i++)
+            Setup();
+            while (true)
             {
-                ParameterCollection pc = ParameterCollection.CreateCollection(new[] { "item" }, li[i].Trim());
-                ParameterCollection.MakeCurrent(pc);
-                AConsoleManager.Instance.EnterCommand(command);
-                ParameterCollection.MakeCurrent(null);
+                OPCode ret = eval.Parse(AConsoleManager.ExpanderManager.Expand(expr));
+                if (ret != null && ret.CanReturn(EvalType.Boolean))
+                {
+                    bool r = (bool)ret.Value;
+                    if (r)
+                    {
+                        AConsoleManager.Instance.EnterCommand(command);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 

@@ -46,7 +46,7 @@ namespace Console.Core.ReflectionSystem
         /// <summary>
         /// Gets the Inner Value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The Inner Value</returns>
         public object Get()
         {
             return Value;

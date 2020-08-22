@@ -115,6 +115,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a23dfddc9ab3bcefc23ca3f2edca06290"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a23dfddc9ab3bcefc23ca3f2edca06290">Escape</a> (string content, char escChar, params char[] escapeChars)</td></tr>
 <tr class="memdesc:a23dfddc9ab3bcefc23ca3f2edca06290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escape is Masking the specified escapeChars with the escChar character.  <a href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a23dfddc9ab3bcefc23ca3f2edca06290">More...</a><br /></td></tr>
 <tr class="separator:a23dfddc9ab3bcefc23ca3f2edca06290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac13049672c3b28f9c09fe50fd3f213ef"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#ac13049672c3b28f9c09fe50fd3f213ef">IsEscaped</a> (string part, int idx)</td></tr>
+<tr class="memdesc:ac13049672c3b28f9c09fe50fd3f213ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Character at idx is escaped by a previous character  <a href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#ac13049672c3b28f9c09fe50fd3f213ef">More...</a><br /></td></tr>
+<tr class="separator:ac13049672c3b28f9c09fe50fd3f213ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -124,9 +127,6 @@ Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a122a2d7f8eefee098973cdac60cfc70f"><td class="memItemLeft" align="right" valign="top">static string[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a122a2d7f8eefee098973cdac60cfc70f">Split</a> (string arguments, char split)</td></tr>
 <tr class="memdesc:a122a2d7f8eefee098973cdac60cfc70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the string at the specified character. Does remove empty entries.  <a href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a122a2d7f8eefee098973cdac60cfc70f">More...</a><br /></td></tr>
 <tr class="separator:a122a2d7f8eefee098973cdac60cfc70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac13049672c3b28f9c09fe50fd3f213ef"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#ac13049672c3b28f9c09fe50fd3f213ef">IsEscaped</a> (string part, int idx)</td></tr>
-<tr class="memdesc:ac13049672c3b28f9c09fe50fd3f213ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Character at idx is escaped by a previous character  <a href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#ac13049672c3b28f9c09fe50fd3f213ef">More...</a><br /></td></tr>
-<tr class="separator:ac13049672c3b28f9c09fe50fd3f213ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cf2497d4ecc737de94ca09a89044d4d"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a3cf2497d4ecc737de94ca09a89044d4d">InnerParseStringBlocks</a> (string[] parts)</td></tr>
 <tr class="memdesc:a3cf2497d4ecc737de94ca09a89044d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the Arguments based on the Position of the String Character  <a href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a3cf2497d4ecc737de94ca09a89044d4d">More...</a><br /></td></tr>
 <tr class="separator:a3cf2497d4ecc737de94ca09a89044d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -446,7 +446,7 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -503,7 +503,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span> (ConsoleCoreConfig.ConsolePrefix != <span class="keywordtype">string</span>.Empty &amp;&amp; !command.StartsWith(ConsoleCoreConfig.ConsolePrefix))</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                AConsoleManager.Instance.LogWarning(</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                ConsoleCoreConfig.CoreLogger.LogWarning(</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    $<span class="stringliteral">&quot;Command does not start with prefix: &quot;</span> + ConsoleCoreConfig.ConsolePrefix);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            }</div>

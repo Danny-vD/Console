@@ -10,6 +10,9 @@ var class_console_1_1_core_1_1_a_console_manager =
       [ "FlagTests", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a6b7869795f33b0e3d83a30d09fbea705a607598e21192b2753672e93bc5df4c25", null ]
     ] ],
     [ "AConsoleManager", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#af58a5e7d60d22fe00690f10ae7145dc1", null ],
+    [ "_Log", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab1b1cd9cdc0429029e6351175dc0bd2f", null ],
+    [ "_LogError", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a4e6b10286da51a88540ff21d7e681376", null ],
+    [ "_LogWarning", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a05018f6e49438d2e9d2e287b7a0f4551", null ],
     [ "Clear", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a4202e20950613bd486341151f4926c91", null ],
     [ "EnterCommand", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10", null ],
     [ "InvokeLogEvent", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a166f2a21bb26de83a6da77cfecf1308d", null ],

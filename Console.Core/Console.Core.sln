@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.UtilExtension", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Evaluator", "Console.Evaluator\Console.Evaluator.csproj", "{422F964E-D337-4182-9C7C-E67C7FBDDE90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Evaluator.Math", "Console.Evaluator.Math\Console.Evaluator.Math.csproj", "{3DE72418-18D3-48D5-A172-705D13C60384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Evaluator.Math", "Console.Evaluator.Math\Console.Evaluator.Math.csproj", "{3DE72418-18D3-48D5-A172-705D13C60384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

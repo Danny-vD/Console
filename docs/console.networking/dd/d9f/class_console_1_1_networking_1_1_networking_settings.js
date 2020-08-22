@@ -12,5 +12,6 @@ var class_console_1_1_networking_1_1_networking_settings =
     [ "PacketIdentifierMaxSize", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9b6feb6a31d1a60e0994da7ad62d5e97", null ],
     [ "PacketWaitSleepTimer", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2b4d935eb8a01fe0f5218df8f78254ae", null ],
     [ "Authenticator", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#ac07a0476cd28a8b41b6da08038c5d06d", null ],
-    [ "AuthenticatorInstance", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a7187a539e167bee40737614f7717bda1", null ]
+    [ "AuthenticatorInstance", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a7187a539e167bee40737614f7717bda1", null ],
+    [ "MuteLogs", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a0329ea63f9220a49ab0218af2b9185b6", null ]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['expand_52',['Expand',['../d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander.html#aa0438daaa16157570ae4e74de195773b',1,'Console.EnvironmentVariables.EnvInitializer.EnvExpander.Expand()'],['../d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html#afed95794a0ba6395759e089d72c3e191',1,'Console.EnvironmentVariables.EnvironmentVariableManager.Expand()']]]
+  ['defaultvariables_60',['DefaultVariables',['../d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html#a69725f0cf648cd812cebbfa27a1a034e',1,'Console.EnvironmentVariables.DefaultVariables.DefaultVariables()'],['../d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html#ae6124d8d8736cbacd29732dcc98c6d96',1,'Console.EnvironmentVariables.DefaultVariables.DefaultVariables()']]],
+  ['delegatevariableprovider_61',['DelegateVariableProvider',['../dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider.html#af871ed9575e3aa22ab881e9b20600c1b',1,'Console::EnvironmentVariables::DelegateVariableProvider']]]
 ];

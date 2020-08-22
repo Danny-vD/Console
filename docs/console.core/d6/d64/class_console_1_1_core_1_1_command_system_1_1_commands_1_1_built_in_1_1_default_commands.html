@@ -124,6 +124,10 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
+<tr class="memitem:a363922ef61983e1a039fcab05ef46cf0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a363922ef61983e1a039fcab05ef46cf0">EchoLogger</a> = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;echo&quot;)</td></tr>
+<tr class="separator:a363922ef61983e1a039fcab05ef46cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbbf029faf11124322986fea81f82046"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#afbbf029faf11124322986fea81f82046">HelpLogger</a> = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;help&quot;)</td></tr>
+<tr class="separator:afbbf029faf11124322986fea81f82046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee637373ece851257f520a39c2dcee6"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a1ee637373ece851257f520a39c2dcee6">helpHelpMessage</a> = &quot;Displays all commands. -s for shorter version.&quot;</td></tr>
 <tr class="separator:a1ee637373ece851257f520a39c2dcee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69f93ff31c1b7f209db9751a184fa089"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a69f93ff31c1b7f209db9751a184fa089">help1HelpMessage</a> = &quot;Displays the help page of a given command. -s for shorter version.&quot;</td></tr>
@@ -138,7 +142,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../d8/db5/namespace_console.html" title="The Namespace Root of all Extensions and the Core Library.">Console</a> Default <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a> like clear/help/echo </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00013">13</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0ed293f94af7bf7980401ba56d3e6b5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ed293f94af7bf7980401ba56d3e6b5c">&#9670;&nbsp;</a></span>AddDefaultCommands()</h2>
@@ -165,10 +169,10 @@ Static Private Attributes</h2></td></tr>
 
 <p>Adds all Default <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            CommandAttributeUtils.AddCommands&lt;DefaultCommands&gt;();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00031">31</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            CommandAttributeUtils.AddCommands&lt;DefaultCommands&gt;();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,10 +201,10 @@ Static Private Attributes</h2></td></tr>
 
 <p>Clear <a class="el" href="../../db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html" title="Command Implementation with 16 Parameter(s)">Command</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00038">38</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            AConsoleManager.Instance.Clear();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            AConsoleManager.Instance.Clear();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,13 +274,13 @@ Static Private Attributes</h2></td></tr>
 </dl>
 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">foreach</span> (AbstractCommand command <span class="keywordflow">in</span> CommandManager.commands)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                AConsoleManager.Instance.Log(command.ToString(shortInfo ? <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Short : <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Long) + <span class="stringliteral">&quot;\n--------------------------&quot;</span>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00053">53</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">foreach</span> (AbstractCommand command <span class="keywordflow">in</span> CommandManager.commands)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <a class="code" href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#afbbf029faf11124322986fea81f82046">HelpLogger</a>.<a class="code" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Log</a>(command.ToString(shortInfo ? <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Short : <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Long) + <span class="stringliteral">&quot;\n--------------------------&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -323,13 +327,13 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00063">63</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">foreach</span> (AbstractCommand command <span class="keywordflow">in</span> CommandManager.GetCommands(commandName, <span class="keyword">true</span>))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                AConsoleManager.Instance.Log(command.ToString(shortInfo ? <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Short : <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Long) + <span class="stringliteral">&quot;\n--------------------------&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00067">67</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">foreach</span> (AbstractCommand command <span class="keywordflow">in</span> CommandManager.GetCommands(commandName, <span class="keyword">true</span>))</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#afbbf029faf11124322986fea81f82046">HelpLogger</a>.<a class="code" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Log</a>(command.ToString(shortInfo ? <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Short : <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">ToStringMode</a>.Long) + <span class="stringliteral">&quot;\n--------------------------&quot;</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -354,7 +358,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00023">23</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
 
 </div>
 </div>
@@ -378,7 +382,31 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+
+</div>
+</div>
+<a id="a363922ef61983e1a039fcab05ef46cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363922ef61983e1a039fcab05ef46cf0">&#9670;&nbsp;</a></span>EchoLogger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a> Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.EchoLogger = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;echo&quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
 
 </div>
 </div>
@@ -402,7 +430,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
 
 </div>
 </div>
@@ -426,7 +454,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00022">22</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
 
 </div>
 </div>
@@ -450,6 +478,30 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
+
+</div>
+</div>
+<a id="afbbf029faf11124322986fea81f82046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbbf029faf11124322986fea81f82046">&#9670;&nbsp;</a></span>HelpLogger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a> Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.HelpLogger = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;help&quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p class="definition">Definition at line <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d5/d2b/_default_commands_8cs_source.html">DefaultCommands.cs</a>.</p>
 
 </div>
@@ -460,6 +512,8 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespace_console_1_1_core_1_1_command_system_1_1_commands_html_ae7c11c7d72ebfb3ca84cdf00abf76cb1"><div class="ttname"><a href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1">Console.Core.CommandSystem.Commands.ToStringMode</a></div><div class="ttdeci">ToStringMode</div><div class="ttdoc">The ToStringMode is specifying the Length/Information of the ToString method.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7b/_to_string_mode_8cs_source.html#l00006">ToStringMode.cs:7</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands_html_afbbf029faf11124322986fea81f82046"><div class="ttname"><a href="../../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#afbbf029faf11124322986fea81f82046">Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.HelpLogger</a></div><div class="ttdeci">static PrefixLogger HelpLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/_default_commands_8cs_source.html#l00016">DefaultCommands.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_prefix_logger_html_ab2798f98c5fe239287e2bb7facbb1e33"><div class="ttname"><a href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Console.Core.LogSystem.PrefixLogger.Log</a></div><div class="ttdeci">override void Log(object value)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/de2/_prefix_logger_8cs_source.html#l00017">PrefixLogger.cs:17</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

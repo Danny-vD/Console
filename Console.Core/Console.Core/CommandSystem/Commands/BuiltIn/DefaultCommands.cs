@@ -12,8 +12,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class DefaultCommands
     {
-        private static PrefixLogger EchoLogger = new PrefixLogger("echo");
-        private static PrefixLogger HelpLogger = new PrefixLogger("help");
+        private static ALogger EchoLogger = TypedLogger.CreateTypedWithPrefix("echo");
+        private static ALogger HelpLogger = TypedLogger.CreateTypedWithPrefix("help");
 
         #region Internal Data
 

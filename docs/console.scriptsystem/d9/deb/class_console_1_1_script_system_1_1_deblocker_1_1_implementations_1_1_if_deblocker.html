@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('d9/deb/class_console_1_1_script_system
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d9/d84/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Console.ScriptSystem.Deblocker.Implementations.IfDeblocker Class Reference</div>  </div>
@@ -100,10 +100,12 @@ Inheritance diagram for Console.ScriptSystem.Deblocker.Implementations.IfDeblock
  <div class="center">
   <img src="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.png" usemap="#Console.ScriptSystem.Deblocker.Implementations.IfDeblocker_map" alt=""/>
   <map id="Console.ScriptSystem.Deblocker.Implementations.IfDeblocker_map" name="Console.ScriptSystem.Deblocker.Implementations.IfDeblocker_map">
-<area href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html" title="Default ADeblocker Implementation. Does Parse the Blocks and Creates as many lines of the command as ..." alt="Console.ScriptSystem.Deblocker.Implementations.DefaultDeblocker" shape="rect" coords="200,56,591,80"/>
-<area href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html" title="ADeblocker class. Used to Customize the way a Line gets Deblocked." alt="Console.ScriptSystem.Deblocker.Implementations.ADeblocker" shape="rect" coords="200,0,591,24"/>
-<area href="../../da/dee/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_deblocker.html" title="ADeblocker Implementation with key &quot;ifelse&quot; Implements if Syntax with SequenceSystem / Evaluator Exte..." alt="Console.ScriptSystem.Deblocker.Implementations.IfElseDeblocker" shape="rect" coords="0,168,391,192"/>
-<area href="../../dc/d17/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_if_deblocker.html" title="ADeblocker Implementation with key &quot;ifelseif&quot; Implements if Syntax with SequenceSystem / Evaluator Ex..." alt="Console.ScriptSystem.Deblocker.Implementations.IfElseIfDeblocker" shape="rect" coords="401,168,792,192"/>
+<area href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html" title="Default ADeblocker Implementation. Does Parse the Blocks and Creates as many lines of the command as ..." alt="Console.ScriptSystem.Deblocker.Implementations.DefaultDeblocker" shape="rect" coords="601,56,992,80"/>
+<area href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html" title="ADeblocker class. Used to Customize the way a Line gets Deblocked." alt="Console.ScriptSystem.Deblocker.Implementations.ADeblocker" shape="rect" coords="601,0,992,24"/>
+<area href="../../da/da0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_for_all_deblocker.html" alt="Console.ScriptSystem.Deblocker.Implementations.ForAllDeblocker" shape="rect" coords="0,168,391,192"/>
+<area href="../../da/dee/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_deblocker.html" title="ADeblocker Implementation with key &quot;ifelse&quot; Implements if Syntax with SequenceSystem / Evaluator Exte..." alt="Console.ScriptSystem.Deblocker.Implementations.IfElseDeblocker" shape="rect" coords="401,168,792,192"/>
+<area href="../../dc/d17/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_else_if_deblocker.html" title="ADeblocker Implementation with key &quot;ifelseif&quot; Implements if Syntax with SequenceSystem / Evaluator Ex..." alt="Console.ScriptSystem.Deblocker.Implementations.IfElseIfDeblocker" shape="rect" coords="802,168,1193,192"/>
+<area href="../../db/dfd/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_while_deblocker.html" alt="Console.ScriptSystem.Deblocker.Implementations.WhileDeblocker" shape="rect" coords="1203,168,1594,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -123,10 +125,12 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ac9a798d74715a1218b85ade796a4b328 inherit pub_attribs_class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Key of the <a class="el" href="../../d8/db8/namespace_console_1_1_script_system_1_1_deblocker.html" title="Deblocker System which is used when loading Scripts or Sequences from File.">Deblocker</a> that has to match the block command to be activated.  <a href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html#ac9a798d74715a1218b85ade796a4b328">More...</a><br /></td></tr>
 <tr class="separator:ac9a798d74715a1218b85ade796a4b328 inherit pub_attribs_class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a87052cf6e9ef4fae562a92ceb30d98a6"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#a87052cf6e9ef4fae562a92ceb30d98a6">CreateBlock</a> (string name, string[] content, out List&lt; string &gt; begin, out List&lt; string &gt; end)</td></tr>
-<tr class="separator:a87052cf6e9ef4fae562a92ceb30d98a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3d06b3253d02e565c288d157cc919f44"><td class="memItemLeft" align="right" valign="top">string[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#a3d06b3253d02e565c288d157cc919f44">Deblock</a> (<a class="el" href="../../d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html">Line</a> line, string[] parameters, out List&lt; string &gt; begin, out List&lt; string &gt; end)</td></tr>
+<tr class="separator:a3d06b3253d02e565c288d157cc919f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0641a9146660d7d7d54caf355c27d3c"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#ad0641a9146660d7d7d54caf355c27d3c">CreateBlock</a> (string name, string[] content, string[] parameters, out List&lt; string &gt; begin, out List&lt; string &gt; end)</td></tr>
+<tr class="separator:ad0641a9146660d7d7d54caf355c27d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -138,10 +142,10 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html" title="ADeblocker class. Used to Customize the way a Line gets Deblocked.">ADeblocker</a> Implementation with key "if" Implements if Syntax with <a class="el" href="../../df/d39/class_console_1_1_script_system_1_1_sequence_system.html" title="Static SequenceSystem API">SequenceSystem</a> / Evaluator Extension as backend. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a87052cf6e9ef4fae562a92ceb30d98a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87052cf6e9ef4fae562a92ceb30d98a6">&#9670;&nbsp;</a></span>CreateBlock()</h2>
+<a id="ad0641a9146660d7d7d54caf355c27d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0641a9146660d7d7d54caf355c27d3c">&#9670;&nbsp;</a></span>CreateBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,6 +168,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string[]&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">out List&lt; string &gt;&#160;</td>
           <td class="paramname"><em>begin</em>, </td>
         </tr>
@@ -181,36 +191,40 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00053">53</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            end = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="comment">//ret.Add($&quot;{SequenceSystem.SequenceDelete} {name}&quot;); // Make sure the Block is Free</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            ret.Add($<span class="stringliteral">&quot;{SequenceSystem.SequenceCreate} {name} {SequenceSystem.SequenceCreateOverwrite}&quot;</span>); <span class="comment">// Create</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s <span class="keywordflow">in</span> content)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.IsNullOrEmpty(s)) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordtype">string</span> item = $<span class="stringliteral">&quot;{SequenceSystem.SequenceAdd} {name} \&quot;{CommandParser.Escape(s, ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\&quot;&quot;</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                ret.Add(item);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            end.Add($<span class="stringliteral">&quot;{SequenceSystem.SequenceDelete} {name}&quot;</span>); <span class="comment">// Delete in the End</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00062">62</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            end = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="comment">//ret.Add($&quot;{SequenceSystem.SequenceDelete} {name}&quot;); // Make sure the Block is Free</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            ret.Add($<span class="stringliteral">&quot;{SequenceSystem.SequenceCreate} {name} {SequenceSystem.SequenceCreateOverwrite}&quot;</span>); <span class="comment">// Create</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; parameters.Length; i++)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                ret.Add($<span class="stringliteral">&quot;{SequenceSystem.SequenceAddParameter} {name} {parameters[i]}&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s <span class="keywordflow">in</span> content)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.IsNullOrEmpty(s)) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordtype">string</span> item = $<span class="stringliteral">&quot;{SequenceSystem.SequenceAdd} {name} \&quot;{CommandParser.Escape(s, ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                ret.Add(item);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            end.Add($<span class="stringliteral">&quot;{SequenceSystem.SequenceDelete} {name}&quot;</span>); <span class="comment">// Delete in the End</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="ab3874a325987998c030951227df4063c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3874a325987998c030951227df4063c">&#9670;&nbsp;</a></span>Deblock()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3874a325987998c030951227df4063c">&#9670;&nbsp;</a></span>Deblock() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,32 +276,90 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html#a01157ef884b0fc25ab0ab4bfb2edffaf">Console.ScriptSystem.Deblocker.Implementations.DefaultDeblocker</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            List&lt;string&gt; _begin=<span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            List&lt;string&gt; _end=<span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            end = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordtype">string</span> invocation = line.CleanedLine;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; line.Blocks.Count; i++)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordtype">string</span> ifBlockSeq = DeblockerSettings.GetBlockName();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                List&lt;string&gt; ifBlockContent = <a class="code" href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#a87052cf6e9ef4fae562a92ceb30d98a6">CreateBlock</a>(ifBlockSeq, line.Blocks[i], out List&lt;string&gt; bbegin,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    out List&lt;string&gt; bend);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                ret.AddRange(ifBlockContent);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordtype">string</span> rep = $<span class="stringliteral">&quot;\&quot;{SequenceSystem.SequenceRun} {ifBlockSeq}\&quot;&quot;</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="comment">//if (i != line.Blocks.Count - 1) rep = rep + ConsoleCoreConfig.CommandInputSeparator;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                invocation = invocation.Replace(DeblockerSettings.GetKey(i), rep);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                _begin.InsertRange(0,bbegin);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                _end.AddRange(bend);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            ret.Add(invocation);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            ret.InsertRange(0, _begin);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            ret.AddRange(_end);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> ret.ToArray();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<p>Reimplemented in <a class="el" href="../../db/dfd/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_while_deblocker.html#a7e2ccb4141f241a0a86b1785e4a9cb56">Console.ScriptSystem.Deblocker.Implementations.WhileDeblocker</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#ab3874a325987998c030951227df4063c">Deblock</a>(line, <span class="keyword">new</span> <span class="keywordtype">string</span>[0], out begin, out end);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3d06b3253d02e565c288d157cc919f44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d06b3253d02e565c288d157cc919f44">&#9670;&nbsp;</a></span>Deblock() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string [] Console.ScriptSystem.Deblocker.Implementations.IfDeblocker.Deblock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html">Line</a>&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string[]&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">out List&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">out List&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00032">32</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (DeblockerSettings.WriteDeblockLogs)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                ScriptSystemInitializer.Logger.Log($<span class="stringliteral">&quot;Deblocking {Key}: &quot;</span> + line.CleanedLine);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            List&lt;string&gt; _begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            List&lt;string&gt; _end = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            end = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordtype">string</span> invocation = line.CleanedLine;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; line.Blocks.Count; i++)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordtype">string</span> ifBlockSeq = DeblockerSettings.GetBlockName();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                List&lt;string&gt; ifBlockContent = <a class="code" href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#ad0641a9146660d7d7d54caf355c27d3c">CreateBlock</a>(ifBlockSeq, line.Blocks[i], parameters, out List&lt;string&gt; bbegin,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    out List&lt;string&gt; bend);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                ret.AddRange(ifBlockContent);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordtype">string</span> rep = $<span class="stringliteral">&quot;\&quot;{SequenceSystem.SequenceRun} {ifBlockSeq}\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="comment">//if (i != line.Blocks.Count - 1) rep = rep + ConsoleCoreConfig.CommandInputSeparator;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                invocation = invocation.Replace(DeblockerSettings.GetKey(i), rep);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                _begin.InsertRange(0, bbegin);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                _end.AddRange(bend);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            ret.Add(invocation);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            ret.InsertRange(0, _begin);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            ret.AddRange(_end);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> ret.ToArray();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -306,7 +378,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Key of the <a class="el" href="../../d8/db8/namespace_console_1_1_script_system_1_1_deblocker.html" title="Deblocker System which is used when loading Scripts or Sequences from File.">Deblocker</a> that has to match the block command to be activated. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d2/deb/_if_deblocker_8cs_source.html">IfDeblocker.cs</a>.</p>
 
 </div>
 </div>
@@ -315,7 +387,8 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker_html_a87052cf6e9ef4fae562a92ceb30d98a6"><div class="ttname"><a href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#a87052cf6e9ef4fae562a92ceb30d98a6">Console.ScriptSystem.Deblocker.Implementations.IfDeblocker.CreateBlock</a></div><div class="ttdeci">List&lt; string &gt; CreateBlock(string name, string[] content, out List&lt; string &gt; begin, out List&lt; string &gt; end)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/deb/_if_deblocker_8cs_source.html#l00053">IfDeblocker.cs:53</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker_html_ad0641a9146660d7d7d54caf355c27d3c"><div class="ttname"><a href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#ad0641a9146660d7d7d54caf355c27d3c">Console.ScriptSystem.Deblocker.Implementations.IfDeblocker.CreateBlock</a></div><div class="ttdeci">List&lt; string &gt; CreateBlock(string name, string[] content, string[] parameters, out List&lt; string &gt; begin, out List&lt; string &gt; end)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/deb/_if_deblocker_8cs_source.html#l00062">IfDeblocker.cs:62</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker_html_ab3874a325987998c030951227df4063c"><div class="ttname"><a href="../../d9/deb/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_if_deblocker.html#ab3874a325987998c030951227df4063c">Console.ScriptSystem.Deblocker.Implementations.IfDeblocker.Deblock</a></div><div class="ttdeci">override string[] Deblock(Line line, out List&lt; string &gt; begin, out List&lt; string &gt; end)</div><div class="ttdoc">Returns the Deblocked Content of the Line</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/deb/_if_deblocker_8cs_source.html#l00027">IfDeblocker.cs:27</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

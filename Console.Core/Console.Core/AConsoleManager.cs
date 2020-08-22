@@ -4,13 +4,7 @@ using Console.Core.CommandSystem.Commands.BuiltIn;
 using Console.Core.ExpanderSystem;
 using Console.Core.PropertySystem;
 
-/// <summary>
-/// The Namespace Root of all Extensions and the Core Library.
-/// </summary>
-namespace Console
-{
 
-}
 /// <summary>
 /// The Root Namespace of the Console.Core Library.
 /// </summary>
@@ -22,38 +16,6 @@ namespace Console.Core
     /// </summary>
     public abstract class AConsoleManager
     {
-        [Flags]
-        public enum ConsoleInitOptions
-        {
-            /// <summary>
-            /// Add all Default Commands
-            /// </summary>
-            All = -1 & ~FlagTests,
-            /// <summary>
-            /// Do not add any Default Commands
-            /// </summary>
-            None = 0,
-            /// <summary>
-            /// Clear / Help and Echo Command
-            /// </summary>
-            DefaultCommands = 1,
-            /// <summary>
-            /// Commands that allow interfacing with the Property System
-            /// </summary>
-            PropertyCommands = 2,
-            /// <summary>
-            /// Commands that allow Loading Extensions from the Commandline
-            /// </summary>
-            ExtensionCommands = 4,
-            /// <summary>
-            /// Commands that allow viewing and clearing the selected object list
-            /// </summary>
-            SelectionCommands = 8,
-            /// <summary>
-            /// Commands that Test the behaviour of Flag Attributes.
-            /// </summary>
-            FlagTests = 16,
-        }
 
         /// <summary>
         /// The Parser that handles the Command Input
@@ -94,7 +56,7 @@ namespace Console.Core
         {
             OnInitializationFinished?.Invoke();
 
-           ConsoleCoreConfig.CoreLogger. Log("Console Initialized.");
+            ConsoleCoreConfig.CoreLogger. Log("Console Initialized.");
         }
 
         /// <summary>
@@ -138,12 +100,20 @@ namespace Console.Core
         /// </summary>
         /// <param name="object">Object to Log</param>
         protected abstract void Log(object @object);
+        /// <summary>
+        /// Internal Log Wrapper
+        /// </summary>
+        /// <param name="obj">Object to Log</param>
         internal void _Log(object obj) => Log(obj);
         /// <summary>
         /// Writes a Log Warning
         /// </summary>
         /// <param name="object">Object to Log</param>
         protected abstract void LogWarning(object @object);
+        /// <summary>
+        /// Internal Log Warning Wrapper
+        /// </summary>
+        /// <param name="obj">Object to Log</param>
         internal void _LogWarning(object obj) => LogWarning(obj);
 
         /// <summary>
@@ -151,7 +121,13 @@ namespace Console.Core
         /// </summary>
         /// <param name="object">Object to Log</param>
         protected abstract void LogError(object @object);
+
+        /// <summary>
+        /// Internal Log Error Wrapper
+        /// </summary>
+        /// <param name="obj">Object to Log</param>
         internal void _LogError(object obj) => LogError(obj);
+
         /// <summary>
         /// Writes the Entered Command into the Console Output if ConsoleCoreConfig.WriteCommand is set to true
         /// </summary>

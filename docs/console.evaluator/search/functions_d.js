@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['tbool_408',['TBool',['../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html#a3d8916634f6572dce9b16ddf83a6d2a5',1,'Console::Evaluator::Core::OPCodes::OPCodeConvert']]],
-  ['tdate_409',['TDate',['../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html#aa03c57b73cc459c00bea82947bea83c6',1,'Console::Evaluator::Core::OPCodes::OPCodeConvert']]],
-  ['tnum_410',['TNum',['../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html#a9152acaab81180f3132f2e92ac9d60f9',1,'Console::Evaluator::Core::OPCodes::OPCodeConvert']]],
-  ['tokenizer_411',['tokenizer',['../d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html#a1ea1d849f1ce1218a33d83b0e5d20c43',1,'Console::Evaluator::Core::tokenizer']]],
-  ['tstr_412',['TStr',['../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html#ad7594fa559e5bc008633bba565a88984',1,'Console::Evaluator::Core::OPCodes::OPCodeConvert']]]
+  ['setup_409',['Setup',['../d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html#a01c30b3b26e34238597c8ad22df94e2b',1,'Console::Evaluator::EvalVariableProvider']]],
+  ['str_410',['Str',['../df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals.html#a36a5c9b69abdb8e403acc1c1d8a19250',1,'Console::Evaluator::Core::Globals']]],
+  ['str_5fconcat_5fstr_411',['STR_CONCAT_STR',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#add6b1db926d7597d773e6119c96f0650',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
+  ['swapparams_412',['SwapParams',['../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a7f1dd7b5c6529bc06071e7472ce1b964',1,'Console::Evaluator::Core::OPCodes::OPCode']]]
 ];

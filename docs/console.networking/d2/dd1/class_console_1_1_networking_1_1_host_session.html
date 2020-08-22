@@ -304,7 +304,7 @@ Static Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../d1/d15/_host_session_8cs_source.html#l00144">144</a> of file <a class="el" href="../../d1/d15/_host_session_8cs_source.html">HostSession.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        {</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            AConsoleManager.OnLog -= <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#aff09fb0643cee57a623dae092b16308b">OnLog</a>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            AConsoleManager.Instance.LogWarning(<span class="stringliteral">&quot;Force Stopping Console Host&quot;</span>);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            NetworkedInitializer.Logger.LogWarning(<span class="stringliteral">&quot;Force Stopping Console Host&quot;</span>);</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a5dc3cc05d46e2439ccc52c7845c34c23">IsRunning</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a2725edd77a103328c0f9446e4597df07">Listener</a>?.Stop();</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#ae9bbf09d797b65f2d705b35f21502419">LoopThread</a>?.Abort();</div>
@@ -346,7 +346,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a2725edd77a103328c0f9446e4597df07">Listener</a>.Pending())</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                {</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    <a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html">ConsoleSocket</a> cs = <span class="keyword">new</span> <a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html">ConsoleSocket</a>(<a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a2725edd77a103328c0f9446e4597df07">Listener</a>.AcceptTcpClient());</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    AConsoleManager.Instance.Log($<span class="stringliteral">&quot;Client {cs} connected.&quot;</span>);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    NetworkedInitializer.Logger.Log($<span class="stringliteral">&quot;Client {cs} connected.&quot;</span>);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    <span class="keywordflow">if</span> (NetworkingSettings.AllowConnections)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    {</div>
@@ -356,7 +356,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    }</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                    {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                        AConsoleManager.Instance.LogWarning($<span class="stringliteral">&quot;Client {cs} closed. (Connection not Allowed)&quot;</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                        NetworkedInitializer.Logger.LogWarning($<span class="stringliteral">&quot;Client {cs} closed. (Connection not Allowed)&quot;</span>);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                        cs.<a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a900af7ddf918934caf0bb9b9d4ed30f2">TrySendPacket</a>(<span class="keyword">new</span> <a class="code" href="../../d3/d12/class_console_1_1_networking_1_1_packets_1_1_connection_abort_1_1_connection_abort_packet.html">ConnectionAbortPacket</a>(<span class="stringliteral">&quot;Host does not allow Connections at this point.&quot;</span>));</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                        cs.<a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a48ae6329a9314099af927c50dd671320">Dispose</a>();</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    }</div>
@@ -576,7 +576,7 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d15/_host_session_8cs_source.html#l00116">116</a> of file <a class="el" href="../../d1/d15/_host_session_8cs_source.html">HostSession.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            AConsoleManager.Instance.Log(<span class="stringliteral">&quot;Starting Console Host on port: &quot;</span> + port);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            NetworkedInitializer.Logger.Log(<span class="stringliteral">&quot;Starting Console Host on port: &quot;</span> + port);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            AConsoleManager.OnLog += <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#aff09fb0643cee57a623dae092b16308b">OnLog</a>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a2725edd77a103328c0f9446e4597df07">Listener</a>?.Stop();</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a2725edd77a103328c0f9446e4597df07">Listener</a> = TcpListener.Create(port);</div>
@@ -585,7 +585,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a5dc3cc05d46e2439ccc52c7845c34c23">IsRunning</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#ae9bbf09d797b65f2d705b35f21502419">LoopThread</a> = <span class="keyword">new</span> Thread(<a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a34d85ac11dcb5888a90c592371dd4661">ListenerLoop</a>);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#ae9bbf09d797b65f2d705b35f21502419">LoopThread</a>.Start();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            AConsoleManager.Instance.Log(<span class="stringliteral">&quot;Host Initialized.&quot;</span>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            NetworkedInitializer.Logger.Log(<span class="stringliteral">&quot;Host Initialized.&quot;</span>);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -610,7 +610,7 @@ Static Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../d1/d15/_host_session_8cs_source.html#l00133">133</a> of file <a class="el" href="../../d1/d15/_host_session_8cs_source.html">HostSession.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            AConsoleManager.OnLog -= <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#aff09fb0643cee57a623dae092b16308b">OnLog</a>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            AConsoleManager.Instance.Log(<span class="stringliteral">&quot;Stopping Console Host&quot;</span>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            NetworkedInitializer.Logger.Log(<span class="stringliteral">&quot;Stopping Console Host&quot;</span>);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a5dc3cc05d46e2439ccc52c7845c34c23">IsRunning</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="../../d2/dd1/class_console_1_1_networking_1_1_host_session.html#a2725edd77a103328c0f9446e4597df07">Listener</a>?.Stop();</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
