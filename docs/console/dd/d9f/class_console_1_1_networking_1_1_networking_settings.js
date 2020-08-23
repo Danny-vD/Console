@@ -2,6 +2,8 @@ var class_console_1_1_networking_1_1_networking_settings =
 [
     [ "_authenticator", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b", null ],
     [ "AllowConnections", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a69a5471241b4a70051fdc391dc8ef20f", null ],
+    [ "AllowReceive", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9c1f5fb19ba3c8f36ee720ea281dd2b6", null ],
+    [ "AllowSend", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9693f96e2318528671970b2960f15253", null ],
     [ "authenticatorInstance", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043", null ],
     [ "ClientPacketsPerTick", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#ad9fbb164f67151d6dd8d4558e750cb45", null ],
     [ "ClientSession", "dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a5b9acb70a6dee99f605b430502f6a91a", null ],

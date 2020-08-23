@@ -199,6 +199,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer.html#aab428d019b661353d45cea9d8675dea7">Console.Networking.Packets.ConnectionRequest.ConnectionRequestSerializer</a>
 , <a class="el" href="de/dae/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_serializer.html#a8ce19f01d028476c9e09435ac8b2199c">Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSerializer</a>
 , <a class="el" href="d3/d01/class_console_1_1_networking_1_1_packets_1_1_log_1_1_log_packet_serializer.html#a6452564a6477dc94b57650cefdcc02ee">Console.Networking.Packets.Log.LogPacketSerializer</a>
+, <a class="el" href="d4/df7/class_console_1_1_networking_1_1_packets_1_1_send_data_1_1_send_data_packet_serializer.html#a65a63040d2465dfa42166dae2f9dce95">Console.Networking.Packets.SendData.SendDataPacketSerializer</a>
+, <a class="el" href="d5/d63/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet_serializer.html#a9e9ac644accfbd17bfa7b9175ffcadb3">Console.Networking.Packets.SendDataRequest.SendDataRequestPacketSerializer</a>
+, <a class="el" href="de/d53/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_serializer.html#a5232b729b4c75b6e39924a93153e4027">Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponseSerializer</a>
 </li>
 <li>Deserialize&lt; T &gt;()
 : <a class="el" href="d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#a374839dc10c1d303ccf93b61d9b895f1">Console.Networking.Packets.SerializerCollection</a>
@@ -254,6 +257,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>GetBytes&lt; T &gt;()
 : <a class="el" href="dc/d76/class_console_1_1_networking_1_1_authentication_1_1_cryptography.html#a50ac37b3fa2295d588ab5bead87b45c0">Console.Networking.Authentication.Cryptography</a>
 </li>
+<li>GetKey()
+: <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a8d1bf98cf6eddb96ed7b494cd0d1bc89">Console.Networking.SendData.SendDataManager</a>
+</li>
 <li>GetPacketIdentifier()
 : <a class="el" href="de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#ad3477a5f5e4d4ed7047beb09ee479721">Console.Networking.Packets.Abstract.IPacketSerializer</a>
 , <a class="el" href="d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#a87d797a1982f291f298a1003f613a3a2">Console.Networking.Packets.Abstract.PacketSerializer&lt; T &gt;</a>
@@ -293,6 +299,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="df/d97/class_console_1_1_networking_1_1_handlers_1_1_connection_request_host_handler.html#a1a7459c5897533ac65b7216c72d64b77">Console.Networking.Handlers.ConnectionRequestHostHandler</a>
 , <a class="el" href="d2/dca/class_console_1_1_networking_1_1_handlers_1_1_connection_request_response_client_handler.html#adf69a53a0b4cf256910d60ecd628b1a8">Console.Networking.Handlers.ConnectionRequestResponseClientHandler</a>
 , <a class="el" href="df/d76/class_console_1_1_networking_1_1_handlers_1_1_log_client_handler.html#a085ac6e15334f10dee1cac399b467766">Console.Networking.Handlers.LogClientHandler</a>
+, <a class="el" href="d4/dc7/class_console_1_1_networking_1_1_handlers_1_1_send_data_request_packet_host_handler.html#a53d4d55033c554e97b46c399ee69ddd6">Console.Networking.Handlers.SendDataRequestPacketHostHandler</a>
 </li>
 </ul>
 
@@ -328,6 +335,12 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>OnLog()
 : <a class="el" href="d2/dd1/class_console_1_1_networking_1_1_host_session.html#aff09fb0643cee57a623dae092b16308b">Console.Networking.HostSession</a>
 </li>
+<li>OnReceiveAllowResponse()
+: <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#aac7082494744cb203f25e0c4dd9c31c4">Console.Networking.SendData.SendDataManager</a>
+</li>
+<li>OpenReceiveChannel()
+: <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a693b3c8c6f2ebb65aa0bb1f326a2daae">Console.Networking.SendData.SendDataManager</a>
+</li>
 </ul>
 
 
@@ -348,6 +361,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>ReceiveSendData()
+: <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a24e0e6d29928df9028d2a9d11e3b2470">Console.Networking.SendData.SendDataManager</a>
+</li>
 <li>RegisterHandler()
 : <a class="el" href="db/d18/class_console_1_1_networking_1_1_client_session.html#aabb045eb711e297e9d0441032572ad47">Console.Networking.ClientSession</a>
 , <a class="el" href="d2/dd1/class_console_1_1_networking_1_1_host_session.html#a773e1942df6a1290a5aae21d8dea09c3">Console.Networking.HostSession</a>
@@ -368,6 +384,18 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>SendDataLoop()
+: <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a341d3f0ebc5af5dda57ede8d92fbf909">Console.Networking.SendData.SendDataManager</a>
+</li>
+<li>SendDataManager()
+: <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#ad5b0f9fc2a06697ffc87cedac538900f">Console.Networking.SendData.SendDataManager</a>
+</li>
+<li>SendDataRequestPacket()
+: <a class="el" href="d5/d15/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet.html#a1d8f25ade184bb65dde3e4a0d015cc29">Console.Networking.Packets.SendDataRequest.SendDataRequestPacket</a>
+</li>
+<li>SendDataRequestResponsePacket()
+: <a class="el" href="d1/d2c/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_packet.html#ab15c7f7261d4feba72a4d95ec47b89c4">Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponsePacket</a>
+</li>
 <li>Serialize()
 : <a class="el" href="d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#ad93777c46bbaedf8daaca15a11c9eed0">Console.Networking.Packets.Abstract.PacketSerializer&lt; T &gt;</a>
 , <a class="el" href="d3/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet_serializer.html#a013f207ed4f94bad9de28b602afcb7c5">Console.Networking.Packets.Authentication.AuthenticationPacketSerializer</a>
@@ -378,6 +406,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer.html#a1786f3308da9faaf75340418779f38c2">Console.Networking.Packets.ConnectionRequest.ConnectionRequestSerializer</a>
 , <a class="el" href="de/dae/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_serializer.html#a79ad93ee11b7279c7d975fb684ac79a1">Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSerializer</a>
 , <a class="el" href="d3/d01/class_console_1_1_networking_1_1_packets_1_1_log_1_1_log_packet_serializer.html#aba8f34ca97eacfad1038e4ec168774c3">Console.Networking.Packets.Log.LogPacketSerializer</a>
+, <a class="el" href="d4/df7/class_console_1_1_networking_1_1_packets_1_1_send_data_1_1_send_data_packet_serializer.html#a81e67a538cd06b342543fd397039d543">Console.Networking.Packets.SendData.SendDataPacketSerializer</a>
+, <a class="el" href="d5/d63/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet_serializer.html#a4c3b65b5df79152de0b9248739b94a42">Console.Networking.Packets.SendDataRequest.SendDataRequestPacketSerializer</a>
+, <a class="el" href="de/d53/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_serializer.html#a54145b877417f474c7a9117225842c23">Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponseSerializer</a>
 </li>
 <li>Serialize&lt; T &gt;()
 : <a class="el" href="d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html#aefc5cfafab7d6d9107ad4f7815208519">Console.Networking.Packets.SerializerCollection</a>
@@ -406,6 +437,10 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>ToString()
 : <a class="el" href="dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#ae84dc446452bd771aeff2d49db726926">Console.Networking.Packets.ConsoleSocket</a>
+</li>
+<li>TrySendData()
+: <a class="el" href="d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a531789875ec2bc5d426772834ced173f">Console.Networking.Commands.ClientConsoleCommand</a>
+, <a class="el" href="d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#ad6f29f38f3157e71fc77aa6a3541cc78">Console.Networking.SendData.SendDataManager</a>
 </li>
 <li>TrySendPacket()
 : <a class="el" href="dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a900af7ddf918934caf0bb9b9d4ed30f2">Console.Networking.Packets.ConsoleSocket</a>

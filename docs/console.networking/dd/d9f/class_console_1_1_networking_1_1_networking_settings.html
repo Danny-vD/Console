@@ -103,6 +103,12 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a6a0edfd156a3326613e30866b3b411f8"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a6a0edfd156a3326613e30866b3b411f8">Encoding</a> = &quot;ASCII&quot;</td></tr>
 <tr class="memdesc:a6a0edfd156a3326613e30866b3b411f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encoding that is used for communication  <a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a6a0edfd156a3326613e30866b3b411f8">More...</a><br /></td></tr>
 <tr class="separator:a6a0edfd156a3326613e30866b3b411f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1f5fb19ba3c8f36ee720ea281dd2b6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9c1f5fb19ba3c8f36ee720ea281dd2b6">AllowReceive</a> = true</td></tr>
+<tr class="memdesc:a9c1f5fb19ba3c8f36ee720ea281dd2b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">If True the Host will allow the SendFileRequest from a client  <a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9c1f5fb19ba3c8f36ee720ea281dd2b6">More...</a><br /></td></tr>
+<tr class="separator:a9c1f5fb19ba3c8f36ee720ea281dd2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9693f96e2318528671970b2960f15253"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9693f96e2318528671970b2960f15253">AllowSend</a> = true</td></tr>
+<tr class="memdesc:a9693f96e2318528671970b2960f15253"><td class="mdescLeft">&#160;</td><td class="mdescRight">If True the Client is able to Send Files to the host.  <a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a9693f96e2318528671970b2960f15253">More...</a><br /></td></tr>
+<tr class="separator:a9693f96e2318528671970b2960f15253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d3e51dc7565b1aa1525d3abd5c9e61"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a6a0edfd156a3326613e30866b3b411f8">Encoding</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a58d3e51dc7565b1aa1525d3abd5c9e61">EncodingInstance</a> =&gt; System.Text.Encoding.GetEncoding(<a class="el" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a6a0edfd156a3326613e30866b3b411f8">Encoding</a>)</td></tr>
 <tr class="memdesc:a58d3e51dc7565b1aa1525d3abd5c9e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Encoding Instance.  <a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a58d3e51dc7565b1aa1525d3abd5c9e61">More...</a><br /></td></tr>
 <tr class="separator:a58d3e51dc7565b1aa1525d3abd5c9e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,7 +185,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Backing field with default Value. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00086">86</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00098">98</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -205,7 +211,59 @@ Static Private Attributes</h2></td></tr>
 
 <p>If set to false the Host will not accept any new connections. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00065">65</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00077">77</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9c1f5fb19ba3c8f36ee720ea281dd2b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1f5fb19ba3c8f36ee720ea281dd2b6">&#9670;&nbsp;</a></span>AllowReceive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Console.Networking.NetworkingSettings.AllowReceive = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If True the Host will allow the SendFileRequest from a client </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00041">41</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9693f96e2318528671970b2960f15253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9693f96e2318528671970b2960f15253">&#9670;&nbsp;</a></span>AllowSend</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Console.Networking.NetworkingSettings.AllowSend = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If True the Client is able to Send Files to the host. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00047">47</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -231,7 +289,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The IAuthenticator Instance Backing Field. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00130">130</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00142">142</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -257,7 +315,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Specifies how many packets are allowed to be processed per tick </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00092">92</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00104">104</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -283,7 +341,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Client Session for the <a class="el" href="../../d8/db5/namespace_console.html">Console</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00103">103</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00115">115</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -335,7 +393,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Encoding Instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00040">40</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00052">52</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -361,7 +419,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Host Session for the <a class="el" href="../../d8/db5/namespace_console.html">Console</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00108">108</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00120">120</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -413,7 +471,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Version of the <a class="el" href="../../db/d5b/namespace_console_1_1_networking.html" title="The Networking Extension is used to Connect 2 Instances of the Console Library to allow running comma...">Networking</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00059">59</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00071">71</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -439,7 +497,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Maximum Data Size of a single Packet. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00046">46</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00058">58</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -465,7 +523,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Maximum ID Size of a single Packet. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00051">51</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00063">63</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -491,7 +549,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Specifies the time that the <a class="el" href="../../db/d5b/namespace_console_1_1_networking.html" title="The Networking Extension is used to Connect 2 Instances of the Console Library to allow running comma...">Networking</a> Layer will wait when the packet is still beeing transmitted. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00098">98</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00110">110</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -518,18 +576,18 @@ Static Private Attributes</h2></td></tr>
 
 <p>The IAuthenticator Implementation that is used for authentication </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00071">71</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">set</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.Equals(value, <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a>, StringComparison.InvariantCulture))</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a> = value;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00083">83</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">set</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.Equals(value, <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a>, StringComparison.InvariantCulture))</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a> = value;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -555,19 +613,19 @@ Static Private Attributes</h2></td></tr>
 
 <p>The IAuthenticator Instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00113">113</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                                           {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">get</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">authenticatorInstance</a> == <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">authenticatorInstance</a> = (<a class="code" href="../../da/d92/interface_console_1_1_networking_1_1_authentication_1_1_i_authenticator.html">IAuthenticator</a>)Activator.CreateInstance(Type.GetType(<a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a>));</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">authenticatorInstance</a>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html#l00125">125</a> of file <a class="el" href="../../db/dd1/_networking_settings_8cs_source.html">NetworkingSettings.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                                           {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keyword">get</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">authenticatorInstance</a> == <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">authenticatorInstance</a> = (<a class="code" href="../../da/d92/interface_console_1_1_networking_1_1_authentication_1_1_i_authenticator.html">IAuthenticator</a>)Activator.CreateInstance(Type.GetType(<a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">_authenticator</a>));</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">authenticatorInstance</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -607,8 +665,8 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ainterface_console_1_1_networking_1_1_authentication_1_1_i_authenticator_html"><div class="ttname"><a href="../../da/d92/interface_console_1_1_networking_1_1_authentication_1_1_i_authenticator.html">Console.Networking.Authentication.IAuthenticator</a></div><div class="ttdoc">IAuthenticator Instances Implement Encryption and Security Features.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0d/_i_authenticator_8cs_source.html#l00008">IAuthenticator.cs:9</a></div></div>
-<div class="ttc" id="aclass_console_1_1_networking_1_1_networking_settings_html_a106bbd161ac79f0e6b7de212c059e81b"><div class="ttname"><a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">Console.Networking.NetworkingSettings._authenticator</a></div><div class="ttdeci">static string _authenticator</div><div class="ttdoc">Backing field with default Value.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd1/_networking_settings_8cs_source.html#l00086">NetworkingSettings.cs:86</a></div></div>
-<div class="ttc" id="aclass_console_1_1_networking_1_1_networking_settings_html_a2e182de0d098322df16f7bcda38b0043"><div class="ttname"><a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">Console.Networking.NetworkingSettings.authenticatorInstance</a></div><div class="ttdeci">static IAuthenticator authenticatorInstance</div><div class="ttdoc">The IAuthenticator Instance Backing Field.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd1/_networking_settings_8cs_source.html#l00130">NetworkingSettings.cs:130</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_networking_settings_html_a106bbd161ac79f0e6b7de212c059e81b"><div class="ttname"><a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a106bbd161ac79f0e6b7de212c059e81b">Console.Networking.NetworkingSettings._authenticator</a></div><div class="ttdeci">static string _authenticator</div><div class="ttdoc">Backing field with default Value.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd1/_networking_settings_8cs_source.html#l00098">NetworkingSettings.cs:98</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_networking_settings_html_a2e182de0d098322df16f7bcda38b0043"><div class="ttname"><a href="../../dd/d9f/class_console_1_1_networking_1_1_networking_settings.html#a2e182de0d098322df16f7bcda38b0043">Console.Networking.NetworkingSettings.authenticatorInstance</a></div><div class="ttdeci">static IAuthenticator authenticatorInstance</div><div class="ttdoc">The IAuthenticator Instance Backing Field.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd1/_networking_settings_8cs_source.html#l00142">NetworkingSettings.cs:142</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

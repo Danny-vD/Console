@@ -1,0 +1,5 @@
+var namespace_console_1_1_networking_1_1_packets_1_1_send_data_request_response =
+[
+    [ "SendDataRequestResponsePacket", "d1/d2c/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_packet.html", "d1/d2c/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_packet" ],
+    [ "SendDataRequestResponseSerializer", "de/d53/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_serializer.html", "de/d53/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_serializer" ]
+];

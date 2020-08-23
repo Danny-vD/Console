@@ -9,6 +9,7 @@ var class_console_1_1_networking_1_1_host_session =
     [ "OnLog", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#aff09fb0643cee57a623dae092b16308b", null ],
     [ "PacketReceive", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#a95623a116fb65723f493777d329e72f7", null ],
     [ "RegisterHandler", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#a773e1942df6a1290a5aae21d8dea09c3", null ],
+    [ "RegisterHandler", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#a8f9ddd7d59ba55a5a7caf386ea505302", null ],
     [ "RemoveClient", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#a489c81515eef7e2e7ebca29b93700484", null ],
     [ "RemoveInactiveClients", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#a435cc0290c300206cf93b2796ef9e60f", null ],
     [ "StartHost", "d2/dd1/class_console_1_1_networking_1_1_host_session.html#acde734be92c42b5bb4adca68bff0cb4a", null ],

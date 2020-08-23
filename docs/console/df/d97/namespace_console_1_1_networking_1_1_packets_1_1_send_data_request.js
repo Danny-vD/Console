@@ -1,0 +1,5 @@
+var namespace_console_1_1_networking_1_1_packets_1_1_send_data_request =
+[
+    [ "SendDataRequestPacket", "d5/d15/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet.html", "d5/d15/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet" ],
+    [ "SendDataRequestPacketSerializer", "d5/d63/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet_serializer.html", "d5/d63/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet_serializer" ]
+];

@@ -35,6 +35,18 @@ namespace Console.Networking
         public static string Encoding = "ASCII";
 
         /// <summary>
+        /// If True the Host will allow the SendFileRequest from a client
+        /// </summary>
+        [Property("networking.send.allowreceive")]
+        public static bool AllowReceive = true;
+
+        /// <summary>
+        /// If True the Client is able to Send Files to the host.
+        /// </summary>
+        [Property("networking.send.allowsend")]
+        public static bool AllowSend = true;
+
+        /// <summary>
         /// The Encoding Instance.
         /// </summary>
         public static Encoding EncodingInstance => System.Text.Encoding.GetEncoding(Encoding);

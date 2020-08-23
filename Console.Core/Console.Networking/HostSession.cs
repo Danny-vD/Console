@@ -41,7 +41,7 @@ namespace Console.Networking
         /// OnClientConnected Event. Invoked when a client disconnected
         /// </summary>
         public static event ClientConnected OnClientConnected;
-        
+
         /// <summary>
         /// The TCP Listener used to detect connection attempts.
         /// </summary>
@@ -103,10 +103,19 @@ namespace Console.Networking
         /// <summary>
         /// Registers an IPacketHostHandler to the OnPacketReceive Event.
         /// </summary>
-        /// <param name="handler"></param>
+        /// <param name="handler">IPacketHostHandler implementation</param>
         public void RegisterHandler(IPacketHostHandler handler)
         {
-            OnPacketReceive += handler._Handle;
+            RegisterHandler(handler._Handle);
+        }
+
+        /// <summary>
+        /// Registers an IPacketHostHandler to the OnPacketReceive Event.
+        /// </summary>
+        /// <param name="handler">PacketReceive Handler</param>
+        public void RegisterHandler(PacketReceive handler)
+        {
+            OnPacketReceive += handler;
         }
 
         /// <summary>

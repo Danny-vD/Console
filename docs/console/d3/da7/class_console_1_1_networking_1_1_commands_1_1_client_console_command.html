@@ -98,6 +98,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aefab293df58d28ddc59976ec8e36396c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#aefab293df58d28ddc59976ec8e36396c">ConnectConsoleCommand</a> (string ip, int port)</td></tr>
 <tr class="memdesc:aefab293df58d28ddc59976ec8e36396c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to Connect to a hosting console.  <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#aefab293df58d28ddc59976ec8e36396c">More...</a><br /></td></tr>
 <tr class="separator:aefab293df58d28ddc59976ec8e36396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531789875ec2bc5d426772834ced173f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a531789875ec2bc5d426772834ced173f">TrySendData</a> (string file, string destination)</td></tr>
+<tr class="memdesc:a531789875ec2bc5d426772834ced173f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to Send a File from the Client to the Host  <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a531789875ec2bc5d426772834ced173f">More...</a><br /></td></tr>
+<tr class="separator:a531789875ec2bc5d426772834ced173f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2494e868457e8fe505105ccac4ef5993"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a2494e868457e8fe505105ccac4ef5993">DisconnectConsoleCommand</a> ()</td></tr>
 <tr class="memdesc:a2494e868457e8fe505105ccac4ef5993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to Disconnect from a hosting console.  <a href="../../d3/da7/class_console_1_1_networking_1_1_commands_1_1_client_console_command.html#a2494e868457e8fe505105ccac4ef5993">More...</a><br /></td></tr>
 <tr class="separator:a2494e868457e8fe505105ccac4ef5993"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,7 +111,7 @@ Private Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Client Side <a class="el" href="../../d9/da4/namespace_console_1_1_networking_1_1_commands.html" title="Commands used to control the Networking System">Commands</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aefab293df58d28ddc59976ec8e36396c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aefab293df58d28ddc59976ec8e36396c">&#9670;&nbsp;</a></span>ConnectConsoleCommand()</h2>
@@ -153,10 +156,10 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            NetworkingSettings.ClientSession.Connect(ip, port);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            NetworkingSettings.ClientSession.Connect(ip, port);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,10 +188,10 @@ Private Member Functions</h2></td></tr>
 
 <p>Tries to Disconnect from a hosting console. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00031">31</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            NetworkingSettings.ClientSession.Disconnect();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00047">47</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            NetworkingSettings.ClientSession.Disconnect();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -224,10 +227,65 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00040">40</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            NetworkingSettings.ClientSession.RunCommand(command);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00056">56</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            NetworkingSettings.ClientSession.RunCommand(command);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a531789875ec2bc5d426772834ced173f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531789875ec2bc5d426772834ced173f">&#9670;&nbsp;</a></span>TrySendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Console.Networking.Commands.ClientConsoleCommand.TrySendData </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>destination</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tries to Send a File from the Client to the Host </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Local File</td></tr>
+    <tr><td class="paramname">destination</td><td>Remote Destination</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html#l00032">32</a> of file <a class="el" href="../../d2/dd6/_client_console_command_8cs_source.html">ClientConsoleCommand.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (NetworkingSettings.ClientSession.Client != <span class="keyword">null</span> &amp;&amp;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                NetworkingSettings.ClientSession.Client.IsAuthenticated &amp;&amp;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                NetworkingSettings.ClientSession.Client.Connected)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <a class="code" href="../../d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html">SendDataManager</a>.<a class="code" href="../../d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#ad6f29f38f3157e71fc77aa6a3541cc78">TrySendData</a>(file, destination);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -236,6 +294,8 @@ Private Member Functions</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_console_1_1_networking_1_1_send_data_1_1_send_data_manager_html"><div class="ttname"><a href="../../d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html">Console.Networking.SendData.SendDataManager</a></div><div class="ttdoc">Manages the SendDataPacket Response Chain</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1c/_send_data_manager_8cs_source.html#l00017">SendDataManager.cs:18</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_send_data_1_1_send_data_manager_html_ad6f29f38f3157e71fc77aa6a3541cc78"><div class="ttname"><a href="../../d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#ad6f29f38f3157e71fc77aa6a3541cc78">Console.Networking.SendData.SendDataManager.TrySendData</a></div><div class="ttdeci">static bool TrySendData(string file, string destination)</div><div class="ttdoc">Tries to send the Specified File to the Connected Host</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1c/_send_data_manager_8cs_source.html#l00047">SendDataManager.cs:47</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

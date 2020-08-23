@@ -1,4 +1,5 @@
 ﻿using Console.Core.CommandSystem;
+using Console.Networking.SendData;
 
 /// <summary>
 /// Commands used to control the Networking System
@@ -22,6 +23,21 @@ namespace Console.Networking.Commands
             NetworkingSettings.ClientSession.Connect(ip, port);
         }
 
+        /// <summary>
+        /// Tries to Send a File from the Client to the Host
+        /// </summary>
+        /// <param name="file">Local File</param>
+        /// <param name="destination">Remote Destination</param>
+        [Command("send-data", "Sends a File from the Client to the Host.")]
+        private void TrySendData(string file, string destination)
+        {
+            if (NetworkingSettings.ClientSession.Client != null &&
+                NetworkingSettings.ClientSession.Client.IsAuthenticated &&
+                NetworkingSettings.ClientSession.Client.Connected)
+            {
+                SendDataManager.TrySendData(file, destination);
+            }
+        }
 
 
         /// <summary>
