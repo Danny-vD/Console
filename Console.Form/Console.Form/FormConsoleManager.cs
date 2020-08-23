@@ -77,6 +77,7 @@ namespace Console.Form
 
         public override void LogCommand(string command)
         {
+            if (!ConsoleCoreConfig.WriteCommand) return;
             InvokeLogEvent(command);
             ConsoleForm.Instance.LogCommand(command);
         }

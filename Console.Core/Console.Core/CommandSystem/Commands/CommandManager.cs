@@ -147,7 +147,9 @@ namespace Console.Core.CommandSystem.Commands
             List<AbstractCommand> tempCommands;
             if (find)
             {
-                tempCommands = commands.Where(command => command.Name.Contains(commandName)).ToList();
+                tempCommands = commands.Where(command =>
+                        command.Name.StartsWith(commandName) || command.Aliases.Any(x => x.StartsWith(commandName)))
+                    .ToList();
             }
             else
             {

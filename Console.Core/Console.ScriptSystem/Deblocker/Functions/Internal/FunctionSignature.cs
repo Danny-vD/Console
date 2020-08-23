@@ -61,8 +61,14 @@ namespace Console.ScriptSystem.Deblocker.Functions.Internal
         internal static FunctionSignature Parse(Line line, out int sigStart, out int sigLength)
         {
 
+            int openBlock = line.OriginalLine.IndexOf(DeblockerSettings.BlockBracketOpen);
             int open = line.OriginalLine.IndexOf(DeblockerSettings.OpenFunctionBracket);
             int close = line.OriginalLine.IndexOf(DeblockerSettings.CloseFunctionBracket, open + 1);
+            if (open > openBlock)
+            {
+                sigStart = sigLength = 0;
+                return new FunctionSignature(""); //Layout: function <Name> { () }
+            }
             if (open != -1 && close != -1 && open < close)
             {
                 string sigP = line.OriginalLine.Substring(open + 1, close - open - 1);

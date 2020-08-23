@@ -37,7 +37,9 @@ namespace Console.Core.CommandSystem.Commands
         /// <summary>
         /// List of Alternative Command Names
         /// </summary>
-        protected readonly List<string> Aliases;
+        protected readonly List<string> aliases;
+
+        public string[] Aliases => aliases.ToArray();
 
         /// <summary>
         /// The Help Message of this Command.
@@ -57,7 +59,7 @@ namespace Console.Core.CommandSystem.Commands
         protected AbstractCommand(int paramsCount)
         {
             ParametersCount = new ParameterRange(paramsCount);
-            Aliases = new List<string>();
+            aliases = new List<string>();
         }
 
         /// <summary>
@@ -122,7 +124,7 @@ namespace Console.Core.CommandSystem.Commands
         {
             List<string> names = new List<string>() { Name };
 
-            Aliases.ForEach(names.Add);
+            aliases.ForEach(names.Add);
 
             return names;
         }
@@ -165,7 +167,7 @@ namespace Console.Core.CommandSystem.Commands
                 return;
             }
 
-            Aliases.Add(alias);
+            aliases.Add(alias);
         }
 
         /// <summary>
@@ -174,7 +176,7 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="name">Alias to Remove</param>
         public void RemoveAlias(string name)
         {
-            Aliases.Remove(name);
+            aliases.Remove(name);
         }
 
         /// <summary>
@@ -215,7 +217,7 @@ namespace Console.Core.CommandSystem.Commands
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Aliases: ");
 
-            if (Aliases.Count == 0)
+            if (Aliases.Length == 0)
             {
                 stringBuilder.AppendLine("\tNone");
             }

@@ -47,7 +47,7 @@ namespace Console.Core.CommandSystem.Commands
             //Setting the Data from the attributes
             SetName(Command.Name ?? RefData.Name);
             SetHelpMessage(Command.HelpMessage);
-            Aliases.AddRange(Command.Aliases);
+            aliases.AddRange(Command.Aliases);
         }
 
         /// <summary>
