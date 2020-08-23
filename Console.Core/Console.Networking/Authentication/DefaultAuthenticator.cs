@@ -1,4 +1,5 @@
 ﻿using Console.Networking.Packets;
+using Console.Networking.Packets.AuthenticationResult;
 
 namespace Console.Networking.Authentication
 {
@@ -29,6 +30,7 @@ namespace Console.Networking.Authentication
         public void AuthenticateClient(ConsoleSocket client)
         {
             client.SetAuthenticator(this);
+            client.TrySendPacket(new AuthenticationResultPacket(true));
         }
     }
 }

@@ -121,6 +121,7 @@ namespace Console.Networking.Packets
                     dData = Authenticator.Encrypt(dData);
                 data.AddRange(BitConverter.GetBytes(dData.Length)); //Packet Data Length
                 data.AddRange(dData); //Packet Data
+
                 Client.GetStream().Write(data.ToArray(), 0, data.Count);
                 return true;
             }
@@ -159,6 +160,7 @@ namespace Console.Networking.Packets
                     idBuf = Authenticator.Decrypt(idBuf);
                 string id = NetworkingSettings.EncodingInstance.GetString(idBuf, 0, idBuf.Length);
 
+
                 if (SerializerCollection.CanDeserialize(id))
                 {
                     byte[] dataLenBuf = new byte[sizeof(int)];
@@ -177,6 +179,7 @@ namespace Console.Networking.Packets
 
                     byte[] data = new byte[dataLen];
 
+
                     Client.GetStream().Read(data, 0, data.Length);
                     if (dec) data = Authenticator.Decrypt(data);
 
@@ -185,7 +188,10 @@ namespace Console.Networking.Packets
                 }
                 else
                 {
-                    NetworkedInitializer.Logger.LogWarning("Can not Deserialize Packet: " + id);
+                    if (!NetworkingSettings.MuteLayerLogs)
+                    {
+                        NetworkedInitializer.Logger.LogWarning("Can not Deserialize Packet: " + id);
+                    }
                     FlushNetworkStream();
                 }
             }

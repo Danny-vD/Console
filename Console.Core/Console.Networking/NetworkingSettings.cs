@@ -11,12 +11,22 @@ namespace Console.Networking
     /// </summary>
     public class NetworkingSettings
     {
+        /// <summary>
+        /// Mutes all logs from the networking system.
+        /// </summary>
         [Property("logs.networking.mute")]
         private static bool MuteLogs
         {
-            get => NetworkedInitializer. Logger.Mute;
-            set => NetworkedInitializer. Logger.Mute = value;
+            get => NetworkedInitializer.Logger.Mute;
+            set => NetworkedInitializer.Logger.Mute = value;
         }
+
+        /// <summary>
+        /// Does not Send Logs from the networking layer if true.
+        /// Has no effect when MuteLogs is true
+        /// </summary>
+        [Property("logs.networking.layer.mute")]
+        public static bool MuteLayerLogs;
 
         /// <summary>
         /// Encoding that is used for communication
@@ -63,9 +73,11 @@ namespace Console.Networking
             get => _authenticator;
             set
             {
-                if (value == _authenticator) return;
+                if (string.Equals(value, _authenticator, StringComparison.InvariantCulture))
+                {
+                    return;
+                }
                 _authenticator = value;
-                AuthenticatorInstance = (IAuthenticator)Activator.CreateInstance(Type.GetType(_authenticator));
             }
         }
         /// <summary>
@@ -98,6 +110,23 @@ namespace Console.Networking
         /// <summary>
         /// The IAuthenticator Instance.
         /// </summary>
-        public static IAuthenticator AuthenticatorInstance { get; private set; }
+        public static IAuthenticator AuthenticatorInstance {
+            get
+            {
+                if (authenticatorInstance == null)
+                {
+                    authenticatorInstance = (IAuthenticator)Activator.CreateInstance(Type.GetType(_authenticator));
+
+                }
+
+                return authenticatorInstance;
+            }
+        }
+
+
+        /// <summary>
+        /// The IAuthenticator Instance Backing Field.
+        /// </summary>
+        private static IAuthenticator authenticatorInstance;
     }
 }
