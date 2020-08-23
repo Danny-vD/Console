@@ -77,11 +77,9 @@ namespace Console.Core.ReflectionSystem
                 if (cfa != null)
                 {
                     string name = cfa.Name ?? pt[i].Name;
-                    bool val = cparameter.Any(x => x.ToString().StartsWith("-") && x.ToString().Remove(0, 1) == name);
-                    bool lval = cparameter.Any(x => x.ToString().StartsWith("--") && x.ToString().Remove(0, 2) == name);
-                    if (val) cparameter.Remove("-" + name);
-                    if (lval) cparameter.Remove("--" + name);
-                    ret[i] = val || lval;
+                    bool lval = cparameter.Any(x => x.ToString().StartsWith(ConsoleCoreConfig.CommandFlagPrefix) && x.ToString().Remove(0, 2) == name);
+                    if (lval) cparameter.Remove(ConsoleCoreConfig.CommandFlagPrefix + name);
+                    ret[i] = lval;
                 }
             }
         }

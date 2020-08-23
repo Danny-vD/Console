@@ -1,4 +1,3 @@
-dotnet build
 call UpdateCLILibrary.bat Console.EnvironmentVariables
 call UpdateCLILibrary.bat Console.IO
 call UpdateCLILibrary.bat Console.Networking
@@ -13,4 +12,4 @@ call UpdateCLILibrary.bat Console.ClassQueries
 call UpdateCLILibrary.bat Console.UtilExtension
 call UpdateCLILibrary.bat Console.Evaluator
 call UpdateCLILibrary.bat Console.Evaluator.Math
-pause
+exit

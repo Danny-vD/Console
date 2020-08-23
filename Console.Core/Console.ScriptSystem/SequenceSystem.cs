@@ -23,7 +23,7 @@ namespace Console.ScriptSystem
         /// Flag that is used to force overwriting when creating a sequence
         /// Used in the Deblocker to minimize script length
         /// </summary>
-        public const string SequenceCreateOverwrite = "-overwrite";
+        public static string SequenceCreateOverwrite => $"{ConsoleCoreConfig.CommandFlagPrefix}overwrite";
 
         /// <summary>
         /// Create Sequence Name
@@ -144,7 +144,7 @@ namespace Console.ScriptSystem
         /// <param name="name">Name of the Sequene</param>
         /// <param name="command">Command to add</param>
         /// <param name="create">If true the Sequence gets created if it does not exist</param>
-        [Command(SequenceAdd, "Adds a Command to a Sequence. If -create is passed the Sequence will be created if not existing", "add-seq")]
+        [Command(SequenceAdd, "Adds a Command to a Sequence. If --create is passed the Sequence will be created if not existing", "add-seq")]
         public static void AddToSequence(string name, string command, [CommandFlag] bool create)
         {
             if (!Sequences.ContainsKey(name))

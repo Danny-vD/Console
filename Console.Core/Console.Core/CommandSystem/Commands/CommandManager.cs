@@ -23,7 +23,7 @@ namespace Console.Core.CommandSystem.Commands
         public static void Invoke(string commandName, params string[] parameters)
         {
             // 16 is the max amount of parameters we allow, because system.Action only goes up to 16 generics
-            int paramsCount = parameters.Count(x => !x.StartsWith("-"));
+            int paramsCount = parameters.Count(x => !x.StartsWith(ConsoleCoreConfig.CommandFlagPrefix));
             AbstractCommand command = GetCommand(commandName, parameters.Length, parameters.Length - paramsCount);
 
             command?.Invoke(parameters);

@@ -60,6 +60,11 @@ namespace Console.Core
         [Property("core.input.commandseparator")]
         public static char CommandInputSeparator = ' ';
         /// <summary>
+        /// The Character that is used to seperate input in the console.
+        /// </summary>
+        [Property("core.input.flagprefix")]
+        public static string CommandFlagPrefix = "--";
+        /// <summary>
         /// The Character that is used to escape the EscapableChars
         /// </summary>
         [Property("core.input.escapechar")]
