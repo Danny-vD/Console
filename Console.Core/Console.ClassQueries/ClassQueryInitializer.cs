@@ -17,7 +17,7 @@ namespace Console.ClassQueries
     /// </summary>
     public class ClassQueryInitializer : AExtensionInitializer
     {
-        [Property("classqueries.logs.mute")]
+        [Property("logs.classqueries.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

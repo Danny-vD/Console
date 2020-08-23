@@ -3,6 +3,9 @@ using System.Linq;
 using Console.ScriptSystem.Deblocker.Functions.Internal;
 using Console.ScriptSystem.Deblocker.Implementations;
 
+/// <summary>
+/// Contains the Implementations for Function and Local Function Blocks.
+/// </summary>
 namespace Console.ScriptSystem.Deblocker.Functions
 {
     /// <summary>
@@ -34,15 +37,14 @@ namespace Console.ScriptSystem.Deblocker.Functions
             Line l = new Line(newL);
 
             string[] parts = l.CleanParts;
-
-            if (DeblockerSettings.WriteDeblockLogs)
-                ScriptSystemInitializer.Logger.Log("Deblocking Local Function: " + parts[1] + signature);
+            
+                DeblockerSettings.Logger.Log("Deblocking Local Function: " + parts[1] + signature);
             List<string> s = base.Deblock(l, out begin, out end).ToList();
 
 
             if (parts.Length < 2)
             {
-                ScriptSystemInitializer.Logger.LogWarning("Can not Deblock Line: " + l);
+                DeblockerSettings.Logger.LogWarning("Can not Deblock Line: " + l);
                 begin = new List<string>();
                 end = new List<string>();
                 return base.Deblock(line, out begin, out end);

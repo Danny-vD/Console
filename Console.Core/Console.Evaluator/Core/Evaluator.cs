@@ -5,13 +5,34 @@ using Console.Evaluator.Core.OPCodes;
 
 namespace Console.Evaluator.Core
 {
+
+    /// <summary>
+    /// The Main Class of the Evaluator.
+    /// </summary>
     public class Evaluator
     {
+        /// <summary>
+        /// The List of Classes that Inherit IVariableBack and/or IEvalFunctions
+        /// </summary>
         internal ArrayList mEnvironmentFunctionsList;
+        /// <summary>
+        /// If true will throw an exception when a parameter/function is not found.
+        /// </summary>
         public bool RaiseVariableNotFoundException;
+        /// <summary>
+        /// Defines the Parser Syntax of the Evaluator
+        /// </summary>
         public readonly ParserSyntax Syntax;
+        /// <summary>
+        /// If True all Variables and Functions will be matched in case sensitive
+        /// </summary>
         public readonly bool CaseSensitive;
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="syntax">Evaluator Syntax</param>
+        /// <param name="caseSensitive">If True all Variables and Functions will be matched in case sensitive</param>
         public Evaluator(ParserSyntax syntax = ParserSyntax.VisualBasic, bool caseSensitive = false)
         {
             Syntax = syntax;
@@ -19,6 +40,10 @@ namespace Console.Evaluator.Core
             mEnvironmentFunctionsList = new ArrayList();
         }
 
+        /// <summary>
+        /// Adds an Object to the List of Environment Functions/Variables.
+        /// </summary>
+        /// <param name="obj">Object to Add</param>
         public void AddEnvironmentFunctions(object obj)
         {
             if (obj is null)
@@ -29,6 +54,10 @@ namespace Console.Evaluator.Core
             }
         }
 
+        /// <summary>
+        /// Removes an Object from the List of Environment Functions/Variables.
+        /// </summary>
+        /// <param name="obj">Object to Remove</param>
         public void RemoveEnvironmentFunctions(object obj)
         {
             if (mEnvironmentFunctionsList.Contains(obj))
@@ -36,12 +65,22 @@ namespace Console.Evaluator.Core
                 mEnvironmentFunctionsList.Remove(obj);
             }
         }
-
+        
+        /// <summary>
+        /// Parses the Specifed Expression
+        /// </summary>
+        /// <param name="str">The Expression to Parse</param>
+        /// <returns>Parsed Expression</returns>
         public OPCode Parse(string str)
         {
-            return new parser(this).Parse(str);
+            return new Parser(this).Parse(str);
         }
 
+        /// <summary>
+        /// Converts an Object to its string representation
+        /// </summary>
+        /// <param name="value">Object to convert</param>
+        /// <returns>Converted Value</returns>
         public static string ConvertToString(object value)
         {
             if (value is string)
@@ -96,16 +135,6 @@ namespace Console.Evaluator.Core
             return default;
         }
 
-        public class parserException : Exception
-        {
-            public readonly string formula;
-            public readonly int pos;
-
-            internal parserException(string str, string formula, int pos) : base(str)
-            {
-                this.formula = formula;
-                this.pos = pos;
-            }
-        }
+       
     }
 }

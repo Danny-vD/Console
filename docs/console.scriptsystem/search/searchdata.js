@@ -4,8 +4,8 @@ var indexSectionsWithContent =
   1: "adfilpsw",
   2: "c",
   3: "adfilpsw",
-  4: "acdfgilprst",
-  5: "_bcdfikloprsw",
+  4: "acdfgilmprst",
+  5: "_bcdfikloprs",
   6: "bckms"
 };
 

@@ -4,49 +4,61 @@ using Console.Evaluator.Core.Interfaces;
 
 namespace Console.Evaluator.Core
 {
+    /// <summary>
+    /// Implements IEvalTypedValue and IEvalHasDescription
+    /// Is Used as Possible Variable Provider.
+    /// </summary>
     public class EvalVariable : IEvalTypedValue, IEvalHasDescription
     {
+        /// <summary>
+        /// The Value of the Variable
+        /// </summary>
         private object mValue;
+        /// <summary>
+        /// The Backing Field Description of the Variable
+        /// </summary>
         private string mDescription;
+        /// <summary>
+        /// The Backing Field Variable Name
+        /// </summary>
         private string mName;
+        /// <summary>
+        /// The Backing Field System Type of the Variable
+        /// </summary>
         private Type mSystemType;
+
+        /// <summary>
+        /// The Backing Field Evaluation Type of the Variable
+        /// </summary>
         private EvalType mEvalType;
 
-        /* TODO ERROR: Skipped RegionDirectiveTrivia */
-        public string Description
-        {
-            get
-            {
-                return mDescription;
-            }
-        }
+        /// <summary>
+        /// The Description of the Variable
+        /// </summary>
+        public string Description => mDescription;
 
-        public string Name
-        {
-            get
-            {
-                return mName;
-            }
-        }
-        
+        /// <summary>
+        /// The Variable Name
+        /// </summary>
+        public string Name => mName;
 
-        public EvalType EvalType
-        {
-            get
-            {
-                return mEvalType;
-            }
-        }
+        /// <summary>
+        /// The Evaluation Type of the Variable
+        /// </summary>
+        public EvalType EvalType => mEvalType;
 
-        public Type SystemType
-        {
-            get
-            {
-                return mSystemType;
-            }
-        }
+        /// <summary>
+        /// The System Type of the Variable
+        /// </summary>
+        public Type SystemType => mSystemType;
 
-        /* TODO ERROR: Skipped EndRegionDirectiveTrivia */
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="name">Name of the Variable</param>
+        /// <param name="originalValue">The Original Value of the Variable</param>
+        /// <param name="description">The Variable Description</param>
+        /// <param name="systemType">The Type of the Variable</param>
         public EvalVariable(string name, object originalValue, string description, Type systemType)
         {
             mName = name;
@@ -56,12 +68,12 @@ namespace Console.Evaluator.Core
             mEvalType = Globals.GetEvalType(systemType);
         }
 
+        /// <summary>
+        /// The Value of the Variable
+        /// </summary>
         public object Value
         {
-            get
-            {
-                return mValue;
-            }
+            get => mValue;
 
             set
             {
@@ -73,6 +85,9 @@ namespace Console.Evaluator.Core
             }
         }
 
+        /// <summary>
+        /// Event Handler that gets invoked when the Variable Value gets set.
+        /// </summary>
         public event ValueChangedEventHandler ValueChanged;
         
     }

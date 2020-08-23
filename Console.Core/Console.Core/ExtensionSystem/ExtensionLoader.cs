@@ -24,9 +24,10 @@ namespace Console.Core.ExtensionSystem
         /// <param name="folder">Folder Containing Extensions</param>
         public static void LoadFromFolder(string folder)
         {
-            LoadExtensionFiles(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
+            if (Directory.Exists(folder))
+                LoadExtensionFiles(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
         }
-        
+
         /// <summary>
         /// Loads an Extension from File.
         /// </summary>

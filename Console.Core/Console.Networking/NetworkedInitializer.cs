@@ -23,8 +23,6 @@ namespace Console.Networking
     /// </summary>
     public class NetworkedInitializer : AExtensionInitializer
     {
-        
-
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>

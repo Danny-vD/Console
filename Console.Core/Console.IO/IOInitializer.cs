@@ -18,7 +18,7 @@ namespace Console.IO
     /// </summary>
     public class IOInitializer : AExtensionInitializer
     {
-        [Property("io.logs.mute")]
+        [Property("logs.io.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

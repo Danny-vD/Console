@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['consoleinitoptions_636',['ConsoleInitOptions',['../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a6b7869795f33b0e3d83a30d09fbea705',1,'Console::Core::AConsoleManager']]]
+  ['consoleinitoptions_619',['ConsoleInitOptions',['../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5',1,'Console::Core']]]
 ];

@@ -112,10 +112,10 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:acd11a54df15ab1ffaad0677fc98c35c4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#acd11a54df15ab1ffaad0677fc98c35c4">SelectedObjectLogger</a> = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;list-selection&quot;)</td></tr>
-<tr class="separator:acd11a54df15ab1ffaad0677fc98c35c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab998eaecb77d9c829fda15c63666de1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ab998eaecb77d9c829fda15c63666de1e">SelectedObjectClearLogger</a> = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;clear-selection&quot;)</td></tr>
-<tr class="separator:ab998eaecb77d9c829fda15c63666de1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae099eee325fccfc1dffa11bb376e662e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ae099eee325fccfc1dffa11bb376e662e">SelectedObjectLogger</a> = TypedLogger.CreateTypedWithPrefix(&quot;list-selection&quot;)</td></tr>
+<tr class="separator:ae099eee325fccfc1dffa11bb376e662e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b56b44c9bee000b304c6f781109446"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ad4b56b44c9bee000b304c6f781109446">SelectedObjectClearLogger</a> = TypedLogger.CreateTypedWithPrefix(&quot;clear-selection&quot;)</td></tr>
+<tr class="separator:ad4b56b44c9bee000b304c6f781109446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Default command to clear and list all selected objects </p>
@@ -181,7 +181,7 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d9/da6/_object_selection_commands_8cs_source.html">ObjectSelectionCommands.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ab998eaecb77d9c829fda15c63666de1e">SelectedObjectClearLogger</a>.<a class="code" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Log</a>(<span class="stringliteral">&quot;Cleared Selected Objects&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ad4b56b44c9bee000b304c6f781109446">SelectedObjectClearLogger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a7ba23daf870dbaa8d7064b72c74ab793">Log</a>(<span class="stringliteral">&quot;Cleared Selected Objects&quot;</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            AConsoleManager.Instance.ObjectSelector.ClearSelection();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 </div><!-- fragment -->
@@ -223,14 +223,14 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    s += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#acd11a54df15ab1ffaad0677fc98c35c4">SelectedObjectLogger</a>.<a class="code" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Log</a>(s);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ae099eee325fccfc1dffa11bb376e662e">SelectedObjectLogger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a7ba23daf870dbaa8d7064b72c74ab793">Log</a>(s);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab998eaecb77d9c829fda15c63666de1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab998eaecb77d9c829fda15c63666de1e">&#9670;&nbsp;</a></span>SelectedObjectClearLogger</h2>
+<a id="ad4b56b44c9bee000b304c6f781109446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4b56b44c9bee000b304c6f781109446">&#9670;&nbsp;</a></span>SelectedObjectClearLogger</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +239,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a> Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectClearLogger = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;clear-selection&quot;)</td>
+          <td class="memname"><a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectClearLogger = TypedLogger.CreateTypedWithPrefix(&quot;clear-selection&quot;)</td>
         </tr>
       </table>
   </td>
@@ -253,8 +253,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acd11a54df15ab1ffaad0677fc98c35c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd11a54df15ab1ffaad0677fc98c35c4">&#9670;&nbsp;</a></span>SelectedObjectLogger</h2>
+<a id="ae099eee325fccfc1dffa11bb376e662e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae099eee325fccfc1dffa11bb376e662e">&#9670;&nbsp;</a></span>SelectedObjectLogger</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +263,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a> Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectLogger = new <a class="el" href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html">PrefixLogger</a>(&quot;list-selection&quot;)</td>
+          <td class="memname"><a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectLogger = TypedLogger.CreateTypedWithPrefix(&quot;list-selection&quot;)</td>
         </tr>
       </table>
   </td>
@@ -282,9 +282,9 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_prefix_logger_html_ab2798f98c5fe239287e2bb7facbb1e33"><div class="ttname"><a href="../../d6/d98/class_console_1_1_core_1_1_log_system_1_1_prefix_logger.html#ab2798f98c5fe239287e2bb7facbb1e33">Console.Core.LogSystem.PrefixLogger.Log</a></div><div class="ttdeci">override void Log(object value)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/de2/_prefix_logger_8cs_source.html#l00017">PrefixLogger.cs:17</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands_html_acd11a54df15ab1ffaad0677fc98c35c4"><div class="ttname"><a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#acd11a54df15ab1ffaad0677fc98c35c4">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectLogger</a></div><div class="ttdeci">static PrefixLogger SelectedObjectLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/_object_selection_commands_8cs_source.html#l00010">ObjectSelectionCommands.cs:10</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands_html_ab998eaecb77d9c829fda15c63666de1e"><div class="ttname"><a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ab998eaecb77d9c829fda15c63666de1e">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectClearLogger</a></div><div class="ttdeci">static PrefixLogger SelectedObjectClearLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/_object_selection_commands_8cs_source.html#l00011">ObjectSelectionCommands.cs:11</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_a_logger_html_a7ba23daf870dbaa8d7064b72c74ab793"><div class="ttname"><a href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a7ba23daf870dbaa8d7064b72c74ab793">Console.Core.LogSystem.ALogger.Log</a></div><div class="ttdeci">virtual void Log(object value)</div><div class="ttdoc">Writes a Log to the Console</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db4/_a_logger_8cs_source.html#l00035">ALogger.cs:35</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands_html_ad4b56b44c9bee000b304c6f781109446"><div class="ttname"><a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ad4b56b44c9bee000b304c6f781109446">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectClearLogger</a></div><div class="ttdeci">static ALogger SelectedObjectClearLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/_object_selection_commands_8cs_source.html#l00011">ObjectSelectionCommands.cs:11</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands_html_ae099eee325fccfc1dffa11bb376e662e"><div class="ttname"><a href="../../d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html#ae099eee325fccfc1dffa11bb376e662e">Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.SelectedObjectLogger</a></div><div class="ttdeci">static ALogger SelectedObjectLogger</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/_object_selection_commands_8cs_source.html#l00010">ObjectSelectionCommands.cs:10</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

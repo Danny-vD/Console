@@ -4,17 +4,24 @@ using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.OPCodes
 {
+
+    /// <summary>
+    /// Implements the OPCode for returning a Value from an EvalVariable class.
+    /// </summary>
     internal class OPCodeVariable : OPCode
     {
+        /// <summary>
+        /// The Variable Backing Field
+        /// </summary>
         private EvalVariable _mVariable;
 
+        /// <summary>
+        /// The Variable
+        /// </summary>
         private EvalVariable mVariable
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get
-            {
-                return _mVariable;
-            }
+            get => _mVariable;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
@@ -32,30 +39,33 @@ namespace Console.Evaluator.Core.OPCodes
             }
         }
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="variable">The Variable</param>
         public OPCodeVariable(EvalVariable variable)
         {
             mVariable = variable;
         }
 
-        public override object Value
-        {
-            get
-            {
-                return mVariable;
-            }
-        }
+        /// <summary>
+        /// The Variable 
+        /// </summary>
+        public override object Value => mVariable;
 
-        public override EvalType EvalType
-        {
-            get
-            {
-                return mVariable.EvalType;
-            }
-        }
+        /// <summary>
+        /// The Evaluation Type
+        /// </summary>
+        public override EvalType EvalType => mVariable.EvalType;
 
-        private void mVariable_ValueChanged(object Sender, EventArgs e)
+        /// <summary>
+        /// Gets Invoked when the variable value changes.
+        /// </summary>
+        /// <param name="sender">The Sender of the Event</param>
+        /// <param name="e">The Event Args</param>
+        private void mVariable_ValueChanged(object sender, EventArgs e)
         {
-            RaiseEventValueChanged(Sender, e);
+            RaiseEventValueChanged(sender, e);
         }
     }
 }

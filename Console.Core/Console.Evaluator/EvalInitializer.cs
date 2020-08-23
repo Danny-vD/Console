@@ -18,7 +18,7 @@ namespace Console.Evaluator
     /// </summary>
     public class EvalInitializer : AExtensionInitializer
     {
-        [Property("evaluator.logs.mute")]
+        [Property("logs.evaluator.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

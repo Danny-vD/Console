@@ -1,6 +1,5 @@
 var class_console_1_1_form_1_1_console_form =
 [
-    [ "ConsoleLine", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line" ],
     [ "ConsoleForm", "d0/d67/class_console_1_1_form_1_1_console_form.html#a8535c9f22417d0a755ab2514afebcc8c", null ],
     [ "btnSubmit_Click", "d0/d67/class_console_1_1_form_1_1_console_form.html#a4bc7ef2a1d6ed3160eb64c712c89122c", null ],
     [ "Clear", "d0/d67/class_console_1_1_form_1_1_console_form.html#acb31fefb6b4de4793da5bf2ed0697680", null ],
@@ -16,7 +15,7 @@ var class_console_1_1_form_1_1_console_form =
     [ "LogWarning", "d0/d67/class_console_1_1_form_1_1_console_form.html#a7451fc4348e262d528bfabae9fc67a19", null ],
     [ "RebuildConsoleOut", "d0/d67/class_console_1_1_form_1_1_console_form.html#a1f3c5913bbb2b8cafae26fac2e3aa474", null ],
     [ "ReleaseInstance", "d0/d67/class_console_1_1_form_1_1_console_form.html#a6fd076554d86ffa3a3294512c082ff2e", null ],
-    [ "TbConsoleIn_KeyDown", "d0/d67/class_console_1_1_form_1_1_console_form.html#aa9d52516f06ad0adb8df490686da2eba", null ],
+    [ "TbConsoleIn_KeyDown", "d0/d67/class_console_1_1_form_1_1_console_form.html#a96b088ede2e9d86bb0f1c20518ff6833", null ],
     [ "ConsoleManager", "d0/d67/class_console_1_1_form_1_1_console_form.html#aeefbbb8047fa11ec6525364c42a3af4a", null ],
     [ "consoleManager", "d0/d67/class_console_1_1_form_1_1_console_form.html#a4fdbb4c9bbad6e2da74762c95ef5a3db", null ],
     [ "ConsoleOutputSize", "d0/d67/class_console_1_1_form_1_1_console_form.html#a03bc29ca3a4e9f0861376320bc4eeeab", null ],

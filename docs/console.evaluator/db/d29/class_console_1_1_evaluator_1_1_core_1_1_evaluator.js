@@ -1,6 +1,5 @@
 var class_console_1_1_evaluator_1_1_core_1_1_evaluator =
 [
-    [ "parserException", "d3/d10/class_console_1_1_evaluator_1_1_core_1_1_evaluator_1_1parser_exception.html", "d3/d10/class_console_1_1_evaluator_1_1_core_1_1_evaluator_1_1parser_exception" ],
     [ "Evaluator", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html#afff65495c4d490134b5c568492bbbfd2", null ],
     [ "AddEnvironmentFunctions", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html#a53429344a9d777bcab3d85f4aa01eee2", null ],
     [ "ConvertToString", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html#a0382361f6ccbda9c7556a6b52339f0dc", null ],

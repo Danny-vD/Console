@@ -18,7 +18,7 @@ namespace Console.PersistentProperties
     /// </summary>
     public class PersistentPropertiesInitializer : AExtensionInitializer
     {
-        [Property("persistentproperties.logs.mute")]
+        [Property("logs.persistentproperties.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

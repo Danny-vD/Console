@@ -10,6 +10,6 @@ var class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_prop
     [ "ListPropertiesCommand", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a76f76f8760bdfb66536a4dbd910ea15c", null ],
     [ "SetProperty", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a536ac79b013ebd72d952ca724d772bcd", null ],
     [ "SetPropertySelection", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#af40a40128fb551659352b55de1884cef", null ],
-    [ "GetPropertiesLogger", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#ade331b2278b386c43255c350cf8c51c3", null ],
-    [ "ListPropertiesLogger", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a251f949a099ccfe97dc5100a68e02ee0", null ]
+    [ "GetPropertiesLogger", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a631266bb64d29ccb93eca12547faeaaf", null ],
+    [ "ListPropertiesLogger", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a73e61e1bbe116c3e3e3ef64fbecbe989", null ]
 ];

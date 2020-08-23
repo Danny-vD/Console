@@ -23,12 +23,19 @@ namespace Console.ScriptSystem
     /// </summary>
     public class ScriptSystemInitializer : AExtensionInitializer
     {
-        [Property("scriptsystem.logs.mute")]
+        /// <summary>
+        /// Mutes all Script System Logs
+        /// </summary>
+        [Property("logs.scriptsystem.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;
             set => Logger.Mute = value;
         }
+
+        /// <summary>
+        /// Logger used by the Script System
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>

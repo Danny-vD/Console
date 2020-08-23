@@ -1,5 +1,9 @@
 ﻿using System;
 
+
+/// <summary>
+/// The Log System provides Logger Implementations that allow for prefixes and other transformations of the incoming logs
+/// </summary>
 namespace Console.Core.LogSystem
 {
     /// <summary>

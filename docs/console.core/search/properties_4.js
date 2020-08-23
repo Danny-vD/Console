@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['mute_657',['Mute',['../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2',1,'Console::Core::LogSystem::ALogger']]]
+  ['logerrorprefix_640',['LogErrorPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1',1,'Console::Core::LogSystem::TypedLogger']]],
+  ['logprefix_641',['LogPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f',1,'Console::Core::LogSystem::TypedLogger']]],
+  ['logwarningprefix_642',['LogWarningPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a',1,'Console::Core::LogSystem::TypedLogger']]]
 ];

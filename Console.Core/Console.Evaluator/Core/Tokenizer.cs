@@ -4,46 +4,81 @@ using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core
 {
-    public class tokenizer
-    {
-        private string mString;
-        private int mLen;
-        private int mPos;
-        private char mCurChar;
-        private parser mParser;
-        private ParserSyntax mSyntax;
-        public int startpos;
-        public TokenType type;
-        public System.Text.StringBuilder value = new System.Text.StringBuilder();
 
-        internal tokenizer(parser Parser, string str, ParserSyntax syntax = ParserSyntax.VisualBasic)
+    /// <summary>
+    /// The Tokenizer parses the Single Parts of the Expression to usable Tokens
+    /// </summary>
+    public class Tokenizer
+    {
+        /// <summary>
+        /// The Current Expression
+        /// </summary>
+        private string mString;
+        /// <summary>
+        /// Length of mString
+        /// </summary>
+        private int mLen;
+        /// <summary>
+        /// The Current Position in the mString Expression
+        /// </summary>
+        private int mPos;
+        /// <summary>
+        /// The Current Character that is beeing tokenized
+        /// </summary>
+        private char mCurChar;
+        /// <summary>
+        /// The Start Position of the next Tokenization
+        /// </summary>
+        public int StartPos;
+        /// <summary>
+        /// The Current Token Type
+        /// </summary>
+        public TokenType TokenType;
+
+        /// <summary>
+        /// The Value of the Current Token
+        /// </summary>
+        public StringBuilder Value = new StringBuilder();
+
+        /// <summary>
+        /// Internal Constructor
+        /// </summary>
+        /// <param name="str">Expression</param>
+        internal Tokenizer(string str)
         {
             mString = str;
             mLen = str.Length;
-            mSyntax = syntax;
             mPos = 0;
-            mParser = Parser;
             NextChar();   // start the machine
         }
 
+        /// <summary>
+        /// Raises an Exception 
+        /// </summary>
+        /// <param name="msg">The Error Message</param>
+        /// <param name="ex">The Exception</param>
         internal void RaiseError(string msg, Exception ex = null)
         {
-            if (ex is Evaluator.parserException)
+            if (ex is ParserException)
             {
                 msg += ". " + ex.Message;
             }
             else
             {
-                msg += " " + " at position " + startpos;
+                msg += " " + " at position " + StartPos;
                 if (ex is object)
                 {
                     msg += ". " + ex.Message;
                 }
             }
 
-            throw new Evaluator.parserException(msg, mString, mPos);
+            throw new ParserException(msg, mString, mPos);
         }
 
+        /// <summary>
+        /// Gets Invoked when the Tokenizer Encounters an Unexpected Token in the Expression
+        /// </summary>
+        /// <param name="msg">The Error Message</param>
         internal void RaiseUnexpectedToken(string msg = null)
         {
             if (msg.Length == 0)
@@ -55,10 +90,17 @@ namespace Console.Evaluator.Core
                 msg += "; ";
             }
 
-            RaiseError(msg + "Unexpected " + type.ToString().Replace('_', ' ') + " : " + value.ToString());
+            RaiseError(msg + "Unexpected " + TokenType.ToString().Replace('_', ' ') + " : " + Value.ToString());
         }
 
-        internal void RaiseWrongOperator(TokenType tt, object ValueLeft, object valueRight, string msg = null)
+        /// <summary>
+        /// Gets Invoked when the Tokenizer encounters an Unexpected Operator
+        /// </summary>
+        /// <param name="tt">The Token Type</param>
+        /// <param name="valueLeft">The Value on the Left Side of the Operator</param>
+        /// <param name="valueRight">The Value on the Rght Side of the Operator</param>
+        /// <param name="msg">The Error Message</param>
+        internal void RaiseWrongOperator(TokenType tt, object valueLeft, object valueRight, string msg = null)
         {
             if (msg.Length > 0)
             {
@@ -67,16 +109,16 @@ namespace Console.Evaluator.Core
             }
 
             msg = "Cannot apply the operator " + tt.ToString();
-            if (ValueLeft is null)
+            if (valueLeft is null)
             {
                 msg += " on nothing";
             }
             else
             {
-                msg += " on a " + ValueLeft.GetType().ToString();
+                msg += " on a " + valueLeft.GetType().ToString();
             }
 
-            if (valueRight is object)
+            if (valueRight != null)
             {
                 msg += " and a " + valueRight.GetType().ToString();
             }
@@ -84,29 +126,31 @@ namespace Console.Evaluator.Core
             RaiseError(msg);
         }
 
+        /// <summary>
+        /// Returns True if the current Character is an Operator
+        /// </summary>
+        /// <returns></returns>
         private bool IsOp()
         {
-            return mCurChar == '+' | mCurChar == '-' | mCurChar == '–' | mCurChar == '%' | mCurChar == '/' | mCurChar == '(' | mCurChar == ')' | mCurChar == '.';
-
-
-
-
-
-
+            return (mCurChar == '+') | (mCurChar == '-') | (mCurChar == '–') | (mCurChar == '%') | (mCurChar == '/') |
+                   (mCurChar == '(') | (mCurChar == ')') | (mCurChar == '.');
         }
 
+        /// <summary>
+        /// Moves the Tokenizer to the Next Token
+        /// </summary>
         public void NextToken()
         {
-            value.Length = 0;
-            type = TokenType.None;
+            Value.Length = 0;
+            TokenType = TokenType.None;
             do
             {
-                startpos = mPos;
+                StartPos = mPos;
                 switch (mCurChar)
                 {
                     case default(char):
                         {
-                            type = TokenType.EndOfFormula;
+                            TokenType = TokenType.EndOfFormula;
                             break;
                         }
 
@@ -120,49 +164,49 @@ namespace Console.Evaluator.Core
                     case '–':
                         {
                             NextChar();
-                            type = TokenType.OperatorMinus;
+                            TokenType = TokenType.OperatorMinus;
                             break;
                         }
 
                     case '+':
                         {
                             NextChar();
-                            type = TokenType.OperatorPlus;
+                            TokenType = TokenType.OperatorPlus;
                             break;
                         }
 
                     case '*':
                         {
                             NextChar();
-                            type = TokenType.OperatorMul;
+                            TokenType = TokenType.OperatorMul;
                             break;
                         }
 
                     case '/':
                         {
                             NextChar();
-                            type = TokenType.OperatorDiv;
+                            TokenType = TokenType.OperatorDiv;
                             break;
                         }
 
                     case '%':
                         {
                             NextChar();
-                            type = TokenType.OperatorPercent;
+                            TokenType = TokenType.OperatorPercent;
                             break;
                         }
 
                     case '(':
                         {
                             NextChar();
-                            type = TokenType.OpenParenthesis;
+                            TokenType = TokenType.OpenParenthesis;
                             break;
                         }
 
                     case ')':
                         {
                             NextChar();
-                            type = TokenType.CloseParenthesis;
+                            TokenType = TokenType.CloseParenthesis;
                             break;
                         }
 
@@ -172,16 +216,16 @@ namespace Console.Evaluator.Core
                             if (mCurChar == '=')
                             {
                                 NextChar();
-                                type = TokenType.OperatorLe;
+                                TokenType = TokenType.OperatorLe;
                             }
                             else if (mCurChar == '>')
                             {
                                 NextChar();
-                                type = TokenType.OperatorNe;
+                                TokenType = TokenType.OperatorNe;
                             }
                             else
                             {
-                                type = TokenType.OperatorLt;
+                                TokenType = TokenType.OperatorLt;
                             }
 
                             break;
@@ -193,11 +237,11 @@ namespace Console.Evaluator.Core
                             if (mCurChar == '=')
                             {
                                 NextChar();
-                                type = TokenType.OperatorGe;
+                                TokenType = TokenType.OperatorGe;
                             }
                             else
                             {
-                                type = TokenType.OperatorGt;
+                                TokenType = TokenType.OperatorGt;
                             }
 
                             break;
@@ -206,21 +250,21 @@ namespace Console.Evaluator.Core
                     case ',':
                         {
                             NextChar();
-                            type = TokenType.Comma;
+                            TokenType = TokenType.Comma;
                             break;
                         }
 
                     case '=':
                         {
                             NextChar();
-                            type = TokenType.OperatorEq;
+                            TokenType = TokenType.OperatorEq;
                             break;
                         }
 
                     case '.':
                         {
                             NextChar();
-                            type = TokenType.Dot;
+                            TokenType = TokenType.Dot;
                             break;
                         }
 
@@ -228,7 +272,7 @@ namespace Console.Evaluator.Core
                     case '"':
                         {
                             ParseString(true);
-                            type = TokenType.ValueString;
+                            TokenType = TokenType.ValueString;
                             break;
                         }
 
@@ -241,21 +285,21 @@ namespace Console.Evaluator.Core
                     case '&':
                         {
                             NextChar();
-                            type = TokenType.OperatorConcat;
+                            TokenType = TokenType.OperatorConcat;
                             break;
                         }
 
                     case '[':
                         {
                             NextChar();
-                            type = TokenType.OpenBracket;
+                            TokenType = TokenType.OpenBracket;
                             break;
                         }
 
                     case ']':
                         {
                             NextChar();
-                            type = TokenType.CloseBracket;
+                            TokenType = TokenType.CloseBracket;
                             break;
                         }
                     // do nothing
@@ -271,24 +315,27 @@ namespace Console.Evaluator.Core
                         }
                 }
 
-                if (type != TokenType.None)
+                if (TokenType != TokenType.None)
                     break;
                 NextChar();
             }
             while (true);
         }
 
+        /// <summary>
+        /// Moves the Tokenizer to the Next Character
+        /// </summary>
         private void NextChar()
         {
             if (mPos < mLen)
             {
                 mCurChar = mString[mPos];
-                if (mCurChar == '\u0093' | mCurChar == '\u0094')
+                if ((mCurChar == '\u0093') | (mCurChar == '\u0094'))
                 {
                     mCurChar = '"';
                 }
 
-                if (mCurChar == '\u0091' | mCurChar == '\u0092')
+                if ((mCurChar == '\u0091') | (mCurChar == '\u0092'))
                 {
                     mCurChar = '\'';
                 }
@@ -300,106 +347,113 @@ namespace Console.Evaluator.Core
                 mCurChar = default;
             }
         }
-
+        
+        /// <summary>
+        /// Parses a Number from the Current Character
+        /// </summary>
         private void ParseNumber()
         {
-            type = TokenType.ValueNumber;
-            while (mCurChar >= '0' & mCurChar <= '9')
+            TokenType = TokenType.ValueNumber;
+            while ((mCurChar >= '0') & (mCurChar <= '9'))
             {
-                value.Append(mCurChar);
+                Value.Append(mCurChar);
                 NextChar();
             }
 
             if (mCurChar == '.')
             {
-                value.Append(mCurChar);
+                Value.Append(mCurChar);
                 NextChar();
-                while (mCurChar >= '0' & mCurChar <= '9')
+                while ((mCurChar >= '0') & (mCurChar <= '9'))
                 {
-                    value.Append(mCurChar);
+                    Value.Append(mCurChar);
                     NextChar();
                 }
             }
         }
 
+        /// <summary>
+        /// Parses an Identifier
+        /// </summary>
         private void ParseIdentifier()
         {
-            while (mCurChar >= '0' & mCurChar <= '9' | mCurChar >= 'a' & mCurChar <= 'z' | mCurChar >= 'A' & mCurChar <= 'Z' | mCurChar >= 'A' & mCurChar <= 'Z' | mCurChar >= '\u0080' | mCurChar == '_')
-
-
-
-
+            while (((mCurChar >= '0') & (mCurChar <= '9')) | ((mCurChar >= 'a') & (mCurChar <= 'z')) |
+                   ((mCurChar >= 'A') & (mCurChar <= 'Z')) | ((mCurChar >= 'A') & (mCurChar <= 'Z')) |
+                   (mCurChar >= '\u0080') | (mCurChar == '_')) 
             {
-                value.Append(mCurChar);
+                Value.Append(mCurChar);
                 NextChar();
             }
 
-            switch (value.ToString().ToLower() ?? "")
+            switch (Value.ToString().ToLower() ?? "")
             {
                 case "and":
                     {
-                        type = TokenType.OperatorAnd;
+                        TokenType = TokenType.OperatorAnd;
                         break;
                     }
 
                 case "or":
                     {
-                        type = TokenType.OperatorOr;
+                        TokenType = TokenType.OperatorOr;
                         break;
                     }
 
                 case "not":
                     {
-                        type = TokenType.OperatorNot;
+                        TokenType = TokenType.OperatorNot;
                         break;
                     }
 
                 case "true":
                 case "yes":
                     {
-                        type = TokenType.ValueTrue;
+                        TokenType = TokenType.ValueTrue;
                         break;
                     }
 
                 case "if":
                     {
-                        type = TokenType.OperatorIf;
+                        TokenType = TokenType.OperatorIf;
                         break;
                     }
 
                 case "false":
                 case "no":
                     {
-                        type = TokenType.ValueFalse;
+                        TokenType = TokenType.ValueFalse;
                         break;
                     }
 
                 default:
                     {
-                        type = TokenType.ValueIdentifier;
+                        TokenType = TokenType.ValueIdentifier;
                         break;
                     }
             }
         }
 
-        private void ParseString(bool InQuote)
+        /// <summary>
+        /// Parses a String Value
+        /// </summary>
+        /// <param name="inQuote">True if the String is Enclosed in Quotation Marks</param>
+        private void ParseString(bool inQuote)
         {
-            char OriginalChar = default(char);
-            if (InQuote)
+            char originalChar = default(char);
+            if (inQuote)
             {
-                OriginalChar = mCurChar;
+                originalChar = mCurChar;
                 NextChar();
             }
-
-            char PreviousChar;
+            
             while (mCurChar != default(char))
             {
-                if (InQuote && mCurChar == OriginalChar)
+                if (inQuote && mCurChar == originalChar)
                 {
                     NextChar();
-                    if (mCurChar == OriginalChar)
+                    if (mCurChar == originalChar)
                     {
-                        value.Append(mCurChar);
+                        Value.Append(mCurChar);
                     }
                     else
                     {
@@ -413,9 +467,9 @@ namespace Console.Evaluator.Core
                     if (mCurChar == '[')
                     {
                         NextChar();
-                        StringBuilder SaveValue = value;
-                        int SaveStartPos = startpos;
-                        value = new System.Text.StringBuilder();
+                        StringBuilder saveValue = Value;
+                        int saveStartPos = StartPos;
+                        Value = new System.Text.StringBuilder();
                         NextToken(); // restart the tokenizer for the subExpr
                         object subExpr = default(object);
                         try
@@ -423,48 +477,51 @@ namespace Console.Evaluator.Core
                             // subExpr = mParser.ParseExpr(0, ePriority.none)
                             if (subExpr is null)
                             {
-                                value.Append("<nothing>");
+                                Value.Append("<nothing>");
                             }
                             else
                             {
-                                value.Append(Evaluator.ConvertToString(subExpr));
+                                Value.Append(Evaluator.ConvertToString(subExpr));
                             }
                         }
                         catch (Exception ex)
                         {
                             // XML don't like < and >
-                            value.Append("[Error " + ex.Message + "]");
+                            Value.Append("[Error " + ex.Message + "]");
                         }
 
-                        SaveValue.Append(value.ToString());
-                        value = SaveValue;
-                        startpos = SaveStartPos;
+                        saveValue.Append(Value.ToString());
+                        Value = saveValue;
+                        StartPos = saveStartPos;
                     }
                     else
                     {
-                        value.Append('%');
+                        Value.Append('%');
                     }
                 }
                 else
                 {
-                    value.Append(mCurChar);
+                    Value.Append(mCurChar);
                     NextChar();
                 }
             }
 
-            if (InQuote)
+            if (inQuote)
             {
-                RaiseError("Incomplete string, missing " + OriginalChar + "; String started");
+                RaiseError("Incomplete string, missing " + originalChar + "; String started");
             }
         }
 
+        /// <summary>
+        /// Parses a DateTime Value
+        /// </summary>
         private void ParseDate()
         {
             NextChar(); // eat the #
             int zone = 0;
-            while (mCurChar >= '0' & mCurChar <= '9' | mCurChar == '/' | mCurChar == ':' | mCurChar == ' ')
+            while (((mCurChar >= '0') & (mCurChar <= '9')) | (mCurChar == '/') | (mCurChar == ':') | (mCurChar == ' '))
             {
-                value.Append(mCurChar);
+                Value.Append(mCurChar);
                 NextChar();
             }
 
@@ -477,7 +534,7 @@ namespace Console.Evaluator.Core
                 NextChar();
             }
 
-            type = TokenType.ValueDate;
+            TokenType = TokenType.ValueDate;
         }
     }
 }

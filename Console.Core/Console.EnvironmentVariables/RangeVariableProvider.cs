@@ -3,9 +3,25 @@ using System.Text;
 
 namespace Console.EnvironmentVariables
 {
+    /// <summary>
+    /// Creates a ; Seperated List of numbers in a specfied range
+    /// </summary>
     public class RangeVariableProvider : VariableProvider
     {
+
+        /// <summary>
+        /// The Function Name
+        /// </summary>
         public override string FunctionName => "range";
+        /// <summary>
+        /// Parameter Layouts:
+        ///     end
+        ///     start;end
+        ///     start;end;step
+        /// If Step is not specified the step will be 1
+        /// </summary>
+        /// <param name="parameter">Input Parameter</param>
+        /// <returns>; Seperated List of Numbers</returns>
         public override string GetValue(string parameter)
         {
             string[] parts = parameter.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
@@ -16,6 +32,13 @@ namespace Console.EnvironmentVariables
             return "";
         }
 
+        /// <summary>
+        /// Creates the Range String
+        /// </summary>
+        /// <param name="start">Start Number</param>
+        /// <param name="end">End Number</param>
+        /// <param name="step">Amount of change each step.</param>
+        /// <returns>; Seperated List of Numbers</returns>
         private string CreateRange(double start, double end, double step)
         {
             StringBuilder sb = new StringBuilder();

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logger_433',['Logger',['../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b',1,'Console::Evaluator::EvalInitializer']]]
+  ['formula_428',['Formula',['../d7/d43/class_console_1_1_evaluator_1_1_core_1_1_parser_exception.html#ac38c594c9d748aa4ffdc6908e3476a74',1,'Console::Evaluator::Core::ParserException']]]
 ];

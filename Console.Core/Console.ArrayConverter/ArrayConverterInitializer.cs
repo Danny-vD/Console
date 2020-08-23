@@ -15,7 +15,7 @@ namespace Console.ArrayConverter
     /// </summary>
     public class ArrayConverterInitializer : AExtensionInitializer
     {
-        [Property("arrayconverter.logs.mute")]
+        [Property("logs.arrayconverter.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

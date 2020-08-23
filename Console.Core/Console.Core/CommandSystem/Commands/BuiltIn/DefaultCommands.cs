@@ -1,10 +1,10 @@
-﻿
+﻿using Console.Core.LogSystem;
+
+
+
 /// <summary>
 /// The Console.Core.CommandSystem.Commands.BuiltIn namespace contains all BuiltIn Commands of the System
 /// </summary>
-
-using Console.Core.LogSystem;
-
 namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
     /// <summary>

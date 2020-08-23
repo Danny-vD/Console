@@ -55,7 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleExtensions.cs" />
+    <Compile Include="Internal\ConsoleExtensions.cs" />
+    <Compile Include="Internal\ConsoleLine.cs" />
     <Compile Include="FormConsoleManager.cs" />
     <Compile Include="FormObjSelector.cs" />
     <Compile Include="ConsoleForm.cs">
@@ -92,6 +93,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

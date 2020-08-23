@@ -20,7 +20,7 @@ namespace Console.ScriptIOCompat
     /// </summary>
     public class ScriptIOCompatInitializer : AExtensionInitializer
     {
-        [Property("scriptiocompat.logs.mute")]
+        [Property("logs.scriptiocompat.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

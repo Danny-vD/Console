@@ -28,7 +28,7 @@ namespace Console.Core
         /// Should the Console print the entered command?
         /// </summary>
         [Property("core.output.writecommand")]
-        public static bool WriteCommand = true;
+        public static bool WriteCommand = false;
 
         /// <summary>
         /// The Prefix of Commands.
@@ -64,6 +64,7 @@ namespace Console.Core
         /// </summary>
         [Property("core.input.escapechar")]
         public static char EscapeChar = '\\';
+
         /// <summary>
         /// Console Newline Character
         /// </summary>

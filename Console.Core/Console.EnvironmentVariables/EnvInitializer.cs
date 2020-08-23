@@ -21,7 +21,7 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public class EnvInitializer : AExtensionInitializer
     {
-        [Property("environmentvariables.logs.mute")]
+        [Property("logs.environmentvariables.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

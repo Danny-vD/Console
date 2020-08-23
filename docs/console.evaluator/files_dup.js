@@ -1,12 +1,12 @@
 var files_dup =
 [
+    [ "CallType.cs", "dc/d41/_call_type_8cs.html", "dc/d41/_call_type_8cs" ],
     [ "EvalInitializer.cs", "d2/dde/_eval_initializer_8cs.html", [
       [ "EvalInitializer", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer" ]
     ] ],
     [ "EvalType.cs", "d8/d53/_eval_type_8cs.html", "d8/d53/_eval_type_8cs" ],
     [ "Evaluator.cs", "dd/d48/_evaluator_8cs.html", [
-      [ "Evaluator", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator" ],
-      [ "parserException", "d3/d10/class_console_1_1_evaluator_1_1_core_1_1_evaluator_1_1parser_exception.html", "d3/d10/class_console_1_1_evaluator_1_1_core_1_1_evaluator_1_1parser_exception" ]
+      [ "Evaluator", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator" ]
     ] ],
     [ "EvalVariable.cs", "dc/d60/_eval_variable_8cs.html", [
       [ "EvalVariable", "d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable.html", "d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable" ]
@@ -63,16 +63,18 @@ var files_dup =
       [ "OPCodeVariable", "d3/dd7/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_variable.html", "d3/dd7/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_variable" ]
     ] ],
     [ "Parser.cs", "dc/d93/_parser_8cs.html", [
-      [ "parser", "dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html", "dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser" ]
+      [ "Parser", "d7/dc7/class_console_1_1_evaluator_1_1_core_1_1_parser.html", "d7/dc7/class_console_1_1_evaluator_1_1_core_1_1_parser" ]
+    ] ],
+    [ "ParserException.cs", "d0/d25/_parser_exception_8cs.html", [
+      [ "ParserException", "d7/d43/class_console_1_1_evaluator_1_1_core_1_1_parser_exception.html", "d7/d43/class_console_1_1_evaluator_1_1_core_1_1_parser_exception" ]
     ] ],
     [ "ParserSyntax.cs", "d3/d94/_parser_syntax_8cs.html", "d3/d94/_parser_syntax_8cs" ],
     [ "Priority.cs", "d9/d4b/_priority_8cs.html", "d9/d4b/_priority_8cs" ],
     [ "Tokenizer.cs", "d2/db2/_tokenizer_8cs.html", [
-      [ "tokenizer", "d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html", "d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer" ]
+      [ "Tokenizer", "d8/d94/class_console_1_1_evaluator_1_1_core_1_1_tokenizer.html", "d8/d94/class_console_1_1_evaluator_1_1_core_1_1_tokenizer" ]
     ] ],
     [ "TokenType.cs", "d3/d15/_token_type_8cs.html", "d3/d15/_token_type_8cs" ],
     [ "ValueChangedEventHandler.cs", "df/dd6/_value_changed_event_handler_8cs.html", "df/dd6/_value_changed_event_handler_8cs" ],
-    [ "VariableComplexity.cs", "de/d17/_variable_complexity_8cs.html", "de/d17/_variable_complexity_8cs" ],
     [ "VariableNotFoundException.cs", "df/d13/_variable_not_found_exception_8cs.html", [
       [ "VariableNotFoundException", "d6/d10/class_console_1_1_evaluator_1_1_core_1_1_variable_not_found_exception.html", "d6/d10/class_console_1_1_evaluator_1_1_core_1_1_variable_not_found_exception" ]
     ] ]

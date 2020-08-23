@@ -70,6 +70,7 @@ var files_dup =
     [ "ConsoleCoreConfig.cs", "d0/d3b/_console_core_config_8cs.html", [
       [ "ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", "d6/dce/class_console_1_1_core_1_1_console_core_config" ]
     ] ],
+    [ "ConsoleInitOptions.cs", "d9/db2/_console_init_options_8cs.html", "d9/db2/_console_init_options_8cs" ],
     [ "CustomConvertManager.cs", "d6/d22/_custom_convert_manager_8cs.html", [
       [ "CustomConvertManager", "d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html", "d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager" ]
     ] ],
@@ -84,9 +85,6 @@ var files_dup =
     ] ],
     [ "ExtensionCommands.cs", "db/d7c/_extension_commands_8cs.html", [
       [ "ExtensionCommands", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands.html", "d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands" ]
-    ] ],
-    [ "ExtensionData.cs", "df/d8d/_extension_data_8cs.html", [
-      [ "ExtensionData", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data.html", "da/d02/class_console_1_1_core_1_1_extension_system_1_1_extension_data" ]
     ] ],
     [ "ExtensionLoader.cs", "d6/d72/_extension_loader_8cs.html", [
       [ "ExtensionLoader", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html", "dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader" ]
@@ -121,9 +119,6 @@ var files_dup =
     ] ],
     [ "ObjectSelectionCommands.cs", "d9/da6/_object_selection_commands_8cs.html", [
       [ "ObjectSelectionCommands", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands.html", "d4/d83/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_object_selection_commands" ]
-    ] ],
-    [ "ParameterCollection.cs", "d4/d84/_parameter_collection_8cs.html", [
-      [ "ParameterCollection", "d5/d16/class_console_1_1_core_1_1_parameter_collection.html", "d5/d16/class_console_1_1_core_1_1_parameter_collection" ]
     ] ],
     [ "ParameterMetaData.cs", "de/dac/_parameter_meta_data_8cs.html", [
       [ "ParameterMetaData", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data.html", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data" ]
@@ -167,5 +162,8 @@ var files_dup =
     [ "StaticPropertyMetaData.cs", "d0/d86/_static_property_meta_data_8cs.html", [
       [ "StaticPropertyMetaData", "d5/d86/class_console_1_1_core_1_1_reflection_system_1_1_static_property_meta_data.html", "d5/d86/class_console_1_1_core_1_1_reflection_system_1_1_static_property_meta_data" ]
     ] ],
-    [ "ToStringMode.cs", "d6/d7b/_to_string_mode_8cs.html", "d6/d7b/_to_string_mode_8cs" ]
+    [ "ToStringMode.cs", "d6/d7b/_to_string_mode_8cs.html", "d6/d7b/_to_string_mode_8cs" ],
+    [ "TypedLogger.cs", "d0/dd2/_typed_logger_8cs.html", [
+      [ "TypedLogger", "d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html", "d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger" ]
+    ] ]
 ];

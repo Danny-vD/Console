@@ -14,56 +14,6 @@ namespace Console.ScriptSystem.Deblocker
     {
 
         /// <summary>
-        /// If True the Original line is already the final line.
-        /// </summary>
-        public bool IsAtomic => Blocks.Count == 0;
-
-        /// <summary>
-        /// Public Constructor
-        /// </summary>
-        /// <param name="line"></param>
-        public Line(string line)
-        {
-            _originalLine = line;
-        }
-
-        /// <summary>
-        /// Returns the Line with all blocks replaced with DeblockerSettings.GetKey keys.
-        /// </summary>
-        /// <param name="originalLine">The Original Line</param>
-        /// <param name="blocks">The Blocks that were parsed</param>
-        /// <returns>The Original Line with Replacement for the Blocks</returns>
-        private static string GetCleanedLine(string originalLine, out List<string[]> blocks)
-        {
-            StringBuilder line = new StringBuilder();
-            blocks = new List<string[]>();
-            for (int i = 0; i < originalLine.Length; i++)
-            {
-                if (originalLine[i] == DeblockerSettings.BlockBracketOpen)
-                {
-                    int close = ConsoleCoreConfig.FindClosing(originalLine, DeblockerSettings.BlockBracketOpen,
-                        DeblockerSettings.BlockBracketClosed, i);
-                    close = close == -1 ? originalLine.Length : close;
-                    string l = originalLine.Substring(i + 1, close - i - 1).Trim();
-                    List<string> subl = DeblockerCollection.Parse(l);
-                    blocks.Add(subl.ToArray());
-                    string ln = DeblockerSettings.GetKey(blocks.Count - 1);
-                    if (line[line.Length - 1] != ' ')
-                        ln = " " + ln;
-                    i = close + 1;
-                    if (i < originalLine.Length)
-                        ln = ln + " ";
-                    line.Append(ln);
-                    continue;
-                }
-                line.Append(originalLine[i]);
-
-            }
-            string s = line.ToString();
-            return s;
-        }
-
-        /// <summary>
         /// The Original Line Backing Field
         /// </summary>
         public string OriginalLine => _originalLine;
@@ -123,6 +73,19 @@ namespace Console.ScriptSystem.Deblocker
                 return _cleanParts;
             }
         }
+        /// <summary>
+        /// If True the Original line is already the final line.
+        /// </summary>
+        public bool IsAtomic => Blocks.Count == 0;
+
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="line"></param>
+        public Line(string line)
+        {
+            _originalLine = line;
+        }
 
         /// <summary>
         /// Fills the Backed Properties with their parse results
@@ -139,5 +102,44 @@ namespace Console.ScriptSystem.Deblocker
         /// </summary>
         /// <returns>The Original String Line</returns>
         public override string ToString() => OriginalLine;
+
+
+
+
+        /// <summary>
+        /// Returns the Line with all blocks replaced with DeblockerSettings.GetKey keys.
+        /// </summary>
+        /// <param name="originalLine">The Original Line</param>
+        /// <param name="blocks">The Blocks that were parsed</param>
+        /// <returns>The Original Line with Replacement for the Blocks</returns>
+        private string GetCleanedLine(string originalLine, out List<string[]> blocks)
+        {
+            StringBuilder line = new StringBuilder();
+            blocks = new List<string[]>();
+            for (int i = 0; i < originalLine.Length; i++)
+            {
+                if (originalLine[i] == DeblockerSettings.BlockBracketOpen)
+                {
+                    int close = ConsoleCoreConfig.FindClosing(originalLine, DeblockerSettings.BlockBracketOpen,
+                        DeblockerSettings.BlockBracketClosed, i);
+                    close = close == -1 ? originalLine.Length : close;
+                    string l = originalLine.Substring(i + 1, close - i - 1).Trim();
+                    List<string> subl = DeblockerCollection.Parse(l);
+                    blocks.Add(subl.ToArray());
+                    string ln = DeblockerSettings.GetKey(blocks.Count - 1);
+                    if (line[line.Length - 1] != ' ')
+                        ln = " " + ln;
+                    i = close + 1;
+                    if (i < originalLine.Length)
+                        ln = ln + " ";
+                    line.Append(ln);
+                    continue;
+                }
+                line.Append(originalLine[i]);
+
+            }
+            string s = line.ToString();
+            return s;
+        }
     }
 }

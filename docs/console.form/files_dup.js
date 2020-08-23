@@ -1,11 +1,13 @@
 var files_dup =
 [
     [ "ConsoleExtensions.cs", "d2/dbf/_console_extensions_8cs.html", [
-      [ "ConsoleExtensions", "dc/d9d/class_console_1_1_form_1_1_console_extensions.html", "dc/d9d/class_console_1_1_form_1_1_console_extensions" ]
+      [ "ConsoleExtensions", "d1/d0d/class_console_1_1_form_1_1_internal_1_1_console_extensions.html", "d1/d0d/class_console_1_1_form_1_1_internal_1_1_console_extensions" ]
     ] ],
     [ "ConsoleForm.cs", "dc/d6e/_console_form_8cs.html", [
-      [ "ConsoleForm", "d0/d67/class_console_1_1_form_1_1_console_form.html", "d0/d67/class_console_1_1_form_1_1_console_form" ],
-      [ "ConsoleLine", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html", "d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line" ]
+      [ "ConsoleForm", "d0/d67/class_console_1_1_form_1_1_console_form.html", "d0/d67/class_console_1_1_form_1_1_console_form" ]
+    ] ],
+    [ "ConsoleLine.cs", "d4/df5/_console_line_8cs.html", [
+      [ "ConsoleLine", "df/d29/class_console_1_1_form_1_1_internal_1_1_console_line.html", "df/d29/class_console_1_1_form_1_1_internal_1_1_console_line" ]
     ] ],
     [ "FormConsoleManager.cs", "d1/d91/_form_console_manager_8cs.html", [
       [ "FormConsoleManager", "dd/d81/class_console_1_1_form_1_1_form_console_manager.html", "dd/d81/class_console_1_1_form_1_1_form_console_manager" ]

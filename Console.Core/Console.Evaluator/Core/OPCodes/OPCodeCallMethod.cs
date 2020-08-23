@@ -7,20 +7,32 @@ using Console.Evaluator.Core.Interfaces;
 
 namespace Console.Evaluator.Core.OPCodes
 {
+    /// <summary>
+    /// The OPCode Implementation that gets used when the Tokenizer Parsed a Function/Variable Call
+    /// </summary>
     public class OPCodeCallMethod : OPCode
     {
+        /// <summary>
+        /// The Object Instance Backing Field
+        /// </summary>
         private object mBaseObject;
+        /// <summary>
+        /// The BaseObject System Type Backing Field
+        /// </summary>
         private Type mBaseSystemType;
-        private EvalType mBaseEvalType;
+        
+        /// <summary>
+        /// The Base Value of the Call Method OPCode Backing Field
+        /// </summary>
         private IEvalValue _mBaseValue;  // for the events only
 
+        /// <summary>
+        /// The Base Value of the Call Method OPCode
+        /// </summary>
         private IEvalValue mBaseValue
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get
-            {
-                return _mBaseValue;
-            }
+            get => _mBaseValue;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
@@ -37,22 +49,42 @@ namespace Console.Evaluator.Core.OPCodes
                 }
             }
         }
-
+        /// <summary>
+        /// The Base Value Object
+        /// </summary>
         private object mBaseValueObject;
+        /// <summary>
+        /// The Member Info of the Call Method
+        /// </summary>
         private System.Reflection.MemberInfo mMethod;
+        /// <summary>
+        /// The Parameters of the Call
+        /// </summary>
         private IEvalTypedValue[] mParams;
+        /// <summary>
+        /// The Parameter Values of the Call
+        /// </summary>
         private object[] mParamValues;
+        /// <summary>
+        /// The Call Return Type
+        /// </summary>
         private Type mResultSystemType;
+        /// <summary>
+        /// The Evaluation Type of the Result
+        /// </summary>
         private EvalType mResultEvalType;
+        /// <summary>
+        /// The Result Value Backing Field
+        /// </summary>
         private IEvalValue _mResultValue;  // just for some
 
+        /// <summary>
+        /// The Result Value
+        /// </summary>
         private IEvalValue mResultValue
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get
-            {
-                return _mResultValue;
-            }
+            get => _mResultValue;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
@@ -69,7 +101,12 @@ namespace Console.Evaluator.Core.OPCodes
                 }
             }
         }
-
+        /// <summary>
+        /// Internal Constructor
+        /// </summary>
+        /// <param name="baseObject">The Base Object Instance</param>
+        /// <param name="method">The Member Info</param>
+        /// <param name="params">The Parameters of the Call</param>
         internal OPCodeCallMethod(object baseObject, System.Reflection.MemberInfo method, IList @params)
         {
             if (@params is null)
@@ -90,19 +127,16 @@ namespace Console.Evaluator.Core.OPCodes
                     {
                         IEvalTypedValue withBlock = (IEvalTypedValue)mBaseObject;
                         mBaseSystemType = withBlock.SystemType;
-                        mBaseEvalType = withBlock.EvalType;
                     }
                 }
                 else
                 {
                     mBaseSystemType = mBaseObject.GetType();
-                    mBaseEvalType = Globals.GetEvalType(mBaseSystemType);
                 }
             }
             else
             {
                 mBaseSystemType = mBaseObject.GetType();
-                mBaseEvalType = Globals.GetEvalType(mBaseSystemType);
             }
 
             ParameterInfo[] paramInfo = default(System.Reflection.ParameterInfo[]);
@@ -183,7 +217,15 @@ namespace Console.Evaluator.Core.OPCodes
             }
         }
 
-        protected internal static OPCode GetNew(tokenizer tokenizer, object baseObject, System.Reflection.MemberInfo method, IList @params)
+        /// <summary>
+        /// Creates a New OPCodeCallMethod Instance
+        /// </summary>
+        /// <param name="tokenizer">Tokenizer Instance</param>
+        /// <param name="baseObject">The Base Object Instance</param>
+        /// <param name="method">The Member Info</param>
+        /// <param name="params">The Parameters</param>
+        /// <returns>New OPCodeCallMethod Instance</returns>
+        protected internal static OPCode GetNew(Tokenizer tokenizer, object baseObject, MemberInfo method, IList @params)
         {
             OPCode o;
             o = new OPCodeCallMethod(baseObject, method, @params);
@@ -197,24 +239,40 @@ namespace Console.Evaluator.Core.OPCodes
             }
         }
 
+        /// <summary>
+        /// Returns the Value from the Member info when it is a PropertyInfo
+        /// </summary>
+        /// <returns>Value</returns>
         private object GetProperty()
         {
             object res = ((System.Reflection.PropertyInfo)mMethod).GetValue(mBaseValueObject, mParamValues);
             return res;
         }
 
+        /// <summary>
+        /// Returns the Value from the Member info when it is a MethodInfo
+        /// </summary>
+        /// <returns>Value</returns>
         private object GetMethod()
         {
             object res = ((System.Reflection.MethodInfo)mMethod).Invoke(mBaseValueObject, mParamValues);
             return res;
         }
 
+        /// <summary>
+        /// Returns the Value from the Member info when it is a FieldInfo
+        /// </summary>
+        /// <returns>Value</returns>
         private object GetField()
         {
             object res = ((System.Reflection.FieldInfo)mMethod).GetValue(mBaseValueObject);
             return res;
         }
 
+        /// <summary>
+        /// Returns the Value of the Call
+        /// </summary>
+        /// <returns>Value</returns>
         private object InternalValue()
         {
             for (int i = 0, loopTo = mParams.Length - 1; i <= loopTo; i++)
@@ -232,6 +290,9 @@ namespace Console.Evaluator.Core.OPCodes
             return mValueDelegate();
         }
 
+        /// <summary>
+        /// Value Property.
+        /// </summary>
         public override object Value
         {
             get
@@ -247,35 +308,44 @@ namespace Console.Evaluator.Core.OPCodes
             }
         }
 
-        public override Type SystemType
+        /// <summary>
+        /// The Result System Type
+        /// </summary>
+        public override Type SystemType => mResultSystemType;
+
+        /// <summary>
+        /// The Result Evaluator Type
+        /// </summary>
+        public override EvalType EvalType => mResultEvalType;
+
+        /// <summary>
+        /// Gets Invoked when the paramerters to the function call changed.
+        /// </summary>
+        /// <param name="sender">Sender of the Event</param>
+        /// <param name="e">Event Args</param>
+        private void mParamsValueChanged(object sender, EventArgs e)
         {
-            get
-            {
-                return mResultSystemType;
-            }
+            RaiseEventValueChanged(sender, e);
         }
 
-        public override EvalType EvalType
+        /// <summary>
+        /// Gets Invoked when the baseVariable to the function call changed.
+        /// </summary>
+        /// <param name="sender">Sender of the Event</param>
+        /// <param name="e">Event Args</param>
+        private void mBaseVariable_ValueChanged(object sender, EventArgs e)
         {
-            get
-            {
-                return mResultEvalType;
-            }
+            RaiseEventValueChanged(sender, e);
         }
 
-        private void mParamsValueChanged(object Sender, EventArgs e)
+        /// <summary>
+        /// Gets Invoked when the resultVariable to the function call changed.
+        /// </summary>
+        /// <param name="sender">Sender of the Event</param>
+        /// <param name="e">Event Args</param>
+        private void mResultVariable_ValueChanged(object sender, EventArgs e)
         {
-            RaiseEventValueChanged(Sender, e);
-        }
-
-        private void mBaseVariable_ValueChanged(object Sender, EventArgs e)
-        {
-            RaiseEventValueChanged(Sender, e);
-        }
-
-        private void mResultVariable_ValueChanged(object Sender, EventArgs e)
-        {
-            RaiseEventValueChanged(Sender, e);
+            RaiseEventValueChanged(sender, e);
         }
     }
 }

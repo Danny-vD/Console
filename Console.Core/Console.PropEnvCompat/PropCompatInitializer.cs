@@ -17,7 +17,7 @@ namespace Console.PropEnvCompat
     /// </summary>
     public class PropCompatInitializer : AExtensionInitializer
     {
-        [Property("propenvcompat.logs.mute")]
+        [Property("logs.propenvcompat.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

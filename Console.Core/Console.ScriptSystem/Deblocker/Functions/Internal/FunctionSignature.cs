@@ -3,20 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+/// <summary>
+/// Internal Functon Signature Parsing Implementation
+/// </summary>
 namespace Console.ScriptSystem.Deblocker.Functions.Internal
 {
+    /// <summary>
+    /// The Internal Representation of the Parameters of Sequences.
+    /// </summary>
     internal struct FunctionSignature
     {
+        /// <summary>
+        /// The Original Signature as it was defined in the Sequence
+        /// </summary>
         public string OriginalSignature;
+        /// <summary>
+        /// The List of Parameter Names
+        /// </summary>
         public List<string> ParameterNames;
 
-
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="parameterNames">The Original Parameter Signature</param>
         public FunctionSignature(string parameterNames)
         {
             OriginalSignature = parameterNames;
             ParameterNames = parameterNames.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToList();
         }
 
+        /// <summary>
+        /// Returns the Correctly Formatted Sequence Signature String Representation
+        /// </summary>
+        /// <returns>Formatted Parameter Signature</returns>
         public override string ToString()
         {
             if (ParameterNames.Count == 0)
@@ -31,7 +51,13 @@ namespace Console.ScriptSystem.Deblocker.Functions.Internal
             return sb.ToString();
         }
 
-
+        /// <summary>
+        /// Parses the parameter signature from a line.
+        /// </summary>
+        /// <param name="line">The Line with the Parameter Signature</param>
+        /// <param name="sigStart">Out Variable that contains the start index of the Signature</param>
+        /// <param name="sigLength">Out Variable that contains the length of the signature</param>
+        /// <returns>Parsed Signature</returns>
         internal static FunctionSignature Parse(Line line, out int sigStart, out int sigLength)
         {
 

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['raiseexceptions_460',['RaiseExceptions',['../d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html#a460113a13448ad1281da763c73278422',1,'Console::Evaluator::EvalVariableProvider']]],
-  ['raisevariablenotfoundexception_461',['RaiseVariableNotFoundException',['../db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html#aba2e231a6322319bdd575159c336ee84',1,'Console::Evaluator::Core::Evaluator']]]
+  ['name_452',['Name',['../d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable.html#a15d2b76551e301f42be1338112ee1ed6',1,'Console.Evaluator.Core.EvalVariable.Name()'],['../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a7a3be767a62bb375ab1699b1c9192860',1,'Console.Evaluator.Core.OPCodes.OPCode.Name()']]]
 ];

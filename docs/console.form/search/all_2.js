@@ -2,7 +2,7 @@ var searchData=
 [
   ['clear_4',['Clear',['../d0/d67/class_console_1_1_form_1_1_console_form.html#acb31fefb6b4de4793da5bf2ed0697680',1,'Console.Form.ConsoleForm.Clear()'],['../dd/d81/class_console_1_1_form_1_1_form_console_manager.html#afbce1486ecab966e2665984a3817828e',1,'Console.Form.FormConsoleManager.Clear()']]],
   ['console_5',['Console',['../d8/db5/namespace_console.html',1,'']]],
-  ['consoleextensions_6',['ConsoleExtensions',['../dc/d9d/class_console_1_1_form_1_1_console_extensions.html',1,'Console::Form']]],
+  ['consoleextensions_6',['ConsoleExtensions',['../d1/d0d/class_console_1_1_form_1_1_internal_1_1_console_extensions.html',1,'Console::Form::Internal']]],
   ['consoleextensions_2ecs_7',['ConsoleExtensions.cs',['../d2/dbf/_console_extensions_8cs.html',1,'']]],
   ['consoleform_8',['ConsoleForm',['../d0/d67/class_console_1_1_form_1_1_console_form.html',1,'Console.Form.ConsoleForm'],['../d0/d67/class_console_1_1_form_1_1_console_form.html#a8535c9f22417d0a755ab2514afebcc8c',1,'Console.Form.ConsoleForm.ConsoleForm()']]],
   ['consoleform_2ecs_9',['ConsoleForm.cs',['../dc/d6e/_console_form_8cs.html',1,'']]],
@@ -11,13 +11,15 @@ var searchData=
   ['consoleinbackground_12',['ConsoleInBackground',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a4ff04bf20e2d3908560b6d0ec0da5381',1,'Console::Form::ConsoleForm']]],
   ['consoleinborderstyle_13',['ConsoleInBorderStyle',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a0c8ab40acc54cfa66e2a161e3864e0ae',1,'Console::Form::ConsoleForm']]],
   ['consoleintextcolor_14',['ConsoleInTextColor',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a061d629112a2d836fe20162a8afabb53',1,'Console::Form::ConsoleForm']]],
-  ['consoleline_15',['ConsoleLine',['../d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html',1,'Console.Form.ConsoleForm.ConsoleLine'],['../d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html#a985cb258ecd36c15c6e3b5b1620cb680',1,'Console.Form.ConsoleForm.ConsoleLine.ConsoleLine()']]],
-  ['consolemanager_16',['ConsoleManager',['../d0/d67/class_console_1_1_form_1_1_console_form.html#aeefbbb8047fa11ec6525364c42a3af4a',1,'Console.Form.ConsoleForm.ConsoleManager()'],['../d0/d67/class_console_1_1_form_1_1_console_form.html#a4fdbb4c9bbad6e2da74762c95ef5a3db',1,'Console.Form.ConsoleForm.consoleManager()']]],
-  ['consoleoutbackground_17',['ConsoleOutBackground',['../d0/d67/class_console_1_1_form_1_1_console_form.html#ada9dbba4fde50790228b02f5710cb7b6',1,'Console::Form::ConsoleForm']]],
-  ['consoleoutborderstyle_18',['ConsoleOutBorderStyle',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a4bf3c6ed83c4f55d522c6c6b2713e458',1,'Console::Form::ConsoleForm']]],
-  ['consoleoutputsize_19',['ConsoleOutputSize',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a03bc29ca3a4e9f0861376320bc4eeeab',1,'Console::Form::ConsoleForm']]],
-  ['consoleouttextcolor_20',['ConsoleOutTextColor',['../d0/d67/class_console_1_1_form_1_1_console_form.html#aeae7d9fa9ee60a1904e6e8c0246b6c7a',1,'Console::Form::ConsoleForm']]],
-  ['consolesubmitbuttonborderstyle_21',['ConsoleSubmitButtonBorderStyle',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a3090bb87a2413d6968225613a157e78d',1,'Console::Form::ConsoleForm']]],
-  ['content_22',['Content',['../d0/df0/class_console_1_1_form_1_1_console_form_1_1_console_line.html#a2ece6834ccc3d572117cb6ca63c9276e',1,'Console::Form::ConsoleForm::ConsoleLine']]],
-  ['form_23',['Form',['../dd/d2c/namespace_console_1_1_form.html',1,'Console']]]
+  ['consoleline_15',['ConsoleLine',['../df/d29/class_console_1_1_form_1_1_internal_1_1_console_line.html',1,'Console.Form.Internal.ConsoleLine'],['../df/d29/class_console_1_1_form_1_1_internal_1_1_console_line.html#a6253bfc0ae7843cb2089cbb56bbfa108',1,'Console.Form.Internal.ConsoleLine.ConsoleLine()']]],
+  ['consoleline_2ecs_16',['ConsoleLine.cs',['../d4/df5/_console_line_8cs.html',1,'']]],
+  ['consolemanager_17',['ConsoleManager',['../d0/d67/class_console_1_1_form_1_1_console_form.html#aeefbbb8047fa11ec6525364c42a3af4a',1,'Console.Form.ConsoleForm.ConsoleManager()'],['../d0/d67/class_console_1_1_form_1_1_console_form.html#a4fdbb4c9bbad6e2da74762c95ef5a3db',1,'Console.Form.ConsoleForm.consoleManager()']]],
+  ['consoleoutbackground_18',['ConsoleOutBackground',['../d0/d67/class_console_1_1_form_1_1_console_form.html#ada9dbba4fde50790228b02f5710cb7b6',1,'Console::Form::ConsoleForm']]],
+  ['consoleoutborderstyle_19',['ConsoleOutBorderStyle',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a4bf3c6ed83c4f55d522c6c6b2713e458',1,'Console::Form::ConsoleForm']]],
+  ['consoleoutputsize_20',['ConsoleOutputSize',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a03bc29ca3a4e9f0861376320bc4eeeab',1,'Console::Form::ConsoleForm']]],
+  ['consoleouttextcolor_21',['ConsoleOutTextColor',['../d0/d67/class_console_1_1_form_1_1_console_form.html#aeae7d9fa9ee60a1904e6e8c0246b6c7a',1,'Console::Form::ConsoleForm']]],
+  ['consolesubmitbuttonborderstyle_22',['ConsoleSubmitButtonBorderStyle',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a3090bb87a2413d6968225613a157e78d',1,'Console::Form::ConsoleForm']]],
+  ['content_23',['Content',['../df/d29/class_console_1_1_form_1_1_internal_1_1_console_line.html#ab52c2783ac38982ba8498121d2af64e2',1,'Console::Form::Internal::ConsoleLine']]],
+  ['form_24',['Form',['../dd/d2c/namespace_console_1_1_form.html',1,'Console']]],
+  ['internal_25',['Internal',['../d4/d18/namespace_console_1_1_form_1_1_internal.html',1,'Console::Form']]]
 ];

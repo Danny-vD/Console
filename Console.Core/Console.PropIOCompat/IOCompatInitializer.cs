@@ -21,7 +21,7 @@ namespace Console.PropIOCompat
     /// </summary>
     public class IOCompatInitializer : AExtensionInitializer
     {
-        [Property("propiocompat.logs.mute")]
+        [Property("logs.propiocompat.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;

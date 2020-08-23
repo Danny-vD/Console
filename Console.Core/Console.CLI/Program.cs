@@ -17,7 +17,7 @@ namespace Console.CLI
     /// </summary>
     class Program
     {
-        [Property("cli.logs.mute")]
+        [Property("logs.cli.mute")]
         private bool MuteLogs
         {
             get => Logger.Mute;

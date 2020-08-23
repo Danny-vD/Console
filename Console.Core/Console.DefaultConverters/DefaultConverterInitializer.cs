@@ -22,13 +22,13 @@ namespace Console.DefaultConverters
     /// </summary>
     public class DefaultConverterInitializer : AExtensionInitializer
     {
-        [Property("defaultconverters.logs.mute")]
+        [Property("logs.defaultconverters.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;
             set => Logger.Mute = value;
         }
-        internal static ALogger Logger => AExtensionInitializer.GetLogger(Assembly.GetExecutingAssembly());
+        internal static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// Prints all Values of an Enum to the Console.

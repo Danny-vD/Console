@@ -1,18 +1,13 @@
 var searchData=
 [
-  ['nextchar_366',['NextChar',['../d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html#aa321d724e742bddbd3933365d5ef680c',1,'Console::Evaluator::Core::tokenizer']]],
-  ['nexttoken_367',['NextToken',['../d7/d70/class_console_1_1_evaluator_1_1_core_1_1tokenizer.html#a5b959776341764aa07d20bfb8c3f3cef',1,'Console::Evaluator::Core::tokenizer']]],
-  ['num_368',['Num',['../df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals.html#a939ad930ca96d4b3458db33286eaac50',1,'Console::Evaluator::Core::Globals']]],
-  ['num_5fchgsign_369',['NUM_CHGSIGN',['../d9/da5/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_unary.html#af33afb2bd02a601e0b564da3358647d9',1,'Console::Evaluator::Core::OPCodes::OPCodeUnary']]],
-  ['num_5fdiv_5fnum_370',['NUM_DIV_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#ac40967ff227ab347c88baf98b22e26ef',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5feq_5fnum_371',['NUM_EQ_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#ae116b42b407d2cbbba385eee17943fae',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fge_5fnum_372',['NUM_GE_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a9e6c4dd655fdbd31a672f4eef61730df',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fgt_5fnum_373',['NUM_GT_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a7027d35a5408bc728cca23135eb62884',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fle_5fnum_374',['NUM_LE_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a4236e70bcef8c53beefa6d9550b397d8',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5flt_5fnum_375',['NUM_LT_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a5500723b597a187a17d1b6283ff618ce',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fminus_5fnum_376',['NUM_MINUS_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#ae163727eaf658dbc806e68999bcd4698',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fmul_5fnum_377',['NUM_MUL_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a6121bdfca63ecbcfd4737645b55a6700',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fne_5fnum_378',['NUM_NE_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a08f0ebade371069ec798cfede1fd2367',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fpercent_5fnum_379',['NUM_PERCENT_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a3dddb0ea0b546159681e777e4050c980',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
-  ['num_5fplus_5fnum_380',['NUM_PLUS_NUM',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a6f36cd428cc9bf6fde75a658a18bab82',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]]
+  ['opcode_375',['OPCode',['../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a6b6b3bbec9df313451b61897e465af1d',1,'Console::Evaluator::Core::OPCodes::OPCode']]],
+  ['opcodebinary_376',['OPCodeBinary',['../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html#a204f9afd8e0ab989aaa58e85522f0c61',1,'Console::Evaluator::Core::OPCodes::OPCodeBinary']]],
+  ['opcodecallmethod_377',['OPCodeCallMethod',['../df/d00/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_call_method.html#aa2259250871d5b74b90888b98e071a73',1,'Console::Evaluator::Core::OPCodes::OPCodeCallMethod']]],
+  ['opcodeconvert_378',['OPCodeConvert',['../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html#a489ed8dbe88e4cf638fb5d6068044d8a',1,'Console::Evaluator::Core::OPCodes::OPCodeConvert']]],
+  ['opcodegetarrayentry_379',['OPCodeGetArrayEntry',['../da/d5f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_get_array_entry.html#a67a83f2f3858bd76aecf528be9129aa6',1,'Console::Evaluator::Core::OPCodes::OPCodeGetArrayEntry']]],
+  ['opcodegetvariable_380',['OPCodeGetVariable',['../da/dbc/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_get_variable.html#a978526001498bd9541f5c2a26608649d',1,'Console::Evaluator::Core::OPCodes::OPCodeGetVariable']]],
+  ['opcodeimmediate_381',['OPCodeImmediate',['../d5/d27/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_immediate.html#a16922c7bd8132a4422d227e004fe59b5',1,'Console::Evaluator::Core::OPCodes::OPCodeImmediate']]],
+  ['opcodesystemtypeconvert_382',['OPCodeSystemTypeConvert',['../dd/d27/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_system_type_convert.html#a0ee9593e90bf837a0bb2f391cccb7a06',1,'Console::Evaluator::Core::OPCodes::OPCodeSystemTypeConvert']]],
+  ['opcodeunary_383',['OPCodeUnary',['../d9/da5/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_unary.html#af2e278d9abf47f3c8e9e9318a566ed57',1,'Console::Evaluator::Core::OPCodes::OPCodeUnary']]],
+  ['opcodevariable_384',['OPCodeVariable',['../d3/dd7/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_variable.html#a7b650f916cf430262fcfa3f6814723d5',1,'Console::Evaluator::Core::OPCodes::OPCodeVariable']]]
 ];

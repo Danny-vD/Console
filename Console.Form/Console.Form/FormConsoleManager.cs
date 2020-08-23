@@ -6,7 +6,7 @@ using Console.Core.PropertySystem;
 namespace Console.Form
 {
     /// <summary>
-    /// AConsoleManager implementation for CLI Programs.
+    /// AConsoleManager implementation for Windows Form Programs.
     /// </summary>
     public class FormConsoleManager : AConsoleManager
     {

@@ -89,46 +89,54 @@ $(document).ready(function(){initNavTree('de/dcb/interface_console_1_1_evaluator
 <div class="title">Console.Evaluator.Core.Interfaces.IEvalTypedValue Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines a <a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html" title="The IEvalValue defines a Value and Value Changed Event Handler Properties">IEvalValue</a> with additional System.Type and EvalType properties  
+ <a href="../../de/dcb/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_typed_value.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Console.Evaluator.Core.Interfaces.IEvalTypedValue:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="../../de/dcb/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_typed_value.png" usemap="#Console.Evaluator.Core.Interfaces.IEvalTypedValue_map" alt=""/>
   <map id="Console.Evaluator.Core.Interfaces.IEvalTypedValue_map" name="Console.Evaluator.Core.Interfaces.IEvalTypedValue_map">
-<area href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html" alt="Console.Evaluator.Core.Interfaces.IEvalValue" shape="rect" coords="190,0,561,24"/>
-<area href="../../d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable.html" alt="Console.Evaluator.Core.EvalVariable" shape="rect" coords="0,112,371,136"/>
-<area href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" alt="Console.Evaluator.Core.OPCodes.OPCode" shape="rect" coords="381,112,752,136"/>
-<area href="../../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html" alt="Console.Evaluator.Core.OPCodes.OPCodeBinary" shape="rect" coords="762,168,1133,192"/>
-<area href="../../df/d00/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_call_method.html" alt="Console.Evaluator.Core.OPCodes.OPCodeCallMethod" shape="rect" coords="762,224,1133,248"/>
-<area href="../../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html" alt="Console.Evaluator.Core.OPCodes.OPCodeConvert" shape="rect" coords="762,280,1133,304"/>
-<area href="../../da/d5f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_get_array_entry.html" alt="Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry" shape="rect" coords="762,336,1133,360"/>
-<area href="../../da/dbc/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_get_variable.html" alt="Console.Evaluator.Core.OPCodes.OPCodeGetVariable" shape="rect" coords="762,392,1133,416"/>
-<area href="../../d5/d27/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_immediate.html" alt="Console.Evaluator.Core.OPCodes.OPCodeImmediate" shape="rect" coords="762,448,1133,472"/>
-<area href="../../dd/d27/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_system_type_convert.html" alt="Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert" shape="rect" coords="762,504,1133,528"/>
-<area href="../../d9/da5/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_unary.html" alt="Console.Evaluator.Core.OPCodes.OPCodeUnary" shape="rect" coords="762,560,1133,584"/>
-<area href="../../d3/dd7/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_variable.html" alt="Console.Evaluator.Core.OPCodes.OPCodeVariable" shape="rect" coords="762,616,1133,640"/>
+<area href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html" title="The IEvalValue defines a Value and Value Changed Event Handler Properties" alt="Console.Evaluator.Core.Interfaces.IEvalValue" shape="rect" coords="190,0,561,24"/>
+<area href="../../d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable.html" title="Implements IEvalTypedValue and IEvalHasDescription Is Used as Possible Variable Provider." alt="Console.Evaluator.Core.EvalVariable" shape="rect" coords="0,112,371,136"/>
+<area href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces" alt="Console.Evaluator.Core.OPCodes.OPCode" shape="rect" coords="381,112,752,136"/>
+<area href="../../dd/d38/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_binary.html" title="OPCode that is Returned when the OPCode does Resolve to a Binary Result(Boolean)" alt="Console.Evaluator.Core.OPCodes.OPCodeBinary" shape="rect" coords="762,168,1133,192"/>
+<area href="../../df/d00/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_call_method.html" title="The OPCode Implementation that gets used when the Tokenizer Parsed a Function/Variable Call" alt="Console.Evaluator.Core.OPCodes.OPCodeCallMethod" shape="rect" coords="762,224,1133,248"/>
+<area href="../../d1/d0f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_convert.html" title="Implements Conversions between different Types" alt="Console.Evaluator.Core.OPCodes.OPCodeConvert" shape="rect" coords="762,280,1133,304"/>
+<area href="../../da/d5f/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_get_array_entry.html" title="Opcode that implements ArrayEntries" alt="Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry" shape="rect" coords="762,336,1133,360"/>
+<area href="../../da/dbc/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_get_variable.html" title="Implements Returning a Variable from a IEvalTypedValue interface" alt="Console.Evaluator.Core.OPCodes.OPCodeGetVariable" shape="rect" coords="762,392,1133,416"/>
+<area href="../../d5/d27/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_immediate.html" title="Implements the Immediate Return OPCode that is used to directly return a known value." alt="Console.Evaluator.Core.OPCodes.OPCodeImmediate" shape="rect" coords="762,448,1133,472"/>
+<area href="../../dd/d27/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_system_type_convert.html" title="Implements Conversions from System Type to System Type by using Reflection" alt="Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert" shape="rect" coords="762,504,1133,528"/>
+<area href="../../d9/da5/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_unary.html" title="Implements Unary OPCodes like NOT and UNARY_MINUS" alt="Console.Evaluator.Core.OPCodes.OPCodeUnary" shape="rect" coords="762,560,1133,584"/>
+<area href="../../d3/dd7/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_variable.html" title="Implements the OPCode for returning a Value from an EvalVariable class." alt="Console.Evaluator.Core.OPCodes.OPCodeVariable" shape="rect" coords="762,616,1133,640"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:ad74d3c09b3a39314b0597b45e5504ac6"><td class="memItemLeft" align="right" valign="top">Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dcb/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_typed_value.html#ad74d3c09b3a39314b0597b45e5504ac6">SystemType</a><code> [get]</code></td></tr>
+<tr class="memdesc:ad74d3c09b3a39314b0597b45e5504ac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The C# Type of the Value  <a href="../../de/dcb/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_typed_value.html#ad74d3c09b3a39314b0597b45e5504ac6">More...</a><br /></td></tr>
 <tr class="separator:ad74d3c09b3a39314b0597b45e5504ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7108b7e10199d9bb179fc025a29a631"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d8c/namespace_console_1_1_evaluator_1_1_core_1_1_enums.html#a507c1bba814a96ce7328d9eb9d036e8b">EvalType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dcb/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_typed_value.html#aa7108b7e10199d9bb179fc025a29a631">EvalType</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa7108b7e10199d9bb179fc025a29a631"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html" title="The Main Class of the Evaluator.">Evaluator</a> Type of the Value  <a href="../../de/dcb/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_typed_value.html#aa7108b7e10199d9bb179fc025a29a631">More...</a><br /></td></tr>
 <tr class="separator:aa7108b7e10199d9bb179fc025a29a631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value')"><img src="../../closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html">Console.Evaluator.Core.Interfaces.IEvalValue</a></td></tr>
 <tr class="memitem:a3f8ead60de168a6dc4fac118a616e254 inherit properties_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html#a3f8ead60de168a6dc4fac118a616e254">Value</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3f8ead60de168a6dc4fac118a616e254 inherit properties_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Value of the Object  <a href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html#a3f8ead60de168a6dc4fac118a616e254">More...</a><br /></td></tr>
 <tr class="separator:a3f8ead60de168a6dc4fac118a616e254 inherit properties_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header events_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td colspan="2" onclick="javascript:toggleInherit('events_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value')"><img src="../../closed.png" alt="-"/>&#160;Events inherited from <a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html">Console.Evaluator.Core.Interfaces.IEvalValue</a></td></tr>
-<tr class="memitem:a632f1f996dac7ae02097604152a36c61 inherit events_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/da3/namespace_console_1_1_evaluator_1_1_core.html#a7f0ff5c5cbeacfa228a356ebc138114b">ValueChangedEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html#a632f1f996dac7ae02097604152a36c61">ValueChanged</a></td></tr>
+<tr class="memitem:a632f1f996dac7ae02097604152a36c61 inherit events_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/da3/namespace_console_1_1_evaluator_1_1_core.html#a068126cf7f32c9b2e2b5f1802df8ec2c">ValueChangedEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html#a632f1f996dac7ae02097604152a36c61">ValueChanged</a></td></tr>
+<tr class="memdesc:a632f1f996dac7ae02097604152a36c61 inherit events_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value Changed Event  <a href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html#a632f1f996dac7ae02097604152a36c61">More...</a><br /></td></tr>
 <tr class="separator:a632f1f996dac7ae02097604152a36c61 inherit events_interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html#l00006">6</a> of file <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html">IEvalTypedValue.cs</a>.</p>
+<div class="textblock"><p>Defines a <a class="el" href="../../de/d26/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_value.html" title="The IEvalValue defines a Value and Value Changed Event Handler Properties">IEvalValue</a> with additional System.Type and EvalType properties </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html">IEvalTypedValue.cs</a>.</p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a id="aa7108b7e10199d9bb179fc025a29a631"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7108b7e10199d9bb179fc025a29a631">&#9670;&nbsp;</a></span>EvalType</h2>
@@ -150,8 +158,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html">IEvalTypedValue.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p>The <a class="el" href="../../db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html" title="The Main Class of the Evaluator.">Evaluator</a> Type of the Value </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html">IEvalTypedValue.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -175,8 +185,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html#l00008">8</a> of file <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html">IEvalTypedValue.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p>The C# Type of the Value </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html#l00014">14</a> of file <a class="el" href="../../d7/d90/_i_eval_typed_value_8cs_source.html">IEvalTypedValue.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>

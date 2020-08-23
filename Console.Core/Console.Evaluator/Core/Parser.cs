@@ -5,26 +5,48 @@ using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 using Console.Evaluator.Core.OPCodes;
 
+/// <summary>
+/// The Namespace of the Evaluator Core.
+/// </summary>
 namespace Console.Evaluator.Core
 {
-    internal class parser
+
+    /// <summary>
+    /// The Internal Parser.
+    /// </summary>
+    internal class Parser
     {
-        private tokenizer mTokenizer;
+        /// <summary>
+        /// The Tokenizer that is used for the Parsing Process
+        /// </summary>
+        private Tokenizer mTokenizer;
+        /// <summary>
+        /// The Evaluator Instance
+        /// </summary>
         private Evaluator mEvaluator;
 
-        public parser(Evaluator evaluator)
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="evaluator">The Evaluator Instance</param>
+        public Parser(Evaluator evaluator)
         {
             mEvaluator = evaluator;
         }
 
+        /// <summary>
+        /// Parses an Expression
+        /// </summary>
+        /// <param name="str">The Expression</param>
+        /// <returns>Parsed OpCode</returns>
         public OPCode Parse(string str)
         {
             if (str is null)
                 str = string.Empty;
-            mTokenizer = new tokenizer(this, str);
+            mTokenizer = new Tokenizer(str);
             mTokenizer.NextToken();
             OPCode res = ParseExpr(null, Priority.None);
-            if (mTokenizer.type == TokenType.EndOfFormula)
+            if (mTokenizer.TokenType == TokenType.EndOfFormula)
             {
                 if (res is null)
                     res = new OPCodeImmediate(EvalType.String, string.Empty);
@@ -38,19 +60,25 @@ namespace Console.Evaluator.Core
             return default;
         }
 
-        private OPCode ParseExpr(OPCode Acc, Priority priority)
+        /// <summary>
+        /// Parses an Expression from an 
+        /// </summary>
+        /// <param name="acc">The "Parent" OPCode</param>
+        /// <param name="priority">Priority of the OPCode</param>
+        /// <returns>The Parsed OPCode</returns>
+        private OPCode ParseExpr(OPCode acc, Priority priority)
         {
-            OPCode ValueLeft = default, valueRight;
+            OPCode valueLeft = default, valueRight;
             do
             {
-                switch (mTokenizer.type)
+                switch (mTokenizer.TokenType)
                 {
                     case TokenType.OperatorMinus:
                         {
                             // unary minus operator
                             mTokenizer.NextToken();
-                            ValueLeft = ParseExpr(null, Priority.Unaryminus);
-                            ValueLeft = new OPCodeUnary(TokenType.OperatorMinus, ValueLeft);
+                            valueLeft = ParseExpr(null, Priority.Unaryminus);
+                            valueLeft = new OPCodeUnary(TokenType.OperatorMinus, valueLeft);
                             break;
                         }
 
@@ -64,34 +92,34 @@ namespace Console.Evaluator.Core
                     case TokenType.OperatorNot:
                         {
                             mTokenizer.NextToken();
-                            ValueLeft = ParseExpr(null, Priority.Not);
-                            ValueLeft = new OPCodeUnary(TokenType.OperatorNot, ValueLeft);
+                            valueLeft = ParseExpr(null, Priority.Not);
+                            valueLeft = new OPCodeUnary(TokenType.OperatorNot, valueLeft);
                             break;
                         }
 
                     case TokenType.ValueIdentifier:
                         {
-                            ParseIdentifier(ref ValueLeft);
+                            ParseIdentifier(ref valueLeft);
                             break;
                         }
 
                     case TokenType.ValueTrue:
                         {
-                            ValueLeft = new OPCodeImmediate(EvalType.Boolean, true);
+                            valueLeft = new OPCodeImmediate(EvalType.Boolean, true);
                             mTokenizer.NextToken();
                             break;
                         }
 
                     case TokenType.ValueFalse:
                         {
-                            ValueLeft = new OPCodeImmediate(EvalType.Boolean, false);
+                            valueLeft = new OPCodeImmediate(EvalType.Boolean, false);
                             mTokenizer.NextToken();
                             break;
                         }
 
                     case TokenType.ValueString:
                         {
-                            ValueLeft = new OPCodeImmediate(EvalType.String, mTokenizer.value.ToString());
+                            valueLeft = new OPCodeImmediate(EvalType.String, mTokenizer.Value.ToString());
                             mTokenizer.NextToken();
                             break;
                         }
@@ -100,13 +128,13 @@ namespace Console.Evaluator.Core
                         {
                             try
                             {
-                                ValueLeft = new OPCodeImmediate(EvalType.Number, double.Parse(mTokenizer.value.ToString(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture));
+                                valueLeft = new OPCodeImmediate(EvalType.Number, double.Parse(mTokenizer.Value.ToString(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture));
 
 
                             }
                             catch (Exception ex)
                             {
-                                mTokenizer.RaiseError(string.Format("Invalid number {0}", mTokenizer.value.ToString()));
+                                mTokenizer.RaiseError(string.Format("Invalid number {0}", mTokenizer.Value.ToString()));
                             }
 
                             mTokenizer.NextToken();
@@ -117,11 +145,11 @@ namespace Console.Evaluator.Core
                         {
                             try
                             {
-                                ValueLeft = new OPCodeImmediate(EvalType.Date, mTokenizer.value.ToString());
+                                valueLeft = new OPCodeImmediate(EvalType.Date, mTokenizer.Value.ToString());
                             }
                             catch (Exception ex)
                             {
-                                mTokenizer.RaiseError(string.Format("Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#", mTokenizer.value.ToString()));
+                                mTokenizer.RaiseError(string.Format("Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#", mTokenizer.Value.ToString()));
                             }
 
                             mTokenizer.NextToken();
@@ -131,8 +159,8 @@ namespace Console.Evaluator.Core
                     case TokenType.OpenParenthesis:
                         {
                             mTokenizer.NextToken();
-                            ValueLeft = ParseExpr(null, Priority.None);
-                            if (mTokenizer.type == TokenType.CloseParenthesis)
+                            valueLeft = ParseExpr(null, Priority.None);
+                            if (mTokenizer.TokenType == TokenType.CloseParenthesis)
                             {
                                 // good we eat the end parenthesis and continue ...
                                 mTokenizer.NextToken();
@@ -165,22 +193,22 @@ namespace Console.Evaluator.Core
                 break;
             }
             while (true);
-            if (ValueLeft is null)
+            if (valueLeft is null)
             {
                 mTokenizer.RaiseUnexpectedToken("No Expression found");
             }
 
-            ParseDot(ref ValueLeft);
+            ParseDot(ref valueLeft);
             do
             {
                 TokenType tt;
-                tt = mTokenizer.type;
+                tt = mTokenizer.TokenType;
                 switch (tt)
                 {
                     case TokenType.EndOfFormula:
                         {
                             // end of line
-                            return ValueLeft;
+                            return valueLeft;
                         }
 
                     case TokenType.ValueNumber:
@@ -194,8 +222,8 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.Plusminus)
                             {
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.Plusminus);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.Plusminus);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -210,8 +238,8 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.Plusminus)
                             {
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.Plusminus);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.Plusminus);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -226,8 +254,8 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.Concat)
                             {
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.Concat);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.Concat);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -243,8 +271,8 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.Muldiv)
                             {
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.Muldiv);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.Muldiv);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -259,7 +287,7 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.Percent)
                             {
                                 mTokenizer.NextToken();
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, Acc);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, acc);
                             }
                             else
                             {
@@ -274,8 +302,8 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.Or)
                             {
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.Or);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.Or);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -290,8 +318,8 @@ namespace Console.Evaluator.Core
                             if (priority < Priority.And)
                             {
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.And);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.And);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -310,10 +338,10 @@ namespace Console.Evaluator.Core
                         {
                             if (priority < Priority.Equality)
                             {
-                                tt = mTokenizer.type;
+                                tt = mTokenizer.TokenType;
                                 mTokenizer.NextToken();
-                                valueRight = ParseExpr(ValueLeft, Priority.Equality);
-                                ValueLeft = new OPCodeBinary(mTokenizer, ValueLeft, tt, valueRight);
+                                valueRight = ParseExpr(valueLeft, Priority.Equality);
+                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                             }
                             else
                             {
@@ -331,19 +359,20 @@ namespace Console.Evaluator.Core
                 break;
             }
             while (true);
-            return ValueLeft;
+            return valueLeft;
         }
 
-        [Flags()]
-        private enum eCallType
-        {
-            field = 1,
-            method = 2,
-            property = 4,
-            all = 7
-        }
 
-        private bool EmitCallFunction(ref OPCode valueLeft, string funcName, ArrayList parameters, eCallType CallType, bool ErrorIfNotFound)
+        /// <summary>
+        /// Runs a Function by name
+        /// </summary>
+        /// <param name="valueLeft">The Left Side value of the Call</param>
+        /// <param name="funcName">The Function Name</param>
+        /// <param name="parameters">The Parameters used in the Function Call</param>
+        /// <param name="callType">The CallType of the Method</param>
+        /// <param name="errorIfNotFound">If True will throw an exception when the function with name funcName is not found</param>
+        /// <returns></returns>
+        private bool EmitCallFunction(ref OPCode valueLeft, string funcName, ArrayList parameters, CallType callType, bool errorIfNotFound)
         {
             OPCode newOpcode = default(OPCode);
             if (valueLeft is null)
@@ -353,7 +382,7 @@ namespace Console.Evaluator.Core
                     object functions = mEvaluator.mEnvironmentFunctionsList[i];
                     while (functions != null)
                     {
-                        newOpcode = GetLocalFunction(functions, functions.GetType(), funcName, parameters, CallType);
+                        newOpcode = GetLocalFunction(functions, functions.GetType(), funcName, parameters, callType);
                         if (newOpcode != null)
                             break;
                         if (functions is IEvalFunctions evalFunctions)
@@ -369,26 +398,34 @@ namespace Console.Evaluator.Core
             }
             else
             {
-                newOpcode = GetLocalFunction(valueLeft, valueLeft.SystemType, funcName, parameters, CallType);
+                newOpcode = GetLocalFunction(valueLeft, valueLeft.SystemType, funcName, parameters, callType);
             }
 
-            if (newOpcode is object)
+            if (newOpcode != null)
             {
                 valueLeft = newOpcode;
                 return true;
             }
             else
             {
-                if (ErrorIfNotFound)
+                if (errorIfNotFound)
                     mTokenizer.RaiseError("Variable or method " + funcName + " was not found");
                 return false;
             }
         }
 
-        private OPCode GetLocalFunction(object @base, Type baseType, string funcName, ArrayList parameters, eCallType CallType)
+        /// <summary>
+        /// Returns the OPCodeCallMethod of the Object 
+        /// </summary>
+        /// <param name="base">The Object Instance</param>
+        /// <param name="baseType">The Type of the Object</param>
+        /// <param name="funcName">The Function Name</param>
+        /// <param name="parameters">The Parameters used in the Function</param>
+        /// <param name="callType">The CallType of the Function</param>
+        /// <returns>The Local Function OPCode</returns>
+        private OPCode GetLocalFunction(object @base, Type baseType, string funcName, ArrayList parameters, CallType callType)
         {
             MemberInfo mi;
-            IEvalTypedValue var;
             mi = GetMemberInfo(baseType, funcName, parameters);
             if (mi != null)
             {
@@ -396,21 +433,21 @@ namespace Console.Evaluator.Core
                 {
                     case MemberTypes.Field:
                         {
-                            if ((CallType & eCallType.field) == 0)
+                            if ((callType & CallType.Field) == 0)
                                 mTokenizer.RaiseError("Unexpected Field");
                             break;
                         }
 
                     case MemberTypes.Method:
                         {
-                            if ((CallType & eCallType.method) == 0)
+                            if ((callType & CallType.Method) == 0)
                                 mTokenizer.RaiseError("Unexpected Method");
                             break;
                         }
 
                     case MemberTypes.Property:
                         {
-                            if ((CallType & eCallType.property) == 0)
+                            if ((callType & CallType.Property) == 0)
                                 mTokenizer.RaiseError("Unexpected Property");
                             break;
                         }
@@ -437,6 +474,14 @@ namespace Console.Evaluator.Core
             return null;
         }
 
+
+        /// <summary>
+        /// Returns the Member Info of the Function inside the Type
+        /// </summary>
+        /// <param name="objType">The Type to Extract the MemberInfo From</param>
+        /// <param name="func">The Function Name</param>
+        /// <param name="parameters">The Parameter List</param>
+        /// <returns>The Member Info of the Specified Function</returns>
         private MemberInfo GetMemberInfo(Type objType, string func, ArrayList parameters)
         {
             BindingFlags bindingAttr;
@@ -463,8 +508,8 @@ namespace Console.Evaluator.Core
 
             // There is a bit of cooking here...
             // lets find the most acceptable Member
-            int Score, BestScore = default;
-            MemberInfo BestMember = default(MemberInfo);
+            int score, bestScore = default;
+            MemberInfo bestMember = default(MemberInfo);
             ParameterInfo[] plist = default(ParameterInfo[]);
             int idx;
             MemberInfo mi;
@@ -484,7 +529,7 @@ namespace Console.Evaluator.Core
                     plist = null;
                 }
 
-                Score = 10; // by default
+                score = 10; // by default
                 idx = 0;
                 if (plist is null)
                     plist = new ParameterInfo[] { };
@@ -493,7 +538,7 @@ namespace Console.Evaluator.Core
                 ParameterInfo pi;
                 if (parameters.Count > plist.Length)
                 {
-                    Score = 0;
+                    score = 0;
                 }
                 else
                 {
@@ -503,32 +548,39 @@ namespace Console.Evaluator.Core
                         // For Each pi As Reflection.ParameterInfo In plist
                         if (idx < parameters.Count)
                         {
-                            Score += ParamCompatibility(parameters[idx], pi.ParameterType);
+                            score += ParamCompatibility(parameters[idx], pi.ParameterType);
                         }
                         else if (pi.IsOptional)
                         {
-                            Score += 10;
+                            score += 10;
                         }
                         else
                         {
                             // unknown parameter
-                            Score = 0;
+                            score = 0;
                         }
 
                         idx += 1;
                     }
                 }
 
-                if (Score > BestScore)
+                if (score > bestScore)
                 {
-                    BestScore = Score;
-                    BestMember = mi;
+                    bestScore = score;
+                    bestMember = mi;
                 }
             }
 
-            return BestMember;
+            return bestMember;
         }
 
+
+        /// <summary>
+        /// This function returns a score 1 to 10 depending on how compatible the object instance and the type are
+        /// </summary>
+        /// <param name="value">Object Instance</param>
+        /// <param name="type">The Type</param>
+        /// <returns></returns>
         private static int ParamCompatibility(object value, Type type)
         {
             // This function returns a score 1 to 10 to this question
@@ -541,21 +593,23 @@ namespace Console.Evaluator.Core
                     return 8;
                 return 5;
             }
-            else if (ReferenceEquals(type, value.GetType()))
+            if (ReferenceEquals(type, value.GetType()))
             {
                 return 10;
             }
-            else
-            {
-                return 5;
-            }
+
+            return 5;
         }
 
-        private void ParseDot(ref OPCode ValueLeft)
+        /// <summary>
+        /// Parses the "." From the specified OPCode.
+        /// </summary>
+        /// <param name="valueLeft">The OPCode</param>
+        private void ParseDot(ref OPCode valueLeft)
         {
             do
             {
-                switch (mTokenizer.type)
+                switch (mTokenizer.TokenType)
                 {
                     case TokenType.Dot:
                         {
@@ -574,58 +628,62 @@ namespace Console.Evaluator.Core
                         }
                 }
 
-                ParseIdentifier(ref ValueLeft);
+                ParseIdentifier(ref valueLeft);
             }
             while (true);
         }
 
-        private void ParseIdentifier(ref OPCode ValueLeft)
+        /// <summary>
+        /// Parses an Identifier of the Specified OPCode
+        /// </summary>
+        /// <param name="valueLeft">The OPCode</param>
+        private void ParseIdentifier(ref OPCode valueLeft)
         {
             // first check functions
             ArrayList parameters;   // parameters... 
                                     // Dim types As New ArrayList
-            string func = mTokenizer.value.ToString();
+            string func = mTokenizer.Value.ToString();
             mTokenizer.NextToken();
             bool isBrackets = default(bool);
             parameters = ParseParameters(ref isBrackets);
             if (parameters != null)
             {
-                ArrayList EmptyParameters = new ArrayList();
-                bool ParamsNotUsed = default(bool);
+                ArrayList emptyParameters = new ArrayList();
+                bool paramsNotUsed = default(bool);
                 if (mEvaluator.Syntax == ParserSyntax.VisualBasic)
                 {
                     // in vb we don't know if it is array or not as we have only parenthesis
                     // so we try with parameters first
-                    if (!EmitCallFunction(ref ValueLeft, func, parameters, eCallType.all, ErrorIfNotFound: false))
+                    if (!EmitCallFunction(ref valueLeft, func, parameters, CallType.All, false))
                     {
                         // and if not found we try as array or default member
-                        EmitCallFunction(ref ValueLeft, func, EmptyParameters, eCallType.all, ErrorIfNotFound: true);
-                        ParamsNotUsed = true;
+                        EmitCallFunction(ref valueLeft, func, emptyParameters, CallType.All, true);
+                        paramsNotUsed = true;
                     }
                 }
                 else if (isBrackets)
                 {
-                    if (!EmitCallFunction(ref ValueLeft, func, parameters, eCallType.property, ErrorIfNotFound: false))
+                    if (!EmitCallFunction(ref valueLeft, func, parameters, CallType.Property, false))
                     {
-                        EmitCallFunction(ref ValueLeft, func, EmptyParameters, eCallType.all, ErrorIfNotFound: true);
-                        ParamsNotUsed = true;
+                        EmitCallFunction(ref valueLeft, func, emptyParameters, CallType.All, true);
+                        paramsNotUsed = true;
                     }
                 }
-                else if (!EmitCallFunction(ref ValueLeft, func, parameters, eCallType.field | eCallType.method, ErrorIfNotFound: false))
+                else if (!EmitCallFunction(ref valueLeft, func, parameters, CallType.Field | CallType.Method, false))
                 {
-                    EmitCallFunction(ref ValueLeft, func, EmptyParameters, eCallType.all, ErrorIfNotFound: true);
-                    ParamsNotUsed = true;
+                    EmitCallFunction(ref valueLeft, func, emptyParameters, CallType.All, true);
+                    paramsNotUsed = true;
                 }
                 // we found a function without parameters 
                 // so our parameters must be default property or an array
-                Type t = ValueLeft.SystemType;
-                if (ParamsNotUsed)
+                Type t = valueLeft.SystemType;
+                if (paramsNotUsed)
                 {
                     if (t.IsArray)
                     {
                         if (parameters.Count == t.GetArrayRank())
                         {
-                            ValueLeft = new OPCodeGetArrayEntry(ValueLeft, parameters);
+                            valueLeft = new OPCodeGetArrayEntry(valueLeft, parameters);
                         }
                         else
                         {
@@ -638,7 +696,7 @@ namespace Console.Evaluator.Core
                         mi = GetMemberInfo(t, null, parameters);
                         if (!(mi is null))
                         {
-                            ValueLeft = OPCodeCallMethod.GetNew(mTokenizer, ValueLeft, mi, parameters);
+                            valueLeft = OPCodeCallMethod.GetNew(mTokenizer, valueLeft, mi, parameters);
                         }
                         else
                         {
@@ -649,18 +707,24 @@ namespace Console.Evaluator.Core
             }
             else
             {
-                EmitCallFunction(ref ValueLeft, func, parameters, eCallType.all, ErrorIfNotFound: true);
+                EmitCallFunction(ref valueLeft, func, parameters, CallType.All, true);
             }
         }
 
+
+        /// <summary>
+        /// Parses the Parameters to a Function Call.
+        /// </summary>
+        /// <param name="brackets">Is True if the Parameters are specified in brackets</param>
+        /// <returns>The List of Parameters</returns>
         private ArrayList ParseParameters(ref bool brackets)
         {
             ArrayList parameters = default(ArrayList);
             OPCode valueleft;
             TokenType lClosing = default(TokenType);
-            if (mTokenizer.type == TokenType.OpenParenthesis || mTokenizer.type == TokenType.OpenBracket & mEvaluator.Syntax == ParserSyntax.CSharp)
+            if (mTokenizer.TokenType == TokenType.OpenParenthesis || (mTokenizer.TokenType == TokenType.OpenBracket) & (mEvaluator.Syntax == ParserSyntax.CSharp))
             {
-                switch (mTokenizer.type)
+                switch (mTokenizer.TokenType)
                 {
                     case TokenType.OpenBracket:
                         {
@@ -680,7 +744,7 @@ namespace Console.Evaluator.Core
                 mTokenizer.NextToken(); // eat the parenthesis
                 do
                 {
-                    if (mTokenizer.type == lClosing)
+                    if (mTokenizer.TokenType == lClosing)
                     {
                         // good we eat the end parenthesis and continue ...
                         mTokenizer.NextToken();
@@ -689,13 +753,13 @@ namespace Console.Evaluator.Core
 
                     valueleft = ParseExpr(null, Priority.None);
                     parameters.Add(valueleft);
-                    if (mTokenizer.type == lClosing)
+                    if (mTokenizer.TokenType == lClosing)
                     {
                         // good we eat the end parenthesis and continue ...
                         mTokenizer.NextToken();
                         break;
                     }
-                    else if (mTokenizer.type == TokenType.Comma)
+                    else if (mTokenizer.TokenType == TokenType.Comma)
                     {
                         mTokenizer.NextToken();
                     }

@@ -11,7 +11,7 @@ namespace Console.Networking
     /// </summary>
     public class NetworkingSettings
     {
-        [Property("networking.logs.mute")]
+        [Property("logs.networking.mute")]
         private static bool MuteLogs
         {
             get => NetworkedInitializer. Logger.Mute;

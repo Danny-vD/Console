@@ -31,8 +31,7 @@ namespace Console.ScriptSystem.Deblocker.Conditions
 
         protected string[] Deblock(Line line, string[] parameters, out List<string> begin, out List<string> end)
         {
-            if (DeblockerSettings.WriteDeblockLogs)
-                ScriptSystemInitializer.Logger.Log($"Deblocking {Key}: " + line.CleanedLine);
+            DeblockerSettings.Logger.Log($"Deblocking {Key}: " + line.CleanedLine);
             List<string> _begin = new List<string>();
             List<string> _end = new List<string>();
             begin = new List<string>();

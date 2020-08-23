@@ -17,28 +17,7 @@ namespace Console.ScriptSystem
     /// </summary>
     public static class SequenceSystem
     {
-        private static ALogger SequenceOut = TypedLogger.CreateTypedWithPrefix("SequenceSystem");
-
-        /// <summary>
-        /// All Sequences listed like they get displayed on the console.
-        /// </summary>
-        public static string SequenceText
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder("Sequences:\n");
-                foreach (string sequencesKey in LoadedSequences)
-                {
-                    sb.AppendLine($"\t{sequencesKey}");
-                }
-                return sb.ToString();
-            }
-        }
-
-        /// <summary>
-        /// List of Sequences.
-        /// </summary>
-        public static string[] LoadedSequences => Sequences.Keys.ToArray();
+        #region Settings
 
         /// <summary>
         /// Flag that is used to force overwriting when creating a sequence
@@ -85,11 +64,45 @@ namespace Console.ScriptSystem
         /// </summary>
         public const string FileToCommand = "file-to-command";
 
+
+        #endregion
+
+
+        /// <summary>
+        /// The Logger used by the Sequence System
+        /// </summary>
+        private static ALogger SequenceOut = TypedLogger.CreateTypedWithPrefix("SequenceSystem");
+
+        /// <summary>
+        /// All Sequences listed like they get displayed on the console.
+        /// </summary>
+        public static string SequenceText
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder("Sequences:\n");
+                foreach (string sequencesKey in LoadedSequences)
+                {
+                    sb.AppendLine($"\t{sequencesKey}");
+                }
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// List of Sequences.
+        /// </summary>
+        public static string[] LoadedSequences => Sequences.Keys.ToArray();
+
+
         /// <summary>
         /// Internal Dictionary of Sequences.
         /// </summary>
         private static readonly Dictionary<string, Sequence> Sequences = new Dictionary<string, Sequence>();
 
+
+
+        #region Commands
 
         /// <summary>
         /// Creates a Sequence by name
@@ -101,8 +114,12 @@ namespace Console.ScriptSystem
         {
             if (Sequences.ContainsKey(name))
             {
-                SequenceOut.LogWarning($"A Sequence with the name: {name} does already exist");
-                if (!overwrite) return;
+                if (!overwrite)
+                {
+                    SequenceOut.LogWarning($"A Sequence with the name: {name} does already exist");
+                    return;
+                }
+
             }
             Sequences[name] = new Sequence();
         }
@@ -132,14 +149,16 @@ namespace Console.ScriptSystem
         {
             if (!Sequences.ContainsKey(name))
             {
-                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 if (!create)
+                {
+                    SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                     return;
+                }
                 CreateSequence(name, false);
             }
             string s = command.StartsWith(ConsoleCoreConfig.StringChar.ToString()) ? CommandParser.CleanContent(command) : command;
 
-            SequenceOut.Log("Before: " + command + "\nAfter: " + s);
+            //SequenceOut.Log("Before: " + command + "\nAfter: " + s);
             Sequences[name].Lines.Add(command);
         }
 
@@ -156,14 +175,19 @@ namespace Console.ScriptSystem
             }
             Sequences.Remove(name);
 
-            SequenceOut.Log("Deleted Sequence: " + name);
+            if (!name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN))
+                SequenceOut.Log("Deleted Sequence: " + name);
         }
 
+        /// <summary>
+        /// Deletes all Loaded Sequences.
+        /// </summary>
         [Command("clear-sequences", "Clears all Loaded Sequences", "clear-seq")]
         public static void ClearSequences()
         {
+            int count = Sequences.Count;
             Sequences.Clear();
-            SequenceOut.Log($"Sequences Cleared.");
+            SequenceOut.Log($"{count} Sequences Cleared.");
         }
 
         /// <summary>
@@ -183,20 +207,19 @@ namespace Console.ScriptSystem
             {
                 builder.AppendLine($"\t{i}: {Sequences[name].Lines[i]}");
             }
-            ScriptSystemInitializer.Logger.Log(builder.ToString());
+            SequenceOut.Log(builder.ToString());
         }
 
         /// <summary>
         /// Lists all Loaded Sequences by name
         /// </summary>
         [Command("list-sequences", "Lists all Loaded Sequence Names", "list-seq")]
-        private static void ListSequences() => ScriptSystemInitializer.Logger.LogWarning(SequenceText);
+        private static void ListSequences() => SequenceOut.Log(SequenceText);
 
         /// <summary>
         /// Runs a Sequence by Name
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="parameter"></param>
         [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
         public static void RunSequence(string name) => RunSequence(name, "");
         /// <summary>
@@ -212,7 +235,7 @@ namespace Console.ScriptSystem
                 SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            ParameterCollection spc = name.StartsWith("BLOCK_") ? 
+            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN) ?
                 ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter) :
                 ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
             foreach (string s in Sequences[name].Lines)
@@ -256,16 +279,19 @@ namespace Console.ScriptSystem
             }
             if (!Sequences.ContainsKey(name))
             {
-                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 if (!create)
+                {
+                    SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                     return;
+                }
                 CreateSequence(name, false);
             }
             else
             {
-                if (!create)
-                    return;
-                CreateSequence(name, true);
+                if (create)
+                {
+                    CreateSequence(name, true);
+                }
 
             }
             string[] lines = DeblockerCollection.Parse(File.ReadAllText(file)).ToArray();
@@ -342,5 +368,7 @@ namespace Console.ScriptSystem
                 ParameterCollection.MakeCurrent(null);
             }
         }
+
+        #endregion
     }
 }

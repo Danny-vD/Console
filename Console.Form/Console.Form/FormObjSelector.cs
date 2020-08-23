@@ -4,7 +4,7 @@ using Console.Core;
 namespace Console.Form
 {
     /// <summary>
-    /// Object Selector Implementation for the CLI
+    /// Object Selector Implementation for Windows Form Programs
     /// </summary>
     public class FormObjSelector : AObjectSelector
     {

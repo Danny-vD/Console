@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/// <summary>
+/// Root Namespace of the Console.Form Project
+/// </summary>
 namespace Console.Form
 {
+    /// <summary>
+    /// The Entry Point of the Form Application
+    /// </summary>
     static class Program
     {
         /// <summary>

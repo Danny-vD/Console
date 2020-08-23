@@ -85,6 +85,8 @@ $(document).ready(function(){initNavTree('d4/dab/class_console_1_1_script_system
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#properties">Properties</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="../../da/d83/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -98,7 +100,7 @@ $(document).ready(function(){initNavTree('d4/dab/class_console_1_1_script_system
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ade1c9396359e44148aa3a1b32c52f978"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ade1c9396359e44148aa3a1b32c52f978">GetKey</a> (int index)</td></tr>
-<tr class="memdesc:ade1c9396359e44148aa3a1b32c52f978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper Function that provides a Unique Key Sequence  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ade1c9396359e44148aa3a1b32c52f978">More...</a><br /></td></tr>
+<tr class="memdesc:ade1c9396359e44148aa3a1b32c52f978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper Function that provides a Unique Key <a class="el" href="../../d0/de3/class_console_1_1_script_system_1_1_sequence.html" title="The Internal Representation of a Sequence">Sequence</a>  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ade1c9396359e44148aa3a1b32c52f978">More...</a><br /></td></tr>
 <tr class="separator:ade1c9396359e44148aa3a1b32c52f978"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8cb45a1f34e9fb091de3548e7a894e7"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ae8cb45a1f34e9fb091de3548e7a894e7">GetBlockName</a> ()</td></tr>
 <tr class="memdesc:ae8cb45a1f34e9fb091de3548e7a894e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a Unique Block Name  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ae8cb45a1f34e9fb091de3548e7a894e7">More...</a><br /></td></tr>
@@ -106,23 +108,39 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a17938e9f0f1dbf97616e937b55e8ebf8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a17938e9f0f1dbf97616e937b55e8ebf8">WriteDeblockLogs</a></td></tr>
-<tr class="separator:a17938e9f0f1dbf97616e937b55e8ebf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ea56407f17ec2b01212a1a0200c241"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6ea56407f17ec2b01212a1a0200c241">Logger</a> =&gt; <a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ac9f208c5c65dcbd307d0dcfd5752be88">_logger</a> ?? (<a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ac9f208c5c65dcbd307d0dcfd5752be88">_logger</a> = <a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a2569d1271f26cec5c2e270ca4a9db723">CreateLogger</a>())</td></tr>
+<tr class="memdesc:ab6ea56407f17ec2b01212a1a0200c241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by the <a class="el" href="../../d8/db8/namespace_console_1_1_script_system_1_1_deblocker.html" title="Deblocker System which is used when loading Scripts or Sequences from File.">Deblocker</a> System  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6ea56407f17ec2b01212a1a0200c241">More...</a><br /></td></tr>
+<tr class="separator:ab6ea56407f17ec2b01212a1a0200c241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03b838d809fcc144e8db2701fdeb4493"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a03b838d809fcc144e8db2701fdeb4493">BlockBracketOpen</a> = '{'</td></tr>
 <tr class="memdesc:a03b838d809fcc144e8db2701fdeb4493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open Block Bracket  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a03b838d809fcc144e8db2701fdeb4493">More...</a><br /></td></tr>
 <tr class="separator:a03b838d809fcc144e8db2701fdeb4493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8188d4dd8c6875376823180d0532e367"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a8188d4dd8c6875376823180d0532e367">BlockBracketClosed</a> = '}'</td></tr>
 <tr class="memdesc:a8188d4dd8c6875376823180d0532e367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close Block Bracket  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a8188d4dd8c6875376823180d0532e367">More...</a><br /></td></tr>
 <tr class="separator:a8188d4dd8c6875376823180d0532e367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a566deeff9af90d7ba1d2422ad0b07fa7"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a566deeff9af90d7ba1d2422ad0b07fa7">OpenFunctionBracket</a> ='('</td></tr>
+<tr class="memitem:a566deeff9af90d7ba1d2422ad0b07fa7"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a566deeff9af90d7ba1d2422ad0b07fa7">OpenFunctionBracket</a> = '('</td></tr>
 <tr class="memdesc:a566deeff9af90d7ba1d2422ad0b07fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Open Tag for the Function Signature  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a566deeff9af90d7ba1d2422ad0b07fa7">More...</a><br /></td></tr>
 <tr class="separator:a566deeff9af90d7ba1d2422ad0b07fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79d7a039d0b5d173189a2cb8f2bac23b"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a79d7a039d0b5d173189a2cb8f2bac23b">CloseFunctionBracket</a> =')'</td></tr>
+<tr class="memitem:a79d7a039d0b5d173189a2cb8f2bac23b"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a79d7a039d0b5d173189a2cb8f2bac23b">CloseFunctionBracket</a> = ')'</td></tr>
 <tr class="memdesc:a79d7a039d0b5d173189a2cb8f2bac23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Close Tag for the Function Signature  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a79d7a039d0b5d173189a2cb8f2bac23b">More...</a><br /></td></tr>
 <tr class="separator:a79d7a039d0b5d173189a2cb8f2bac23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae3c7bcf9f5f5046b4750393ff6b6561"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#aae3c7bcf9f5f5046b4750393ff6b6561">BLOCK_NAME_BEGIN</a> = &quot;BLOCK_&quot;</td></tr>
+<tr class="separator:aae3c7bcf9f5f5046b4750393ff6b6561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a13a8af1baa13fa40bd14bff318ed9fff"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a13a8af1baa13fa40bd14bff318ed9fff">MuteLogs</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a13a8af1baa13fa40bd14bff318ed9fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutes all Deblockerk System Logs  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a13a8af1baa13fa40bd14bff318ed9fff">More...</a><br /></td></tr>
+<tr class="separator:a13a8af1baa13fa40bd14bff318ed9fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a2569d1271f26cec5c2e270ca4a9db723"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a2569d1271f26cec5c2e270ca4a9db723">CreateLogger</a> ()</td></tr>
+<tr class="separator:a2569d1271f26cec5c2e270ca4a9db723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
+<tr class="memitem:ac9f208c5c65dcbd307d0dcfd5752be88"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ac9f208c5c65dcbd307d0dcfd5752be88">_logger</a></td></tr>
+<tr class="separator:ac9f208c5c65dcbd307d0dcfd5752be88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6a16ec252f919b8ae77e7792ee7cb9f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6a16ec252f919b8ae77e7792ee7cb9f">BlockCount</a> = 0</td></tr>
 <tr class="memdesc:ab6a16ec252f919b8ae77e7792ee7cb9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private Counter to create Unique Block Names  <a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6a16ec252f919b8ae77e7792ee7cb9f">More...</a><br /></td></tr>
 <tr class="separator:ab6a16ec252f919b8ae77e7792ee7cb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,8 +148,40 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Settings of the <a class="el" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html" title="Static Minimal DeblockerCollection Parsing API">DeblockerCollection</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00013">13</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2569d1271f26cec5c2e270ca4a9db723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2569d1271f26cec5c2e270ca4a9db723">&#9670;&nbsp;</a></span>CreateLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> Console.ScriptSystem.Deblocker.DeblockerSettings.CreateLogger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00030">30</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> l= <a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html">TypedLogger</a>.<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#aa136a4e48863b17c656fb42db3c2c55b">CreateTypedWithPrefix</a>(<span class="stringliteral">&quot;Deblocker&quot;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            l.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> l;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ae8cb45a1f34e9fb091de3548e7a894e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8cb45a1f34e9fb091de3548e7a894e7">&#9670;&nbsp;</a></span>GetBlockName()</h2>
 
@@ -184,7 +234,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Helper Function that provides a Unique Key Sequence </p>
+<p>Helper Function that provides a Unique Key <a class="el" href="../../d0/de3/class_console_1_1_script_system_1_1_sequence.html" title="The Internal Representation of a Sequence">Sequence</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>Block Index</td></tr>
@@ -196,6 +246,54 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac9f208c5c65dcbd307d0dcfd5752be88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f208c5c65dcbd307d0dcfd5752be88">&#9670;&nbsp;</a></span>_logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> Console.ScriptSystem.Deblocker.DeblockerSettings._logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00037">37</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+
+</div>
+</div>
+<a id="aae3c7bcf9f5f5046b4750393ff6b6561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae3c7bcf9f5f5046b4750393ff6b6561">&#9670;&nbsp;</a></span>BLOCK_NAME_BEGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string Console.ScriptSystem.Deblocker.DeblockerSettings.BLOCK_NAME_BEGIN = &quot;BLOCK_&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00082">82</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+
+</div>
+</div>
 <a id="a8188d4dd8c6875376823180d0532e367"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8188d4dd8c6875376823180d0532e367">&#9670;&nbsp;</a></span>BlockBracketClosed</h2>
 
@@ -218,7 +316,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Close Block Bracket </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00048">48</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -244,7 +342,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Open Block Bracket </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00043">43</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -270,7 +368,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Private Counter to create Unique Block Names </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00052">52</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00074">74</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -284,7 +382,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char Console.ScriptSystem.Deblocker.DeblockerSettings.CloseFunctionBracket =')'</td>
+          <td class="memname">char Console.ScriptSystem.Deblocker.DeblockerSettings.CloseFunctionBracket = ')'</td>
         </tr>
       </table>
   </td>
@@ -296,7 +394,33 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Close Tag for the Function Signature </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00040">40</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00062">62</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab6ea56407f17ec2b01212a1a0200c241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ea56407f17ec2b01212a1a0200c241">&#9670;&nbsp;</a></span>Logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> Console.ScriptSystem.Deblocker.DeblockerSettings.Logger =&gt; <a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ac9f208c5c65dcbd307d0dcfd5752be88">_logger</a> ?? (<a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ac9f208c5c65dcbd307d0dcfd5752be88">_logger</a> = <a class="el" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#a2569d1271f26cec5c2e270ca4a9db723">CreateLogger</a>())</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logger used by the <a class="el" href="../../d8/db8/namespace_console_1_1_script_system_1_1_deblocker.html" title="Deblocker System which is used when loading Scripts or Sequences from File.">Deblocker</a> System </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
 
 </div>
 </div>
@@ -310,7 +434,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char Console.ScriptSystem.Deblocker.DeblockerSettings.OpenFunctionBracket ='('</td>
+          <td class="memname">char Console.ScriptSystem.Deblocker.DeblockerSettings.OpenFunctionBracket = '('</td>
         </tr>
       </table>
   </td>
@@ -322,12 +446,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Open Tag for the Function Signature </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00055">55</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
 
 </div>
 </div>
-<a id="a17938e9f0f1dbf97616e937b55e8ebf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17938e9f0f1dbf97616e937b55e8ebf8">&#9670;&nbsp;</a></span>WriteDeblockLogs</h2>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a13a8af1baa13fa40bd14bff318ed9fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a8af1baa13fa40bd14bff318ed9fff">&#9670;&nbsp;</a></span>MuteLogs</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,18 +461,24 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Console.ScriptSystem.Deblocker.DeblockerSettings.WriteDeblockLogs</td>
+          <td class="memname">bool Console.ScriptSystem.Deblocker.DeblockerSettings.MuteLogs</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">get</span><span class="mlabel">set</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<p>Mutes all Deblockerk System Logs </p>
 
+<p class="definition">Definition at line <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d5/d2b/_deblocker_settings_8cs_source.html">DeblockerSettings.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6ea56407f17ec2b01212a1a0200c241">Logger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6ea56407f17ec2b01212a1a0200c241">Logger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a> = value;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -355,6 +486,11 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_aa136a4e48863b17c656fb42db3c2c55b"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#aa136a4e48863b17c656fb42db3c2c55b">Console.Core.LogSystem.TypedLogger.CreateTypedWithPrefix</a></div><div class="ttdeci">static ALogger CreateTypedWithPrefix(string prefix, bool logPrefixFirst=true)</div><div class="ttdoc">Creates a Typed Logger that displays the Prefix and the Log Types.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00053">TypedLogger.cs:53</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_a_logger_html_aebe16a6842c69486e821533c36a357c2"><div class="ttname"><a href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Console.Core.LogSystem.ALogger.Mute</a></div><div class="ttdeci">bool Mute</div><div class="ttdoc">If true the Logger will not output any Logs</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db4/_a_logger_8cs_source.html#l00017">ALogger.cs:17</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_a_logger_html"><div class="ttname"><a href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">Console.Core.LogSystem.ALogger</a></div><div class="ttdoc">ALogger is an Abstraction to be able to have custom Logger Prefixes.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db4/_a_logger_8cs_source.html#l00012">ALogger.cs:13</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings_html_ab6ea56407f17ec2b01212a1a0200c241"><div class="ttname"><a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ab6ea56407f17ec2b01212a1a0200c241">Console.ScriptSystem.Deblocker.DeblockerSettings.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">Logger used by the Deblocker System</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00028">DeblockerSettings.cs:28</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html">Console.Core.LogSystem.TypedLogger</a></div><div class="ttdoc">The TypedLoggger Implementation is Prepending Prefixes for each Log Type(Log/Warning/Error)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00006">TypedLogger.cs:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

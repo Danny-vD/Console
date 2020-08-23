@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ecalltype_467',['eCallType',['../dc/d08/class_console_1_1_evaluator_1_1_core_1_1parser.html#ae3dfff3efcad1e7ffe71cda7001b1052',1,'Console::Evaluator::Core::parser']]],
-  ['evaltype_468',['EvalType',['../d4/d8c/namespace_console_1_1_evaluator_1_1_core_1_1_enums.html#a507c1bba814a96ce7328d9eb9d036e8b',1,'Console::Evaluator::Core::Enums']]]
+  ['calltype_462',['CallType',['../d4/d8c/namespace_console_1_1_evaluator_1_1_core_1_1_enums.html#a1a9ea65ea7725e7f5900db476b305591',1,'Console::Evaluator::Core::Enums']]]
 ];

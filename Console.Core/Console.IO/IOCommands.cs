@@ -21,6 +21,8 @@ namespace Console.IO
 
         /// <summary>
         /// Lists files in the current directory
+        /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+        /// <param name="names">Only displays names</param>
         /// </summary>
         [Command("list-files", "Lists files in the current directory", "ls", "dir")]
         private static void ListFiles([CommandFlag]bool recursive, [CommandFlag]bool names) => ListFiles(".\\", recursive, names);
@@ -29,6 +31,8 @@ namespace Console.IO
         /// Lists files in the specified directory
         /// </summary>
         /// <param name="folder">Specified Directory</param>
+        /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+        /// <param name="names">Only displays names</param>
         [Command("list-files", "Lists files in the specified directory", "ls", "dir")]
         private static void ListFiles(string folder, [CommandFlag]bool recursive, [CommandFlag]bool names) => ListFiles(folder, "*", recursive, names);
 
@@ -56,6 +60,8 @@ namespace Console.IO
 
         /// <summary>
         /// Lists files in the current directory
+        /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+        /// <param name="names">Only displays names</param>
         /// </summary>
         [Command("list-dir", "Lists directories in the current directory", "ld", "dirs")]
         private static void ListDirectories([CommandFlag]bool recursive, [CommandFlag]bool names) => ListDirectories(".\\", recursive, names);
@@ -63,6 +69,8 @@ namespace Console.IO
         /// Lists files in the specified directory
         /// </summary>
         /// <param name="folder">Specified Directory</param>
+        /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+        /// <param name="names">Only displays names</param>
         [Command("list-dir", "Lists directories in the specified directory", "ld", "dirs")]
         private static void ListDirectories(string folder, [CommandFlag]bool recursive, [CommandFlag]bool names) => ListDirectories(folder, "*", recursive, names);
         /// <summary>
@@ -71,6 +79,7 @@ namespace Console.IO
         /// <param name="folder">Specified Directory</param>
         /// <param name="searchTerms">The Search Term</param>
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+        /// <param name="names">Only displays names</param>
         [Command("list-dir", "Lists directories in the selected directory that match the search pattern. Optionally recursing into the subdirectories", "ld", "dirs")]
         private static void ListDirectories(string folder, string searchTerms, [CommandFlag]bool recursive, [CommandFlag]bool names)
         {
@@ -80,7 +89,7 @@ namespace Console.IO
             string s = "Directories in " + path + "\n";
             foreach (string file in files)
             {
-                s += "\t" + (names ? file.Replace(Path.GetFullPath(folder),"") : file) + "\n";
+                s += "\t" + (names ? file.Replace(Path.GetFullPath(folder), "") : file) + "\n";
             }
             IOInitializer.Logger.Log(s);
         }
@@ -90,6 +99,7 @@ namespace Console.IO
         /// </summary>
         /// <param name="from">Source File</param>
         /// <param name="to">Destination File</param>
+        [Command("copy", "Copies a File to a specified Location")]
         private static void Copy(string from, string to)
         {
             if (File.Exists(from))
@@ -103,6 +113,7 @@ namespace Console.IO
         /// </summary>
         /// <param name="from">Source File</param>
         /// <param name="to">Destination File</param>
+        [Command("move", "Moves a File to a specified Location")]
         private static void Move(string from, string to)
         {
             if (File.Exists(from))
@@ -120,6 +131,7 @@ namespace Console.IO
         /// Deletes the Specified File
         /// </summary>
         /// <param name="file">File to Delete</param>
+        [Command("delete", "Deletes a File", "del", "rm")]
         private static void Delete(string file)
         {
             if (File.Exists(file))

@@ -32,12 +32,11 @@ namespace Console.ScriptSystem.Deblocker.Functions
 
 
             string[] parts = l.CleanParts;
-            if (DeblockerSettings.WriteDeblockLogs)
-                ScriptSystemInitializer.Logger.Log("Deblocking Function: " + parts[1] + signature);
+            DeblockerSettings.Logger.Log("Deblocking Function: " + parts[1] + signature);
             List<string> s = base.Deblock(l, out begin, out end).ToList();
             if (parts.Length < 2)
             {
-                ScriptSystemInitializer.Logger.LogWarning("Can not Deblock Line: " + l);
+                DeblockerSettings.Logger.LogWarning("Can not Deblock Line: " + l);
                 begin = new List<string>();
                 end = new List<string>();
                 return base.Deblock(line, out begin, out end);
