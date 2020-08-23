@@ -367,9 +367,10 @@ Properties</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00078">78</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            InvokeLogEvent(command);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            ConsoleForm.Instance.LogCommand(command);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span> (!ConsoleCoreConfig.WriteCommand) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            InvokeLogEvent(command);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            ConsoleForm.Instance.LogCommand(command);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -405,11 +406,11 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00088">88</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            InvokeLogEvent(@<span class="keywordtype">object</span>.ToString());</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            ConsoleForm.Instance.LogError(@<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00089">89</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            InvokeLogEvent(@<span class="keywordtype">object</span>.ToString());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            ConsoleForm.Instance.LogError(@<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -437,11 +438,11 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00099">99</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            InvokeLogEvent(text);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            ConsoleForm.Instance.LogPlainText(text);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00100">100</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            InvokeLogEvent(text);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            ConsoleForm.Instance.LogPlainText(text);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -477,11 +478,11 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00109">109</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            InvokeLogEvent(@<span class="keywordtype">object</span>.ToString());</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            ConsoleForm.Instance.LogWarning(@<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html#l00110">110</a> of file <a class="el" href="../../d1/d91/_form_console_manager_8cs_source.html">FormConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            InvokeLogEvent(@<span class="keywordtype">object</span>.ToString());</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            ConsoleForm.Instance.LogWarning(@<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

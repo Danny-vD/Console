@@ -211,33 +211,39 @@ Static Package Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../dc/da3/_function_signature_8cs_source.html#l00061">61</a> of file <a class="el" href="../../dc/da3/_function_signature_8cs_source.html">FunctionSignature.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordtype">int</span> open = line.OriginalLine.IndexOf(DeblockerSettings.OpenFunctionBracket);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">int</span> close = line.OriginalLine.IndexOf(DeblockerSettings.CloseFunctionBracket, open + 1);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span> (open != -1 &amp;&amp; close != -1 &amp;&amp; open &lt; close)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordtype">string</span> sigP = line.OriginalLine.Substring(open + 1, close - open - 1);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                sigStart = open;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                sigLength = sigP.Length + 2;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordtype">string</span> s = line.OriginalLine.Substring(sigStart, sigLength);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a> sig =</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <span class="keyword">new</span> <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a>(sigP);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">if</span> (open != 0 &amp;&amp; line.OriginalLine[open - 1] == <span class="charliteral">&#39; &#39;</span> &amp;&amp;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    close != line.OriginalLine.Length - 1 &amp;&amp; line.OriginalLine[close + 1] == <span class="charliteral">&#39; &#39;</span>)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    sigLength++; <span class="comment">//Removing one of the Spaces if there are 2</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">return</span> sig;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span> (open == -1 &amp;&amp; close == -1)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                sigStart = sigLength = 0;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> FunctionSignatureException(<span class="stringliteral">&quot;Invalid Function Signature: &quot;</span> + line.CleanedLine +</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                 <span class="stringliteral">&quot;\n\t Original Line: &quot;</span> + line.OriginalLine);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordtype">int</span> openBlock = line.OriginalLine.IndexOf(DeblockerSettings.BlockBracketOpen);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">int</span> open = line.OriginalLine.IndexOf(DeblockerSettings.OpenFunctionBracket);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordtype">int</span> close = line.OriginalLine.IndexOf(DeblockerSettings.CloseFunctionBracket, open + 1);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (open &gt; openBlock)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                sigStart = sigLength = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a>(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">//Layout: function &lt;Name&gt; { () }</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> (open != -1 &amp;&amp; close != -1 &amp;&amp; open &lt; close)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordtype">string</span> sigP = line.OriginalLine.Substring(open + 1, close - open - 1);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                sigStart = open;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                sigLength = sigP.Length + 2;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordtype">string</span> s = line.OriginalLine.Substring(sigStart, sigLength);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a> sig =</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <span class="keyword">new</span> <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a>(sigP);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">if</span> (open != 0 &amp;&amp; line.OriginalLine[open - 1] == <span class="charliteral">&#39; &#39;</span> &amp;&amp;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    close != line.OriginalLine.Length - 1 &amp;&amp; line.OriginalLine[close + 1] == <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    sigLength++; <span class="comment">//Removing one of the Spaces if there are 2</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">return</span> sig;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">if</span> (open == -1 &amp;&amp; close == -1)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                sigStart = sigLength = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a16a07cb952bf012c86b954da18e34c28">FunctionSignature</a>(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> FunctionSignatureException(<span class="stringliteral">&quot;Invalid Function Signature: &quot;</span> + line.CleanedLine +</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                                 <span class="stringliteral">&quot;\n\t Original Line: &quot;</span> + line.OriginalLine);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

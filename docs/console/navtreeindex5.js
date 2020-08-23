@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"db/d18/class_console_1_1_networking_1_1_client_session.html#aabb045eb711e297e9d0441032572ad47":[1,0,0,9,4,5],
+"db/d18/class_console_1_1_networking_1_1_client_session.html#ab049e90ab8b185606bf7fd6386368705":[1,0,0,9,4,3],
 "db/d18/class_console_1_1_networking_1_1_client_session.html#acc348e776343dc1f412d24e3bbc62dae":[1,0,0,9,4,9],
 "db/d18/class_console_1_1_networking_1_1_client_session.html#aeb1515dc6dfb2a09b6be7a4f0b91492c":[1,0,0,9,4,2],
 "db/d18/class_console_1_1_networking_1_1_client_session.html#af5ca6da52dc856cfe81b089ba0864f85":[1,0,0,9,4,7],
@@ -20,8 +22,8 @@ var NAVTREEINDEX5 =
 "db/d2f/_commands_8cs_source.html":[2,0,42],
 "db/d35/_command_attribute_utils_8cs.html":[2,0,35],
 "db/d35/_command_attribute_utils_8cs_source.html":[2,0,35],
-"db/d36/namespace_console_1_1_environment_variables.html":[0,0,0,5],
 "db/d36/namespace_console_1_1_environment_variables.html":[1,0,0,5],
+"db/d36/namespace_console_1_1_environment_variables.html":[0,0,0,5],
 "db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html":[1,0,0,3,7,6],
 "db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a09c0387bff6c5b2f6445a374c86d58fd":[1,0,0,3,7,6,4],
 "db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a272e4bf5e57b72282f23ad8549a82f89":[1,0,0,3,7,6,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a93cad6510937f475fa2882ad2a91a107":[1,0,0,9,3,9,1],
 "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#adddba71bd356afe63a4e4e13be4a2f91":[1,0,0,9,3,9,15],
 "dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#ae44c83c2a6a8af43ec54bcb266dc7bbb":[1,0,0,9,3,9,5],
-"dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#ae84dc446452bd771aeff2d49db726926":[1,0,0,9,3,9,8],
-"dd/d17/class_console_1_1_networking_1_1_handlers_1_1_authentication_packet_client_handler.html":[1,0,0,9,2,1],
-"dd/d17/class_console_1_1_networking_1_1_handlers_1_1_authentication_packet_client_handler.html#a482bb7cc6440b4bb12a175edb8f4aeb5":[1,0,0,9,2,1,0]
+"dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#ae84dc446452bd771aeff2d49db726926":[1,0,0,9,3,9,8]
 };

@@ -117,7 +117,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Default Authenticator. Does not Authenticate. Does not Encrypt/Decrypt. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html#l00010">10</a> of file <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html">DefaultAuthenticator.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html#l00011">11</a> of file <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html">DefaultAuthenticator.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45cedb9b868238b0a1198f0556993dc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45cedb9b868238b0a1198f0556993dc0">&#9670;&nbsp;</a></span>AuthenticateClient()</h2>
@@ -145,10 +145,11 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/d92/interface_console_1_1_networking_1_1_authentication_1_1_i_authenticator.html#af401abc6b19e341cf36b93aa5d1ab8f6">Console.Networking.Authentication.IAuthenticator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html#l00029">29</a> of file <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html">DefaultAuthenticator.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            client.<a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a832c1a52c97edd1c4efeac8006ad69c1">SetAuthenticator</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html#l00030">30</a> of file <a class="el" href="../../de/db0/_default_authenticator_8cs_source.html">DefaultAuthenticator.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            client.<a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a832c1a52c97edd1c4efeac8006ad69c1">SetAuthenticator</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            client.<a class="code" href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a900af7ddf918934caf0bb9b9d4ed30f2">TrySendPacket</a>(<span class="keyword">new</span> <a class="code" href="../../d1/d73/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet.html">AuthenticationResultPacket</a>(<span class="keyword">true</span>));</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,6 +217,8 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_console_socket_html_a832c1a52c97edd1c4efeac8006ad69c1"><div class="ttname"><a href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a832c1a52c97edd1c4efeac8006ad69c1">Console.Networking.Packets.ConsoleSocket.SetAuthenticator</a></div><div class="ttdeci">void SetAuthenticator(IAuthenticator auth)</div><div class="ttdoc">Sets the Authenticator Instance</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/_console_socket_8cs_source.html#l00072">ConsoleSocket.cs:72</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_html"><div class="ttname"><a href="../../d1/d73/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet.html">Console.Networking.Packets.AuthenticationResult.AuthenticationResultPacket</a></div><div class="ttdoc">Host Response on the Authentication State</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d50/_authentication_result_packet_8cs_source.html#l00013">AuthenticationResultPacket.cs:14</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_console_socket_html_a900af7ddf918934caf0bb9b9d4ed30f2"><div class="ttname"><a href="../../dd/d16/class_console_1_1_networking_1_1_packets_1_1_console_socket.html#a900af7ddf918934caf0bb9b9d4ed30f2">Console.Networking.Packets.ConsoleSocket.TrySendPacket</a></div><div class="ttdeci">bool TrySendPacket(ANetworkPacket packet)</div><div class="ttdoc">Tries to send a packet through this socket.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/_console_socket_8cs_source.html#l00104">ConsoleSocket.cs:104</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

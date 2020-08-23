@@ -7,6 +7,7 @@ var class_console_1_1_core_1_1_console_core_config =
     [ "_escapableChars", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#a45b14c78c0b63d0deebfe386f624687a", null ],
     [ "_stringChar", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#a279a362b08a8e345d9feb86d9808891a", null ],
     [ "AllowOverlappingCommands", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#a3c1af836f43cf1fe25dc2dd63e730607", null ],
+    [ "CommandFlagPrefix", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#a2af25dba9713e65532f1bc2d4352c269", null ],
     [ "CommandInputSeparator", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#aec46121337b4783e9684d8363a869ebf", null ],
     [ "ConsolePrefix", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#affe33594001ef49c146ae4b6b744dcc2", null ],
     [ "CoreLogger", "d6/dce/class_console_1_1_core_1_1_console_core_config.html#a0db61a3cd24e8dc79c64610cbddd384f", null ],
