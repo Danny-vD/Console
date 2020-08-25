@@ -15,7 +15,7 @@ namespace Console.ScriptSystem.Deblocker.Parameters
         public static void MakeCurrent(ParameterCollection collection) => Current = collection;
 
 
-        public static string GetParameter(string name) => Current.GetParameterValue(name);
+        public static string GetParameter(string name) => Current != null ? Current.GetParameterValue(name) : name;
 
         private string GetParameterValue(string name)
         {

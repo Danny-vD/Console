@@ -1,0 +1,7 @@
+function TestFunc(start,len) {
+	for-all "$range($param(start);$param(len))" {
+		echo "THIS WORKS?! $param(item)"
+	}
+}
+run-seq-async TestFunc 0,5
+run-seq-async TestFunc 5,10

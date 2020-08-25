@@ -68,6 +68,8 @@ namespace Console.ScriptSystem
         #endregion
 
 
+        static SequenceSystem() => AConsoleManager.OnConsoleTick += InnerAsyncRun;
+
         /// <summary>
         /// The Logger used by the Sequence System
         /// </summary>
@@ -222,6 +224,37 @@ namespace Console.ScriptSystem
         /// <param name="name"></param>
         [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
         public static void RunSequence(string name) => RunSequence(name, "");
+
+
+        [Command("run-seq-async", "Runs a Sequence in \"background\".")]
+        private static void RunAsync(string name, string parameter)
+        {
+
+            if (!Sequences.ContainsKey(name))
+            {
+                SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
+                return;
+            }
+            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN) ?
+                ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter) :
+                ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
+
+            ScriptSystem.MainRunner.Current.AddSub(new ScriptSystem.AsyncRunner(spc, Sequences[name].Lines.ToArray()));
+        }
+        private static void InnerAsyncRun()
+        {
+            ScriptSystem.AsyncRunner runner = ScriptSystem.MainRunner.GetCurrent();
+            string s = runner?.GetLine();
+            if (s != null)
+            {
+                ParameterCollection.MakeCurrent(runner.Params);
+                AConsoleManager.Instance.EnterCommand(s);
+                ParameterCollection.MakeCurrent(null);
+            }
+            ScriptSystem.MainRunner.Clean();
+        }
+        
+
         /// <summary>
         /// Runs a Sequence by Name
         /// </summary>

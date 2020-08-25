@@ -1,17 +1,17 @@
 echo "Validating Networking Settings (Version: $props(version.networking))"
 
-ifelseif $props(networking.packets.maxdatasize)>8192 {
-	echo "Warning: networking.packets.maxdatasize($props(networking.packets.maxdatasize)) is bigger than recommended(8192)."
-} $props(networking.packets.maxdatasize)<2048 {
-	echo "Warning: networking.packets.maxdatasize($props(networking.packets.maxdatasize)) is smaller than recommended(2048)."
+ifelseif $props(networking.packets.data.maxsize.bytes)>8192 {
+	echo "Warning: networking.packets.data.maxsize.bytes($props(networking.packets.data.maxsize.bytes)) is bigger than recommended(8192)."
+} $props(networking.packets.data.maxsize.bytes)<2048 {
+	echo "Warning: networking.packets.data.maxsize.bytes($props(networking.packets.data.maxsize.bytes)) is smaller than recommended(2048)."
 } {
-	echo "networking.packets.maxdatasize: $props(networking.packets.maxdatasize)"
+	echo "networking.packets.data.maxsize.bytes: $props(networking.packets.data.maxsize.bytes)"
 }
 
-ifelseif $props(networking.packets.maxidsize)>2048 {
-	echo "Warning: networking.packets.maxidsize($props(networking.packets.maxidsize)) is bigger than recommended(2048)."
-} $props(networking.packets.maxidsize)<768 {
-	echo "Warning: networking.packets.maxidsize($props(networking.packets.maxidsize)) is smaller than recommended(768)."
+ifelseif $props(networking.packets.header.maxsize.bytes)>2048 {
+	echo "Warning: networking.packets.header.maxsize.bytes($props(networking.packets.header.maxsize.bytes)) is bigger than recommended(2048)."
+} $props(networking.packets.header.maxsize.bytes)<768 {
+	echo "Warning: networking.packets.header.maxsize.bytes($props(networking.packets.header.maxsize.bytes)) is smaller than recommended(768)."
 } {
-	echo "networking.packets.maxidsize: $props(networking.packets.maxidsize)"
+	echo "networking.packets.header.maxsize.bytes: $props(networking.packets.header.maxsize.bytes)"
 }

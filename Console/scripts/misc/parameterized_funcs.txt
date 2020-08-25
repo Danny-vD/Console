@@ -1,4 +1,4 @@
-local-function Test(x,y){
+function Test(x,y){
 	echo "Value X: $param(x)"
 	echo "Value Y: $param(y)"
 	local-function Test_Inner(y){
@@ -6,5 +6,3 @@ local-function Test(x,y){
 	}
 	run-seq Test_Inner $param(x)
 }
-
-run-seq Test
