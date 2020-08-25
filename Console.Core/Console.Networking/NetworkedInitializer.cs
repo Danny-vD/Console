@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Console.Core;
 using Console.Core.ActivationSystem;
+using Console.Core.CommandSystem;
 using Console.Core.ExtensionSystem;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
@@ -56,11 +57,13 @@ namespace Console.Networking
 
 
             PropertyAttributeUtils.AddProperties(typeof(Cryptography));
+            PropertyAttributeUtils.AddProperties(typeof(WebConsoleCommands));
             PropertyAttributeUtils.AddProperties<NetworkingSettings>();
             PropertyAttributeUtils.AddProperties<HostConsoleCommand>();
             PropertyAttributeUtils.AddProperties<ClientConsoleCommand>();
             PropertyAttributeUtils.AddProperties<SymmetricBlockAuthenticator>();
             Instance = new NetworkedConsoleProcess();
+            CommandAttributeUtils.AddCommands(typeof(WebConsoleCommands));
 
         }
     }

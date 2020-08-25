@@ -20,7 +20,7 @@ namespace Console.UtilExtension
         private static void AddProperties(string qualifiedName)
         {
             Type t = Type.GetType(qualifiedName);
-            PropertyAttributeUtils.AddPropertiesByType(t);
+            PropertyAttributeUtils.AddProperties(t);
         }
 
         /// <summary>

@@ -53,8 +53,8 @@ namespace Console.ScriptSystem
             PropertyAttributeUtils.AddProperties<ScriptSystemInitializer>();
             CommandAttributeUtils.AddCommands(typeof(ScriptSystem));
             CommandAttributeUtils.AddCommands(typeof(SequenceSystem));
-            PropertyAttributeUtils.AddPropertiesByType(typeof(ScriptSystem));
-            PropertyAttributeUtils.AddPropertiesByType(typeof(DeblockerSettings));
+            PropertyAttributeUtils.AddProperties(typeof(ScriptSystem));
+            PropertyAttributeUtils.AddProperties(typeof(DeblockerSettings));
 
             ADeblocker[] db = ActivateOnAttributeUtils.ActivateObjects<ADeblocker>(Assembly.GetExecutingAssembly());
             foreach (ADeblocker aDeblocker in db)

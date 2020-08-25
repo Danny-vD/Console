@@ -14,7 +14,7 @@ namespace Console.Core.PropertySystem
         /// Adds Static Fields and Properties to the Property System
         /// </summary>
         /// <param name="t">Type containing the Properties</param>
-        public static void AddPropertiesByType(Type t)
+        public static void AddProperties(Type t)
         {
             PropertyManager.AddRefHelpers(ReflectionUtils.GetStaticConsoleFields<PropertyAttribute>(t));
             PropertyManager.AddRefHelpers(ReflectionUtils.GetStaticConsoleProps<PropertyAttribute>(t));
@@ -26,7 +26,7 @@ namespace Console.Core.PropertySystem
         /// <typeparam name="T">Type containing the Properties</typeparam>
         public static void AddProperties<T>()
         {
-            AddPropertiesByType(typeof(T));
+            AddProperties(typeof(T));
         }
 
         /// <summary>

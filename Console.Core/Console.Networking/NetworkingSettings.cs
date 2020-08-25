@@ -46,6 +46,11 @@ namespace Console.Networking
         [Property("networking.send.allowsend")]
         public static bool AllowSend = true;
 
+        [Property("networking.wget.enabled")]
+        public static bool WGetAllow = true;
+        [Property("networking.runurl.enabled")]
+        public static bool RunUrlAllow = true;
+
         /// <summary>
         /// The Encoding Instance.
         /// </summary>
@@ -54,13 +59,42 @@ namespace Console.Networking
         /// <summary>
         /// The Maximum Data Size of a single Packet.
         /// </summary>
-        [Property("networking.packets.maxdatasize")]
-        public static int PacketDataMaxSize = 1024 * 4;
+        [Property("networking.packets.data.maxsize.bytes")]
+        public static int PacketDataMaxBytes = 1024 * 4;
         /// <summary>
         /// The Maximum ID Size of a single Packet.
         /// </summary>
-        [Property("networking.packets.maxidsize")]
-        public static int PacketIdentifierMaxSize = 1024;
+        [Property("networking.packets.header.maxsize.bytes")]
+        public static int PacketIdentifierMaxBytes = 1024;
+
+        /// <summary>
+        /// The Maximum Data Size of a single Packet.
+        /// </summary>
+        [Property("networking.packets.data.maxsize.kb")]
+        public static int PacketDataMaxSizeKB
+        {
+            get => PacketDataMaxBytes / 1024;
+            set => PacketDataMaxBytes = value * 1024;
+        }
+        /// <summary>
+        /// The Maximum Data Size of a single Packet.
+        /// </summary>
+        [Property("networking.packets.data.maxsize.mb")]
+        public static int PacketDataMaxSizeMB
+        {
+            get => PacketDataMaxSizeKB / 1024;
+            set => PacketDataMaxSizeKB = value * 1024;
+        }
+
+        /// <summary>
+        /// The Maximum ID Size of a single Packet.
+        /// </summary>
+        [Property("networking.packets.header.maxsize.kb")]
+        public static int PacketIdentifierMaxSizeKB
+        {
+            get => PacketIdentifierMaxBytes / 1024;
+            set => PacketIdentifierMaxBytes = value * 1024;
+        }
 
 
 

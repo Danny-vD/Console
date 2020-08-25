@@ -143,7 +143,7 @@ namespace Console.Networking.Packets
                 Client.GetStream().Read(lenBuf, 0, lenBuf.Length); //Packet Identifier Length
                 int len = BitConverter.ToInt32(lenBuf, 0);
 
-                if (len <= 0 || len > NetworkingSettings.PacketIdentifierMaxSize)
+                if (len <= 0 || len > NetworkingSettings.PacketIdentifierMaxBytes)
                 {
                     NetworkedInitializer.Logger.LogWarning("Network Package Read Error: Packet Identifier size is not valid: " + len);
                     FlushNetworkStream();
@@ -166,7 +166,7 @@ namespace Console.Networking.Packets
                     byte[] dataLenBuf = new byte[sizeof(int)];
                     Client.GetStream().Read(dataLenBuf, 0, dataLenBuf.Length); //Packet Data Length
                     int dataLen = BitConverter.ToInt32(dataLenBuf, 0);
-                    if (dataLen <= 0 || dataLen > NetworkingSettings.PacketDataMaxSize)
+                    if (dataLen <= 0 || dataLen > NetworkingSettings.PacketDataMaxBytes)
                     {
                         NetworkedInitializer.Logger.LogWarning("Network Package Read Error: Packet Data size is not valid: " + dataLen);
                         FlushNetworkStream();

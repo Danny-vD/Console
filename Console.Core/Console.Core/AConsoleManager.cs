@@ -77,7 +77,7 @@ namespace Console.Core
         {
             Instance = this;
             Parser = new CommandParser();
-            PropertyAttributeUtils.AddPropertiesByType(typeof(ConsoleCoreConfig));
+            PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
             if ((options & ConsoleInitOptions.DefaultCommands) != 0)
                 DefaultCommands.AddDefaultCommands();
             if ((options & ConsoleInitOptions.ExtensionCommands) != 0)

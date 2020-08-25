@@ -95,7 +95,7 @@ namespace Console.Networking.SendData
         {
             Stream s = File.OpenRead(file);
             int read = 0;
-            byte[] buf = new byte[NetworkingSettings.PacketDataMaxSize-1];
+            byte[] buf = new byte[NetworkingSettings.PacketDataMaxBytes-1];
             while ((read = s.Read(buf, 0, buf.Length)) != 0)
             {
                 if (read == buf.Length)
