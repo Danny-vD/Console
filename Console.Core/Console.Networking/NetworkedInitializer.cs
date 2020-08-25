@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using Console.Core;
 using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
@@ -36,6 +37,18 @@ namespace Console.Networking
         /// </summary>
         protected override void Initialize()
         {
+            AppDomain.CurrentDomain.ProcessExit += (sender, args) =>
+            {
+                if (NetworkingSettings.IsClient)
+                {
+                    NetworkingSettings.ClientSession.Disconnect();
+                }
+                if (NetworkingSettings.IsHost)
+                {
+                    NetworkingSettings.HostSession.ForceStopHost();
+                }
+            };
+
             IPacketClientHandler[] ch = ActivateOnAttributeUtils.ActivateObjects<IPacketClientHandler>(Assembly.GetExecutingAssembly());
             IPacketHostHandler[] hh = ActivateOnAttributeUtils.ActivateObjects<IPacketHostHandler>(Assembly.GetExecutingAssembly());
             IPacketSerializer[] ps =

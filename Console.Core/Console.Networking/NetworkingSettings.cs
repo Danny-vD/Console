@@ -147,11 +147,17 @@ namespace Console.Networking
         /// The Client Session for the Console
         /// </summary>
         public static ClientSession ClientSession = new ClientSession();
+        [Property("networking.client.active")]
+        public static bool IsClient => ClientSession.Client.Connected && 
+                                       !ClientSession.Client.IsDisposed &&
+                                       ClientSession.Client.IsAuthenticated;
 
         /// <summary>
         /// The Host Session for the Console
         /// </summary>
         public static HostSession HostSession = new HostSession();
+        [Property("networking.host.active")]
+        public static bool IsHost => HostSession.IsRunning;
 
         /// <summary>
         /// The IAuthenticator Instance.
