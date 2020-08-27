@@ -30,6 +30,9 @@ namespace Console.Core
         [Property("core.output.writecommand")]
         public static bool WriteCommand = false;
 
+        [Property("core.log.exception.messageonly")]
+        public static bool LogExceptionMessageOnly = true;
+
         /// <summary>
         /// The Prefix of Commands.
         /// </summary>

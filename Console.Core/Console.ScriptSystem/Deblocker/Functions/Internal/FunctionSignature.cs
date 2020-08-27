@@ -66,6 +66,7 @@ namespace Console.ScriptSystem.Deblocker.Functions.Internal
             int close = line.OriginalLine.IndexOf(DeblockerSettings.CloseFunctionBracket, open + 1);
             if (open > openBlock)
             {
+                DeblockerSettings.LogVerbose($"No Signature Found.");
                 sigStart = sigLength = 0;
                 return new FunctionSignature(""); //Layout: function <Name> { () }
             }
@@ -82,10 +83,13 @@ namespace Console.ScriptSystem.Deblocker.Functions.Internal
                 {
                     sigLength++; //Removing one of the Spaces if there are 2
                 }
+
+                DeblockerSettings.LogVerbose($"Parsed Signature: {sig}");
                 return sig;
             }
             if (open == -1 && close == -1)
             {
+                DeblockerSettings.LogVerbose($"No Signature Found.");
                 sigStart = sigLength = 0;
                 return new FunctionSignature("");
             }

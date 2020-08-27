@@ -20,8 +20,8 @@ namespace Console.ScriptSystem.Deblocker.Conditions
         /// <param name="end">Lines that should be appended after the line deblock</param>
         /// <returns>The Deblocked Line</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
-        { 
-            string[] ret= Deblock(line, new[] {"item"}, out begin, out end);
+        {
+            string[] ret = Deblock(line, new[] { "item" }, out begin, out end);
             return ret;
         }
     }

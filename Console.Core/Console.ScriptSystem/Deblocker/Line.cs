@@ -87,13 +87,20 @@ namespace Console.ScriptSystem.Deblocker
             _originalLine = line;
         }
 
+        public Line(string originalLine, string cleanLine, List<string[]> blocks) : this(originalLine)
+        {
+            _cleanedLine = cleanLine;
+            _blocks = blocks;
+            _cleanParts = CommandParser.ParseStringBlocks(_cleanedLine).Select(x => x.Trim()).ToArray();
+        }
+
         /// <summary>
         /// Fills the Backed Properties with their parse results
         /// </summary>
         private void Parse()
         {
             _cleanedLine = GetCleanedLine(OriginalLine, out _blocks);
-            _cleanParts = CommandParser.ParseStringBlocks(_cleanedLine).Select(x=>x.Trim()).ToArray();
+            _cleanParts = CommandParser.ParseStringBlocks(_cleanedLine).Select(x => x.Trim()).ToArray();
         }
 
 

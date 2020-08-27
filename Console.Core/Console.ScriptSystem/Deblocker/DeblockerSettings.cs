@@ -15,11 +15,22 @@ namespace Console.ScriptSystem.Deblocker
         /// <summary>
         /// Mutes all Deblockerk System Logs
         /// </summary>
-        [Property("log.scriptsystem.deblocker.mute")]
+        [Property("logs.scriptsystem.deblocker.mute")]
         private static bool MuteLogs
         {
             get => Logger.Mute;
             set => Logger.Mute = value;
+        }
+
+        [Property("logs.scriptsystem.deblocker.verbose")]
+        private static bool VerboseDeblockOutput = false;
+
+        internal static void LogVerbose(string msg)
+        {
+            if (VerboseDeblockOutput)
+            {
+                Logger.Log(msg);
+            }
         }
 
         /// <summary>

@@ -26,10 +26,10 @@ namespace Console.ScriptSystem.Deblocker.Conditions
         /// <returns>List of Deblocked Content</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            return Deblock(line, new string[0], out begin, out end);
+            return Deblock(line, new string[0],  out begin, out end);
         }
 
-        protected string[] Deblock(Line line, string[] parameters, out List<string> begin, out List<string> end)
+        protected string[] Deblock(Line line, string[] parameters,out List<string> begin, out List<string> end)
         {
             DeblockerSettings.Logger.Log($"Deblocking {Key}: " + line.CleanedLine);
             List<string> _begin = new List<string>();
@@ -38,10 +38,10 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             end = new List<string>();
             List<string> ret = new List<string>();
             string invocation = line.CleanedLine;
-            
+
             for (int i = 0; i < line.Blocks.Count; i++)
             {
-                string ifBlockSeq = DeblockerSettings.GetBlockName();
+                string ifBlockSeq = $"{DeblockerSettings.GetBlockName()}_{Key}";
                 List<string> ifBlockContent = CreateBlock(ifBlockSeq, line.Blocks[i], parameters, out List<string> bbegin,
                     out List<string> bend);
                 ret.AddRange(ifBlockContent);
@@ -58,24 +58,32 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             return ret.ToArray();
         }
 
-        protected List<string> CreateBlock(string name, string[] content, string[] parameters, out List<string> begin, out List<string> end)
+        protected List<string> CreateBlock(string name, string[] content, string[] parameters,  out List<string> begin, out List<string> end)
         {
             begin = new List<string>();
             end = new List<string>();
             List<string> ret = new List<string>();
 
-            //ret.Add($"{SequenceSystem.SequenceDelete} {name}"); // Make sure the Block is Free
+            DeblockerSettings.LogVerbose($"Creating Block: {name}");
+
             ret.Add($"{SequenceSystem.SequenceCreate} {name} {SequenceSystem.SequenceCreateOverwrite}"); // Create
+            string param = $"{name} Parameters: ";
             for (int i = 0; i < parameters.Length; i++)
             {
+                if (i != 0) param += ';';
+                param += parameters[i];
                 ret.Add($"{SequenceSystem.SequenceAddParameter} {name} {parameters[i]}");
             }
+            DeblockerSettings.LogVerbose(param);
 
-            foreach (string s in content)
+            for (int i = 0; i < content.Length; i++)
             {
+                string s = content[i];
                 if (string.IsNullOrEmpty(s)) continue;
 
-                string item = $"{SequenceSystem.SequenceAdd} {name} \"{CommandParser.Escape(s, ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\"";
+                DeblockerSettings.LogVerbose($"{i}: {s}");
+                string item =
+                    $"{SequenceSystem.SequenceAdd} {name} \"{CommandParser.Escape(s, ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\"";
                 ret.Add(item);
             }
 

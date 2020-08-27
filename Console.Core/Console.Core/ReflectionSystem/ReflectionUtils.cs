@@ -39,7 +39,11 @@ namespace Console.Core.ReflectionSystem
                 }
                 catch (Exception exception)
                 {
-                    ConsoleCoreConfig.CoreLogger.LogWarning(exception.Message);
+                    if (ConsoleCoreConfig.LogExceptionMessageOnly)
+                        ConsoleCoreConfig.CoreLogger.LogWarning(exception.Message);
+                    else
+                        ConsoleCoreConfig.CoreLogger.LogWarning(exception);
+
                     //throw actual;
                 }
                 return null;
@@ -132,7 +136,7 @@ namespace Console.Core.ReflectionSystem
         public static Dictionary<T, FieldInfo> GetFieldsWithAttribute<T>(this Type t, BindingFlags flag)
             where T : Attribute
         {
-            return GetAttributes<T, FieldInfo>( t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
+            return GetAttributes<T, FieldInfo>(t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
                 .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
         }
         /// <summary>
@@ -147,7 +151,7 @@ namespace Console.Core.ReflectionSystem
             return GetAttributes<T, PropertyInfo>(t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
                 .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
         }
-        
+
 
         /// <summary>
         /// Returns all Member Infos of a specified type and with a specified attribute type.

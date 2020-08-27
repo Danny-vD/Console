@@ -27,8 +27,11 @@ namespace Console.ScriptSystem.Deblocker.Functions
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
             FunctionSignature signature = FunctionSignature.Parse(line, out int sigStart, out int sigLength);
-            Line l = new Line(SequenceSystem.SequenceAdd +
-                              line.OriginalLine.Remove(sigStart, sigLength).Remove(0, Key.Length));
+            string newOrig = SequenceSystem.SequenceAdd +
+                             line.OriginalLine.Remove(sigStart, sigLength).Remove(0, Key.Length);
+            string cleanLine = SequenceSystem.SequenceAdd +
+                               line.CleanedLine.Remove(sigStart, sigLength).Remove(0, Key.Length);
+            Line l = new Line(newOrig, cleanLine, line.Blocks);
 
 
             string[] parts = l.CleanParts;
@@ -42,9 +45,16 @@ namespace Console.ScriptSystem.Deblocker.Functions
                 return base.Deblock(line, out begin, out end);
             }
 
-            s.InsertRange(0, signature.ParameterNames.Select(x => $"{SequenceSystem.SequenceAddParameter} {parts[1]} {x}"));
-            s.Insert(0, $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create after Delete
-            //s.Insert(0, $"{SequenceSystem.SequenceDelete} {parts[1]}"); // Delete to make sure the name is free
+            string ps = $"{SequenceSystem.SequenceAddParameter} {parts[1]} ";
+            for (int i = 0; i < signature.ParameterNames.Count; i++)
+            {
+                ps += signature.ParameterNames[i] + ";";
+            }
+            if (signature.ParameterNames.Count > 0)
+                s.Insert(0, ps);
+            //s.InsertRange(0, signature.ParameterNames.Select(x => $"{SequenceSystem.SequenceAddParameter} {parts[1]} {x}"));
+            s.Insert(0, $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create
+
             return s.ToArray();
         }
     }

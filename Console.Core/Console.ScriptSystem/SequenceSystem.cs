@@ -136,7 +136,11 @@ namespace Console.ScriptSystem
         {
             if (Sequences.ContainsKey(sequence))
             {
-                Sequences[sequence].Signature.ParameterNames.Add(parameterName);
+                string[] param = parameterName.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < param.Length; i++)
+                {
+                    Sequences[sequence].Signature.ParameterNames.Add(param[i]);
+                }
             }
         }
 
@@ -239,7 +243,8 @@ namespace Console.ScriptSystem
                 ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter) :
                 ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
 
-            ScriptSystem.MainRunner.Current.AddSub(new ScriptSystem.AsyncRunner(spc, Sequences[name].Lines.ToArray()));
+            ScriptSystem.AsyncRunner r = ScriptSystem.MainRunner.Current ?? ScriptSystem.MainRunner.GetCurrent();
+            r.AddSub(new ScriptSystem.AsyncRunner(spc, Sequences[name].Lines.ToArray()));
         }
         private static void InnerAsyncRun()
         {
@@ -253,7 +258,7 @@ namespace Console.ScriptSystem
             }
             ScriptSystem.MainRunner.Clean();
         }
-        
+
 
         /// <summary>
         /// Runs a Sequence by Name

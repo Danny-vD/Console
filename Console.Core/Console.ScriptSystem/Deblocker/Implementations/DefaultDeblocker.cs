@@ -28,9 +28,14 @@ namespace Console.ScriptSystem.Deblocker.Implementations
         {
             begin = new List<string>();
             end = new List<string>();
-            if (line.Blocks.Count == 0) return new[] { line.CleanedLine };
+            if (line.Blocks.Count == 0)
+            {
+                DeblockerSettings.LogVerbose($"Line: \"{line.CleanedLine}\" has no Blocks.");
+                return new[] { line.CleanedLine };
+            }
             List<string> lines = new List<string>();
             int maxCount = line.Blocks.Max(strings => strings.Length);
+            DeblockerSettings.LogVerbose($"Line Block Count: {line.Blocks.Count}, Block Length: {maxCount}");
             for (int i = 0; i < maxCount; i++)
             {
                 string value = line.CleanedLine;
@@ -40,6 +45,7 @@ namespace Console.ScriptSystem.Deblocker.Implementations
                         $"\"{CommandParser.Escape(line.Blocks[j][i % line.Blocks[j].Length], ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\"");
                 }
                 lines.Add(value);
+                DeblockerSettings.LogVerbose($"Deblocked Line: \"{value}\"");
             }
             return lines.ToArray();
         }
