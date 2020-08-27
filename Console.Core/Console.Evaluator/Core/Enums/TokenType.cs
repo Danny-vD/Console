@@ -1,6 +1,5 @@
 ﻿namespace Console.Evaluator.Core.Enums
 {
-
     /// <summary>
     /// Defines All Token Types that the Evaluator Understands
     /// </summary>

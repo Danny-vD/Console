@@ -7,7 +7,6 @@ namespace Console.Networking.Commands
     /// </summary>
     public class HostConsoleCommand
     {
-
         /// <summary>
         /// Starts the Host Process on the Specified port
         /// </summary>

@@ -30,7 +30,8 @@ namespace Console.ScriptSystem.Deblocker.Functions.Internal
         public FunctionSignature(string parameterNames)
         {
             OriginalSignature = parameterNames;
-            ParameterNames = parameterNames.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToList();
+            ParameterNames = parameterNames.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => x.Trim()).ToList();
         }
 
         /// <summary>

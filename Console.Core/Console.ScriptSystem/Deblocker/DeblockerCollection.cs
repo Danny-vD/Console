@@ -74,14 +74,15 @@ namespace Console.ScriptSystem.Deblocker
                 }
                 ADeblocker db = Deblockers.FirstOrDefault(x => line.CleanParts.First() == x.Key) ?? Default;
 
-                List<Line> blocks = db.Deblock(line, out List<string> begin, out List<string> end).Select(x => new Line(x)).ToList();
+                List<Line> blocks = db.Deblock(line, out List<string> begin, out List<string> end)
+                    .Select(x => new Line(x)).ToList();
                 List<string> b = Parse(blocks);
                 ret.AddRange(b);
                 //ret.InsertRange(0, begin);
                 _end.AddRange(end);
             }
             ret.AddRange(_end);
-            
+
             return ret;
         }
 
@@ -120,8 +121,5 @@ namespace Console.ScriptSystem.Deblocker
             }
             return content.Length;
         }
-
-
-
     }
 }

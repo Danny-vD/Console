@@ -10,7 +10,6 @@ using Console.Evaluator.Core.OPCodes;
 /// </summary>
 namespace Console.Evaluator.Core
 {
-
     /// <summary>
     /// The Internal Parser.
     /// </summary>
@@ -74,125 +73,127 @@ namespace Console.Evaluator.Core
                 switch (mTokenizer.TokenType)
                 {
                     case TokenType.OperatorMinus:
-                        {
-                            // unary minus operator
-                            mTokenizer.NextToken();
-                            valueLeft = ParseExpr(null, Priority.Unaryminus);
-                            valueLeft = new OPCodeUnary(TokenType.OperatorMinus, valueLeft);
-                            break;
-                        }
+                    {
+                        // unary minus operator
+                        mTokenizer.NextToken();
+                        valueLeft = ParseExpr(null, Priority.Unaryminus);
+                        valueLeft = new OPCodeUnary(TokenType.OperatorMinus, valueLeft);
+                        break;
+                    }
 
                     case TokenType.OperatorPlus:
-                        {
-                            // unary minus operator
-                            mTokenizer.NextToken();
-                            break;
-                        }
+                    {
+                        // unary minus operator
+                        mTokenizer.NextToken();
+                        break;
+                    }
 
                     case TokenType.OperatorNot:
-                        {
-                            mTokenizer.NextToken();
-                            valueLeft = ParseExpr(null, Priority.Not);
-                            valueLeft = new OPCodeUnary(TokenType.OperatorNot, valueLeft);
-                            break;
-                        }
+                    {
+                        mTokenizer.NextToken();
+                        valueLeft = ParseExpr(null, Priority.Not);
+                        valueLeft = new OPCodeUnary(TokenType.OperatorNot, valueLeft);
+                        break;
+                    }
 
                     case TokenType.ValueIdentifier:
-                        {
-                            ParseIdentifier(ref valueLeft);
-                            break;
-                        }
+                    {
+                        ParseIdentifier(ref valueLeft);
+                        break;
+                    }
 
                     case TokenType.ValueTrue:
-                        {
-                            valueLeft = new OPCodeImmediate(EvalType.Boolean, true);
-                            mTokenizer.NextToken();
-                            break;
-                        }
+                    {
+                        valueLeft = new OPCodeImmediate(EvalType.Boolean, true);
+                        mTokenizer.NextToken();
+                        break;
+                    }
 
                     case TokenType.ValueFalse:
-                        {
-                            valueLeft = new OPCodeImmediate(EvalType.Boolean, false);
-                            mTokenizer.NextToken();
-                            break;
-                        }
+                    {
+                        valueLeft = new OPCodeImmediate(EvalType.Boolean, false);
+                        mTokenizer.NextToken();
+                        break;
+                    }
 
                     case TokenType.ValueString:
-                        {
-                            valueLeft = new OPCodeImmediate(EvalType.String, mTokenizer.Value.ToString());
-                            mTokenizer.NextToken();
-                            break;
-                        }
+                    {
+                        valueLeft = new OPCodeImmediate(EvalType.String, mTokenizer.Value.ToString());
+                        mTokenizer.NextToken();
+                        break;
+                    }
 
                     case TokenType.ValueNumber:
+                    {
+                        try
                         {
-                            try
-                            {
-                                valueLeft = new OPCodeImmediate(EvalType.Number, double.Parse(mTokenizer.Value.ToString(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture));
+                            valueLeft = new OPCodeImmediate(EvalType.Number,
+                                double.Parse(mTokenizer.Value.ToString(), System.Globalization.NumberStyles.Float,
+                                    System.Globalization.CultureInfo.InvariantCulture));
 
 
-                            }
-                            catch (Exception ex)
-                            {
-                                mTokenizer.RaiseError(string.Format("Invalid number {0}", mTokenizer.Value.ToString()));
-                            }
-
-                            mTokenizer.NextToken();
-                            break;
                         }
+                        catch (Exception ex)
+                        {
+                            mTokenizer.RaiseError(string.Format("Invalid number {0}", mTokenizer.Value.ToString()));
+                        }
+
+                        mTokenizer.NextToken();
+                        break;
+                    }
 
                     case TokenType.ValueDate:
+                    {
+                        try
                         {
-                            try
-                            {
-                                valueLeft = new OPCodeImmediate(EvalType.Date, mTokenizer.Value.ToString());
-                            }
-                            catch (Exception ex)
-                            {
-                                mTokenizer.RaiseError(string.Format("Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#", mTokenizer.Value.ToString()));
-                            }
-
-                            mTokenizer.NextToken();
-                            break;
+                            valueLeft = new OPCodeImmediate(EvalType.Date, mTokenizer.Value.ToString());
                         }
+                        catch (Exception ex)
+                        {
+                            mTokenizer.RaiseError(string.Format("Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#",
+                                mTokenizer.Value.ToString()));
+                        }
+
+                        mTokenizer.NextToken();
+                        break;
+                    }
 
                     case TokenType.OpenParenthesis:
+                    {
+                        mTokenizer.NextToken();
+                        valueLeft = ParseExpr(null, Priority.None);
+                        if (mTokenizer.TokenType == TokenType.CloseParenthesis)
                         {
+                            // good we eat the end parenthesis and continue ...
                             mTokenizer.NextToken();
-                            valueLeft = ParseExpr(null, Priority.None);
-                            if (mTokenizer.TokenType == TokenType.CloseParenthesis)
-                            {
-                                // good we eat the end parenthesis and continue ...
-                                mTokenizer.NextToken();
-                                break;
-                            }
-                            else
-                            {
-                                mTokenizer.RaiseUnexpectedToken("End parenthesis not found");
-                            }
-
                             break;
                         }
+                        else
+                        {
+                            mTokenizer.RaiseUnexpectedToken("End parenthesis not found");
+                        }
+
+                        break;
+                    }
 
                     case TokenType.OperatorIf:
-                        {
-                            // first check functions
-                            ArrayList parameters = new ArrayList();  // parameters... 
-                            mTokenizer.NextToken();
-                            bool argbrackets = false;
-                            parameters = ParseParameters(ref argbrackets);
-                            break;
-                        }
+                    {
+                        // first check functions
+                        ArrayList parameters = new ArrayList(); // parameters... 
+                        mTokenizer.NextToken();
+                        bool argbrackets = false;
+                        parameters = ParseParameters(ref argbrackets);
+                        break;
+                    }
 
                     default:
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                 }
 
                 break;
-            }
-            while (true);
+            } while (true);
             if (valueLeft is null)
             {
                 mTokenizer.RaiseUnexpectedToken("No Expression found");
@@ -206,128 +207,128 @@ namespace Console.Evaluator.Core
                 switch (tt)
                 {
                     case TokenType.EndOfFormula:
-                        {
-                            // end of line
-                            return valueLeft;
-                        }
+                    {
+                        // end of line
+                        return valueLeft;
+                    }
 
                     case TokenType.ValueNumber:
-                        {
-                            mTokenizer.RaiseUnexpectedToken("Unexpected number without previous opterator");
-                            break;
-                        }
+                    {
+                        mTokenizer.RaiseUnexpectedToken("Unexpected number without previous opterator");
+                        break;
+                    }
 
                     case TokenType.OperatorPlus:
+                    {
+                        if (priority < Priority.Plusminus)
                         {
-                            if (priority < Priority.Plusminus)
-                            {
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.Plusminus);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.Plusminus);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorMinus:
+                    {
+                        if (priority < Priority.Plusminus)
                         {
-                            if (priority < Priority.Plusminus)
-                            {
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.Plusminus);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.Plusminus);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorConcat:
+                    {
+                        if (priority < Priority.Concat)
                         {
-                            if (priority < Priority.Concat)
-                            {
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.Concat);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.Concat);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorMul:
                     case TokenType.OperatorDiv:
+                    {
+                        if (priority < Priority.Muldiv)
                         {
-                            if (priority < Priority.Muldiv)
-                            {
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.Muldiv);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.Muldiv);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorPercent:
+                    {
+                        if (priority < Priority.Percent)
                         {
-                            if (priority < Priority.Percent)
-                            {
-                                mTokenizer.NextToken();
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, acc);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, acc);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorOr:
+                    {
+                        if (priority < Priority.Or)
                         {
-                            if (priority < Priority.Or)
-                            {
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.Or);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.Or);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorAnd:
+                    {
+                        if (priority < Priority.And)
                         {
-                            if (priority < Priority.And)
-                            {
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.And);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.And);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     case TokenType.OperatorNe:
                     case TokenType.OperatorGt:
@@ -335,30 +336,29 @@ namespace Console.Evaluator.Core
                     case TokenType.OperatorEq:
                     case TokenType.OperatorLe:
                     case TokenType.OperatorLt:
+                    {
+                        if (priority < Priority.Equality)
                         {
-                            if (priority < Priority.Equality)
-                            {
-                                tt = mTokenizer.TokenType;
-                                mTokenizer.NextToken();
-                                valueRight = ParseExpr(valueLeft, Priority.Equality);
-                                valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                            }
-                            else
-                            {
-                                break;
-                            }
-
+                            tt = mTokenizer.TokenType;
+                            mTokenizer.NextToken();
+                            valueRight = ParseExpr(valueLeft, Priority.Equality);
+                            valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
+                        }
+                        else
+                        {
                             break;
                         }
+
+                        break;
+                    }
 
                     default:
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
                 }
                 break;
-            }
-            while (true);
+            } while (true);
             return valueLeft;
         }
 
@@ -372,7 +372,8 @@ namespace Console.Evaluator.Core
         /// <param name="callType">The CallType of the Method</param>
         /// <param name="errorIfNotFound">If True will throw an exception when the function with name funcName is not found</param>
         /// <returns></returns>
-        private bool EmitCallFunction(ref OPCode valueLeft, string funcName, ArrayList parameters, CallType callType, bool errorIfNotFound)
+        private bool EmitCallFunction(ref OPCode valueLeft, string funcName, ArrayList parameters, CallType callType,
+            bool errorIfNotFound)
         {
             OPCode newOpcode = default(OPCode);
             if (valueLeft is null)
@@ -423,7 +424,8 @@ namespace Console.Evaluator.Core
         /// <param name="parameters">The Parameters used in the Function</param>
         /// <param name="callType">The CallType of the Function</param>
         /// <returns>The Local Function OPCode</returns>
-        private OPCode GetLocalFunction(object @base, Type baseType, string funcName, ArrayList parameters, CallType callType)
+        private OPCode GetLocalFunction(object @base, Type baseType, string funcName, ArrayList parameters,
+            CallType callType)
         {
             MemberInfo mi;
             mi = GetMemberInfo(baseType, funcName, parameters);
@@ -432,31 +434,31 @@ namespace Console.Evaluator.Core
                 switch (mi.MemberType)
                 {
                     case MemberTypes.Field:
-                        {
-                            if ((callType & CallType.Field) == 0)
-                                mTokenizer.RaiseError("Unexpected Field");
-                            break;
-                        }
+                    {
+                        if ((callType & CallType.Field) == 0)
+                            mTokenizer.RaiseError("Unexpected Field");
+                        break;
+                    }
 
                     case MemberTypes.Method:
-                        {
-                            if ((callType & CallType.Method) == 0)
-                                mTokenizer.RaiseError("Unexpected Method");
-                            break;
-                        }
+                    {
+                        if ((callType & CallType.Method) == 0)
+                            mTokenizer.RaiseError("Unexpected Method");
+                        break;
+                    }
 
                     case MemberTypes.Property:
-                        {
-                            if ((callType & CallType.Property) == 0)
-                                mTokenizer.RaiseError("Unexpected Property");
-                            break;
-                        }
+                    {
+                        if ((callType & CallType.Property) == 0)
+                            mTokenizer.RaiseError("Unexpected Property");
+                        break;
+                    }
 
                     default:
-                        {
-                            mTokenizer.RaiseUnexpectedToken(mi.MemberType.ToString() + " members are not supported");
-                            break;
-                        }
+                    {
+                        mTokenizer.RaiseUnexpectedToken(mi.MemberType.ToString() + " members are not supported");
+                        break;
+                    }
                 }
 
                 return OPCodeCallMethod.GetNew(mTokenizer, @base, mi, parameters);
@@ -464,7 +466,7 @@ namespace Console.Evaluator.Core
 
             if (@base is IVariableBag)
             {
-                IEvalTypedValue val = ((IVariableBag)@base).GetVariable(funcName);
+                IEvalTypedValue val = ((IVariableBag) @base).GetVariable(funcName);
                 if (val != null)
                 {
                     return new OPCodeGetVariable(val);
@@ -485,9 +487,8 @@ namespace Console.Evaluator.Core
         private MemberInfo GetMemberInfo(Type objType, string func, ArrayList parameters)
         {
             BindingFlags bindingAttr;
-            bindingAttr = BindingFlags.GetProperty | BindingFlags.GetField | BindingFlags.Public | BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Static;
-
-
+            bindingAttr = BindingFlags.GetProperty | BindingFlags.GetField | BindingFlags.Public |
+                          BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Static;
 
 
             if (mEvaluator.CaseSensitive == false)
@@ -518,11 +519,11 @@ namespace Console.Evaluator.Core
                 mi = mis[i];
                 if (mi is MethodInfo)
                 {
-                    plist = ((MethodInfo)mi).GetParameters();
+                    plist = ((MethodInfo) mi).GetParameters();
                 }
                 else if (mi is PropertyInfo)
                 {
-                    plist = ((PropertyInfo)mi).GetIndexParameters();
+                    plist = ((PropertyInfo) mi).GetIndexParameters();
                 }
                 else if (mi is FieldInfo)
                 {
@@ -612,25 +613,24 @@ namespace Console.Evaluator.Core
                 switch (mTokenizer.TokenType)
                 {
                     case TokenType.Dot:
-                        {
-                            mTokenizer.NextToken();
-                            break;
-                        }
+                    {
+                        mTokenizer.NextToken();
+                        break;
+                    }
                     // fine this is either an array or a default property
                     case TokenType.OpenParenthesis:
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
 
                     default:
-                        {
-                            return;
-                        }
+                    {
+                        return;
+                    }
                 }
 
                 ParseIdentifier(ref valueLeft);
-            }
-            while (true);
+            } while (true);
         }
 
         /// <summary>
@@ -640,8 +640,8 @@ namespace Console.Evaluator.Core
         private void ParseIdentifier(ref OPCode valueLeft)
         {
             // first check functions
-            ArrayList parameters;   // parameters... 
-                                    // Dim types As New ArrayList
+            ArrayList parameters; // parameters... 
+            // Dim types As New ArrayList
             string func = mTokenizer.Value.ToString();
             mTokenizer.NextToken();
             bool isBrackets = default(bool);
@@ -722,22 +722,23 @@ namespace Console.Evaluator.Core
             ArrayList parameters = default(ArrayList);
             OPCode valueleft;
             TokenType lClosing = default(TokenType);
-            if (mTokenizer.TokenType == TokenType.OpenParenthesis || (mTokenizer.TokenType == TokenType.OpenBracket) & (mEvaluator.Syntax == ParserSyntax.CSharp))
+            if (mTokenizer.TokenType == TokenType.OpenParenthesis || (mTokenizer.TokenType == TokenType.OpenBracket) &
+                (mEvaluator.Syntax == ParserSyntax.CSharp))
             {
                 switch (mTokenizer.TokenType)
                 {
                     case TokenType.OpenBracket:
-                        {
-                            lClosing = TokenType.CloseBracket;
-                            brackets = true;
-                            break;
-                        }
+                    {
+                        lClosing = TokenType.CloseBracket;
+                        brackets = true;
+                        break;
+                    }
 
                     case TokenType.OpenParenthesis:
-                        {
-                            lClosing = TokenType.CloseParenthesis;
-                            break;
-                        }
+                    {
+                        lClosing = TokenType.CloseParenthesis;
+                        break;
+                    }
                 }
 
                 parameters = new ArrayList();
@@ -767,8 +768,7 @@ namespace Console.Evaluator.Core
                     {
                         mTokenizer.RaiseUnexpectedToken(lClosing.ToString() + " not found");
                     }
-                }
-                while (true);
+                } while (true);
             }
 
             return parameters;

@@ -8,7 +8,6 @@ namespace Console.Evaluator.Core
     /// </summary>
     public class VariableNotFoundException : Exception
     {
-
         /// <summary>
         /// The Variable Name that was not found
         /// </summary>
@@ -19,7 +18,8 @@ namespace Console.Evaluator.Core
         /// </summary>
         /// <param name="variableName">The Variable Name that was not found</param>
         /// <param name="innerException">The Inner Exception</param>
-        public VariableNotFoundException(string variableName, Exception innerException = null) : base(variableName + " was not found", null)
+        public VariableNotFoundException(string variableName, Exception innerException = null) : base(
+            variableName + " was not found", null)
         {
             VariableName = variableName;
         }

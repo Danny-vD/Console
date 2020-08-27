@@ -16,7 +16,6 @@ namespace Console.Core
     /// </summary>
     public abstract class AConsoleManager
     {
-
         /// <summary>
         /// The Parser that handles the Command Input
         /// </summary>
@@ -56,7 +55,7 @@ namespace Console.Core
         {
             OnInitializationFinished?.Invoke();
 
-            ConsoleCoreConfig.CoreLogger. Log("Console Initialized.");
+            ConsoleCoreConfig.CoreLogger.Log("Console Initialized.");
         }
 
         /// <summary>
@@ -100,16 +99,19 @@ namespace Console.Core
         /// </summary>
         /// <param name="object">Object to Log</param>
         protected abstract void Log(object @object);
+
         /// <summary>
         /// Internal Log Wrapper
         /// </summary>
         /// <param name="obj">Object to Log</param>
         internal void _Log(object obj) => Log(obj);
+
         /// <summary>
         /// Writes a Log Warning
         /// </summary>
         /// <param name="object">Object to Log</param>
         protected abstract void LogWarning(object @object);
+
         /// <summary>
         /// Internal Log Warning Wrapper
         /// </summary>
@@ -136,6 +138,7 @@ namespace Console.Core
         {
             if (ConsoleCoreConfig.WriteCommand) LogPlainText(command);
         }
+
         /// <summary>
         /// Writes Unaltered Plain text into the Console Window
         /// </summary>
@@ -164,6 +167,8 @@ namespace Console.Core
         /// Function that can be used to react on any entered command
         /// </summary>
         /// <param name="command">Command that was entered</param>
-        protected virtual void OnSubmitCommand(string command) { }
+        protected virtual void OnSubmitCommand(string command)
+        {
+        }
     }
 }

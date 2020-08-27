@@ -7,12 +7,12 @@ using Console.Core.ConverterSystem;
 
 namespace Console.ArrayConverter
 {
-
     /// <summary>
     /// Custom AConverter implementation that does the Array Conversion
     /// </summary>
     public class ArrayCustomConverter : AConverter
-    {/// <summary>
+    {
+        /// <summary>
         /// Returns true when the Converter is Able to Convert the parameter into the target type
         /// </summary>
         /// <param name="parameter">Parameter Value</param>
@@ -24,7 +24,7 @@ namespace Console.ArrayConverter
                    (target.IsArray || (typeof(IList).IsAssignableFrom(target) && target.IsGenericType) ||
                     target.IsAssignableFrom(parameter.GetType().GetElementType()));
         }
-        
+
         /// <summary>
         /// Used by Reflection to Create a List of a specific type
         /// </summary>
@@ -37,7 +37,7 @@ namespace Console.ArrayConverter
 
             foreach (object item in arr)
             {
-                list.Add((T)item);
+                list.Add((T) item);
             }
             return list;
         }
@@ -53,7 +53,7 @@ namespace Console.ArrayConverter
             Array paramArr = parameter as Array;
             if (target.IsArray)
             {
-                Array result = (Array)Activator.CreateInstance(target, paramArr.Length);
+                Array result = (Array) Activator.CreateInstance(target, paramArr.Length);
                 //Array result = Array.CreateInstance(target.MakeArrayType(), paramArr.Length);
                 paramArr.CopyTo(result, 0);
                 return result;
@@ -64,8 +64,9 @@ namespace Console.ArrayConverter
 
                 MethodInfo info = typeof(ArrayCustomConverter)
                     .GetMethod(nameof(GetAsList), BindingFlags.NonPublic | BindingFlags.Static) //Get method info
-                    ?.MakeGenericMethod(target.GetGenericArguments().First()); //Create Generic Method Call with the generic type of the target
-                object r = info.Invoke(null, new object[] { paramArr }); //Invoke the GetAsList<T> method.
+                    ?.MakeGenericMethod(target.GetGenericArguments()
+                        .First()); //Create Generic Method Call with the generic type of the target
+                object r = info.Invoke(null, new object[] {paramArr}); //Invoke the GetAsList<T> method.
                 return r;
             }
             if (target.IsAssignableFrom(parameter.GetType().GetElementType()))

@@ -23,6 +23,7 @@ namespace Console.Core.ReflectionSystem.Interfaces
         /// The Return type of the Invokable Instance
         /// </summary>
         Type ReturnType { get; }
+
         /// <summary>
         /// Invokes this Instance.
         /// </summary>

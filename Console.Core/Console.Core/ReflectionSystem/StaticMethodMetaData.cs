@@ -2,7 +2,6 @@
 
 namespace Console.Core.ReflectionSystem
 {
-
     /// <summary>
     /// MethodMetaData Implementation but without instance variable
     /// </summary>
@@ -12,6 +11,8 @@ namespace Console.Core.ReflectionSystem
         /// Public Constructor
         /// </summary>
         /// <param name="info">MethodInfo used as Backend</param>
-        public StaticMethodMetaData(MethodInfo info) : base(null, info) { }
+        public StaticMethodMetaData(MethodInfo info) : base(null, info)
+        {
+        }
     }
 }

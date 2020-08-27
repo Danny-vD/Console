@@ -35,7 +35,8 @@ namespace Console.EnvironmentVariables
         /// <summary>
         /// All Providers
         /// </summary>
-        public static readonly Dictionary<string, VariableProvider> Providers = new Dictionary<string, VariableProvider>();
+        public static readonly Dictionary<string, VariableProvider> Providers =
+            new Dictionary<string, VariableProvider>();
 
         /// <summary>
         /// Returns all Environment Providers
@@ -86,7 +87,7 @@ namespace Console.EnvironmentVariables
                 if (ValidType(methodInfo.ReturnType))
                 {
                     if ((methodInfo.GetParameters().Length == 1 &&
-                              methodInfo.GetParameters()[0].ParameterType == typeof(string)))
+                         methodInfo.GetParameters()[0].ParameterType == typeof(string)))
                     {
                         AddProvider(GetProvider(funcPrefix, methodInfo));
                     }
@@ -109,8 +110,9 @@ namespace Console.EnvironmentVariables
         /// <returns></returns>
         public static VariableProvider GetProvider(string funcPrefix, MethodInfo info)
         {
-            return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] { s })?.ToString());
+            return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] {s})?.ToString());
         }
+
         /// <summary>
         /// Expands the Input String with the VariableProvider Implementations
         /// </summary>
@@ -159,7 +161,6 @@ namespace Console.EnvironmentVariables
         }
 
 
-
         /// <summary>
         /// Adds a Provider to the EnvironmentVariable Manager.
         /// </summary>
@@ -177,6 +178,5 @@ namespace Console.EnvironmentVariables
         {
             Providers.Remove(funcName);
         }
-
     }
 }

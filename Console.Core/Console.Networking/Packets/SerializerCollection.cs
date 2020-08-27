@@ -37,13 +37,16 @@ namespace Console.Networking.Packets
         /// </summary>
         /// <param name="identifier">The Class Identifier</param>
         /// <returns>True when serializable</returns>
-        public static bool CanSerialize(string identifier) => Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+        public static bool CanSerialize(string identifier) =>
+            Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+
         /// <summary>
         /// Returns true when the SerializerCollection contains a serializer that can deserialize the class associated to the identifier
         /// </summary>
         /// <param name="identifier">The Class Identifier</param>
         /// <returns>True when deserializable</returns>
-        public static bool CanDeserialize(string identifier) => Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+        public static bool CanDeserialize(string identifier) =>
+            Serializers.Any(x => x.GetPacketIdentifier() == identifier);
 
         /// <summary>
         /// Deserializes the data with the serializer that is associated with the identifier
@@ -55,11 +58,11 @@ namespace Console.Networking.Packets
         public static T Deserialize<T>(string identifier, byte[] data) where T : ANetworkPacket
         {
             byte[] content = new byte[data.Length];
-            data.CopyTo(content,0);
+            data.CopyTo(content, 0);
             IPacketSerializer s = GetSerializer(identifier);
             if (s != null)
             {
-                return (T)s._Deserialize(content);
+                return (T) s._Deserialize(content);
             }
             throw new SerializerException("Can not Deserialize: " + identifier);
         }
@@ -89,7 +92,9 @@ namespace Console.Networking.Packets
             /// Public Constructor
             /// </summary>
             /// <param name="message">The Exception Message</param>
-            public SerializerException(string message) : base(message) { }
+            public SerializerException(string message) : base(message)
+            {
+            }
         }
     }
 }

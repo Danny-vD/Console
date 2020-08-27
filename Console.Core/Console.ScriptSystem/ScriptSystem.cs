@@ -15,7 +15,6 @@ namespace Console.ScriptSystem
     /// </summary>
     public static class ScriptSystem
     {
-
         internal static AsyncRunner MainRunner = new AsyncRunner();
 
         [Command("run-async", "Runs a File in \"background\".")]
@@ -36,6 +35,7 @@ namespace Console.ScriptSystem
         public class AsyncRunner
         {
             static AsyncRunner() => PropertyAttributeUtils.AddProperties<AsyncRunner>();
+
             public enum ScriptScopeSettings
             {
                 /// <summary>
@@ -51,6 +51,7 @@ namespace Console.ScriptSystem
                 /// </summary>
                 ParentLevel
             }
+
             public enum ScriptExecutionOrder
             {
                 /// <summary>
@@ -62,6 +63,7 @@ namespace Console.ScriptSystem
                 /// </summary>
                 SubFirst
             }
+
             public enum SubScriptOrder
             {
                 /// <summary>
@@ -98,8 +100,14 @@ namespace Console.ScriptSystem
             [Property("scriptsystem.async.suborder")]
             public static SubScriptOrder SubOrder = SubScriptOrder.Rotating;
 
-            public AsyncRunner() : this(ParameterCollection.CreateCollection(new string[0], "")) { }
-            public AsyncRunner(ParameterCollection param) : this(param, new string[0]) { }
+            public AsyncRunner() : this(ParameterCollection.CreateCollection(new string[0], ""))
+            {
+            }
+
+            public AsyncRunner(ParameterCollection param) : this(param, new string[0])
+            {
+            }
+
             public AsyncRunner(ParameterCollection param, string[] lines)
             {
                 RunnerContent = lines;

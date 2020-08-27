@@ -64,7 +64,6 @@ namespace Console.ScriptSystem
         /// </summary>
         public const string FileToCommand = "file-to-command";
 
-
         #endregion
 
 
@@ -103,7 +102,6 @@ namespace Console.ScriptSystem
         private static readonly Dictionary<string, Sequence> Sequences = new Dictionary<string, Sequence>();
 
 
-
         #region Commands
 
         /// <summary>
@@ -136,7 +134,7 @@ namespace Console.ScriptSystem
         {
             if (Sequences.ContainsKey(sequence))
             {
-                string[] param = parameterName.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] param = parameterName.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < param.Length; i++)
                 {
                     Sequences[sequence].Signature.ParameterNames.Add(param[i]);
@@ -150,7 +148,9 @@ namespace Console.ScriptSystem
         /// <param name="name">Name of the Sequene</param>
         /// <param name="command">Command to add</param>
         /// <param name="create">If true the Sequence gets created if it does not exist</param>
-        [Command(SequenceAdd, "Adds a Command to a Sequence. If --create is passed the Sequence will be created if not existing", "add-seq")]
+        [Command(SequenceAdd,
+            "Adds a Command to a Sequence. If --create is passed the Sequence will be created if not existing",
+            "add-seq")]
         public static void AddToSequence(string name, string command, [CommandFlag] bool create)
         {
             if (!Sequences.ContainsKey(name))
@@ -162,7 +162,9 @@ namespace Console.ScriptSystem
                 }
                 CreateSequence(name, false);
             }
-            string s = command.StartsWith(ConsoleCoreConfig.StringChar.ToString()) ? CommandParser.CleanContent(command) : command;
+            string s = command.StartsWith(ConsoleCoreConfig.StringChar.ToString())
+                ? CommandParser.CleanContent(command)
+                : command;
 
             //SequenceOut.Log("Before: " + command + "\nAfter: " + s);
             Sequences[name].Lines.Add(command);
@@ -239,13 +241,14 @@ namespace Console.ScriptSystem
                 SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN) ?
-                ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter) :
-                ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
+            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN)
+                ? ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter)
+                : ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
 
             ScriptSystem.AsyncRunner r = ScriptSystem.MainRunner.Current ?? ScriptSystem.MainRunner.GetCurrent();
             r.AddSub(new ScriptSystem.AsyncRunner(spc, Sequences[name].Lines.ToArray()));
         }
+
         private static void InnerAsyncRun()
         {
             ScriptSystem.AsyncRunner runner = ScriptSystem.MainRunner.GetCurrent();
@@ -273,9 +276,9 @@ namespace Console.ScriptSystem
                 SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN) ?
-                ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter) :
-                ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
+            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN)
+                ? ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter)
+                : ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
             foreach (string s in Sequences[name].Lines)
             {
                 ParameterCollection.MakeCurrent(spc);
@@ -349,7 +352,8 @@ namespace Console.ScriptSystem
         /// </summary>
         /// <param name="fileName">The File that will be run</param>
         /// <param name="commandName">The Command name</param>
-        [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file", "file-to-cmd")]
+        [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file",
+            "file-to-cmd")]
         private static void CreateCommandFromFile(string fileName, string commandName) =>
             CreateCommandFromFile(fileName, commandName, "Runs File: " + fileName);
 
@@ -360,7 +364,8 @@ namespace Console.ScriptSystem
         /// <param name="fileName">The File that will be run</param>
         /// <param name="commandName">The Command name</param>
         /// <param name="helpText">The Help Text that will be set for this command</param>
-        [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file", "file-to-cmd")]
+        [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file",
+            "file-to-cmd")]
         private static void CreateCommandFromFile(string fileName, string commandName, string helpText)
         {
             Command cmd = new Command(commandName,
@@ -375,7 +380,8 @@ namespace Console.ScriptSystem
         /// </summary>
         /// <param name="sequenceName">The Sequence that will be run</param>
         /// <param name="commandName">The Command Name</param>
-        [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence", "seq-to-cmd")]
+        [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence",
+            "seq-to-cmd")]
         private static void CreateCommandFromSequence(string sequenceName, string commandName) =>
             CreateCommandFromSequence(sequenceName, commandName, "Runs Sequence: " + sequenceName);
 
@@ -385,7 +391,8 @@ namespace Console.ScriptSystem
         /// <param name="sequenceName">The Sequence that will be run</param>
         /// <param name="commandName">The Command Name</param>
         /// <param name="helpText">The Help Text that will be set for this command</param>
-        [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence", "seq-to-cmd")]
+        [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence",
+            "seq-to-cmd")]
         private static void CreateCommandFromSequence(string sequenceName, string commandName, string helpText)
         {
             Command cmd = new Command(commandName,
@@ -397,10 +404,11 @@ namespace Console.ScriptSystem
         [Command("for-all", "Runs the specified command for each Item in the List")]
         private static void ForAll(string list, string command)
         {
-            string[] li = list.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+            string[] li = list.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim())
+                .Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             for (int i = 0; i < li.Length; i++)
             {
-                ParameterCollection pc = ParameterCollection.CreateCollection(new[] { "item" }, li[i].Trim());
+                ParameterCollection pc = ParameterCollection.CreateCollection(new[] {"item"}, li[i].Trim());
                 ParameterCollection.MakeCurrent(pc);
                 AConsoleManager.Instance.EnterCommand(command);
                 ParameterCollection.MakeCurrent(null);

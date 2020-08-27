@@ -71,7 +71,5 @@ namespace Console.Core.LogSystem
                 else Sub.Log(value);
             }
         }
-
-
     }
 }

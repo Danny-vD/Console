@@ -16,7 +16,8 @@ namespace Console.Core
         /// <summary>
         /// Logger used to Write Logs from the Core Library
         /// </summary>
-        internal static readonly ALogger CoreLogger = TypedLogger.CreateTypedWithPrefix(Assembly.GetExecutingAssembly().GetName().Name);
+        internal static readonly ALogger CoreLogger =
+            TypedLogger.CreateTypedWithPrefix(Assembly.GetExecutingAssembly().GetName().Name);
 
         /// <summary>
         /// The Version of the Core Library
@@ -27,8 +28,7 @@ namespace Console.Core
         /// <summary>
         /// Should the Console print the entered command?
         /// </summary>
-        [Property("core.output.writecommand")]
-        public static bool WriteCommand = false;
+        [Property("core.output.writecommand")] public static bool WriteCommand = false;
 
         [Property("core.log.exception.messageonly")]
         public static bool LogExceptionMessageOnly = true;
@@ -36,8 +36,7 @@ namespace Console.Core
         /// <summary>
         /// The Prefix of Commands.
         /// </summary>
-        [Property("core.input.prefix")]
-        public static string ConsolePrefix = "";
+        [Property("core.input.prefix")] public static string ConsolePrefix = "";
 
         /// <summary>
         /// The Character that is used to enclose string blocks.
@@ -65,13 +64,11 @@ namespace Console.Core
         /// <summary>
         /// The Character that is used to seperate input in the console.
         /// </summary>
-        [Property("core.input.flagprefix")]
-        public static string CommandFlagPrefix = "--";
+        [Property("core.input.flagprefix")] public static string CommandFlagPrefix = "--";
         /// <summary>
         /// The Character that is used to escape the EscapableChars
         /// </summary>
-        [Property("core.input.escapechar")]
-        public static char EscapeChar = '\\';
+        [Property("core.input.escapechar")] public static char EscapeChar = '\\';
 
         /// <summary>
         /// Console Newline Character
@@ -86,7 +83,7 @@ namespace Console.Core
         /// <summary>
         /// Backing Field of the Escapable Character Array
         /// </summary>
-        private static List<char> _escapableChars = new List<char> { StringChar };
+        private static List<char> _escapableChars = new List<char> {StringChar};
 
         /// <summary>
         /// Adds a Character to the EscapeChars
@@ -133,7 +130,8 @@ namespace Console.Core
         /// <param name="start">The Start index from where the search begins</param>
         /// <param name="openBrackets">The Amount of open brackets that were already found.</param>
         /// <returns>Index of the Corresponding Closing Tag</returns>
-        public static int FindClosing(string cmd, char openBracket, char closeBracket, int start = 0, int openBrackets = 0)
+        public static int FindClosing(string cmd, char openBracket, char closeBracket, int start = 0,
+            int openBrackets = 0)
         {
             int open = openBrackets;
             for (int i = start; i < cmd.Length; i++)
@@ -149,8 +147,6 @@ namespace Console.Core
             return -1;
         }
 
-
         #endregion
-
     }
 }

@@ -5,13 +5,11 @@ using Console.EnvironmentVariables;
 
 namespace Console.ClassQueries
 {
-
     /// <summary>
     /// VariableProvider Implementation that returns the Assembly Qualified Name of the Specified Type Search Term
     /// </summary>
     public class ClassQueryProvider : VariableProvider
     {
-
         /// <summary>
         /// The Function name that is used to get this Variable.
         /// </summary>
@@ -37,7 +35,8 @@ namespace Console.ClassQueries
         /// <returns>Search Result. Null if not found.</returns>
         private Type Find(string name)
         {
-            Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.GetTypes().Any(y => IsMatch(y, name)))
+            Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(x => x.GetTypes().Any(y => IsMatch(y, name)))
                 .ToArray();
             return asms.FirstOrDefault()?.GetTypes().FirstOrDefault(x => IsMatch(x, name));
         }

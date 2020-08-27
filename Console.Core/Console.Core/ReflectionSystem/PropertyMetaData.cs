@@ -16,7 +16,9 @@ namespace Console.Core.ReflectionSystem
         /// </summary>
         /// <param name="instance"></param>
         /// <param name="info"></param>
-        public PropertyMetaData(object instance, PropertyInfo info) : base(instance, info) { }
+        public PropertyMetaData(object instance, PropertyInfo info) : base(instance, info)
+        {
+        }
 
         /// <summary>
         /// The Type of the Property.
@@ -54,7 +56,7 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Value of the Property</returns>
         public T Get<T>()
         {
-            return (T)Get();
+            return (T) Get();
         }
     }
 }

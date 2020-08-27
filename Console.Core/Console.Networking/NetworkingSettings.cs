@@ -31,8 +31,7 @@ namespace Console.Networking
         /// <summary>
         /// Encoding that is used for communication
         /// </summary>
-        [Property("networking.text.encoding")]
-        public static string Encoding = "ASCII";
+        [Property("networking.text.encoding")] public static string Encoding = "ASCII";
 
         /// <summary>
         /// If True the Host will allow the SendFileRequest from a client
@@ -46,8 +45,7 @@ namespace Console.Networking
         [Property("networking.send.allowsend")]
         public static bool AllowSend = true;
 
-        [Property("networking.wget.enabled")]
-        public static bool WGetAllow = true;
+        [Property("networking.wget.enabled")] public static bool WGetAllow = true;
         [Property("networking.runurl.enabled")]
         public static bool RunUrlAllow = true;
 
@@ -95,7 +93,6 @@ namespace Console.Networking
             get => PacketIdentifierMaxBytes / 1024;
             set => PacketIdentifierMaxBytes = value * 1024;
         }
-
 
 
         /// <summary>
@@ -148,7 +145,7 @@ namespace Console.Networking
         /// </summary>
         public static ClientSession ClientSession = new ClientSession();
         [Property("networking.client.active")]
-        public static bool IsClient => ClientSession.Client.Connected && 
+        public static bool IsClient => ClientSession.Client.Connected &&
                                        !ClientSession.Client.IsDisposed &&
                                        ClientSession.Client.IsAuthenticated;
 
@@ -156,18 +153,18 @@ namespace Console.Networking
         /// The Host Session for the Console
         /// </summary>
         public static HostSession HostSession = new HostSession();
-        [Property("networking.host.active")]
-        public static bool IsHost => HostSession.IsRunning;
+        [Property("networking.host.active")] public static bool IsHost => HostSession.IsRunning;
 
         /// <summary>
         /// The IAuthenticator Instance.
         /// </summary>
-        public static IAuthenticator AuthenticatorInstance {
+        public static IAuthenticator AuthenticatorInstance
+        {
             get
             {
                 if (authenticatorInstance == null)
                 {
-                    authenticatorInstance = (IAuthenticator)Activator.CreateInstance(Type.GetType(_authenticator));
+                    authenticatorInstance = (IAuthenticator) Activator.CreateInstance(Type.GetType(_authenticator));
 
                 }
 

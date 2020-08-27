@@ -16,15 +16,16 @@ namespace Console.Networking.Commands
         private static bool IsDownloading => Client.IsBusy;
 
         private static string DownloadString;
+
         private static void SetClientDownloadString(DownloadProgressChangedEventArgs e) =>
             DownloadString =
                 $"Downloading {e.ProgressPercentage}% {e.BytesReceived / 1024}KB/{e.TotalBytesToReceive / 1024}KB";
 
         [Property("networking.download.displayprogress")]
         private static bool DisplayProgress = true;
-        private static readonly Stopwatch DownloadDisplayTimer=new Stopwatch();
+        private static readonly Stopwatch DownloadDisplayTimer = new Stopwatch();
         [Property("networking.download.displayinterval")]
-        private static int DownloadDisplayTime=500;
+        private static int DownloadDisplayTime = 500;
 
 
         static WebConsoleCommands()
@@ -80,7 +81,8 @@ namespace Console.Networking.Commands
             }
             if (IsDownloading)
             {
-                WebLogger.LogWarning("Can not use wget command when the Underlying Client is Busy, is there a WGET Operation Running?");
+                WebLogger.LogWarning(
+                    "Can not use wget command when the Underlying Client is Busy, is there a WGET Operation Running?");
                 return;
             }
             if (File.Exists(destination))
@@ -114,7 +116,5 @@ namespace Console.Networking.Commands
             AConsoleManager.Instance.EnterCommand($"run \"{file}\" \"{parameter}\"");
             File.Delete(file);
         }
-
-
     }
 }

@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Console.Core.CommandSystem.Commands
 {
-
     /// <summary>
     /// Contains all Loaded Commands and Implements the Core Command Logic like Adding/Removing/Renaming/...
     /// </summary>
@@ -178,7 +177,8 @@ namespace Console.Core.CommandSystem.Commands
             }
 
 
-            AbstractCommand cmd = null;//commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Contains(command.ParametersCount.Max-command.FlagAttributeCount));
+            AbstractCommand
+                cmd = null; //commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Contains(command.ParametersCount.Max-command.FlagAttributeCount));
 
             for (int i = 0; i < commands.Count; i++)
             {
@@ -192,7 +192,7 @@ namespace Console.Core.CommandSystem.Commands
 
             if (cmd != null)
             {
-                if(ConsoleCoreConfig.AllowOverlappingCommands)
+                if (ConsoleCoreConfig.AllowOverlappingCommands)
                     ConsoleCoreConfig.CoreLogger.LogWarning(
                         $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
                 else

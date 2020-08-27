@@ -1,12 +1,10 @@
-﻿
-namespace Console.Evaluator.Core.Interfaces
+﻿namespace Console.Evaluator.Core.Interfaces
 {
     /// <summary>
     /// IEvalFunctions is used as Function Provider 
     /// </summary>
     public interface IEvalFunctions
     {
-
         /// <summary>
         /// The Inherited Functions of this object
         /// </summary>

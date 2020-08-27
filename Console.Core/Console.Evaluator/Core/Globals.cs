@@ -38,53 +38,53 @@ namespace Console.Evaluator.Core
                 switch (c1)
                 {
                     case var @case when 'a' <= @case && @case <= 'z':
+                    {
+                        if (c2 != c1 && c2 != c1 - 32)
                         {
-                            if (c2 != c1 && c2 != c1 - 32)
-                            {
-                                return false;
-                            }
-
-                            break;
+                            return false;
                         }
+
+                        break;
+                    }
 
                     case var case1 when 'A' <= case1 && case1 <= 'Z':
+                    {
+                        if (c2 != c1 && c2 != c1 + 32)
                         {
-                            if (c2 != c1 && c2 != c1 + 32)
-                            {
-                                return false;
-                            }
-
-                            break;
+                            return false;
                         }
+
+                        break;
+                    }
 
                     case '-':
                     case '_':
                     case '.':
+                    {
+                        if (c2 != c1 && c2 != '_' && c2 != '.')
                         {
-                            if (c2 != c1 && c2 != '_' && c2 != '.')
-                            {
-                                return false;
-                            }
-
-                            break;
+                            return false;
                         }
+
+                        break;
+                    }
 
                     case var case2 when case2 == '_':
+                    {
+                        if (c2 != c1 && c2 != '-')
                         {
-                            if (c2 != c1 && c2 != '-')
-                            {
-                                return false;
-                            }
-
-                            break;
+                            return false;
                         }
+
+                        break;
+                    }
 
                     default:
-                        {
-                            if (c2 != c1)
-                                return false;
-                            break;
-                        }
+                    {
+                        if (c2 != c1)
+                            return false;
+                        break;
+                    }
                 }
             }
 
@@ -116,7 +116,11 @@ namespace Console.Evaluator.Core
         /// <returns>The Eval Type for this Type</returns>
         internal static EvalType GetEvalType(Type t)
         {
-            if (ReferenceEquals(t, typeof(float)) | ReferenceEquals(t, typeof(double)) | ReferenceEquals(t, typeof(decimal)) | ReferenceEquals(t, typeof(short)) | ReferenceEquals(t, typeof(int)) | ReferenceEquals(t, typeof(long)) | ReferenceEquals(t, typeof(byte)) | ReferenceEquals(t, typeof(ushort)) | ReferenceEquals(t, typeof(uint)) | ReferenceEquals(t, typeof(ulong)))
+            if (ReferenceEquals(t, typeof(float)) | ReferenceEquals(t, typeof(double)) |
+                ReferenceEquals(t, typeof(decimal)) | ReferenceEquals(t, typeof(short)) |
+                ReferenceEquals(t, typeof(int)) | ReferenceEquals(t, typeof(long)) | ReferenceEquals(t, typeof(byte)) |
+                ReferenceEquals(t, typeof(ushort)) | ReferenceEquals(t, typeof(uint)) |
+                ReferenceEquals(t, typeof(ulong)))
             {
                 return EvalType.Number;
             }
@@ -148,29 +152,29 @@ namespace Console.Evaluator.Core
             switch (t)
             {
                 case EvalType.Boolean:
-                    {
-                        return typeof(bool);
-                    }
+                {
+                    return typeof(bool);
+                }
 
                 case EvalType.Date:
-                    {
-                        return typeof(DateTime);
-                    }
+                {
+                    return typeof(DateTime);
+                }
 
                 case EvalType.Number:
-                    {
-                        return typeof(double);
-                    }
+                {
+                    return typeof(double);
+                }
 
                 case EvalType.String:
-                    {
-                        return typeof(string);
-                    }
+                {
+                    return typeof(string);
+                }
 
                 default:
-                    {
-                        return typeof(object);
-                    }
+                {
+                    return typeof(object);
+                }
             }
         }
 

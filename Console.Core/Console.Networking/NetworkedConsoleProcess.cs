@@ -9,7 +9,6 @@ namespace Console.Networking
     /// </summary>
     public class NetworkedConsoleProcess
     {
-
         /// <summary>
         /// Host Commands
         /// </summary>

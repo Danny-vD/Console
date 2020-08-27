@@ -11,8 +11,6 @@ using Console.Core.PropertySystem;
 /// </summary>
 namespace Console.Evaluator
 {
-
-
     /// <summary>
     /// Initializer of the Evaluator Extension
     /// </summary>

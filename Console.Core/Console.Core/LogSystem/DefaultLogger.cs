@@ -4,5 +4,7 @@
     /// Default Implementation.
     /// Prints the Logs as they Arrive.
     /// </summary>
-    public class DefaultLogger : ALogger { }
+    public class DefaultLogger : ALogger
+    {
+    }
 }

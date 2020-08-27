@@ -19,7 +19,7 @@ namespace Console.Networking.Packets.SendData
             bool last = data[0] == 1;
             List<byte> d = data.ToList();
             d.RemoveAt(0);
-            return new SendDataPacket { Data = d.ToArray(), LastPacket = last};
+            return new SendDataPacket {Data = d.ToArray(), LastPacket = last};
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Console.Networking.Packets.SendData
         protected override byte[] Serialize(SendDataPacket item)
         {
             List<byte> data = new List<byte>();
-            data.Add((byte)(item.LastPacket ? 1 : 0));
+            data.Add((byte) (item.LastPacket ? 1 : 0));
             data.AddRange(item.Data);
             return data.ToArray();
         }

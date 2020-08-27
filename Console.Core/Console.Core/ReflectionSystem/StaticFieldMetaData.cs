@@ -2,7 +2,6 @@
 
 namespace Console.Core.ReflectionSystem
 {
-
     /// <summary>
     /// FieldMetaData Implementation but without instance variable
     /// </summary>
@@ -12,6 +11,8 @@ namespace Console.Core.ReflectionSystem
         /// Public Constructor
         /// </summary>
         /// <param name="info">FieldInfo used as Backend</param>
-        public StaticFieldMetaData(FieldInfo info) : base(null, info) { }
+        public StaticFieldMetaData(FieldInfo info) : base(null, info)
+        {
+        }
     }
 }

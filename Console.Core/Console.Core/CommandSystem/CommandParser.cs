@@ -12,13 +12,13 @@ namespace Console.Core.CommandSystem
     /// <summary>
     /// Command Parser does the Parsing and Invocation of the Input Command
     /// </summary>
-	public class CommandParser
+    public class CommandParser
     {
         /// <summary>
         /// Parses and Processes the passed command.
         /// </summary>
         /// <param name="command">Command String to be Parsed.</param>
-		public void OnSubmitCommand(string command)
+        public void OnSubmitCommand(string command)
         {
             if (ConsoleCoreConfig.ConsolePrefix != string.Empty && !command.StartsWith(ConsoleCoreConfig.ConsolePrefix))
             {
@@ -40,7 +40,7 @@ namespace Console.Core.CommandSystem
         /// Parses the Command String and Invokes the correct Command with the Correct Parameters
         /// </summary>
         /// <param name="arguments">The Argument Part of the Command.</param>
-		private static void InnerParseAndInvoke(string arguments)
+        private static void InnerParseAndInvoke(string arguments)
         {
             string[] commandArguments = Split(arguments, ConsoleCoreConfig.CommandInputSeparator);
             if (commandArguments.Length == 0) return;
@@ -80,7 +80,7 @@ namespace Console.Core.CommandSystem
         /// <returns>Result of the Split Operation</returns>
         private static string[] Split(string arguments, char split)
         {
-            return arguments.Split(new[] { split }, StringSplitOptions.RemoveEmptyEntries);
+            return arguments.Split(new[] {split}, StringSplitOptions.RemoveEmptyEntries);
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Console.Core.CommandSystem
         /// </summary>
         /// <param name="commandArguments">The Argument Part of the Command.</param>
         /// <returns>Correctly Parsed Array ofString Blocks</returns>
-		public static string[] ParseStringBlocks(string commandArguments)
+        public static string[] ParseStringBlocks(string commandArguments)
         {
             if (commandArguments == null) return new string[0];
             string[] sections = commandArguments.Split(ConsoleCoreConfig.CommandInputSeparator);
@@ -182,7 +182,7 @@ namespace Console.Core.CommandSystem
         /// </summary>
         /// <param name="parts">THe Argument Parts of the Command</param>
         /// <returns>Correctly Parsed Array ofString Blocks</returns>
-		private static List<string> InnerParseStringBlocks(string[] parts)
+        private static List<string> InnerParseStringBlocks(string[] parts)
         {
             bool append = false;
             StringBuilder stringBuilder = null;
@@ -213,7 +213,8 @@ namespace Console.Core.CommandSystem
                     {
                         string argumentString = stringBuilder.ToString();
                         stringBuilder.Clear();
-                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars));
+                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar,
+                            ConsoleCoreConfig.EscapableChars));
                         append = false;
                     }
 
@@ -228,7 +229,8 @@ namespace Console.Core.CommandSystem
                     {
                         string argumentString = stringBuilder.ToString();
                         stringBuilder.Clear();
-                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars));
+                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar,
+                            ConsoleCoreConfig.EscapableChars));
                         append = false;
                     }
 

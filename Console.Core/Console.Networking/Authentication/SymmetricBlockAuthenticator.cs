@@ -96,7 +96,8 @@ namespace Console.Networking.Authentication
         /// <returns></returns>
         private static byte[] CreateKey(int count)
         {
-            return CreateFixSize(HashProvider.ComputeHash(NetworkingSettings.EncodingInstance.GetBytes(AuthPassword)), count);
+            return CreateFixSize(HashProvider.ComputeHash(NetworkingSettings.EncodingInstance.GetBytes(AuthPassword)),
+                count);
         }
 
         /// <summary>
@@ -157,7 +158,8 @@ namespace Console.Networking.Authentication
         /// <summary>
         /// Collection of Authentication Sessions
         /// </summary>
-        private static Dictionary<ConsoleSocket, byte[]> AuthenticationSessions = new Dictionary<ConsoleSocket, byte[]>();
+        private static Dictionary<ConsoleSocket, byte[]> AuthenticationSessions =
+            new Dictionary<ConsoleSocket, byte[]>();
 
         /// <summary>
         /// Creates the Specified Symmetric Algorithm
@@ -269,7 +271,6 @@ namespace Console.Networking.Authentication
             rnd.NextBytes(ret);
             return ret;
         }
-
 
 
         /// <summary>

@@ -1,5 +1,4 @@
-﻿
-namespace Console.Evaluator.Core.Interfaces
+﻿namespace Console.Evaluator.Core.Interfaces
 {
     /// <summary>
     /// IVariableBag implements a Collection of Variables.

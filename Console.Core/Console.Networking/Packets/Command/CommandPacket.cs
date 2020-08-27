@@ -6,7 +6,6 @@
 /// </summary>
 namespace Console.Networking.Packets.Command
 {
-
     /// <summary>
     /// Gets Sent from the client to the server to execute a command.
     /// </summary>
@@ -32,6 +31,5 @@ namespace Console.Networking.Packets.Command
             Resolved = resolved;
             Input = input;
         }
-
     }
 }

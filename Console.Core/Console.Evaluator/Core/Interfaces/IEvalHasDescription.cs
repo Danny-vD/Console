@@ -1,5 +1,4 @@
-﻿
-namespace Console.Evaluator.Core.Interfaces
+﻿namespace Console.Evaluator.Core.Interfaces
 {
     /// <summary>
     /// Defines an interface that has a name and a description

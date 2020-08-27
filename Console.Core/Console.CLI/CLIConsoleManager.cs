@@ -10,7 +10,6 @@ namespace Console.CLI
     /// </summary>
     public class CLIConsoleManager : AConsoleManager
     {
-
         /// <summary>
         /// The Object Selector
         /// </summary>
@@ -21,7 +20,8 @@ namespace Console.CLI
         /// </summary>
         /// <param name="extensions">Extensions to be Loaded</param>
         /// <param name="options">ConsoleInitOptions , Specifying the Default Commands available</param>
-        public CLIConsoleManager(AExtensionInitializer[] extensions, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
+        public CLIConsoleManager(AExtensionInitializer[] extensions,
+            ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
         {
             ExtensionLoader.ProcessLoadOrder(extensions);
             InvokeOnFinishInitialize();
@@ -47,12 +47,14 @@ namespace Console.CLI
                 InvokeOnFinishInitialize();
 
         }
+
         /// <summary>
         /// Public Constructor
         /// </summary>
         /// <param name="extensionPath">Folder Path of the Extension Folder</param>
         /// <param name="options">ConsoleInitOptions , Specifying the Default Commands available</param>
-        public CLIConsoleManager(string extensionPath, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
+        public CLIConsoleManager(string extensionPath, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
+            : this(options, false)
         {
             ExtensionLoader.LoadFromFolder(extensionPath);
             InvokeOnFinishInitialize();

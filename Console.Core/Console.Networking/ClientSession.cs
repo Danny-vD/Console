@@ -111,9 +111,11 @@ namespace Console.Networking
         /// <param name="cmd"></param>
         public void RunCommand(string cmd)
         {
-            if (Client == null || !Client.IsAuthenticated || !Client.Connected || !Client.TrySendPacket(new CommandPacket(true, cmd)))
+            if (Client == null || !Client.IsAuthenticated || !Client.Connected ||
+                !Client.TrySendPacket(new CommandPacket(true, cmd)))
             {
-                NetworkedInitializer.Logger.LogWarning("Can not run command. No connection to host.\nRun connect-console command to connect to a host");
+                NetworkedInitializer.Logger.LogWarning(
+                    "Can not run command. No connection to host.\nRun connect-console command to connect to a host");
             }
         }
 

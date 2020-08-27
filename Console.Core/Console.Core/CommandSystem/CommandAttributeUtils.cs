@@ -13,12 +13,11 @@ namespace Console.Core.CommandSystem
     /// </summary>
     public static class CommandAttributeUtils
     {
-
         /// <summary>
-		/// Call this to add all static commands from a type
-		/// </summary>
-		/// <typeparam name="T">Type containing the Commands.</typeparam>
-		public static void AddCommands<T>()
+        /// Call this to add all static commands from a type
+        /// </summary>
+        /// <typeparam name="T">Type containing the Commands.</typeparam>
+        public static void AddCommands<T>()
         {
             Type t = typeof(T);
             AddCommands(t);
@@ -92,7 +91,7 @@ namespace Console.Core.CommandSystem
         {
             IInvokable[] i =
                 GetCommands(t, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                    .Select(x => new MethodMetaData(instance,x)).ToArray();
+                    .Select(x => new MethodMetaData(instance, x)).ToArray();
             return i;
         }
 
@@ -118,7 +117,7 @@ namespace Console.Core.CommandSystem
             {
                 ConsoleCoreConfig.CoreLogger.LogError($"Can not cast value: \"{parameter}\"  to type: {target.Name}");
                 if (target.IsValueType)
-                    return null;//Return Default value if the target is int/float/...
+                    return null; //Return Default value if the target is int/float/...
                 throw e;
             }
         }

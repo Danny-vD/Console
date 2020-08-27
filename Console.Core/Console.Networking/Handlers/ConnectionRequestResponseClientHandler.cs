@@ -25,7 +25,8 @@ namespace Console.Networking.Handlers
                 NetworkingSettings.Authenticator = successPacket.AuthMethod;
                 if (NetworkingSettings.AuthenticatorInstance == null) //Authenticator not found
                 {
-                    NetworkedInitializer.Logger.LogWarning("Authenticator with the name: " + NetworkingSettings.Authenticator + " does not exist.");
+                    NetworkedInitializer.Logger.LogWarning("Authenticator with the name: " +
+                                                           NetworkingSettings.Authenticator + " does not exist.");
                 }
                 else
                 {
@@ -39,6 +40,5 @@ namespace Console.Networking.Handlers
                 }
             }
         }
-
     }
 }

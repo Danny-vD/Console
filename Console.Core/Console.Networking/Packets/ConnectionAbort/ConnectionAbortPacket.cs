@@ -33,7 +33,7 @@ namespace Console.Networking.Packets.ConnectionAbort
         /// Public Constructor
         /// </summary>
         /// <param name="reason">The Connection Abort Reason</param>
-        public ConnectionAbortPacket(string reason=null)
+        public ConnectionAbortPacket(string reason = null)
         {
             _reason = reason;
             HasReason = _reason != null;

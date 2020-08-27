@@ -6,15 +6,12 @@ using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 
-
 /// <summary>
 /// Compatibility Layer for the Script System Extension and the IO Extension
 /// Allows execution of a Startup Script
 /// </summary>
 namespace Console.ScriptIOCompat
 {
-
-
     /// <summary>
     /// Initializer of the ScriptIOCompat Extension
     /// </summary>
@@ -48,7 +45,7 @@ namespace Console.ScriptIOCompat
         {
             if (AutoStartFile == null) return;
             Logger.Log("Running Auto Start Files: " + AutoStartFile);
-            string[] files = AutoStartFile.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] files = AutoStartFile.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
             foreach (string file in files)
             {
                 ScriptSystem.ScriptSystem.RunFile(file);
@@ -65,6 +62,4 @@ namespace Console.ScriptIOCompat
             AConsoleManager.OnInitializationFinished += AutoStart;
         }
     }
-
-
 }

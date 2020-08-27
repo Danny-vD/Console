@@ -16,6 +16,7 @@ namespace Console.ScriptSystem
         /// The Sequence Content
         /// </summary>
         public readonly List<string> Lines;
+
         /// <summary>
         /// Public Constructor
         /// </summary>

@@ -16,6 +16,7 @@ namespace Console.Core.ConverterSystem
         /// <param name="target">Target Type</param>
         /// <returns>True if the conversion can be done</returns>
         public abstract bool CanConvert(object parameter, Type target);
+
         /// <summary>
         /// Converts the Parameter into the Target Type
         /// </summary>

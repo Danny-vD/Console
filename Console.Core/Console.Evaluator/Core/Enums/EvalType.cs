@@ -1,6 +1,5 @@
 ﻿namespace Console.Evaluator.Core.Enums
 {
-
     /// <summary>
     /// The Evaluation Types that the Evaluator Supports.
     /// </summary>

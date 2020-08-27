@@ -77,7 +77,9 @@ namespace Console.Core.ReflectionSystem
                 if (cfa != null)
                 {
                     string name = cfa.Name ?? pt[i].Name;
-                    bool lval = cparameter.Any(x => x.ToString().StartsWith(ConsoleCoreConfig.CommandFlagPrefix) && x.ToString().Remove(0, 2) == name);
+                    bool lval = cparameter.Any(x =>
+                        x.ToString().StartsWith(ConsoleCoreConfig.CommandFlagPrefix) &&
+                        x.ToString().Remove(0, 2) == name);
                     if (lval) cparameter.Remove(ConsoleCoreConfig.CommandFlagPrefix + name);
                     ret[i] = lval;
                 }
@@ -103,7 +105,7 @@ namespace Console.Core.ReflectionSystem
             {
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
                 if (sp != null && !(AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0 &&
-                                         pt.Length == cparameter.Count))
+                                    pt.Length == cparameter.Count))
                 {
 
                     object v = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
@@ -111,7 +113,8 @@ namespace Console.Core.ReflectionSystem
                     {
                         if (pt.Length == cparameter.Count)
                         {
-                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(cparameter[i - off], pt[i].ParameterType);
+                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(cparameter[i - off],
+                                pt[i].ParameterType);
                             continue;
                         }
                         else
@@ -147,6 +150,5 @@ namespace Console.Core.ReflectionSystem
 
             return ret;
         }
-
     }
 }

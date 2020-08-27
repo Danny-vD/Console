@@ -1,6 +1,7 @@
 ﻿/// <summary>
 /// Abstract Packet/Serializer Implementations
 /// </summary>
+
 namespace Console.Networking.Packets.Abstract
 {
     /// <summary>

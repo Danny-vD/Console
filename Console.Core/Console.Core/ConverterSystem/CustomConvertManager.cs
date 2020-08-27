@@ -52,7 +52,6 @@ namespace Console.Core.ConverterSystem
         }
 
 
-
         /// <summary>
         /// Extension Method.
         /// Tries to Convert the Specified object into the Specified Parameter.
@@ -64,11 +63,11 @@ namespace Console.Core.ConverterSystem
         {
             try
             {
-                return (TNewType)System.Convert.ChangeType(@object, typeof(TNewType));
+                return (TNewType) System.Convert.ChangeType(@object, typeof(TNewType));
             }
             catch
             {
-                return (TNewType)@object;
+                return (TNewType) @object;
             }
         }
     }

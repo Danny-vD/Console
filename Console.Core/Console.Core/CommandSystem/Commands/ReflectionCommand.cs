@@ -21,7 +21,8 @@ namespace Console.Core.CommandSystem.Commands
         /// <summary>
         /// The Command Attriute
         /// </summary>
-        public CommandAttribute Command => RefData.Attributes.FirstOrDefault(x => x is CommandAttribute) as CommandAttribute;
+        public CommandAttribute Command =>
+            RefData.Attributes.FirstOrDefault(x => x is CommandAttribute) as CommandAttribute;
 
         /// <summary>
         /// Amount of Parameters that are decorated with the CommandFlagAttribute
@@ -54,13 +55,18 @@ namespace Console.Core.CommandSystem.Commands
         /// Creates a Command Based on a Static Method Info
         /// </summary>
         /// <param name="info">Method Info used as backend</param>
-        public ReflectionCommand(MethodInfo info) : this(null, info) { }
+        public ReflectionCommand(MethodInfo info) : this(null, info)
+        {
+        }
+
         /// <summary>
         /// Creates a Command based on a Method Info and the corresponding Object Instance.
         /// </summary>
         /// <param name="instance">Instance bound to the Method Info</param>
         /// <param name="info">Method info used as Backend</param>
-        public ReflectionCommand(object instance, MethodInfo info) : this(new MethodMetaData(instance, info)) { }
+        public ReflectionCommand(object instance, MethodInfo info) : this(new MethodMetaData(instance, info))
+        {
+        }
 
 
         /// <summary>

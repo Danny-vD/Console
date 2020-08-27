@@ -44,6 +44,7 @@ namespace Console.Core.ReflectionSystem
         {
             ReflectedInfo.SetValue(Instance, CommandAttributeUtils.ConvertToNonGeneric(value, ValueType));
         }
+
         /// <summary>
         /// Gets the Value of the Field Info
         /// </summary>
@@ -57,7 +58,7 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Value of the Property</returns>
         public T Get<T>()
         {
-            return (T)Get();
+            return (T) Get();
         }
     }
 }

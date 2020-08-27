@@ -4,7 +4,6 @@ using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core
 {
-
     /// <summary>
     /// The Tokenizer parses the Single Parts of the Expression to usable Tokens
     /// </summary>
@@ -49,7 +48,7 @@ namespace Console.Evaluator.Core
             mString = str;
             mLen = str.Length;
             mPos = 0;
-            NextChar();   // start the machine
+            NextChar(); // start the machine
         }
 
         /// <summary>
@@ -149,177 +148,176 @@ namespace Console.Evaluator.Core
                 switch (mCurChar)
                 {
                     case default(char):
-                        {
-                            TokenType = TokenType.EndOfFormula;
-                            break;
-                        }
+                    {
+                        TokenType = TokenType.EndOfFormula;
+                        break;
+                    }
 
                     case var @case when '0' <= @case && @case <= '9':
-                        {
-                            ParseNumber();
-                            break;
-                        }
+                    {
+                        ParseNumber();
+                        break;
+                    }
 
                     case '-':
                     case '–':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorMinus;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorMinus;
+                        break;
+                    }
 
                     case '+':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorPlus;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorPlus;
+                        break;
+                    }
 
                     case '*':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorMul;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorMul;
+                        break;
+                    }
 
                     case '/':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorDiv;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorDiv;
+                        break;
+                    }
 
                     case '%':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorPercent;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorPercent;
+                        break;
+                    }
 
                     case '(':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OpenParenthesis;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OpenParenthesis;
+                        break;
+                    }
 
                     case ')':
-                        {
-                            NextChar();
-                            TokenType = TokenType.CloseParenthesis;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.CloseParenthesis;
+                        break;
+                    }
 
                     case '<':
+                    {
+                        NextChar();
+                        if (mCurChar == '=')
                         {
                             NextChar();
-                            if (mCurChar == '=')
-                            {
-                                NextChar();
-                                TokenType = TokenType.OperatorLe;
-                            }
-                            else if (mCurChar == '>')
-                            {
-                                NextChar();
-                                TokenType = TokenType.OperatorNe;
-                            }
-                            else
-                            {
-                                TokenType = TokenType.OperatorLt;
-                            }
-
-                            break;
+                            TokenType = TokenType.OperatorLe;
                         }
+                        else if (mCurChar == '>')
+                        {
+                            NextChar();
+                            TokenType = TokenType.OperatorNe;
+                        }
+                        else
+                        {
+                            TokenType = TokenType.OperatorLt;
+                        }
+
+                        break;
+                    }
 
                     case '>':
+                    {
+                        NextChar();
+                        if (mCurChar == '=')
                         {
                             NextChar();
-                            if (mCurChar == '=')
-                            {
-                                NextChar();
-                                TokenType = TokenType.OperatorGe;
-                            }
-                            else
-                            {
-                                TokenType = TokenType.OperatorGt;
-                            }
-
-                            break;
+                            TokenType = TokenType.OperatorGe;
                         }
+                        else
+                        {
+                            TokenType = TokenType.OperatorGt;
+                        }
+
+                        break;
+                    }
 
                     case ',':
-                        {
-                            NextChar();
-                            TokenType = TokenType.Comma;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.Comma;
+                        break;
+                    }
 
                     case '=':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorEq;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorEq;
+                        break;
+                    }
 
                     case '.':
-                        {
-                            NextChar();
-                            TokenType = TokenType.Dot;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.Dot;
+                        break;
+                    }
 
                     case '\'':
                     case '"':
-                        {
-                            ParseString(true);
-                            TokenType = TokenType.ValueString;
-                            break;
-                        }
+                    {
+                        ParseString(true);
+                        TokenType = TokenType.ValueString;
+                        break;
+                    }
 
                     case '#':
-                        {
-                            ParseDate();
-                            break;
-                        }
+                    {
+                        ParseDate();
+                        break;
+                    }
 
                     case '&':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OperatorConcat;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OperatorConcat;
+                        break;
+                    }
 
                     case '[':
-                        {
-                            NextChar();
-                            TokenType = TokenType.OpenBracket;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.OpenBracket;
+                        break;
+                    }
 
                     case ']':
-                        {
-                            NextChar();
-                            TokenType = TokenType.CloseBracket;
-                            break;
-                        }
+                    {
+                        NextChar();
+                        TokenType = TokenType.CloseBracket;
+                        break;
+                    }
                     // do nothing
                     case var case1 when '\0' <= case1 && case1 <= ' ':
-                        {
-                            break;
-                        }
+                    {
+                        break;
+                    }
 
                     default:
-                        {
-                            ParseIdentifier();
-                            break;
-                        }
+                    {
+                        ParseIdentifier();
+                        break;
+                    }
                 }
 
                 if (TokenType != TokenType.None)
                     break;
                 NextChar();
-            }
-            while (true);
+            } while (true);
         }
 
         /// <summary>
@@ -347,7 +345,7 @@ namespace Console.Evaluator.Core
                 mCurChar = default;
             }
         }
-        
+
         /// <summary>
         /// Parses a Number from the Current Character
         /// </summary>
@@ -379,7 +377,7 @@ namespace Console.Evaluator.Core
         {
             while (((mCurChar >= '0') & (mCurChar <= '9')) | ((mCurChar >= 'a') & (mCurChar <= 'z')) |
                    ((mCurChar >= 'A') & (mCurChar <= 'Z')) | ((mCurChar >= 'A') & (mCurChar <= 'Z')) |
-                   (mCurChar >= '\u0080') | (mCurChar == '_')) 
+                   (mCurChar >= '\u0080') | (mCurChar == '_'))
             {
                 Value.Append(mCurChar);
                 NextChar();
@@ -388,48 +386,48 @@ namespace Console.Evaluator.Core
             switch (Value.ToString().ToLower() ?? "")
             {
                 case "and":
-                    {
-                        TokenType = TokenType.OperatorAnd;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.OperatorAnd;
+                    break;
+                }
 
                 case "or":
-                    {
-                        TokenType = TokenType.OperatorOr;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.OperatorOr;
+                    break;
+                }
 
                 case "not":
-                    {
-                        TokenType = TokenType.OperatorNot;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.OperatorNot;
+                    break;
+                }
 
                 case "true":
                 case "yes":
-                    {
-                        TokenType = TokenType.ValueTrue;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.ValueTrue;
+                    break;
+                }
 
                 case "if":
-                    {
-                        TokenType = TokenType.OperatorIf;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.OperatorIf;
+                    break;
+                }
 
                 case "false":
                 case "no":
-                    {
-                        TokenType = TokenType.ValueFalse;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.ValueFalse;
+                    break;
+                }
 
                 default:
-                    {
-                        TokenType = TokenType.ValueIdentifier;
-                        break;
-                    }
+                {
+                    TokenType = TokenType.ValueIdentifier;
+                    break;
+                }
             }
         }
 
@@ -445,7 +443,7 @@ namespace Console.Evaluator.Core
                 originalChar = mCurChar;
                 NextChar();
             }
-            
+
             while (mCurChar != default(char))
             {
                 if (inQuote && mCurChar == originalChar)

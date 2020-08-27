@@ -14,7 +14,6 @@ namespace Console.Networking.Handlers.Abstract
     public abstract class APacketClientHandler<T> : IPacketClientHandler
         where T : ANetworkPacket
     {
-
         /// <summary>
         /// Handles the Packet
         /// </summary>

@@ -9,13 +9,14 @@ namespace Console.Networking.Packets.Abstract
     /// <typeparam name="T">Network Packet Type</typeparam>
     [ActivateOn]
     public abstract class PacketSerializer<T> : IPacketSerializer
-    where T : ANetworkPacket
+        where T : ANetworkPacket
     {
         /// <summary>
         /// Returns the Target Type of the Serializer
         /// </summary>
         /// <returns>Target Type</returns>
         public Type GetTargetType() => typeof(T);
+
         /// <summary>
         /// Returns the Packet Identifier of the Target Type
         /// </summary>
@@ -28,6 +29,7 @@ namespace Console.Networking.Packets.Abstract
         /// <param name="data">Serialized Data</param>
         /// <returns>Network Packet</returns>
         protected abstract T Deserialize(byte[] data);
+
         /// <summary>
         /// Serializes a Packet of Type T into a Byte array
         /// </summary>

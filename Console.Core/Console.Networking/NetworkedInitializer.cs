@@ -18,8 +18,6 @@ using Console.Networking.Packets.Abstract;
 /// </summary>
 namespace Console.Networking
 {
-
-
     /// <summary>
     /// Initializer of the Networking Extension
     /// </summary>
@@ -49,8 +47,10 @@ namespace Console.Networking
                 }
             };
 
-            IPacketClientHandler[] ch = ActivateOnAttributeUtils.ActivateObjects<IPacketClientHandler>(Assembly.GetExecutingAssembly());
-            IPacketHostHandler[] hh = ActivateOnAttributeUtils.ActivateObjects<IPacketHostHandler>(Assembly.GetExecutingAssembly());
+            IPacketClientHandler[] ch =
+                ActivateOnAttributeUtils.ActivateObjects<IPacketClientHandler>(Assembly.GetExecutingAssembly());
+            IPacketHostHandler[] hh =
+                ActivateOnAttributeUtils.ActivateObjects<IPacketHostHandler>(Assembly.GetExecutingAssembly());
             IPacketSerializer[] ps =
                 ActivateOnAttributeUtils.ActivateObjects<IPacketSerializer>(Assembly.GetExecutingAssembly());
             foreach (IPacketSerializer packetSerializer in ps)

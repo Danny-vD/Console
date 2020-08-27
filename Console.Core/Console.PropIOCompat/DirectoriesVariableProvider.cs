@@ -3,7 +3,6 @@ using Console.EnvironmentVariables;
 
 namespace Console.PropIOCompat
 {
-
     /// <summary>
     /// VariableProvider Implementation that returns the Directories in the Specified Directory.
     /// </summary>
@@ -13,6 +12,7 @@ namespace Console.PropIOCompat
         /// The Function name that is used to get this Variable.
         /// </summary>
         public override string FunctionName => "dirs";
+
         /// <summary>
         /// Returns the Directories in the Specified Directory
         /// </summary>
@@ -20,7 +20,8 @@ namespace Console.PropIOCompat
         /// <returns>A list of Directories</returns>
         public override string GetValue(string parameter)
         {
-            return FilesVariableProvider.ToList(Directory.GetDirectories(parameter, "*", SearchOption.TopDirectoryOnly));
+            return FilesVariableProvider.ToList(Directory.GetDirectories(parameter, "*",
+                SearchOption.TopDirectoryOnly));
         }
     }
 }

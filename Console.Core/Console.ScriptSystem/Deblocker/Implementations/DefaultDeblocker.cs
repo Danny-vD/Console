@@ -31,7 +31,7 @@ namespace Console.ScriptSystem.Deblocker.Implementations
             if (line.Blocks.Count == 0)
             {
                 DeblockerSettings.LogVerbose($"Line: \"{line.CleanedLine}\" has no Blocks.");
-                return new[] { line.CleanedLine };
+                return new[] {line.CleanedLine};
             }
             List<string> lines = new List<string>();
             int maxCount = line.Blocks.Max(strings => strings.Length);
@@ -49,6 +49,5 @@ namespace Console.ScriptSystem.Deblocker.Implementations
             }
             return lines.ToArray();
         }
-
     }
 }

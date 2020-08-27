@@ -7,7 +7,6 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class ExtensionCommands
     {
-
         /// <summary>
         /// Adds all Extension commands.
         /// </summary>
@@ -15,7 +14,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             CommandAttributeUtils.AddCommands<ExtensionCommands>();
         }
-        
+
         /// <summary>
         /// Loads all extensions from the specified folder.
         /// </summary>

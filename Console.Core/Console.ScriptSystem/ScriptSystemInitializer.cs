@@ -15,9 +15,6 @@ using Console.ScriptSystem.Deblocker.Parameters;
 /// </summary>
 namespace Console.ScriptSystem
 {
-
-
-
     /// <summary>
     /// Initializer of the ScriptSystem Extension
     /// </summary>
@@ -63,6 +60,5 @@ namespace Console.ScriptSystem
                     DeblockerCollection.AddDeblocker(aDeblocker);
             }
         }
-
     }
 }

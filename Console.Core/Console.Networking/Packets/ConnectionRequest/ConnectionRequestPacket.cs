@@ -9,9 +9,8 @@ namespace Console.Networking.Packets.ConnectionRequest
     /// Packet that gets sent by the client to establish a connection between host and client
     /// This is the first package that gets sent.
     /// </summary>
-    public class ConnectionRequestPacket:ANetworkPacket
+    public class ConnectionRequestPacket : ANetworkPacket
     {
-
         /// <summary>
         /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
         /// </summary>

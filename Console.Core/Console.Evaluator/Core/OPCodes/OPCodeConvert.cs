@@ -17,7 +17,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// The First parameter Backing Field
         /// </summary>
         private IEvalTypedValue _mParam1;
-        
+
         /// <summary>
         /// The First Parameter
         /// </summary>
@@ -87,7 +87,8 @@ namespace Console.Evaluator.Core.OPCodes
 
                 default:
                 {
-                    tokenizer.RaiseError("Cannot convert " + param1.SystemType.Name + " to " + ((int)evalType).ToString());
+                    tokenizer.RaiseError("Cannot convert " + param1.SystemType.Name + " to " +
+                                         ((int) evalType).ToString());
                     break;
                 }
             }

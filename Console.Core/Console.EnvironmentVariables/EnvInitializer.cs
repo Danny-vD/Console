@@ -14,8 +14,6 @@ using Console.Core.PropertySystem;
 /// </summary>
 namespace Console.EnvironmentVariables
 {
-
-
     /// <summary>
     /// Initializer of the EnvironmentVariables Extension
     /// </summary>
@@ -49,7 +47,6 @@ namespace Console.EnvironmentVariables
                 return EnvironmentVariableManager.Expand(input);
             }
         }
-
 
 
         /// <summary>

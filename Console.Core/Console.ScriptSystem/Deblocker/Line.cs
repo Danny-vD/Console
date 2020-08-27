@@ -6,13 +6,11 @@ using Console.Core.CommandSystem;
 
 namespace Console.ScriptSystem.Deblocker
 {
-
     /// <summary>
     /// Data Class that is used to Parse the Blocks into Lines.
     /// </summary>
     public class Line
     {
-
         /// <summary>
         /// The Original Line Backing Field
         /// </summary>
@@ -109,8 +107,6 @@ namespace Console.ScriptSystem.Deblocker
         /// </summary>
         /// <returns>The Original String Line</returns>
         public override string ToString() => OriginalLine;
-
-
 
 
         /// <summary>

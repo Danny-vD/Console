@@ -30,6 +30,7 @@ namespace Console.UtilExtension
 
         [Command("remove-command", "Removes a command with this name and parameter count.")]
         private static void RemoveCommand(string name, int parameterCount) => RemoveCommand(name, parameterCount, 0);
+
         [Command("remove-command", "Removes a command with this name and no parameters.")]
         private static void RemoveCommand(string name) => RemoveCommand(name, 0);
 

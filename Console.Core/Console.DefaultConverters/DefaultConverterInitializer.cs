@@ -9,14 +9,11 @@ using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
 
-
 /// <summary>
 /// The DefaultConverters Extension contains a collection of Converters that ease the use of the Command System.
 /// </summary>
 namespace Console.DefaultConverters
 {
-
-
     /// <summary>
     /// Initializer of the DefaultConverters Extension
     /// </summary>
@@ -44,7 +41,7 @@ namespace Console.DefaultConverters
                 Array vals = Enum.GetValues(t);
                 foreach (object val in vals)
                 {
-                    s += "\t" + Enum.GetName(t, val) + "=" + (int)val + "\n";
+                    s += "\t" + Enum.GetName(t, val) + "=" + (int) val + "\n";
                 }
                 Logger.Log(s);
                 return;

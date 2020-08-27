@@ -1,6 +1,7 @@
 ﻿/// <summary>
 /// Namespace of All interfaces in the Evaluator
 /// </summary>
+
 namespace Console.Evaluator.Core.Interfaces
 {
     /// <summary>
@@ -16,6 +17,5 @@ namespace Console.Evaluator.Core.Interfaces
         /// Value Changed Event
         /// </summary>
         event ValueChangedEventHandler ValueChanged;
-
     }
 }

@@ -21,10 +21,12 @@
         {
             base.Log(Prefix + value);
         }
+
         public override void LogWarning(object value)
         {
             base.LogWarning(Prefix + value);
         }
+
         public override void LogError(object value)
         {
             base.LogError(Prefix + value);

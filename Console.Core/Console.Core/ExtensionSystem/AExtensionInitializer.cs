@@ -16,6 +16,7 @@ namespace Console.Core.ExtensionSystem
         private static Dictionary<Assembly, ALogger> Loggers = new Dictionary<Assembly, ALogger>();
 
         public static ALogger GetLogger(Assembly asm) => Loggers.ContainsKey(asm) ? Loggers[asm] : null;
+
         public static void SetLogger(Assembly asm, ALogger logger)
         {
             Loggers[asm] = logger;

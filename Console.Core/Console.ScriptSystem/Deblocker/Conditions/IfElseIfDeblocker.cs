@@ -1,6 +1,5 @@
 ﻿namespace Console.ScriptSystem.Deblocker.Conditions
 {
-
     /// <summary>
     /// ADeblocker Implementation with key "ifelseif"
     /// Implements if Syntax with SequenceSystem / Evaluator Extension as backend.

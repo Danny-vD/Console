@@ -101,7 +101,7 @@ namespace Console.Core.CommandSystem.Commands
         {
 
             if (CustomConvertManager.CanConvert(parameter, typeof(TNewType)))
-                return (TNewType)CustomConvertManager.Convert(parameter, typeof(TNewType));
+                return (TNewType) CustomConvertManager.Convert(parameter, typeof(TNewType));
 
             return parameter.ConvertTo<TNewType>();
         }
@@ -122,7 +122,7 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>All Names and Aliases in one Array</returns>
         public List<string> GetAllNames()
         {
-            List<string> names = new List<string>() { Name };
+            List<string> names = new List<string>() {Name};
 
             aliases.ForEach(names.Add);
 

@@ -48,7 +48,8 @@ namespace Console.ScriptSystem.Deblocker.Parameters
         {
             ParameterCollection c = new ParameterCollection();
 
-            string[] p = parameter.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
+            string[] p = parameter.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim())
+                .ToArray();
             int max = Math.Min(sig.Length, p.Length);
             for (int i = 0; i < max; i++)
             {

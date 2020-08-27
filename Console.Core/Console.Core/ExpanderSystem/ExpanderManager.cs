@@ -6,7 +6,6 @@
 /// </summary>
 namespace Console.Core.ExpanderSystem
 {
-
     /// <summary>
     /// Expander System API.
     /// </summary>

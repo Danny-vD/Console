@@ -13,6 +13,7 @@ namespace Console.Core.CommandSystem
         /// Should the Converter System Change the types of the selected objects to match the command?
         /// </summary>
         public readonly bool NoConverter;
+
         /// <summary>
         /// Public Constructor.
         /// </summary>

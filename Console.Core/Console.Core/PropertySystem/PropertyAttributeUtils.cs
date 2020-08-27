@@ -40,7 +40,6 @@ namespace Console.Core.PropertySystem
             PropertyManager.AddRefHelpers(ReflectionUtils.GetConsoleProps<PropertyAttribute>(instance));
         }
 
-
         #endregion
     }
 }

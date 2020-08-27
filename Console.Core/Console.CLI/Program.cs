@@ -33,8 +33,7 @@ namespace Console.CLI
         /// <summary>
         /// Defines in what intervall the console tick event gets invoked
         /// </summary>
-        [Property("networking.tick")]
-        private static float ConsoleTick = 0.2f;
+        [Property("networking.tick")] private static float ConsoleTick = 0.2f;
 
         /// <summary>
         /// The Commandline Interface Version
@@ -50,6 +49,7 @@ namespace Console.CLI
         {
             Exit(0);
         }
+
         /// <summary>
         /// Closes the Commandline with a specified ErrorCode
         /// </summary>
@@ -110,7 +110,7 @@ namespace Console.CLI
             while (true)
             {
                 AConsoleManager.Instance.InvokeOnTick();
-                Thread.Sleep((int)(ConsoleTick * 1000));
+                Thread.Sleep((int) (ConsoleTick * 1000));
             }
         }
     }

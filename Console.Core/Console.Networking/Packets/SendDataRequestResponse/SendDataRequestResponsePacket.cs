@@ -14,6 +14,7 @@ namespace Console.Networking.Packets.SendDataRequestResponse
         /// Flag that Determines if the File is allowed.
         /// </summary>
         public readonly bool Allowed;
+
         /// <summary>
         /// Private Constructor
         /// </summary>
@@ -22,6 +23,7 @@ namespace Console.Networking.Packets.SendDataRequestResponse
         {
             Allowed = allow;
         }
+
         /// <summary>
         /// Allow Packet Response
         /// </summary>

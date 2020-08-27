@@ -2,7 +2,6 @@
 
 namespace Console.Networking.Packets.AuthenticationRequest
 {
-
     /// <summary>
     /// PacketSerializer Implementation for AuthenticationRequestPacket
     /// </summary>

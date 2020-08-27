@@ -1,7 +1,6 @@
 ﻿using Console.Core.LogSystem;
 
 
-
 /// <summary>
 /// The Console.Core.CommandSystem.Commands.BuiltIn namespace contains all BuiltIn Commands of the System
 /// </summary>
@@ -54,7 +53,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             foreach (AbstractCommand command in CommandManager.commands)
             {
-                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) + "\n--------------------------");
+                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) +
+                               "\n--------------------------");
             }
         }
 
@@ -68,7 +68,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         {
             foreach (AbstractCommand command in CommandManager.GetCommands(commandName, true))
             {
-                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) + "\n--------------------------");
+                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) +
+                               "\n--------------------------");
             }
         }
 

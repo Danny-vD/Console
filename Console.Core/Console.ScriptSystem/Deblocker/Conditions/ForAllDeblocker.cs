@@ -21,7 +21,7 @@ namespace Console.ScriptSystem.Deblocker.Conditions
         /// <returns>The Deblocked Line</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            string[] ret = Deblock(line, new[] { "item" }, out begin, out end);
+            string[] ret = Deblock(line, new[] {"item"}, out begin, out end);
             return ret;
         }
     }

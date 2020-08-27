@@ -4,7 +4,6 @@ using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.Command
 {
-
     /// <summary>
     /// PacketSerializer Implementation for CommandPacket
     /// </summary>
@@ -17,7 +16,8 @@ namespace Console.Networking.Packets.Command
         /// <returns>Network Packet</returns>
         protected override CommandPacket Deserialize(byte[] data)
         {
-            return new CommandPacket(data[0] == 1, NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1));
+            return new CommandPacket(data[0] == 1,
+                NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1));
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Console.Networking.Packets.Command
         protected override byte[] Serialize(CommandPacket item)
         {
             List<byte> data = NetworkingSettings.EncodingInstance.GetBytes(item.Input).ToList();
-            data.Insert(0, (byte)(item.Resolved ? 1 : 0));
+            data.Insert(0, (byte) (item.Resolved ? 1 : 0));
             return data.ToArray();
         }
     }

@@ -10,7 +10,6 @@ using Console.Networking.Packets.SendDataRequestResponse;
 
 namespace Console.Networking.SendData
 {
-
     /// <summary>
     /// Manages the SendDataPacket Response Chain
     /// </summary>
@@ -20,19 +19,23 @@ namespace Console.Networking.SendData
         /// Static Constructor
         /// </summary>
         static SendDataManager() => NetworkingSettings.HostSession.RegisterHandler(ReceiveSendData);
+
         /// <summary>
         /// Count Variable to ensure unique Channel Names
         /// </summary>
         private static int FileCount = 0;
+
         /// <summary>
         /// Returns the next Channel Name
         /// </summary>
         /// <returns>Unique Channel Name</returns>
         private static string GetKey() => $"FILE_" + FileCount++;
+
         /// <summary>
         /// All Active Send Data Events of the Client
         /// </summary>
-        private static Dictionary<string, ConsoleSocket.PackageReceive> Events = new Dictionary<string, ConsoleSocket.PackageReceive>();
+        private static Dictionary<string, ConsoleSocket.PackageReceive> Events =
+            new Dictionary<string, ConsoleSocket.PackageReceive>();
         /// <summary>
         /// All Active Channels that are waiting for data on the host.
         /// </summary>
@@ -95,14 +98,14 @@ namespace Console.Networking.SendData
         {
             Stream s = File.OpenRead(file);
             int read = 0;
-            byte[] buf = new byte[NetworkingSettings.PacketDataMaxBytes-1];
+            byte[] buf = new byte[NetworkingSettings.PacketDataMaxBytes - 1];
             while ((read = s.Read(buf, 0, buf.Length)) != 0)
             {
                 if (read == buf.Length)
-                    NetworkingSettings.ClientSession.Client.TrySendPacket(new SendDataPacket { Data = buf });
+                    NetworkingSettings.ClientSession.Client.TrySendPacket(new SendDataPacket {Data = buf});
                 else
                     NetworkingSettings.ClientSession.Client.TrySendPacket(new SendDataPacket
-                    { Data = buf.Take(read).ToArray(), LastPacket = true});
+                        {Data = buf.Take(read).ToArray(), LastPacket = true});
             }
         }
 

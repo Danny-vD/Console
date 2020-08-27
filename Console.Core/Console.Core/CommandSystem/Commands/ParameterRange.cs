@@ -13,7 +13,7 @@
         /// Maximum Parameter Count
         /// </summary>
         public int Max;
-        
+
         /// <summary>
         /// Creates a Parameter Range with only one possible parameter count
         /// </summary>

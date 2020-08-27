@@ -5,7 +5,6 @@ using Console.Evaluator.Core.OPCodes;
 
 namespace Console.Evaluator.Core
 {
-
     /// <summary>
     /// The Main Class of the Evaluator.
     /// </summary>
@@ -65,7 +64,7 @@ namespace Console.Evaluator.Core
                 mEnvironmentFunctionsList.Remove(obj);
             }
         }
-        
+
         /// <summary>
         /// Parses the Specifed Expression
         /// </summary>
@@ -85,7 +84,7 @@ namespace Console.Evaluator.Core
         {
             if (value is string)
             {
-                return (string)value;
+                return (string) value;
             }
             else if (value is null)
             {
@@ -93,7 +92,7 @@ namespace Console.Evaluator.Core
             }
             else if (value is DateTime)
             {
-                DateTime d = (DateTime)value;
+                DateTime d = (DateTime) value;
                 if (d.TimeOfDay.TotalMilliseconds > 0)
                 {
                     return d.ToString();
@@ -105,7 +104,7 @@ namespace Console.Evaluator.Core
             }
             else if (value is decimal)
             {
-                decimal d = (decimal)value;
+                decimal d = (decimal) value;
                 if (d % 1 != 0)
                 {
                     return d.ToString("#,##0.00");
@@ -117,7 +116,7 @@ namespace Console.Evaluator.Core
             }
             else if (value is double)
             {
-                double d = (double)value;
+                double d = (double) value;
                 if (d % 1 != 0)
                 {
                     return d.ToString("#,##0.00");
@@ -134,7 +133,5 @@ namespace Console.Evaluator.Core
 
             return default;
         }
-
-       
     }
 }

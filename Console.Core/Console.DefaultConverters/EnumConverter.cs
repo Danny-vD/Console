@@ -9,7 +9,6 @@ namespace Console.DefaultConverters
     /// </summary>
     public class EnumConverter : AConverter
     {
-
         /// <summary>
         /// Flag that if set to true will Parse the Names in case sensitive.
         /// </summary>

@@ -18,14 +18,12 @@ namespace Console.Evaluator
         /// <summary>
         /// The Evaluator Syntax. Possible Values: CSharp and VisualBasic
         /// </summary>
-        [Property("evaluator.syntax")]
-        private static ParserSyntax Syntax = ParserSyntax.CSharp;
+        [Property("evaluator.syntax")] private static ParserSyntax Syntax = ParserSyntax.CSharp;
 
         /// <summary>
         /// Specifies if the Evaluator is Case Sensitive
         /// </summary>
-        [Property("evaluator.casesensitive")]
-        private static bool CaseSensitive;
+        [Property("evaluator.casesensitive")] private static bool CaseSensitive;
 
         /// <summary>
         /// Specifies if the Evaluator should throw an Exception when the Expression is Faulty.
@@ -46,6 +44,7 @@ namespace Console.Evaluator
             CommandAttributeUtils.AddCommands(this);
             EnvironmentVariableManager.AddProvider(this);
         }
+
         /// <summary>
         /// Returns the Result of the Specified Expression
         /// </summary>
@@ -117,7 +116,7 @@ namespace Console.Evaluator
                 OPCode ret = eval.Parse(AConsoleManager.ExpanderManager.Expand(expr));
                 if (ret != null && ret.CanReturn(EvalType.Boolean))
                 {
-                    bool r = (bool)ret.Value;
+                    bool r = (bool) ret.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(command);
@@ -141,13 +140,14 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool)ret.Value;
+                bool r = (bool) ret.Value;
                 if (r)
                 {
                     AConsoleManager.Instance.EnterCommand(command);
                 }
             }
         }
+
         [Command("ifelse", "Invokes a command based on the expression.")]
         private void IfElse(string expr, string commandIfTrue, string commandIfFalse)
         {
@@ -155,7 +155,7 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool)ret.Value;
+                bool r = (bool) ret.Value;
                 if (r)
                 {
                     AConsoleManager.Instance.EnterCommand(commandIfTrue);
@@ -174,11 +174,11 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr1);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool)ret.Value;
+                bool r = (bool) ret.Value;
                 OPCode ret2 = eval.Parse(expr2);
                 if (ret2 != null && ret2.CanReturn(EvalType.Boolean))
                 {
-                    bool r2 = (bool)ret2.Value;
+                    bool r2 = (bool) ret2.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(commandExpr1);
@@ -190,6 +190,7 @@ namespace Console.Evaluator
                 }
             }
         }
+
         [Command("ifelseif", "Invokes a command based on the expressions.")]
         private void IfElseIf(string expr1, string commandExpr1, string expr2, string commandExpr2, string elseCommand)
         {
@@ -197,11 +198,11 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr1);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool)ret.Value;
+                bool r = (bool) ret.Value;
                 OPCode ret2 = eval.Parse(expr2);
                 if (ret2 != null && ret2.CanReturn(EvalType.Boolean))
                 {
-                    bool r2 = (bool)ret2.Value;
+                    bool r2 = (bool) ret2.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(commandExpr1);

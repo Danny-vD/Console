@@ -11,7 +11,6 @@ namespace Console.Networking.Commands
     /// </summary>
     public class ClientConsoleCommand
     {
-
         /// <summary>
         /// Tries to Connect to a hosting console.
         /// </summary>
@@ -48,6 +47,7 @@ namespace Console.Networking.Commands
         {
             NetworkingSettings.ClientSession.Disconnect();
         }
+
         /// <summary>
         /// Runs a Command on the Remote Console.
         /// </summary>

@@ -1,12 +1,10 @@
 ﻿namespace Console.Networking.Packets.ConnectionResponse
 {
-
     /// <summary>
     /// Gets sent if the Host has denied the Connection
     /// </summary>
     public class ConnectionRequestResponseFailedPacket : ConnectionRequestResponsePacket
     {
-
         /// <summary>
         /// Does the Host Allow the Connection?
         /// </summary>

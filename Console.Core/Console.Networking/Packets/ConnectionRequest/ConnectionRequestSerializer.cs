@@ -2,7 +2,6 @@
 
 namespace Console.Networking.Packets.ConnectionRequest
 {
-
     /// <summary>
     /// PacketSerializer Implementation for ConnectionRequestPacket
     /// </summary>
@@ -25,7 +24,7 @@ namespace Console.Networking.Packets.ConnectionRequest
         /// <returns>Serialized Data</returns>
         protected override byte[] Serialize(ConnectionRequestPacket item)
         {
-            byte[] data= NetworkingSettings.EncodingInstance.GetBytes(item.Version);
+            byte[] data = NetworkingSettings.EncodingInstance.GetBytes(item.Version);
             return data;
         }
     }

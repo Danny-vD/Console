@@ -2,7 +2,6 @@
 
 namespace Console.Networking.Packets.AuthenticationResult
 {
-
     /// <summary>
     /// PacketSerializer Implementation for AuthenticationResultPacket
     /// </summary>
@@ -26,7 +25,7 @@ namespace Console.Networking.Packets.AuthenticationResult
         /// <returns>Serialized Data</returns>
         protected override byte[] Serialize(AuthenticationResultPacket item)
         {
-            return new [] { (byte)(item.Success ? 1 : 0) };
+            return new[] {(byte) (item.Success ? 1 : 0)};
         }
     }
 }

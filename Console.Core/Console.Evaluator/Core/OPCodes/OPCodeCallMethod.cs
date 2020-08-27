@@ -20,11 +20,11 @@ namespace Console.Evaluator.Core.OPCodes
         /// The BaseObject System Type Backing Field
         /// </summary>
         private Type mBaseSystemType;
-        
+
         /// <summary>
         /// The Base Value of the Call Method OPCode Backing Field
         /// </summary>
-        private IEvalValue _mBaseValue;  // for the events only
+        private IEvalValue _mBaseValue; // for the events only
 
         /// <summary>
         /// The Base Value of the Call Method OPCode
@@ -76,7 +76,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Result Value Backing Field
         /// </summary>
-        private IEvalValue _mResultValue;  // just for some
+        private IEvalValue _mResultValue; // just for some
 
         /// <summary>
         /// The Result Value
@@ -101,6 +101,7 @@ namespace Console.Evaluator.Core.OPCodes
                 }
             }
         }
+
         /// <summary>
         /// Internal Constructor
         /// </summary>
@@ -125,7 +126,7 @@ namespace Console.Evaluator.Core.OPCodes
                 if (mBaseObject is IEvalTypedValue)
                 {
                     {
-                        IEvalTypedValue withBlock = (IEvalTypedValue)mBaseObject;
+                        IEvalTypedValue withBlock = (IEvalTypedValue) mBaseObject;
                         mBaseSystemType = withBlock.SystemType;
                     }
                 }
@@ -143,8 +144,8 @@ namespace Console.Evaluator.Core.OPCodes
             if (method is System.Reflection.PropertyInfo)
             {
                 {
-                    PropertyInfo withBlock1 = (System.Reflection.PropertyInfo)method;
-                    mResultSystemType = ((System.Reflection.PropertyInfo)method).PropertyType;
+                    PropertyInfo withBlock1 = (System.Reflection.PropertyInfo) method;
+                    mResultSystemType = ((System.Reflection.PropertyInfo) method).PropertyType;
                     paramInfo = withBlock1.GetIndexParameters();
                 }
 
@@ -153,7 +154,7 @@ namespace Console.Evaluator.Core.OPCodes
             else if (method is System.Reflection.MethodInfo)
             {
                 {
-                    MethodInfo withBlock2 = (System.Reflection.MethodInfo)method;
+                    MethodInfo withBlock2 = (System.Reflection.MethodInfo) method;
                     mResultSystemType = withBlock2.ReturnType;
                     paramInfo = withBlock2.GetParameters();
                 }
@@ -163,7 +164,7 @@ namespace Console.Evaluator.Core.OPCodes
             else if (method is System.Reflection.FieldInfo)
             {
                 {
-                    FieldInfo withBlock3 = (System.Reflection.FieldInfo)method;
+                    FieldInfo withBlock3 = (System.Reflection.FieldInfo) method;
                     mResultSystemType = withBlock3.FieldType;
                     paramInfo = new System.Reflection.ParameterInfo[] { };
                 }
@@ -181,11 +182,11 @@ namespace Console.Evaluator.Core.OPCodes
 
             if (typeof(IEvalValue).IsAssignableFrom(mResultSystemType))
             {
-                mResultValue = (IEvalValue)InternalValue();
+                mResultValue = (IEvalValue) InternalValue();
                 if (mResultValue is IEvalTypedValue)
                 {
                     {
-                        IEvalTypedValue withBlock4 = (IEvalTypedValue)mResultValue;
+                        IEvalTypedValue withBlock4 = (IEvalTypedValue) mResultValue;
                         mResultSystemType = withBlock4.SystemType;
                         mResultEvalType = withBlock4.EvalType;
                     }
@@ -225,7 +226,8 @@ namespace Console.Evaluator.Core.OPCodes
         /// <param name="method">The Member Info</param>
         /// <param name="params">The Parameters</param>
         /// <returns>New OPCodeCallMethod Instance</returns>
-        protected internal static OPCode GetNew(Tokenizer tokenizer, object baseObject, MemberInfo method, IList @params)
+        protected internal static OPCode GetNew(Tokenizer tokenizer, object baseObject, MemberInfo method,
+            IList @params)
         {
             OPCode o;
             o = new OPCodeCallMethod(baseObject, method, @params);
@@ -245,7 +247,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Value</returns>
         private object GetProperty()
         {
-            object res = ((System.Reflection.PropertyInfo)mMethod).GetValue(mBaseValueObject, mParamValues);
+            object res = ((System.Reflection.PropertyInfo) mMethod).GetValue(mBaseValueObject, mParamValues);
             return res;
         }
 
@@ -255,7 +257,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Value</returns>
         private object GetMethod()
         {
-            object res = ((System.Reflection.MethodInfo)mMethod).Invoke(mBaseValueObject, mParamValues);
+            object res = ((System.Reflection.MethodInfo) mMethod).Invoke(mBaseValueObject, mParamValues);
             return res;
         }
 
@@ -265,7 +267,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Value</returns>
         private object GetField()
         {
-            object res = ((System.Reflection.FieldInfo)mMethod).GetValue(mBaseValueObject);
+            object res = ((System.Reflection.FieldInfo) mMethod).GetValue(mBaseValueObject);
             return res;
         }
 
@@ -279,7 +281,7 @@ namespace Console.Evaluator.Core.OPCodes
                 mParamValues[i] = mParams[i].Value;
             if (mBaseObject is IEvalValue)
             {
-                mBaseValue = (IEvalValue)mBaseObject;
+                mBaseValue = (IEvalValue) mBaseObject;
                 mBaseValueObject = mBaseValue.Value;
             }
             else
@@ -300,7 +302,7 @@ namespace Console.Evaluator.Core.OPCodes
                 object res = InternalValue();
                 if (res is IEvalValue)
                 {
-                    mResultValue = (IEvalValue)res;
+                    mResultValue = (IEvalValue) res;
                     res = mResultValue.Value;
                 }
 

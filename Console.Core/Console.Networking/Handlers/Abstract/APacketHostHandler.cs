@@ -11,7 +11,6 @@ namespace Console.Networking.Handlers.Abstract
     public abstract class APacketHostHandler<T> : IPacketHostHandler
         where T : ANetworkPacket
     {
-
         /// <summary>
         /// Handles the Packet
         /// </summary>
@@ -22,6 +21,7 @@ namespace Console.Networking.Handlers.Abstract
             if (item is T p) Handle(client, p);
             //else throw new InvalidCastException("Expected type: " + typeof(T) + " got: " + item.GetType());
         }
+
         /// <summary>
         /// Handles the packet of type T
         /// </summary>

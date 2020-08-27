@@ -17,7 +17,8 @@ namespace Console.Core.PropertySystem
         /// <summary>
         /// All Properties
         /// </summary>
-        private static readonly Dictionary<string, IValueTypeContainer> Properties = new Dictionary<string, IValueTypeContainer>();
+        private static readonly Dictionary<string, IValueTypeContainer> Properties =
+            new Dictionary<string, IValueTypeContainer>();
         /// <summary>
         /// List of all Property Paths/Names
         /// </summary>
@@ -37,6 +38,7 @@ namespace Console.Core.PropertySystem
         /// <param name="propertyPath">Path/Name of the Property</param>
         /// <returns>True if the Property Exists</returns>
         public static bool HasProperty(string propertyPath) => Properties.ContainsKey(propertyPath);
+
         /// <summary>
         /// Adds or Sets the property with the specified path to the specified value
         /// </summary>
@@ -82,6 +84,7 @@ namespace Console.Core.PropertySystem
             value = GetPropertyValue(propertyPath);
             return true;
         }
+
         /// <summary>
         /// Sets the Property Value of the Specified Path to the passed object.
         /// </summary>
@@ -92,7 +95,8 @@ namespace Console.Core.PropertySystem
             if (Properties[propertyPath].CanWrite)
                 Properties[propertyPath].Set(value);
             else
-                ConsoleCoreConfig.CoreLogger.LogWarning("Can not Write property: " + propertyPath + " its already existing and readonly");
+                ConsoleCoreConfig.CoreLogger.LogWarning("Can not Write property: " + propertyPath +
+                                                        " its already existing and readonly");
         }
 
 

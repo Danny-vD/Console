@@ -40,7 +40,7 @@ namespace Console.ScriptSystem.Deblocker
 
         private static ALogger CreateLogger()
         {
-            ALogger l= TypedLogger.CreateTypedWithPrefix("Deblocker");
+            ALogger l = TypedLogger.CreateTypedWithPrefix("Deblocker");
             l.Mute = true;
             return l;
         }
@@ -50,13 +50,11 @@ namespace Console.ScriptSystem.Deblocker
         /// <summary>
         /// Open Block Bracket
         /// </summary>
-        [Property("scriptsystem.block.open")]
-        public static char BlockBracketOpen = '{';
+        [Property("scriptsystem.block.open")] public static char BlockBracketOpen = '{';
         /// <summary>
         /// Close Block Bracket
         /// </summary>
-        [Property("scriptsystem.block.close")]
-        public static char BlockBracketClosed = '}';
+        [Property("scriptsystem.block.close")] public static char BlockBracketClosed = '}';
 
 
         /// <summary>

@@ -19,6 +19,7 @@ namespace Console.DefaultConverters
         {
             return parameter is string s && s.All(x => x == '-' || (x >= '0' && x <= '9')) && target == typeof(Enum);
         }
+
         /// <summary>
         /// Converts the Parameter into the Target Type
         /// </summary>

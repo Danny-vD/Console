@@ -8,11 +8,11 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public class RangeVariableProvider : VariableProvider
     {
-
         /// <summary>
         /// The Function Name
         /// </summary>
         public override string FunctionName => "range";
+
         /// <summary>
         /// Parameter Layouts:
         ///     end
@@ -24,11 +24,12 @@ namespace Console.EnvironmentVariables
         /// <returns>; Seperated List of Numbers</returns>
         public override string GetValue(string parameter)
         {
-            string[] parts = parameter.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = parameter.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length == 0) return "";
             if (parts.Length == 1) return CreateRange(0, double.Parse(parts[0]), 1);
             if (parts.Length == 2) return CreateRange(double.Parse(parts[0]), double.Parse(parts[1]), 1);
-            if (parts.Length == 3) return CreateRange(double.Parse(parts[0]), double.Parse(parts[1]), double.Parse(parts[2]));
+            if (parts.Length == 3)
+                return CreateRange(double.Parse(parts[0]), double.Parse(parts[1]), double.Parse(parts[2]));
             return "";
         }
 

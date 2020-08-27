@@ -13,6 +13,7 @@ namespace Console.Core.ReflectionSystem.Abstract
         /// The Object Instance that contains the Member
         /// </summary>
         public readonly object Instance;
+
         /// <summary>
         /// Protected Constructor
         /// </summary>

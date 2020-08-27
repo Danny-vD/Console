@@ -35,6 +35,7 @@
         {
             base.LogWarning(LogWarningPrefix + value);
         }
+
         /// <summary>
         /// Logs an error
         /// </summary>
@@ -62,6 +63,5 @@
             pfx.WrapAround(new PrefixLogger(prefix));
             return pfx;
         }
-
     }
 }

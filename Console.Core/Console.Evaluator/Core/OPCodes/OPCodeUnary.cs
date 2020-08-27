@@ -4,7 +4,6 @@ using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.OPCodes
 {
-
     /// <summary>
     /// Implements Unary OPCodes like NOT and UNARY_MINUS
     /// </summary>
@@ -85,7 +84,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Inverse of the Parameter Value</returns>
         private object BOOLEAN_NOT()
         {
-            return !(bool)mParam1.Value;
+            return !(bool) mParam1.Value;
         }
 
         /// <summary>
@@ -94,7 +93,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>The Negative Value of the Parameter</returns>
         private object NUM_CHGSIGN()
         {
-            return -(double)mParam1.Value;
+            return -(double) mParam1.Value;
         }
 
 

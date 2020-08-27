@@ -60,6 +60,5 @@ namespace Console.Core.ReflectionSystem
         {
             Value = value;
         }
-
     }
 }

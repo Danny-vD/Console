@@ -11,7 +11,6 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class ConnectionRequestHostHandler : APacketHostHandler<ConnectionRequestPacket>
     {
-
         /// <summary>
         /// Handles the packet of type T
         /// </summary>

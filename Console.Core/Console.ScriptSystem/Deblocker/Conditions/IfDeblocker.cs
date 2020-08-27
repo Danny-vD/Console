@@ -11,7 +11,6 @@ namespace Console.ScriptSystem.Deblocker.Conditions
     /// </summary>
     public class IfDeblocker : DefaultDeblocker
     {
-
         /// <summary>
         /// The Key of the Deblocker that has to match the block command to be activated.
         /// </summary>
@@ -26,10 +25,10 @@ namespace Console.ScriptSystem.Deblocker.Conditions
         /// <returns>List of Deblocked Content</returns>
         public override string[] Deblock(Line line, out List<string> begin, out List<string> end)
         {
-            return Deblock(line, new string[0],  out begin, out end);
+            return Deblock(line, new string[0], out begin, out end);
         }
 
-        protected string[] Deblock(Line line, string[] parameters,out List<string> begin, out List<string> end)
+        protected string[] Deblock(Line line, string[] parameters, out List<string> begin, out List<string> end)
         {
             DeblockerSettings.Logger.Log($"Deblocking {Key}: " + line.CleanedLine);
             List<string> _begin = new List<string>();
@@ -42,7 +41,8 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             for (int i = 0; i < line.Blocks.Count; i++)
             {
                 string ifBlockSeq = $"{DeblockerSettings.GetBlockName()}_{Key}";
-                List<string> ifBlockContent = CreateBlock(ifBlockSeq, line.Blocks[i], parameters, out List<string> bbegin,
+                List<string> ifBlockContent = CreateBlock(ifBlockSeq, line.Blocks[i], parameters,
+                    out List<string> bbegin,
                     out List<string> bend);
                 ret.AddRange(ifBlockContent);
                 string rep = $"\"{SequenceSystem.SequenceRun} {ifBlockSeq}\"";
@@ -58,7 +58,8 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             return ret.ToArray();
         }
 
-        protected List<string> CreateBlock(string name, string[] content, string[] parameters,  out List<string> begin, out List<string> end)
+        protected List<string> CreateBlock(string name, string[] content, string[] parameters, out List<string> begin,
+            out List<string> end)
         {
             begin = new List<string>();
             end = new List<string>();

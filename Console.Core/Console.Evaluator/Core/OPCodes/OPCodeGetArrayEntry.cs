@@ -82,7 +82,7 @@ namespace Console.Evaluator.Core.OPCodes
             get
             {
                 object res;
-                Array arr = (Array)mArray.Value;
+                Array arr = (Array) mArray.Value;
                 for (int i = 0, loopTo = mValues.Length - 1; i <= loopTo; i++)
                     mValues[i] = System.Convert.ToInt32(mParams[i].Value);
                 res = arr.GetValue(mValues);

@@ -4,7 +4,6 @@ using Console.Evaluator.Core.Interfaces;
 
 namespace Console.Evaluator.Core.OPCodes
 {
-
     /// <summary>
     /// Abstract OPCode Class.
     /// Does Implement IEvalTypedValue and IEvalHasDescription Interfaces
@@ -96,7 +95,7 @@ namespace Console.Evaluator.Core.OPCodes
                 }
                 else
                 {
-                    tokenizer.RaiseError("Cannot convert " + param1.Name + " into " + ((int)evalType).ToString());
+                    tokenizer.RaiseError("Cannot convert " + param1.Name + " into " + ((int) evalType).ToString());
                 }
             }
         }
@@ -137,6 +136,5 @@ namespace Console.Evaluator.Core.OPCodes
         /// ValueChanged EventHandler
         /// </summary>
         public event ValueChangedEventHandler ValueChanged;
-        
     }
 }

@@ -4,7 +4,6 @@ using Console.EnvironmentVariables;
 
 namespace Console.PropEnvCompat
 {
-
     /// <summary>
     /// VariableContainer Implementation with the FuncName: "props"
     /// </summary>
@@ -17,7 +16,7 @@ namespace Console.PropEnvCompat
         {
             get
             {
-                string s = base.EnvList+"; ";
+                string s = base.EnvList + "; ";
                 List<string> keys = PropertyManager.AllPropertyPaths;
                 for (int i = 0; i < keys.Count; i++)
                 {
@@ -32,7 +31,9 @@ namespace Console.PropEnvCompat
         /// <summary>
         /// Public Constructor
         /// </summary>
-        public PropertyVariableProvider() : base("props") { }
+        public PropertyVariableProvider() : base("props")
+        {
+        }
 
         /// <summary>
         /// Returns the Value of the Property

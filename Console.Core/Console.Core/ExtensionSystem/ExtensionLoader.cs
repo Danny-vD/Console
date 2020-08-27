@@ -34,7 +34,7 @@ namespace Console.Core.ExtensionSystem
         /// <param name="file">Extension Path</param>
         public static void LoadExtensionFile(string file)
         {
-            LoadExtensionFiles(new[] { file });
+            LoadExtensionFiles(new[] {file});
         }
 
         /// <summary>
@@ -120,7 +120,8 @@ namespace Console.Core.ExtensionSystem
                 Assembly asm = Assembly.LoadFrom(path);
                 AExtensionInitializer[] inits = ActivateOnAttributeUtils.ActivateObjects<AExtensionInitializer>(asm);
                 if (inits.Length == 0)
-                    ConsoleCoreConfig.CoreLogger.LogWarning("Assembly " + asm.GetName().Name + " does not have an Initializer but is loaded.");
+                    ConsoleCoreConfig.CoreLogger.LogWarning("Assembly " + asm.GetName().Name +
+                                                            " does not have an Initializer but is loaded.");
                 return inits;
             }
             catch (Exception e)
@@ -132,6 +133,5 @@ namespace Console.Core.ExtensionSystem
         }
 
         #endregion
-
     }
 }

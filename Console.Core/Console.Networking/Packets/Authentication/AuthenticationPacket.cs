@@ -49,6 +49,5 @@ namespace Console.Networking.Packets.Authentication
                 return new AuthenticationPacket(new byte[Data.Length]);
             }
         }
-
     }
 }

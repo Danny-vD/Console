@@ -41,6 +41,7 @@ namespace Console.DefaultConverters
             }
             return DateTime.Parse(parameter.ToString(), Culture);
         }
+
         /// <summary>
         /// Returns true when the Converter is Able to Convert the parameter into the target type
         /// </summary>

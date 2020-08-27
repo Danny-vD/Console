@@ -5,7 +5,6 @@
 /// </summary>
 namespace Console.ScriptSystem.Deblocker.Conditions
 {
-
     /// <summary>
     /// Implements the deblocking for the "while" command.
     /// </summary>

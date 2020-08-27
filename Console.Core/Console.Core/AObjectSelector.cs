@@ -44,6 +44,4 @@ namespace Console.Core
             AddToSelection(obj);
         }
     }
-
-    
 }

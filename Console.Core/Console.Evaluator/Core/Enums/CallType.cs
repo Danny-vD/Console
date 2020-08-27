@@ -1,4 +1,5 @@
 ﻿using System;
+
 /// <summary>
 /// Namespace of all Enums in the Evaluator.
 /// </summary>

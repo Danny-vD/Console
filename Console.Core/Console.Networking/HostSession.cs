@@ -22,11 +22,13 @@ namespace Console.Networking
         /// <param name="socket">The Sender Socket</param>
         /// <param name="packet">The Transmitted Packet</param>
         public delegate void PacketReceive(ConsoleSocket socket, ANetworkPacket packet);
+
         /// <summary>
         /// Gets Invoked when a client connected to the host
         /// </summary>
         /// <param name="socket">The client that connected.</param>
         public delegate void ClientConnected(ConsoleSocket socket);
+
         /// <summary>
         /// Gets Invoked when a client disconnected from the host
         /// </summary>

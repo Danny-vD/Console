@@ -14,7 +14,7 @@ namespace Console.Networking.Packets.SendDataRequestResponse
         /// <returns>Serialized Data</returns>
         protected override byte[] Serialize(SendDataRequestResponsePacket item)
         {
-            return new [] {(byte)(item.Allowed ? 1 : 0) };
+            return new[] {(byte) (item.Allowed ? 1 : 0)};
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Console.Networking.Packets.SendDataRequestResponse
         /// <returns>Network Packet</returns>
         protected override SendDataRequestResponsePacket Deserialize(byte[] data)
         {
-            if(data[0]==1)return SendDataRequestResponsePacket.Allow;
+            if (data[0] == 1) return SendDataRequestResponsePacket.Allow;
             return SendDataRequestResponsePacket.Deny;
         }
     }

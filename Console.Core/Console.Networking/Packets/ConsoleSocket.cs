@@ -54,7 +54,9 @@ namespace Console.Networking.Packets
         /// <summary>
         /// Public Constructor
         /// </summary>
-        public ConsoleSocket() { }
+        public ConsoleSocket()
+        {
+        }
 
         /// <summary>
         /// Public Construtor
@@ -108,7 +110,7 @@ namespace Console.Networking.Packets
 
                 List<byte> data = new List<byte>();
 
-                data.Add((byte)(packet.DoNotEncrypt ? 1 : 0)); //DoNotEncryptFlag
+                data.Add((byte) (packet.DoNotEncrypt ? 1 : 0)); //DoNotEncryptFlag
 
                 byte[] idBuf = NetworkingSettings.EncodingInstance.GetBytes(packet.PacketIdentifier);
                 if (!packet.DoNotEncrypt)
@@ -145,7 +147,8 @@ namespace Console.Networking.Packets
 
                 if (len <= 0 || len > NetworkingSettings.PacketIdentifierMaxBytes)
                 {
-                    NetworkedInitializer.Logger.LogWarning("Network Package Read Error: Packet Identifier size is not valid: " + len);
+                    NetworkedInitializer.Logger.LogWarning(
+                        "Network Package Read Error: Packet Identifier size is not valid: " + len);
                     FlushNetworkStream();
                     return;
                 }
@@ -168,7 +171,8 @@ namespace Console.Networking.Packets
                     int dataLen = BitConverter.ToInt32(dataLenBuf, 0);
                     if (dataLen <= 0 || dataLen > NetworkingSettings.PacketDataMaxBytes)
                     {
-                        NetworkedInitializer.Logger.LogWarning("Network Package Read Error: Packet Data size is not valid: " + dataLen);
+                        NetworkedInitializer.Logger.LogWarning(
+                            "Network Package Read Error: Packet Data size is not valid: " + dataLen);
                         FlushNetworkStream();
                         return;
                     }

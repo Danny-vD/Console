@@ -3,8 +3,6 @@ using Console.EnvironmentVariables;
 
 namespace Console.PropIOCompat
 {
-
-
     /// <summary>
     /// VariableProvider Implementation that returns the Files in the Specified Directory.
     /// </summary>

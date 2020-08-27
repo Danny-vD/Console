@@ -46,6 +46,7 @@ namespace Console.Networking.Authentication
         #endregion
 
         #region Password Derive Bytes
+
         /// <summary>
         /// Creates a Rfc2898DeriveBytes Instance from a password.
         /// </summary>
@@ -57,7 +58,6 @@ namespace Console.Networking.Authentication
         {
             return new Rfc2898DeriveBytes(pass, salt, iterations);
         }
-
 
         #endregion
 
@@ -95,6 +95,7 @@ namespace Console.Networking.Authentication
 
             return encrypted;
         }
+
         /// <summary>
         /// Encrypts a Value with a Symmetric Algorithm
         /// </summary>
@@ -108,6 +109,7 @@ namespace Console.Networking.Authentication
         {
             return Encrypt(alg, value, vector, GetPassword(password, salt));
         }
+
         /// <summary>
         /// Encrypts a Value with a Symmetric Algorithm
         /// </summary>
@@ -132,8 +134,10 @@ namespace Console.Networking.Authentication
         /// <returns>Encrypted Value</returns>
         public static byte[] Encrypt(SymmetricAlgorithm alg, byte[] value, byte[] password)
         {
-            return Encrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance,DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance,DefaultVector));
+            return Encrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
         }
+
         /// <summary>
         /// Encrypts a Value with a Symmetric Algorithm
         /// </summary>
@@ -144,13 +148,14 @@ namespace Console.Networking.Authentication
         public static byte[] Encrypt<T>(byte[] value, byte[] password)
             where T : SymmetricAlgorithm, new()
         {
-            return Encrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance,DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance,DefaultVector));
+            return Encrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
         }
-
 
         #endregion
 
         #region Decrypt
+
         /// <summary>
         /// Decrypts a Value with a Symmetric Algorithm
         /// </summary>
@@ -217,10 +222,12 @@ namespace Console.Networking.Authentication
         /// <param name="salt">The Password Salt.</param>
         /// <param name="vector">The Initialization Vector(IV)</param>
         /// <returns>Decrypted Value</returns>
-        public static byte[] Decrypt<T>(byte[] value, byte[] password, byte[] salt, byte[] vector) where T : SymmetricAlgorithm, new()
+        public static byte[] Decrypt<T>(byte[] value, byte[] password, byte[] salt, byte[] vector)
+            where T : SymmetricAlgorithm, new()
         {
             return Decrypt(new T(), value, password, salt, vector);
         }
+
         /// <summary>
         /// Decrypts a Value with a Symmetric Algorithm
         /// </summary>
@@ -230,7 +237,8 @@ namespace Console.Networking.Authentication
         /// <returns>Decrypted Value</returns>
         public static byte[] Decrypt(SymmetricAlgorithm alg, byte[] value, byte[] password)
         {
-            return Decrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance,DefaultVector));
+            return Decrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
         }
 
         /// <summary>
@@ -243,9 +251,9 @@ namespace Console.Networking.Authentication
         public static byte[] Decrypt<T>(byte[] value, byte[] password)
             where T : SymmetricAlgorithm, new()
         {
-            return Decrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt), GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
+            return Decrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
         }
-
 
         #endregion
 
@@ -261,6 +269,7 @@ namespace Console.Networking.Authentication
         {
             return GetBytes(new T(), data);
         }
+
         /// <summary>
         /// Converts a String into a Byte Array.
         /// </summary>

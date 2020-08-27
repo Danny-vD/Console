@@ -1,7 +1,6 @@
 ﻿using Console.Networking.Packets.Abstract;
 
 
-
 /// <summary>
 /// AuthenticationResultPacket Classes
 /// </summary>

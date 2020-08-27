@@ -16,6 +16,7 @@ namespace Console.Networking.Authentication
         /// <param name="data">Passed Data</param>
         /// <returns>Decrypted Data</returns>
         public byte[] Decrypt(byte[] data) => data;
+
         /// <summary>
         /// Encrypts the Passed Data
         /// </summary>

@@ -11,8 +11,6 @@ using Console.Core.PropertySystem;
 /// </summary>
 namespace Console.PersistentProperties
 {
-
-
     /// <summary>
     /// Initializer of the PersistentProperties Extension
     /// </summary>

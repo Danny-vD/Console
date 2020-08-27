@@ -21,10 +21,13 @@
         /// <param name="flag1">Flag -x</param>
         /// <param name="flag2">Flag -y</param>
         [Command("ft", "Flag Test. This Command is Legal")]
-        private static void FlagTest1(string arg0, int arg1, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //(2-4)
+        private static void FlagTest1(string arg0, int arg1, [CommandFlag("x")] bool flag1,
+            [CommandFlag("y")] bool flag2) //(2-4)
         {
-            ConsoleCoreConfig.CoreLogger.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1 + "\ny: " + flag2);
+            ConsoleCoreConfig.CoreLogger.Log("(string)arg0: " + arg0 + "\n(int)arg1: " + arg1 + "\nx: " + flag1 +
+                                             "\ny: " + flag2);
         }
+
         /// <summary>
         /// Flag Test Command. 2 normal arguments, 1 Flag.
         /// This Command is Illegal when FlagTest1 is added.
@@ -45,7 +48,8 @@
         /// <param name="flag1">Flag -x</param>
         /// <param name="flag2">Flag -y</param>
         [Command("ft", "Flag Test. This Command is Legal")]
-        private static void FlagTest3(string arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //Legal(1-3)
+        private static void
+            FlagTest3(string arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")] bool flag2) //Legal(1-3)
         {
             ConsoleCoreConfig.CoreLogger.Log("(string)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
         }
@@ -58,7 +62,8 @@
         /// <param name="flag1">Flag -x</param>
         /// <param name="flag2">Flag -y</param>
         [Command("ft", "Flag Test. This Command is Illegal when FlagTest3 is added")]
-        private static void FlagTest4(int arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")]bool flag2) //Illegal(1-3)
+        private static void
+            FlagTest4(int arg0, [CommandFlag("x")] bool flag1, [CommandFlag("y")] bool flag2) //Illegal(1-3)
         {
             ConsoleCoreConfig.CoreLogger.Log("(int)arg0: " + arg0 + "\nx: " + flag1 + "\ny: " + flag2);
         }

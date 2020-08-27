@@ -11,7 +11,6 @@ using Console.EnvironmentVariables;
 /// </summary>
 namespace Console.ClassQueries
 {
-
     /// <summary>
     /// Initializer of the ClassQueries Extension
     /// </summary>

@@ -10,9 +10,6 @@ using Console.Core.PropertySystem;
 /// </summary>
 namespace Console.IO
 {
-
-
-
     /// <summary>
     /// Initializer of the IO Extension
     /// </summary>

@@ -4,7 +4,6 @@ using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.OPCodes
 {
-
     /// <summary>
     /// Implements the OPCode for returning a Value from an EvalVariable class.
     /// </summary>

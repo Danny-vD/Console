@@ -37,10 +37,10 @@ namespace Console.CLI
             {
                 Program.Logger.Log("Selecting Object: " + SelectableObjects[key]);
                 AConsoleManager.Instance.ObjectSelector.AddToSelection(SelectableObjects[key]);
-                Program.Logger.Log("Selected Objects: " + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);
+                Program.Logger.Log("Selected Objects: " +
+                                   AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);
             }
         }
-
 
 
         /// <summary>

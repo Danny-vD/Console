@@ -35,7 +35,8 @@ namespace Console.Core.ReflectionSystem
                 if (actual == null) throw new Exception("The exception is null and can not be thrown.");
                 try
                 {
-                    ExceptionDispatchInfo.Capture(actual).Throw(); //Throw the Exception but do not change the stacktrace
+                    ExceptionDispatchInfo.Capture(actual)
+                        .Throw(); //Throw the Exception but do not change the stacktrace
                 }
                 catch (Exception exception)
                 {
@@ -66,7 +67,7 @@ namespace Console.Core.ReflectionSystem
         /// <param name="instance">The Instance of the Property</param>
         /// <param name="value">New Value</param>
         public static void Set(this PropertyInfo info, object instance, object value) =>
-            InvokePreserveStack(info.SetMethod, instance, new[] { value });
+            InvokePreserveStack(info.SetMethod, instance, new[] {value});
 
 
         #region Reflection Helper Functions
@@ -83,6 +84,7 @@ namespace Console.Core.ReflectionSystem
                 new KeyValuePair<T, IValueTypeContainer>(x.Key,
                     new StaticPropertyMetaData(x.Value))).ToDictionary(x => x.Key, x => x.Value);
         }
+
         /// <summary>
         /// Returns all Static FieldMetaDatas with the specified Attribute
         /// </summary>
@@ -108,6 +110,7 @@ namespace Console.Core.ReflectionSystem
                 new KeyValuePair<T, IValueTypeContainer>(x.Key,
                     new PropertyMetaData(instance, x.Value))).ToDictionary(x => x.Key, x => x.Value);
         }
+
         /// <summary>
         /// Returns all FieldMetaDatas with the specified Attribute
         /// </summary>
@@ -121,11 +124,11 @@ namespace Console.Core.ReflectionSystem
                     new FieldMetaData(instance, x.Value))).ToDictionary(x => x.Key, x => x.Value);
         }
 
-
         #endregion
 
 
         #region Attribute Inspection
+
         /// <summary>
         /// Returns all Fields with the Specified Attribute
         /// </summary>
@@ -139,6 +142,7 @@ namespace Console.Core.ReflectionSystem
             return GetAttributes<T, FieldInfo>(t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
                 .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
         }
+
         /// <summary>
         /// Returns all Properties with the Specified Attribute
         /// </summary>
@@ -146,7 +150,8 @@ namespace Console.Core.ReflectionSystem
         /// <param name="t">Type Containing the Fields</param>
         /// <param name="flag">Binding Flags of the Properties</param>
         /// <returns>Dictionary of Attributes and Property Infos</returns>
-        public static Dictionary<T, PropertyInfo> GetPropertiesWithAttribute<T>(this Type t, BindingFlags flag) where T : Attribute
+        public static Dictionary<T, PropertyInfo> GetPropertiesWithAttribute<T>(this Type t, BindingFlags flag)
+            where T : Attribute
         {
             return GetAttributes<T, PropertyInfo>(t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
                 .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
@@ -176,8 +181,6 @@ namespace Console.Core.ReflectionSystem
             return ret;
         }
 
-
         #endregion
     }
-
 }

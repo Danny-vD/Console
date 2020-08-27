@@ -15,6 +15,7 @@ namespace Console.ScriptSystem.Deblocker.Parameters
         /// The Provider Name
         /// </summary>
         public override string FunctionName => "param";
+
         /// <summary>
         /// Returns the Parameter specified from the Current ParameterCollection
         /// </summary>

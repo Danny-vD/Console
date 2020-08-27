@@ -28,7 +28,7 @@ namespace Console.Core.CommandSystem
         /// <param name="name">Name of the Command, Null if default name(same as the Method Name)</param>
         /// <param name="helpMessage">Help Message that gets displayed in the Help Command</param>
         /// <param name="alias">Optional Additional Command Names and Shortcuts</param>
-        public CommandAttribute(string name=null, string helpMessage="No Help Message", params string[] alias)
+        public CommandAttribute(string name = null, string helpMessage = "No Help Message", params string[] alias)
         {
             Name = name;
             HelpMessage = helpMessage;

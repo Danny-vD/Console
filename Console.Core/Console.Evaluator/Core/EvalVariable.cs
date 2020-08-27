@@ -89,6 +89,5 @@ namespace Console.Evaluator.Core
         /// Event Handler that gets invoked when the Variable Value gets set.
         /// </summary>
         public event ValueChangedEventHandler ValueChanged;
-        
     }
 }

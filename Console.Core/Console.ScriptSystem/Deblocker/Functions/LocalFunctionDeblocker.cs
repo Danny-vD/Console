@@ -37,8 +37,8 @@ namespace Console.ScriptSystem.Deblocker.Functions
             Line l = new Line(newL);
 
             string[] parts = l.CleanParts;
-            
-                DeblockerSettings.Logger.Log("Deblocking Local Function: " + parts[1] + signature);
+
+            DeblockerSettings.Logger.Log("Deblocking Local Function: " + parts[1] + signature);
             List<string> s = base.Deblock(l, out begin, out end).ToList();
 
 

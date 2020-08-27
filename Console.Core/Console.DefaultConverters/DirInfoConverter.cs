@@ -19,6 +19,7 @@ namespace Console.DefaultConverters
         {
             return parameter is string && target == typeof(DirectoryInfo);
         }
+
         /// <summary>
         /// Converts the Parameter into the Target Type
         /// </summary>
