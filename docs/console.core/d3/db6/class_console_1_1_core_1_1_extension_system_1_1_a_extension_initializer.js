@@ -8,6 +8,6 @@ var class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer =
     [ "SetLogger", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#af30621fffccf8e408c15268fc4ef7e06", null ],
     [ "ExtensionAssembly", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#ac03b1d881c822fce9df47256564d4766", null ],
     [ "LoggerPrefix", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a5dc5be19a2c90300180b296f04093fef", null ],
-    [ "Loggers", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a24ae70ef36f3bcd667a0a97f1ae81cdc", null ],
+    [ "Loggers", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a917ccea7dfcea9976d8e23d709bbd6f0", null ],
     [ "Order", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a156f5dd50c82159daaf1f80172992765", null ]
 ];

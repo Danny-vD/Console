@@ -132,7 +132,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>VariableProvider Implementation that returns the Files in the Specified Directory. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00011">11</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00009">9</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9e814d899bcde3463b1d455a4c078f2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e814d899bcde3463b1d455a4c078f2f">&#9670;&nbsp;</a></span>GetValue()</h2>
@@ -169,10 +169,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d3b/class_console_1_1_environment_variables_1_1_variable_provider.html#adc951ac993bd190dc7fc1c3402f77743">Console.EnvironmentVariables.VariableProvider</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00039">39</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">ToList</a>(Directory.GetFiles(parameter, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly));</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00037">37</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">ToList</a>(Directory.GetFiles(parameter, <span class="stringliteral">&quot;*&quot;</span>, SearchOption.TopDirectoryOnly));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -209,15 +209,15 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00018">18</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s1 <span class="keywordflow">in</span> li)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                s += s1 + <span class="stringliteral">&quot;; &quot;</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00016">16</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s1 <span class="keywordflow">in</span> li)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                s += s1 + <span class="stringliteral">&quot;; &quot;</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -236,7 +236,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Function name that is used to get this Variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00031">31</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html#l00029">29</a> of file <a class="el" href="../../dc/da3/_files_variable_provider_8cs_source.html">FilesVariableProvider.cs</a>.</p>
 
 </div>
 </div>
@@ -245,7 +245,7 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_prop_i_o_compat_1_1_files_variable_provider_html_a5e9b6369435c340c83679bd20144d8df"><div class="ttname"><a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">Console.PropIOCompat.FilesVariableProvider.ToList</a></div><div class="ttdeci">static string ToList(string[] li)</div><div class="ttdoc">Helper Function that turns a String Array into a ; seperated list.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_files_variable_provider_8cs_source.html#l00018">FilesVariableProvider.cs:18</a></div></div>
+<div class="ttc" id="aclass_console_1_1_prop_i_o_compat_1_1_files_variable_provider_html_a5e9b6369435c340c83679bd20144d8df"><div class="ttname"><a href="../../dd/dfa/class_console_1_1_prop_i_o_compat_1_1_files_variable_provider.html#a5e9b6369435c340c83679bd20144d8df">Console.PropIOCompat.FilesVariableProvider.ToList</a></div><div class="ttdeci">static string ToList(string[] li)</div><div class="ttdoc">Helper Function that turns a String Array into a ; seperated list.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_files_variable_provider_8cs_source.html#l00016">FilesVariableProvider.cs:16</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

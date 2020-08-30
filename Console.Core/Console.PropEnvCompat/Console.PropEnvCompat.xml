@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.PropEnvCompat</name>
+    </assembly>
+    <members>
+        <member name="T:Console.PropEnvCompat.PropCompatInitializer">
+            <summary>
+            Initializer of the PropEnvCompat Extension
+            </summary>
+        </member>
+        <member name="P:Console.PropEnvCompat.PropCompatInitializer.Logger">
+            <summary>
+            The Load Order of the Extension
+            </summary>
+        </member>
+        <member name="P:Console.PropEnvCompat.PropCompatInitializer.EnvVersion">
+            <summary>
+            Version of the PropEnvCompat Extension
+            </summary>
+        </member>
+        <member name="M:Console.PropEnvCompat.PropCompatInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="T:Console.PropEnvCompat.PropertyVariableProvider">
+            <summary>
+            VariableContainer Implementation with the FuncName: "props"
+            </summary>
+        </member>
+        <member name="P:Console.PropEnvCompat.PropertyVariableProvider.EnvList">
+            <summary>
+            All Environment Variables inside this container
+            </summary>
+        </member>
+        <member name="M:Console.PropEnvCompat.PropertyVariableProvider.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.PropEnvCompat.PropertyVariableProvider.GetValue(System.String)">
+            <summary>
+            Returns the Value of the Property
+            </summary>
+            <param name="parameter">The Property in this container</param>
+            <returns>The property value or NO_VALUE when the property is not found</returns>
+        </member>
+    </members>
+</doc>

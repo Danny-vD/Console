@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.ClassQueries</name>
+    </assembly>
+    <members>
+        <member name="T:Console.ClassQueries.ClassQueryInitializer">
+            <summary>
+            Initializer of the ClassQueries Extension
+            </summary>
+        </member>
+        <member name="P:Console.ClassQueries.ClassQueryInitializer.Logger">
+            <summary>
+            The Load Order of the Extension
+            </summary>
+        </member>
+        <member name="P:Console.ClassQueries.ClassQueryInitializer.EnvVersion">
+            <summary>
+            Version of the ClassQueries Extension
+            </summary>
+        </member>
+        <member name="M:Console.ClassQueries.ClassQueryInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="T:Console.ClassQueries.ClassQueryProvider">
+            <summary>
+            VariableProvider Implementation that returns the Assembly Qualified Name of the Specified Type Search Term
+            </summary>
+        </member>
+        <member name="P:Console.ClassQueries.ClassQueryProvider.FunctionName">
+            <summary>
+            The Function name that is used to get this Variable.
+            </summary>
+        </member>
+        <member name="M:Console.ClassQueries.ClassQueryProvider.GetValue(System.String)">
+            <summary>
+            Returns the Assembly Qualified Name of the Searched Type
+            </summary>
+            <param name="parameter">Search term for the Type</param>
+            <returns>Assembly Qualified Name of the Type or "NOT_FOUND" when no type is found.</returns>
+        </member>
+        <member name="M:Console.ClassQueries.ClassQueryProvider.Find(System.String)">
+            <summary>
+            Finds a Type by name in all assemblies
+            </summary>
+            <param name="name">Search Term</param>
+            <returns>Search Result. Null if not found.</returns>
+        </member>
+        <member name="M:Console.ClassQueries.ClassQueryProvider.IsMatch(System.Type,System.String)">
+            <summary>
+            Returns true if the Name is either the TypeName the FullName or the AssemblyQualifiedName
+            </summary>
+            <param name="t">Type to Test</param>
+            <param name="name">Name of the Target Type</param>
+            <returns>True if the Name is matching the type</returns>
+        </member>
+    </members>
+</doc>

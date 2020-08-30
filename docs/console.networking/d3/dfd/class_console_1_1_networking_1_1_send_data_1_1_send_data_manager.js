@@ -7,7 +7,7 @@ var class_console_1_1_networking_1_1_send_data_1_1_send_data_manager =
     [ "ReceiveSendData", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a24e0e6d29928df9028d2a9d11e3b2470", null ],
     [ "SendDataLoop", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a341d3f0ebc5af5dda57ede8d92fbf909", null ],
     [ "TrySendData", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#ad6f29f38f3157e71fc77aa6a3541cc78", null ],
-    [ "ActiveChannels", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a2541cd202a68516038d4807eeefd9b91", null ],
-    [ "Events", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a6ee0ef33374565ea09d5de732b7bc9f8", null ],
+    [ "ActiveChannels", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#ab618f6f0a68fe07831c88bb5f6d6ab77", null ],
+    [ "Events", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#a38f3a6082fcda72dec5eecc8bac94e9c", null ],
     [ "FileCount", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html#acc3d84d8d4afcc8c05b87bc42c9d5838", null ]
 ];

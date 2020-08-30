@@ -185,6 +185,11 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00034">34</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#ae6a82ccf63a334540410f91383571f93">Save</a>(file, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab632a2113756fadf99a4730b3863ff3d"></a>
@@ -230,19 +235,19 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            List&lt;string&gt; p = <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html">PropertyManager</a>.<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a105a2655f560426127b9597a334cda30">AllPropertyPaths</a>.Where(x =&gt; x.StartsWith(searchTerm)).ToList();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; p.Count; i++)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html">PropertyManager</a>.<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a3215b8038df6d04ed65018d3ba2556b5">TryGetValue</a>(p[i], out <span class="keywordtype">object</span> obj))</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    ret.Add($<span class="stringliteral">&quot;{p[i]}={obj}&quot;</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            File.WriteAllLines(file, ret);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html#l00045">45</a> of file <a class="el" href="../../d3/d91/_property_loader_commands_8cs_source.html">PropertyLoaderCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            List&lt;string&gt; ret = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            List&lt;string&gt; p = <a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html">PropertyManager</a>.<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a105a2655f560426127b9597a334cda30">AllPropertyPaths</a>.Where(x =&gt; x.StartsWith(searchTerm)).ToList();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; p.Count; i++)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html">PropertyManager</a>.<a class="code" href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a3215b8038df6d04ed65018d3ba2556b5">TryGetValue</a>(p[i], out <span class="keywordtype">object</span> obj))</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    ret.Add($<span class="stringliteral">&quot;{p[i]}={obj}&quot;</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            File.WriteAllLines(file, ret);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -251,10 +256,11 @@ Static Public Member Functions</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html_a105a2655f560426127b9597a334cda30"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a105a2655f560426127b9597a334cda30">Console.Core.PropertySystem.PropertyManager.AllPropertyPaths</a></div><div class="ttdeci">static List&lt; string &gt; AllPropertyPaths</div><div class="ttdoc">List of all Property Paths/Names</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00024">PropertyManager.cs:25</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html_a3215b8038df6d04ed65018d3ba2556b5"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a3215b8038df6d04ed65018d3ba2556b5">Console.Core.PropertySystem.PropertyManager.TryGetValue</a></div><div class="ttdeci">static bool TryGetValue(string propertyPath, out object value)</div><div class="ttdoc">Returns false if the value could not be retrieved.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00078">PropertyManager.cs:78</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html_a8b19f4a10f0b786ca2590130072bfe17"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a8b19f4a10f0b786ca2590130072bfe17">Console.Core.PropertySystem.PropertyManager.TrySetValue</a></div><div class="ttdeci">static bool TrySetValue(string propertyPath, object value, bool create=false)</div><div class="ttdoc">Returns true if the Property Value has been set.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00115">PropertyManager.cs:115</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html_a105a2655f560426127b9597a334cda30"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a105a2655f560426127b9597a334cda30">Console.Core.PropertySystem.PropertyManager.AllPropertyPaths</a></div><div class="ttdeci">static List&lt; string &gt; AllPropertyPaths</div><div class="ttdoc">List of all Property Paths/Names</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00025">PropertyManager.cs:26</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html_a3215b8038df6d04ed65018d3ba2556b5"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a3215b8038df6d04ed65018d3ba2556b5">Console.Core.PropertySystem.PropertyManager.TryGetValue</a></div><div class="ttdeci">static bool TryGetValue(string propertyPath, out object value)</div><div class="ttdoc">Returns false if the value could not be retrieved.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00090">PropertyManager.cs:90</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html_a8b19f4a10f0b786ca2590130072bfe17"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html#a8b19f4a10f0b786ca2590130072bfe17">Console.Core.PropertySystem.PropertyManager.TrySetValue</a></div><div class="ttdeci">static bool TrySetValue(string propertyPath, object value, bool create=false)</div><div class="ttdoc">Returns true if the Property Value has been set.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00139">PropertyManager.cs:139</a></div></div>
 <div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_manager_html"><div class="ttname"><a href="../../d2/d63/class_console_1_1_core_1_1_property_system_1_1_property_manager.html">Console.Core.PropertySystem.PropertyManager</a></div><div class="ttdoc">Property System API</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/ddf/_property_manager_8cs_source.html#l00015">PropertyManager.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_persistent_properties_1_1_property_loader_commands_html_ae6a82ccf63a334540410f91383571f93"><div class="ttname"><a href="../../d8/dfe/class_console_1_1_persistent_properties_1_1_property_loader_commands.html#ae6a82ccf63a334540410f91383571f93">Console.PersistentProperties.PropertyLoaderCommands.Save</a></div><div class="ttdeci">static void Save(string file)</div><div class="ttdoc">Saves all Properties to a file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/_property_loader_commands_8cs_source.html#l00034">PropertyLoaderCommands.cs:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

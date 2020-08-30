@@ -117,6 +117,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad9351c00316b51c0633289c8617be023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_console_1_1_core_1_1_log_system_1_1_a_logger"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_console_1_1_core_1_1_log_system_1_1_a_logger')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">Console.Core.LogSystem.ALogger</a></td></tr>
 <tr class="memitem:a02b25fa5ddfe657d7333cf70db223eaa inherit pub_methods_class_console_1_1_core_1_1_log_system_1_1_a_logger"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a02b25fa5ddfe657d7333cf70db223eaa">WrapAround</a> (<a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html">ALogger</a> logger)</td></tr>
+<tr class="memdesc:a02b25fa5ddfe657d7333cf70db223eaa inherit pub_methods_class_console_1_1_core_1_1_log_system_1_1_a_logger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps the passed logger into the current logger lowest level  <a href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a02b25fa5ddfe657d7333cf70db223eaa">More...</a><br /></td></tr>
 <tr class="separator:a02b25fa5ddfe657d7333cf70db223eaa inherit pub_methods_class_console_1_1_core_1_1_log_system_1_1_a_logger"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -190,18 +191,18 @@ Properties</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00053">53</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span> (logPrefixFirst)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                ALogger log = <span class="keyword">new</span> PrefixLogger(prefix);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                log.WrapAround(<span class="keyword">new</span> TypedLogger());</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> log;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            TypedLogger pfx = <span class="keyword">new</span> TypedLogger();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            pfx.WrapAround(<span class="keyword">new</span> PrefixLogger(prefix));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> pfx;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00054">54</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span> (logPrefixFirst)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                ALogger log = <span class="keyword">new</span> PrefixLogger(prefix);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                log.WrapAround(<span class="keyword">new</span> TypedLogger());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> log;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            TypedLogger pfx = <span class="keyword">new</span> TypedLogger();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            pfx.WrapAround(<span class="keyword">new</span> PrefixLogger(prefix));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> pfx;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -280,10 +281,10 @@ Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a857b276c6c032113f105cf46cc21b2b7">Console.Core.LogSystem.ALogger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            base.LogError(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1">LogErrorPrefix</a> + value);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00043">43</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            base.LogError(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1">LogErrorPrefix</a> + value);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

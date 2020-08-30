@@ -165,5 +165,8 @@ var files_dup =
     ] ],
     [ "SymmetricBlockAuthenticator.cs", "d1/ddd/_symmetric_block_authenticator_8cs.html", [
       [ "SymmetricBlockAuthenticator", "de/d13/class_console_1_1_networking_1_1_authentication_1_1_symmetric_block_authenticator.html", "de/d13/class_console_1_1_networking_1_1_authentication_1_1_symmetric_block_authenticator" ]
+    ] ],
+    [ "WebConsoleCommands.cs", "de/dfa/_web_console_commands_8cs.html", [
+      [ "WebConsoleCommands", "d7/d86/class_console_1_1_networking_1_1_commands_1_1_web_console_commands.html", "d7/d86/class_console_1_1_networking_1_1_commands_1_1_web_console_commands" ]
     ] ]
 ];

@@ -95,9 +95,9 @@ $(document).ready(function(){initNavTree('d0/d4f/class_console_1_1_core_1_1_prop
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a1a448142c519b7b503e1be7caef671"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a7a1a448142c519b7b503e1be7caef671">AddPropertiesByType</a> (Type t)</td></tr>
-<tr class="memdesc:a7a1a448142c519b7b503e1be7caef671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds Static Fields and Properties to the Property System  <a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a7a1a448142c519b7b503e1be7caef671">More...</a><br /></td></tr>
-<tr class="separator:a7a1a448142c519b7b503e1be7caef671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86cbf1ac677311cdacafaa5d8a08e27d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a> (Type t)</td></tr>
+<tr class="memdesc:a86cbf1ac677311cdacafaa5d8a08e27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds Static Fields and Properties to the Property System  <a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">More...</a><br /></td></tr>
+<tr class="separator:a86cbf1ac677311cdacafaa5d8a08e27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace5223630a1a2033f60eac53118041ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#ace5223630a1a2033f60eac53118041ff">AddProperties&lt; T &gt;</a> ()</td></tr>
 <tr class="memdesc:ace5223630a1a2033f60eac53118041ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds Static Fields and Properties to the Property System  <a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#ace5223630a1a2033f60eac53118041ff">More...</a><br /></td></tr>
 <tr class="separator:ace5223630a1a2033f60eac53118041ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,7 +111,7 @@ Static Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8249eeab9d9a0bb21c81703dcd2ec530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8249eeab9d9a0bb21c81703dcd2ec530">&#9670;&nbsp;</a></span>AddProperties()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8249eeab9d9a0bb21c81703dcd2ec530">&#9670;&nbsp;</a></span>AddProperties() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,15 +144,18 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> (instance == <span class="keyword">null</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleFields&lt;PropertyAttribute&gt;(instance));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleProps&lt;PropertyAttribute&gt;(instance));</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> (instance == <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleFields&lt;PropertyAttribute&gt;(instance));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleProps&lt;PropertyAttribute&gt;(instance));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ace5223630a1a2033f60eac53118041ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace5223630a1a2033f60eac53118041ff">&#9670;&nbsp;</a></span>AddProperties&lt; T &gt;()</h2>
+<a id="a86cbf1ac677311cdacafaa5d8a08e27d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86cbf1ac677311cdacafaa5d8a08e27d">&#9670;&nbsp;</a></span>AddProperties() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,45 +164,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a8249eeab9d9a0bb21c81703dcd2ec530">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a>&lt; T &gt; </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds Static Fields and Properties to the Property System </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type containing the Properties</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a7a1a448142c519b7b503e1be7caef671">AddPropertiesByType</a>(typeof(T));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a7a1a448142c519b7b503e1be7caef671"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a1a448142c519b7b503e1be7caef671">&#9670;&nbsp;</a></span>AddPropertiesByType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Console.Core.PropertySystem.PropertyAttributeUtils.AddPropertiesByType </td>
+          <td class="memname">static void Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties </td>
           <td>(</td>
           <td class="paramtype">Type&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -229,12 +194,50 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="ace5223630a1a2033f60eac53118041ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace5223630a1a2033f60eac53118041ff">&#9670;&nbsp;</a></span>AddProperties&lt; T &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a>&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds Static Fields and Properties to the Property System </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type containing the Properties</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>(typeof(T));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html_a7a1a448142c519b7b503e1be7caef671"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a7a1a448142c519b7b503e1be7caef671">Console.Core.PropertySystem.PropertyAttributeUtils.AddPropertiesByType</a></div><div class="ttdeci">static void AddPropertiesByType(Type t)</div><div class="ttdoc">Adds Static Fields and Properties to the Property System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00017">PropertyAttributeUtils.cs:17</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html_a86cbf1ac677311cdacafaa5d8a08e27d"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a></div><div class="ttdeci">static void AddProperties(Type t)</div><div class="ttdoc">Adds Static Fields and Properties to the Property System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00017">PropertyAttributeUtils.cs:17</a></div></div>
 <div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_reflection_utils_html"><div class="ttname"><a href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">Console.Core.ReflectionSystem.ReflectionUtils</a></div><div class="ttdoc">Utility Class used for Reflection</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d15/_reflection_utils_8cs_source.html#l00017">ReflectionUtils.cs:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

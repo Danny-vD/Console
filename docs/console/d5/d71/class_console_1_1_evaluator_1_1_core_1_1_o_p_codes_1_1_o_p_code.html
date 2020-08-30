@@ -214,7 +214,7 @@ Events</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a> Class. Does Implement IEvalTypedValue and IEvalHasDescription <a class="el" href="../../d7/de6/namespace_console_1_1_evaluator_1_1_core_1_1_interfaces.html" title="Namespace of All interfaces in the Evaluator">Interfaces</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6b6b3bbec9df313451b61897e465af1d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b6b3bbec9df313451b61897e465af1d">&#9670;&nbsp;</a></span>OPCode()</h2>
@@ -241,9 +241,9 @@ Events</h2></td></tr>
 
 <p>Empty Constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00032">32</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,10 +273,10 @@ Events</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a> can return this Value Type</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00057">57</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00056">56</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -330,20 +330,20 @@ Events</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00089">89</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">if</span> (param1.EvalType != evalType)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordflow">if</span> (param1.CanReturn(evalType))</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    param1 = <span class="keyword">new</span> OPCodeConvert(tokenizer, param1, evalType);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    tokenizer.RaiseError(<span class="stringliteral">&quot;Cannot convert &quot;</span> + param1.Name + <span class="stringliteral">&quot; into &quot;</span> + ((<span class="keywordtype">int</span>)evalType).ToString());</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00088">88</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> (param1.EvalType != evalType)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">if</span> (param1.CanReturn(evalType))</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    param1 = <span class="keyword">new</span> OPCodeConvert(tokenizer, param1, evalType);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    tokenizer.RaiseError(<span class="stringliteral">&quot;Cannot convert &quot;</span> + param1.Name + <span class="stringliteral">&quot; into &quot;</span> + ((<span class="keywordtype">int</span>) evalType).ToString());</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -390,20 +390,20 @@ Events</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00109">109</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">if</span> (!ReferenceEquals(param1.SystemType, systemType))</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">if</span> (ReferenceEquals(systemType, typeof(<span class="keywordtype">object</span>)))</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="comment">// ignore</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    param1 = <span class="keyword">new</span> OPCodeSystemTypeConvert(param1, systemType);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00108">108</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">if</span> (!ReferenceEquals(param1.SystemType, systemType))</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordflow">if</span> (ReferenceEquals(systemType, typeof(<span class="keywordtype">object</span>)))</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="comment">// ignore</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    param1 = <span class="keyword">new</span> OPCodeSystemTypeConvert(param1, systemType);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -450,10 +450,10 @@ Events</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a66b626a00d14e0a0a70855debd18b417">ValueChanged</a>?.Invoke(sender, e);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00041">41</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a66b626a00d14e0a0a70855debd18b417">ValueChanged</a>?.Invoke(sender, e);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -519,12 +519,12 @@ Events</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00129">129</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <a class="code" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a6b6b3bbec9df313451b61897e465af1d">OPCode</a> swp = param1;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            param1 = param2;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            param2 = swp;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00128">128</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <a class="code" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a6b6b3bbec9df313451b61897e465af1d">OPCode</a> swp = param1;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            param1 = param2;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            param2 = swp;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -571,7 +571,7 @@ Events</h2></td></tr>
 
 <p>The Description of the <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00065">65</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00064">64</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 
 </div>
 </div>
@@ -597,7 +597,7 @@ Events</h2></td></tr>
 
 <p>The ValueDelegate used to Compute the Value </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 
 </div>
 </div>
@@ -615,7 +615,7 @@ Events</h2></td></tr>
 
 <p>The <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a> Name </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00070">70</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00069">69</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 
 </div>
 </div>
@@ -633,7 +633,7 @@ Events</h2></td></tr>
 
 <p>The System Type of the <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a> Value </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00081">81</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00080">80</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 
 </div>
 </div>
@@ -651,7 +651,7 @@ Events</h2></td></tr>
 
 <p>The Value of the <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a>. Invoked the ValueDelegate </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00076">76</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00075">75</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 
 </div>
 </div>
@@ -678,8 +678,8 @@ Events</h2></td></tr>
 
 <p>The Evaluation Type of the <a class="el" href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html" title="Abstract OPCode Class. Does Implement IEvalTypedValue and IEvalHasDescription Interfaces">OPCode</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00050">50</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -698,7 +698,7 @@ Events</h2></td></tr>
 
 <p>ValueChanged EventHandler </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00139">139</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html#l00138">138</a> of file <a class="el" href="../../d1/da3/_o_p_code_8cs_source.html">OPCode.cs</a>.</p>
 
 </div>
 </div>
@@ -707,8 +707,8 @@ Events</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_html_a6b6b3bbec9df313451b61897e465af1d"><div class="ttname"><a href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a6b6b3bbec9df313451b61897e465af1d">Console.Evaluator.Core.OPCodes.OPCode.OPCode</a></div><div class="ttdeci">OPCode()</div><div class="ttdoc">Empty Constructor</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da3/_o_p_code_8cs_source.html#l00033">OPCode.cs:33</a></div></div>
-<div class="ttc" id="aclass_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_html_a66b626a00d14e0a0a70855debd18b417"><div class="ttname"><a href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a66b626a00d14e0a0a70855debd18b417">Console.Evaluator.Core.OPCodes.OPCode.ValueChanged</a></div><div class="ttdeci">ValueChangedEventHandler ValueChanged</div><div class="ttdoc">ValueChanged EventHandler</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da3/_o_p_code_8cs_source.html#l00139">OPCode.cs:139</a></div></div>
+<div class="ttc" id="aclass_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_html_a6b6b3bbec9df313451b61897e465af1d"><div class="ttname"><a href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a6b6b3bbec9df313451b61897e465af1d">Console.Evaluator.Core.OPCodes.OPCode.OPCode</a></div><div class="ttdeci">OPCode()</div><div class="ttdoc">Empty Constructor</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da3/_o_p_code_8cs_source.html#l00032">OPCode.cs:32</a></div></div>
+<div class="ttc" id="aclass_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_html_a66b626a00d14e0a0a70855debd18b417"><div class="ttname"><a href="../../d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a66b626a00d14e0a0a70855debd18b417">Console.Evaluator.Core.OPCodes.OPCode.ValueChanged</a></div><div class="ttdeci">ValueChangedEventHandler ValueChanged</div><div class="ttdoc">ValueChanged EventHandler</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da3/_o_p_code_8cs_source.html#l00138">OPCode.cs:138</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

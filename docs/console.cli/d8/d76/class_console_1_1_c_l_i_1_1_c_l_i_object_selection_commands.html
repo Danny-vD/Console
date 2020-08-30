@@ -186,15 +186,15 @@ Static Private Attributes</h2></td></tr>
 
 <p>Lists all Selectable Objects in the <a class="el" href="../../d8/db5/namespace_console.html">Console</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db7/_c_l_i_object_selection_commands_8cs_source.html#l00074">74</a> of file <a class="el" href="../../dd/db7/_c_l_i_object_selection_commands_8cs_source.html">CLIObjectSelectionCommands.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;Selectable Objects:&quot;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">foreach</span> (KeyValuePair&lt;string, object&gt; selectableObject <span class="keywordflow">in</span> <a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                s += <span class="stringliteral">&quot;\n\t&quot;</span> + selectableObject.Key + <span class="stringliteral">&quot; = &quot;</span> + selectableObject.Value;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            Program.Logger.Log(s);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/db7/_c_l_i_object_selection_commands_8cs_source.html#l00076">76</a> of file <a class="el" href="../../dd/db7/_c_l_i_object_selection_commands_8cs_source.html">CLIObjectSelectionCommands.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;Selectable Objects:&quot;</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">foreach</span> (KeyValuePair&lt;string, object&gt; selectableObject <span class="keywordflow">in</span> <a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                s += <span class="stringliteral">&quot;\n\t&quot;</span> + selectableObject.Key + <span class="stringliteral">&quot; = &quot;</span> + selectableObject.Value;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            Program.Logger.Log(s);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -258,8 +258,10 @@ Static Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../dd/db7/_c_l_i_object_selection_commands_8cs_source.html#l00063">63</a> of file <a class="el" href="../../dd/db7/_c_l_i_object_selection_commands_8cs_source.html">CLIObjectSelectionCommands.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>.ContainsKey(key))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                AConsoleManager.Instance.ObjectSelector.RemoveFromSelection(<a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                AConsoleManager.Instance.ObjectSelector.RemoveFromSelection(<a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -301,9 +303,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                Program.Logger.Log(<span class="stringliteral">&quot;Selecting Object: &quot;</span> + <a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                AConsoleManager.Instance.ObjectSelector.AddToSelection(<a class="code" href="../../d8/d76/class_console_1_1_c_l_i_1_1_c_l_i_object_selection_commands.html#a50baa279d20eb5162e4226d3ffb71aee">SelectableObjects</a>[key]);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                Program.Logger.Log(<span class="stringliteral">&quot;Selected Objects: &quot;</span> + AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                Program.Logger.Log(<span class="stringliteral">&quot;Selected Objects: &quot;</span> +</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                   AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -368,9 +371,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=&gt;</div>
-<div class="line">            (AConsoleManager.Instance.ObjectSelector is CLIObjSelector os)</div>
+<div class="line">            AConsoleManager.Instance.ObjectSelector is CLIObjSelector os</div>
 <div class="line">                ? os.SelectableObjects</div>
-<div class="line">                : <span class="keyword">new</span> Dictionary&lt;string</div>
+<div class="line">                : <span class="keyword">new</span> Dictionary&lt;<span class="keywordtype">string</span></div>
 </div><!-- fragment -->
 <p>Helper Property. Contains all selectable objects </p>
 

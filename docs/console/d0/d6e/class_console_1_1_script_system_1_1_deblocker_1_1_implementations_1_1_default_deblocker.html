@@ -191,21 +191,27 @@ Additional Inherited Members</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            end = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (line.Blocks.Count == 0) <span class="keywordflow">return</span> <span class="keyword">new</span>[] { line.CleanedLine };</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            List&lt;string&gt; lines = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordtype">int</span> maxCount = line.Blocks.Max(strings =&gt; strings.Length);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; maxCount; i++)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordtype">string</span> value = line.CleanedLine;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; line.Blocks.Count; j++)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    value = value.Replace(DeblockerSettings.GetKey(j),</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        $<span class="stringliteral">&quot;\&quot;{CommandParser.Escape(line.Blocks[j][i % line.Blocks[j].Length], ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                lines.Add(value);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> lines.ToArray();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (line.Blocks.Count == 0)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                DeblockerSettings.LogVerbose($<span class="stringliteral">&quot;Line: \&quot;{line.CleanedLine}\&quot; has no Blocks.&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span>[] {line.CleanedLine};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            List&lt;string&gt; lines = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordtype">int</span> maxCount = line.Blocks.Max(strings =&gt; strings.Length);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            DeblockerSettings.LogVerbose($<span class="stringliteral">&quot;Line Block Count: {line.Blocks.Count}, Block Length: {maxCount}&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; maxCount; i++)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordtype">string</span> value = line.CleanedLine;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; line.Blocks.Count; j++)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    value = value.Replace(DeblockerSettings.GetKey(j),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        $<span class="stringliteral">&quot;\&quot;{CommandParser.Escape(line.Blocks[j][i % line.Blocks[j].Length], ConsoleCoreConfig.EscapeChar, ConsoleCoreConfig.EscapableChars)}\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                lines.Add(value);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                DeblockerSettings.LogVerbose($<span class="stringliteral">&quot;Deblocked Line: \&quot;{value}\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> lines.ToArray();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

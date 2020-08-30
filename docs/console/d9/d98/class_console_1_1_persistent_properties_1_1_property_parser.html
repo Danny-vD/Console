@@ -140,13 +140,13 @@ Static Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../d7/d39/_property_parser_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d7/d39/_property_parser_8cs_source.html">PropertyParser.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            List&lt;string&gt; lines = content.Split(<span class="keyword">new</span>[] {<span class="charliteral">&#39;\n&#39;</span>}).Select(x =&gt; x.Trim())</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                .Select(x =&gt; x.Split(<span class="keyword">new</span>[] {<span class="stringliteral">&#39;#&#39;</span>}, StringSplitOptions.None).First()).Where(x=&gt;!<span class="keywordtype">string</span>.IsNullOrEmpty(x))</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                .Select(x =&gt; x.Split(<span class="keyword">new</span>[] {<span class="stringliteral">&#39;#&#39;</span>}, StringSplitOptions.None).First()).Where(x =&gt; !<span class="keywordtype">string</span>.IsNullOrEmpty(x))</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                .ToList();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            Dictionary&lt;string, string&gt; values = <span class="keyword">new</span> Dictionary&lt;string, string&gt;();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> line <span class="keywordflow">in</span> lines)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordtype">string</span>[] vs = line.Split(<span class="keyword">new</span>[] { <span class="charliteral">&#39;=&#39;</span> }, StringSplitOptions.None);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordtype">string</span>[] vs = line.Split(<span class="keyword">new</span>[] {<span class="charliteral">&#39;=&#39;</span>}, StringSplitOptions.None);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                values[vs[0].Trim()] = vs[1].Trim();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> values;</div>

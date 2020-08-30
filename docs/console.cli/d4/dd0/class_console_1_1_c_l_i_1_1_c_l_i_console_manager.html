@@ -177,8 +177,8 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                                                                                                      : <span class="keyword">this</span>(options, <span class="keyword">false</span>)</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00023">23</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                                             : <span class="keyword">this</span>(options, <span class="keyword">false</span>)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            ExtensionLoader.ProcessLoadOrder(extensions);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            InvokeOnFinishInitialize();</div>
@@ -228,15 +228,19 @@ Properties</h2></td></tr>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#a5d3f3a93f6645e60f403d0928eea0642">ObjectSelector</a> = s;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="comment">//CLI Specific Setup</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> ((options &amp; ConsoleInitOptions.SelectionCommands) != 0)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                CLIObjectSelectionCommands.AddSelectionCommands();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            PropertyAttributeUtils.AddProperties&lt;Program&gt;();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            CommandAttributeUtils.AddCommands&lt;Program&gt;();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">if</span> (runInit)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                InvokeOnFinishInitialize();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                CLIObjectSelectionCommands.AddSelectionCommands();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            PropertyAttributeUtils.AddProperties&lt;Program&gt;();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            CommandAttributeUtils.AddCommands&lt;Program&gt;();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (runInit)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                InvokeOnFinishInitialize();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -275,12 +279,12 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00055">55</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                                                                                        : <span class="keyword">this</span>(options, <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            ExtensionLoader.LoadFromFolder(extensionPath);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            InvokeOnFinishInitialize();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00060">60</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            : <span class="keyword">this</span>(options, <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            ExtensionLoader.LoadFromFolder(extensionPath);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            InvokeOnFinishInitialize();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -302,10 +306,10 @@ Properties</h2></td></tr>
 
 <p>Clears the <a class="el" href="../../d8/db5/namespace_console.html">Console</a> Window </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00064">64</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            System.Console.Clear();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00070">70</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            System.Console.Clear();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -341,11 +345,11 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00074">74</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            InvokeLogEvent(@<span class="keywordtype">object</span>.ToString());</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            System.Console.WriteLine(@<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00080">80</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            InvokeLogEvent(@<span class="keywordtype">object</span>.ToString());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            System.Console.WriteLine(@<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -381,10 +385,10 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00085">85</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Log</a>(@<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00091">91</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Log</a>(@<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -412,10 +416,10 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00095">95</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Log</a>(text);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00101">101</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Log</a>(text);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -451,10 +455,10 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00104">104</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Log</a>(@<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00110">110</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <a class="code" href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Log</a>(@<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -481,8 +485,8 @@ Properties</h2></td></tr>
 
 <p>The Object Selector </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d3/d81/_c_l_i_console_manager_8cs_source.html">CLIConsoleManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -491,8 +495,8 @@ Properties</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_c_l_i_console_manager_html_a5d3f3a93f6645e60f403d0928eea0642"><div class="ttname"><a href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#a5d3f3a93f6645e60f403d0928eea0642">Console.CLI.CLIConsoleManager.ObjectSelector</a></div><div class="ttdeci">override AObjectSelector ObjectSelector</div><div class="ttdoc">The Object Selector</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00017">CLIConsoleManager.cs:17</a></div></div>
-<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_c_l_i_console_manager_html_aeb7799dbe1c898b75099c6e2e2ed27fc"><div class="ttname"><a href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Console.CLI.CLIConsoleManager.Log</a></div><div class="ttdeci">override void Log(object @object)</div><div class="ttdoc">Writes a Log</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00074">CLIConsoleManager.cs:74</a></div></div>
+<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_c_l_i_console_manager_html_a5d3f3a93f6645e60f403d0928eea0642"><div class="ttname"><a href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#a5d3f3a93f6645e60f403d0928eea0642">Console.CLI.CLIConsoleManager.ObjectSelector</a></div><div class="ttdeci">override AObjectSelector ObjectSelector</div><div class="ttdoc">The Object Selector</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00016">CLIConsoleManager.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_c_l_i_console_manager_html_aeb7799dbe1c898b75099c6e2e2ed27fc"><div class="ttname"><a href="../../d4/dd0/class_console_1_1_c_l_i_1_1_c_l_i_console_manager.html#aeb7799dbe1c898b75099c6e2e2ed27fc">Console.CLI.CLIConsoleManager.Log</a></div><div class="ttdeci">override void Log(object @object)</div><div class="ttdoc">Writes a Log</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d81/_c_l_i_console_manager_8cs_source.html#l00080">CLIConsoleManager.cs:80</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

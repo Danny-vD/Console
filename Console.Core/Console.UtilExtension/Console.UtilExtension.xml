@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.UtilExtension</name>
+    </assembly>
+    <members>
+        <member name="T:Console.UtilExtension.UtilCommandCommands">
+            <summary>
+            Utility Commands for the Command Systems
+            </summary>
+        </member>
+        <member name="M:Console.UtilExtension.UtilCommandCommands.AddCommands(System.String)">
+            <summary>
+            Adds all commands of a specified type
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+        </member>
+        <member name="T:Console.UtilExtension.UtilExtensionInitializer">
+            <summary>
+            Initializer of the UtilExtension Extension
+            </summary>
+        </member>
+        <member name="P:Console.UtilExtension.UtilExtensionInitializer.UtilsVersion">
+            <summary>
+            Version of the UtilExtension Extension
+            </summary>
+        </member>
+        <member name="M:Console.UtilExtension.UtilExtensionInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="T:Console.UtilExtension.UtilPropertyCommands">
+            <summary>
+            Utility Commands for the Property System
+            </summary>
+        </member>
+        <member name="M:Console.UtilExtension.UtilPropertyCommands.AddProperties(System.String)">
+            <summary>
+            Adds all Static Properties of the Specified Type
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+        </member>
+        <member name="M:Console.UtilExtension.UtilPropertyCommands.AddPropertiesAny(System.String)">
+            <summary>
+            Adds all static public properties of the specified type.
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+        </member>
+        <member name="M:Console.UtilExtension.UtilPropertyCommands.AddPropertiesAny(System.String,System.String)">
+            <summary>
+            Adds all Static public properties of the specified type
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+            <param name="prefix">Prefix of the Command</param>
+        </member>
+        <member name="M:Console.UtilExtension.UtilPropertyCommands.AddAnyPropertiesByType(System.String,System.Type)">
+            <summary>
+            Adds all Properties from the Specified type with the specified prefix
+            </summary>
+            <param name="prefix">Prefix of the Command</param>
+            <param name="t">Type containing the commands</param>
+        </member>
+    </members>
+</doc>

@@ -201,7 +201,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00019">19</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;: base(instance, info) { }</div>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                                    : base(instance, info)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -226,6 +228,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d7a/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_gettable.html#af77d7be26f32e47bd31bc0ce21ef8655">Console.Core.ReflectionSystem.Interfaces.IGettable</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00050">50</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> ReflectedInfo.GetValue(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a32da440e290f7e68a785734fab131c8c"></a>
@@ -252,10 +259,10 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of the Property</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00055">55</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> (T)<a class="code" href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a457328150b6430052865d023ea7b4c19">Get</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00060">60</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> (T) <a class="code" href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a457328150b6430052865d023ea7b4c19">Get</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -285,10 +292,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d3a/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_settable.html#a7f505b90a04233f425f8fe07e9848274">Console.Core.ReflectionSystem.Interfaces.ISettable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00039">39</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            ReflectedInfo.SetValue(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>, <a class="code" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html">CommandAttributeUtils</a>.<a class="code" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#a658b70222e8137955f27479d113d9006">ConvertToNonGeneric</a>(value, <a class="code" href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a272e4bf5e57b72282f23ad8549a82f89">ValueType</a>));</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00041">41</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            ReflectedInfo.SetValue(<a class="code" href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Instance</a>, <a class="code" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html">CommandAttributeUtils</a>.<a class="code" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#a658b70222e8137955f27479d113d9006">ConvertToNonGeneric</a>(value, <a class="code" href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a272e4bf5e57b72282f23ad8549a82f89">ValueType</a>));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -307,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Flag that determines if the Value can be Read </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00033">33</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00035">35</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
 
 </div>
 </div>
@@ -325,7 +332,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Flag that determines if the Value can be Written </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00028">28</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00030">30</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
 
 </div>
 </div>
@@ -343,7 +350,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Type of the Property. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00024">24</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html#l00026">26</a> of file <a class="el" href="../../db/dca/_property_meta_data_8cs_source.html">PropertyMetaData.cs</a>.</p>
 
 </div>
 </div>
@@ -353,9 +360,9 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data_html_ab074adf6e8c7389f59e75ef6ea72af84"><div class="ttname"><a href="../../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84">Console.Core.ReflectionSystem.Abstract.AInstancedMetaData&lt; PropertyInfo &gt;::Instance</a></div><div class="ttdeci">readonly object Instance</div><div class="ttdoc">The Object Instance that contains the Member</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/daa/_a_instanced_meta_data_8cs_source.html#l00015">AInstancedMetaData.cs:15</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_command_attribute_utils_html_a658b70222e8137955f27479d113d9006"><div class="ttname"><a href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#a658b70222e8137955f27479d113d9006">Console.Core.CommandSystem.CommandAttributeUtils.ConvertToNonGeneric</a></div><div class="ttdeci">static object ConvertToNonGeneric(object parameter, Type target)</div><div class="ttdoc">Converts the Parameter to the Target Type</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00105">CommandAttributeUtils.cs:105</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_property_meta_data_html_a457328150b6430052865d023ea7b4c19"><div class="ttname"><a href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a457328150b6430052865d023ea7b4c19">Console.Core.ReflectionSystem.PropertyMetaData.Get</a></div><div class="ttdeci">object Get()</div><div class="ttdoc">Gets the Value of the Property</div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_property_meta_data_html_a272e4bf5e57b72282f23ad8549a82f89"><div class="ttname"><a href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a272e4bf5e57b72282f23ad8549a82f89">Console.Core.ReflectionSystem.PropertyMetaData.ValueType</a></div><div class="ttdeci">Type ValueType</div><div class="ttdoc">The Type of the Property.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dca/_property_meta_data_8cs_source.html#l00024">PropertyMetaData.cs:24</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_command_attribute_utils_html_a658b70222e8137955f27479d113d9006"><div class="ttname"><a href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#a658b70222e8137955f27479d113d9006">Console.Core.CommandSystem.CommandAttributeUtils.ConvertToNonGeneric</a></div><div class="ttdeci">static object ConvertToNonGeneric(object parameter, Type target)</div><div class="ttdoc">Converts the Parameter to the Target Type</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00104">CommandAttributeUtils.cs:104</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_property_meta_data_html_a457328150b6430052865d023ea7b4c19"><div class="ttname"><a href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a457328150b6430052865d023ea7b4c19">Console.Core.ReflectionSystem.PropertyMetaData.Get</a></div><div class="ttdeci">object Get()</div><div class="ttdoc">Gets the Value of the Property</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dca/_property_meta_data_8cs_source.html#l00050">PropertyMetaData.cs:50</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_property_meta_data_html_a272e4bf5e57b72282f23ad8549a82f89"><div class="ttname"><a href="../../db/d41/class_console_1_1_core_1_1_reflection_system_1_1_property_meta_data.html#a272e4bf5e57b72282f23ad8549a82f89">Console.Core.ReflectionSystem.PropertyMetaData.ValueType</a></div><div class="ttdeci">Type ValueType</div><div class="ttdoc">The Type of the Property.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dca/_property_meta_data_8cs_source.html#l00026">PropertyMetaData.cs:26</a></div></div>
 <div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_command_attribute_utils_html"><div class="ttname"><a href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html">Console.Core.CommandSystem.CommandAttributeUtils</a></div><div class="ttdoc">Utilities for adding commands marked with the CommandAttribute</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00014">CommandAttributeUtils.cs:15</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -111,9 +111,9 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a9a9dd09f7e531ef1e34aa413c8405a19"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a9a9dd09f7e531ef1e34aa413c8405a19">Converters</a> = new List&lt;<a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a>&gt;()</td></tr>
-<tr class="memdesc:a9a9dd09f7e531ef1e34aa413c8405a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Loaded Converters.  <a href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a9a9dd09f7e531ef1e34aa413c8405a19">More...</a><br /></td></tr>
-<tr class="separator:a9a9dd09f7e531ef1e34aa413c8405a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a414005959d658fd3b11563af117d94"><td class="memItemLeft" align="right" valign="top">static readonly List&lt; <a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a6a414005959d658fd3b11563af117d94">Converters</a> = new List&lt;<a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a>&gt;()</td></tr>
+<tr class="memdesc:a6a414005959d658fd3b11563af117d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">All Loaded Converters.  <a href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a6a414005959d658fd3b11563af117d94">More...</a><br /></td></tr>
+<tr class="separator:a6a414005959d658fd3b11563af117d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Converter System API </p>
@@ -154,7 +154,7 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html">CustomConvertManager.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a9a9dd09f7e531ef1e34aa413c8405a19">Converters</a>.Add(converter);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a6a414005959d658fd3b11563af117d94">Converters</a>.Add(converter);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -203,6 +203,11 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the conversion can be done</dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00035">35</a> of file <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html">CustomConvertManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a6a414005959d658fd3b11563af117d94">Converters</a>.Any(x =&gt; x.CanConvert(parameter, target));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a4b59259da1f442e0ca5a294b5893cecb"></a>
@@ -249,15 +254,15 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Converted Value</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html">CustomConvertManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            AConverter conv = <a class="code" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a9a9dd09f7e531ef1e34aa413c8405a19">Converters</a>.FirstOrDefault(x =&gt; x.CanConvert(parameter, target));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (conv != <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> conv.Convert(parameter, target);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> parameter;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00046">46</a> of file <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html">CustomConvertManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            AConverter conv = <a class="code" href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a6a414005959d658fd3b11563af117d94">Converters</a>.FirstOrDefault(x =&gt; x.CanConvert(parameter, target));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (conv != <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> conv.Convert(parameter, target);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> parameter;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -300,23 +305,23 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of type TNewType</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00063">63</a> of file <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html">CustomConvertManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">return</span> (TNewType)System.Convert.ChangeType(@<span class="keywordtype">object</span>, typeof(TNewType));</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">catch</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">return</span> (TNewType)@object;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00064">64</a> of file <a class="el" href="../../d6/d22/_custom_convert_manager_8cs_source.html">CustomConvertManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> (TNewType) System.Convert.ChangeType(@<span class="keywordtype">object</span>, typeof(TNewType));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">catch</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">return</span> (TNewType) @object;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9a9dd09f7e531ef1e34aa413c8405a19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a9dd09f7e531ef1e34aa413c8405a19">&#9670;&nbsp;</a></span>Converters</h2>
+<a id="a6a414005959d658fd3b11563af117d94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a414005959d658fd3b11563af117d94">&#9670;&nbsp;</a></span>Converters</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +330,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt;<a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a>&gt; Console.Core.ConverterSystem.CustomConvertManager.Converters = new List&lt;<a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a>&gt;()</td>
+          <td class="memname">readonly List&lt;<a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a>&gt; Console.Core.ConverterSystem.CustomConvertManager.Converters = new List&lt;<a class="el" href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">AConverter</a>&gt;()</td>
         </tr>
       </table>
   </td>
@@ -346,7 +351,7 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager_html_a9a9dd09f7e531ef1e34aa413c8405a19"><div class="ttname"><a href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a9a9dd09f7e531ef1e34aa413c8405a19">Console.Core.ConverterSystem.CustomConvertManager.Converters</a></div><div class="ttdeci">static List&lt; AConverter &gt; Converters</div><div class="ttdoc">All Loaded Converters.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00018">CustomConvertManager.cs:18</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager_html_a6a414005959d658fd3b11563af117d94"><div class="ttname"><a href="../../d5/d4c/class_console_1_1_core_1_1_converter_system_1_1_custom_convert_manager.html#a6a414005959d658fd3b11563af117d94">Console.Core.ConverterSystem.CustomConvertManager.Converters</a></div><div class="ttdeci">static readonly List&lt; AConverter &gt; Converters</div><div class="ttdoc">All Loaded Converters.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/_custom_convert_manager_8cs_source.html#l00018">CustomConvertManager.cs:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Console.IO.IOCommands">
+            <summary>
+            Commands that can be useful when working with filesystems
+            </summary>
+        </member>
+        <member name="M:Console.IO.IOCommands.ChangeDir(System.String)">
+            <summary>
+            Changes the Current Directory.
+            </summary>
+            <param name="dir">Relative Path</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.ListFiles(System.Boolean,System.Boolean)">
+            <summary>
+            Lists files in the current directory
+            <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+            <param name="names">Only displays names</param>
+            </summary>
+        </member>
+        <member name="M:Console.IO.IOCommands.ListFiles(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Lists files in the specified directory
+            </summary>
+            <param name="folder">Specified Directory</param>
+            <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+            <param name="names">Only displays names</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.ListFiles(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Lists files in the specified directory and all subdirectories that match the search term
+            </summary>
+            <param name="folder">Specified Directory</param>
+            <param name="searchTerms">The Search Term</param>
+            <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+            <param name="names">Only displays names</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.ListDirectories(System.Boolean,System.Boolean)">
+            <summary>
+            Lists files in the current directory
+            <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+            <param name="names">Only displays names</param>
+            </summary>
+        </member>
+        <member name="M:Console.IO.IOCommands.ListDirectories(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Lists files in the specified directory
+            </summary>
+            <param name="folder">Specified Directory</param>
+            <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+            <param name="names">Only displays names</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.ListDirectories(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Lists Directories in the specified directory and all subdirectories that match the search term
+            </summary>
+            <param name="folder">Specified Directory</param>
+            <param name="searchTerms">The Search Term</param>
+            <param name="recursive">Flag that specifies if the Search should be recursive.</param>
+            <param name="names">Only displays names</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.Copy(System.String,System.String)">
+            <summary>
+            Copies a File from A to B
+            </summary>
+            <param name="from">Source File</param>
+            <param name="to">Destination File</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.Move(System.String,System.String)">
+            <summary>
+            Moves a File from A to B
+            </summary>
+            <param name="from">Source File</param>
+            <param name="to">Destination File</param>
+        </member>
+        <member name="M:Console.IO.IOCommands.Delete(System.String)">
+            <summary>
+            Deletes the Specified File
+            </summary>
+            <param name="file">File to Delete</param>
+        </member>
+        <member name="T:Console.IO.IOInitializer">
+            <summary>
+            Initializer of the IO Extension
+            </summary>
+        </member>
+        <member name="P:Console.IO.IOInitializer.Logger">
+            <summary>
+            Logger for this Extension
+            </summary>
+        </member>
+        <member name="P:Console.IO.IOInitializer.IOVersion">
+            <summary>
+            Version of the IO Extension
+            </summary>
+        </member>
+        <member name="M:Console.IO.IOInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+    </members>
+</doc>

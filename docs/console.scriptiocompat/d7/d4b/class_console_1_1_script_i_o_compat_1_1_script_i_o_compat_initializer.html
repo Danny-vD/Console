@@ -112,6 +112,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a5bee0d6e56f7a03f00f4171a0a93e4c6"><td class="memItemLeft" align="right" valign="top">static ALogger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a> =&gt; GetLogger(Assembly.GetExecutingAssembly())</td></tr>
+<tr class="memdesc:a5bee0d6e56f7a03f00f4171a0a93e4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Logger for this Extension  <a href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">More...</a><br /></td></tr>
 <tr class="separator:a5bee0d6e56f7a03f00f4171a0a93e4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a187131195194c086ad04b59f4919ba53"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a></td></tr>
 <tr class="memdesc:a187131195194c086ad04b59f4919ba53"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ; Seperated List of scripts to run after the console initialized.  <a href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">More...</a><br /></td></tr>
@@ -137,7 +138,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initializer of the <a class="el" href="../../d9/d10/namespace_console_1_1_script_i_o_compat.html" title="Compatibility Layer for the Script System Extension and the IO Extension Allows execution of a Startu...">ScriptIOCompat</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a49c1db76f42447b09feaa177b0e0a1a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49c1db76f42447b09feaa177b0e0a1a0">&#9670;&nbsp;</a></span>AutoStart()</h2>
@@ -166,14 +167,17 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00047">47</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a> == <span class="keyword">null</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a>.Log(<span class="stringliteral">&quot;Running Auto Start Files: &quot;</span> + <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordtype">string</span>[] files = <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a>.Split(<span class="keyword">new</span>[] { <span class="charliteral">&#39;;&#39;</span> }, StringSplitOptions.RemoveEmptyEntries);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> file <span class="keywordflow">in</span> files)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                ScriptSystem.ScriptSystem.RunFile(file);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a> == <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a>.Log(<span class="stringliteral">&quot;Running Auto Start Files: &quot;</span> + <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordtype">string</span>[] files = <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">AutoStartFile</a>.Split(<span class="keyword">new</span>[] {<span class="charliteral">&#39;;&#39;</span>}, StringSplitOptions.RemoveEmptyEntries);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> file <span class="keywordflow">in</span> files)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                ScriptSystem.ScriptSystem.RunFile(file);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -202,11 +206,11 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialization Function </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00062">62</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            PropertyAttributeUtils.AddProperties&lt;ScriptIOCompatInitializer&gt;();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            AConsoleManager.OnInitializationFinished += <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a49c1db76f42447b09feaa177b0e0a1a0">AutoStart</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00065">65</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            PropertyAttributeUtils.AddProperties&lt;ScriptIOCompatInitializer&gt;();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            AConsoleManager.OnInitializationFinished += <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a49c1db76f42447b09feaa177b0e0a1a0">AutoStart</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,6 +287,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>The Logger for this Extension </p>
+
 <p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00029">29</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
 
 </div>
@@ -308,11 +314,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a>.Mute;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a>.Mute = value;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html">ScriptIOCompatInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a>.Mute;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Logger</a>.Mute = value;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -322,7 +328,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer_html_a49c1db76f42447b09feaa177b0e0a1a0"><div class="ttname"><a href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a49c1db76f42447b09feaa177b0e0a1a0">Console.ScriptIOCompat.ScriptIOCompatInitializer.AutoStart</a></div><div class="ttdeci">static void AutoStart()</div><div class="ttdoc">Autostart Routine. Does Load the ; separated property scriptiocompat.scripts.autostart and executes a...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00047">ScriptIOCompatInitializer.cs:47</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer_html_a5bee0d6e56f7a03f00f4171a0a93e4c6"><div class="ttname"><a href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Console.ScriptIOCompat.ScriptIOCompatInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00029">ScriptIOCompatInitializer.cs:29</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer_html_a5bee0d6e56f7a03f00f4171a0a93e4c6"><div class="ttname"><a href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a5bee0d6e56f7a03f00f4171a0a93e4c6">Console.ScriptIOCompat.ScriptIOCompatInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">The Logger for this Extension</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00029">ScriptIOCompatInitializer.cs:29</a></div></div>
 <div class="ttc" id="aclass_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer_html_a187131195194c086ad04b59f4919ba53"><div class="ttname"><a href="../../d7/d4b/class_console_1_1_script_i_o_compat_1_1_script_i_o_compat_initializer.html#a187131195194c086ad04b59f4919ba53">Console.ScriptIOCompat.ScriptIOCompatInitializer.AutoStartFile</a></div><div class="ttdeci">static string AutoStartFile</div><div class="ttdoc">The ; Seperated List of scripts to run after the console initialized.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d05/_script_i_o_compat_initializer_8cs_source.html#l00041">ScriptIOCompatInitializer.cs:41</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

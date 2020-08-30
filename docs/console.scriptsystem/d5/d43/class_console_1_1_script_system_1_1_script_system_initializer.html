@@ -129,7 +129,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initializer of the <a class="el" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html" title="Script System Implementation">ScriptSystem</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aabe026df4908f356acc89e423fe70a0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabe026df4908f356acc89e423fe70a0d">&#9670;&nbsp;</a></span>Initialize()</h2>
@@ -156,22 +156,24 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialization Function </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00050">50</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> <a class="code" href="../../df/d3e/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_variable_container.html">ParameterVariableContainer</a>());</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            PropertyAttributeUtils.AddProperties&lt;ScriptSystemInitializer&gt;();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            CommandAttributeUtils.AddCommands(typeof(ScriptSystem));</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            CommandAttributeUtils.AddCommands(typeof(SequenceSystem));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            PropertyAttributeUtils.AddPropertiesByType(typeof(ScriptSystem));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            PropertyAttributeUtils.AddPropertiesByType(typeof(<a class="code" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html">DeblockerSettings</a>));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">ADeblocker</a>[] db = ActivateOnAttributeUtils.ActivateObjects&lt;<a class="code" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">ADeblocker</a>&gt;(Assembly.GetExecutingAssembly());</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">foreach</span> (<a class="code" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">ADeblocker</a> aDeblocker <span class="keywordflow">in</span> db)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">if</span> (aDeblocker.GetType() != typeof(<a class="code" href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html">DefaultDeblocker</a>))</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">DeblockerCollection</a>.<a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#a18f8f93e8ab1e40932b2e02726ad5b92">AddDeblocker</a>(aDeblocker);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00047">47</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> <a class="code" href="../../df/d3e/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_variable_container.html">ParameterVariableContainer</a>());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            PropertyAttributeUtils.AddProperties&lt;ScriptSystemInitializer&gt;();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            CommandAttributeUtils.AddCommands(typeof(ScriptSystem));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            CommandAttributeUtils.AddCommands(typeof(SequenceSystem));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            PropertyAttributeUtils.AddProperties(typeof(ScriptSystem));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            PropertyAttributeUtils.AddProperties(typeof(<a class="code" href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html">DeblockerSettings</a>));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">ADeblocker</a>[] db = ActivateOnAttributeUtils.ActivateObjects&lt;<a class="code" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">ADeblocker</a>&gt;(Assembly.GetExecutingAssembly());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">foreach</span> (<a class="code" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">ADeblocker</a> aDeblocker <span class="keywordflow">in</span> db)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">if</span> (aDeblocker.GetType() != typeof(<a class="code" href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html">DefaultDeblocker</a>))</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">DeblockerCollection</a>.<a class="code" href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#a18f8f93e8ab1e40932b2e02726ad5b92">AddDeblocker</a>(aDeblocker);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,7 +200,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Logger used by the Script System </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00039">39</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -224,7 +226,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Version of the <a class="el" href="../../d5/d89/class_console_1_1_script_system_1_1_script_system.html" title="Script System Implementation">ScriptSystem</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00045">45</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -251,11 +253,11 @@ Static Private Attributes</h2></td></tr>
 
 <p>Mutes all Script System Logs </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00030">30</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#a6b46b1a41ad1784d7c672c6d02cd56a6">Logger</a>.Mute;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#a6b46b1a41ad1784d7c672c6d02cd56a6">Logger</a>.Mute = value;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d7/ddf/_script_system_initializer_8cs_source.html">ScriptSystemInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#a6b46b1a41ad1784d7c672c6d02cd56a6">Logger</a>.Mute;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#a6b46b1a41ad1784d7c672c6d02cd56a6">Logger</a>.Mute = value;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,13 +266,13 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_initializer_html_a6b46b1a41ad1784d7c672c6d02cd56a6"><div class="ttname"><a href="../../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#a6b46b1a41ad1784d7c672c6d02cd56a6">Console.ScriptSystem.ScriptSystemInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">Logger used by the Script System</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00039">ScriptSystemInitializer.cs:39</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html_a18f8f93e8ab1e40932b2e02726ad5b92"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#a18f8f93e8ab1e40932b2e02726ad5b92">Console.ScriptSystem.Deblocker.DeblockerCollection.AddDeblocker</a></div><div class="ttdeci">static void AddDeblocker(ADeblocker deblocker)</div><div class="ttdoc">Adds a Deblocker to the System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00027">DeblockerCollection.cs:27</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_script_system_initializer_html_a6b46b1a41ad1784d7c672c6d02cd56a6"><div class="ttname"><a href="../../d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html#a6b46b1a41ad1784d7c672c6d02cd56a6">Console.ScriptSystem.ScriptSystemInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">Logger used by the Script System</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddf/_script_system_initializer_8cs_source.html#l00036">ScriptSystemInitializer.cs:36</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html_a18f8f93e8ab1e40932b2e02726ad5b92"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#a18f8f93e8ab1e40932b2e02726ad5b92">Console.ScriptSystem.Deblocker.DeblockerCollection.AddDeblocker</a></div><div class="ttdeci">static void AddDeblocker(ADeblocker deblocker)</div><div class="ttdoc">Adds a Deblocker to the System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00028">DeblockerCollection.cs:28</a></div></div>
 <div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker_html"><div class="ttname"><a href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html">Console.ScriptSystem.Deblocker.Implementations.ADeblocker</a></div><div class="ttdoc">ADeblocker class. Used to Customize the way a Line gets Deblocked.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d40/_a_deblocker_8cs_source.html#l00014">ADeblocker.cs:15</a></div></div>
 <div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker_html"><div class="ttname"><a href="../../d0/d6e/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_default_deblocker.html">Console.ScriptSystem.Deblocker.Implementations.DefaultDeblocker</a></div><div class="ttdoc">Default ADeblocker Implementation. Does Parse the Blocks and Creates as many lines of the command as ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d83/_default_deblocker_8cs_source.html#l00013">DefaultDeblocker.cs:14</a></div></div>
 <div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_variable_container_html"><div class="ttname"><a href="../../df/d3e/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_variable_container.html">Console.ScriptSystem.Deblocker.Parameters.ParameterVariableContainer</a></div><div class="ttdoc">Implements the Parameter Provider for Parameterized Sequences.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d9c/_parameter_variable_container_8cs_source.html#l00012">ParameterVariableContainer.cs:13</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings_html"><div class="ttname"><a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html">Console.ScriptSystem.Deblocker.DeblockerSettings</a></div><div class="ttdoc">The Settings of the DeblockerCollection</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00013">DeblockerSettings.cs:14</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">Console.ScriptSystem.Deblocker.DeblockerCollection</a></div><div class="ttdoc">Static Minimal DeblockerCollection Parsing API</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00014">DeblockerCollection.cs:15</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings_html"><div class="ttname"><a href="../../d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html">Console.ScriptSystem.Deblocker.DeblockerSettings</a></div><div class="ttdoc">The Settings of the DeblockerCollection</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/_deblocker_settings_8cs_source.html#l00012">DeblockerSettings.cs:13</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection_html"><div class="ttname"><a href="../../dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html">Console.ScriptSystem.Deblocker.DeblockerCollection</a></div><div class="ttdoc">Static Minimal DeblockerCollection Parsing API</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd4/_deblocker_collection_8cs_source.html#l00015">DeblockerCollection.cs:16</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

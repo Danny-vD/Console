@@ -170,11 +170,11 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00074">74</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">FunctionName</a> = funcName;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">AddProvider</a>(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;envs&quot;</span>, s =&gt; <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">EnvList</a>));</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00080">80</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">FunctionName</a> = funcName;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">AddProvider</a>(<span class="keyword">new</span> DelegateVariableProvider(<span class="stringliteral">&quot;envs&quot;</span>, s =&gt; <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">EnvList</a>));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -203,10 +203,10 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00058">58</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>[provider.FunctionName] = provider;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00061">61</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>[provider.FunctionName] = provider;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -247,14 +247,14 @@ Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="../../d5/d78/class_console_1_1_prop_env_compat_1_1_property_variable_provider.html#a367aa2cedbe500d2756c40939cb3c67f">Console.PropEnvCompat.PropertyVariableProvider</a>, and <a class="el" href="../../d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html#af0bc67c94d231a2c644cd23c0446159e">Console.Evaluator.EvalVariableProvider</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00045">45</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.TryGetValue(parameter, out VariableProvider prov))</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> prov.GetValue(parameter);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;NO_VALUE&quot;</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00048">48</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.TryGetValue(parameter, out VariableProvider prov))</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> prov.GetValue(parameter);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;NO_VALUE&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -282,6 +282,11 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00071">71</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Providers</a>.Remove(providerName);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -344,11 +349,14 @@ Properties</h2></td></tr>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <span class="keywordtype">string</span> instanceProvider = keys[i];</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    s += instanceProvider;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    <span class="keywordflow">if</span> (i != keys.Count - 1) s += <span class="stringliteral">&quot;; &quot;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    <span class="keywordflow">if</span> (i != keys.Count - 1)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        s += <span class="stringliteral">&quot;; &quot;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -374,8 +382,8 @@ Properties</h2></td></tr>
 
 <p>Name of the Container Function </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00038">38</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html#l00041">41</a> of file <a class="el" href="../../d9/d8f/_variable_container_8cs_source.html">VariableContainer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -385,8 +393,8 @@ Properties</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_a147354ad5e40ab550a91a7a99d0fc6ae"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#a147354ad5e40ab550a91a7a99d0fc6ae">Console.EnvironmentVariables.VariableContainer.Providers</a></div><div class="ttdeci">readonly Dictionary&lt; string, VariableProvider &gt; Providers</div><div class="ttdoc">Contained Providers</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00015">VariableContainer.cs:15</a></div></div>
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ae65801b29cfb40985fc68a1eef452d34"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">Console.EnvironmentVariables.VariableContainer.AddProvider</a></div><div class="ttdeci">void AddProvider(VariableProvider provider)</div><div class="ttdoc">Adds a Provider to the EnvironmentVariable Manager.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00058">VariableContainer.cs:58</a></div></div>
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_aa79372c5052730e5987adf46a7950961"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">Console.EnvironmentVariables.VariableContainer.FunctionName</a></div><div class="ttdeci">override string FunctionName</div><div class="ttdoc">Name of the Container Function</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00038">VariableContainer.cs:38</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ae65801b29cfb40985fc68a1eef452d34"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ae65801b29cfb40985fc68a1eef452d34">Console.EnvironmentVariables.VariableContainer.AddProvider</a></div><div class="ttdeci">void AddProvider(VariableProvider provider)</div><div class="ttdoc">Adds a Provider to the EnvironmentVariable Manager.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00061">VariableContainer.cs:61</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_aa79372c5052730e5987adf46a7950961"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#aa79372c5052730e5987adf46a7950961">Console.EnvironmentVariables.VariableContainer.FunctionName</a></div><div class="ttdeci">override string FunctionName</div><div class="ttdoc">Name of the Container Function</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00041">VariableContainer.cs:41</a></div></div>
 <div class="ttc" id="aclass_console_1_1_environment_variables_1_1_variable_container_html_ad14c1b117c2dd12b2c13105b6a125374"><div class="ttname"><a href="../../d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html#ad14c1b117c2dd12b2c13105b6a125374">Console.EnvironmentVariables.VariableContainer.EnvList</a></div><div class="ttdeci">virtual string EnvList</div><div class="ttdoc">; Seperated list of contained VariableProviders.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8f/_variable_container_8cs_source.html#l00019">VariableContainer.cs:20</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

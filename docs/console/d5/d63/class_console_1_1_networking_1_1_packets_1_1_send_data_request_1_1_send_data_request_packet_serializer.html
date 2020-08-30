@@ -134,7 +134,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Serializes <a class="el" href="../../d5/d15/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet.html" title="A Packet that gets sent by the Client.">SendDataRequestPacket</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html#l00009">9</a> of file <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html">SendDataRequestPacketSerializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html#l00008">8</a> of file <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html">SendDataRequestPacketSerializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9e9ac644accfbd17bfa7b9175ffcadb3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e9ac644accfbd17bfa7b9175ffcadb3">&#9670;&nbsp;</a></span>Deserialize()</h2>
@@ -171,11 +171,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#adff179096a27e15d7e5aacab9ca44134">Console.Networking.Packets.Abstract.PacketSerializer&lt; SendDataRequestPacket &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html#l00016">16</a> of file <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html">SendDataRequestPacketSerializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordtype">string</span> d = NetworkingSettings.EncodingInstance.GetString(data);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> SendDataRequestPacket(d);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html#l00015">15</a> of file <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html">SendDataRequestPacketSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordtype">string</span> d = NetworkingSettings.EncodingInstance.GetString(data);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> SendDataRequestPacket(d);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -212,10 +212,10 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Serialized Data</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html#l00027">27</a> of file <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html">SendDataRequestPacketSerializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> NetworkingSettings.EncodingInstance.GetBytes(item.Destination);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html#l00026">26</a> of file <a class="el" href="../../dc/d8f/_send_data_request_packet_serializer_8cs_source.html">SendDataRequestPacketSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> NetworkingSettings.EncodingInstance.GetBytes(item.Destination);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

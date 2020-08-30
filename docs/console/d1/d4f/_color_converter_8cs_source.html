@@ -135,11 +135,14 @@ $(document).ready(function(){initNavTree('d1/d4f/_color_converter_8cs_source.htm
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../db/de8/class_console_1_1_default_converters_1_1_color_converter.html#a4cca5bd1cd21a441f32727ae48439da3">   68</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">byte</span> <a class="code" href="../../db/de8/class_console_1_1_default_converters_1_1_color_converter.html#a4cca5bd1cd21a441f32727ae48439da3">Convert</a>(<span class="keywordtype">string</span> hexCode)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordtype">int</span> val = <span class="keywordtype">int</span>.Parse(hexCode, NumberStyles.HexNumber);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (val &gt;= 0 &amp;&amp; val &lt;= 255) <span class="keywordflow">return</span> (<span class="keywordtype">byte</span>)val;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> FormatException(<span class="stringliteral">&quot;Hex code is not in the right format&quot;</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (val &gt;= 0 &amp;&amp; val &lt;= 255)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> (<span class="keywordtype">byte</span>) val;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> FormatException(<span class="stringliteral">&quot;Hex code is not in the right format&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_console_1_1_core_1_1_converter_system_1_1_a_converter_html"><div class="ttname"><a href="../../db/db4/class_console_1_1_core_1_1_converter_system_1_1_a_converter.html">Console.Core.ConverterSystem.AConverter</a></div><div class="ttdoc">Converter Class is used to Implement Custom Conversion Logic</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dec/_a_converter_8cs_source.html#l00010">AConverter.cs:11</a></div></div>

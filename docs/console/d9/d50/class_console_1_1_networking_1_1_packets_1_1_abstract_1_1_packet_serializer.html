@@ -173,10 +173,10 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#a01be22c02e16619453d5d78f317e9c73">Console.Networking.Packets.Abstract.IPacketSerializer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html">PacketSerializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#adff179096a27e15d7e5aacab9ca44134">Deserialize</a>(data);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html#l00052">52</a> of file <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html">PacketSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#adff179096a27e15d7e5aacab9ca44134">Deserialize</a>(data);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -207,12 +207,14 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#aca962553c88728688583804bc3749abd">Console.Networking.Packets.Abstract.IPacketSerializer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html#l00054">54</a> of file <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html">PacketSerializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span> (item is T obj)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#ad93777c46bbaedf8daaca15a11c9eed0">Serialize</a>(obj);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidCastException(<span class="stringliteral">&quot;Expected Type: &quot;</span> + typeof(T) + <span class="stringliteral">&quot; got: &quot;</span> + item.GetType().Name);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html#l00062">62</a> of file <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html">PacketSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">if</span> (item is T obj)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#ad93777c46bbaedf8daaca15a11c9eed0">Serialize</a>(obj);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidCastException(<span class="stringliteral">&quot;Expected Type: &quot;</span> + typeof(T) + <span class="stringliteral">&quot; got: &quot;</span> + item.GetType().Name);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,6 +275,11 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#ad3477a5f5e4d4ed7047beb09ee479721">Console.Networking.Packets.Abstract.IPacketSerializer</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html">PacketSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#aebed9fd3e142aee6b01fe12b36ee7f12">GetTargetType</a>().AssemblyQualifiedName;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aebed9fd3e142aee6b01fe12b36ee7f12"></a>
@@ -295,6 +302,11 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../de/dc6/interface_console_1_1_networking_1_1_packets_1_1_abstract_1_1_i_packet_serializer.html#a1b4cffc6f68a7cef813698e8d6bda485">Console.Networking.Packets.Abstract.IPacketSerializer</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d5/da7/_packet_serializer_8cs_source.html">PacketSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> typeof(T);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad93777c46bbaedf8daaca15a11c9eed0"></a>
@@ -337,6 +349,7 @@ Protected Member Functions</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer_html_aebed9fd3e142aee6b01fe12b36ee7f12"><div class="ttname"><a href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#aebed9fd3e142aee6b01fe12b36ee7f12">Console.Networking.Packets.Abstract.PacketSerializer.GetTargetType</a></div><div class="ttdeci">Type GetTargetType()</div><div class="ttdoc">Returns the Target Type of the Serializer</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da7/_packet_serializer_8cs_source.html#l00018">PacketSerializer.cs:18</a></div></div>
 <div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer_html_ad93777c46bbaedf8daaca15a11c9eed0"><div class="ttname"><a href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#ad93777c46bbaedf8daaca15a11c9eed0">Console.Networking.Packets.Abstract.PacketSerializer.Serialize</a></div><div class="ttdeci">abstract byte[] Serialize(T item)</div><div class="ttdoc">Serializes a Packet of Type T into a Byte array</div></div>
 <div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer_html_adff179096a27e15d7e5aacab9ca44134"><div class="ttname"><a href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#adff179096a27e15d7e5aacab9ca44134">Console.Networking.Packets.Abstract.PacketSerializer.Deserialize</a></div><div class="ttdeci">abstract T Deserialize(byte[] data)</div><div class="ttdoc">Deserializes the Data into a Network Packet of Type T</div></div>
 <!-- start footer part -->

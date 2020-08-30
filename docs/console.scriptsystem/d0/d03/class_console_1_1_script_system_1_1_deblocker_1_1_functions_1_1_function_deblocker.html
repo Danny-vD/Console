@@ -189,29 +189,42 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html#a818c4c89b6c84956f62ee12720a96de7">Console.ScriptSystem.Deblocker.Implementations.ADeblocker</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html">FunctionDeblocker.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html">FunctionSignature</a> signature = <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html">FunctionSignature</a>.<a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a364c9c7d064e53537fa9b340206f1b68">Parse</a>(line, out <span class="keywordtype">int</span> sigStart, out <span class="keywordtype">int</span> sigLength);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            Line l = <span class="keyword">new</span> Line(SequenceSystem.SequenceAdd +</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                              line.OriginalLine.Remove(sigStart, sigLength).Remove(0, <a class="code" href="../../d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker.html#ad7726dc93a60e6207391e505fcb705fe">Key</a>.Length));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">string</span>[] parts = l.CleanParts;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            DeblockerSettings.Logger.Log(<span class="stringliteral">&quot;Deblocking Function: &quot;</span> + parts[1] + signature);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            List&lt;string&gt; s = base.Deblock(l, out begin, out end).ToList();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">if</span> (parts.Length &lt; 2)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                DeblockerSettings.Logger.LogWarning(<span class="stringliteral">&quot;Can not Deblock Line: &quot;</span> + l);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                end = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> base.Deblock(line, out begin, out end);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            s.InsertRange(0, signature.<a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#ab0405188eba5876357cff4d20940560c">ParameterNames</a>.Select(x =&gt; $<span class="stringliteral">&quot;{SequenceSystem.SequenceAddParameter} {parts[1]} {x}&quot;</span>));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            s.Insert(0, $<span class="stringliteral">&quot;{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}&quot;</span>); <span class="comment">// Create after Delete</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">//s.Insert(0, $&quot;{SequenceSystem.SequenceDelete} {parts[1]}&quot;); // Delete to make sure the name is free</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> s.ToArray();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html">FunctionDeblocker.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html">FunctionSignature</a> signature = <a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html">FunctionSignature</a>.<a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a364c9c7d064e53537fa9b340206f1b68">Parse</a>(line, out <span class="keywordtype">int</span> sigStart, out <span class="keywordtype">int</span> sigLength);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordtype">string</span> newOrig = SequenceSystem.SequenceAdd +</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                             line.OriginalLine.Remove(sigStart, sigLength).Remove(0, <a class="code" href="../../d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker.html#ad7726dc93a60e6207391e505fcb705fe">Key</a>.Length);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordtype">string</span> cleanLine = SequenceSystem.SequenceAdd +</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                               line.CleanedLine.Remove(sigStart, sigLength).Remove(0, <a class="code" href="../../d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker.html#ad7726dc93a60e6207391e505fcb705fe">Key</a>.Length);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            Line l = <span class="keyword">new</span> Line(newOrig, cleanLine, line.Blocks);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordtype">string</span>[] parts = l.CleanParts;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            DeblockerSettings.Logger.Log(<span class="stringliteral">&quot;Deblocking Function: &quot;</span> + parts[1] + signature);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            List&lt;string&gt; s = base.Deblock(l, out begin, out end).ToList();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (parts.Length &lt; 2)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                DeblockerSettings.Logger.LogWarning(<span class="stringliteral">&quot;Can not Deblock Line: &quot;</span> + l);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                begin = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                end = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">return</span> base.Deblock(line, out begin, out end);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">string</span> ps = $<span class="stringliteral">&quot;{SequenceSystem.SequenceAddParameter} {parts[1]} &quot;</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; signature.<a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#ab0405188eba5876357cff4d20940560c">ParameterNames</a>.Count; i++)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                ps += signature.<a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#ab0405188eba5876357cff4d20940560c">ParameterNames</a>[i] + <span class="stringliteral">&quot;;&quot;</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span> (signature.<a class="code" href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#ab0405188eba5876357cff4d20940560c">ParameterNames</a>.Count &gt; 0)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                s.Insert(0, ps);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">//s.InsertRange(0, signature.ParameterNames.Select(x =&gt; $&quot;{SequenceSystem.SequenceAddParameter} {parts[1]} {x}&quot;));</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            s.Insert(0,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                $<span class="stringliteral">&quot;{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}&quot;</span>); <span class="comment">// Create</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> s.ToArray();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -230,7 +243,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Key of the <a class="el" href="../../d8/db8/namespace_console_1_1_script_system_1_1_deblocker.html" title="Deblocker System which is used when loading Scripts or Sequences from File.">Deblocker</a> that has to match the block command to be activated. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html">FunctionDeblocker.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d5/dbe/_function_deblocker_8cs_source.html">FunctionDeblocker.cs</a>.</p>
 
 </div>
 </div>
@@ -239,8 +252,8 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature_html_a364c9c7d064e53537fa9b340206f1b68"><div class="ttname"><a href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a364c9c7d064e53537fa9b340206f1b68">Console.ScriptSystem.Deblocker.Functions.Internal.FunctionSignature.Parse</a></div><div class="ttdeci">static FunctionSignature Parse(Line line, out int sigStart, out int sigLength)</div><div class="ttdoc">Parses the parameter signature from a line.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_function_signature_8cs_source.html#l00061">FunctionSignature.cs:61</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker_html_ad7726dc93a60e6207391e505fcb705fe"><div class="ttname"><a href="../../d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker.html#ad7726dc93a60e6207391e505fcb705fe">Console.ScriptSystem.Deblocker.Functions.FunctionDeblocker.Key</a></div><div class="ttdeci">override string Key</div><div class="ttdoc">The Key of the Deblocker that has to match the block command to be activated.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbe/_function_deblocker_8cs_source.html#l00018">FunctionDeblocker.cs:18</a></div></div>
+<div class="ttc" id="astruct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature_html_a364c9c7d064e53537fa9b340206f1b68"><div class="ttname"><a href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#a364c9c7d064e53537fa9b340206f1b68">Console.ScriptSystem.Deblocker.Functions.Internal.FunctionSignature.Parse</a></div><div class="ttdeci">static FunctionSignature Parse(Line line, out int sigStart, out int sigLength)</div><div class="ttdoc">Parses the parameter signature from a line.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_function_signature_8cs_source.html#l00064">FunctionSignature.cs:64</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker_html_ad7726dc93a60e6207391e505fcb705fe"><div class="ttname"><a href="../../d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker.html#ad7726dc93a60e6207391e505fcb705fe">Console.ScriptSystem.Deblocker.Functions.FunctionDeblocker.Key</a></div><div class="ttdeci">override string Key</div><div class="ttdoc">The Key of the Deblocker that has to match the block command to be activated.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbe/_function_deblocker_8cs_source.html#l00017">FunctionDeblocker.cs:17</a></div></div>
 <div class="ttc" id="astruct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature_html"><div class="ttname"><a href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html">Console.ScriptSystem.Deblocker.Functions.Internal.FunctionSignature</a></div><div class="ttdoc">The Internal Representation of the Parameters of Sequences.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_function_signature_8cs_source.html#l00015">FunctionSignature.cs:16</a></div></div>
 <div class="ttc" id="astruct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature_html_ab0405188eba5876357cff4d20940560c"><div class="ttname"><a href="../../df/d4e/struct_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_internal_1_1_function_signature.html#ab0405188eba5876357cff4d20940560c">Console.ScriptSystem.Deblocker.Functions.Internal.FunctionSignature.ParameterNames</a></div><div class="ttdeci">List&lt; string &gt; ParameterNames</div><div class="ttdoc">The List of Parameter Names</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/da3/_function_signature_8cs_source.html#l00024">FunctionSignature.cs:24</a></div></div>
 <!-- start footer part -->

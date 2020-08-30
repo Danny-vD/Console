@@ -151,7 +151,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d34/_enum_digit_converter_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d7/d34/_enum_digit_converter_8cs_source.html">EnumDigitConverter.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> parameter is <span class="keywordtype">string</span> s &amp;&amp; s.All(x =&gt; x == <span class="charliteral">&#39;-&#39;</span> || (x &gt;= <span class="charliteral">&#39;0&#39;</span> &amp;&amp; x &lt;= <span class="charliteral">&#39;9&#39;</span>)) &amp;&amp; target == typeof(Enum);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> parameter is <span class="keywordtype">string</span> s &amp;&amp; s.All(x =&gt; x == <span class="charliteral">&#39;-&#39;</span> || x &gt;= <span class="charliteral">&#39;0&#39;</span> &amp;&amp; x &lt;= <span class="charliteral">&#39;9&#39;</span>) &amp;&amp; target == typeof(Enum);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
@@ -192,11 +192,11 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Converted Value</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d34/_enum_digit_converter_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d7/d34/_enum_digit_converter_8cs_source.html">EnumDigitConverter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">string</span> s = parameter.ToString();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> Enum.ToObject(target, <span class="keywordtype">int</span>.Parse(s));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/d34/_enum_digit_converter_8cs_source.html#l00029">29</a> of file <a class="el" href="../../d7/d34/_enum_digit_converter_8cs_source.html">EnumDigitConverter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordtype">string</span> s = parameter.ToString();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">return</span> Enum.ToObject(target, <span class="keywordtype">int</span>.Parse(s));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

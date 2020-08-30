@@ -126,9 +126,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a175f261dc97911e5227a3d31c938d55b"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a175f261dc97911e5227a3d31c938d55b">ExtensionPath</a> = &quot;.\\extensions\\&quot;</td></tr>
 <tr class="memdesc:a175f261dc97911e5227a3d31c938d55b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path of the Extensions  <a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a175f261dc97911e5227a3d31c938d55b">More...</a><br /></td></tr>
 <tr class="separator:a175f261dc97911e5227a3d31c938d55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf9b75f0c49ed0362ebd499674f69e92"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#aaf9b75f0c49ed0362ebd499674f69e92">ConsoleTick</a> = 0.2f</td></tr>
-<tr class="memdesc:aaf9b75f0c49ed0362ebd499674f69e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines in what intervall the console tick event gets invoked  <a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#aaf9b75f0c49ed0362ebd499674f69e92">More...</a><br /></td></tr>
-<tr class="separator:aaf9b75f0c49ed0362ebd499674f69e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe9ef46f1af1bf3dcda2969b594079d0"><td class="memItemLeft" align="right" valign="top">static readonly float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#abe9ef46f1af1bf3dcda2969b594079d0">ConsoleTick</a> = 0.2f</td></tr>
+<tr class="memdesc:abe9ef46f1af1bf3dcda2969b594079d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines in what intervall the console tick event gets invoked  <a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#abe9ef46f1af1bf3dcda2969b594079d0">More...</a><br /></td></tr>
+<tr class="separator:abe9ef46f1af1bf3dcda2969b594079d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1800d16bf1243bdb953a17969e841e18"><td class="memItemLeft" align="right" valign="top">static Version&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a1800d16bf1243bdb953a17969e841e18">CLIVersion</a> =&gt; Assembly.GetExecutingAssembly().GetName().Version</td></tr>
 <tr class="memdesc:a1800d16bf1243bdb953a17969e841e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Commandline Interface Version  <a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a1800d16bf1243bdb953a17969e841e18">More...</a><br /></td></tr>
 <tr class="separator:a1800d16bf1243bdb953a17969e841e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,10 +163,10 @@ Static Private Attributes</h2></td></tr>
 
 <p>Closes the Commandline with Error Code 0 </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5c/_program_8cs_source.html#l00049">49</a> of file <a class="el" href="../../dd/d5c/_program_8cs_source.html">Program.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a96bfe7aae79e5fa1d3738ef5f1eeedcd">Exit</a>(0);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5c/_program_8cs_source.html#l00048">48</a> of file <a class="el" href="../../dd/d5c/_program_8cs_source.html">Program.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a96bfe7aae79e5fa1d3738ef5f1eeedcd">Exit</a>(0);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -239,7 +239,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                AConsoleManager.Instance.InvokeOnTick();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                Thread.Sleep((<span class="keywordtype">int</span>)(<a class="code" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#aaf9b75f0c49ed0362ebd499674f69e92">ConsoleTick</a> * 1000));</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                Thread.Sleep((<span class="keywordtype">int</span>) (<a class="code" href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#abe9ef46f1af1bf3dcda2969b594079d0">ConsoleTick</a> * 1000));</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
 </div><!-- fragment -->
@@ -340,12 +340,12 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Commandline Interface Version </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5c/_program_8cs_source.html#l00043">43</a> of file <a class="el" href="../../dd/d5c/_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5c/_program_8cs_source.html#l00042">42</a> of file <a class="el" href="../../dd/d5c/_program_8cs_source.html">Program.cs</a>.</p>
 
 </div>
 </div>
-<a id="aaf9b75f0c49ed0362ebd499674f69e92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf9b75f0c49ed0362ebd499674f69e92">&#9670;&nbsp;</a></span>ConsoleTick</h2>
+<a id="abe9ef46f1af1bf3dcda2969b594079d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe9ef46f1af1bf3dcda2969b594079d0">&#9670;&nbsp;</a></span>ConsoleTick</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,7 +354,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Console.CLI.Program.ConsoleTick = 0.2f</td>
+          <td class="memname">readonly float Console.CLI.Program.ConsoleTick = 0.2f</td>
         </tr>
       </table>
   </td>
@@ -366,7 +366,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Defines in what intervall the console tick event gets invoked </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d5c/_program_8cs_source.html#l00037">37</a> of file <a class="el" href="../../dd/d5c/_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d5c/_program_8cs_source.html#l00036">36</a> of file <a class="el" href="../../dd/d5c/_program_8cs_source.html">Program.cs</a>.</p>
 
 </div>
 </div>
@@ -454,11 +454,11 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_a96bfe7aae79e5fa1d3738ef5f1eeedcd"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a96bfe7aae79e5fa1d3738ef5f1eeedcd">Console.CLI.Program.Exit</a></div><div class="ttdeci">static void Exit()</div><div class="ttdoc">Closes the Commandline with Error Code 0</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00049">Program.cs:49</a></div></div>
+<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_a96bfe7aae79e5fa1d3738ef5f1eeedcd"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a96bfe7aae79e5fa1d3738ef5f1eeedcd">Console.CLI.Program.Exit</a></div><div class="ttdeci">static void Exit()</div><div class="ttdoc">Closes the Commandline with Error Code 0</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00048">Program.cs:48</a></div></div>
 <div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_a175f261dc97911e5227a3d31c938d55b"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a175f261dc97911e5227a3d31c938d55b">Console.CLI.Program.ExtensionPath</a></div><div class="ttdeci">const string ExtensionPath</div><div class="ttdoc">Path of the Extensions</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00031">Program.cs:31</a></div></div>
 <div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_a792ee056991226c51dbaf43df889373c"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a792ee056991226c51dbaf43df889373c">Console.CLI.Program.Loop</a></div><div class="ttdeci">static void Loop()</div><div class="ttdoc">Thread that invokes the OnTickEvent</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00108">Program.cs:108</a></div></div>
+<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_abe9ef46f1af1bf3dcda2969b594079d0"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#abe9ef46f1af1bf3dcda2969b594079d0">Console.CLI.Program.ConsoleTick</a></div><div class="ttdeci">static readonly float ConsoleTick</div><div class="ttdoc">Defines in what intervall the console tick event gets invoked</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00036">Program.cs:36</a></div></div>
 <div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_a160f1d45179f432f7e27caf063786cf4"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a160f1d45179f432f7e27caf063786cf4">Console.CLI.Program.Logger</a></div><div class="ttdeci">static readonly ALogger Logger</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00026">Program.cs:26</a></div></div>
-<div class="ttc" id="aclass_console_1_1_c_l_i_1_1_program_html_aaf9b75f0c49ed0362ebd499674f69e92"><div class="ttname"><a href="../../de/d2f/class_console_1_1_c_l_i_1_1_program.html#aaf9b75f0c49ed0362ebd499674f69e92">Console.CLI.Program.ConsoleTick</a></div><div class="ttdeci">static float ConsoleTick</div><div class="ttdoc">Defines in what intervall the console tick event gets invoked</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5c/_program_8cs_source.html#l00037">Program.cs:37</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

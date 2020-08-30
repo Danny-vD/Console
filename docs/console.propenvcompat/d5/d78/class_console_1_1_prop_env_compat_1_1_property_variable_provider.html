@@ -118,7 +118,7 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>VariableContainer Implementation with the FuncName: "props" </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94ad5ea2a8dbe38eec6aeacc0d5c5686"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94ad5ea2a8dbe38eec6aeacc0d5c5686">&#9670;&nbsp;</a></span>PropertyVariableProvider()</h2>
@@ -137,8 +137,10 @@ Properties</h2></td></tr>
 
 <p>Public Constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00035">35</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;: base(<span class="stringliteral">&quot;props&quot;</span>) { }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00037">37</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                          : base(<span class="stringliteral">&quot;props&quot;</span>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -168,18 +170,18 @@ Properties</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The property value or NO_VALUE when the property is not found</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> (Providers.ContainsKey(parameter))</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">return</span> Providers[parameter].GetValue(parameter);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (PropertyManager.TryGetValue(parameter, out <span class="keywordtype">object</span> ret))</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00046">46</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (Providers.ContainsKey(parameter))</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> ret.ToString();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> Providers[parameter].GetValue(parameter);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;NO_VALUE&quot;</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span> (PropertyManager.TryGetValue(parameter, out <span class="keywordtype">object</span> ret))</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> ret.ToString();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;NO_VALUE&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -206,21 +208,24 @@ Properties</h2></td></tr>
 
 <p>All Environment Variables inside this container </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keyword">get</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordtype">string</span> s = base.EnvList+<span class="stringliteral">&quot;; &quot;</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                List&lt;string&gt; keys = PropertyManager.AllPropertyPaths;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; keys.Count; i++)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                    <span class="keywordtype">string</span> instanceProvider = keys[i];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    s += instanceProvider;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    <span class="keywordflow">if</span> (i != keys.Count - 1) s += <span class="stringliteral">&quot;; &quot;</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d0/daa/_property_variable_provider_8cs_source.html">PropertyVariableProvider.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keyword">get</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordtype">string</span> s = base.EnvList + <span class="stringliteral">&quot;; &quot;</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                List&lt;string&gt; keys = PropertyManager.AllPropertyPaths;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; keys.Count; i++)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    <span class="keywordtype">string</span> instanceProvider = keys[i];</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                    s += instanceProvider;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    <span class="keywordflow">if</span> (i != keys.Count - 1)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                        s += <span class="stringliteral">&quot;; &quot;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

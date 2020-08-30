@@ -106,6 +106,7 @@ Inheritance diagram for Console.ArrayConverter.ArrayCustomConverter:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a84b30a78fa59018d5455a5f114a86c3a"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_console_1_1_array_converter_1_1_array_custom_converter.html#a84b30a78fa59018d5455a5f114a86c3a">CanConvert</a> (object parameter, Type target)</td></tr>
+<tr class="memdesc:a84b30a78fa59018d5455a5f114a86c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when the Converter is Able to Convert the parameter into the target type  <a href="../../d3/d07/class_console_1_1_array_converter_1_1_array_custom_converter.html#a84b30a78fa59018d5455a5f114a86c3a">More...</a><br /></td></tr>
 <tr class="separator:a84b30a78fa59018d5455a5f114a86c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a062f388cb6968421b92d36699f084591"><td class="memItemLeft" align="right" valign="top">override object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_console_1_1_array_converter_1_1_array_custom_converter.html#a062f388cb6968421b92d36699f084591">Convert</a> (object parameter, Type target)</td></tr>
 <tr class="memdesc:a062f388cb6968421b92d36699f084591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the Parameter into the Target Type  <a href="../../d3/d07/class_console_1_1_array_converter_1_1_array_custom_converter.html#a062f388cb6968421b92d36699f084591">More...</a><br /></td></tr>
@@ -120,7 +121,7 @@ Static Private Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Custom AConverter implementation that does the Array Conversion </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d99/_array_custom_converter_8cs_source.html#l00014">14</a> of file <a class="el" href="../../db/d99/_array_custom_converter_8cs_source.html">ArrayCustomConverter.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d99/_array_custom_converter_8cs_source.html#l00013">13</a> of file <a class="el" href="../../db/d99/_array_custom_converter_8cs_source.html">ArrayCustomConverter.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a84b30a78fa59018d5455a5f114a86c3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84b30a78fa59018d5455a5f114a86c3a">&#9670;&nbsp;</a></span>CanConvert()</h2>
@@ -156,8 +157,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p></p>
-<p>Returns true when the Converter is Able to Convert the parameter into the target type</p>
+<p>Returns true when the Converter is Able to Convert the parameter into the target type </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parameter</td><td>Parameter Value</td></tr>
@@ -171,8 +171,8 @@ Static Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d99/_array_custom_converter_8cs_source.html#l00021">21</a> of file <a class="el" href="../../db/d99/_array_custom_converter_8cs_source.html">ArrayCustomConverter.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> (parameter is Array) &amp;&amp;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                   (target.IsArray || (typeof(IList).IsAssignableFrom(target) &amp;&amp; target.IsGenericType) ||</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> parameter is Array &amp;&amp;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                   (target.IsArray || typeof(IList).IsAssignableFrom(target) &amp;&amp; target.IsGenericType ||</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    target.IsAssignableFrom(parameter.GetType().GetElementType()));</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
 </div><!-- fragment -->
@@ -229,7 +229,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            Array paramArr = parameter as Array;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">if</span> (target.IsArray)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                Array result = (Array)Activator.CreateInstance(target, paramArr.Length);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                Array result = (Array) Activator.CreateInstance(target, paramArr.Length);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="comment">//Array result = Array.CreateInstance(target.MakeArrayType(), paramArr.Length);</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                paramArr.CopyTo(result, 0);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> result;</div>
@@ -240,17 +240,18 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                MethodInfo info = typeof(ArrayCustomConverter)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    .GetMethod(nameof(GetAsList), BindingFlags.NonPublic | BindingFlags.Static) <span class="comment">//Get method info</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    ?.MakeGenericMethod(target.GetGenericArguments().First()); <span class="comment">//Create Generic Method Call with the generic type of the target</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordtype">object</span> r = info.Invoke(<span class="keyword">null</span>, <span class="keyword">new</span> <span class="keywordtype">object</span>[] { paramArr }); <span class="comment">//Invoke the GetAsList&lt;T&gt; method.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> r;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (target.IsAssignableFrom(parameter.GetType().GetElementType()))</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> paramArr == <span class="keyword">null</span> || paramArr.Length == 0 ? null : paramArr.GetValue(0);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="comment">//Error</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    ?.MakeGenericMethod(target.GetGenericArguments()</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        .First()); <span class="comment">//Create Generic Method Call with the generic type of the target</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordtype">object</span> r = info.Invoke(<span class="keyword">null</span>, <span class="keyword">new</span> <span class="keywordtype">object</span>[] {paramArr}); <span class="comment">//Invoke the GetAsList&lt;T&gt; method.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> r;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> (target.IsAssignableFrom(parameter.GetType().GetElementType()))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> paramArr == <span class="keyword">null</span> || paramArr.Length == 0 ? null : paramArr.GetValue(0);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="comment">//Error</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -299,7 +300,7 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">object</span> item <span class="keywordflow">in</span> arr)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                list.Add((T)item);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                list.Add((T) item);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span> list;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>

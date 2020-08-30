@@ -109,5 +109,6 @@ var hierarchy =
       [ "Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponseSerializer", "de/d53/class_console_1_1_networking_1_1_packets_1_1_send_data_request_response_1_1_send_data_request_response_serializer.html", null ]
     ] ],
     [ "Console.Networking.SendData.SendDataManager", "d3/dfd/class_console_1_1_networking_1_1_send_data_1_1_send_data_manager.html", null ],
-    [ "Console.Networking.Packets.SerializerCollection", "d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html", null ]
+    [ "Console.Networking.Packets.SerializerCollection", "d3/d8e/class_console_1_1_networking_1_1_packets_1_1_serializer_collection.html", null ],
+    [ "Console.Networking.Commands.WebConsoleCommands", "d7/d86/class_console_1_1_networking_1_1_commands_1_1_web_console_commands.html", null ]
 ];

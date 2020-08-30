@@ -1,0 +1,2600 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Console.Core.AConsoleManager">
+            <summary>
+            Abstract Console Manager Implementations.
+            Has to be Implemented by the User.
+            </summary>
+        </member>
+        <member name="F:Console.Core.AConsoleManager.Parser">
+            <summary>
+            The Parser that handles the Command Input
+            </summary>
+        </member>
+        <member name="E:Console.Core.AConsoleManager.OnLog">
+            <summary>
+            Has to be invoked for all Logs
+            </summary>
+        </member>
+        <member name="E:Console.Core.AConsoleManager.OnInitializationFinished">
+            <summary>
+            Gets called when all Extensions were loaded.
+            </summary>
+        </member>
+        <member name="E:Console.Core.AConsoleManager.OnConsoleTick">
+            <summary>
+            "Hack" to provide a Console Tick Function that gets called periodically.
+            Used in Networking Extension
+            </summary>
+        </member>
+        <member name="F:Console.Core.AConsoleManager.ExpanderManager">
+            <summary>
+            Expander System that allows to Expand parts of commands(Environment System)
+            </summary>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.InvokeLogEvent(System.String)">
+            <summary>
+            Helper Function that has to get called every time a log gets sent(used by the networking system to transmit the logs)
+            </summary>
+            <param name="text">The Text to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.InvokeOnFinishInitialize">
+            <summary>
+            Allows the Inheriting Class to invoke the OnInitializationFinished Event
+            </summary>
+        </member>
+        <member name="P:Console.Core.AConsoleManager.Instance">
+            <summary>
+            Singleton Instance of the Console
+            </summary>
+        </member>
+        <member name="P:Console.Core.AConsoleManager.ObjectSelector">
+            <summary>
+            The Object Selector
+            </summary>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.#ctor(Console.Core.ConsoleInitOptions)">
+            <summary>
+            Protected Constructor
+            </summary>
+            <param name="options">Console Initialization Flags.</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.Clear">
+            <summary>
+            Clears the Console Logs
+            </summary>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.Log(System.Object)">
+            <summary>
+            Writes a Log
+            </summary>
+            <param name="object">Object to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager._Log(System.Object)">
+            <summary>
+            Internal Log Wrapper
+            </summary>
+            <param name="obj">Object to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.LogWarning(System.Object)">
+            <summary>
+            Writes a Log Warning
+            </summary>
+            <param name="object">Object to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager._LogWarning(System.Object)">
+            <summary>
+            Internal Log Warning Wrapper
+            </summary>
+            <param name="obj">Object to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.LogError(System.Object)">
+            <summary>
+            Writes a Log Error
+            </summary>
+            <param name="object">Object to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager._LogError(System.Object)">
+            <summary>
+            Internal Log Error Wrapper
+            </summary>
+            <param name="obj">Object to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.LogCommand(System.String)">
+            <summary>
+            Writes the Entered Command into the Console Output if ConsoleCoreConfig.WriteCommand is set to true
+            </summary>
+            <param name="command">Command to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.LogPlainText(System.String)">
+            <summary>
+            Writes Unaltered Plain text into the Console Window
+            </summary>
+            <param name="text">Text to Log</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.EnterCommand(System.String)">
+            <summary>
+            Enters a Command into the Console.
+            </summary>
+            <param name="command">Command that is entered.</param>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.InvokeOnTick">
+            <summary>
+            Helper Function that allows Inheriting Classes to Invoke the OnTick event.
+            </summary>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.OnSubmitCommand(System.String)">
+            <summary>
+            Function that can be used to react on any entered command
+            </summary>
+            <param name="command">Command that was entered</param>
+        </member>
+        <member name="T:Console.Core.ActivationSystem.ActivateOnAttribute">
+            <summary>
+            Decorate any Class with this attribute to be able to Load all Classes of this Type with ActivateOnAttributeUtils.Activate
+            This attribute can be attached to a class.
+            </summary>
+        </member>
+        <member name="T:Console.Core.ActivationSystem.ActivateOnAttributeUtils">
+            <summary>
+            Utility Class. Allows Activation of Types inside an Assembly
+            </summary>
+        </member>
+        <member name="M:Console.Core.ActivationSystem.ActivateOnAttributeUtils.ActivateObjects(System.Reflection.Assembly,System.Type,System.Object[])">
+            <summary>
+            Activates all Types in this assembly that are or inherit from the base type.
+            </summary>
+            <param name="asm">Target Assembly</param>
+            <param name="baseType">The Type that should be activated</param>
+            <param name="parameter">The Constructor Parameters(if any)</param>
+            <returns>Array of Activated Objects</returns>
+        </member>
+        <member name="M:Console.Core.ActivationSystem.ActivateOnAttributeUtils.ActivateObjects``1(System.Reflection.Assembly,System.Object[])">
+            <summary>
+            Activates all Types in this assembly that are or inherit from the base type.
+            </summary>
+            <typeparam name="T">The Type of objects to activate</typeparam>
+            <param name="asm">The Target Assembly</param>
+            <param name="parameters">The Constructor parameters(if any)</param>
+            <returns>Array of Activated Objects</returns>
+        </member>
+        <member name="T:Console.Core.AObjectSelector">
+            <summary>
+            Selector that allows for selected objects to be passed to commands as well.
+            </summary>
+        </member>
+        <member name="P:Console.Core.AObjectSelector.SelectedObjects">
+            <summary>
+            The Selected Objects
+            </summary>
+        </member>
+        <member name="M:Console.Core.AObjectSelector.ClearSelection">
+            <summary>
+            Clears the Selected Objects
+            </summary>
+        </member>
+        <member name="M:Console.Core.AObjectSelector.RemoveFromSelection(System.Object)">
+            <summary>
+            Removes the Specified Object from the Selection
+            </summary>
+            <param name="obj">Object to Remove</param>
+        </member>
+        <member name="M:Console.Core.AObjectSelector.AddToSelection(System.Object)">
+            <summary>
+            Adds the Specified object to the selection
+            </summary>
+            <param name="obj">Object to Add</param>
+        </member>
+        <member name="M:Console.Core.AObjectSelector.CheckValid">
+            <summary>
+            Checks all selected objects for their Validity and removes Invalid Objects from the List
+            </summary>
+        </member>
+        <member name="M:Console.Core.AObjectSelector.SelectObject(System.Object)">
+            <summary>
+            Selects this object only.
+            </summary>
+            <param name="obj">Object to Select</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.CommandAttribute">
+            <summary>
+            Command Attribute that only works on methods.
+            Allows multiple Attributes on the same methods(this is a fancy way to create aliases without using the alias system :D)
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.CommandAttribute.Name">
+            <summary>
+            Name of the Command.
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.CommandAttribute.HelpMessage">
+            <summary>
+            Help Message of the Command
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.CommandAttribute.Aliases">
+            <summary>
+            Command Aliases
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttribute.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Creates a Command with the Specified Settings.
+            </summary>
+            <param name="name">Name of the Command, Null if default name(same as the Method Name)</param>
+            <param name="helpMessage">Help Message that gets displayed in the Help Command</param>
+            <param name="alias">Optional Additional Command Names and Shortcuts</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.CommandAttributeUtils">
+            <summary>
+            Utilities for adding commands marked with the CommandAttribute
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.AddCommands``1">
+            <summary>
+            Call this to add all static commands from a type
+            </summary>
+            <typeparam name="T">Type containing the Commands.</typeparam>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.AddCommands(System.Type)">
+            <summary>
+            Adds all Static Commands contained in this type.
+            </summary>
+            <param name="type">Type Containing the Commands.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.AddCommands(System.Object)">
+            <summary>
+            Call this to add all commands from an instance
+            </summary>
+            <param name="instance">The Instance containing the Commands.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.GetCommands(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            Helper function.
+            Returns the Methods that satisfy the binding flags and have at least one command attribute
+            </summary>
+            <param name="t">Type containing the Commands.</param>
+            <param name="flags">Binding Flags for the Reflection Queries</param>
+            <returns>Array of Method Infos eligible to be used as commands.</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.GetStaticCommandData(System.Type)">
+            <summary>
+            Get all Commands from a type(only works for static functions)
+            </summary>
+            <param name="t">Type containing the Commands</param>
+            <returns>Array of IInvokable Instances</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.GetCommandData(System.Type,System.Object)">
+            <summary>
+            Get all commands from a type/instance(only works for non static functions)
+            </summary>
+            <param name="t">Type containing the Commands</param>
+            <param name="instance">The Instance of the Type containing the Commands.</param>
+            <returns>Array of IInvokable Instances</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.ConvertToNonGeneric(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter to the Target Type
+            </summary>
+            <param name="parameter">Parameter to Convert</param>
+            <param name="target">Target Type</param>
+            <returns>Returns the Changed Parameter</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.CommandFlagAttribute">
+            <summary>
+            Can be used to optionally allow specifying of parameters in the Switch Syntax
+            Parameters of type Boolean can be decorated with this, can be specified by specifying the parameter name
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.CommandFlagAttribute.Name">
+            <summary>
+            Name of the Flag
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandFlagAttribute.#ctor(System.String)">
+            <summary>
+            Creates a CommandFlag with the specified name or the parameter name(when no name specified)
+            </summary>
+            <param name="name">Name of the Flag(Empty for Parameter Name)</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandFlagAttribute.ToString">
+            <summary>
+            To String Implementation
+            </summary>
+            <returns>String Representation</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.CommandParser">
+            <summary>
+            Command Parser does the Parsing and Invocation of the Input Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.OnSubmitCommand(System.String)">
+            <summary>
+            Parses and Processes the passed command.
+            </summary>
+            <param name="command">Command String to be Parsed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.InnerParseAndInvoke(System.String)">
+            <summary>
+            Parses the Command String and Invokes the correct Command with the Correct Parameters
+            </summary>
+            <param name="arguments">The Argument Part of the Command.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.Split(System.String,System.Char)">
+            <summary>
+            Splits the string at the specified character.
+            Does remove empty entries.
+            </summary>
+            <param name="arguments">The Argument Part of the Command</param>
+            <param name="split">The Split Char</param>
+            <returns>Result of the Split Operation</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.ParseStringBlocks(System.String)">
+            <summary>
+            Parses the Arguments with respect to the string character
+            </summary>
+            <param name="commandArguments">The Argument Part of the Command.</param>
+            <returns>Correctly Parsed Array ofString Blocks</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.CleanContent(System.String)">
+            <summary>
+            Removes all String Characters that are not escaped.
+            </summary>
+            <param name="content">Content to Check</param>
+            <returns>Cleaned Content</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.UnEscape(System.String,System.Char,System.Char[])">
+            <summary>
+            UnEscape is reversing the Escape Encoding
+            </summary>
+            <param name="content">Content to Unescape</param>
+            <param name="escChar">The Character that is used to escape other characters</param>
+            <param name="escapeChars">The Characters that need to be Escaped.</param>
+            <returns>UnEscaped String</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.Escape(System.String,System.Char,System.Char[])">
+            <summary>
+            Escape is Masking the specified escapeChars with the escChar character.
+            </summary>
+            <param name="content">Content to Escape</param>
+            <param name="escChar">The Character that is used to escape other characters</param>
+            <param name="escapeChars">The Characters that need to be Escaped.</param>
+            <returns>Escaped String</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.IsEscaped(System.String,System.Int32)">
+            <summary>
+            Returns true if the Character at idx is escaped by a previous character
+            </summary>
+            <param name="part">Containing Part</param>
+            <param name="idx">Index of the character to check</param>
+            <returns>True if the Character is escaped.</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.CommandParser.InnerParseStringBlocks(System.String[])">
+            <summary>
+            Splits the Arguments based on the Position of the String Character
+            </summary>
+            <param name="parts">THe Argument Parts of the Command</param>
+            <returns>Correctly Parsed Array ofString Blocks</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.AbstractCommand">
+            <summary>
+            Abstract Command Base Class.
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.ParametersCount">
+            <summary>
+            The Parameter Range of the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.Name">
+            <summary>
+            Command Name.
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.AbstractCommand.aliases">
+            <summary>
+            List of Alternative Command Names
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.Aliases">
+            <summary>
+            List of Aliases for thie Command
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.AbstractCommand.HelpMessage">
+            <summary>
+            The Help Message of this Command.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.#ctor(System.Int32)">
+            <summary>
+            Protected Constructor.
+            </summary>
+            <param name="paramsCount">Amount of Parameters</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.IsValidCast``1(System.Object)">
+            <summary>
+            Returns true when the Parameter is the correct type for the command.
+            </summary>
+            <typeparam name="TType">Target Type</typeparam>
+            <param name="parameter">The Value to Test</param>
+            <returns>True if the Cast is Possible/Valid</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.ConvertTo``1(System.Object)">
+            <summary>
+            Converts the Specified Parameter to Type TNewType.
+            </summary>
+            <typeparam name="TNewType">Target Type</typeparam>
+            <param name="parameter">Value to Convert</param>
+            <returns>The Changed Parameter</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.SetName(System.String)">
+            <summary>
+            Sets the Command Name
+            </summary>
+            <param name="name">New Name</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.GetAllNames">
+            <summary>
+            Returns all Command Names including Aliases.
+            </summary>
+            <returns>All Names and Aliases in one Array</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.HasName(System.String)">
+            <summary>
+            Returns true if the Command has this Name or Alias.
+            </summary>
+            <param name="name">Name to test against.</param>
+            <returns>True if the Name does match this Commands Name or one of its Aliases.</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.HasName(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Returns true if any of the names is contained in this Command.
+            </summary>
+            <param name="names">Names to test against.</param>
+            <returns>True if any Name does match this Commands Name or one of its Aliases.</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.AddAlias(System.String)">
+            <summary>
+            Adds an Alias to this Command.
+            </summary>
+            <param name="alias">Alias to add</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.RemoveAlias(System.String)">
+            <summary>
+            Removes an Alias from this Command.
+            </summary>
+            <param name="name">Alias to Remove</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.SetHelpMessage(System.String)">
+            <summary>
+            Sets the Help Message of this Command.
+            </summary>
+            <param name="message">New Help Message</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.ToString">
+            <summary>
+            To String Implementation
+            </summary>
+            <returns>String Representation of a Command</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.ToString(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            To String Implementation
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>String Representation of a Command.</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands">
+            <summary>
+            Console Default Commands like clear/help/echo
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.AddDefaultCommands">
+            <summary>
+            Adds all Default Commands.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Clear">
+            <summary>
+            Clear Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Help(System.Boolean)">
+            <summary>
+            Help Command.
+            <param name="shortInfo">Flag -s that optionally returns a shortened version of the commands.</param>
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Help(System.String,System.Boolean)">
+            <summary>
+            Help Command
+            </summary>
+            <param name="commandName">Search Term</param>
+            <param name="shortInfo">Flag -s that optionally returns a shortened version of the commands.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Echo(System.String)">
+            <summary>
+            Echo Command.
+            </summary>
+            <param name="value">Value to Write to the Console.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands">
+            <summary>
+            Contains Default Commands to load Extensions from Files.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands.AddExtensionsCommands">
+            <summary>
+            Adds all Extension commands.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands.LoadFromFolder(System.String)">
+            <summary>
+            Loads all extensions from the specified folder.
+            </summary>
+            <param name="folder">Folder with Extensions</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands.LoadExtensionFile(System.String)">
+            <summary>
+            Loads the Specified Extension from File.
+            </summary>
+            <param name="file">.dll Library</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.BuiltIn.FlagTests">
+            <summary>
+            Class Containing Test Commands for the CommandFlagAttribute
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.FlagTests.AddFlagTestCommands">
+            <summary>
+            Adds the FlagTests Commands
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.FlagTests.FlagTest1(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Flag Test Command. 2 normal arguments, 2 flags
+            </summary>
+            <param name="arg0">Argument 1</param>
+            <param name="arg1">Argument 2</param>
+            <param name="flag1">Flag -x</param>
+            <param name="flag2">Flag -y</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.FlagTests.FlagTest2(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Flag Test Command. 2 normal arguments, 1 Flag.
+            This Command is Illegal when FlagTest1 is added.
+            </summary>
+            <param name="arg0">Argument 1</param>
+            <param name="arg1">Argument 2</param>
+            <param name="flag1">Flag -x</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.FlagTests.FlagTest3(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Flag Test Command. 1 normal argument, 2 Flags.
+            </summary>
+            <param name="arg0">Argument 1</param>
+            <param name="flag1">Flag -x</param>
+            <param name="flag2">Flag -y</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.FlagTests.FlagTest4(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Flag Test Command. 1 normal argument, 2 Flags.
+            This Command is Illegal when FlagTest3 is added.
+            </summary>
+            <param name="arg0">Argument 1</param>
+            <param name="flag1">Flag -x</param>
+            <param name="flag2">Flag -y</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands">
+            <summary>
+            Default command to clear and list all selected objects
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.AddSelectionCommands">
+            <summary>
+            Adds all Selection Commands
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.ListSelected">
+            <summary>
+            Prints the Selected objects.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ObjectSelectionCommands.ClearSelection">
+            <summary>
+            Clears the Selected Objects List.
+            </summary>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands">
+            <summary>
+            Default Commands that allow to interface with the property system
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.AddPropertyCommands">
+            <summary>
+            Adds the Property Commands
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.ListPropertiesCommand">
+            <summary>
+            Lists all Property Names
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.ListPropertiesCommand(System.String)">
+            <summary>
+            Lists all Properties that start with the specified string
+            </summary>
+            <param name="start">Search Term.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.GetProperty">
+            <summary>
+            Lists All properties and their values.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.GetProperty(System.String)">
+            <summary>
+            Lists all Properties(including values) that start with the specified string.
+            </summary>
+            <param name="propertyPath">Search Term/Property Path</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.SetPropertySelection(System.String,System.Object)">
+            <summary>
+            Sets the Selected Item as the value of the specified property
+            </summary>
+            <param name="propertyPath">Property Name</param>
+            <param name="propertyValue">New Value of the Property</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.AddPropertySelection(System.String,System.Object)">
+            <summary>
+            Adds the Selected Item as the value of the specified property
+            </summary>
+            <param name="propertyPath">Property Name</param>
+            <param name="propertyValue">New Value of the Property</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.SetProperty(System.String,System.Object)">
+            <summary>
+            Sets the Specified Item as the value of the specified property
+            </summary>
+            <param name="propertyPath">Property Name</param>
+            <param name="propertyValue">New Value of the Property</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands.AddProperty(System.String,System.Object)">
+            <summary>
+            Adds the Specified Item as the value of the specified property
+            </summary>
+            <param name="propertyPath">Property Name</param>
+            <param name="propertyValue">New Value of the Property</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.CommandManager">
+            <summary>
+            Contains all Loaded Commands and Implements the Core Command Logic like Adding/Removing/Renaming/...
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.CommandManager.commands">
+            <summary>
+            All Commands in the Console System.
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.Invoke(System.String,System.String[])">
+            <summary>
+            Invokes a given command with given parameters (does not respect user-defined conversions between types, except IConvertible)
+            </summary>
+            <param name="commandName">Name of the Command to Invoke</param>
+            <param name="parameters">The Command Parameters</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.RenameCommand(System.String,System.Int32,System.String)">
+            <summary>
+            Renames the Specified Command.
+            </summary>
+            <param name="commandName">Old Command Name</param>
+            <param name="paramsCount">Parameter Count</param>
+            <param name="newName">New Command Name</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.AddAlias(System.String,System.Int32,System.String)">
+            <summary>
+            Adds an Alias to the specified command.
+            </summary>
+            <param name="commandName">Command Name</param>
+            <param name="paramsCount">Parameter Count</param>
+            <param name="alias">New Alias</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.RemoveAlias(System.String,System.Int32,System.String)">
+            <summary>
+            Removes an Alias from the specified command.
+            </summary>
+            <param name="commandName">Command Name</param>
+            <param name="paramsCount">Parameter Count</param>
+            <param name="alias">Alias to Remove</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.Find(System.String,System.Int32,System.Int32)">
+            <summary>
+            Finds a Command that has the specified name and parameter count
+            </summary>
+            <param name="commandName">Command Name</param>
+            <param name="paramsCount">Parameter Count</param>
+            <param name="flagCount">The amount of Parameters with the CommandFlagAttribute</param>
+            <returns>Returns the Command that Fits the Name/Parameter Count Combination</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.GetCommand(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns the respective command with a given name and specified amount of parameters
+            </summary>
+            <param name="commandName">Command Name</param>
+            <param name="paramsCount">Parameter Count</param>
+            <param name="flagCount">The amount of Parameters with the CommandFlagAttribute</param>
+            <returns>Command that fits the Search Criteria</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.GetCommands(System.String,System.Boolean)">
+            <summary>
+            Returns a list of all commands with a given name
+            </summary>
+            <param name="commandName">Command Name</param>
+            <param name="find">Should the Method also contain commands that contain the command name?</param>
+            <returns>Commands that fit the search criteria</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.AddCommand(Console.Core.CommandSystem.Commands.AbstractCommand)">
+            <summary>
+            Adds a Command to the Console System.
+            </summary>
+            <param name="command">Command to Add</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.RemoveCommand(System.String,System.Int32)">
+            <summary>
+            Removes a Command from the Console System.
+            </summary>
+            <param name="commandName">Command Name</param>
+            <param name="paramsCount">Parameter Count</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.CommandManager.RemoveCommand(Console.Core.CommandSystem.Commands.AbstractCommand)">
+            <summary>
+            Removes the Specified Command from the Console System.
+            </summary>
+            <param name="command">Command to Remove</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command">
+            <summary>
+            Command Implementation with 0 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command.#ctor(System.String,System.Action)">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 0 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`1">
+            <summary>
+            Command Implementation with 1 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`1.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`1.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`1.#ctor(System.String,System.Action{`0})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 1 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`1.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`1.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`2">
+            <summary>
+            Command Implementation with 2 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`2.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`2.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`2.#ctor(System.String,System.Action{`0,`1})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 2 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`2.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`2.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`3">
+            <summary>
+            Command Implementation with 3 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`3.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`3.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`3.#ctor(System.String,System.Action{`0,`1,`2})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 3 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`3.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`3.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`4">
+            <summary>
+            Command Implementation with 4 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`4.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`4.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`4.#ctor(System.String,System.Action{`0,`1,`2,`3})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 4 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`4.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`4.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`5">
+            <summary>
+            Command Implementation with 5 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`5.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`5.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`5.#ctor(System.String,System.Action{`0,`1,`2,`3,`4})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 5 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`5.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`5.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`6">
+            <summary>
+            Command Implementation with 6 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`6.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`6.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`6.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 6 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`6.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`6.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`7">
+            <summary>
+            Command Implementation with 7 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`7.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`7.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`7.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 7 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`7.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`7.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`8">
+            <summary>
+            Command Implementation with 8 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`8.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`8.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`8.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 8 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`8.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`8.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`9">
+            <summary>
+            Command Implementation with 9 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`9.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`9.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`9.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 9 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`9.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`9.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`10">
+            <summary>
+            Command Implementation with 10 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`10.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`10.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`10.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 10 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`10.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`10.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`11">
+            <summary>
+            Command Implementation with 11 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`11.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`11.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`11.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 11 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`11.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`11.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`12">
+            <summary>
+            Command Implementation with 12 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`12.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`12.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`12.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 12 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`12.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`12.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`13">
+            <summary>
+            Command Implementation with 13 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`13.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`13.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`13.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 13 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`13.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`13.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`14">
+            <summary>
+            Command Implementation with 14 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`14.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`14.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`14.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 14 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`14.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`14.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`15">
+            <summary>
+            Command Implementation with 15 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`15.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`15.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`15.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 15 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`15.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`15.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.Command`16">
+            <summary>
+            Command Implementation with 16 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`16.FlagAttributeCount">
+            <summary>
+            Amount of CommandFlag attributes in the Command
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`16.SelectionAttributeCount">
+            <summary>
+            Amount of Selection attributes in the Command
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`16.#ctor(System.String,System.Action{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14,`15})">
+            <summary>
+            Creates a New Command.
+            </summary>
+            <param name="name">Name of the Command</param>
+            <param name="commandCallback">The Callback with 16 Parameter(s) that gets invoked when the command is executed.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`16.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.Command`16.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.ParameterRange">
+            <summary>
+            Defines Minimum and Maximum Parameter Count for a Command
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.ParameterRange.Min">
+            <summary>
+            Minimum Parameter Count
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.ParameterRange.Max">
+            <summary>
+            Maximum Parameter Count
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ParameterRange.#ctor(System.Int32)">
+            <summary>
+            Creates a Parameter Range with only one possible parameter count
+            </summary>
+            <param name="max">Maximum/Minimum Parameter Count</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ParameterRange.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a Parameter Range of variable parameter count
+            </summary>
+            <param name="min">Minimum Parameter Count</param>
+            <param name="max">Maximum Parameter Count</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ParameterRange.Contains(System.Int32)">
+            <summary>
+            Returns true when the specified parameter count is inside this range.
+            </summary>
+            <param name="value">Value to check if it is Contained</param>
+            <returns>True if the Value is within the range.</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ParameterRange.ToString">
+            <summary>
+            To String Implementation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.ReflectionCommand">
+            <summary>
+            Reflection Wrapper for the Console.
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.RefData">
+            <summary>
+            The Reflection Data
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.Command">
+            <summary>
+            The Command Attriute
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.FlagAttributeCount">
+            <summary>
+            Amount of Parameters that are decorated with the CommandFlagAttribute
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.SelectionAttributeCount">
+            <summary>
+            Amount of Parameters that are decorated with the SelectionPropertyAttribute
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ReflectionCommand.#ctor(Console.Core.ReflectionSystem.Interfaces.IInvokable)">
+            <summary>
+            Creates a Command based on an IInvokable Instance
+            </summary>
+            <param name="refData">The Reflection Data</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ReflectionCommand.#ctor(System.Reflection.MethodInfo)">
+            <summary>
+            Creates a Command Based on a Static Method Info
+            </summary>
+            <param name="info">Method Info used as backend</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ReflectionCommand.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Creates a Command based on a Method Info and the corresponding Object Instance.
+            </summary>
+            <param name="instance">Instance bound to the Method Info</param>
+            <param name="info">Method info used as Backend</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ReflectionCommand.GetFullName(Console.Core.CommandSystem.Commands.ToStringMode)">
+            <summary>
+            Returns the name, plus all the parameter types
+            <param name="mode">The ToStringMode</param>
+            </summary>
+            <returns>The Full Name including Signature</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Commands.ReflectionCommand.Invoke(System.Object[])">
+            <summary>
+            Invokes this Command with the specified parameters.
+            </summary>
+            <param name="parameters">Parameters of the Command.</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Commands.ToStringMode">
+            <summary>
+            The ToStringMode is specifying the Length/Information of the ToString method.
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.ToStringMode.Default">
+            <summary>
+            Default ToStringMode.
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.ToStringMode.Short">
+            <summary>
+            Short Mode. Reduces OutputLength/Information
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.ToStringMode.Long">
+            <summary>
+            Long Mode. More OutputLength/Information
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Commands.ToStringMode.None">
+            <summary>
+            No Output. Returns Empty String
+            </summary>
+        </member>
+        <member name="T:Console.Core.CommandSystem.SelectionPropertyAttribute">
+            <summary>
+            Can be used to Specify that the Selected Objects should be passed to this parameter.
+            This makes it impossible to specify the parameter in the command text.
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.SelectionPropertyAttribute.NoConverter">
+            <summary>
+            Should the Converter System Change the types of the selected objects to match the command?
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.SelectionPropertyAttribute.#ctor(System.Boolean)">
+            <summary>
+            Public Constructor.
+            </summary>
+            <param name="noConverter">Flag that can be set to opt out of the automatic conversion system.</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.SelectionPropertyAttribute.ToString">
+            <summary>
+            To String Implementation
+            </summary>
+            <returns>String Representation</returns>
+        </member>
+        <member name="T:Console.Core.ConsoleCoreConfig">
+            <summary>
+            Core Configuration File of the Console System.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.CoreLogger">
+            <summary>
+            Logger used to Write Logs from the Core Library
+            </summary>
+        </member>
+        <member name="P:Console.Core.ConsoleCoreConfig.CoreVersion">
+            <summary>
+            The Version of the Core Library
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.WriteCommand">
+            <summary>
+            Should the Console print the entered command?
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.LogExceptionMessageOnly">
+            <summary>
+            If True will only write the exception message instead of the whole exception
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.ConsolePrefix">
+            <summary>
+            The Prefix of Commands.
+            </summary>
+        </member>
+        <member name="P:Console.Core.ConsoleCoreConfig.StringChar">
+            <summary>
+            The Character that is used to enclose string blocks.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig._stringChar">
+            <summary>
+            Backing field for the StringChar Property
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.CommandInputSeparator">
+            <summary>
+            The Character that is used to seperate input in the console.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.CommandFlagPrefix">
+            <summary>
+            The Character that is used to seperate input in the console.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.EscapeChar">
+            <summary>
+            The Character that is used to escape the EscapableChars
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.NewLine">
+            <summary>
+            Console Newline Character
+            </summary>
+        </member>
+        <member name="P:Console.Core.ConsoleCoreConfig.EscapableChars">
+            <summary>
+            Collection of Characters that have to be Escaped.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig._escapableChars">
+            <summary>
+            Backing Field of the Escapable Character Array
+            </summary>
+        </member>
+        <member name="M:Console.Core.ConsoleCoreConfig.AddEscapeChar(System.Char)">
+            <summary>
+            Adds a Character to the EscapeChars
+            </summary>
+            <param name="escChar">Character to add</param>
+        </member>
+        <member name="M:Console.Core.ConsoleCoreConfig.RemoveEscapeChar(System.Char)">
+            <summary>
+            Removes a Character from the Escape Chars
+            </summary>
+            <param name="escChar"></param>
+        </member>
+        <member name="M:Console.Core.ConsoleCoreConfig.ReplaceChar(System.Char,System.Char)">
+            <summary>
+            Replaces a Character from the Escape Chars
+            </summary>
+            <param name="oldChar">Character to Replace</param>
+            <param name="newChar">Replacement Char</param>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.AllowOverlappingCommands">
+            <summary>
+            If true the Console does not check if commands can be invoked or are hidden by other commands.
+            </summary>
+        </member>
+        <member name="M:Console.Core.ConsoleCoreConfig.FindClosing(System.String,System.Char,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Finds the Corresponding Closing Tag
+            </summary>
+            <param name="cmd">Input Command.</param>
+            <param name="openBracket">The Character used to Open a Block</param>
+            <param name="closeBracket">The Character used to Close a Block</param>
+            <param name="start">The Start index from where the search begins</param>
+            <param name="openBrackets">The Amount of open brackets that were already found.</param>
+            <returns>Index of the Corresponding Closing Tag</returns>
+        </member>
+        <member name="T:Console.Core.ConsoleInitOptions">
+            <summary>
+            Console Startup Settings
+            Defines which default commands are added.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.All">
+            <summary>
+            Add all Default Commands
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.None">
+            <summary>
+            Do not add any Default Commands
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.DefaultCommands">
+            <summary>
+            Clear / Help and Echo Command
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.PropertyCommands">
+            <summary>
+            Commands that allow interfacing with the Property System
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.ExtensionCommands">
+            <summary>
+            Commands that allow Loading Extensions from the Commandline
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.SelectionCommands">
+            <summary>
+            Commands that allow viewing and clearing the selected object list
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleInitOptions.FlagTests">
+            <summary>
+            Commands that Test the behaviour of Flag Attributes.
+            </summary>
+        </member>
+        <member name="T:Console.Core.ConverterSystem.AConverter">
+            <summary>
+            Converter Class is used to Implement Custom Conversion Logic
+            </summary>
+        </member>
+        <member name="M:Console.Core.ConverterSystem.AConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Core.ConverterSystem.AConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="T:Console.Core.ConverterSystem.CustomConvertManager">
+            <summary>
+            Converter System API
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConverterSystem.CustomConvertManager.Converters">
+            <summary>
+            All Loaded Converters.
+            </summary>
+        </member>
+        <member name="M:Console.Core.ConverterSystem.CustomConvertManager.AddConverter(Console.Core.ConverterSystem.AConverter)">
+            <summary>
+            Adds a Converter to the List of Loaded Converters.
+            </summary>
+            <param name="converter">Converter to Add</param>
+        </member>
+        <member name="M:Console.Core.ConverterSystem.CustomConvertManager.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when one of the Loaded Converters is able to provide a conversion
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Core.ConverterSystem.CustomConvertManager.Convert(System.Object,System.Type)">
+            <summary>
+            Returns the Converted Parameter
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="M:Console.Core.ConverterSystem.CustomConvertManager.ConvertTo``1(System.Object)">
+            <summary>
+            Extension Method.
+            Tries to Convert the Specified object into the Specified Parameter.
+            </summary>
+            <typeparam name="TNewType">Target Type</typeparam>
+            <param name="object">Input Value</param>
+            <returns>Value of type TNewType</returns>
+        </member>
+        <member name="T:Console.Core.ExpanderSystem.AExpander">
+            <summary>
+            Expander Class, used to implement Custom Expanders that expand the input string before the parsing step
+            </summary>
+        </member>
+        <member name="M:Console.Core.ExpanderSystem.AExpander.Expand(System.String)">
+            <summary>
+            Returns the Expanded String based on the Input String
+            </summary>
+            <param name="input">Input String</param>
+            <returns>Expanded String</returns>
+        </member>
+        <member name="T:Console.Core.ExpanderSystem.ExpanderManager">
+            <summary>
+            Expander System API.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ExpanderSystem.ExpanderManager.Expanders">
+            <summary>
+            List of Loaded Expanders
+            </summary>
+        </member>
+        <member name="M:Console.Core.ExpanderSystem.ExpanderManager.AddExpander(Console.Core.ExpanderSystem.AExpander)">
+            <summary>
+            Adds an Expander to the Loaded Expanders
+            </summary>
+            <param name="expander">Expander to Add</param>
+        </member>
+        <member name="M:Console.Core.ExpanderSystem.ExpanderManager.Expand(System.String)">
+            <summary>
+            Expands the Specified String with the Loaded Expanders.
+            </summary>
+            <param name="input">Input String</param>
+            <returns>Expanded String</returns>
+        </member>
+        <member name="T:Console.Core.ExtensionSystem.AExtensionInitializer">
+            <summary>
+            Helper Class that has to be implemented with an empty public constructor to be detected and loaded by the console system
+            </summary>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.AExtensionInitializer.GetLogger(System.Reflection.Assembly)">
+            <summary>
+            Returns the Logger with the Correct Prefix for the Assembly
+            </summary>
+            <param name="asm">The Assembly that the logger is created for.</param>
+            <returns>Logger with Assembly Prefix</returns>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.AExtensionInitializer.SetLogger(System.Reflection.Assembly,Console.Core.LogSystem.ALogger)">
+            <summary>
+            Sets the Logger of a Specified Assembly
+            </summary>
+            <param name="asm">The Specified Assembly</param>
+            <param name="logger">The Logger</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.AExtensionInitializer.SetLogger(Console.Core.LogSystem.ALogger)">
+            <summary>
+            Sets the Logger of the Assembly
+            </summary>
+            <param name="logger">The Logger</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.AExtensionInitializer.GetLogger">
+            <summary>
+            Returns the Logger of the ExtensionAssembly
+            </summary>
+            <returns>Logger for this Assembly</returns>
+        </member>
+        <member name="P:Console.Core.ExtensionSystem.AExtensionInitializer.Order">
+            <summary>
+            The Load Order of the Extension
+            </summary>
+        </member>
+        <member name="P:Console.Core.ExtensionSystem.AExtensionInitializer.LoggerPrefix">
+            <summary>
+            The Logger Prefix for this Extension
+            </summary>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.AExtensionInitializer.Initialize">
+            <summary>
+            Initializes the Extensions in this Assembly.
+            </summary>
+        </member>
+        <member name="T:Console.Core.ExtensionSystem.ExtensionLoader">
+            <summary>
+            Extension System API
+            </summary>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadFromFolder(System.String)">
+            <summary>
+            Loads all Extensions contained in the specified folder.
+            </summary>
+            <param name="folder">Folder Containing Extensions</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadExtensionFile(System.String)">
+            <summary>
+            Loads an Extension from File.
+            </summary>
+            <param name="file">Extension Path</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadExtensionFiles(System.String[])">
+            <summary>
+            Loads all specified Extensions
+            </summary>
+            <param name="paths">Extension Paths</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.ProcessLoadOrder(Console.Core.ExtensionSystem.AExtensionInitializer[])">
+            <summary>
+            Orders the Extensions in the correct load order.
+            </summary>
+            <param name="exts">Extensions to be Ordered.</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.InitializeExtensions(System.Collections.Generic.Dictionary{Console.Core.ExtensionSystem.LoadOrder,System.Collections.Generic.List{Console.Core.ExtensionSystem.AExtensionInitializer}})">
+            <summary>
+            Initializes the Ordered Extensions.
+            </summary>
+            <param name="extensions">Extensions to Initialize</param>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.InitializeExtensions(System.Collections.Generic.List{Console.Core.ExtensionSystem.AExtensionInitializer})">
+            <summary>
+            Initializes the Specified Extensions
+            </summary>
+            <param name="extensions">Extensions to Initialize</param>
+            <returns>Loaded Extensions</returns>
+        </member>
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadAssembly(System.String)">
+            <summary>
+            Loads all Extension Initializer Instances from an Assembly.
+            </summary>
+            <param name="path">Path to the Assembly</param>
+            <returns>Extension Initializers in the Extension</returns>
+        </member>
+        <member name="T:Console.Core.ExtensionSystem.LoadOrder">
+            <summary>
+            Specifies the Different Load Order Settings.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ExtensionSystem.LoadOrder.Default">
+            <summary>
+            Default. Gets Loaded After LoadOrder.First and before LoadOrder.After.
+            </summary>
+        </member>
+        <member name="F:Console.Core.ExtensionSystem.LoadOrder.First">
+            <summary>
+            Extensions get loaded as early as possible
+            </summary>
+        </member>
+        <member name="F:Console.Core.ExtensionSystem.LoadOrder.After">
+            <summary>
+            Extensions get loaded as late as possible.
+            </summary>
+        </member>
+        <member name="T:Console.Core.LogSystem.ALogger">
+            <summary>
+            ALogger is an Abstraction to be able to have custom Logger Prefixes.
+            </summary>
+        </member>
+        <member name="P:Console.Core.LogSystem.ALogger.Mute">
+            <summary>
+            If true the Logger will not output any Logs
+            </summary>
+        </member>
+        <member name="M:Console.Core.LogSystem.ALogger.WrapAround(Console.Core.LogSystem.ALogger)">
+            <summary>
+            Wraps the passed logger into the current logger lowest level
+            </summary>
+            <param name="logger">Logger to be wrapped</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.ALogger.Log(System.Object)">
+            <summary>
+            Writes a Log to the Console
+            </summary>
+            <param name="value">Object to write</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.ALogger.LogWarning(System.Object)">
+            <summary>
+            Writes a Log Warning to the Console
+            </summary>
+            <param name="value">Object to write</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.ALogger.LogError(System.Object)">
+            <summary>
+            Writes a Log Error to the Console
+            </summary>
+            <param name="value">Object to write</param>
+        </member>
+        <member name="T:Console.Core.LogSystem.DefaultLogger">
+            <summary>
+            Default Implementation.
+            Prints the Logs as they Arrive.
+            </summary>
+        </member>
+        <member name="T:Console.Core.LogSystem.PrefixLogger">
+            <summary>
+            Logger that can Prepend a Prefix to the Logs
+            </summary>
+        </member>
+        <member name="P:Console.Core.LogSystem.PrefixLogger.Prefix">
+            <summary>
+            The Prefix that is used for this Logger
+            </summary>
+        </member>
+        <member name="M:Console.Core.LogSystem.PrefixLogger.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Core.LogSystem.PrefixLogger.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="prefix">Prefix</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.PrefixLogger.Log(System.Object)">
+            <summary>
+            Writes a Log to the Console
+            </summary>
+            <param name="value">Object to write</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.PrefixLogger.LogWarning(System.Object)">
+            <summary>
+            Writes a Log Warning to the Console
+            </summary>
+            <param name="value">Object to write</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.PrefixLogger.LogError(System.Object)">
+            <summary>
+            Writes a Log Error to the Console
+            </summary>
+            <param name="value">Object to write</param>
+        </member>
+        <member name="T:Console.Core.LogSystem.TypedLogger">
+            <summary>
+            The TypedLoggger Implementation is Prepending Prefixes for each Log Type(Log/Warning/Error)
+            </summary>
+        </member>
+        <member name="P:Console.Core.LogSystem.TypedLogger.LogPrefix">
+            <summary>
+            The Prefix that is used by normal Logs
+            </summary>
+        </member>
+        <member name="P:Console.Core.LogSystem.TypedLogger.LogWarningPrefix">
+            <summary>
+            The Prefix that is used by warning logs
+            </summary>
+        </member>
+        <member name="P:Console.Core.LogSystem.TypedLogger.LogErrorPrefix">
+            <summary>
+            The Prefix that is used by error logs
+            </summary>
+        </member>
+        <member name="M:Console.Core.LogSystem.TypedLogger.Log(System.Object)">
+            <summary>
+            Logs an Object
+            </summary>
+            <param name="value">Object to log</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.TypedLogger.LogWarning(System.Object)">
+            <summary>
+            Logs a warning
+            </summary>
+            <param name="value">Object to log</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.TypedLogger.LogError(System.Object)">
+            <summary>
+            Logs an error
+            </summary>
+            <param name="value">Object to log</param>
+        </member>
+        <member name="M:Console.Core.LogSystem.TypedLogger.CreateTypedWithPrefix(System.String,System.Boolean)">
+            <summary>
+            Creates a Typed Logger that displays the Prefix and the Log Types.
+            </summary>
+            <param name="prefix">Prefix to Use</param>
+            <param name="logPrefixFirst">If true will write [Log][Prefix]LogMessage, If false will write [Prefix][Log]LogMessage</param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.PropertySystem.PropertyAttribute">
+            <summary>
+            Property Attribute.
+            When a Field or Property is Decorated with this attribute it will be loaded by the Property System.
+            </summary>
+        </member>
+        <member name="F:Console.Core.PropertySystem.PropertyAttribute.PropertyPath">
+            <summary>
+            The Property Path/Name
+            </summary>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyAttribute.#ctor(System.String)">
+            <summary>
+            Public constructor.
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+        </member>
+        <member name="T:Console.Core.PropertySystem.PropertyAttributeUtils">
+            <summary>
+            Utilities for adding Properties from Fields/Properties decorated with the PropertyAttribute
+            </summary>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties(System.Type)">
+            <summary>
+            Adds Static Fields and Properties to the Property System
+            </summary>
+            <param name="t">Type containing the Properties</param>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties``1">
+            <summary>
+            Adds Static Fields and Properties to the Property System
+            </summary>
+            <typeparam name="T">Type containing the Properties</typeparam>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties(System.Object)">
+            <summary>
+            Adds Instance Fields and Properties to the Property System
+            </summary>
+            <param name="instance">Object Instance containing the Properties</param>
+        </member>
+        <member name="T:Console.Core.PropertySystem.PropertyManager">
+            <summary>
+            Property System API
+            </summary>
+        </member>
+        <member name="F:Console.Core.PropertySystem.PropertyManager.Properties">
+            <summary>
+            All Properties
+            </summary>
+        </member>
+        <member name="P:Console.Core.PropertySystem.PropertyManager.AllPropertyPaths">
+            <summary>
+            List of all Property Paths/Names
+            </summary>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.HasProperty(System.String)">
+            <summary>
+            Returns true if the Property Path does exist in the Loaded Properties
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <returns>True if the Property Exists</returns>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.AddProperty(System.String,System.Object)">
+            <summary>
+            Adds or Sets the property with the specified path to the specified value
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <param name="value">New Value</param>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.SetProperty(System.String,Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer)">
+            <summary>
+            Sets or Adds the Type container of the specified property(use with caution)
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <param name="helper">New Value Container</param>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.GetPropertyValue(System.String)">
+            <summary>
+            Returns the Property Value at the specified name
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <returns>The Value</returns>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.TryGetValue(System.String,System.Object@)">
+            <summary>
+            Returns false if the value could not be retrieved.
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <param name="value">New Value</param>
+            <returns>True if the value has been retrieved.</returns>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.SetPropertyValue(System.String,System.Object)">
+            <summary>
+            Sets the Property Value of the Specified Path to the passed object.
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <param name="value">New Value</param>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.Remove(System.String)">
+            <summary>
+            Removes a Property from the Property System
+            </summary>
+            <param name="propertyPath">Property name to Remove</param>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.TrySetValue(System.String,System.Object,System.Boolean)">
+            <summary>
+            Returns true if the Property Value has been set.
+            </summary>
+            <param name="propertyPath">Path/Name of the Property</param>
+            <param name="value">New Value</param>
+            <param name="create">Optionally Create the Property when its not found.</param>
+            <returns>True if the Value was set</returns>
+        </member>
+        <member name="M:Console.Core.PropertySystem.PropertyManager.AddRefHelpers(System.Collections.Generic.Dictionary{Console.Core.PropertySystem.PropertyAttribute,Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer})">
+            <summary>
+            Adds all Properties into the System
+            </summary>
+            <param name="infos">Value Containers to be Added.</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Abstract.AInstancedMetaData`1">
+            <summary>
+            Contains Meta Data from a Specific Instanced C# Member
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Console.Core.ReflectionSystem.Abstract.AInstancedMetaData`1.Instance">
+            <summary>
+            The Object Instance that contains the Member
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.Abstract.AInstancedMetaData`1.#ctor(System.Object,`0)">
+            <summary>
+            Protected Constructor
+            </summary>
+            <param name="instance">Instance bound to the Member</param>
+            <param name="member">Member used as Backend</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Abstract.AMetaData`1">
+            <summary>
+            Contains Meta Data from a Specific C# Member
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Abstract.AMetaData`1.Attributes">
+            <summary>
+            Attributes of the Member
+            </summary>
+        </member>
+        <member name="F:Console.Core.ReflectionSystem.Abstract.AMetaData`1.ReflectedInfo">
+            <summary>
+            The Inner Member Info Instance
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.Abstract.AMetaData`1.#ctor(`0)">
+            <summary>
+            Protected Constructor
+            </summary>
+            <param name="member">Member Info used as Backend</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.FakeValueContainer">
+            <summary>
+            Value Type Container that does not use reflection
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FakeValueContainer.CanRead">
+            <summary>
+            Flag that determines if the Value can be Read
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FakeValueContainer.CanWrite">
+            <summary>
+            Flag that determines if the Value can be Written
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FakeValueContainer.ValueType">
+            <summary>
+            The Type of the Value
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FakeValueContainer.Attributes">
+            <summary>
+            Collection of Attributes
+            </summary>
+        </member>
+        <member name="F:Console.Core.ReflectionSystem.FakeValueContainer.Value">
+            <summary>
+            The Inner Value
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FakeValueContainer.#ctor(System.Object)">
+            <summary>
+            Creates a Fake Value Container
+            </summary>
+            <param name="value">Value</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FakeValueContainer.Get">
+            <summary>
+            Gets the Inner Value
+            </summary>
+            <returns>The Inner Value</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FakeValueContainer.Set(System.Object)">
+            <summary>
+            Sets the Inner Value
+            </summary>
+            <param name="value">New Value</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.FieldMetaData">
+            <summary>
+            IValueTypeContainer Implementation using a FieldInfo type as backend
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FieldMetaData.CanWrite">
+            <summary>
+            Flag that determines if the Value can be Written
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FieldMetaData.CanRead">
+            <summary>
+            Flag that determines if the Value can be Read
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.FieldMetaData.ValueType">
+            <summary>
+            The Type of the Value
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FieldMetaData.#ctor(System.Object,System.Reflection.FieldInfo)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="instance">Instance bound to the Field Info</param>
+            <param name="info">Field Info used as Backend</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FieldMetaData.Set(System.Object)">
+            <summary>
+            Sets the Value of the Field Info to the specified value
+            </summary>
+            <param name="value">New Value</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FieldMetaData.Get">
+            <summary>
+            Gets the Value of the Field Info
+            </summary>
+            <returns>Value of the Property</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.FieldMetaData.Get``1">
+            <summary>
+            Gets the Value of the Field Info
+            </summary>
+            <typeparam name="T">Type of the Property</typeparam>
+            <returns>Value of the Property</returns>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Interfaces.IAttributeCollection">
+            <summary>
+            Inherited by Classes that contain a Collection of Attributes.
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IAttributeCollection.Attributes">
+            <summary>
+            Collection of Attributes
+            </summary>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Interfaces.IGettable">
+            <summary>
+            Inherited by Classes that can return an inner value
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.Interfaces.IGettable.Get">
+            <summary>
+            Returns the Inner Value
+            </summary>
+            <returns>The Inner Value</returns>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Interfaces.IInvokable">
+            <summary>
+            Inherited by Classes that can be invoked
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IInvokable.Name">
+            <summary>
+            Name of the Invokable Instance
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IInvokable.ParameterCount">
+            <summary>
+            The Parameter Count of the Instance
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IInvokable.ParameterTypes">
+            <summary>
+            The Meta Data of the Parameters
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IInvokable.ReturnType">
+            <summary>
+            The Return type of the Invokable Instance
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.Interfaces.IInvokable.Invoke(System.Object[])">
+            <summary>
+            Invokes this Instance.
+            </summary>
+            <param name="parameters">Parameters of the Invocation</param>
+            <returns>The return of this Invocation</returns>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Interfaces.ISettable">
+            <summary>
+            Inherited by Classes that can set an inner value
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.Interfaces.ISettable.Set(System.Object)">
+            <summary>
+            Sets the Inner Value
+            </summary>
+            <param name="value">New Value</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer">
+            <summary>
+            Inherited by Classes that represent a Settable/Gettable Container for a Value.
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer.ValueType">
+            <summary>
+            The Type of the Value
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer.CanRead">
+            <summary>
+            Flag that determines if the Value can be Read
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer.CanWrite">
+            <summary>
+            Flag that determines if the Value can be written.
+            </summary>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.MethodMetaData">
+            <summary>
+            IInvokable Implementation. Using a MethodInfo as backend
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.MethodMetaData.Name">
+            <summary>
+            Name of the Method
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.MethodMetaData.ParameterCount">
+            <summary>
+            The Parameter Count of the Method
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.MethodMetaData.ParameterTypes">
+            <summary>
+            The Meta Data of the Commands.
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.MethodMetaData.ReturnType">
+            <summary>
+            The Return type of the Invocation
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.MethodMetaData.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="instance">Instance Bound to the method info</param>
+            <param name="info">Method info used as Backend</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.MethodMetaData.Invoke(System.Object[])">
+            <summary>
+            Gets called by the Console System
+            </summary>
+            <param name="parameter">Invocation Parameters</param>
+            <returns>Invocation Return</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.MethodMetaData.InvokeDirect(System.Object[])">
+            <summary>
+            Invokes the Method with the exact object array.
+            Does not Convert the Types accordingly
+            </summary>
+            <param name="parameter">Invocation Parameters</param>
+            <returns>Invocation Return</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.MethodMetaData.ApplyFlagsSyntax(System.Reflection.ParameterInfo[],System.Collections.Generic.List{System.Object},System.Object[])">
+            <summary>
+            Fills the Right Indices of the Return array with flag values.
+            </summary>
+            <param name="pt">All Parameters</param>
+            <param name="cparameter">The Current Parameters</param>
+            <param name="ret">The Result Array</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.MethodMetaData.Cast(System.Object[])">
+            <summary>
+            Casts the Parameters to the right types for this Method.
+            </summary>
+            <param name="parameter">Parameter Array</param>
+            <returns>Parameter Array with correct types.</returns>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.ParameterMetaData">
+            <summary>
+            IAttributeCollection implementation. Using a Parameter Info Instance as backend.
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.ParameterMetaData.Attributes">
+            <summary>
+            List of attributes on this parameter
+            </summary>
+        </member>
+        <member name="F:Console.Core.ReflectionSystem.ParameterMetaData.ReflectedInfo">
+            <summary>
+            The Parameter Info
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.ParameterMetaData.ParameterType">
+            <summary>
+            The Parameter Type
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ParameterMetaData.#ctor(System.Reflection.ParameterInfo)">
+            <summary>
+            Public Parameter Info
+            </summary>
+            <param name="info">Parameter Info used as Backend</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.PropertyMetaData">
+            <summary>
+            IValueTypeContainer Implementation. Using a Property Info Instance as Backend.
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.PropertyMetaData.#ctor(System.Object,System.Reflection.PropertyInfo)">
+            <summary>
+            Public Constructor.
+            </summary>
+            <param name="instance"></param>
+            <param name="info"></param>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.PropertyMetaData.ValueType">
+            <summary>
+            The Type of the Property.
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.PropertyMetaData.CanWrite">
+            <summary>
+            Flag that determines if the Value can be Written
+            </summary>
+        </member>
+        <member name="P:Console.Core.ReflectionSystem.PropertyMetaData.CanRead">
+            <summary>
+            Flag that determines if the Value can be Read
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.PropertyMetaData.Set(System.Object)">
+            <summary>
+            Sets the Property to the specified value
+            </summary>
+            <param name="value">New Value</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.PropertyMetaData.Get">
+            <summary>
+            Gets the Value of the Property
+            </summary>
+            <returns>Value of the Property</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.PropertyMetaData.Get``1">
+            <summary>
+            Gets the Value of the Property
+            </summary>
+            <typeparam name="T">Type of the Property</typeparam>
+            <returns>Value of the Property</returns>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.ReflectionUtils">
+            <summary>
+            Utility Class used for Reflection
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.InvokePreserveStack(System.Reflection.MethodInfo,System.Object,System.Object[])">
+            <summary>
+            Invokes a Method Info without breaking the stack when the Invocation Fais.
+            </summary>
+            <param name="info">The Info To Invoke</param>
+            <param name="instance">The Instance</param>
+            <param name="parameters">Parameters of the Invocation</param>
+            <returns>Return of the Invocation</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.Get(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            Returns the Value of the Property.
+            </summary>
+            <param name="info">The Info Containing the Value</param>
+            <param name="instance">The Instance of the Property</param>
+            <returns>The Value of the Property</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.Set(System.Reflection.PropertyInfo,System.Object,System.Object)">
+            <summary>
+            Sets the Value of the Property.
+            </summary>
+            <param name="info">The Info Containing the Value</param>
+            <param name="instance">The Instance of the Property</param>
+            <param name="value">New Value</param>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetStaticConsoleProps``1(System.Type)">
+            <summary>
+            Returns all Static Property Meta Datas with the specified Attribute
+            </summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="t">Type Containing the Properties</param>
+            <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetStaticConsoleFields``1(System.Type)">
+            <summary>
+            Returns all Static FieldMetaDatas with the specified Attribute
+            </summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="t">Type Containing the Fields</param>
+            <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetConsoleProps``1(System.Object)">
+            <summary>
+            Returns all Property Meta Datas with the specified Attribute
+            </summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="instance">Instance containing the Properties</param>
+            <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetConsoleFields``1(System.Object)">
+            <summary>
+            Returns all FieldMetaDatas with the specified Attribute
+            </summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="instance">Instance containing the Fields</param>
+            <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetFieldsWithAttribute``1(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            Returns all Fields with the Specified Attribute
+            </summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="t">Type Containing the Fields</param>
+            <param name="flag">Binding Flags of the Fields</param>
+            <returns>Dictionary of Attributes and Field Infos</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetPropertiesWithAttribute``1(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            Returns all Properties with the Specified Attribute
+            </summary>
+            <typeparam name="T">Attribute Type</typeparam>
+            <param name="t">Type Containing the Fields</param>
+            <param name="flag">Binding Flags of the Properties</param>
+            <returns>Dictionary of Attributes and Property Infos</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.GetAttributes``2(System.Collections.Generic.List{System.Reflection.MemberInfo})">
+            <summary>
+            Returns all Member Infos of a specified type and with a specified attribute type.
+            </summary>
+            <typeparam name="K">Attribute Type</typeparam>
+            <typeparam name="V">Member Info Type</typeparam>
+            <param name="info">List of Member Info to Search</param>
+            <returns>Dictionary of Attributes and Member Infos</returns>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.StaticFieldMetaData">
+            <summary>
+            FieldMetaData Implementation but without instance variable
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.StaticFieldMetaData.#ctor(System.Reflection.FieldInfo)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="info">FieldInfo used as Backend</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.StaticMethodMetaData">
+            <summary>
+            MethodMetaData Implementation but without instance variable
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.StaticMethodMetaData.#ctor(System.Reflection.MethodInfo)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="info">MethodInfo used as Backend</param>
+        </member>
+        <member name="T:Console.Core.ReflectionSystem.StaticPropertyMetaData">
+            <summary>
+            MethodMetaData Implementation but without instance variable
+            </summary>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.StaticPropertyMetaData.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="info">Property used as Backend</param>
+        </member>
+    </members>
+</doc>
