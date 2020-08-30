@@ -9,6 +9,7 @@ using Console.EnvironmentVariables;
 using Console.ScriptSystem.Deblocker;
 using Console.ScriptSystem.Deblocker.Implementations;
 using Console.ScriptSystem.Deblocker.Parameters;
+using Console.ScriptSystem.Extensions;
 
 /// <summary>
 /// The Script System Extension implements functionality that allows running of scripts as if they were typed in the console input line by line.
@@ -46,6 +47,9 @@ namespace Console.ScriptSystem
         /// </summary>
         protected override void Initialize()
         {
+            AExtensionFilter.AddFilter(new BlackListFilter());
+            AExtensionFilter.AddFilter(new WhiteListFilter(new []{"txt", "csf"}));
+
             EnvironmentVariableManager.AddProvider(new ParameterVariableContainer());
             PropertyAttributeUtils.AddProperties<ScriptSystemInitializer>();
             CommandAttributeUtils.AddCommands(typeof(ScriptSystem));

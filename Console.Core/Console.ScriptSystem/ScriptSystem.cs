@@ -5,6 +5,7 @@ using Console.Core.CommandSystem;
 using Console.ScriptSystem.Async;
 using Console.ScriptSystem.Deblocker;
 using Console.ScriptSystem.Deblocker.Parameters;
+using Console.ScriptSystem.Extensions;
 
 namespace Console.ScriptSystem
 {
@@ -15,11 +16,46 @@ namespace Console.ScriptSystem
     {
         internal static AsyncRunner MainRunner = new AsyncRunner();
 
+        [Command("extensions-list", "Lists all Extension Filters", "ext-list")]
+        private static void ListExtensions()
+        {
+            ScriptSystemInitializer.Logger.Log("Filters: \n" + AExtensionFilter.FilterList());
+        }
+
+        [Command("extensions-add-black", "Adds an Extension to the Blacklist", "ext-add-black")]
+        private static void AddExtBlacklist(string ext)
+        {
+            BlackListFilter.Add(ext);
+        }
+        [Command("extensions-add-white", "Adds an Extension to the Whitelist", "ext-add-white")]
+        private static void AddExtWhitelist(string ext)
+        {
+            WhiteListFilter.Add(ext);
+        }
+
+        [Command("extensions-remove-black", "Removes an Extension from the Blacklist", "ext-rem-black")]
+        private static void RemExtBlacklist(string ext)
+        {
+            BlackListFilter.Remove(ext);
+        }
+        [Command("extensions-remove-white", "Removes an Extension from the Whitelist", "ext-rem-white")]
+        private static void RemExtWhitelist(string ext)
+        {
+            WhiteListFilter.Remove(ext);
+        }
+
         [Command("run-async", "Runs a File in \"background\".")]
         private static void RunAsync(string file)
         {
             if (File.Exists(file))
             {
+                if (!AExtensionFilter.IsAllowed(Path.GetExtension(file)))
+                {
+                    ScriptSystemInitializer.Logger.LogWarning(
+                        $"Can not run Script: {file} because the Extension is not permitted by the current Extension Filter Configuration.");
+                    return;
+                }
+
                 List<string> lines = DeblockerCollection.Parse(File.ReadAllText(file));
                 AsyncRunner r = MainRunner.Current ?? MainRunner.GetCurrent();
                 r.AddSub(new AsyncRunner(ParameterCollection.CreateCollection(new string[0], ""), lines.ToArray()));
@@ -30,7 +66,7 @@ namespace Console.ScriptSystem
             }
         }
 
-        
+
 
         /// <summary>
         /// Run Command Name

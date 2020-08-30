@@ -648,6 +648,159 @@
             <param name="parameter">Parameter Name</param>
             <returns>Value of the Parameter</returns>
         </member>
+        <member name="T:Console.ScriptSystem.Extensions.AExtensionFilter">
+            <summary>
+            Abstract Extension Filter that is used to allow/disallow scripts with specific extensions to be ran.
+            </summary>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.AExtensionFilter.Allowed(System.String)">
+            <summary>
+            Returns true if the extension is allowed to be loaded.
+            </summary>
+            <param name="extensions">Extension to Check</param>
+            <returns>True if Allowed</returns>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.AExtensionFilter.IsAllowed(System.String)">
+            <summary>
+            Returns True if the Extension is allowed by the loaded Filters
+            </summary>
+            <param name="extension">The Extension to be Checked</param>
+            <returns>True if allowed.</returns>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.AExtensionFilter.AddFilter(Console.ScriptSystem.Extensions.AExtensionFilter)">
+            <summary>
+            Adds a Filter to the Loaded Filters
+            </summary>
+            <param name="filter">Filter to Add</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.AExtensionFilter.RemoveFilter(Console.ScriptSystem.Extensions.AExtensionFilter)">
+            <summary>
+            Removes a Filter fro the Loaded Filters
+            </summary>
+            <param name="filter">Filter to Remove</param>
+        </member>
+        <member name="T:Console.ScriptSystem.Extensions.BlackListFilter">
+            <summary>
+            All Extensions in this filter are explicitly not allowed.
+            </summary>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="file">File(extension seperated by new lines)</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.#ctor(System.String[])">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="list">Extension List</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.Allowed(System.String)">
+            <summary>
+            Returns true if the extension is allowed to be loaded.
+            </summary>
+            <param name="extensions">Extension to Check</param>
+            <returns>True if Allowed</returns>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.Add(System.String)">
+            <summary>
+            Adds an Extension to the Black List
+            </summary>
+            <param name="extension">Extension that should be BlackListed</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.Remove(System.String)">
+            <summary>
+            Removes an Extension from the Black List
+            </summary>
+            <param name="extension">Extension that should be Removed</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.BlackListFilter.ToString">
+            <summary>
+            Returns all Contained Extensions
+            </summary>
+            <returns>Extension List</returns>
+        </member>
+        <member name="T:Console.ScriptSystem.Extensions.ListFilter">
+            <summary>
+            Abstract List Filter. Does Implement an Extension List
+            </summary>
+        </member>
+        <member name="P:Console.ScriptSystem.Extensions.ListFilter.Extensions">
+            <summary>
+            The Extension List used to Allow/Disallow Extensions
+            </summary>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.ListFilter.#ctor(System.String[])">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="list">Extension List</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.ListFilter.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="file">File(extension seperated by new lines)</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.ListFilter.ToString">
+            <summary>
+            Returns all Contained Extensions
+            </summary>
+            <returns>Extension List</returns>
+        </member>
+        <member name="T:Console.ScriptSystem.Extensions.WhiteListFilter">
+            <summary>
+            All Extensions in this filter are explicitly allowed.
+            </summary>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="file">File(extension seperated by new lines)</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.#ctor(System.String[])">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="list">Extension List</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.Allowed(System.String)">
+            <summary>
+            Returns true if the extension is allowed to be loaded.
+            </summary>
+            <param name="extensions">Extension to Check</param>
+            <returns>True if Allowed</returns>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.Add(System.String)">
+            <summary>
+            Adds an Extension to the White List
+            </summary>
+            <param name="extension">Extension that should be WhiteListed</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.Remove(System.String)">
+            <summary>
+            Removes an Extension from the White List
+            </summary>
+            <param name="extension">Extension that should be Removed</param>
+        </member>
+        <member name="M:Console.ScriptSystem.Extensions.WhiteListFilter.ToString">
+            <summary>
+            Returns all Contained Extensions
+            </summary>
+            <returns>Extension List</returns>
+        </member>
         <member name="T:Console.ScriptSystem.ScriptSystem">
             <summary>
             Script System Implementation

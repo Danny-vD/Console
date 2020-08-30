@@ -21,6 +21,9 @@ var files_dup =
     [ "AExpander.cs", "d5/d92/_a_expander_8cs.html", [
       [ "AExpander", "d5/d35/class_console_1_1_core_1_1_expander_system_1_1_a_expander.html", "d5/d35/class_console_1_1_core_1_1_expander_system_1_1_a_expander" ]
     ] ],
+    [ "AExtensionFilter.cs", "d4/d5e/_a_extension_filter_8cs.html", [
+      [ "AExtensionFilter", "d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html", "d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter" ]
+    ] ],
     [ "AExtensionInitializer.cs", "d2/d6f/_a_extension_initializer_8cs.html", [
       [ "AExtensionInitializer", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html", "d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer" ]
     ] ],
@@ -77,6 +80,9 @@ var files_dup =
     ] ],
     [ "AuthenticationResultPacketSerializer.cs", "de/d5c/_authentication_result_packet_serializer_8cs.html", [
       [ "AuthenticationResultPacketSerializer", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer.html", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer" ]
+    ] ],
+    [ "BlackListFilter.cs", "d5/d6f/_black_list_filter_8cs.html", [
+      [ "BlackListFilter", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter.html", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter" ]
     ] ],
     [ "CallType.cs", "dc/d41/_call_type_8cs.html", "dc/d41/_call_type_8cs" ],
     [ "ClassQueryInitializer.cs", "df/d75/_class_query_initializer_8cs.html", [
@@ -390,6 +396,9 @@ var files_dup =
     [ "Line.cs", "db/d69/_line_8cs.html", [
       [ "Line", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line" ]
     ] ],
+    [ "ListFilter.cs", "d6/dd6/_list_filter_8cs.html", [
+      [ "ListFilter", "db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html", "db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter" ]
+    ] ],
     [ "LoadOrder.cs", "d3/de0/_load_order_8cs.html", "d3/de0/_load_order_8cs" ],
     [ "LocalFunctionDeblocker.cs", "d5/d87/_local_function_deblocker_8cs.html", [
       [ "LocalFunctionDeblocker", "d7/dea/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_local_function_deblocker.html", "d7/dea/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_local_function_deblocker" ]
@@ -627,5 +636,8 @@ var files_dup =
     ] ],
     [ "WhileDeblocker.cs", "da/d0c/_while_deblocker_8cs.html", [
       [ "WhileDeblocker", "dd/d28/class_console_1_1_script_system_1_1_deblocker_1_1_conditions_1_1_while_deblocker.html", "dd/d28/class_console_1_1_script_system_1_1_deblocker_1_1_conditions_1_1_while_deblocker" ]
+    ] ],
+    [ "WhiteListFilter.cs", "d1/d7c/_white_list_filter_8cs.html", [
+      [ "WhiteListFilter", "d9/dc5/class_console_1_1_script_system_1_1_extensions_1_1_white_list_filter.html", "d9/dc5/class_console_1_1_script_system_1_1_extensions_1_1_white_list_filter" ]
     ] ]
 ];

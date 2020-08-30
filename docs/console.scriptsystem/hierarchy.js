@@ -12,6 +12,12 @@ var hierarchy =
         [ "Console.ScriptSystem.Deblocker.Functions.LocalFunctionDeblocker", "d7/dea/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_local_function_deblocker.html", null ]
       ] ]
     ] ],
+    [ "Console.ScriptSystem.Extensions.AExtensionFilter", "d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html", [
+      [ "Console.ScriptSystem.Extensions.ListFilter", "db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html", [
+        [ "Console.ScriptSystem.Extensions.BlackListFilter", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter.html", null ],
+        [ "Console.ScriptSystem.Extensions.WhiteListFilter", "d9/dc5/class_console_1_1_script_system_1_1_extensions_1_1_white_list_filter.html", null ]
+      ] ]
+    ] ],
     [ "AExtensionInitializer", null, [
       [ "Console.ScriptSystem.ScriptSystemInitializer", "d5/d43/class_console_1_1_script_system_1_1_script_system_initializer.html", null ]
     ] ],

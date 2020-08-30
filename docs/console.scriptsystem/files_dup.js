@@ -3,8 +3,14 @@ var files_dup =
     [ "ADeblocker.cs", "d8/d40/_a_deblocker_8cs.html", [
       [ "ADeblocker", "da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker.html", "da/df0/class_console_1_1_script_system_1_1_deblocker_1_1_implementations_1_1_a_deblocker" ]
     ] ],
+    [ "AExtensionFilter.cs", "d4/d5e/_a_extension_filter_8cs.html", [
+      [ "AExtensionFilter", "d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html", "d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter" ]
+    ] ],
     [ "AsyncRunner.cs", "d5/d6b/_async_runner_8cs.html", [
       [ "AsyncRunner", "d8/dd1/class_console_1_1_script_system_1_1_async_1_1_async_runner.html", "d8/dd1/class_console_1_1_script_system_1_1_async_1_1_async_runner" ]
+    ] ],
+    [ "BlackListFilter.cs", "d5/d6f/_black_list_filter_8cs.html", [
+      [ "BlackListFilter", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter.html", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter" ]
     ] ],
     [ "DeblockerCollection.cs", "d4/dd4/_deblocker_collection_8cs.html", [
       [ "DeblockerCollection", "dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html", "dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection" ]
@@ -39,6 +45,9 @@ var files_dup =
     [ "Line.cs", "db/d69/_line_8cs.html", [
       [ "Line", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line.html", "d1/d10/class_console_1_1_script_system_1_1_deblocker_1_1_line" ]
     ] ],
+    [ "ListFilter.cs", "d6/dd6/_list_filter_8cs.html", [
+      [ "ListFilter", "db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html", "db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter" ]
+    ] ],
     [ "LocalFunctionDeblocker.cs", "d5/d87/_local_function_deblocker_8cs.html", [
       [ "LocalFunctionDeblocker", "d7/dea/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_local_function_deblocker.html", "d7/dea/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_local_function_deblocker" ]
     ] ],
@@ -65,5 +74,8 @@ var files_dup =
     [ "SubScriptOrder.cs", "d1/d6d/_sub_script_order_8cs.html", "d1/d6d/_sub_script_order_8cs" ],
     [ "WhileDeblocker.cs", "da/d0c/_while_deblocker_8cs.html", [
       [ "WhileDeblocker", "dd/d28/class_console_1_1_script_system_1_1_deblocker_1_1_conditions_1_1_while_deblocker.html", "dd/d28/class_console_1_1_script_system_1_1_deblocker_1_1_conditions_1_1_while_deblocker" ]
+    ] ],
+    [ "WhiteListFilter.cs", "d1/d7c/_white_list_filter_8cs.html", [
+      [ "WhiteListFilter", "d9/dc5/class_console_1_1_script_system_1_1_extensions_1_1_white_list_filter.html", "d9/dc5/class_console_1_1_script_system_1_1_extensions_1_1_white_list_filter" ]
     ] ]
 ];
