@@ -76,7 +76,7 @@ namespace Console.CLI
             //    new NetworkedInitializer()
             //};
             //CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
-            CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath, ConsoleInitOptions.All);
+            CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath);
             //new EnvInitializer().Initialize();
             //new DefaultConverterInitializer().Initialize();
 

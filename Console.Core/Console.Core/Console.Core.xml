@@ -1814,7 +1814,7 @@
             Extension System API
             </summary>
         </member>
-        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadFromFolder(System.String)">
+        <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadFromFolder(System.String,System.Boolean)">
             <summary>
             Loads all Extensions contained in the specified folder.
             </summary>

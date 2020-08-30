@@ -71,15 +71,9 @@ namespace Console.Core
         /// </summary>
         public abstract AObjectSelector ObjectSelector { get; }
 
-        /// <summary>
-        /// Protected Constructor
-        /// </summary>
-        /// <param name="options">Console Initialization Flags.</param>
-        protected AConsoleManager(ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
+        [Command("load-default", "Loads the Default Commands", "load")]
+        private static void LoadCommands(ConsoleInitOptions options)
         {
-            Instance = this;
-            Parser = new CommandParser();
-            PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
             if ((options & ConsoleInitOptions.DefaultCommands) != 0)
             {
                 DefaultCommands.AddDefaultCommands();
@@ -100,6 +94,19 @@ namespace Console.Core
             {
                 FlagTests.AddFlagTestCommands();
             }
+        }
+
+        /// <summary>
+        /// Protected Constructor
+        /// </summary>
+        /// <param name="options">Console Initialization Flags.</param>
+        protected AConsoleManager(ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
+        {
+            Instance = this;
+            Parser = new CommandParser();
+            PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
+            CommandAttributeUtils.AddCommands<AConsoleManager>();
+            LoadCommands(options);
         }
 
         /// <summary>

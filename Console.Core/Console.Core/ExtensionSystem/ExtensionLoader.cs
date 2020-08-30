@@ -22,8 +22,9 @@ namespace Console.Core.ExtensionSystem
         /// Loads all Extensions contained in the specified folder.
         /// </summary>
         /// <param name="folder">Folder Containing Extensions</param>
-        public static void LoadFromFolder(string folder)
+        public static void LoadFromFolder(string folder, bool create = true)
         {
+            if (create && !Directory.Exists(folder)) Directory.CreateDirectory(folder);
             if (Directory.Exists(folder))
             {
                 LoadExtensionFiles(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
@@ -36,7 +37,7 @@ namespace Console.Core.ExtensionSystem
         /// <param name="file">Extension Path</param>
         public static void LoadExtensionFile(string file)
         {
-            LoadExtensionFiles(new[] {file});
+            LoadExtensionFiles(new[] { file });
         }
 
         /// <summary>

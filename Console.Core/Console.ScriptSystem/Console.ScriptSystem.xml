@@ -740,7 +740,7 @@
             <summary>
             Public Constructor
             </summary>
-            <param name="list">Extension List</param>
+            <param name="extensions">Extension List</param>
         </member>
         <member name="M:Console.ScriptSystem.Extensions.ListFilter.#ctor(System.String)">
             <summary>
