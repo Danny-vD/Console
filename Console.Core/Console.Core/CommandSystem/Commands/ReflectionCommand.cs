@@ -19,6 +19,11 @@ namespace Console.Core.CommandSystem.Commands
         public IInvokable RefData { get; }
 
         /// <summary>
+        /// Parameter Info
+        /// </summary>
+        public override List<ParameterMetaData> MetaData => RefData.ParameterTypes.ToList();
+
+        /// <summary>
         /// The Command Attriute
         /// </summary>
         public CommandAttribute Command =>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Console.Core.CommandSystem.Builder.PropertyAutoFill;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
@@ -37,7 +38,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="start">Search Term.</param>
         [Command("list-properties", "Lists all Properties that start with the specified sequence", "lp")]
-        private static void ListPropertiesCommand(string start)
+        private static void ListPropertiesCommand([PropertyAutoFill] string start)
         {
             string ret = "Properties:\n\t";
             List<string> p = PropertyManager.AllPropertyPaths;
@@ -75,7 +76,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <param name="propertyPath">Search Term/Property Path</param>
         [Command("get-property",
             "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
-        private static void GetProperty(string propertyPath)
+        private static void GetProperty([PropertyAutoFill] string propertyPath)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -116,7 +117,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
         [Command("set-property-selection", "Sets the specified property to the specified value", "sps")]
-        private static void SetPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        private static void SetPropertySelection([PropertyAutoFill] string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -132,7 +133,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
         [Command("add-property-selection", "Sets or Adds the specified property to the specified value", "aps")]
-        private static void AddPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
+        private static void AddPropertySelection([PropertyAutoFill] string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -148,7 +149,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
         [Command("set-property", "Sets the specified property to the specified value", "sp")]
-        private static void SetProperty(string propertyPath, object propertyValue)
+        private static void SetProperty([PropertyAutoFill] string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -164,7 +165,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
         [Command("add-property", "Sets or Adds the specified property to the specified value", "ap")]
-        private static void AddProperty(string propertyPath, object propertyValue)
+        private static void AddProperty([PropertyAutoFill] string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -174,7 +175,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
-        private static void DeleteProperty(string propertyPath)
+        private static void DeleteProperty([PropertyAutoFill] string propertyPath)
         {
             if (PropertyManager.HasProperty(propertyPath))
             {

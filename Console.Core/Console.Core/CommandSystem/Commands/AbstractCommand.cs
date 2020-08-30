@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Console.Core.ConverterSystem;
+using Console.Core.ReflectionSystem;
 
 /// <summary>
 /// The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implementations
@@ -28,6 +29,11 @@ namespace Console.Core.CommandSystem.Commands
         /// Amount of Selection attributes in the Command
         /// </summary>
         public abstract int SelectionAttributeCount { get; }
+
+        /// <summary>
+        /// Parameter Info
+        /// </summary>
+        public abstract List<ParameterMetaData> MetaData { get; }
 
         /// <summary>
         /// Command Name.
@@ -148,9 +154,11 @@ namespace Console.Core.CommandSystem.Commands
         /// Returns true if the Command has this Name or Alias.
         /// </summary>
         /// <param name="name">Name to test against.</param>
+        /// <param name="startsWith">If true the Name comparison is only checking if the commandname is starting with the specified name</param>
         /// <returns>True if the Name does match this Commands Name or one of its Aliases.</returns>
-        public bool HasName(string name)
+        public bool HasName(string name, bool startsWith=false)
         {
+            if (startsWith) return Name.StartsWith(name) || Aliases.Any(x => x.StartsWith(name));
             return Name == name || Aliases.Contains(name);
         }
 
@@ -161,7 +169,7 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>True if any Name does match this Commands Name or one of its Aliases.</returns>
         public bool HasName(IEnumerable<string> names)
         {
-            return names.Any(HasName);
+            return names.Any(s => HasName(s));
         }
 
         /// <summary>

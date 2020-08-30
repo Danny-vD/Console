@@ -1,4 +1,5 @@
-﻿using Console.Core.ExtensionSystem;
+﻿using Console.Core.CommandSystem.Builder.IOAutoFill;
+using Console.Core.ExtensionSystem;
 
 namespace Console.Core.CommandSystem.Commands.BuiltIn
 {
@@ -20,7 +21,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="folder">Folder with Extensions</param>
         [Command("load-extensions", "Loads the Extensions in the specified Folder")]
-        public static void LoadFromFolder(string folder)
+        public static void LoadFromFolder([IOAutoFill] string folder)
         {
             ExtensionLoader.LoadFromFolder(folder);
         }
@@ -30,7 +31,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="file">.dll Library</param>
         [Command("load-extension", "Loads the specified extension")]
-        public static void LoadExtensionFile(string file)
+        public static void LoadExtensionFile([IOAutoFill]string file)
         {
             ExtensionLoader.LoadExtensionFile(file);
         }

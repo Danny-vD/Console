@@ -1,4 +1,5 @@
-﻿using Console.Core.LogSystem;
+﻿using Console.Core.CommandSystem.Builder.CommandAutoFill;
+using Console.Core.LogSystem;
 
 
 /// <summary>
@@ -64,7 +65,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <param name="commandName">Search Term</param>
         /// <param name="shortInfo">Flag -s that optionally returns a shortened version of the commands.</param>
         [Command(helpCommand, help1HelpMessage, "h")]
-        private static void Help(string commandName, [CommandFlag("s")] bool shortInfo)
+        private static void Help([CommandAutoFill] string commandName, [CommandFlag("s")] bool shortInfo)
         {
             foreach (AbstractCommand command in CommandManager.GetCommands(commandName, true))
             {

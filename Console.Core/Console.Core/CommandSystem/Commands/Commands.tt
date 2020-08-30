@@ -9,6 +9,8 @@
 
 						      
 using System;
+using System.Collections.Generic;
+using Console.Core.ReflectionSystem;
 	
 namespace Console.Core.CommandSystem.Commands
 {
@@ -90,6 +92,10 @@ string[] invokeImpl = new string[CommandCount];
 		<#= funcDef[cc] #>
 		
 		
+		/// <summary>
+		/// Command Parameter info
+		/// </summary>
+		public override List<ParameterMetaData> MetaData => new List<ParameterMetaData>();
 
         /// <summary>
         /// Amount of CommandFlag attributes in the Command

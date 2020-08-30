@@ -200,6 +200,209 @@
             </summary>
             <param name="obj">Object to Select</param>
         </member>
+        <member name="T:Console.Core.CommandSystem.Builder.AutoFillProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.AutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.AutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.CommandBuilder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Builder.CommandBuilder.Complete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.Remove">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.CompletePart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.Append(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="character"></param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.CreateCommand">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute.EnumType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute.#ctor(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="paramNum"></param>
+            <param name="start"></param>
+            <returns></returns>
+        </member>
         <member name="T:Console.Core.CommandSystem.CommandAttribute">
             <summary>
             Command Attribute that only works on methods.
@@ -400,6 +603,11 @@
             Amount of Selection attributes in the Command
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.MetaData">
+            <summary>
+            Parameter Info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.AbstractCommand.Name">
             <summary>
             Command Name.
@@ -467,11 +675,12 @@
             </summary>
             <returns>The Full Name including Signature</returns>
         </member>
-        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.HasName(System.String)">
+        <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.HasName(System.String,System.Boolean)">
             <summary>
             Returns true if the Command has this Name or Alias.
             </summary>
             <param name="name">Name to test against.</param>
+            <param name="startsWith">If true the Name comparison is only checking if the commandname is starting with the specified name</param>
             <returns>True if the Name does match this Commands Name or one of its Aliases.</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.AbstractCommand.HasName(System.Collections.Generic.IEnumerable{System.String})">
@@ -784,6 +993,11 @@
             Command Implementation with 0 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -817,6 +1031,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`1">
             <summary>
             Command Implementation with 1 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`1.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`1.FlagAttributeCount">
@@ -854,6 +1073,11 @@
             Command Implementation with 2 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`2.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`2.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -887,6 +1111,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`3">
             <summary>
             Command Implementation with 3 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`3.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`3.FlagAttributeCount">
@@ -924,6 +1153,11 @@
             Command Implementation with 4 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`4.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`4.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -957,6 +1191,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`5">
             <summary>
             Command Implementation with 5 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`5.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`5.FlagAttributeCount">
@@ -994,6 +1233,11 @@
             Command Implementation with 6 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`6.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`6.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -1027,6 +1271,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`7">
             <summary>
             Command Implementation with 7 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`7.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`7.FlagAttributeCount">
@@ -1064,6 +1313,11 @@
             Command Implementation with 8 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`8.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`8.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -1097,6 +1351,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`9">
             <summary>
             Command Implementation with 9 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`9.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`9.FlagAttributeCount">
@@ -1134,6 +1393,11 @@
             Command Implementation with 10 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`10.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`10.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -1167,6 +1431,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`11">
             <summary>
             Command Implementation with 11 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`11.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`11.FlagAttributeCount">
@@ -1204,6 +1473,11 @@
             Command Implementation with 12 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`12.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`12.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -1237,6 +1511,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`13">
             <summary>
             Command Implementation with 13 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`13.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`13.FlagAttributeCount">
@@ -1274,6 +1553,11 @@
             Command Implementation with 14 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`14.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`14.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -1309,6 +1593,11 @@
             Command Implementation with 15 Parameter(s)
             </summary>
         </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`15.MetaData">
+            <summary>
+            Command Parameter info
+            </summary>
+        </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`15.FlagAttributeCount">
             <summary>
             Amount of CommandFlag attributes in the Command
@@ -1342,6 +1631,11 @@
         <member name="T:Console.Core.CommandSystem.Commands.Command`16">
             <summary>
             Command Implementation with 16 Parameter(s)
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.Command`16.MetaData">
+            <summary>
+            Command Parameter info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.Command`16.FlagAttributeCount">
@@ -1423,6 +1717,11 @@
         <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.RefData">
             <summary>
             The Reflection Data
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.MetaData">
+            <summary>
+            Parameter Info
             </summary>
         </member>
         <member name="P:Console.Core.CommandSystem.Commands.ReflectionCommand.Command">

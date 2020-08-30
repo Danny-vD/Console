@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Threading;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
@@ -96,7 +97,10 @@ namespace Console.CLI
             while (true)
             {
                 System.Console.Write($"{Directory.GetCurrentDirectory().Replace(initDir, "").Replace('\\', '/')}/>");
-                string cmd = System.Console.ReadLine();
+
+                string cmd = CommandBuilder.CreateCommand();
+
+                //string cmd = System.Console.ReadLine();
                 //if (cmd != null && cmd.ToLower() == "exit") break;
                 cm.EnterCommand(cmd);
             }

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Reflection;
+using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder;
+using Console.Core.CommandSystem.Builder.EnumAutoFill;
 using Console.Core.CommandSystem.Commands.BuiltIn;
 using Console.Core.ExpanderSystem;
 using Console.Core.PropertySystem;
@@ -72,7 +76,7 @@ namespace Console.Core
         public abstract AObjectSelector ObjectSelector { get; }
 
         [Command("load-default", "Loads the Default Commands", "load")]
-        private static void LoadCommands(ConsoleInitOptions options)
+        private static void LoadCommands([EnumAutoFill] ConsoleInitOptions options)
         {
             if ((options & ConsoleInitOptions.DefaultCommands) != 0)
             {
@@ -103,6 +107,15 @@ namespace Console.Core
         protected AConsoleManager(ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
         {
             Instance = this;
+
+
+            AutoFillProvider[] provs =
+                ActivateOnAttributeUtils.ActivateObjects<AutoFillProvider>(Assembly.GetExecutingAssembly());
+            foreach (AutoFillProvider autoFillProvider in provs)
+            {
+                CommandBuilder.LoadedAutoFillers.Add(autoFillProvider);
+            }
+
             Parser = new CommandParser();
             PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
             CommandAttributeUtils.AddCommands<AConsoleManager>();
