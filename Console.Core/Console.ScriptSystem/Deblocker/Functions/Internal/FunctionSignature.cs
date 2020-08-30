@@ -41,7 +41,9 @@ namespace Console.ScriptSystem.Deblocker.Functions.Internal
         public override string ToString()
         {
             if (ParameterNames.Count == 0)
+            {
                 return $"{DeblockerSettings.OpenFunctionBracket}{DeblockerSettings.CloseFunctionBracket}";
+            }
             StringBuilder sb = new StringBuilder($"{DeblockerSettings.OpenFunctionBracket}{ParameterNames[0]}");
             for (int i = 1; i < ParameterNames.Count; i++)
             {

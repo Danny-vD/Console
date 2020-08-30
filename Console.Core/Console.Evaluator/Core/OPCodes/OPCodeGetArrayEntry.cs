@@ -14,28 +14,28 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Array Backing Field
         /// </summary>
-        private OPCode _mArray;
+        private OPCode _array;
 
         /// <summary>
         /// The Array
         /// </summary>
-        private OPCode mArray
+        private OPCode Array
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mArray;
+            get => _array;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mArray != null)
+                if (_array != null)
                 {
-                    _mArray.ValueChanged -= mBaseVariable_ValueChanged;
+                    _array.ValueChanged -= BaseVariableValueChanged;
                 }
 
-                _mArray = value;
-                if (_mArray != null)
+                _array = value;
+                if (_array != null)
                 {
-                    _mArray.ValueChanged += mBaseVariable_ValueChanged;
+                    _array.ValueChanged += BaseVariableValueChanged;
                 }
             }
         }
@@ -43,19 +43,19 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Parameters of the Array Indexer
         /// </summary>
-        private IEvalTypedValue[] mParams;
+        private readonly IEvalTypedValue[] mParams;
         /// <summary>
         /// The Values of the Parameters
         /// </summary>
-        private int[] mValues;
+        private readonly int[] mValues;
         /// <summary>
         /// The Result Evaluation Type Backing Field
         /// </summary>
-        private EvalType mResultEvalType;
+        private readonly EvalType mResultEvalType;
         /// <summary>
         /// The Result System Type Backing Field
         /// </summary>
-        private Type mResultSystemType;
+        private readonly Type mResultSystemType;
 
         /// <summary>
         /// Public Constructor
@@ -67,7 +67,7 @@ namespace Console.Evaluator.Core.OPCodes
             IEvalTypedValue[] newParams = new IEvalTypedValue[@params.Count];
             int[] newValues = new int[@params.Count];
             @params.CopyTo(newParams, 0);
-            mArray = array;
+            Array = array;
             mParams = newParams;
             mValues = newValues;
             mResultSystemType = array.SystemType.GetElementType();
@@ -82,9 +82,11 @@ namespace Console.Evaluator.Core.OPCodes
             get
             {
                 object res;
-                Array arr = (Array) mArray.Value;
+                Array arr = (Array) Array.Value;
                 for (int i = 0, loopTo = mValues.Length - 1; i <= loopTo; i++)
+                {
                     mValues[i] = System.Convert.ToInt32(mParams[i].Value);
+                }
                 res = arr.GetValue(mValues);
                 return res;
             }
@@ -105,7 +107,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
         /// <param name="e">The Event Args</param>
-        private void mBaseVariable_ValueChanged(object sender, EventArgs e)
+        private void BaseVariableValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }

@@ -26,7 +26,10 @@ namespace Console.EnvironmentVariables
                 {
                     string instanceProvider = keys[i];
                     s += instanceProvider;
-                    if (i != keys.Count - 1) s += "; ";
+                    if (i != keys.Count - 1)
+                    {
+                        s += "; ";
+                    }
                 }
                 return s;
             }
@@ -65,7 +68,10 @@ namespace Console.EnvironmentVariables
         /// Removes a Provider from the EnvironmentVariable Manager.
         /// </summary>
         /// <param name="providerName">Name of the Provider to Remove</param>
-        public void RemoveProvider(string providerName) => Providers.Remove(providerName);
+        public void RemoveProvider(string providerName)
+        {
+            Providers.Remove(providerName);
+        }
 
         /// <summary>
         /// Public Constructor.

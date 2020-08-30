@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.PropertySystem;
@@ -18,29 +17,62 @@ namespace Console.Evaluator
         /// <summary>
         /// The Evaluator Syntax. Possible Values: CSharp and VisualBasic
         /// </summary>
-        [Property("evaluator.syntax")] private static ParserSyntax Syntax = ParserSyntax.CSharp;
+        [Property("evaluator.syntax")]
+        private static ParserSyntax Syntax
+        {
+            get => _syntax;
+            set
+            {
+                if (value == _syntax)
+                {
+                    return;
+                }
+                _syntax = value;
+                _instance.eval = null;
+                _instance.Setup();
+            }
+        }
+        private static ParserSyntax _syntax = ParserSyntax.CSharp;
 
         /// <summary>
         /// Specifies if the Evaluator is Case Sensitive
         /// </summary>
-        [Property("evaluator.casesensitive")] private static bool CaseSensitive;
+        [Property("evaluator.casesensitive")]
+        private static bool CaseSensitive
+        {
+            get => _caseSensitive;
+            set
+            {
+                if (value == _caseSensitive)
+                {
+                    return;
+                }
+                _caseSensitive = value;
+                _instance.eval = null;
+                _instance.Setup();
+            }
+        }
+        private static bool _caseSensitive = false;
 
         /// <summary>
         /// Specifies if the Evaluator should throw an Exception when the Expression is Faulty.
         /// </summary>
         [Property("evaluator.exceptions.raise")]
-        private static bool RaiseExceptions = true;
+        private static readonly bool RaiseExceptions = true;
 
         /// <summary>
         /// The Evaluator instance
         /// </summary>
         private Core.Evaluator eval;
+        private static EvalVariableProvider _instance;
+
 
         /// <summary>
         /// Public Constructor.
         /// </summary>
         public EvalVariableProvider() : base("eval")
         {
+            _instance = this;
             CommandAttributeUtils.AddCommands(this);
             EnvironmentVariableManager.AddProvider(this);
         }
@@ -63,10 +95,12 @@ namespace Console.Evaluator
             {
                 ret = eval.Parse(parameter);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 if (RaiseExceptions)
+                {
                     throw;
+                }
                 return "EVAL_ERROR";
             }
             return ret.Value.ToString();
@@ -79,8 +113,7 @@ namespace Console.Evaluator
         {
             if (eval == null)
             {
-                eval = new Core.Evaluator(Syntax, CaseSensitive);
-                eval.RaiseVariableNotFoundException = RaiseExceptions;
+                eval = new Core.Evaluator(Syntax, CaseSensitive) {RaiseVariableNotFoundException = RaiseExceptions};
             }
         }
 
@@ -98,7 +131,7 @@ namespace Console.Evaluator
             {
                 obj = Activator.CreateInstance(Type.GetType(qualifiedName));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 EvalInitializer.Logger.LogWarning("Can not Create instance of type: " + qualifiedName);
                 return;
@@ -116,7 +149,7 @@ namespace Console.Evaluator
                 OPCode ret = eval.Parse(AConsoleManager.ExpanderManager.Expand(expr));
                 if (ret != null && ret.CanReturn(EvalType.Boolean))
                 {
-                    bool r = (bool) ret.Value;
+                    bool r = (bool)ret.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(command);
@@ -140,7 +173,7 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool) ret.Value;
+                bool r = (bool)ret.Value;
                 if (r)
                 {
                     AConsoleManager.Instance.EnterCommand(command);
@@ -155,7 +188,7 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool) ret.Value;
+                bool r = (bool)ret.Value;
                 if (r)
                 {
                     AConsoleManager.Instance.EnterCommand(commandIfTrue);
@@ -174,11 +207,11 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr1);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool) ret.Value;
+                bool r = (bool)ret.Value;
                 OPCode ret2 = eval.Parse(expr2);
                 if (ret2 != null && ret2.CanReturn(EvalType.Boolean))
                 {
-                    bool r2 = (bool) ret2.Value;
+                    bool r2 = (bool)ret2.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(commandExpr1);
@@ -198,11 +231,11 @@ namespace Console.Evaluator
             OPCode ret = eval.Parse(expr1);
             if (ret != null && ret.CanReturn(EvalType.Boolean))
             {
-                bool r = (bool) ret.Value;
+                bool r = (bool)ret.Value;
                 OPCode ret2 = eval.Parse(expr2);
                 if (ret2 != null && ret2.CanReturn(EvalType.Boolean))
                 {
-                    bool r2 = (bool) ret2.Value;
+                    bool r2 = (bool)ret2.Value;
                     if (r)
                     {
                         AConsoleManager.Instance.EnterCommand(commandExpr1);

@@ -24,7 +24,10 @@ namespace Console.Networking.Packets.SendDataRequestResponse
         /// <returns>Network Packet</returns>
         protected override SendDataRequestResponsePacket Deserialize(byte[] data)
         {
-            if (data[0] == 1) return SendDataRequestResponsePacket.Allow;
+            if (data[0] == 1)
+            {
+                return SendDataRequestResponsePacket.Allow;
+            }
             return SendDataRequestResponsePacket.Deny;
         }
     }

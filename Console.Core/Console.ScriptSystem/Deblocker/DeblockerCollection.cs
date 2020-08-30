@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Console.Core;
 using Console.ScriptSystem.Deblocker.Implementations;
@@ -65,7 +66,9 @@ namespace Console.ScriptSystem.Deblocker
             foreach (Line line in lines)
             {
                 if (line.OriginalLine == "}")
+                {
                     continue;
+                }
 
                 if (line.IsAtomic)
                 {
@@ -93,7 +96,9 @@ namespace Console.ScriptSystem.Deblocker
         /// <returns>Parsed and Deblocked Content</returns>
         public static List<string> Parse(string content)
         {
-            List<Line> lines = ParseLines(content);
+            string clean = RemoveComments(content, DeblockerSettings.CommentPrefix, ConsoleCoreConfig.NewLine.ToString(), 0);
+            clean = RemoveComments(clean, DeblockerSettings.CommentMultiPrefix, DeblockerSettings.CommentMultiPostfix, DeblockerSettings.CommentMultiPostfix.Length);
+            List<Line> lines = ParseLines(clean);
             return Parse(lines);
         }
 
@@ -120,6 +125,19 @@ namespace Console.ScriptSystem.Deblocker
                 }
             }
             return content.Length;
+        }
+
+        private static string RemoveComments(string content, string pre, string post, int endOff)
+        {
+            string ret = content;
+            while (true)
+            {
+                int commentIdx = ret.IndexOf(pre, StringComparison.InvariantCulture);
+                if (commentIdx == -1) return ret;
+                int endIdx = ret.IndexOf(post, commentIdx, StringComparison.InvariantCulture);
+                endIdx = endIdx == -1 ? ret.Length : endIdx + endOff;
+                ret = ret.Remove(commentIdx, endIdx - commentIdx);
+            }
         }
     }
 }

@@ -12,7 +12,10 @@ namespace Console.Networking.Packets.AuthenticationRequest
         /// </summary>
         /// <param name="data">Serialized Data</param>
         /// <returns>Network Packet</returns>
-        protected override AuthenticationRequestPacket Deserialize(byte[] data) => new AuthenticationRequestPacket();
+        protected override AuthenticationRequestPacket Deserialize(byte[] data)
+        {
+            return new AuthenticationRequestPacket();
+        }
 
 
         /// <summary>
@@ -20,6 +23,9 @@ namespace Console.Networking.Packets.AuthenticationRequest
         /// </summary>
         /// <param name="item">Packet</param>
         /// <returns>Serialized Data</returns>
-        protected override byte[] Serialize(AuthenticationRequestPacket item) => new byte[1024];
+        protected override byte[] Serialize(AuthenticationRequestPacket item)
+        {
+            return new byte[1024];
+        }
     }
 }

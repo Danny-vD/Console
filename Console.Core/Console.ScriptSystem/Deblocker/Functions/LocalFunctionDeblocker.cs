@@ -56,7 +56,9 @@ namespace Console.ScriptSystem.Deblocker.Functions
                 ps += signature.ParameterNames[i] + ";";
             }
             if (signature.ParameterNames.Count > 0)
+            {
                 s.Insert(0, ps);
+            }
             s.Insert(0,
                 $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create after Delete
             end.Add($"{SequenceSystem.SequenceDelete} {parts[1]}"); // Delete to make sure the name is free

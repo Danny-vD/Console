@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using Console.Core.CommandSystem;
-using Console.Core.CommandSystem.Commands;
 using Console.Core.ReflectionSystem.Abstract;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -49,7 +48,10 @@ namespace Console.Core.ReflectionSystem
         /// Gets the Value of the Field Info
         /// </summary>
         /// <returns>Value of the Property</returns>
-        public object Get() => ReflectedInfo.GetValue(Instance);
+        public object Get()
+        {
+            return ReflectedInfo.GetValue(Instance);
+        }
 
         /// <summary>
         /// Gets the Value of the Field Info

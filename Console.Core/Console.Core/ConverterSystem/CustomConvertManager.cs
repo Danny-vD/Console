@@ -15,7 +15,7 @@ namespace Console.Core.ConverterSystem
         /// <summary>
         /// All Loaded Converters.
         /// </summary>
-        private static List<AConverter> Converters = new List<AConverter>();
+        private static readonly List<AConverter> Converters = new List<AConverter>();
 
         /// <summary>
         /// Adds a Converter to the List of Loaded Converters.
@@ -32,8 +32,10 @@ namespace Console.Core.ConverterSystem
         /// <param name="parameter">Parameter Value</param>
         /// <param name="target">Target Type</param>
         /// <returns>True if the conversion can be done</returns>
-        public static bool CanConvert(object parameter, Type target) =>
-            Converters.Any(x => x.CanConvert(parameter, target));
+        public static bool CanConvert(object parameter, Type target)
+        {
+            return Converters.Any(x => x.CanConvert(parameter, target));
+        }
 
         /// <summary>
         /// Returns the Converted Parameter

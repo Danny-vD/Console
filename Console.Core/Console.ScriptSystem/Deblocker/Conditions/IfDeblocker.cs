@@ -28,6 +28,14 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             return Deblock(line, new string[0], out begin, out end);
         }
 
+        /// <summary>
+        /// Returns the Deblocked Content of the Line
+        /// </summary>
+        /// <param name="line">Line to Deblock</param>
+        /// <param name="parameters">The parameters of this Block</param>
+        /// <param name="begin">Lines that get prepended to the beginning of the file</param>
+        /// <param name="end">Lines that get appended to the end of the file</param>
+        /// <returns>List of Deblocked Content</returns>
         protected string[] Deblock(Line line, string[] parameters, out List<string> begin, out List<string> end)
         {
             DeblockerSettings.Logger.Log($"Deblocking {Key}: " + line.CleanedLine);
@@ -58,6 +66,15 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             return ret.ToArray();
         }
 
+        /// <summary>
+        /// Creates a Block with a specified name and content
+        /// </summary>
+        /// <param name="name">The name of the Block</param>
+        /// <param name="content">The Content of the Block</param>
+        /// <param name="parameters">Parameters of the Block</param>
+        /// <param name="begin">The Deblocked Lines that should be added at the beginning of the block</param>
+        /// <param name="end">The Deblocked Lines that should be added at the beginning of the block</param>
+        /// <returns></returns>
         protected List<string> CreateBlock(string name, string[] content, string[] parameters, out List<string> begin,
             out List<string> end)
         {
@@ -71,7 +88,10 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             string param = $"{name} Parameters: ";
             for (int i = 0; i < parameters.Length; i++)
             {
-                if (i != 0) param += ';';
+                if (i != 0)
+                {
+                    param += ';';
+                }
                 param += parameters[i];
                 ret.Add($"{SequenceSystem.SequenceAddParameter} {name} {parameters[i]}");
             }
@@ -80,7 +100,10 @@ namespace Console.ScriptSystem.Deblocker.Conditions
             for (int i = 0; i < content.Length; i++)
             {
                 string s = content[i];
-                if (string.IsNullOrEmpty(s)) continue;
+                if (string.IsNullOrEmpty(s))
+                {
+                    continue;
+                }
 
                 DeblockerSettings.LogVerbose($"{i}: {s}");
                 string item =

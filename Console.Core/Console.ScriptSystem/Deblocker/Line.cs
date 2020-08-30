@@ -19,7 +19,7 @@ namespace Console.ScriptSystem.Deblocker
         /// <summary>
         /// The Original Line Backing Field
         /// </summary>
-        private string _originalLine;
+        private readonly string _originalLine;
 
         /// <summary>
         /// Backing Field for CleanedLine
@@ -33,7 +33,10 @@ namespace Console.ScriptSystem.Deblocker
         {
             get
             {
-                if (_cleanedLine == null) Parse();
+                if (_cleanedLine == null)
+                {
+                    Parse();
+                }
                 return _cleanedLine;
             }
         }
@@ -50,7 +53,10 @@ namespace Console.ScriptSystem.Deblocker
         {
             get
             {
-                if (_blocks == null) Parse();
+                if (_blocks == null)
+                {
+                    Parse();
+                }
                 return _blocks;
             }
         }
@@ -67,7 +73,10 @@ namespace Console.ScriptSystem.Deblocker
         {
             get
             {
-                if (_cleanParts == null) Parse();
+                if (_cleanParts == null)
+                {
+                    Parse();
+                }
                 return _cleanParts;
             }
         }
@@ -85,6 +94,12 @@ namespace Console.ScriptSystem.Deblocker
             _originalLine = line;
         }
 
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="originalLine">Original Line</param>
+        /// <param name="cleanLine">The Cleaned Line</param>
+        /// <param name="blocks">The Blocks of this Line</param>
         public Line(string originalLine, string cleanLine, List<string[]> blocks) : this(originalLine)
         {
             _cleanedLine = cleanLine;
@@ -106,7 +121,10 @@ namespace Console.ScriptSystem.Deblocker
         /// To String Implementation
         /// </summary>
         /// <returns>The Original String Line</returns>
-        public override string ToString() => OriginalLine;
+        public override string ToString()
+        {
+            return OriginalLine;
+        }
 
 
         /// <summary>
@@ -131,10 +149,14 @@ namespace Console.ScriptSystem.Deblocker
                     blocks.Add(subl.ToArray());
                     string ln = DeblockerSettings.GetKey(blocks.Count - 1);
                     if (line[line.Length - 1] != ' ')
+                    {
                         ln = " " + ln;
+                    }
                     i = close + 1;
                     if (i < originalLine.Length)
+                    {
                         ln = ln + " ";
+                    }
                     line.Append(ln);
                     continue;
                 }

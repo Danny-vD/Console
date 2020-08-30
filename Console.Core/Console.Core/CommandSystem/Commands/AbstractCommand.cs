@@ -39,6 +39,9 @@ namespace Console.Core.CommandSystem.Commands
         /// </summary>
         protected readonly List<string> aliases;
 
+        /// <summary>
+        /// List of Aliases for thie Command
+        /// </summary>
         public string[] Aliases => aliases.ToArray();
 
         /// <summary>
@@ -75,7 +78,10 @@ namespace Console.Core.CommandSystem.Commands
             try
             {
 
-                if (CustomConvertManager.CanConvert(parameter, typeof(TType))) return true;
+                if (CustomConvertManager.CanConvert(parameter, typeof(TType)))
+                {
+                    return true;
+                }
 
 
                 parameter.ConvertTo<TType>();
@@ -101,7 +107,9 @@ namespace Console.Core.CommandSystem.Commands
         {
 
             if (CustomConvertManager.CanConvert(parameter, typeof(TNewType)))
+            {
                 return (TNewType) CustomConvertManager.Convert(parameter, typeof(TNewType));
+            }
 
             return parameter.ConvertTo<TNewType>();
         }
@@ -205,14 +213,23 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>String Representation of a Command.</returns>
         public string ToString(ToStringMode mode)
         {
-            if (mode == ToStringMode.None) return "";
+            if (mode == ToStringMode.None)
+            {
+                return "";
+            }
             StringBuilder stringBuilder = new StringBuilder(ConsoleCoreConfig.ConsolePrefix);
 
             stringBuilder.Append(GetFullName(mode));
-            if (mode == ToStringMode.Short) return stringBuilder.ToString();
+            if (mode == ToStringMode.Short)
+            {
+                return stringBuilder.ToString();
+            }
             stringBuilder.Append(": \n");
             stringBuilder.AppendLine("\t" + HelpMessage);
-            if (mode == ToStringMode.Default) return stringBuilder.ToString();
+            if (mode == ToStringMode.Default)
+            {
+                return stringBuilder.ToString();
+            }
 
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Aliases: ");

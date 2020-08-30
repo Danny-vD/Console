@@ -12,11 +12,11 @@ namespace Console.Evaluator.Core
         /// <summary>
         /// The Current Expression
         /// </summary>
-        private string mString;
+        private readonly string mString;
         /// <summary>
         /// Length of mString
         /// </summary>
-        private int mLen;
+        private readonly int mLen;
         /// <summary>
         /// The Current Position in the mString Expression
         /// </summary>
@@ -315,7 +315,9 @@ namespace Console.Evaluator.Core
                 }
 
                 if (TokenType != TokenType.None)
+                {
                     break;
+                }
                 NextChar();
             } while (true);
         }
@@ -437,7 +439,7 @@ namespace Console.Evaluator.Core
         /// <param name="inQuote">True if the String is Enclosed in Quotation Marks</param>
         private void ParseString(bool inQuote)
         {
-            char originalChar = default(char);
+            char originalChar = default;
             if (inQuote)
             {
                 originalChar = mCurChar;
@@ -467,9 +469,9 @@ namespace Console.Evaluator.Core
                         NextChar();
                         StringBuilder saveValue = Value;
                         int saveStartPos = StartPos;
-                        Value = new System.Text.StringBuilder();
+                        Value = new StringBuilder();
                         NextToken(); // restart the tokenizer for the subExpr
-                        object subExpr = default(object);
+                        object subExpr = default;
                         try
                         {
                             // subExpr = mParser.ParseExpr(0, ePriority.none)
@@ -516,7 +518,6 @@ namespace Console.Evaluator.Core
         private void ParseDate()
         {
             NextChar(); // eat the #
-            int zone = 0;
             while (((mCurChar >= '0') & (mCurChar <= '9')) | (mCurChar == '/') | (mCurChar == ':') | (mCurChar == ' '))
             {
                 Value.Append(mCurChar);

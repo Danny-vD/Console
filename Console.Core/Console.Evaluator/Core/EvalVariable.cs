@@ -17,20 +17,20 @@ namespace Console.Evaluator.Core
         /// <summary>
         /// The Backing Field Description of the Variable
         /// </summary>
-        private string mDescription;
+        private readonly string mDescription;
         /// <summary>
         /// The Backing Field Variable Name
         /// </summary>
-        private string mName;
+        private readonly string mName;
         /// <summary>
         /// The Backing Field System Type of the Variable
         /// </summary>
-        private Type mSystemType;
+        private readonly Type mSystemType;
 
         /// <summary>
         /// The Backing Field Evaluation Type of the Variable
         /// </summary>
-        private EvalType mEvalType;
+        private readonly EvalType mEvalType;
 
         /// <summary>
         /// The Description of the Variable

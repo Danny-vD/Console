@@ -45,7 +45,13 @@ namespace Console.Networking
         [Property("networking.send.allowsend")]
         public static bool AllowSend = true;
 
+        /// <summary>
+        /// If True the WebConsoleCommands WGET command is enabled
+        /// </summary>
         [Property("networking.wget.enabled")] public static bool WGetAllow = true;
+        /// <summary>
+        /// If True the WebConsoleCommands run-url command is enabled.
+        /// </summary>
         [Property("networking.runurl.enabled")]
         public static bool RunUrlAllow = true;
 
@@ -144,6 +150,10 @@ namespace Console.Networking
         /// The Client Session for the Console
         /// </summary>
         public static ClientSession ClientSession = new ClientSession();
+
+        /// <summary>
+        /// Is True if the Console is Client
+        /// </summary>
         [Property("networking.client.active")]
         public static bool IsClient => ClientSession.Client.Connected &&
                                        !ClientSession.Client.IsDisposed &&
@@ -153,6 +163,9 @@ namespace Console.Networking
         /// The Host Session for the Console
         /// </summary>
         public static HostSession HostSession = new HostSession();
+        /// <summary>
+        /// Is True if the Console is Hosting
+        /// </summary>
         [Property("networking.host.active")] public static bool IsHost => HostSession.IsRunning;
 
         /// <summary>

@@ -21,6 +21,9 @@ namespace Console.ScriptSystem.Deblocker.Parameters
         /// </summary>
         /// <param name="parameter">Parameter Name</param>
         /// <returns>Value of the Parameter</returns>
-        public override string GetValue(string parameter) => ParameterCollection.GetParameter(parameter);
+        public override string GetValue(string parameter)
+        {
+            return ParameterCollection.GetParameter(parameter);
+        }
     }
 }

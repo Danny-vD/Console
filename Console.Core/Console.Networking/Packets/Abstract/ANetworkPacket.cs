@@ -16,6 +16,6 @@ namespace Console.Networking.Packets.Abstract
         /// <summary>
         /// Unique Identifier for this Packet
         /// </summary>
-        public virtual string PacketIdentifier => this.GetType().AssemblyQualifiedName;
+        public virtual string PacketIdentifier => GetType().AssemblyQualifiedName;
     }
 }

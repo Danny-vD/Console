@@ -7,6 +7,7 @@ using Console.Core;
 using Console.Core.CommandSystem;
 using Console.Core.CommandSystem.Commands;
 using Console.Core.LogSystem;
+using Console.ScriptSystem.Async;
 using Console.ScriptSystem.Deblocker;
 using Console.ScriptSystem.Deblocker.Parameters;
 
@@ -67,12 +68,17 @@ namespace Console.ScriptSystem
         #endregion
 
 
-        static SequenceSystem() => AConsoleManager.OnConsoleTick += InnerAsyncRun;
+        static SequenceSystem()
+        {
+            AConsoleManager.OnConsoleTick += InnerAsyncRun;
+        }
 
         /// <summary>
         /// The Logger used by the Sequence System
         /// </summary>
-        private static ALogger SequenceOut = TypedLogger.CreateTypedWithPrefix("SequenceSystem");
+        private static readonly ALogger SequenceOut = TypedLogger.CreateTypedWithPrefix("SequenceSystem");
+        private static readonly Dictionary<string, AsyncRunner> ActiveRoutines = new Dictionary<string, AsyncRunner>();
+
 
         /// <summary>
         /// All Sequences listed like they get displayed on the console.
@@ -134,7 +140,7 @@ namespace Console.ScriptSystem
         {
             if (Sequences.ContainsKey(sequence))
             {
-                string[] param = parameterName.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                string[] param = parameterName.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < param.Length; i++)
                 {
                     Sequences[sequence].Signature.ParameterNames.Add(param[i]);
@@ -184,7 +190,9 @@ namespace Console.ScriptSystem
             Sequences.Remove(name);
 
             if (!name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN))
+            {
                 SequenceOut.Log("Deleted Sequence: " + name);
+            }
         }
 
         /// <summary>
@@ -222,14 +230,20 @@ namespace Console.ScriptSystem
         /// Lists all Loaded Sequences by name
         /// </summary>
         [Command("list-sequences", "Lists all Loaded Sequence Names", "list-seq")]
-        private static void ListSequences() => SequenceOut.Log(SequenceText);
+        private static void ListSequences()
+        {
+            SequenceOut.Log(SequenceText);
+        }
 
         /// <summary>
         /// Runs a Sequence by Name
         /// </summary>
         /// <param name="name"></param>
         [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
-        public static void RunSequence(string name) => RunSequence(name, "");
+        public static void RunSequence(string name)
+        {
+            RunSequence(name, "");
+        }
 
 
         [Command("run-seq-async", "Runs a Sequence in \"background\".")]
@@ -241,23 +255,38 @@ namespace Console.ScriptSystem
                 SequenceOut.LogWarning($"A Sequence with the name {name} does not exist.");
                 return;
             }
-            ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN)
-                ? ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter)
-                : ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
+            if (ActiveRoutines.ContainsKey(name))
+            {
+                //Wait for Active Routine To Finish
+                ActiveRoutines[name].OnFinish += () => RunAsync(name, parameter);
+            }
+            else
+            {
+                ParameterCollection spc = name.StartsWith(DeblockerSettings.BLOCK_NAME_BEGIN)
+                    ? ParameterCollection.CreateSubCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter)
+                    : ParameterCollection.CreateCollection(Sequences[name].Signature.ParameterNames.ToArray(), parameter);
 
-            ScriptSystem.AsyncRunner r = ScriptSystem.MainRunner.Current ?? ScriptSystem.MainRunner.GetCurrent();
-            r.AddSub(new ScriptSystem.AsyncRunner(spc, Sequences[name].Lines.ToArray()));
+                AsyncRunner r = ScriptSystem.MainRunner.Current ?? ScriptSystem.MainRunner.GetCurrent();
+                AsyncRunner sub = new AsyncRunner(spc, Sequences[name].Lines.ToArray(), name);
+                ActiveRoutines[name] = sub;
+                r.AddSub(sub);
+            }
         }
 
         private static void InnerAsyncRun()
         {
-            ScriptSystem.AsyncRunner runner = ScriptSystem.MainRunner.GetCurrent();
+            AsyncRunner runner = ScriptSystem.MainRunner.GetCurrent();
             string s = runner?.GetLine();
             if (s != null)
             {
                 ParameterCollection.MakeCurrent(runner.Params);
                 AConsoleManager.Instance.EnterCommand(s);
                 ParameterCollection.MakeCurrent(null);
+            }
+            if (runner?.Name != null && runner.Finished)
+            {
+                ScriptSystemInitializer.Logger.Log("Ending Sequence: " + runner.Name);
+                ActiveRoutines.Remove(runner.Name);
             }
             ScriptSystem.MainRunner.Clean();
         }
@@ -354,8 +383,10 @@ namespace Console.ScriptSystem
         /// <param name="commandName">The Command name</param>
         [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file",
             "file-to-cmd")]
-        private static void CreateCommandFromFile(string fileName, string commandName) =>
+        private static void CreateCommandFromFile(string fileName, string commandName)
+        {
             CreateCommandFromFile(fileName, commandName, "Runs File: " + fileName);
+        }
 
 
         /// <summary>
@@ -382,8 +413,10 @@ namespace Console.ScriptSystem
         /// <param name="commandName">The Command Name</param>
         [Command(SequenceToCommand, "Creates and Adds a Command that when invoked will run the specified sequence",
             "seq-to-cmd")]
-        private static void CreateCommandFromSequence(string sequenceName, string commandName) =>
+        private static void CreateCommandFromSequence(string sequenceName, string commandName)
+        {
             CreateCommandFromSequence(sequenceName, commandName, "Runs Sequence: " + sequenceName);
+        }
 
         /// <summary>
         /// Creates and Adds a Command that when invoked will run the specified sequence
@@ -404,11 +437,11 @@ namespace Console.ScriptSystem
         [Command("for-all", "Runs the specified command for each Item in the List")]
         private static void ForAll(string list, string command)
         {
-            string[] li = list.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim())
+            string[] li = list.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim())
                 .Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             for (int i = 0; i < li.Length; i++)
             {
-                ParameterCollection pc = ParameterCollection.CreateCollection(new[] {"item"}, li[i].Trim());
+                ParameterCollection pc = ParameterCollection.CreateCollection(new[] { "item" }, li[i].Trim());
                 ParameterCollection.MakeCurrent(pc);
                 AConsoleManager.Instance.EnterCommand(command);
                 ParameterCollection.MakeCurrent(null);

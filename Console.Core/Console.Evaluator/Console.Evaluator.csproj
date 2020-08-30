@@ -5,6 +5,11 @@
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>NU1605;1591</WarningsAsErrors>
+    <DocumentationFile>D:\Users\Tim\Documents\Console\Console.Core\Console.Evaluator\Console.Evaluator.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Console.Core\Console.Core.csproj" />
     <ProjectReference Include="..\Console.EnvironmentVariables\Console.EnvironmentVariables.csproj" />

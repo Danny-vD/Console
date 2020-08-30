@@ -12,28 +12,28 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Parameter Backing Field
         /// </summary>
-        private OPCode _mParam1;
+        private OPCode _param1;
 
         /// <summary>
         /// The Parameter
         /// </summary>
-        private OPCode mParam1
+        private OPCode Param1
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mParam1;
+            get => _param1;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mParam1 != null)
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged -= mParam1_ValueChanged;
+                    _param1.ValueChanged -= Param1ValueChanged;
                 }
 
-                _mParam1 = value;
-                if (_mParam1 != null)
+                _param1 = value;
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged += mParam1_ValueChanged;
+                    _param1.ValueChanged += Param1ValueChanged;
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
-        private EvalType mEvalType;
+        private readonly EvalType mEvalType;
 
         /// <summary>
         /// Public Constructor
@@ -50,8 +50,8 @@ namespace Console.Evaluator.Core.OPCodes
         /// <param name="param1">The Parameter</param>
         public OPCodeUnary(TokenType tt, OPCode param1)
         {
-            mParam1 = param1;
-            EvalType v1Type = mParam1.EvalType;
+            Param1 = param1;
+            EvalType v1Type = Param1.EvalType;
             switch (tt)
             {
                 case TokenType.OperatorNot:
@@ -84,7 +84,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Inverse of the Parameter Value</returns>
         private object BOOLEAN_NOT()
         {
-            return !(bool) mParam1.Value;
+            return !(bool) Param1.Value;
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>The Negative Value of the Parameter</returns>
         private object NUM_CHGSIGN()
         {
-            return -(double) mParam1.Value;
+            return -(double) Param1.Value;
         }
 
 
@@ -107,7 +107,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
         /// <param name="e">The Event Args</param>
-        private void mParam1_ValueChanged(object sender, EventArgs e)
+        private void Param1ValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }

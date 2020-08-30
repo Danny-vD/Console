@@ -19,17 +19,29 @@ namespace Console.Evaluator.Core
         {
             int lv1, lv2;
             if (v1 is null)
+            {
                 lv1 = 0;
+            }
             else
+            {
                 lv1 = v1.Length;
+            }
             if (v2 is null)
+            {
                 lv2 = 0;
+            }
             else
+            {
                 lv2 = v2.Length;
+            }
             if (lv1 != lv2)
+            {
                 return false;
+            }
             if (lv1 == 0)
+            {
                 return true;
+            }
             char c1, c2;
             for (int i = 0, loopTo = lv1 - 1; i <= loopTo; i++)
             {
@@ -82,7 +94,9 @@ namespace Console.Evaluator.Core
                     default:
                     {
                         if (c2 != c1)
+                        {
                             return false;
+                        }
                         break;
                     }
                 }

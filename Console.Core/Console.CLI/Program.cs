@@ -15,7 +15,7 @@ namespace Console.CLI
     /// <summary>
     /// CLI Entry Class
     /// </summary>
-    class Program
+    internal class Program
     {
         [Property("logs.cli.mute")]
         private bool MuteLogs
@@ -33,7 +33,7 @@ namespace Console.CLI
         /// <summary>
         /// Defines in what intervall the console tick event gets invoked
         /// </summary>
-        [Property("networking.tick")] private static float ConsoleTick = 0.2f;
+        [Property("networking.tick")] private static readonly float ConsoleTick = 0.2f;
 
         /// <summary>
         /// The Commandline Interface Version
@@ -64,7 +64,7 @@ namespace Console.CLI
         /// Main Entry Point
         /// </summary>
         /// <param name="args">CLI parameter</param>
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
 
             string initDir = Directory.GetCurrentDirectory();

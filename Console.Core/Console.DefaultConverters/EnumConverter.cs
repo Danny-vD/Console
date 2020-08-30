@@ -13,7 +13,7 @@ namespace Console.DefaultConverters
         /// Flag that if set to true will Parse the Names in case sensitive.
         /// </summary>
         [Property("defaultconverters.enumconverter.casesensitive")]
-        private static bool CaseSensitive = true;
+        private static readonly bool CaseSensitive = true;
 
         /// <summary>
         /// Returns true when the Converter is Able to Convert the parameter into the target type
@@ -35,7 +35,10 @@ namespace Console.DefaultConverters
         public override object Convert(object parameter, Type target)
         {
             string s = parameter.ToString();
-            if (s.StartsWith(target.Name)) s = s.Remove(0, target.Name.Length);
+            if (s.StartsWith(target.Name))
+            {
+                s = s.Remove(0, target.Name.Length);
+            }
             return Enum.Parse(target, s, !CaseSensitive);
         }
     }

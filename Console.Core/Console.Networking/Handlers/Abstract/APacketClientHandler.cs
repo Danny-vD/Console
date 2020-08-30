@@ -20,7 +20,10 @@ namespace Console.Networking.Handlers.Abstract
         /// <param name="item">The Packet</param>
         public void _Handle(ANetworkPacket item)
         {
-            if (item is T p) Handle(p);
+            if (item is T p)
+            {
+                Handle(p);
+            }
             //else throw new InvalidCastException("Expected type: " + typeof(T) + " got: " + item.GetType());
         }
 

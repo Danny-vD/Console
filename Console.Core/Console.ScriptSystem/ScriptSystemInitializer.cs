@@ -57,7 +57,9 @@ namespace Console.ScriptSystem
             foreach (ADeblocker aDeblocker in db)
             {
                 if (aDeblocker.GetType() != typeof(DefaultDeblocker))
+                {
                     DeblockerCollection.AddDeblocker(aDeblocker);
+                }
             }
         }
     }

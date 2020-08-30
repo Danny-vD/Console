@@ -32,7 +32,10 @@ namespace Console.Core.ReflectionSystem
             catch (Exception e)
             {
                 Exception actual = e is TargetInvocationException ? e.InnerException : e;
-                if (actual == null) throw new Exception("The exception is null and can not be thrown.");
+                if (actual == null)
+                {
+                    throw new Exception("The exception is null and can not be thrown.");
+                }
                 try
                 {
                     ExceptionDispatchInfo.Capture(actual)
@@ -41,9 +44,13 @@ namespace Console.Core.ReflectionSystem
                 catch (Exception exception)
                 {
                     if (ConsoleCoreConfig.LogExceptionMessageOnly)
+                    {
                         ConsoleCoreConfig.CoreLogger.LogWarning(exception.Message);
+                    }
                     else
+                    {
                         ConsoleCoreConfig.CoreLogger.LogWarning(exception);
+                    }
 
                     //throw actual;
                 }
@@ -57,8 +64,10 @@ namespace Console.Core.ReflectionSystem
         /// <param name="info">The Info Containing the Value</param>
         /// <param name="instance">The Instance of the Property</param>
         /// <returns>The Value of the Property</returns>
-        public static object Get(this PropertyInfo info, object instance) =>
-            InvokePreserveStack(info.GetMethod, instance, null);
+        public static object Get(this PropertyInfo info, object instance)
+        {
+            return InvokePreserveStack(info.GetMethod, instance, null);
+        }
 
         /// <summary>
         /// Sets the Value of the Property.
@@ -66,8 +75,10 @@ namespace Console.Core.ReflectionSystem
         /// <param name="info">The Info Containing the Value</param>
         /// <param name="instance">The Instance of the Property</param>
         /// <param name="value">New Value</param>
-        public static void Set(this PropertyInfo info, object instance, object value) =>
+        public static void Set(this PropertyInfo info, object instance, object value)
+        {
             InvokePreserveStack(info.SetMethod, instance, new[] {value});
+        }
 
 
         #region Reflection Helper Functions

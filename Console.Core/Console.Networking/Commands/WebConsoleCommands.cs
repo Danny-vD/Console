@@ -8,24 +8,29 @@ using Console.Core.PropertySystem;
 
 namespace Console.Networking.Commands
 {
+    /// <summary>
+    /// Commands used for Downloading Files or Running a Script from URL
+    /// </summary>
     public static class WebConsoleCommands
     {
         private static readonly WebClient Client = new WebClient();
-        private static ALogger WebLogger = TypedLogger.CreateTypedWithPrefix("web");
+        private static readonly ALogger WebLogger = TypedLogger.CreateTypedWithPrefix("web");
         [Property("networking.download.isbusy")]
         private static bool IsDownloading => Client.IsBusy;
 
         private static string DownloadString;
 
-        private static void SetClientDownloadString(DownloadProgressChangedEventArgs e) =>
+        private static void SetClientDownloadString(DownloadProgressChangedEventArgs e)
+        {
             DownloadString =
                 $"Downloading {e.ProgressPercentage}% {e.BytesReceived / 1024}KB/{e.TotalBytesToReceive / 1024}KB";
+        }
 
         [Property("networking.download.displayprogress")]
-        private static bool DisplayProgress = true;
+        private static readonly bool DisplayProgress = true;
         private static readonly Stopwatch DownloadDisplayTimer = new Stopwatch();
         [Property("networking.download.displayinterval")]
-        private static int DownloadDisplayTime = 500;
+        private static readonly int DownloadDisplayTime = 500;
 
 
         static WebConsoleCommands()
@@ -43,7 +48,9 @@ namespace Console.Networking.Commands
                 {
                     DownloadDisplayTimer.Restart();
                     if (DownloadString != null)
+                    {
                         WebLogger.Log(DownloadString);
+                    }
                 }
             }
         }
@@ -51,8 +58,13 @@ namespace Console.Networking.Commands
         private static void Client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             if (DisplayProgress)
+            {
                 SetClientDownloadString(e);
-            else DownloadString = null;
+            }
+            else
+            {
+                DownloadString = null;
+            }
         }
 
         private static void Client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)

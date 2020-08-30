@@ -47,7 +47,10 @@ namespace Console.Core.ReflectionSystem
         /// Gets the Value of the Property
         /// </summary>
         /// <returns>Value of the Property</returns>
-        public object Get() => ReflectedInfo.GetValue(Instance);
+        public object Get()
+        {
+            return ReflectedInfo.GetValue(Instance);
+        }
 
         /// <summary>
         /// Gets the Value of the Property

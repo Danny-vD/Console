@@ -76,8 +76,14 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>The Full Name including Signature</returns>
         public override string GetFullName(ToStringMode mode)
         {
-            if (mode == ToStringMode.None) return "";
-            if (mode == ToStringMode.Short) return $"{Name} Parameter Count: " + RefData.ParameterCount;
+            if (mode == ToStringMode.None)
+            {
+                return "";
+            }
+            if (mode == ToStringMode.Short)
+            {
+                return $"{Name} Parameter Count: " + RefData.ParameterCount;
+            }
             ParameterMetaData[] parameters = RefData.ParameterTypes;
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -98,13 +104,17 @@ namespace Console.Core.CommandSystem.Commands
                             Attribute attribute = abs[j];
                             a += $"{attribute}";
                             if (j != abs.Count - 1)
+                            {
                                 a += ", ";
+                            }
                         }
                         a += "]";
                         text = a + text;
                     }
                     if (i != 0)
+                    {
                         text = ", " + text;
+                    }
                     stringBuilder.Append(text);
                 }
 

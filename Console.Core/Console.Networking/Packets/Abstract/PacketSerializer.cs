@@ -15,13 +15,19 @@ namespace Console.Networking.Packets.Abstract
         /// Returns the Target Type of the Serializer
         /// </summary>
         /// <returns>Target Type</returns>
-        public Type GetTargetType() => typeof(T);
+        public Type GetTargetType()
+        {
+            return typeof(T);
+        }
 
         /// <summary>
         /// Returns the Packet Identifier of the Target Type
         /// </summary>
         /// <returns>The Packet Identifier</returns>
-        public string GetPacketIdentifier() => GetTargetType().AssemblyQualifiedName;
+        public string GetPacketIdentifier()
+        {
+            return GetTargetType().AssemblyQualifiedName;
+        }
 
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
@@ -56,7 +62,9 @@ namespace Console.Networking.Packets.Abstract
         public byte[] _Serialize(ANetworkPacket item)
         {
             if (item is T obj)
+            {
                 return Serialize(obj);
+            }
             throw new InvalidCastException("Expected Type: " + typeof(T) + " got: " + item.GetType().Name);
         }
     }

@@ -13,7 +13,7 @@ namespace Console.CLI
         /// Helper Property. Contains all selectable objects
         /// </summary>
         private static Dictionary<string, object> SelectableObjects =>
-            (AConsoleManager.Instance.ObjectSelector is CLIObjSelector os)
+            AConsoleManager.Instance.ObjectSelector is CLIObjSelector os
                 ? os.SelectableObjects
                 : new Dictionary<string, object>();
 
@@ -63,7 +63,9 @@ namespace Console.CLI
         private static void RemoveSelection(string key)
         {
             if (SelectableObjects.ContainsKey(key))
+            {
                 AConsoleManager.Instance.ObjectSelector.RemoveFromSelection(SelectableObjects[key]);
+            }
         }
 
 

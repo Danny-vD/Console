@@ -22,6 +22,11 @@ namespace Console.ClassQueries
             get => Logger.Mute;
             set => Logger.Mute = value;
         }
+
+
+        /// <summary>
+        /// The Load Order of the Extension
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>

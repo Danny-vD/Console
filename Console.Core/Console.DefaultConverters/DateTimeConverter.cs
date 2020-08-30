@@ -14,13 +14,13 @@ namespace Console.DefaultConverters
         /// Culture that is used when converting
         /// </summary>
         [Property("defaultconverters.datetime.culture")]
-        private static string DateTimeCulture = "en-US";
+        private static readonly string DateTimeCulture = "en-US";
 
         /// <summary>
         /// The Format string that is used when converting from DateTime To String.
         /// </summary>
         [Property("defaultconverters.datetime.format")]
-        private static string DateTimeFormat = "G";
+        private static readonly string DateTimeFormat = "G";
 
         /// <summary>
         /// Helper Property that provides the CultureInstance
@@ -50,8 +50,8 @@ namespace Console.DefaultConverters
         /// <returns>True if the conversion can be done</returns>
         public override bool CanConvert(object parameter, Type target)
         {
-            return (parameter is DateTime && typeof(string) == target) ||
-                   (parameter is string && typeof(DateTime) == target);
+            return parameter is DateTime && typeof(string) == target ||
+                   parameter is string && typeof(DateTime) == target;
         }
     }
 }

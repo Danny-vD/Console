@@ -20,8 +20,8 @@ namespace Console.ArrayConverter
         /// <returns>True if the conversion can be done</returns>
         public override bool CanConvert(object parameter, Type target)
         {
-            return (parameter is Array) &&
-                   (target.IsArray || (typeof(IList).IsAssignableFrom(target) && target.IsGenericType) ||
+            return parameter is Array &&
+                   (target.IsArray || typeof(IList).IsAssignableFrom(target) && target.IsGenericType ||
                     target.IsAssignableFrom(parameter.GetType().GetElementType()));
         }
 

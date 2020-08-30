@@ -31,7 +31,10 @@ namespace Console.PersistentProperties
         /// </summary>
         /// <param name="file">Filepath</param>
         [Command("save-properties", "Save all properties to file")]
-        public static void Save(string file) => Save(file, "");
+        public static void Save(string file)
+        {
+            Save(file, "");
+        }
 
         /// <summary>
         /// Saves all Properties that start with the search term to a file

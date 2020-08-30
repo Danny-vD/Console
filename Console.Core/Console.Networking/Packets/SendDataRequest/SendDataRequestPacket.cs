@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using Console.Networking.Packets.Abstract;
+﻿using Console.Networking.Packets.Abstract;
 
 /// <summary>
 /// SendDataRequestPacket Classes
@@ -20,6 +19,9 @@ namespace Console.Networking.Packets.SendDataRequest
         /// Public Constructor
         /// </summary>
         /// <param name="destination">Destination File</param>
-        public SendDataRequestPacket(string destination) => Destination = destination;
+        public SendDataRequestPacket(string destination)
+        {
+            Destination = destination;
+        }
     }
 }

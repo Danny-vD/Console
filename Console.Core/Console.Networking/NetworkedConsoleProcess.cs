@@ -12,11 +12,11 @@ namespace Console.Networking
         /// <summary>
         /// Host Commands
         /// </summary>
-        private HostConsoleCommand hc = new HostConsoleCommand();
+        private readonly HostConsoleCommand hc = new HostConsoleCommand();
         /// <summary>
         /// Client Commands(Does invoke ProcessLogMessages every ConsoleTick.
         /// </summary>
-        private ClientConsoleCommand cc = new ClientConsoleCommand();
+        private readonly ClientConsoleCommand cc = new ClientConsoleCommand();
 
         /// <summary>
         /// Public Constructor

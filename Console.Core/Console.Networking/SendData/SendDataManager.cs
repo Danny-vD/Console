@@ -18,7 +18,10 @@ namespace Console.Networking.SendData
         /// <summary>
         /// Static Constructor
         /// </summary>
-        static SendDataManager() => NetworkingSettings.HostSession.RegisterHandler(ReceiveSendData);
+        static SendDataManager()
+        {
+            NetworkingSettings.HostSession.RegisterHandler(ReceiveSendData);
+        }
 
         /// <summary>
         /// Count Variable to ensure unique Channel Names
@@ -29,17 +32,20 @@ namespace Console.Networking.SendData
         /// Returns the next Channel Name
         /// </summary>
         /// <returns>Unique Channel Name</returns>
-        private static string GetKey() => $"FILE_" + FileCount++;
+        private static string GetKey()
+        {
+            return $"FILE_" + FileCount++;
+        }
 
         /// <summary>
         /// All Active Send Data Events of the Client
         /// </summary>
-        private static Dictionary<string, ConsoleSocket.PackageReceive> Events =
+        private static readonly Dictionary<string, ConsoleSocket.PackageReceive> Events =
             new Dictionary<string, ConsoleSocket.PackageReceive>();
         /// <summary>
         /// All Active Channels that are waiting for data on the host.
         /// </summary>
-        private static Dictionary<ConsoleSocket, Stream> ActiveChannels = new Dictionary<ConsoleSocket, Stream>();
+        private static readonly Dictionary<ConsoleSocket, Stream> ActiveChannels = new Dictionary<ConsoleSocket, Stream>();
 
         /// <summary>
         /// Tries to send the Specified File to the Connected Host
@@ -58,9 +64,11 @@ namespace Console.Networking.SendData
             }
 
             string key = GetKey();
-            ConsoleSocket.PackageReceive a = package => OnReceiveAllowResponse(file, destination, key, package);
-            NetworkingSettings.ClientSession.Client.OnPacketReceive += a;
-            Events[key] = a;
+
+            void PackageReceive(ANetworkPacket package) => OnReceiveAllowResponse(file, destination, key, package);
+
+            NetworkingSettings.ClientSession.Client.OnPacketReceive += PackageReceive;
+            Events[key] = PackageReceive;
             NetworkingSettings.ClientSession.Client.TrySendPacket(new SendDataRequestPacket(destination));
             return true;
         }
@@ -102,10 +110,14 @@ namespace Console.Networking.SendData
             while ((read = s.Read(buf, 0, buf.Length)) != 0)
             {
                 if (read == buf.Length)
+                {
                     NetworkingSettings.ClientSession.Client.TrySendPacket(new SendDataPacket {Data = buf});
+                }
                 else
+                {
                     NetworkingSettings.ClientSession.Client.TrySendPacket(new SendDataPacket
                         {Data = buf.Take(read).ToArray(), LastPacket = true});
+                }
             }
         }
 
@@ -120,7 +132,10 @@ namespace Console.Networking.SendData
             {
                 NetworkedInitializer.Logger.LogWarning("There is already a Transmission Channel Open for this Client.");
             }
-            if (File.Exists(destination)) File.Delete(destination);
+            if (File.Exists(destination))
+            {
+                File.Delete(destination);
+            }
             ActiveChannels[session] = File.OpenWrite(destination);
         }
 

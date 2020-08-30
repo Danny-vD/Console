@@ -17,7 +17,7 @@ namespace Console.DefaultConverters
         /// <returns>True if the conversion can be done</returns>
         public override bool CanConvert(object parameter, Type target)
         {
-            return parameter is string s && s.All(x => x == '-' || (x >= '0' && x <= '9')) && target == typeof(Enum);
+            return parameter is string s && s.All(x => x == '-' || x >= '0' && x <= '9') && target == typeof(Enum);
         }
 
         /// <summary>

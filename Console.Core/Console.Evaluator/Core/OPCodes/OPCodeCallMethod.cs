@@ -15,37 +15,33 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Object Instance Backing Field
         /// </summary>
-        private object mBaseObject;
-        /// <summary>
-        /// The BaseObject System Type Backing Field
-        /// </summary>
-        private Type mBaseSystemType;
+        private readonly object _baseObject;
 
         /// <summary>
         /// The Base Value of the Call Method OPCode Backing Field
         /// </summary>
-        private IEvalValue _mBaseValue; // for the events only
+        private IEvalValue _baseValue; // for the events only
 
         /// <summary>
         /// The Base Value of the Call Method OPCode
         /// </summary>
-        private IEvalValue mBaseValue
+        private IEvalValue BaseValue
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mBaseValue;
+            get => _baseValue;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mBaseValue != null)
+                if (_baseValue != null)
                 {
-                    _mBaseValue.ValueChanged -= mBaseVariable_ValueChanged;
+                    _baseValue.ValueChanged -= BaseVariableValueChanged;
                 }
 
-                _mBaseValue = value;
-                if (_mBaseValue != null)
+                _baseValue = value;
+                if (_baseValue != null)
                 {
-                    _mBaseValue.ValueChanged += mBaseVariable_ValueChanged;
+                    _baseValue.ValueChanged += BaseVariableValueChanged;
                 }
             }
         }
@@ -56,48 +52,48 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Member Info of the Call Method
         /// </summary>
-        private System.Reflection.MemberInfo mMethod;
+        private readonly MemberInfo mMethod;
         /// <summary>
         /// The Parameters of the Call
         /// </summary>
-        private IEvalTypedValue[] mParams;
+        private readonly IEvalTypedValue[] mParams;
         /// <summary>
         /// The Parameter Values of the Call
         /// </summary>
-        private object[] mParamValues;
+        private readonly object[] mParamValues;
         /// <summary>
         /// The Call Return Type
         /// </summary>
-        private Type mResultSystemType;
+        private readonly Type mResultSystemType;
         /// <summary>
         /// The Evaluation Type of the Result
         /// </summary>
-        private EvalType mResultEvalType;
+        private readonly EvalType _resultEvalType;
         /// <summary>
         /// The Result Value Backing Field
         /// </summary>
-        private IEvalValue _mResultValue; // just for some
+        private IEvalValue _resultValue; // just for some
 
         /// <summary>
         /// The Result Value
         /// </summary>
-        private IEvalValue mResultValue
+        private IEvalValue ResultValue
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mResultValue;
+            get => _resultValue;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mResultValue != null)
+                if (_resultValue != null)
                 {
-                    _mResultValue.ValueChanged -= mResultVariable_ValueChanged;
+                    _resultValue.ValueChanged -= ResultVariableValueChanged;
                 }
 
-                _mResultValue = value;
-                if (_mResultValue != null)
+                _resultValue = value;
+                if (_resultValue != null)
                 {
-                    _mResultValue.ValueChanged += mResultVariable_ValueChanged;
+                    _resultValue.ValueChanged += ResultVariableValueChanged;
                 }
             }
         }
@@ -108,65 +104,66 @@ namespace Console.Evaluator.Core.OPCodes
         /// <param name="baseObject">The Base Object Instance</param>
         /// <param name="method">The Member Info</param>
         /// <param name="params">The Parameters of the Call</param>
-        internal OPCodeCallMethod(object baseObject, System.Reflection.MemberInfo method, IList @params)
+        internal OPCodeCallMethod(object baseObject, MemberInfo method, IList @params)
         {
             if (@params is null)
+            {
                 @params = new IEvalTypedValue[] { };
+            }
             IEvalTypedValue[] newParams = new IEvalTypedValue[@params.Count];
             object[] newParamValues = new object[@params.Count];
             @params.CopyTo(newParams, 0);
             foreach (IEvalTypedValue p in newParams)
-                p.ValueChanged += mParamsValueChanged;
+            {
+                p.ValueChanged += ParamsValueChanged;
+            }
             mParams = newParams;
             mParamValues = newParamValues;
-            mBaseObject = baseObject;
+            this._baseObject = baseObject;
             mMethod = method;
-            if (mBaseObject is IEvalValue)
+            if (this._baseObject is IEvalValue)
             {
-                if (mBaseObject is IEvalTypedValue)
+                if (this._baseObject is IEvalTypedValue)
                 {
                     {
-                        IEvalTypedValue withBlock = (IEvalTypedValue) mBaseObject;
-                        mBaseSystemType = withBlock.SystemType;
+                        IEvalTypedValue withBlock = (IEvalTypedValue) this._baseObject;
                     }
                 }
                 else
                 {
-                    mBaseSystemType = mBaseObject.GetType();
                 }
             }
             else
             {
-                mBaseSystemType = mBaseObject.GetType();
             }
 
-            ParameterInfo[] paramInfo = default(System.Reflection.ParameterInfo[]);
-            if (method is System.Reflection.PropertyInfo)
+            ParameterInfo[] paramInfo = default;
+            if (method is PropertyInfo)
             {
                 {
-                    PropertyInfo withBlock1 = (System.Reflection.PropertyInfo) method;
-                    mResultSystemType = ((System.Reflection.PropertyInfo) method).PropertyType;
+                    PropertyInfo withBlock1 = (PropertyInfo) method;
+                    mResultSystemType = ((PropertyInfo) method).PropertyType;
                     paramInfo = withBlock1.GetIndexParameters();
                 }
 
                 mValueDelegate = GetProperty;
             }
-            else if (method is System.Reflection.MethodInfo)
+            else if (method is MethodInfo)
             {
                 {
-                    MethodInfo withBlock2 = (System.Reflection.MethodInfo) method;
+                    MethodInfo withBlock2 = (MethodInfo) method;
                     mResultSystemType = withBlock2.ReturnType;
                     paramInfo = withBlock2.GetParameters();
                 }
 
                 mValueDelegate = GetMethod;
             }
-            else if (method is System.Reflection.FieldInfo)
+            else if (method is FieldInfo)
             {
                 {
-                    FieldInfo withBlock3 = (System.Reflection.FieldInfo) method;
+                    FieldInfo withBlock3 = (FieldInfo) method;
                     mResultSystemType = withBlock3.FieldType;
-                    paramInfo = new System.Reflection.ParameterInfo[] { };
+                    paramInfo = new ParameterInfo[] { };
                 }
 
                 mValueDelegate = GetField;
@@ -182,39 +179,39 @@ namespace Console.Evaluator.Core.OPCodes
 
             if (typeof(IEvalValue).IsAssignableFrom(mResultSystemType))
             {
-                mResultValue = (IEvalValue) InternalValue();
-                if (mResultValue is IEvalTypedValue)
+                ResultValue = (IEvalValue) InternalValue();
+                if (ResultValue is IEvalTypedValue)
                 {
                     {
-                        IEvalTypedValue withBlock4 = (IEvalTypedValue) mResultValue;
+                        IEvalTypedValue withBlock4 = (IEvalTypedValue) ResultValue;
                         mResultSystemType = withBlock4.SystemType;
-                        mResultEvalType = withBlock4.EvalType;
+                        _resultEvalType = withBlock4.EvalType;
                     }
                 }
-                else if (mResultValue is null)
+                else if (ResultValue is null)
                 {
                     mResultSystemType = typeof(object);
-                    mResultEvalType = EvalType.Object;
+                    _resultEvalType = EvalType.Object;
                 }
                 else
                 {
-                    object v = mResultValue.Value;
+                    object v = ResultValue.Value;
                     if (v is null)
                     {
                         mResultSystemType = typeof(object);
-                        mResultEvalType = EvalType.Object;
+                        _resultEvalType = EvalType.Object;
                     }
                     else
                     {
                         mResultSystemType = v.GetType();
-                        mResultEvalType = Globals.GetEvalType(mResultSystemType);
+                        _resultEvalType = Globals.GetEvalType(mResultSystemType);
                     }
                 }
             }
             else
             {
                 mResultSystemType = SystemType;
-                mResultEvalType = Globals.GetEvalType(SystemType);
+                _resultEvalType = Globals.GetEvalType(SystemType);
             }
         }
 
@@ -247,7 +244,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Value</returns>
         private object GetProperty()
         {
-            object res = ((System.Reflection.PropertyInfo) mMethod).GetValue(mBaseValueObject, mParamValues);
+            object res = ((PropertyInfo) mMethod).GetValue(mBaseValueObject, mParamValues);
             return res;
         }
 
@@ -257,7 +254,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Value</returns>
         private object GetMethod()
         {
-            object res = ((System.Reflection.MethodInfo) mMethod).Invoke(mBaseValueObject, mParamValues);
+            object res = ((MethodInfo) mMethod).Invoke(mBaseValueObject, mParamValues);
             return res;
         }
 
@@ -267,7 +264,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Value</returns>
         private object GetField()
         {
-            object res = ((System.Reflection.FieldInfo) mMethod).GetValue(mBaseValueObject);
+            object res = ((FieldInfo) mMethod).GetValue(mBaseValueObject);
             return res;
         }
 
@@ -278,15 +275,17 @@ namespace Console.Evaluator.Core.OPCodes
         private object InternalValue()
         {
             for (int i = 0, loopTo = mParams.Length - 1; i <= loopTo; i++)
-                mParamValues[i] = mParams[i].Value;
-            if (mBaseObject is IEvalValue)
             {
-                mBaseValue = (IEvalValue) mBaseObject;
-                mBaseValueObject = mBaseValue.Value;
+                mParamValues[i] = mParams[i].Value;
+            }
+            if (_baseObject is IEvalValue)
+            {
+                BaseValue = (IEvalValue) _baseObject;
+                mBaseValueObject = BaseValue.Value;
             }
             else
             {
-                mBaseValueObject = mBaseObject;
+                mBaseValueObject = _baseObject;
             }
 
             return mValueDelegate();
@@ -302,8 +301,8 @@ namespace Console.Evaluator.Core.OPCodes
                 object res = InternalValue();
                 if (res is IEvalValue)
                 {
-                    mResultValue = (IEvalValue) res;
-                    res = mResultValue.Value;
+                    ResultValue = (IEvalValue) res;
+                    res = ResultValue.Value;
                 }
 
                 return res;
@@ -318,14 +317,14 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Result Evaluator Type
         /// </summary>
-        public override EvalType EvalType => mResultEvalType;
+        public override EvalType EvalType => _resultEvalType;
 
         /// <summary>
         /// Gets Invoked when the paramerters to the function call changed.
         /// </summary>
         /// <param name="sender">Sender of the Event</param>
         /// <param name="e">Event Args</param>
-        private void mParamsValueChanged(object sender, EventArgs e)
+        private void ParamsValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }
@@ -335,7 +334,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">Sender of the Event</param>
         /// <param name="e">Event Args</param>
-        private void mBaseVariable_ValueChanged(object sender, EventArgs e)
+        private void BaseVariableValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }
@@ -345,7 +344,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">Sender of the Event</param>
         /// <param name="e">Event Args</param>
-        private void mResultVariable_ValueChanged(object sender, EventArgs e)
+        private void ResultVariableValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }

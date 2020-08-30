@@ -10,11 +10,11 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Known Value Backing Field
         /// </summary>
-        private object mValue;
+        private readonly object mValue;
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
-        private EvalType mEvalType;
+        private readonly EvalType mEvalType;
 
         /// <summary>
         /// Public Constructor

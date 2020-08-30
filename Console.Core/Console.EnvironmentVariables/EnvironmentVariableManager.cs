@@ -13,6 +13,9 @@ namespace Console.EnvironmentVariables
     /// </summary>
     public static class EnvironmentVariableManager
     {
+        /// <summary>
+        /// The Character that is used to Activate the environment variable expander
+        /// </summary>
         public static char ActivationPrefix
         {
             get => _activationPrefix;
@@ -29,6 +32,10 @@ namespace Console.EnvironmentVariables
         /// </summary>
         [Property("environmentvariables.syntax.open")]
         public static char OpenBracket = '(';
+
+        /// <summary>
+        /// Character used to End the Content section of the Environment Expander
+        /// </summary>
         [Property("environmentvariables.syntax.close")]
         public static char CloseBracket = ')';
 
@@ -50,7 +57,10 @@ namespace Console.EnvironmentVariables
             {
                 string instanceProvider = keys[i];
                 s += instanceProvider;
-                if (i != keys.Count - 1) s += "; ";
+                if (i != keys.Count - 1)
+                {
+                    s += "; ";
+                }
             }
             return s;
         }
@@ -86,8 +96,8 @@ namespace Console.EnvironmentVariables
             {
                 if (ValidType(methodInfo.ReturnType))
                 {
-                    if ((methodInfo.GetParameters().Length == 1 &&
-                         methodInfo.GetParameters()[0].ParameterType == typeof(string)))
+                    if (methodInfo.GetParameters().Length == 1 &&
+                        methodInfo.GetParameters()[0].ParameterType == typeof(string))
                     {
                         AddProvider(GetProvider(funcPrefix, methodInfo));
                     }
@@ -100,7 +110,10 @@ namespace Console.EnvironmentVariables
         /// </summary>
         /// <param name="t">Type to Check</param>
         /// <returns>True if the Type is valid as VariableProvider return/input</returns>
-        private static bool ValidType(Type t) => t.IsPrimitive || t == typeof(string);
+        private static bool ValidType(Type t)
+        {
+            return t.IsPrimitive || t == typeof(string);
+        }
 
         /// <summary>
         /// Returns the Variable provider from a MethodInfo Class
@@ -135,12 +148,21 @@ namespace Console.EnvironmentVariables
                     start = 0;
                 }
                 int bracketOpen = ret.IndexOf(OpenBracket, idx);
-                if (bracketOpen == -1) return cmd;
+                if (bracketOpen == -1)
+                {
+                    return cmd;
+                }
                 int funcLen = bracketOpen - idx - 1;
-                if (funcLen < 0) return cmd;
+                if (funcLen < 0)
+                {
+                    return cmd;
+                }
                 string funcName = ret.Substring(idx + 1, funcLen);
                 int bracketClose = ConsoleCoreConfig.FindClosing(ret, OpenBracket, CloseBracket, bracketOpen);
-                if (bracketClose == -1) return cmd;
+                if (bracketClose == -1)
+                {
+                    return cmd;
+                }
                 string content = ret.Substring(bracketOpen + 1, bracketClose - bracketOpen - 1);
                 string expandedContent = Expand(content);
                 string exp;

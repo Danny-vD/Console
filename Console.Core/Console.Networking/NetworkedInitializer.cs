@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using Console.Core;
 using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
 using Console.Core.ExtensionSystem;
@@ -23,6 +22,9 @@ namespace Console.Networking
     /// </summary>
     public class NetworkedInitializer : AExtensionInitializer
     {
+        /// <summary>
+        /// Logger for this Extension
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>

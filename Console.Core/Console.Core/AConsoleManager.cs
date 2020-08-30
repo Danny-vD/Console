@@ -46,7 +46,10 @@ namespace Console.Core
         /// Helper Function that has to get called every time a log gets sent(used by the networking system to transmit the logs)
         /// </summary>
         /// <param name="text">The Text to Log</param>
-        protected void InvokeLogEvent(string text) => OnLog?.Invoke(text);
+        protected void InvokeLogEvent(string text)
+        {
+            OnLog?.Invoke(text);
+        }
 
         /// <summary>
         /// Allows the Inheriting Class to invoke the OnInitializationFinished Event
@@ -78,15 +81,25 @@ namespace Console.Core
             Parser = new CommandParser();
             PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
             if ((options & ConsoleInitOptions.DefaultCommands) != 0)
+            {
                 DefaultCommands.AddDefaultCommands();
+            }
             if ((options & ConsoleInitOptions.ExtensionCommands) != 0)
+            {
                 ExtensionCommands.AddExtensionsCommands();
+            }
             if ((options & ConsoleInitOptions.PropertyCommands) != 0)
+            {
                 PropertyCommands.AddPropertyCommands();
+            }
             if ((options & ConsoleInitOptions.SelectionCommands) != 0)
+            {
                 ObjectSelectionCommands.AddSelectionCommands();
+            }
             if ((options & ConsoleInitOptions.FlagTests) != 0)
+            {
                 FlagTests.AddFlagTestCommands();
+            }
         }
 
         /// <summary>
@@ -104,7 +117,10 @@ namespace Console.Core
         /// Internal Log Wrapper
         /// </summary>
         /// <param name="obj">Object to Log</param>
-        internal void _Log(object obj) => Log(obj);
+        internal void _Log(object obj)
+        {
+            Log(obj);
+        }
 
         /// <summary>
         /// Writes a Log Warning
@@ -116,7 +132,10 @@ namespace Console.Core
         /// Internal Log Warning Wrapper
         /// </summary>
         /// <param name="obj">Object to Log</param>
-        internal void _LogWarning(object obj) => LogWarning(obj);
+        internal void _LogWarning(object obj)
+        {
+            LogWarning(obj);
+        }
 
         /// <summary>
         /// Writes a Log Error
@@ -128,7 +147,10 @@ namespace Console.Core
         /// Internal Log Error Wrapper
         /// </summary>
         /// <param name="obj">Object to Log</param>
-        internal void _LogError(object obj) => LogError(obj);
+        internal void _LogError(object obj)
+        {
+            LogError(obj);
+        }
 
         /// <summary>
         /// Writes the Entered Command into the Console Output if ConsoleCoreConfig.WriteCommand is set to true
@@ -136,7 +158,10 @@ namespace Console.Core
         /// <param name="command">Command to Log</param>
         public virtual void LogCommand(string command)
         {
-            if (ConsoleCoreConfig.WriteCommand) LogPlainText(command);
+            if (ConsoleCoreConfig.WriteCommand)
+            {
+                LogPlainText(command);
+            }
         }
 
         /// <summary>
@@ -151,7 +176,10 @@ namespace Console.Core
         /// <param name="command">Command that is entered.</param>
         public void EnterCommand(string command)
         {
-            if (string.IsNullOrEmpty(command)) return;
+            if (string.IsNullOrEmpty(command))
+            {
+                return;
+            }
             string text = ExpanderManager.Expand(command);
             OnSubmitCommand(text);
             LogCommand(command);
@@ -161,7 +189,10 @@ namespace Console.Core
         /// <summary>
         /// Helper Function that allows Inheriting Classes to Invoke the OnTick event.
         /// </summary>
-        public void InvokeOnTick() => OnConsoleTick?.Invoke();
+        public void InvokeOnTick()
+        {
+            OnConsoleTick?.Invoke();
+        }
 
         /// <summary>
         /// Function that can be used to react on any entered command

@@ -24,8 +24,8 @@ namespace Console.Evaluator.Core
         /// <param name="pos">The Index in the Formula where the parser went wrong</param>
         internal ParserException(string str, string formula, int pos) : base(str)
         {
-            this.Formula = formula;
-            this.Pos = pos;
+            Formula = formula;
+            Pos = pos;
         }
     }
 }

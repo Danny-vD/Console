@@ -38,13 +38,17 @@ namespace Console.CLI
             ObjectSelector = s;
             //CLI Specific Setup
             if ((options & ConsoleInitOptions.SelectionCommands) != 0)
+            {
                 CLIObjectSelectionCommands.AddSelectionCommands();
+            }
 
             PropertyAttributeUtils.AddProperties<Program>();
             CommandAttributeUtils.AddCommands<Program>();
 
             if (runInit)
+            {
                 InvokeOnFinishInitialize();
+            }
 
         }
 

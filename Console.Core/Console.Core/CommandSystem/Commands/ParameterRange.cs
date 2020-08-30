@@ -39,13 +39,19 @@
         /// </summary>
         /// <param name="value">Value to check if it is Contained</param>
         /// <returns>True if the Value is within the range.</returns>
-        public bool Contains(int value) => Min <= value && Max >= value;
+        public bool Contains(int value)
+        {
+            return Min <= value && Max >= value;
+        }
 
 
         /// <summary>
         /// To String Implementation
         /// </summary>
         /// <returns></returns>
-        public override string ToString() => $"{Min} - {Max}";
+        public override string ToString()
+        {
+            return $"{Min} - {Max}";
+        }
     }
 }

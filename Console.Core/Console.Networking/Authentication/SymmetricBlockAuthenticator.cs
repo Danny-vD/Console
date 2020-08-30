@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Console.Core;
 using Console.Core.PropertySystem;
 using Console.Networking.Packets;
 using Console.Networking.Packets.Authentication;
@@ -158,7 +157,7 @@ namespace Console.Networking.Authentication
         /// <summary>
         /// Collection of Authentication Sessions
         /// </summary>
-        private static Dictionary<ConsoleSocket, byte[]> AuthenticationSessions =
+        private static readonly Dictionary<ConsoleSocket, byte[]> AuthenticationSessions =
             new Dictionary<ConsoleSocket, byte[]>();
 
         /// <summary>
@@ -190,7 +189,10 @@ namespace Console.Networking.Authentication
 
             client.OnPacketReceive += package =>
             {
-                if (package is AuthenticationPacket a) ClientAuthenticationReceive(client, a);
+                if (package is AuthenticationPacket a)
+                {
+                    ClientAuthenticationReceive(client, a);
+                }
             };
             if (!client.TrySendPacket(
                 new AuthenticationPacket(Encrypt(data))))
@@ -248,13 +250,25 @@ namespace Console.Networking.Authentication
         /// <returns>True if Equal</returns>
         private bool IsEqual(byte[] original, byte[] data)
         {
-            if (original == null && data == null) return true;
-            if ((original == null) || (data == null)) return false;
+            if (original == null && data == null)
+            {
+                return true;
+            }
+            if (original == null || data == null)
+            {
+                return false;
+            }
             //if (original != data) return false;
-            if (original.Length != data.Length) return false;
+            if (original.Length != data.Length)
+            {
+                return false;
+            }
             for (int i = 0; i < original.Length; i++)
             {
-                if (original[i] != data[i]) return false;
+                if (original[i] != data[i])
+                {
+                    return false;
+                }
             }
             return true;
         }

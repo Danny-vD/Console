@@ -1,5 +1,4 @@
-﻿using Console.Core;
-using Console.Networking.Packets.Abstract;
+﻿using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.SendDataRequest
 {

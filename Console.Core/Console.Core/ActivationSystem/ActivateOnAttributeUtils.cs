@@ -23,7 +23,9 @@ namespace Console.Core.ActivationSystem
             foreach (Type type in asm.GetTypes())
             {
                 if (!baseType.IsAssignableFrom(type) && !type.GetInterfaces().Contains(baseType))
+                {
                     continue;
+                }
                 ActivateOnAttribute ao = type.GetCustomAttribute<ActivateOnAttribute>();
                 Type[] pTypes = parameter.Select(x => x.GetType()).ToArray();
                 if (ao != null && !type.IsAbstract && type.GetConstructor(pTypes) != null)

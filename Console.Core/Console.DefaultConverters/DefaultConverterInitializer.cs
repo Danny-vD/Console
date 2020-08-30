@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using Console.Core;
 using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
 using Console.Core.ConverterSystem;

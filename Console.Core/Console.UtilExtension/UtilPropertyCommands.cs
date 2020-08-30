@@ -48,7 +48,10 @@ namespace Console.UtilExtension
             AddAnyPropertiesByType(prefix, t);
         }
 
-        private static bool ValidType(Type t) => t.IsPrimitive || t == typeof(string);
+        private static bool ValidType(Type t)
+        {
+            return t.IsPrimitive || t == typeof(string);
+        }
 
         /// <summary>
         /// Adds all Properties from the Specified type with the specified prefix

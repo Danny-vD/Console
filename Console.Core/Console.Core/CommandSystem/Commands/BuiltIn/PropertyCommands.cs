@@ -10,8 +10,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class PropertyCommands
     {
-        private static ALogger ListPropertiesLogger = TypedLogger.CreateTypedWithPrefix("list-properties");
-        private static ALogger GetPropertiesLogger = TypedLogger.CreateTypedWithPrefix("get-properties");
+        private static readonly ALogger ListPropertiesLogger = TypedLogger.CreateTypedWithPrefix("list-properties");
+        private static readonly ALogger GetPropertiesLogger = TypedLogger.CreateTypedWithPrefix("get-properties");
 
         /// <summary>
         /// Adds the Property Commands
@@ -46,7 +46,10 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                 if (p[i].StartsWith(start))
                 {
                     ret += p[i];
-                    if (i != p.Count - 1) ret += "\n\t";
+                    if (i != p.Count - 1)
+                    {
+                        ret += "\n\t";
+                    }
                 }
             }
             ListPropertiesLogger.Log(ret);
@@ -61,7 +64,10 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         [Command("get-property",
             "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
-        private static void GetProperty() => GetProperty("");
+        private static void GetProperty()
+        {
+            GetProperty("");
+        }
 
         /// <summary>
         /// Lists all Properties(including values) that start with the specified string.
@@ -83,8 +89,10 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                     string s = "Properties that match: " + propertyPath;
                     foreach (string target in targets)
                     {
-                        object v;
-                        if (!PropertyManager.TryGetValue(target, out v)) v = "ERROR";
+                        if (!PropertyManager.TryGetValue(target, out object v))
+                        {
+                            v = "ERROR";
+                        }
                         s += $"\n\t{target} = {v ?? "NULL"}";
                     }
                     GetPropertiesLogger.Log(s);
@@ -110,7 +118,10 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         [Command("set-property-selection", "Sets the specified property to the specified value", "sps")]
         private static void SetPropertySelection(string propertyPath, [SelectionProperty(true)] object propertyValue)
         {
-            if (!PropertyManager.HasProperty(propertyPath)) return;
+            if (!PropertyManager.HasProperty(propertyPath))
+            {
+                return;
+            }
 
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
@@ -140,7 +151,9 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         private static void SetProperty(string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
+            {
                 return;
+            }
 
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }

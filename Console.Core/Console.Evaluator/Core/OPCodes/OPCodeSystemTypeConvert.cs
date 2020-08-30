@@ -13,43 +13,43 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Parameter Backing Field
         /// </summary>
-        private IEvalTypedValue _mParam1;
+        private IEvalTypedValue _param1;
 
         /// <summary>
         /// The Parameter
         /// </summary>
-        private IEvalTypedValue mParam1
+        private IEvalTypedValue Param1
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mParam1;
+            get => _param1;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mParam1 != null)
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged -= mParam1_ValueChanged;
+                    _param1.ValueChanged -= Param1ValueChanged;
                 }
 
-                _mParam1 = value;
-                if (_mParam1 != null)
+                _param1 = value;
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged += mParam1_ValueChanged;
+                    _param1.ValueChanged += Param1ValueChanged;
                 }
             }
         }
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
-        private EvalType mEvalType = EvalType.Unknown;
+        private readonly EvalType mEvalType = EvalType.Unknown;
         /// <summary>
         /// The System Type Backing Field
         /// </summary>
-        private Type mSystemType;
+        private readonly Type mSystemType;
 
         public OPCodeSystemTypeConvert(IEvalTypedValue param1, Type type)
         {
-            mParam1 = param1;
+            Param1 = param1;
             mValueDelegate = CType;
             mSystemType = type;
             mEvalType = Globals.GetEvalType(type);
@@ -61,7 +61,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Parameter Value as Type mSystemType</returns>
         private object CType()
         {
-            return System.Convert.ChangeType(mParam1.Value, mSystemType);
+            return System.Convert.ChangeType(Param1.Value, mSystemType);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
         /// <param name="e">The Event Args</param>
-        private void mParam1_ValueChanged(object sender, EventArgs e)
+        private void Param1ValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }

@@ -29,24 +29,30 @@ namespace Console.Networking.Packets
         /// </summary>
         /// <param name="identifier"></param>
         /// <returns></returns>
-        private static IPacketSerializer GetSerializer(string identifier) =>
-            Serializers.FirstOrDefault(x => x.GetPacketIdentifier() == identifier);
+        private static IPacketSerializer GetSerializer(string identifier)
+        {
+            return Serializers.FirstOrDefault(x => x.GetPacketIdentifier() == identifier);
+        }
 
         /// <summary>
         /// Returns true when the SerializerCollection contains a serializer that can serialize the class associated to the identifier
         /// </summary>
         /// <param name="identifier">The Class Identifier</param>
         /// <returns>True when serializable</returns>
-        public static bool CanSerialize(string identifier) =>
-            Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+        public static bool CanSerialize(string identifier)
+        {
+            return Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+        }
 
         /// <summary>
         /// Returns true when the SerializerCollection contains a serializer that can deserialize the class associated to the identifier
         /// </summary>
         /// <param name="identifier">The Class Identifier</param>
         /// <returns>True when deserializable</returns>
-        public static bool CanDeserialize(string identifier) =>
-            Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+        public static bool CanDeserialize(string identifier)
+        {
+            return Serializers.Any(x => x.GetPacketIdentifier() == identifier);
+        }
 
         /// <summary>
         /// Deserializes the data with the serializer that is associated with the identifier

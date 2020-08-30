@@ -16,35 +16,35 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The First parameter Backing Field
         /// </summary>
-        private IEvalTypedValue _mParam1;
+        private IEvalTypedValue _param1;
 
         /// <summary>
         /// The First Parameter
         /// </summary>
-        private IEvalTypedValue mParam1
+        private IEvalTypedValue Param1
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mParam1;
+            get => _param1;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mParam1 != null)
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged -= mParam1_ValueChanged;
+                    _param1.ValueChanged -= Param1ValueChanged;
                 }
 
-                _mParam1 = value;
-                if (_mParam1 != null)
+                _param1 = value;
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged += mParam1_ValueChanged;
+                    _param1.ValueChanged += Param1ValueChanged;
                 }
             }
         }
         /// <summary>
         /// The Evaluation Type of the Parameter Backing Field
         /// </summary>
-        private EvalType mEvalType = EvalType.Unknown;
+        private readonly EvalType mEvalType = EvalType.Unknown;
 
         /// <summary>
         /// Public Constructor
@@ -54,7 +54,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <param name="evalType">The Evaluator Type</param>
         public OPCodeConvert(Tokenizer tokenizer, IEvalTypedValue param1, EvalType evalType)
         {
-            mParam1 = param1;
+            Param1 = param1;
             switch (evalType)
             {
                 case EvalType.Boolean:
@@ -100,7 +100,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Boolean Value</returns>
         private object TBool()
         {
-            return Globals.Bool(mParam1);
+            return Globals.Bool(Param1);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>DateTime Value</returns>
         private object TDate()
         {
-            return Globals.Date(mParam1);
+            return Globals.Date(Param1);
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Double Value</returns>
         private object TNum()
         {
-            return Globals.Num(mParam1);
+            return Globals.Num(Param1);
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>String Value</returns>
         private object TStr()
         {
-            return Globals.Str(mParam1);
+            return Globals.Str(Param1);
         }
 
 
@@ -142,7 +142,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
         /// <param name="e">The Event Args</param>
-        private void mParam1_ValueChanged(object sender, EventArgs e)
+        private void Param1ValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }

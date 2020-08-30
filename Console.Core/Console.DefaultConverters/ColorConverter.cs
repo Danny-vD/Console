@@ -68,7 +68,10 @@ namespace Console.DefaultConverters
         public byte Convert(string hexCode)
         {
             int val = int.Parse(hexCode, NumberStyles.HexNumber);
-            if (val >= 0 && val <= 255) return (byte) val;
+            if (val >= 0 && val <= 255)
+            {
+                return (byte) val;
+            }
             throw new FormatException("Hex code is not in the right format");
         }
     }

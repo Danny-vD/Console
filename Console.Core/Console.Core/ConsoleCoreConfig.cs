@@ -30,6 +30,9 @@ namespace Console.Core
         /// </summary>
         [Property("core.output.writecommand")] public static bool WriteCommand = false;
 
+        /// <summary>
+        /// If True will only write the exception message instead of the whole exception
+        /// </summary>
         [Property("core.log.exception.messageonly")]
         public static bool LogExceptionMessageOnly = true;
 
@@ -83,7 +86,7 @@ namespace Console.Core
         /// <summary>
         /// Backing Field of the Escapable Character Array
         /// </summary>
-        private static List<char> _escapableChars = new List<char> {StringChar};
+        private static readonly List<char> _escapableChars = new List<char> {StringChar};
 
         /// <summary>
         /// Adds a Character to the EscapeChars
@@ -91,7 +94,10 @@ namespace Console.Core
         /// <param name="escChar">Character to add</param>
         public static void AddEscapeChar(char escChar)
         {
-            if (!_escapableChars.Contains(escChar)) _escapableChars.Add(escChar);
+            if (!_escapableChars.Contains(escChar))
+            {
+                _escapableChars.Add(escChar);
+            }
         }
 
         /// <summary>
@@ -100,7 +106,10 @@ namespace Console.Core
         /// <param name="escChar"></param>
         public static void RemoveEscapeChar(char escChar)
         {
-            if (_escapableChars.Contains(escChar)) _escapableChars.Remove(escChar);
+            if (_escapableChars.Contains(escChar))
+            {
+                _escapableChars.Remove(escChar);
+            }
         }
 
         /// <summary>
@@ -137,11 +146,17 @@ namespace Console.Core
             for (int i = start; i < cmd.Length; i++)
             {
                 char c = cmd[i];
-                if (c == openBracket) open++;
+                if (c == openBracket)
+                {
+                    open++;
+                }
                 else if (c == closeBracket)
                 {
                     open--;
-                    if (open == 0) return i;
+                    if (open == 0)
+                    {
+                        return i;
+                    }
                 }
             }
             return -1;

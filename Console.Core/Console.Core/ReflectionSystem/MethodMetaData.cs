@@ -80,7 +80,10 @@ namespace Console.Core.ReflectionSystem
                     bool lval = cparameter.Any(x =>
                         x.ToString().StartsWith(ConsoleCoreConfig.CommandFlagPrefix) &&
                         x.ToString().Remove(0, 2) == name);
-                    if (lval) cparameter.Remove(ConsoleCoreConfig.CommandFlagPrefix + name);
+                    if (lval)
+                    {
+                        cparameter.Remove(ConsoleCoreConfig.CommandFlagPrefix + name);
+                    }
                     ret[i] = lval;
                 }
             }

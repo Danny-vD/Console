@@ -37,7 +37,10 @@ namespace Console.Core.PropertySystem
         /// </summary>
         /// <param name="propertyPath">Path/Name of the Property</param>
         /// <returns>True if the Property Exists</returns>
-        public static bool HasProperty(string propertyPath) => Properties.ContainsKey(propertyPath);
+        public static bool HasProperty(string propertyPath)
+        {
+            return Properties.ContainsKey(propertyPath);
+        }
 
         /// <summary>
         /// Adds or Sets the property with the specified path to the specified value
@@ -47,9 +50,13 @@ namespace Console.Core.PropertySystem
         public static void AddProperty(string propertyPath, object value)
         {
             if (!HasProperty(propertyPath))
+            {
                 SetProperty(propertyPath, new FakeValueContainer(value));
+            }
             else
+            {
                 SetPropertyValue(propertyPath, value);
+            }
         }
 
         /// <summary>
@@ -69,7 +76,10 @@ namespace Console.Core.PropertySystem
         /// </summary>
         /// <param name="propertyPath">Path/Name of the Property</param>
         /// <returns>The Value</returns>
-        public static object GetPropertyValue(string propertyPath) => Properties[propertyPath].Get();
+        public static object GetPropertyValue(string propertyPath)
+        {
+            return Properties[propertyPath].Get();
+        }
 
         /// <summary>
         /// Returns false if the value could not be retrieved.
@@ -80,7 +90,10 @@ namespace Console.Core.PropertySystem
         public static bool TryGetValue(string propertyPath, out object value)
         {
             value = null;
-            if (!HasProperty(propertyPath)) return false;
+            if (!HasProperty(propertyPath))
+            {
+                return false;
+            }
             value = GetPropertyValue(propertyPath);
             return true;
         }
@@ -93,10 +106,14 @@ namespace Console.Core.PropertySystem
         public static void SetPropertyValue(string propertyPath, object value)
         {
             if (Properties[propertyPath].CanWrite)
+            {
                 Properties[propertyPath].Set(value);
+            }
             else
+            {
                 ConsoleCoreConfig.CoreLogger.LogWarning("Can not Write property: " + propertyPath +
                                                         " its already existing and readonly");
+            }
         }
 
 
@@ -106,7 +123,10 @@ namespace Console.Core.PropertySystem
         /// <param name="propertyPath">Property name to Remove</param>
         public static void Remove(string propertyPath)
         {
-            if (Properties.ContainsKey(propertyPath)) Properties.Remove(propertyPath);
+            if (Properties.ContainsKey(propertyPath))
+            {
+                Properties.Remove(propertyPath);
+            }
         }
 
         /// <summary>

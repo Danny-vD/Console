@@ -24,7 +24,10 @@ namespace Console.ClassQueries
         {
 
             Type t = Find(parameter);
-            if (t != null) return t.AssemblyQualifiedName;
+            if (t != null)
+            {
+                return t.AssemblyQualifiedName;
+            }
             return "NOT_FOUND";
         }
 

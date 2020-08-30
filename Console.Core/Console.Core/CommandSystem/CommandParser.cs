@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Console.Core.CommandSystem.Commands;
 
@@ -43,9 +42,15 @@ namespace Console.Core.CommandSystem
         private static void InnerParseAndInvoke(string arguments)
         {
             string[] commandArguments = Split(arguments, ConsoleCoreConfig.CommandInputSeparator);
-            if (commandArguments.Length == 0) return;
+            if (commandArguments.Length == 0)
+            {
+                return;
+            }
             string commandName = commandArguments[0].Trim();
-            if (string.IsNullOrEmpty(commandName)) return;
+            if (string.IsNullOrEmpty(commandName))
+            {
+                return;
+            }
 
             if (commandArguments.Length == 1 && //No Arguments
                 AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
@@ -90,7 +95,10 @@ namespace Console.Core.CommandSystem
         /// <returns>Correctly Parsed Array ofString Blocks</returns>
         public static string[] ParseStringBlocks(string commandArguments)
         {
-            if (commandArguments == null) return new string[0];
+            if (commandArguments == null)
+            {
+                return new string[0];
+            }
             string[] sections = commandArguments.Split(ConsoleCoreConfig.CommandInputSeparator);
 
             List<string> arguments = InnerParseStringBlocks(sections);
@@ -167,7 +175,10 @@ namespace Console.Core.CommandSystem
         /// <returns>True if the Character is escaped.</returns>
         public static bool IsEscaped(string part, int idx)
         {
-            if (idx <= 0) return false;
+            if (idx <= 0)
+            {
+                return false;
+            }
             if (part[idx - 1] == ConsoleCoreConfig.EscapeChar) //Previous Char is Escape Char
             {
                 //If the previous char is not escaped this char is escaped

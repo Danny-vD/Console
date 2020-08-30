@@ -23,6 +23,9 @@ namespace Console.ScriptIOCompat
             get => Logger.Mute;
             set => Logger.Mute = value;
         }
+        /// <summary>
+        /// The Logger for this Extension
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
         /// <summary>
         /// Version of the ScriptIOCompat Extension
@@ -43,7 +46,10 @@ namespace Console.ScriptIOCompat
         /// </summary>
         public static void AutoStart()
         {
-            if (AutoStartFile == null) return;
+            if (AutoStartFile == null)
+            {
+                return;
+            }
             Logger.Log("Running Auto Start Files: " + AutoStartFile);
             string[] files = AutoStartFile.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries);
             foreach (string file in files)

@@ -46,7 +46,9 @@ namespace Console.Evaluator.Core
         public void AddEnvironmentFunctions(object obj)
         {
             if (obj is null)
+            {
                 return;
+            }
             if (!mEnvironmentFunctionsList.Contains(obj))
             {
                 mEnvironmentFunctionsList.Add(obj);

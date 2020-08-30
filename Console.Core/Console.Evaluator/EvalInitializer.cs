@@ -23,6 +23,10 @@ namespace Console.Evaluator
             set => Logger.Mute = value;
         }
 
+
+        /// <summary>
+        /// The Load Order of the Extension
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
         /// <summary>
         /// Version of the Evaluator Extension

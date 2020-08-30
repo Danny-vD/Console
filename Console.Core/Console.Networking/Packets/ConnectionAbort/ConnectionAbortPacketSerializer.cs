@@ -14,7 +14,10 @@ namespace Console.Networking.Packets.ConnectionAbort
         /// <returns>Network Packet</returns>
         protected override ConnectionAbortPacket Deserialize(byte[] data)
         {
-            if (data.Length == 0) return new ConnectionAbortPacket();
+            if (data.Length == 0)
+            {
+                return new ConnectionAbortPacket();
+            }
             return new ConnectionAbortPacket(NetworkingSettings.EncodingInstance.GetString(data));
         }
 

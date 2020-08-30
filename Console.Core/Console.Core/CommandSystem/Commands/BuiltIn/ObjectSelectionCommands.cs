@@ -7,8 +7,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class ObjectSelectionCommands
     {
-        private static ALogger SelectedObjectLogger = TypedLogger.CreateTypedWithPrefix("list-selection");
-        private static ALogger SelectedObjectClearLogger = TypedLogger.CreateTypedWithPrefix("clear-selection");
+        private static readonly ALogger SelectedObjectLogger = TypedLogger.CreateTypedWithPrefix("list-selection");
+        private static readonly ALogger SelectedObjectClearLogger = TypedLogger.CreateTypedWithPrefix("clear-selection");
 
         /// <summary>
         /// Adds all Selection Commands

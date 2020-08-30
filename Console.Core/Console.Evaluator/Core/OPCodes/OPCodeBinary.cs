@@ -12,27 +12,27 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Backing Field First Inner OPCode Parameter
         /// </summary>
-        private OPCode _mParam1;
+        private OPCode _param1;
         /// <summary>
         /// The First Inner OPCode Parameter
         /// </summary>
-        private OPCode mParam1
+        private OPCode Param1
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mParam1;
+            get => _param1;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mParam1 != null)
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged -= mParam1_ValueChanged;
+                    _param1.ValueChanged -= Param1ValueChanged;
                 }
 
-                _mParam1 = value;
-                if (_mParam1 != null)
+                _param1 = value;
+                if (_param1 != null)
                 {
-                    _mParam1.ValueChanged += mParam1_ValueChanged;
+                    _param1.ValueChanged += Param1ValueChanged;
                 }
             }
         }
@@ -40,28 +40,28 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Backing Field Second Inner OPCode Parameter
         /// </summary>
-        private OPCode _mParam2;
+        private OPCode _param2;
 
         /// <summary>
         /// The Second Inner OPCode Parameter
         /// </summary>
-        private OPCode mParam2
+        private OPCode Param2
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _mParam2;
+            get => _param2;
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                if (_mParam2 != null)
+                if (_param2 != null)
                 {
-                    _mParam2.ValueChanged -= mParam2_ValueChanged;
+                    _param2.ValueChanged -= Param2_ValueChanged;
                 }
 
-                _mParam2 = value;
-                if (_mParam2 != null)
+                _param2 = value;
+                if (_param2 != null)
                 {
-                    _mParam2.ValueChanged += mParam2_ValueChanged;
+                    _param2.ValueChanged += Param2_ValueChanged;
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
-        private EvalType mEvalType;
+        private readonly EvalType mEvalType;
 
         /// <summary>
         /// Public Constructor
@@ -80,10 +80,10 @@ namespace Console.Evaluator.Core.OPCodes
         /// <param name="param2">Second Parameter</param>
         public OPCodeBinary(Tokenizer tokenizer, OPCode param1, TokenType tt, OPCode param2)
         {
-            mParam1 = param1;
-            mParam2 = param2;
-            EvalType v1Type = mParam1.EvalType;
-            EvalType v2Type = mParam2.EvalType;
+            Param1 = param1;
+            Param2 = param2;
+            EvalType v1Type = Param1.EvalType;
+            EvalType v2Type = Param2.EvalType;
             switch (tt)
             {
                 case TokenType.OperatorPlus:
@@ -95,11 +95,11 @@ namespace Console.Evaluator.Core.OPCodes
                     }
                     else if ((v1Type == EvalType.Number) & (v2Type == EvalType.Date))
                     {
-                        OPCode argParam1 = mParam1;
-                        OPCode argParam2 = mParam2;
+                        OPCode argParam1 = Param1;
+                        OPCode argParam2 = Param2;
                         SwapParams(ref argParam1, ref argParam2);
-                        mParam1 = argParam1;
-                        mParam2 = argParam2;
+                        Param1 = argParam1;
+                        Param2 = argParam2;
                         mValueDelegate = DATE_PLUS_NUM;
                         mEvalType = EvalType.Date;
                     }
@@ -108,7 +108,7 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = DATE_PLUS_NUM;
                         mEvalType = EvalType.Date;
                     }
-                    else if (mParam1.CanReturn(EvalType.String) & mParam2.CanReturn(EvalType.String))
+                    else if (Param1.CanReturn(EvalType.String) & Param2.CanReturn(EvalType.String))
                     {
                         Convert(tokenizer, ref param1, EvalType.String);
                         mValueDelegate = STR_CONCAT_STR;
@@ -175,12 +175,12 @@ namespace Console.Evaluator.Core.OPCodes
                 case TokenType.OperatorAnd:
                 case TokenType.OperatorOr:
                 {
-                    OPCode argparam1 = mParam1;
+                    OPCode argparam1 = Param1;
                     Convert(tokenizer, ref argparam1, EvalType.Boolean);
-                    mParam1 = argparam1;
-                    OPCode argparam11 = mParam2;
+                    Param1 = argparam1;
+                    OPCode argparam11 = Param2;
                     Convert(tokenizer, ref argparam11, EvalType.Boolean);
-                    mParam2 = argparam11;
+                    Param2 = argparam11;
                     switch (tt)
                     {
                         case TokenType.OperatorOr:
@@ -276,157 +276,157 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
-        /// Returns mParam1 AND mParam2
+        /// Returns Param1 AND Param2
         /// </summary>
         /// <returns>True if both Values are True</returns>
         private object BOOL_AND_BOOL()
         {
-            return (bool) mParam1.Value & (bool) mParam2.Value;
+            return (bool) Param1.Value & (bool) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 OR mParam2
+        /// Returns Param1 OR Param2
         /// </summary>
         /// <returns>True if at least one Value is True</returns>
         private object BOOL_OR_BOOL()
         {
-            return (bool) mParam1.Value | (bool) mParam2.Value;
+            return (bool) Param1.Value | (bool) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 XOR mParam2
+        /// Returns Param1 XOR Param2
         /// </summary>
         /// <returns>True if only one value True</returns>
         private object BOOL_XOR_BOOL()
         {
-            return (bool) mParam1.Value ^ (bool) mParam2.Value;
+            return (bool) Param1.Value ^ (bool) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 == mParam2
+        /// Returns Param1 == Param2
         /// </summary>
         /// <returns>True if both values are equal</returns>
         private object BOOL_EQ_BOOL()
         {
-            return (bool) mParam1.Value == (bool) mParam2.Value;
+            return (bool) Param1.Value == (bool) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 != mParam2
+        /// Returns Param1 != Param2
         /// </summary>
         /// <returns>True if both values are not equal</returns>
         private object BOOL_NE_BOOL()
         {
-            return (bool) mParam1.Value != (bool) mParam2.Value;
+            return (bool) Param1.Value != (bool) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 == mParam2 (DOUBLE)
+        /// Returns Param1 == Param2 (DOUBLE)
         /// </summary>
         /// <returns>True if both values are equal</returns>
         private object NUM_EQ_NUM()
         {
-            return (double) mParam1.Value == (double) mParam2.Value;
+            return (double) Param1.Value == (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 &lt; mParam2 (DOUBLE)
+        /// Returns Param1 &lt; Param2 (DOUBLE)
         /// </summary>
         /// <returns>True if the first value is smaller than the second value</returns>
         private object NUM_LT_NUM()
         {
-            return (double) mParam1.Value < (double) mParam2.Value;
+            return (double) Param1.Value < (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 &gt; mParam2 (DOUBLE)
+        /// Returns Param1 &gt; Param2 (DOUBLE)
         /// </summary>
         /// <returns>True if the first value is greater than the second value</returns>
         private object NUM_GT_NUM()
         {
-            return (double) mParam1.Value > (double) mParam2.Value;
+            return (double) Param1.Value > (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 &ge; mParam2 (DOUBLE)
+        /// Returns Param1 >= Param2 (DOUBLE)
         /// </summary>
         /// <returns>True if both the first value is greater than or equal to the second value</returns>
         private object NUM_GE_NUM()
         {
-            return (double) mParam1.Value >= (double) mParam2.Value;
+            return (double) Param1.Value >= (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 &le; mParam2 (DOUBLE)
+        /// Returns Param1 &lt;= Param2 (DOUBLE)
         /// </summary>
         /// <returns>True if both the first value is lower than or equal to the second value</returns>
         private object NUM_LE_NUM()
         {
-            return (double) mParam1.Value <= (double) mParam2.Value;
+            return (double) Param1.Value <= (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 &ne; mParam2 (DOUBLE)
+        /// Returns Param1 != Param2 (DOUBLE)
         /// </summary>
         /// <returns>True if both the first value is not equal to the second value</returns>
         private object NUM_NE_NUM()
         {
-            return (double) mParam1.Value != (double) mParam2.Value;
+            return (double) Param1.Value != (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 + mParam2 (DOUBLE)
+        /// Returns Param1 + Param2 (DOUBLE)
         /// </summary>
         /// <returns>The Addition of the first and second value</returns>
         private object NUM_PLUS_NUM()
         {
-            return (double) mParam1.Value + (double) mParam2.Value;
+            return (double) Param1.Value + (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 * mParam2 (DOUBLE)
+        /// Returns Param1 * Param2 (DOUBLE)
         /// </summary>
         /// <returns>The Multiplication of the first and second value</returns>
         private object NUM_MUL_NUM()
         {
-            return (double) mParam1.Value * (double) mParam2.Value;
+            return (double) Param1.Value * (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 - mParam2 (DOUBLE)
+        /// Returns Param1 - Param2 (DOUBLE)
         /// </summary>
         /// <returns>The Subtraction of the first and second value</returns>
         private object NUM_MINUS_NUM()
         {
-            return (double) mParam1.Value - (double) mParam2.Value;
+            return (double) Param1.Value - (double) Param2.Value;
         }
 
 
         /// <summary>
-        /// Returns mParam1 + mParam2 (DATETIME)
+        /// Returns Param1 + Param2 (DATETIME)
         /// </summary>
         /// <returns>The Addition of the first and second value</returns>
         private object DATE_PLUS_NUM()
         {
-            return ((DateTime) mParam1.Value).AddDays((double) mParam2.Value);
+            return ((DateTime) Param1.Value).AddDays((double) Param2.Value);
         }
 
         /// <summary>
-        /// Returns mParam1 - mParam2 (DATETIME)
+        /// Returns Param1 - Param2 (DATETIME)
         /// </summary>
         /// <returns>The Subtraction of the first and second value</returns>
         private object DATE_MINUS_DATE()
         {
-            return ((DateTime) mParam1.Value).Subtract((DateTime) mParam2.Value).TotalDays;
+            return ((DateTime) Param1.Value).Subtract((DateTime) Param2.Value).TotalDays;
         }
 
         /// <summary>
-        /// Returns mParam1(DATETIME) - mParam2 (DOUBLE)
+        /// Returns Param1(DATETIME) - Param2 (DOUBLE)
         /// </summary>
         /// <returns>The Subtraction of the first and second value</returns>
         private object DATE_MINUS_NUM()
         {
-            return ((DateTime) mParam1.Value).AddDays(-(double) mParam2.Value);
+            return ((DateTime) Param1.Value).AddDays(-(double) Param2.Value);
         }
 
         /// <summary>
@@ -435,25 +435,25 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Concatenated String</returns>
         private object STR_CONCAT_STR()
         {
-            return mParam1.Value.ToString() + mParam2.Value.ToString();
+            return Param1.Value.ToString() + Param2.Value.ToString();
         }
 
         /// <summary>
-        /// Returns mParam1 / mParam2 (DOUBLE)
+        /// Returns Param1 / Param2 (DOUBLE)
         /// </summary>
         /// <returns>The Division of the first and second value</returns>
         private object NUM_DIV_NUM()
         {
-            return (double) mParam1.Value / (double) mParam2.Value;
+            return (double) Param1.Value / (double) Param2.Value;
         }
 
         /// <summary>
-        /// Returns mParam1 * (mParam2/100) (DOUBLE)
+        /// Returns Param1 * (Param2/100) (DOUBLE)
         /// </summary>
         /// <returns>The Percentage of the First Value</returns>
         private object NUM_PERCENT_NUM()
         {
-            return (double) mParam2.Value * ((double) mParam1.Value / 100);
+            return (double) Param2.Value * ((double) Param1.Value / 100);
         }
 
         /// <summary>
@@ -466,7 +466,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
         /// <param name="e">The Event Args</param>
-        private void mParam1_ValueChanged(object sender, EventArgs e)
+        private void Param1ValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }
@@ -476,7 +476,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
         /// <param name="e">The Event Args</param>
-        private void mParam2_ValueChanged(object sender, EventArgs e)
+        private void Param2_ValueChanged(object sender, EventArgs e)
         {
             RaiseEventValueChanged(sender, e);
         }

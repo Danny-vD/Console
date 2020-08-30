@@ -22,7 +22,10 @@ namespace Console.EnvironmentVariables
         /// </summary>
         /// <param name="parameter">Input Data</param>
         /// <returns>Value of the Provider</returns>
-        public override string GetValue(string parameter) => Provider?.Invoke(parameter);
+        public override string GetValue(string parameter)
+        {
+            return Provider?.Invoke(parameter);
+        }
 
         /// <summary>
         /// Public Constructor

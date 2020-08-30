@@ -87,7 +87,10 @@ namespace Console.Networking
         /// <param name="socket">Socket to Disconnect.</param>
         public void DisconnectClient(ConsoleSocket socket)
         {
-            if (!socket.Connected || socket.IsDisposed) return;
+            if (!socket.Connected || socket.IsDisposed)
+            {
+                return;
+            }
             socket.TrySendPacket(new ConnectionAbortPacket("Host Closed Connection"));
             socket.Dispose();
         }
@@ -204,7 +207,10 @@ namespace Console.Networking
                     }
                 }
 
-                if (Clients.Count == 0) continue;
+                if (Clients.Count == 0)
+                {
+                    continue;
+                }
 
                 Clients.ForEach(x => x.ProcessPacket());
                 RemoveInactiveClients();

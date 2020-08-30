@@ -11,8 +11,8 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class DefaultCommands
     {
-        private static ALogger EchoLogger = TypedLogger.CreateTypedWithPrefix("echo");
-        private static ALogger HelpLogger = TypedLogger.CreateTypedWithPrefix("help");
+        private static readonly ALogger EchoLogger = TypedLogger.CreateTypedWithPrefix("echo");
+        private static readonly ALogger HelpLogger = TypedLogger.CreateTypedWithPrefix("help");
 
         #region Internal Data
 
@@ -78,7 +78,10 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="value">Value to Write to the Console.</param>
         [Command("echo", "Echos the input")]
-        private static void Echo(string value) => EchoLogger.Log(value);
+        private static void Echo(string value)
+        {
+            EchoLogger.Log(value);
+        }
 
         #endregion
     }

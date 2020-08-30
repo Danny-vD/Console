@@ -22,7 +22,7 @@ namespace Console.Evaluator.Core
         /// <summary>
         /// The Evaluator Instance
         /// </summary>
-        private Evaluator mEvaluator;
+        private readonly Evaluator mEvaluator;
 
         /// <summary>
         /// Public Constructor
@@ -41,14 +41,18 @@ namespace Console.Evaluator.Core
         public OPCode Parse(string str)
         {
             if (str is null)
+            {
                 str = string.Empty;
+            }
             mTokenizer = new Tokenizer(str);
             mTokenizer.NextToken();
             OPCode res = ParseExpr(null, Priority.None);
             if (mTokenizer.TokenType == TokenType.EndOfFormula)
             {
                 if (res is null)
+                {
                     res = new OPCodeImmediate(EvalType.String, string.Empty);
+                }
                 return res;
             }
             else
@@ -133,9 +137,9 @@ namespace Console.Evaluator.Core
 
 
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
-                            mTokenizer.RaiseError(string.Format("Invalid number {0}", mTokenizer.Value.ToString()));
+                            mTokenizer.RaiseError($"Invalid number {mTokenizer.Value}");
                         }
 
                         mTokenizer.NextToken();
@@ -148,7 +152,7 @@ namespace Console.Evaluator.Core
                         {
                             valueLeft = new OPCodeImmediate(EvalType.Date, mTokenizer.Value.ToString());
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             mTokenizer.RaiseError(string.Format("Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#",
                                 mTokenizer.Value.ToString()));
@@ -375,7 +379,7 @@ namespace Console.Evaluator.Core
         private bool EmitCallFunction(ref OPCode valueLeft, string funcName, ArrayList parameters, CallType callType,
             bool errorIfNotFound)
         {
-            OPCode newOpcode = default(OPCode);
+            OPCode newOpcode = default;
             if (valueLeft is null)
             {
                 for (int i = 0; i < mEvaluator.mEnvironmentFunctionsList.Count; i++)
@@ -385,7 +389,9 @@ namespace Console.Evaluator.Core
                     {
                         newOpcode = GetLocalFunction(functions, functions.GetType(), funcName, parameters, callType);
                         if (newOpcode != null)
+                        {
                             break;
+                        }
                         if (functions is IEvalFunctions evalFunctions)
                         {
                             functions = evalFunctions.InheritedFunctions();
@@ -410,7 +416,9 @@ namespace Console.Evaluator.Core
             else
             {
                 if (errorIfNotFound)
+                {
                     mTokenizer.RaiseError("Variable or method " + funcName + " was not found");
+                }
                 return false;
             }
         }
@@ -436,21 +444,27 @@ namespace Console.Evaluator.Core
                     case MemberTypes.Field:
                     {
                         if ((callType & CallType.Field) == 0)
+                        {
                             mTokenizer.RaiseError("Unexpected Field");
+                        }
                         break;
                     }
 
                     case MemberTypes.Method:
                     {
                         if ((callType & CallType.Method) == 0)
+                        {
                             mTokenizer.RaiseError("Unexpected Method");
+                        }
                         break;
                     }
 
                     case MemberTypes.Property:
                     {
                         if ((callType & CallType.Property) == 0)
+                        {
                             mTokenizer.RaiseError("Unexpected Property");
+                        }
                         break;
                     }
 
@@ -510,8 +524,8 @@ namespace Console.Evaluator.Core
             // There is a bit of cooking here...
             // lets find the most acceptable Member
             int score, bestScore = default;
-            MemberInfo bestMember = default(MemberInfo);
-            ParameterInfo[] plist = default(ParameterInfo[]);
+            MemberInfo bestMember = default;
+            ParameterInfo[] plist = default;
             int idx;
             MemberInfo mi;
             for (int i = 0, loopTo = mis.Length - 1; i <= loopTo; i++)
@@ -533,9 +547,13 @@ namespace Console.Evaluator.Core
                 score = 10; // by default
                 idx = 0;
                 if (plist is null)
+                {
                     plist = new ParameterInfo[] { };
+                }
                 if (parameters is null)
+                {
                     parameters = new ArrayList();
+                }
                 ParameterInfo pi;
                 if (parameters.Count > plist.Length)
                 {
@@ -589,9 +607,13 @@ namespace Console.Evaluator.Core
             if (value is null)
             {
                 if (ReferenceEquals(type, typeof(object)))
+                {
                     return 10;
+                }
                 if (ReferenceEquals(type, typeof(string)))
+                {
                     return 8;
+                }
                 return 5;
             }
             if (ReferenceEquals(type, value.GetType()))
@@ -644,12 +666,12 @@ namespace Console.Evaluator.Core
             // Dim types As New ArrayList
             string func = mTokenizer.Value.ToString();
             mTokenizer.NextToken();
-            bool isBrackets = default(bool);
+            bool isBrackets = default;
             parameters = ParseParameters(ref isBrackets);
             if (parameters != null)
             {
                 ArrayList emptyParameters = new ArrayList();
-                bool paramsNotUsed = default(bool);
+                bool paramsNotUsed = default;
                 if (mEvaluator.Syntax == ParserSyntax.VisualBasic)
                 {
                     // in vb we don't know if it is array or not as we have only parenthesis
@@ -719,9 +741,9 @@ namespace Console.Evaluator.Core
         /// <returns>The List of Parameters</returns>
         private ArrayList ParseParameters(ref bool brackets)
         {
-            ArrayList parameters = default(ArrayList);
+            ArrayList parameters = default;
             OPCode valueleft;
-            TokenType lClosing = default(TokenType);
+            TokenType lClosing = default;
             if (mTokenizer.TokenType == TokenType.OpenParenthesis || (mTokenizer.TokenType == TokenType.OpenBracket) &
                 (mEvaluator.Syntax == ParserSyntax.CSharp))
             {

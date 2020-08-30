@@ -90,7 +90,10 @@ namespace Console.Core.CommandSystem.Commands
         {
             foreach (AbstractCommand abstractCommand in commands)
             {
-                if (!abstractCommand.HasName(commandName)) continue;
+                if (!abstractCommand.HasName(commandName))
+                {
+                    continue;
+                }
 
                 int pc = paramsCount - flagCount;
                 if (abstractCommand is ReflectionCommand refl)
@@ -193,11 +196,15 @@ namespace Console.Core.CommandSystem.Commands
             if (cmd != null)
             {
                 if (ConsoleCoreConfig.AllowOverlappingCommands)
+                {
                     ConsoleCoreConfig.CoreLogger.LogWarning(
                         $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
+                }
                 else
+                {
                     ConsoleCoreConfig.CoreLogger.LogError(
                         $"A command with name {ToString(command.GetAllNames())} with {cmd.ParametersCount} parameter(s) already exists!");
+                }
                 return;
             }
 

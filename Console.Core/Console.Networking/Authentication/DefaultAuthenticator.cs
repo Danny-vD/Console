@@ -15,14 +15,20 @@ namespace Console.Networking.Authentication
         /// </summary>
         /// <param name="data">Passed Data</param>
         /// <returns>Decrypted Data</returns>
-        public byte[] Decrypt(byte[] data) => data;
+        public byte[] Decrypt(byte[] data)
+        {
+            return data;
+        }
 
         /// <summary>
         /// Encrypts the Passed Data
         /// </summary>
         /// <param name="data">Passed Data</param>
         /// <returns>Encrypted Data</returns>
-        public byte[] Encrypt(byte[] data) => data;
+        public byte[] Encrypt(byte[] data)
+        {
+            return data;
+        }
 
         /// <summary>
         /// Gets Invoked by the Host to initialize the authentication of a connected client.

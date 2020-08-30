@@ -1,6 +1,5 @@
 ﻿using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets;
-using Console.Networking.Packets.SendData;
 using Console.Networking.Packets.SendDataRequest;
 using Console.Networking.Packets.SendDataRequestResponse;
 using Console.Networking.SendData;

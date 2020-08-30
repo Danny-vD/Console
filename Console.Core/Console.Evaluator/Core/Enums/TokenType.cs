@@ -50,7 +50,7 @@
         /// </summary>
         CloseParenthesis,
         /// <summary>
-        /// &ne; Operator Token
+        /// != Operator Token
         /// </summary>
         OperatorNe,
         /// <summary>
@@ -58,7 +58,7 @@
         /// </summary>
         OperatorGt,
         /// <summary>
-        /// &ge; Operator Token
+        /// >= Operator Token
         /// </summary>
         OperatorGe,
         /// <summary>
@@ -66,7 +66,7 @@
         /// </summary>
         OperatorEq,
         /// <summary>
-        /// &le; Operator Token
+        /// &lt;= Operator Token
         /// </summary>
         OperatorLe,
         /// <summary>
@@ -86,7 +86,7 @@
         /// </summary>
         OperatorNot,
         /// <summary>
-        /// & Operator Token
+        /// (and) Operator Token
         /// </summary>
         OperatorConcat,
         /// <summary>

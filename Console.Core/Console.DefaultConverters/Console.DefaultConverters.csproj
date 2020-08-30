@@ -4,6 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>NU1605;1591</WarningsAsErrors>
+    <DocumentationFile>D:\Users\Tim\Documents\Console\Console.Core\Console.DefaultConverters\Console.DefaultConverters.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Console.Core\Console.Core.csproj" />
   </ItemGroup>

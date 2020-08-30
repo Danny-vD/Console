@@ -21,6 +21,10 @@ namespace Console.IO
             get => Logger.Mute;
             set => Logger.Mute = value;
         }
+
+        /// <summary>
+        /// Logger for this Extension
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
 
         /// <summary>

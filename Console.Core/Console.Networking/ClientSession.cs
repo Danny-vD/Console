@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using Console.Core;
 using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets;
 using Console.Networking.Packets.Command;
@@ -67,7 +66,10 @@ namespace Console.Networking
         /// <param name="port">Host Port</param>
         public void Connect(string ip, int port)
         {
-            if (State == ConnectionState.Connecting) return;
+            if (State == ConnectionState.Connecting)
+            {
+                return;
+            }
             State = ConnectionState.Connecting;
             NetworkedInitializer.Logger.Log("Connecting...");
             ConnectThread = new Thread(() => ConnectionThread(ip, port));
@@ -138,7 +140,9 @@ namespace Console.Networking
 
 
             if (Client == null || !Client.Connected)
+            {
                 return;
+            }
             for (int i = 0; i < NetworkingSettings.ClientPacketsPerTick; i++)
             {
                 Client?.ProcessPacket();

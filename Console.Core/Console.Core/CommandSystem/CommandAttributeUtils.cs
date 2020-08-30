@@ -104,12 +104,16 @@ namespace Console.Core.CommandSystem
         public static object ConvertToNonGeneric(object parameter, Type target)
         {
             if (target.IsInstanceOfType(parameter))
+            {
                 return parameter;
+            }
 
             try
             {
                 if (CustomConvertManager.CanConvert(parameter, target))
+                {
                     return CustomConvertManager.Convert(parameter, target);
+                }
 
                 return Convert.ChangeType(parameter, target);
             }
@@ -117,7 +121,9 @@ namespace Console.Core.CommandSystem
             {
                 ConsoleCoreConfig.CoreLogger.LogError($"Can not cast value: \"{parameter}\"  to type: {target.Name}");
                 if (target.IsValueType)
+                {
                     return null; //Return Default value if the target is int/float/...
+                }
                 throw e;
             }
         }

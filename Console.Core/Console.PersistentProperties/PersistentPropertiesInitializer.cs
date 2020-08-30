@@ -23,6 +23,9 @@ namespace Console.PersistentProperties
             set => Logger.Mute = value;
         }
 
+        /// <summary>
+        /// Logger for this Extension
+        /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
         private const string InitPropertyPath = ".\\configs\\init.cfg";
 
@@ -32,6 +35,12 @@ namespace Console.PersistentProperties
         /// </summary>
         [Property("version.persistentproperties")]
         private static Version PersistentPropertiesVersion => Assembly.GetExecutingAssembly().GetName().Version;
+
+
+
+        /// <summary>
+        /// The Load Order of the Extension
+        /// </summary>
         public override LoadOrder Order => LoadOrder.After;
 
 
@@ -43,7 +52,9 @@ namespace Console.PersistentProperties
             PropertyAttributeUtils.AddProperties<PersistentPropertiesInitializer>();
             CommandAttributeUtils.AddCommands<PropertyLoaderCommands>();
             if (File.Exists(InitPropertyPath))
+            {
                 PropertyLoaderCommands.Load(InitPropertyPath);
+            }
         }
     }
 }

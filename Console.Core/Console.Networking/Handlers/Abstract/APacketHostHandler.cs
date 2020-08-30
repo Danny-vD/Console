@@ -18,7 +18,10 @@ namespace Console.Networking.Handlers.Abstract
         /// <param name="item">The Packet</param>
         public void _Handle(ConsoleSocket client, ANetworkPacket item)
         {
-            if (item is T p) Handle(client, p);
+            if (item is T p)
+            {
+                Handle(client, p);
+            }
             //else throw new InvalidCastException("Expected type: " + typeof(T) + " got: " + item.GetType());
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using Console.Core.ActivationSystem;
 using Console.Core.LogSystem;
@@ -13,19 +12,54 @@ namespace Console.Core.ExtensionSystem
     public abstract class AExtensionInitializer
     {
         private Assembly ExtensionAssembly => GetType().Assembly;
-        private static Dictionary<Assembly, ALogger> Loggers = new Dictionary<Assembly, ALogger>();
+        private static readonly Dictionary<Assembly, ALogger> Loggers = new Dictionary<Assembly, ALogger>();
 
-        public static ALogger GetLogger(Assembly asm) => Loggers.ContainsKey(asm) ? Loggers[asm] : null;
+        /// <summary>
+        /// Returns the Logger with the Correct Prefix for the Assembly
+        /// </summary>
+        /// <param name="asm">The Assembly that the logger is created for.</param>
+        /// <returns>Logger with Assembly Prefix</returns>
+        public static ALogger GetLogger(Assembly asm)
+        {
+            return Loggers.ContainsKey(asm) ? Loggers[asm] : null;
+        }
 
+        /// <summary>
+        /// Sets the Logger of a Specified Assembly
+        /// </summary>
+        /// <param name="asm">The Specified Assembly</param>
+        /// <param name="logger">The Logger</param>
         public static void SetLogger(Assembly asm, ALogger logger)
         {
             Loggers[asm] = logger;
         }
 
-        protected void SetLogger(ALogger logger) => SetLogger(ExtensionAssembly, logger);
-        protected ALogger GetLogger() => GetLogger(ExtensionAssembly);
 
+        /// <summary>
+        /// Sets the Logger of the Assembly
+        /// </summary>
+        /// <param name="logger">The Logger</param>
+        protected void SetLogger(ALogger logger)
+        {
+            SetLogger(ExtensionAssembly, logger);
+        }
+
+        /// <summary>
+        /// Returns the Logger of the ExtensionAssembly
+        /// </summary>
+        /// <returns>Logger for this Assembly</returns>
+        protected ALogger GetLogger()
+        {
+            return GetLogger(ExtensionAssembly);
+        }
+
+        /// <summary>
+        /// The Load Order of the Extension
+        /// </summary>
         public virtual LoadOrder Order => LoadOrder.Default;
+        /// <summary>
+        /// The Logger Prefix for this Extension
+        /// </summary>
         protected virtual string LoggerPrefix => ExtensionAssembly.GetName().Name;
 
         /// <summary>

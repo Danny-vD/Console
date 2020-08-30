@@ -22,7 +22,10 @@ namespace Console.PropEnvCompat
                 {
                     string instanceProvider = keys[i];
                     s += instanceProvider;
-                    if (i != keys.Count - 1) s += "; ";
+                    if (i != keys.Count - 1)
+                    {
+                        s += "; ";
+                    }
                 }
                 return s;
             }

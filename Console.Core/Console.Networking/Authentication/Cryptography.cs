@@ -189,7 +189,7 @@ namespace Console.Networking.Authentication
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

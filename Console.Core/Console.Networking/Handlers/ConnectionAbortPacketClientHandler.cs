@@ -1,5 +1,4 @@
-﻿using Console.Core;
-using Console.Networking.Handlers.Abstract;
+﻿using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets.ConnectionAbort;
 
 namespace Console.Networking.Handlers

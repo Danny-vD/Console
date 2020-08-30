@@ -35,7 +35,10 @@ namespace Console.Core.PropertySystem
         /// <param name="instance">Object Instance containing the Properties</param>
         public static void AddProperties(object instance)
         {
-            if (instance == null) return;
+            if (instance == null)
+            {
+                return;
+            }
             PropertyManager.AddRefHelpers(ReflectionUtils.GetConsoleFields<PropertyAttribute>(instance));
             PropertyManager.AddRefHelpers(ReflectionUtils.GetConsoleProps<PropertyAttribute>(instance));
         }

@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Console.Core;
 using Console.Core.CommandSystem;
 
 namespace Console.IO
@@ -25,8 +24,10 @@ namespace Console.IO
         /// <param name="names">Only displays names</param>
         /// </summary>
         [Command("list-files", "Lists files in the current directory", "ls", "dir")]
-        private static void ListFiles([CommandFlag] bool recursive, [CommandFlag] bool names) =>
+        private static void ListFiles([CommandFlag] bool recursive, [CommandFlag] bool names)
+        {
             ListFiles(".\\", recursive, names);
+        }
 
         /// <summary>
         /// Lists files in the specified directory
@@ -35,8 +36,10 @@ namespace Console.IO
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         /// <param name="names">Only displays names</param>
         [Command("list-files", "Lists files in the specified directory", "ls", "dir")]
-        private static void ListFiles(string folder, [CommandFlag] bool recursive, [CommandFlag] bool names) =>
+        private static void ListFiles(string folder, [CommandFlag] bool recursive, [CommandFlag] bool names)
+        {
             ListFiles(folder, "*", recursive, names);
+        }
 
 
         /// <summary>
@@ -69,8 +72,10 @@ namespace Console.IO
         /// <param name="names">Only displays names</param>
         /// </summary>
         [Command("list-dir", "Lists directories in the current directory", "ld", "dirs")]
-        private static void ListDirectories([CommandFlag] bool recursive, [CommandFlag] bool names) =>
+        private static void ListDirectories([CommandFlag] bool recursive, [CommandFlag] bool names)
+        {
             ListDirectories(".\\", recursive, names);
+        }
 
         /// <summary>
         /// Lists files in the specified directory
@@ -79,8 +84,10 @@ namespace Console.IO
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         /// <param name="names">Only displays names</param>
         [Command("list-dir", "Lists directories in the specified directory", "ld", "dirs")]
-        private static void ListDirectories(string folder, [CommandFlag] bool recursive, [CommandFlag] bool names) =>
+        private static void ListDirectories(string folder, [CommandFlag] bool recursive, [CommandFlag] bool names)
+        {
             ListDirectories(folder, "*", recursive, names);
+        }
 
         /// <summary>
         /// Lists Directories in the specified directory and all subdirectories that match the search term
@@ -130,7 +137,10 @@ namespace Console.IO
         {
             if (File.Exists(from))
             {
-                if (File.Exists(to)) File.Delete(to);
+                if (File.Exists(to))
+                {
+                    File.Delete(to);
+                }
                 File.Move(from, to);
             }
             else if (Directory.Exists(from))
@@ -147,7 +157,9 @@ namespace Console.IO
         private static void Delete(string file)
         {
             if (File.Exists(file))
+            {
                 File.Delete(file);
+            }
         }
     }
 }

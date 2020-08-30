@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 
 
 /// <summary>
@@ -18,6 +18,10 @@ namespace Console.Core.LogSystem
 
         private ALogger Sub;
 
+        /// <summary>
+        /// Wraps the passed logger into the current logger lowest level
+        /// </summary>
+        /// <param name="logger">Logger to be wrapped</param>
         public void WrapAround(ALogger logger)
         {
             ALogger sub = this;
@@ -37,8 +41,13 @@ namespace Console.Core.LogSystem
             if (!Mute)
             {
                 if (Sub == null)
+                {
                     AConsoleManager.Instance._Log(value);
-                else Sub.Log(value);
+                }
+                else
+                {
+                    Sub.Log(value);
+                }
             }
         }
 
@@ -52,8 +61,13 @@ namespace Console.Core.LogSystem
             if (!Mute)
             {
                 if (Sub == null)
+                {
                     AConsoleManager.Instance._LogWarning(value);
-                else Sub.Log(value);
+                }
+                else
+                {
+                    Sub.Log(value);
+                }
             }
         }
 
@@ -67,8 +81,13 @@ namespace Console.Core.LogSystem
             if (!Mute)
             {
                 if (Sub == null)
+                {
                     AConsoleManager.Instance._LogError(value);
-                else Sub.Log(value);
+                }
+                else
+                {
+                    Sub.Log(value);
+                }
             }
         }
     }

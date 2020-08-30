@@ -5,6 +5,11 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Users\Tim\Documents\Console\Console.Core\Console.Core\Console.Core.xml</DocumentationFile>
+    <WarningsAsErrors>NU1605;1591</WarningsAsErrors>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Include="CommandSystem\Commands\Commands.cs">
       <DesignTime>True</DesignTime>

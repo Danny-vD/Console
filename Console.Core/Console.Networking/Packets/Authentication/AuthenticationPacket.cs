@@ -44,7 +44,7 @@ namespace Console.Networking.Packets.Authentication
 
                 return new AuthenticationPacket(NetworkingSettings.AuthenticatorInstance.Decrypt(Data));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new AuthenticationPacket(new byte[Data.Length]);
             }

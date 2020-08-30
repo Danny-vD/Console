@@ -50,7 +50,9 @@ namespace Console.ScriptSystem.Deblocker.Functions
                 ps += signature.ParameterNames[i] + ";";
             }
             if (signature.ParameterNames.Count > 0)
+            {
                 s.Insert(0, ps);
+            }
             //s.InsertRange(0, signature.ParameterNames.Select(x => $"{SequenceSystem.SequenceAddParameter} {parts[1]} {x}"));
             s.Insert(0,
                 $"{SequenceSystem.SequenceCreate} {parts[1]} {SequenceSystem.SequenceCreateOverwrite}"); // Create

@@ -25,7 +25,9 @@ namespace Console.Core.ExtensionSystem
         public static void LoadFromFolder(string folder)
         {
             if (Directory.Exists(folder))
+            {
                 LoadExtensionFiles(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
+            }
         }
 
         /// <summary>
@@ -120,8 +122,10 @@ namespace Console.Core.ExtensionSystem
                 Assembly asm = Assembly.LoadFrom(path);
                 AExtensionInitializer[] inits = ActivateOnAttributeUtils.ActivateObjects<AExtensionInitializer>(asm);
                 if (inits.Length == 0)
+                {
                     ConsoleCoreConfig.CoreLogger.LogWarning("Assembly " + asm.GetName().Name +
                                                             " does not have an Initializer but is loaded.");
+                }
                 return inits;
             }
             catch (Exception e)

@@ -41,7 +41,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 0";
+            }
 
 
             return $"{Name} ";
@@ -99,7 +101,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 1";
+            }
 
 
             return $"{Name} {typeof(TParam0).Name}";
@@ -111,7 +115,10 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0])
@@ -159,7 +166,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 2";
+            }
 
 
             return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}";
@@ -171,8 +180,14 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -221,7 +236,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 3";
+            }
 
 
             return $"{Name} {typeof(TParam0).Name}, {typeof(TParam1).Name}, {typeof(TParam2).Name}";
@@ -233,9 +250,18 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -285,7 +311,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 4";
+            }
 
 
             return
@@ -298,10 +326,22 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -352,7 +392,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 5";
+            }
 
 
             return
@@ -365,11 +407,26 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -422,7 +479,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 6";
+            }
 
 
             return
@@ -435,12 +494,30 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -494,7 +571,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 7";
+            }
 
 
             return
@@ -507,13 +586,34 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -568,7 +668,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 8";
+            }
 
 
             return
@@ -581,14 +683,38 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -647,7 +773,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 9";
+            }
 
 
             return
@@ -660,15 +788,42 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -728,7 +883,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 10";
+            }
 
 
             return
@@ -741,16 +898,46 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -811,7 +998,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 11";
+            }
 
 
             return
@@ -824,17 +1013,50 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
-            if (!IsValidCast<TParam10>(parameters[10])) throw new InvalidCastException("Invalid Cast Parameter: 10");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
+            if (!IsValidCast<TParam10>(parameters[10]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 10");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -896,7 +1118,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 12";
+            }
 
 
             return
@@ -909,18 +1133,54 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
-            if (!IsValidCast<TParam10>(parameters[10])) throw new InvalidCastException("Invalid Cast Parameter: 10");
-            if (!IsValidCast<TParam11>(parameters[11])) throw new InvalidCastException("Invalid Cast Parameter: 11");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
+            if (!IsValidCast<TParam10>(parameters[10]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 10");
+            }
+            if (!IsValidCast<TParam11>(parameters[11]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 11");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -983,7 +1243,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 13";
+            }
 
 
             return
@@ -996,19 +1258,58 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
-            if (!IsValidCast<TParam10>(parameters[10])) throw new InvalidCastException("Invalid Cast Parameter: 10");
-            if (!IsValidCast<TParam11>(parameters[11])) throw new InvalidCastException("Invalid Cast Parameter: 11");
-            if (!IsValidCast<TParam12>(parameters[12])) throw new InvalidCastException("Invalid Cast Parameter: 12");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
+            if (!IsValidCast<TParam10>(parameters[10]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 10");
+            }
+            if (!IsValidCast<TParam11>(parameters[11]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 11");
+            }
+            if (!IsValidCast<TParam12>(parameters[12]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 12");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -1072,7 +1373,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 14";
+            }
 
 
             return
@@ -1085,20 +1388,62 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
-            if (!IsValidCast<TParam10>(parameters[10])) throw new InvalidCastException("Invalid Cast Parameter: 10");
-            if (!IsValidCast<TParam11>(parameters[11])) throw new InvalidCastException("Invalid Cast Parameter: 11");
-            if (!IsValidCast<TParam12>(parameters[12])) throw new InvalidCastException("Invalid Cast Parameter: 12");
-            if (!IsValidCast<TParam13>(parameters[13])) throw new InvalidCastException("Invalid Cast Parameter: 13");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
+            if (!IsValidCast<TParam10>(parameters[10]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 10");
+            }
+            if (!IsValidCast<TParam11>(parameters[11]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 11");
+            }
+            if (!IsValidCast<TParam12>(parameters[12]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 12");
+            }
+            if (!IsValidCast<TParam13>(parameters[13]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 13");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -1163,7 +1508,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 15";
+            }
 
 
             return
@@ -1176,21 +1523,66 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
-            if (!IsValidCast<TParam10>(parameters[10])) throw new InvalidCastException("Invalid Cast Parameter: 10");
-            if (!IsValidCast<TParam11>(parameters[11])) throw new InvalidCastException("Invalid Cast Parameter: 11");
-            if (!IsValidCast<TParam12>(parameters[12])) throw new InvalidCastException("Invalid Cast Parameter: 12");
-            if (!IsValidCast<TParam13>(parameters[13])) throw new InvalidCastException("Invalid Cast Parameter: 13");
-            if (!IsValidCast<TParam14>(parameters[14])) throw new InvalidCastException("Invalid Cast Parameter: 14");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
+            if (!IsValidCast<TParam10>(parameters[10]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 10");
+            }
+            if (!IsValidCast<TParam11>(parameters[11]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 11");
+            }
+            if (!IsValidCast<TParam12>(parameters[12]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 12");
+            }
+            if (!IsValidCast<TParam13>(parameters[13]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 13");
+            }
+            if (!IsValidCast<TParam14>(parameters[14]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 14");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
@@ -1256,7 +1648,9 @@ namespace Console.Core.CommandSystem.Commands
         public override string GetFullName(ToStringMode mode)
         {
             if (mode == ToStringMode.Short)
+            {
                 return $"{Name} Parameter Count: 16";
+            }
 
 
             return
@@ -1269,22 +1663,70 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="parameters">Parameters of the Command.</param>
         public override void Invoke(params object[] parameters)
         {
-            if (!IsValidCast<TParam0>(parameters[0])) throw new InvalidCastException("Invalid Cast Parameter: 0");
-            if (!IsValidCast<TParam1>(parameters[1])) throw new InvalidCastException("Invalid Cast Parameter: 1");
-            if (!IsValidCast<TParam2>(parameters[2])) throw new InvalidCastException("Invalid Cast Parameter: 2");
-            if (!IsValidCast<TParam3>(parameters[3])) throw new InvalidCastException("Invalid Cast Parameter: 3");
-            if (!IsValidCast<TParam4>(parameters[4])) throw new InvalidCastException("Invalid Cast Parameter: 4");
-            if (!IsValidCast<TParam5>(parameters[5])) throw new InvalidCastException("Invalid Cast Parameter: 5");
-            if (!IsValidCast<TParam6>(parameters[6])) throw new InvalidCastException("Invalid Cast Parameter: 6");
-            if (!IsValidCast<TParam7>(parameters[7])) throw new InvalidCastException("Invalid Cast Parameter: 7");
-            if (!IsValidCast<TParam8>(parameters[8])) throw new InvalidCastException("Invalid Cast Parameter: 8");
-            if (!IsValidCast<TParam9>(parameters[9])) throw new InvalidCastException("Invalid Cast Parameter: 9");
-            if (!IsValidCast<TParam10>(parameters[10])) throw new InvalidCastException("Invalid Cast Parameter: 10");
-            if (!IsValidCast<TParam11>(parameters[11])) throw new InvalidCastException("Invalid Cast Parameter: 11");
-            if (!IsValidCast<TParam12>(parameters[12])) throw new InvalidCastException("Invalid Cast Parameter: 12");
-            if (!IsValidCast<TParam13>(parameters[13])) throw new InvalidCastException("Invalid Cast Parameter: 13");
-            if (!IsValidCast<TParam14>(parameters[14])) throw new InvalidCastException("Invalid Cast Parameter: 14");
-            if (!IsValidCast<TParam15>(parameters[15])) throw new InvalidCastException("Invalid Cast Parameter: 15");
+            if (!IsValidCast<TParam0>(parameters[0]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 0");
+            }
+            if (!IsValidCast<TParam1>(parameters[1]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 1");
+            }
+            if (!IsValidCast<TParam2>(parameters[2]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 2");
+            }
+            if (!IsValidCast<TParam3>(parameters[3]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 3");
+            }
+            if (!IsValidCast<TParam4>(parameters[4]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 4");
+            }
+            if (!IsValidCast<TParam5>(parameters[5]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 5");
+            }
+            if (!IsValidCast<TParam6>(parameters[6]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 6");
+            }
+            if (!IsValidCast<TParam7>(parameters[7]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 7");
+            }
+            if (!IsValidCast<TParam8>(parameters[8]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 8");
+            }
+            if (!IsValidCast<TParam9>(parameters[9]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 9");
+            }
+            if (!IsValidCast<TParam10>(parameters[10]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 10");
+            }
+            if (!IsValidCast<TParam11>(parameters[11]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 11");
+            }
+            if (!IsValidCast<TParam12>(parameters[12]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 12");
+            }
+            if (!IsValidCast<TParam13>(parameters[13]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 13");
+            }
+            if (!IsValidCast<TParam14>(parameters[14]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 14");
+            }
+            if (!IsValidCast<TParam15>(parameters[15]))
+            {
+                throw new InvalidCastException("Invalid Cast Parameter: 15");
+            }
 
             callback.Invoke(
                 ConvertTo<TParam0>(parameters[0]),
