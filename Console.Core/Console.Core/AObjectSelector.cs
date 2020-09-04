@@ -3,7 +3,7 @@
 namespace Console.Core
 {
     /// <summary>
-    /// Selector that allows for selected objects to be passed to commands as well.
+    /// Selector that allows for selected objects to be passed to Commands as well.
     /// </summary>
     public abstract class AObjectSelector
     {

@@ -9,12 +9,12 @@ using Console.Core.ReflectionSystem.Interfaces;
 namespace Console.Core.CommandSystem
 {
     /// <summary>
-    /// Utilities for adding commands marked with the CommandAttribute
+    /// Utilities for adding Commands marked with the CommandAttribute
     /// </summary>
     public static class CommandAttributeUtils
     {
         /// <summary>
-        /// Call this to add all static commands from a type
+        /// Call this to add all static Commands from a type
         /// </summary>
         /// <typeparam name="T">Type containing the Commands.</typeparam>
         public static void AddCommands<T>()
@@ -38,7 +38,7 @@ namespace Console.Core.CommandSystem
         }
 
         /// <summary>
-        /// Call this to add all commands from an instance
+        /// Call this to add all Commands from an instance
         /// </summary>
         /// <param name="instance">The Instance containing the Commands.</param>
         public static void AddCommands(object instance)
@@ -58,7 +58,7 @@ namespace Console.Core.CommandSystem
         /// </summary>
         /// <param name="t">Type containing the Commands.</param>
         /// <param name="flags">Binding Flags for the Reflection Queries</param>
-        /// <returns>Array of Method Infos eligible to be used as commands.</returns>
+        /// <returns>Array of Method Infos eligible to be used as Commands.</returns>
         private static MethodInfo[] GetCommands(Type t, BindingFlags flags)
         {
             MethodInfo[] i = t.GetMethods(flags).Where(x => x.GetCustomAttributes<CommandAttribute>().Count() != 0)
@@ -82,7 +82,7 @@ namespace Console.Core.CommandSystem
         }
 
         /// <summary>
-        /// Get all commands from a type/instance(only works for non static functions)
+        /// Get all Commands from a type/instance(only works for non static functions)
         /// </summary>
         /// <param name="t">Type containing the Commands</param>
         /// <param name="instance">The Instance of the Type containing the Commands.</param>

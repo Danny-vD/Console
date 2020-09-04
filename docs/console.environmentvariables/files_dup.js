@@ -11,6 +11,7 @@ var files_dup =
       [ "EnvExpander", "d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander.html", "d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander" ]
     ] ],
     [ "EnvironmentVariableManager.cs", "de/d79/_environment_variable_manager_8cs.html", [
+      [ "EnvironmentVariableAutoFillProvider", "d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider.html", "d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider" ],
       [ "EnvironmentVariableManager", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager" ]
     ] ],
     [ "RangeVariableProvider.cs", "d2/de2/_range_variable_provider_8cs.html", [

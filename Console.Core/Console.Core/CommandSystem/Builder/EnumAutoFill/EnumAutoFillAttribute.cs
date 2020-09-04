@@ -2,10 +2,11 @@
 
 namespace Console.Core.CommandSystem.Builder.EnumAutoFill
 {
+
     /// <summary>
-    /// 
+    /// When a Parameter Gets Decorated with the EnumAutoFillAttribute it enables the CommandBuilder to Suggest Possible Enum Name Entry Values for this Parameter
     /// </summary>
-    public class EnumAutoFillAttribute : Attribute
+    public class EnumAutoFillAttribute : ConsoleAttribute
     {
         /// <summary>
         /// 

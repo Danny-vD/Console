@@ -1,305 +1,394 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Console.Core.CommandSystem.Commands;
 
+
+
+/// <summary>
+/// Contains the Command Builder / AutoFillProviders Implementations of the Console Library.
+/// </summary>
 namespace Console.Core.CommandSystem.Builder
 {
     /// <summary>
-    /// 
+    /// Class Used to Build Commands with AutoFill Capabilites
     /// </summary>
-    public class CommandBuilder
+    public class CommandBuilder : ICommandBuilder
     {
 
-        internal static List<AutoFillProvider> LoadedAutoFillers = new List<AutoFillProvider>();
-        private List<AutoFillProvider> autoFillers
+        #region Provider Commands
+        /// <summary>
+        /// The AutoFillProvider List
+        /// </summary>
+        private static List<AutoFillProvider> Providers = new List<AutoFillProvider>();
+        /// <summary>
+        /// Adds the Specified AutoFill Provider to the CommandBuilder System
+        /// </summary>
+        /// <param name="provider">The Provider to be Added</param>
+        public static void AddProvider(AutoFillProvider provider)
         {
-            get
+            if (Providers.Contains(provider)) return;
+            Providers.Add(provider);
+        }
+        /// <summary>
+        /// Adds the Specified AutoFill Providers to the CommandBuilder System
+        /// </summary>
+        /// <param name="providers">The Providers to be Added</param>
+        public static void AddProvider(IEnumerable<AutoFillProvider> providers)
+        {
+            foreach (AutoFillProvider autoFillProvider in providers)
             {
-                AbstractCommand[] cmds = Commands;
-                List<AutoFillProvider> prov = new List<AutoFillProvider>();
-                foreach (AbstractCommand abstractCommand in cmds)
-                {
-                    AutoFillProvider[] pros = LoadedAutoFillers.Where(x => x.CanFill(this, abstractCommand, CommandPartNum))
-                        .ToArray();
-                    foreach (AutoFillProvider autoFillProvider in pros)
-                    {
-                        if (!prov.Contains(autoFillProvider))
-                            prov.Add(autoFillProvider);
-                    }
-                }
-                return prov;
+                AddProvider(autoFillProvider);
             }
         }
 
-        private AbstractCommand[] Commands => CommandManager.commands.Where(x => x.HasName(GetPart(0), true)).ToArray();
+        #endregion
 
-        private (int, int) GetPartBounds(int part)
+
+        private static string GetPrefix()
         {
-            string cmd = builder.ToString();
-            bool inQuotes = false;
-            int last = 0;
-            int partCount = 0;
-            //List<string> parts = new List<string>();
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                if (cmd[i] == ' ' && !inQuotes)
-                {
-                    if (part == partCount)
-                    {
-                        if (last == 0)
-                            return (last, i - last);
-                        else
-                            return (last + 1, i - last - 1);
-                    }
-                    partCount++;
-                    last = i;
-                    //parts.Add(cmd.Substring(last, i - last));
-                }
-                if (cmd[i] == ConsoleCoreConfig.StringChar && !CommandParser.IsEscaped(cmd, i))
-                {
-                    if (inQuotes)
-                    {
-                        inQuotes = false;
-                        if (part == partCount)
-                        {
-                            if (last == 0)
-                                return (last, i - last);
-                            else
-                                return (last + 1, last - i - 1);
-                        }
-                        partCount++;
-                        //parts.Add(cmd.Substring(last, i - last));
-                    }
-                    else
-                    {
-                        inQuotes = true;
-                        last = i;
-                    }
-                }
-            }
-
-            if (last == 0)
-                return (last, cmd.Length - last);
-            else
-                return (last + 1, cmd.Length - last - 1);
-            //parts.Add(cmd.Substring(last, cmd.Length - last));
-
-            //if (part >= 0 && part < parts.Count)
-            //    return parts[part];
-            //return cmd;
+            string bdir = AppDomain.CurrentDomain.BaseDirectory;
+            bdir = bdir.Remove(bdir.Length - 1, 1);
+            string cdir = Directory.GetCurrentDirectory();
+            string p =
+                $"{cdir.Replace(bdir, "").Replace('\\', '/')}/>";
+            return p;
         }
 
-        private string GetPart(int part)
+        private static CommandBuilder instance = new CommandBuilder();
+
+        /// <summary>
+        /// This is a Blocking Call.
+        /// Builds a Command based on the Input.
+        /// </summary>
+        /// <param name="input">Input Abstraction</param>
+        /// <param name="prefix">If true will write the prefix infront of the command</param>
+        /// <returns>Built Command</returns>
+        public static string BuildCommand(ICommandBuilderInput input, bool prefix = true)
         {
-            (int start, int length) pb = GetPartBounds(part);
-            string s = builder.ToString().Substring(pb.start, pb.length);
+            string pre = prefix ? GetPrefix() : "";
+            input.Write(pre);
+            while (!instance.IsCompleted && !input.Abort)
+            {
+                ConsoleKeyInfo ki = input.ReadKey();
+                instance.Input(ki);
+
+                input.ResetLine();
+
+                input.Write(pre);
+                input.Write(instance.ToString());
+                input.SetCursorPosition(pre.Length + instance.Cursor);
+            }
+            input.EndLine();
+            string s = instance.ToString();
+            instance.Clear();
             return s;
         }
 
-        private string[] GetPossibleAutoFills(AbstractCommand cmd, string start)
+        private readonly StringBuilder builder = new StringBuilder();
+        private readonly List<string> history = new List<string>();
+        private int HistoryIndex = 0;
+
+        /// <summary>
+        /// Is true if the Command was Built
+        /// </summary>
+        public bool IsCompleted { get; private set; }
+        /// <summary>
+        /// The Cursor Position of the Builder
+        /// </summary>
+        public int Cursor { get; private set; }
+
+
+        private string GetPart(int index)
         {
-            List<string> ret = new List<string>();
-            foreach (AutoFillProvider autoFillProvider in autoFillers)
+            (int start, int length) = GetPartBounds(index);
+            string s = builder.ToString(start, length);
+            return s;
+        }
+        private (int, int) GetPartBounds(int index)
+        {
+            int parts = 0;
+            bool inQuotes = false;
+            int last = 0;
+            for (int i = 0; i < builder.Length; i++)
             {
-                string[] f = autoFillProvider.GetAutoFills(cmd, CommandPartNum, start);
-                foreach (string s in f)
+                if (builder[i] == ' ')
                 {
-                    if (!ret.Contains(s)) ret.Add(s);
+                    if (!inQuotes)
+                    {
+                        parts++;
+                        if (parts == index + 1)
+                        {
+                            return (last, i - last);
+                        }
+                        last = i + 1;
+                    }
+                }
+                if (builder[i] == ConsoleCoreConfig.StringChar)
+                {
+                    if (!CommandParser.IsEscaped(builder.ToString(), i))
+                    {
+                        if (inQuotes)
+                        {
+                            parts++;
+                            last = i;
+                        }
+                        inQuotes = !inQuotes;
+                    }
+                }
+            }
+            return (last, builder.Length - last);
+        }
+
+        private int GetCurrentParameterPartIndex()
+        {
+            int parts = 0;
+            bool inQuotes = false;
+            for (int i = 0; i < builder.Length; i++)
+            {
+                if (i == Cursor) return parts;
+                if (builder[i] == ' ')
+                {
+                    if (!inQuotes) parts++;
+                }
+                if (builder[i] == ConsoleCoreConfig.StringChar)
+                {
+                    if (!CommandParser.IsEscaped(builder.ToString(), i))
+                    {
+                        if (inQuotes) parts++;
+                        inQuotes = !inQuotes;
+                    }
+                }
+            }
+            return parts;
+        }
+
+        private string[] GetPossibleAutoFills(AutoFillProvider[] providers, AbstractCommand[] commands, int paramIndex, string paramStart)
+        {
+            List<string> fills = new List<string>();
+            foreach (AutoFillProvider autoFillProvider in providers)
+            {
+                foreach (AbstractCommand abstractCommand in commands)
+                {
+                    string[] f = autoFillProvider.GetAutoFills(abstractCommand, paramIndex, paramStart);
+                    foreach (string fill in f)
+                    {
+                        if (!fills.Contains(fill)) fills.Add(fill);
+                    }
+                }
+            }
+            return fills.ToArray();
+        }
+
+        private AutoFillProvider[] GetPossibleProviders(AbstractCommand[] commands, int paramIndex)
+        {
+            List<AutoFillProvider> ret = new List<AutoFillProvider>();
+            for (int i = 0; i < commands.Length; i++)
+            {
+                for (int j = 0; j < Providers.Count; j++)
+                {
+                    if (ret.Contains(Providers[j])) continue;
+
+                    if (Providers[j].CanFill(commands[i], paramIndex))
+                    {
+                        ret.Add(Providers[j]);
+                    }
                 }
             }
             return ret.ToArray();
         }
 
-        private readonly StringBuilder builder = new StringBuilder();
-
-        private int CommandPartNum { get; set; }
-        private string CurrentPart => GetPart(CommandPartNum);
-        private int StringChars { get; set; }
-        private bool NextIsEscaped = false;
-
-        private string[] CompleteList;
-        private int CompleteNum;
-        private bool ValidComplete;
-
-        private string GetComplete()
+        private AbstractCommand[] GetPossibleCommands()
         {
-            if (ValidComplete)
-            {
-                if (CompleteList.Length == 0)
-                    return "";
-                return CompleteList[CompleteNum % CompleteList.Length];
-            }
-            List<string> fills = new List<string>();
-            foreach (AbstractCommand abstractCommand in Commands)
-            {
-                string[] s = GetPossibleAutoFills(abstractCommand, CurrentPart);
-                foreach (string s1 in s)
-                {
-                    if (!fills.Contains(s1)) fills.Add(s1);
-                }
-            }
-            CompleteList = fills.ToArray();
-            ValidComplete = true;
-            CompleteNum = 0;
-            return GetComplete();
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool Complete { get; private set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void Remove()
-        {
-            if (builder.Length != 0)
-            {
-                ValidComplete = false;
-                builder.Remove(builder.Length - 1, 1);
-            }
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void CompletePart()
-        {
-            //Auto Fill
-            string s = GetComplete();
-            CompleteNum++;
-            if (!string.IsNullOrEmpty(s))
-            {
-                (int start, int length) pb = GetPartBounds(CommandPartNum);
-                builder.Remove(pb.start, pb.length);
-                builder.Append(s);
-                //foreach (char c in s)
-                //{
-                //    Append(c);
-                //}
-            }
-        }
-
-        private int FindLastSpace(StringBuilder sb, int startIndex)
-        {
-            for (int i = startIndex; i >= 0; i--)
-            {
-                if (sb[i] == ' ') return i;
-            }
-            return -1;
+            string cmd = GetPart(0);
+            AbstractCommand[] cmds = CommandManager.Commands.Where(x => x.HasName(cmd, true)).ToArray();
+            return cmds;
         }
 
         /// <summary>
-        /// 
+        /// Handles the Input From the Console
         /// </summary>
-        /// <param name="character"></param>
-        public void Append(char character)
+        /// <param name="info">Key Info</param>
+        public void Input(ConsoleKeyInfo info)
         {
-            ValidComplete = false;
-            if (!NextIsEscaped)
+            if (IsCompleted) return;
+            switch (info.Key)
             {
-                if (character == ConsoleCoreConfig.StringChar)
-                {
-                    StringChars++;
-                    if (StringChars % 2 == 0) CommandPartNum++;
-                }
+                case ConsoleKey.Enter:
+                    AddToHistory();
+                    IsCompleted = true;
+                    break;
+                case ConsoleKey.Backspace:
+                    Back();
+                    break;
+                case ConsoleKey.Delete:
+                    Delete();
+                    break;
+                case ConsoleKey.Escape:
+                    Clear();
+                    break;
+                case ConsoleKey.LeftArrow:
+                    MoveLeft();
+                    break;
+                case ConsoleKey.RightArrow:
+                    MoveRight();
+                    break;
+                case ConsoleKey.Tab:
+                    AutoFill();
+                    break;
+                case ConsoleKey.UpArrow:
+                    LastHistoryEntry();
+                    break;
+                case ConsoleKey.DownArrow:
+                    NextHistoryEntry();
+                    break;
+                default:
+                    Append(info);
+                    break;
             }
+        }
 
-            if (character == ' ')
+        #region Input Functionality
+
+
+        private void MoveLeft()
+        {
+            if (Cursor > 0)
             {
-                if (StringChars % 2 == 0)
-                {
-                    CommandPartNum++;
-                }
+                Cursor--;
             }
+        }
 
-            if (character == ConsoleCoreConfig.EscapeChar)
+        private void MoveRight()
+        {
+            if (Cursor < builder.Length)
             {
-                NextIsEscaped = true;
+                Cursor++;
+            }
+        }
+
+        private void Back()
+        {
+            if (Cursor > 0)
+            {
+                Cursor--;
+                builder.Remove(Cursor, 1);
+            }
+        }
+
+        private void Delete()
+        {
+            if (Cursor < builder.Length)
+            {
+                builder.Remove(Cursor, 1);
+            }
+        }
+
+        private void LastHistoryEntry()
+        {
+            if (HistoryIndex == 0) return;
+            HistoryIndex--;
+            WriteHistory(HistoryIndex);
+        }
+
+        private void Set(string value)
+        {
+            builder.Clear();
+            builder.Append(value);
+            Cursor = builder.Length;
+        }
+
+        private void WriteHistory(int index)
+        {
+            Set(history[HistoryIndex]);
+        }
+
+        private void NextHistoryEntry()
+        {
+            if (HistoryIndex == history.Count) return;
+            if (HistoryIndex == history.Count - 1)
+            {
+                Set("");
+                HistoryIndex++;
+                return;
+            }
+            HistoryIndex++;
+            WriteHistory(HistoryIndex);
+        }
+
+        private void Append(ConsoleKeyInfo info)
+        {
+            builder.Insert(Cursor, info.KeyChar);
+            Cursor++;
+        }
+
+        private void ReplacePart(int part, string text)
+        {
+            (int start, int length) = GetPartBounds(part);
+            builder.Remove(start, length);
+            builder.Insert(start, text);
+            Cursor = start + text.Length;
+        }
+
+        private void AutoFill()
+        {
+            AbstractCommand[] cmds = GetPossibleCommands();
+            int partIdx = GetCurrentParameterPartIndex();
+            string searchPart = GetPart(partIdx);
+            AutoFillProvider[] providers = GetPossibleProviders(cmds, partIdx);
+            string[] fills = GetPossibleAutoFills(providers, cmds, partIdx, searchPart);
+            if (fills.Length == 0)
+            {
+                return;
+            }
+            if (fills.Length == 1)
+            {
+                ReplacePart(partIdx, fills.First());
             }
             else
             {
-                NextIsEscaped = false;
+                PrintOptions(fills);
             }
-
-            if (character == ConsoleCoreConfig.NewLine)
-            {
-                Complete = true;
-                return;
-            }
-            builder.Append(character);
         }
 
         /// <summary>
-        /// 
+        /// Clears the Command Builder
         /// </summary>
-        /// <returns></returns>
+        public void Clear()
+        {
+            IsCompleted = false;
+            builder.Clear();
+            Cursor = 0;
+        }
+
+
+        private void AddToHistory()
+        {
+            history.Add(ToString());
+            HistoryIndex++;
+        }
+
+        private void PrintOptions(string[] options)
+        {
+            StringBuilder sb = new StringBuilder("\nPossible Options:\n");
+            for (int i = 0; i < options.Length; i++)
+            {
+                sb.AppendLine('\t' + options[i]);
+            }
+            ConsoleCoreConfig.CoreLogger.Log(sb.ToString());
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Returns the Command String
+        /// </summary>
+        /// <returns>Command String</returns>
         public override string ToString()
         {
             return builder.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static string CreateCommand()
-        {
-            CommandBuilder cb = new CommandBuilder();
-            int pos = System.Console.CursorLeft;
-            while (!cb.Complete)
-            {
-                ConsoleKeyInfo ki = System.Console.ReadKey();
-                if (ki.Key == ConsoleKey.Escape)
-                {
-                    cb = new CommandBuilder();
-                    CleanLine(pos);
-                    System.Console.CursorLeft = pos;
-                    continue;
-                }
-                if (ki.Key == ConsoleKey.Enter)
-                    break;
-                if (ki.Key == ConsoleKey.Backspace)
-                {
-                    if (System.Console.CursorLeft < pos)
-                    {
-                        System.Console.CursorLeft = pos;
-                        continue;
-                    }
-                    System.Console.Write(' ');
-                    System.Console.CursorLeft--;
-                    cb.Remove();
-                    continue;
-                }
-                if (ki.Key == ConsoleKey.Tab)
-                {
-                    cb.CompletePart();
-                }
-                else
-                {
-                    cb.Append(ki.KeyChar);
-                }
-                CleanLine(pos);
-                System.Console.CursorLeft = pos;
-                System.Console.Write(cb.ToString());
-
-            }
-            return cb.ToString();
-        }
-
-        private static void CleanLine(int start, int length = -1)
-        {
-            System.Console.CursorLeft = start;
-            int len = length == -1 ? System.Console.WindowWidth - start - 1 : length;
-            for (int i = 0; i < len; i++)
-            {
-                System.Console.Write(' ');
-            }
         }
     }
 }

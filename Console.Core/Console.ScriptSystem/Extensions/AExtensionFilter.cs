@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
+
+
+/// <summary>
+/// Implements extension System that allows for Multiple Extensions to have custom logic.
+/// </summary>
 namespace Console.ScriptSystem.Extensions
 {
     /// <summary>

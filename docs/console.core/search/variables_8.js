@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['listpropertieslogger_597',['ListPropertiesLogger',['../d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a103de1d5e450fbd8022c60b1b8a15a38',1,'Console::Core::CommandSystem::Commands::BuiltIn::PropertyCommands']]],
-  ['logexceptionmessageonly_598',['LogExceptionMessageOnly',['../d6/dce/class_console_1_1_core_1_1_console_core_config.html#a8ff94143dfdd3bc6e5ac8a3a1fe609fa',1,'Console::Core::ConsoleCoreConfig']]],
-  ['loggerprefix_599',['LoggerPrefix',['../d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a5dc5be19a2c90300180b296f04093fef',1,'Console::Core::ExtensionSystem::AExtensionInitializer']]],
-  ['loggers_600',['Loggers',['../d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a917ccea7dfcea9976d8e23d709bbd6f0',1,'Console::Core::ExtensionSystem::AExtensionInitializer']]]
+  ['instance_764',['instance',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a6ec196020aaafbcf18beb19dfb516927',1,'Console.Core.CommandSystem.Builder.CommandBuilder.instance()'],['../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84',1,'Console.Core.ReflectionSystem.Abstract.AInstancedMetaData.Instance()']]],
+  ['int_765',['int',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ae08a2a183e87056e6832e96b48fa0322',1,'Console::Core::CommandSystem::Builder::CommandBuilder']]]
 ];

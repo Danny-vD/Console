@@ -138,7 +138,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract Extension Filter that is used to allow/disallow scripts with specific extensions to be ran. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00014">14</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac922acbd4e597df57a93e29dea0ee3c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac922acbd4e597df57a93e29dea0ee3c4">&#9670;&nbsp;</a></span>AddFilter()</h2>
@@ -172,11 +172,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00039">39</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Contains(filter))</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Add(filter);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00044">44</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Contains(filter))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Add(filter);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,15 +240,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00055">55</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">foreach</span> (AExtensionFilter aExtensionFilter <span class="keywordflow">in</span> <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                sb.AppendLine(aExtensionFilter.ToString());</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> sb.ToString();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00060">60</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">foreach</span> (AExtensionFilter aExtensionFilter <span class="keywordflow">in</span> <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                sb.AppendLine(aExtensionFilter.ToString());</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> sb.ToString();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -285,15 +285,15 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if allowed.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00026">26</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordtype">bool</span> allowed = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Count; i++)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                allowed &amp;= <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>[i].Allowed(extension);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> allowed;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00031">31</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordtype">bool</span> allowed = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Count; i++)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                allowed &amp;= <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>[i].Allowed(extension);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span> allowed;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -329,11 +329,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Contains(filter))</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Remove(filter);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00054">54</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Contains(filter))</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <a class="code" href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Filters</a>.Remove(filter);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -358,7 +358,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d4/d5e/_a_extension_filter_8cs_source.html">AExtensionFilter.cs</a>.</p>
 
 </div>
 </div>
@@ -367,7 +367,7 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter_html_ac1cd30ebad4f84a22b3b1fe43929113e"><div class="ttname"><a href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Console.ScriptSystem.Extensions.AExtensionFilter.Filters</a></div><div class="ttdeci">static readonly List&lt; AExtensionFilter &gt; Filters</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00019">AExtensionFilter.cs:19</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter_html_ac1cd30ebad4f84a22b3b1fe43929113e"><div class="ttname"><a href="../../d0/d8e/class_console_1_1_script_system_1_1_extensions_1_1_a_extension_filter.html#ac1cd30ebad4f84a22b3b1fe43929113e">Console.ScriptSystem.Extensions.AExtensionFilter.Filters</a></div><div class="ttdeci">static readonly List&lt; AExtensionFilter &gt; Filters</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5e/_a_extension_filter_8cs_source.html#l00024">AExtensionFilter.cs:24</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -91,6 +91,28 @@
             Initialization Function
             </summary>
         </member>
+        <member name="T:Console.EnvironmentVariables.EnvironmentVariableAutoFillProvider">
+            <summary>
+            Implements the Auto Fill for Environment Variable Providers
+            </summary>
+        </member>
+        <member name="M:Console.EnvironmentVariables.EnvironmentVariableAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.EnvironmentVariables.EnvironmentVariableAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
         <member name="T:Console.EnvironmentVariables.EnvironmentVariableManager">
             <summary>
             Static EnvironmentVariable API

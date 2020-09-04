@@ -1,5 +1,8 @@
 ﻿using System.IO;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder.IOAutoFill;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Directories;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
 
 namespace Console.IO
 {
@@ -13,7 +16,7 @@ namespace Console.IO
         /// </summary>
         /// <param name="dir">Relative Path</param>
         [Command("change-dir", "Changes the Current Directory", "cd")]
-        private static void ChangeDir(string dir)
+        private static void ChangeDir([DirAutoFill] string dir)
         {
             Directory.SetCurrentDirectory(dir);
         }
@@ -36,7 +39,7 @@ namespace Console.IO
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         /// <param name="names">Only displays names</param>
         [Command("list-files", "Lists files in the specified directory", "ls", "dir")]
-        private static void ListFiles(string folder, [CommandFlag] bool recursive, [CommandFlag] bool names)
+        private static void ListFiles([DirAutoFill]string folder, [CommandFlag] bool recursive, [CommandFlag] bool names)
         {
             ListFiles(folder, "*", recursive, names);
         }
@@ -52,7 +55,7 @@ namespace Console.IO
         [Command("list-files",
             "Lists files in the selected directory that match the search pattern. Optionally recursing into the subdirectories",
             "ls", "dir")]
-        private static void ListFiles(string folder, string searchTerms, [CommandFlag] bool recursive,
+        private static void ListFiles([DirAutoFill]string folder, string searchTerms, [CommandFlag] bool recursive,
             [CommandFlag] bool names)
         {
             string path = Path.GetFullPath(folder);
@@ -84,7 +87,7 @@ namespace Console.IO
         /// <param name="recursive">Flag that specifies if the Search should be recursive.</param>
         /// <param name="names">Only displays names</param>
         [Command("list-dir", "Lists directories in the specified directory", "ld", "dirs")]
-        private static void ListDirectories(string folder, [CommandFlag] bool recursive, [CommandFlag] bool names)
+        private static void ListDirectories([DirAutoFill]string folder, [CommandFlag] bool recursive, [CommandFlag] bool names)
         {
             ListDirectories(folder, "*", recursive, names);
         }
@@ -99,7 +102,7 @@ namespace Console.IO
         [Command("list-dir",
             "Lists directories in the selected directory that match the search pattern. Optionally recursing into the subdirectories",
             "ld", "dirs")]
-        private static void ListDirectories(string folder, string searchTerms, [CommandFlag] bool recursive,
+        private static void ListDirectories([DirAutoFill]string folder, string searchTerms, [CommandFlag] bool recursive,
             [CommandFlag] bool names)
         {
             string path = Path.GetFullPath(folder);
@@ -119,7 +122,7 @@ namespace Console.IO
         /// <param name="from">Source File</param>
         /// <param name="to">Destination File</param>
         [Command("copy", "Copies a File to a specified Location")]
-        private static void Copy(string from, string to)
+        private static void Copy([FileAutoFill] string from, [FileAutoFill]string to)
         {
             if (File.Exists(from))
             {
@@ -133,7 +136,7 @@ namespace Console.IO
         /// <param name="from">Source File</param>
         /// <param name="to">Destination File</param>
         [Command("move", "Moves a File to a specified Location")]
-        private static void Move(string from, string to)
+        private static void Move([IOAutoFill] string from, [IOAutoFill] string to)
         {
             if (File.Exists(from))
             {
@@ -154,7 +157,7 @@ namespace Console.IO
         /// </summary>
         /// <param name="file">File to Delete</param>
         [Command("delete", "Deletes a File", "del", "rm")]
-        private static void Delete(string file)
+        private static void Delete([FileAutoFill]string file)
         {
             if (File.Exists(file))
             {

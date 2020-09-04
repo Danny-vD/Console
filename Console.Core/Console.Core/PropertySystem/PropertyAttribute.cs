@@ -7,7 +7,7 @@ namespace Console.Core.PropertySystem
     /// When a Field or Property is Decorated with this attribute it will be loaded by the Property System.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
-    public class PropertyAttribute : Attribute
+    public class PropertyAttribute : ConsoleAttribute
     {
         /// <summary>
         /// The Property Path/Name

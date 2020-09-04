@@ -8,6 +8,7 @@
     <OutputPath />
     <DocumentationFile>D:\Users\Tim\Documents\Console\Console.Core\Console.Evaluator.Math\Console.Evaluator.Math.xml</DocumentationFile>
     <WarningsAsErrors>NU1605;1591</WarningsAsErrors>
+    <NoWarn>1701;1702;1587</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

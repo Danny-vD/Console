@@ -1,5 +1,6 @@
 var namespace_console_1_1_core_1_1_command_system =
 [
+    [ "Builder", "d3/d85/namespace_console_1_1_core_1_1_command_system_1_1_builder.html", "d3/d85/namespace_console_1_1_core_1_1_command_system_1_1_builder" ],
     [ "Commands", "d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html", "d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands" ],
     [ "CommandAttribute", "dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute.html", "dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute" ],
     [ "CommandAttributeUtils", "da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html", "da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils" ],

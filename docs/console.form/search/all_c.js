@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tbconsolein_5fkeydown_57',['TbConsoleIn_KeyDown',['../d0/d67/class_console_1_1_form_1_1_console_form.html#a96b088ede2e9d86bb0f1c20518ff6833',1,'Console::Form::ConsoleForm']]],
-  ['textcolor_58',['TextColor',['../df/d29/class_console_1_1_form_1_1_internal_1_1_console_line.html#af8d377536f8b53556c69de0762cf49ea',1,'Console::Form::Internal::ConsoleLine']]]
+  ['selectableobjects_65',['SelectableObjects',['../d2/db9/class_console_1_1_form_1_1_form_obj_selector.html#a7f37f5db49aa9b4649c30adcc3d31143',1,'Console::Form::FormObjSelector']]],
+  ['selectedobjects_66',['SelectedObjects',['../d2/db9/class_console_1_1_form_1_1_form_obj_selector.html#a99fa74dab486528b47a7aeca557ee166',1,'Console::Form::FormObjSelector']]],
+  ['setcursorposition_67',['SetCursorPosition',['../d0/d32/class_console_1_1_form_1_1_forms_command_builder_input.html#a268784e0acd1fcf7b5c6324db9e2a0a4',1,'Console::Form::FormsCommandBuilderInput']]]
 ];

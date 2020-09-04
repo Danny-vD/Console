@@ -1,4 +1,5 @@
 ﻿using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder.CommandAutoFill;
 using Console.Networking.SendData;
 
 /// <summary>
@@ -53,7 +54,7 @@ namespace Console.Networking.Commands
         /// </summary>
         /// <param name="command"></param>
         [Command("hrun", "Runs a Remote Command on the connected host.")]
-        private void RunHostCommand(string command)
+        private void RunHostCommand([CommandAutoFill]string command)
         {
             NetworkingSettings.ClientSession.RunCommand(command);
         }

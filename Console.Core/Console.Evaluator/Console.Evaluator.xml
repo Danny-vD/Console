@@ -1613,6 +1613,13 @@
             </summary>
             <param name="qualifiedName">Assembly Qualified Name of the Type</param>
         </member>
+        <member name="M:Console.Evaluator.EvalVariableProvider.While(System.String,System.String)">
+            <summary>
+            Runs the command until the expression evaluates to false
+            </summary>
+            <param name="expr"></param>
+            <param name="command"></param>
+        </member>
         <member name="M:Console.Evaluator.EvalVariableProvider.RemoveVariable(System.String)">
             <summary>
             Remove all Variables and Functions of the selected type.

@@ -81,8 +81,14 @@ var files_dup =
     [ "AuthenticationResultPacketSerializer.cs", "de/d5c/_authentication_result_packet_serializer_8cs.html", [
       [ "AuthenticationResultPacketSerializer", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer.html", "d7/d23/class_console_1_1_networking_1_1_packets_1_1_authentication_result_1_1_authentication_result_packet_serializer" ]
     ] ],
+    [ "AutoFillProvider.cs", "d3/ddf/_auto_fill_provider_8cs.html", [
+      [ "AutoFillProvider", "d7/d2b/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_auto_fill_provider.html", "d7/d2b/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_auto_fill_provider" ]
+    ] ],
     [ "BlackListFilter.cs", "d5/d6f/_black_list_filter_8cs.html", [
       [ "BlackListFilter", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter.html", "db/d6b/class_console_1_1_script_system_1_1_extensions_1_1_black_list_filter" ]
+    ] ],
+    [ "BoolAutoFillProvider.cs", "d3/dd1/_bool_auto_fill_provider_8cs.html", [
+      [ "BoolAutoFillProvider", "d2/d6e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_bool_auto_fill_1_1_bool_auto_fill_provider.html", "d2/d6e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_bool_auto_fill_1_1_bool_auto_fill_provider" ]
     ] ],
     [ "CallType.cs", "dc/d41/_call_type_8cs.html", "dc/d41/_call_type_8cs" ],
     [ "ClassQueryInitializer.cs", "df/d75/_class_query_initializer_8cs.html", [
@@ -114,6 +120,15 @@ var files_dup =
     ] ],
     [ "CommandAttributeUtils.cs", "db/d35/_command_attribute_utils_8cs.html", [
       [ "CommandAttributeUtils", "da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html", "da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils" ]
+    ] ],
+    [ "CommandAutoFillAttribute.cs", "dc/d91/_command_auto_fill_attribute_8cs.html", [
+      [ "CommandAutoFillAttribute", "df/d39/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_auto_fill_1_1_command_auto_fill_attribute.html", null ]
+    ] ],
+    [ "CommandAutoFillProvider.cs", "d3/d8f/_command_auto_fill_provider_8cs.html", [
+      [ "CommandAutoFillProvider", "d2/dab/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_auto_fill_1_1_command_auto_fill_provider.html", "d2/dab/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_auto_fill_1_1_command_auto_fill_provider" ]
+    ] ],
+    [ "CommandBuilder.cs", "dd/dc9/_command_builder_8cs.html", [
+      [ "CommandBuilder", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder" ]
     ] ],
     [ "CommandFlagAttribute.cs", "da/dd7/_command_flag_attribute_8cs.html", [
       [ "CommandFlagAttribute", "d0/dfb/class_console_1_1_core_1_1_command_system_1_1_command_flag_attribute.html", "d0/dfb/class_console_1_1_core_1_1_command_system_1_1_command_flag_attribute" ]
@@ -191,6 +206,12 @@ var files_dup =
     [ "ConnectionRequestSerializer.cs", "d3/dbd/_connection_request_serializer_8cs.html", [
       [ "ConnectionRequestSerializer", "d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer.html", "d0/d27/class_console_1_1_networking_1_1_packets_1_1_connection_request_1_1_connection_request_serializer" ]
     ] ],
+    [ "ConsoleAttribute.cs", "db/de8/_console_attribute_8cs.html", [
+      [ "ConsoleAttribute", "dd/d7a/class_console_1_1_core_1_1_console_attribute.html", "dd/d7a/class_console_1_1_core_1_1_console_attribute" ]
+    ] ],
+    [ "ConsoleBuilderInput.cs", "dd/dd5/_console_builder_input_8cs.html", [
+      [ "ConsoleBuilderInput", "d4/d97/class_console_1_1_c_l_i_1_1_console_builder_input.html", "d4/d97/class_console_1_1_c_l_i_1_1_console_builder_input" ]
+    ] ],
     [ "ConsoleCoreConfig.cs", "d0/d3b/_console_core_config_8cs.html", [
       [ "ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", "d6/dce/class_console_1_1_core_1_1_console_core_config" ]
     ] ],
@@ -247,11 +268,23 @@ var files_dup =
     [ "DelegateVariableProvider.cs", "dc/ddc/_delegate_variable_provider_8cs.html", [
       [ "DelegateVariableProvider", "dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider.html", "dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider" ]
     ] ],
+    [ "DirAutoFillAttribute.cs", "d8/d95/_dir_auto_fill_attribute_8cs.html", [
+      [ "DirAutoFillAttribute", "da/d8e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_attribute.html", null ]
+    ] ],
+    [ "DirAutoFillProvider.cs", "d9/d07/_dir_auto_fill_provider_8cs.html", [
+      [ "DirAutoFillProvider", "d9/d26/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_provider.html", "d9/d26/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_provider" ]
+    ] ],
     [ "DirectoriesVariableProvider.cs", "d1/d1e/_directories_variable_provider_8cs.html", [
       [ "DirectoriesVariableProvider", "d6/db3/class_console_1_1_prop_i_o_compat_1_1_directories_variable_provider.html", "d6/db3/class_console_1_1_prop_i_o_compat_1_1_directories_variable_provider" ]
     ] ],
     [ "DirInfoConverter.cs", "dd/d05/_dir_info_converter_8cs.html", [
       [ "DirInfoConverter", "d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter.html", "d9/d99/class_console_1_1_default_converters_1_1_dir_info_converter" ]
+    ] ],
+    [ "EnumAutoFillAttribute.cs", "d6/d9c/_enum_auto_fill_attribute_8cs.html", [
+      [ "EnumAutoFillAttribute", "d7/df1/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_attribute.html", "d7/df1/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_attribute" ]
+    ] ],
+    [ "EnumAutoFillProvider.cs", "d6/d98/_enum_auto_fill_provider_8cs.html", [
+      [ "EnumAutoFillProvider", "dd/dc4/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_provider.html", "dd/dc4/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_provider" ]
     ] ],
     [ "EnumConverter.cs", "d9/d81/_enum_converter_8cs.html", [
       [ "EnumConverter", "df/d7f/class_console_1_1_default_converters_1_1_enum_converter.html", "df/d7f/class_console_1_1_default_converters_1_1_enum_converter" ]
@@ -264,6 +297,7 @@ var files_dup =
       [ "EnvExpander", "d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander.html", "d9/d2e/class_console_1_1_environment_variables_1_1_env_initializer_1_1_env_expander" ]
     ] ],
     [ "EnvironmentVariableManager.cs", "de/d79/_environment_variable_manager_8cs.html", [
+      [ "EnvironmentVariableAutoFillProvider", "d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider.html", "d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider" ],
       [ "EnvironmentVariableManager", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager" ]
     ] ],
     [ "EvalInitializer.cs", "d2/dde/_eval_initializer_8cs.html", [
@@ -294,6 +328,12 @@ var files_dup =
     [ "FieldMetaData.cs", "de/d36/_field_meta_data_8cs.html", [
       [ "FieldMetaData", "d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data.html", "d1/d0c/class_console_1_1_core_1_1_reflection_system_1_1_field_meta_data" ]
     ] ],
+    [ "FileAutoFillAttribute.cs", "d8/dfc/_file_auto_fill_attribute_8cs.html", [
+      [ "FileAutoFillAttribute", "d3/dd9/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_attribute.html", "d3/dd9/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_attribute" ]
+    ] ],
+    [ "FileAutoFillProvider.cs", "d2/da9/_file_auto_fill_provider_8cs.html", [
+      [ "FileAutoFillProvider", "d4/d5f/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_provider.html", "d4/d5f/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_provider" ]
+    ] ],
     [ "FileInfoConverter.cs", "d7/d98/_file_info_converter_8cs.html", [
       [ "FileInfoConverter", "de/db3/class_console_1_1_default_converters_1_1_file_info_converter.html", "de/db3/class_console_1_1_default_converters_1_1_file_info_converter" ]
     ] ],
@@ -311,6 +351,9 @@ var files_dup =
     ] ],
     [ "FormObjSelector.cs", "d7/dfe/_form_obj_selector_8cs.html", [
       [ "FormObjSelector", "d2/db9/class_console_1_1_form_1_1_form_obj_selector.html", "d2/db9/class_console_1_1_form_1_1_form_obj_selector" ]
+    ] ],
+    [ "FormsCommandBuilderInput.cs", "d7/d75/_forms_command_builder_input_8cs.html", [
+      [ "FormsCommandBuilderInput", "d0/d32/class_console_1_1_form_1_1_forms_command_builder_input.html", "d0/d32/class_console_1_1_form_1_1_forms_command_builder_input" ]
     ] ],
     [ "FunctionDeblocker.cs", "d5/dbe/_function_deblocker_8cs.html", [
       [ "FunctionDeblocker", "d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker.html", "d0/d03/class_console_1_1_script_system_1_1_deblocker_1_1_functions_1_1_function_deblocker" ]
@@ -339,6 +382,12 @@ var files_dup =
     [ "IAuthenticator.cs", "dc/d0d/_i_authenticator_8cs.html", [
       [ "IAuthenticator", "da/d92/interface_console_1_1_networking_1_1_authentication_1_1_i_authenticator.html", "da/d92/interface_console_1_1_networking_1_1_authentication_1_1_i_authenticator" ]
     ] ],
+    [ "ICommandBuilder.cs", "d1/def/_i_command_builder_8cs.html", [
+      [ "ICommandBuilder", "d9/d2f/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder.html", "d9/d2f/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder" ]
+    ] ],
+    [ "ICommandBuilderInput.cs", "db/d33/_i_command_builder_input_8cs.html", [
+      [ "ICommandBuilderInput", "d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html", "d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input" ]
+    ] ],
     [ "IEvalFunctions.cs", "de/d36/_i_eval_functions_8cs.html", [
       [ "IEvalFunctions", "dd/daa/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_functions.html", "dd/daa/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_eval_functions" ]
     ] ],
@@ -365,6 +414,12 @@ var files_dup =
     ] ],
     [ "IInvokable.cs", "d3/dde/_i_invokable_8cs.html", [
       [ "IInvokable", "d8/dcb/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_invokable.html", "d8/dcb/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_invokable" ]
+    ] ],
+    [ "IOAutoFillAttribute.cs", "d8/d9c/_i_o_auto_fill_attribute_8cs.html", [
+      [ "IOAutoFillAttribute", "d1/dc9/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_i_o_auto_fill_attribute.html", null ]
+    ] ],
+    [ "IOAutoFillProvider.cs", "de/dc7/_i_o_auto_fill_provider_8cs.html", [
+      [ "IOAutoFillProvider", "d8/db8/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_i_o_auto_fill_provider.html", "d8/db8/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_i_o_auto_fill_provider" ]
     ] ],
     [ "IOCommands.cs", "d1/dd9/_i_o_commands_8cs.html", [
       [ "IOCommands", "d5/ddb/class_console_1_1_i_o_1_1_i_o_commands.html", "d5/ddb/class_console_1_1_i_o_1_1_i_o_commands" ]
@@ -507,6 +562,12 @@ var files_dup =
     [ "PropertyAttributeUtils.cs", "d4/da8/_property_attribute_utils_8cs.html", [
       [ "PropertyAttributeUtils", "d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html", "d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils" ]
     ] ],
+    [ "PropertyAutoFillAttribute.cs", "db/d59/_property_auto_fill_attribute_8cs.html", [
+      [ "PropertyAutoFillAttribute", "d2/df3/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_property_auto_fill_1_1_property_auto_fill_attribute.html", null ]
+    ] ],
+    [ "PropertyAutoFillProvider.cs", "de/da3/_property_auto_fill_provider_8cs.html", [
+      [ "PropertyAutoFillProvider", "de/dcf/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_property_auto_fill_1_1_property_auto_fill_provider.html", "de/dcf/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_property_auto_fill_1_1_property_auto_fill_provider" ]
+    ] ],
     [ "PropertyCommands.cs", "df/dc8/_property_commands_8cs.html", [
       [ "PropertyCommands", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html", "d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands" ]
     ] ],
@@ -557,14 +618,14 @@ var files_dup =
     [ "SendDataPacket.cs", "d1/d60/_send_data_packet_8cs.html", [
       [ "SendDataPacket", "d0/db6/class_console_1_1_networking_1_1_packets_1_1_send_data_1_1_send_data_packet.html", "d0/db6/class_console_1_1_networking_1_1_packets_1_1_send_data_1_1_send_data_packet" ]
     ] ],
-    [ "SendDataPacketHostHandler.cs", "d5/d82/_send_data_packet_host_handler_8cs.html", [
-      [ "SendDataRequestPacketHostHandler", "d4/dc7/class_console_1_1_networking_1_1_handlers_1_1_send_data_request_packet_host_handler.html", "d4/dc7/class_console_1_1_networking_1_1_handlers_1_1_send_data_request_packet_host_handler" ]
-    ] ],
     [ "SendDataPacketSerializer.cs", "d2/db1/_send_data_packet_serializer_8cs.html", [
       [ "SendDataPacketSerializer", "d4/df7/class_console_1_1_networking_1_1_packets_1_1_send_data_1_1_send_data_packet_serializer.html", "d4/df7/class_console_1_1_networking_1_1_packets_1_1_send_data_1_1_send_data_packet_serializer" ]
     ] ],
     [ "SendDataRequestPacket.cs", "da/dd6/_send_data_request_packet_8cs.html", [
       [ "SendDataRequestPacket", "d5/d15/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet.html", "d5/d15/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet" ]
+    ] ],
+    [ "SendDataRequestPacketHostHandler.cs", "d2/d99/_send_data_request_packet_host_handler_8cs.html", [
+      [ "SendDataRequestPacketHostHandler", "d4/dc7/class_console_1_1_networking_1_1_handlers_1_1_send_data_request_packet_host_handler.html", "d4/dc7/class_console_1_1_networking_1_1_handlers_1_1_send_data_request_packet_host_handler" ]
     ] ],
     [ "SendDataRequestPacketSerializer.cs", "dc/d8f/_send_data_request_packet_serializer_8cs.html", [
       [ "SendDataRequestPacketSerializer", "d5/d63/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet_serializer.html", "d5/d63/class_console_1_1_networking_1_1_packets_1_1_send_data_request_1_1_send_data_request_packet_serializer" ]

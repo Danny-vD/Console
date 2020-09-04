@@ -11,5 +11,8 @@ var hierarchy =
     [ "Form", null, [
       [ "Console.Form.ConsoleForm", "d0/d67/class_console_1_1_form_1_1_console_form.html", null ]
     ] ],
+    [ "ICommandBuilderInput", null, [
+      [ "Console.Form.FormsCommandBuilderInput", "d0/d32/class_console_1_1_form_1_1_forms_command_builder_input.html", null ]
+    ] ],
     [ "Console.Form.Program", "d3/d9c/class_console_1_1_form_1_1_program.html", null ]
 ];

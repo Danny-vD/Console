@@ -7,7 +7,7 @@ namespace Console.Core.CommandSystem
     /// Allows multiple Attributes on the same methods(this is a fancy way to create aliases without using the alias system :D)
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class CommandAttribute : Attribute
+    public class CommandAttribute : ConsoleAttribute
     {
         /// <summary>
         /// Name of the Command.

@@ -806,6 +806,12 @@
             Script System Implementation
             </summary>
         </member>
+        <member name="M:Console.ScriptSystem.ScriptSystem.RunAsync(System.String)">
+            <summary>
+            Runs a File as Async
+            </summary>
+            <param name="file"></param>
+        </member>
         <member name="F:Console.ScriptSystem.ScriptSystem.RunCommandName">
             <summary>
             Run Command Name
@@ -988,6 +994,13 @@
             </summary>
             <param name="name"></param>
         </member>
+        <member name="M:Console.ScriptSystem.SequenceSystem.RunAsync(System.String,System.String)">
+            <summary>
+            Runs a Sequence as Async
+            </summary>
+            <param name="name"></param>
+            <param name="parameter"></param>
+        </member>
         <member name="M:Console.ScriptSystem.SequenceSystem.RunSequence(System.String,System.String)">
             <summary>
             Runs a Sequence by Name
@@ -1039,6 +1052,13 @@
             <param name="sequenceName">The Sequence that will be run</param>
             <param name="commandName">The Command Name</param>
             <param name="helpText">The Help Text that will be set for this command</param>
+        </member>
+        <member name="M:Console.ScriptSystem.SequenceSystem.ForAll(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+            <param name="command"></param>
         </member>
     </members>
 </doc>

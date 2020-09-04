@@ -142,7 +142,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initializer of the <a class="el" href="../../db/d36/namespace_console_1_1_environment_variables.html" title="The EnvironmentVariables Extension Implements an AExpander that allows the usage of $[funcname]([data...">EnvironmentVariables</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00021">21</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a70b8a91d2a53e979bf42567c4a09b8c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70b8a91d2a53e979bf42567c4a09b8c8">&#9670;&nbsp;</a></span>Initialize()</h2>
@@ -169,15 +169,16 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialization Function </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00065">65</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            ConsoleCoreConfig.AddEscapeChar(EnvironmentVariableManager.ActivationPrefix);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            PropertyAttributeUtils.AddProperties&lt;EnvInitializer&gt;();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            EnvironmentVariableManager.AddProvider(DefaultVariables.Instance);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> RangeVariableProvider());</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            CommandAttributeUtils.AddCommands(typeof(EnvironmentVariableManager));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            AConsoleManager.ExpanderManager.AddExpander(<span class="keyword">new</span> EnvExpander());</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00066">66</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            CommandBuilder.AddProvider(<span class="keyword">new</span> EnvironmentVariableAutoFillProvider());</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            ConsoleCoreConfig.AddEscapeChar(EnvironmentVariableManager.ActivationPrefix);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            PropertyAttributeUtils.AddProperties&lt;EnvInitializer&gt;();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            EnvironmentVariableManager.AddProvider(DefaultVariables.Instance);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            EnvironmentVariableManager.AddProvider(<span class="keyword">new</span> RangeVariableProvider());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            CommandAttributeUtils.AddCommands(typeof(EnvironmentVariableManager));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            AConsoleManager.ExpanderManager.AddExpander(<span class="keyword">new</span> EnvExpander());</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,7 +205,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Version of the Environment Variables Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00060">60</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00061">61</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -230,7 +231,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Logger for this Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00032">32</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -248,7 +249,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>The Load Order of the EnvironmentVariable Extensions </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00037">37</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00038">38</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -273,11 +274,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00023">23</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a166fe9c3bd561704fbe501cb935cce70">Logger</a>.Mute;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a166fe9c3bd561704fbe501cb935cce70">Logger</a>.Mute = value;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d4/df1/_env_initializer_8cs_source.html">EnvInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a166fe9c3bd561704fbe501cb935cce70">Logger</a>.Mute;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a166fe9c3bd561704fbe501cb935cce70">Logger</a>.Mute = value;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -286,7 +287,7 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_env_initializer_html_a166fe9c3bd561704fbe501cb935cce70"><div class="ttname"><a href="../../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a166fe9c3bd561704fbe501cb935cce70">Console.EnvironmentVariables.EnvInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">Logger for this Extension</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/df1/_env_initializer_8cs_source.html#l00032">EnvInitializer.cs:32</a></div></div>
+<div class="ttc" id="aclass_console_1_1_environment_variables_1_1_env_initializer_html_a166fe9c3bd561704fbe501cb935cce70"><div class="ttname"><a href="../../d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html#a166fe9c3bd561704fbe501cb935cce70">Console.EnvironmentVariables.EnvInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">Logger for this Extension</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/df1/_env_initializer_8cs_source.html#l00033">EnvInitializer.cs:33</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

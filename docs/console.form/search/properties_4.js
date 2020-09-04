@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resourcemanager_158',['ResourceManager',['../d8/d1b/class_console_1_1_form_1_1_properties_1_1_resources.html#a3db5c622362e64da083cda7ea6c6eb56',1,'Console::Form::Properties::Resources']]]
+  ['selectedobjects_151',['SelectedObjects',['../d2/db9/class_console_1_1_form_1_1_form_obj_selector.html#a99fa74dab486528b47a7aeca557ee166',1,'Console::Form::FormObjSelector']]]
 ];

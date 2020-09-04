@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Console.Core.ActivationSystem;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Directories;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
 
 /// <summary>
 /// The Console.Core.ExtensionSystem namespace is used by the Core Library to load Extensions.
@@ -22,7 +24,8 @@ namespace Console.Core.ExtensionSystem
         /// Loads all Extensions contained in the specified folder.
         /// </summary>
         /// <param name="folder">Folder Containing Extensions</param>
-        public static void LoadFromFolder(string folder, bool create = true)
+        /// <param name="create">If True the Specified Directory gets Created if it does not exist</param>
+        public static void LoadFromFolder([DirAutoFill] string folder, bool create = true)
         {
             if (create && !Directory.Exists(folder)) Directory.CreateDirectory(folder);
             if (Directory.Exists(folder))
@@ -35,7 +38,7 @@ namespace Console.Core.ExtensionSystem
         /// Loads an Extension from File.
         /// </summary>
         /// <param name="file">Extension Path</param>
-        public static void LoadExtensionFile(string file)
+        public static void LoadExtensionFile([FileAutoFill] string file)
         {
             LoadExtensionFiles(new[] { file });
         }

@@ -10,5 +10,6 @@ var class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager =
     [ "RemoveCommand", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#a8b188669bf69f30b35be7f3aedb034ee", null ],
     [ "RemoveCommand", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#ac7d9b03a48f7161aa2e2488496b11c02", null ],
     [ "RenameCommand", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#af3d5369c79ae44c390ef5627bfc1ab58", null ],
-    [ "commands", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#a02b09f5f942ee8b3a1986c5addb912a8", null ]
+    [ "SortCommands", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#a1e888e25a7b78bb2641ac548debee0b9", null ],
+    [ "Commands", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html#a8907a101a914be82d7ed36b376d51cfb", null ]
 ];

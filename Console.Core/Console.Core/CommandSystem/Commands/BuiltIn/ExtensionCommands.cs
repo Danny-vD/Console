@@ -1,4 +1,5 @@
 ﻿using Console.Core.CommandSystem.Builder.IOAutoFill;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
 using Console.Core.ExtensionSystem;
 
 namespace Console.Core.CommandSystem.Commands.BuiltIn
@@ -9,7 +10,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     public class ExtensionCommands
     {
         /// <summary>
-        /// Adds all Extension commands.
+        /// Adds all Extension Commands.
         /// </summary>
         public static void AddExtensionsCommands()
         {
@@ -31,7 +32,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="file">.dll Library</param>
         [Command("load-extension", "Loads the specified extension")]
-        public static void LoadExtensionFile([IOAutoFill]string file)
+        public static void LoadExtensionFile([FileAutoFill("dll")]string file)
         {
             ExtensionLoader.LoadExtensionFile(file);
         }

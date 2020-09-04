@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mutelogs_62',['MuteLogs',['../de/d2f/class_console_1_1_c_l_i_1_1_program.html#a1238b37777994efe82daacbba0a40730',1,'Console::CLI::Program']]]
+  ['abort_77',['Abort',['../d4/d97/class_console_1_1_c_l_i_1_1_console_builder_input.html#a404eb604afac080087938e63ead2c339',1,'Console::CLI::ConsoleBuilderInput']]]
 ];

@@ -2,6 +2,8 @@
 using System.IO;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
+using Console.Core.ILOptimizations;
 using Console.ScriptSystem.Async;
 using Console.ScriptSystem.Deblocker;
 using Console.ScriptSystem.Deblocker.Parameters;
@@ -44,8 +46,13 @@ namespace Console.ScriptSystem
             WhiteListFilter.Remove(ext);
         }
 
+        /// <summary>
+        /// Runs a File as Async
+        /// </summary>
+        /// <param name="file"></param>
         [Command("run-async", "Runs a File in \"background\".")]
-        private static void RunAsync(string file)
+        [OptimizeIL]
+        public static void RunAsync([FileAutoFill]string file)
         {
             if (File.Exists(file))
             {
@@ -78,7 +85,8 @@ namespace Console.ScriptSystem
         /// </summary>
         /// <param name="path">Filepath</param>
         [Command(RunCommandName, "Run a  file.")]
-        public static void RunFile(string path)
+        [OptimizeIL]
+        public static void RunFile([FileAutoFill]string path)
         {
 
             if (File.Exists(path))

@@ -7,7 +7,7 @@ namespace Console.Core.CommandSystem
     /// Parameters of type Boolean can be decorated with this, can be specified by specifying the parameter name
     /// </summary>
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false)]
-    public class CommandFlagAttribute : Attribute
+    public class CommandFlagAttribute : ConsoleAttribute
     {
         /// <summary>
         /// Name of the Flag

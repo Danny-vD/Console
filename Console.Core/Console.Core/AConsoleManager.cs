@@ -42,7 +42,7 @@ namespace Console.Core
         public static event Action OnConsoleTick;
 
         /// <summary>
-        /// Expander System that allows to Expand parts of commands(Environment System)
+        /// Expander System that allows to Expand parts of Commands(Environment System)
         /// </summary>
         public static readonly ExpanderManager ExpanderManager = new ExpanderManager();
 
@@ -75,6 +75,10 @@ namespace Console.Core
         /// </summary>
         public abstract AObjectSelector ObjectSelector { get; }
 
+        /// <summary>
+        /// Loads the Default Commands as Specified.
+        /// </summary>
+        /// <param name="options">Default Command Options</param>
         [Command("load-default", "Loads the Default Commands", "load")]
         private static void LoadCommands([EnumAutoFill] ConsoleInitOptions options)
         {
@@ -111,10 +115,8 @@ namespace Console.Core
 
             AutoFillProvider[] provs =
                 ActivateOnAttributeUtils.ActivateObjects<AutoFillProvider>(Assembly.GetExecutingAssembly());
-            foreach (AutoFillProvider autoFillProvider in provs)
-            {
-                CommandBuilder.LoadedAutoFillers.Add(autoFillProvider);
-            }
+
+            CommandBuilder.AddProvider(provs);
 
             Parser = new CommandParser();
             PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));

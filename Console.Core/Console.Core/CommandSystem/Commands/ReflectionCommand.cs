@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Console.Core.ILOptimizations;
+using Console.Core.PropertySystem;
 using Console.Core.ReflectionSystem;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -13,6 +15,7 @@ namespace Console.Core.CommandSystem.Commands
     /// </summary>
     public class ReflectionCommand : AbstractCommand
     {
+
         /// <summary>
         /// The Reflection Data
         /// </summary>
@@ -107,7 +110,7 @@ namespace Console.Core.CommandSystem.Commands
                         for (int j = 0; j < abs.Count; j++)
                         {
                             Attribute attribute = abs[j];
-                            a += $"{attribute}";
+                            a += $"{attribute.GetType().Name}";
                             if (j != abs.Count - 1)
                             {
                                 a += ", ";

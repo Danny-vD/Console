@@ -4,10 +4,51 @@ using System.Linq;
 using System.Reflection;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder;
+using Console.Core.CommandSystem.Commands;
 using Console.Core.PropertySystem;
 
 namespace Console.EnvironmentVariables
 {
+
+    /// <summary>
+    /// Implements the Auto Fill for Environment Variable Providers
+    /// </summary>
+    public class EnvironmentVariableAutoFillProvider : AutoFillProvider
+    {
+
+        /// <summary>
+        /// Determines if the Provider can Provide Useful AutoFill Suggestions
+        /// </summary>
+        /// <param name="cmd">Command</param>
+        /// <param name="paramNum">Command Parameter Index</param>
+        /// <returns>True if it can AutoFill</returns>
+        public override bool CanFill(AbstractCommand cmd, int paramNum)
+        {
+            return true;
+        }
+
+
+        /// <summary>
+        /// Returns the Auto Fill Entries that are useful in the current Context.
+        /// </summary>
+        /// <param name="cmd">The Command</param>
+        /// <param name="paramNum">The Command Parameter Index</param>
+        /// <param name="start">The Start of the Parameter("search term")</param>
+        /// <returns>List of Viable AutoFill Entries</returns>
+        public override string[] GetAutoFills(AbstractCommand cmd, int paramNum, string start)
+        {
+            int idx = start.IndexOf(EnvironmentVariableManager.ActivationPrefix);
+            if (idx != -1)
+            {
+                string part = start.Substring(0, idx);
+                string search = start.Substring(idx + 1, start.Length - 1 - idx);
+                return EnvironmentVariableManager.Providers.Keys.Where(x=>x.StartsWith(search)).Select(x => part + EnvironmentVariableManager.ActivationPrefix + x).ToArray();
+            }
+            return new string[0];
+        }
+    }
+
     /// <summary>
     /// Static EnvironmentVariable API
     /// </summary>
@@ -123,7 +164,7 @@ namespace Console.EnvironmentVariables
         /// <returns></returns>
         public static VariableProvider GetProvider(string funcPrefix, MethodInfo info)
         {
-            return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] {s})?.ToString());
+            return new DelegateVariableProvider(funcPrefix + info.Name, s => info.Invoke(null, new[] { s })?.ToString());
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
 using Console.Core.PropertySystem;
 
 namespace Console.PersistentProperties
@@ -16,7 +17,7 @@ namespace Console.PersistentProperties
         /// </summary>
         /// <param name="file">Filepath</param>
         [Command("load-properties", "Load a settings file")]
-        public static void Load(string file)
+        public static void Load([FileAutoFill]string file)
         {
             if (File.Exists(file))
             {

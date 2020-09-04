@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormsCommandBuilderInput.cs" />
     <Compile Include="Internal\ConsoleExtensions.cs" />
     <Compile Include="Internal\ConsoleLine.cs" />
     <Compile Include="FormConsoleManager.cs" />

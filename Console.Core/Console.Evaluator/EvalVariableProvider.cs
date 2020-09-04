@@ -1,6 +1,7 @@
 ﻿using System;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.ILOptimizations;
 using Console.Core.PropertySystem;
 using Console.EnvironmentVariables;
 using Console.Evaluator.Core.Enums;
@@ -140,8 +141,14 @@ namespace Console.Evaluator
             eval.AddEnvironmentFunctions(obj);
         }
 
+        /// <summary>
+        /// Runs the command until the expression evaluates to false
+        /// </summary>
+        /// <param name="expr"></param>
+        /// <param name="command"></param>
         [Command("while", "Runs the Specified command until the expression evaluates to true.")]
-        private void While(string expr, string command)
+        [OptimizeIL]
+        public void While(string expr, string command)
         {
             Setup();
             while (true)

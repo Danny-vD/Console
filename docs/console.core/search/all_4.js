@@ -1,18 +1,14 @@
 var searchData=
 [
-  ['echo_118',['Echo',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a17970f9cede19d4743429e34fd41474a',1,'Console::Core::CommandSystem::Commands::BuiltIn::DefaultCommands']]],
-  ['echologger_119',['EchoLogger',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a09d1c79d70e3b6e70892146aa78d14f9',1,'Console::Core::CommandSystem::Commands::BuiltIn::DefaultCommands']]],
-  ['entercommand_120',['EnterCommand',['../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10',1,'Console::Core::AConsoleManager']]],
-  ['escapablechars_121',['EscapableChars',['../d6/dce/class_console_1_1_core_1_1_console_core_config.html#a5539bfccf638a161ca35288ffcf330c3',1,'Console::Core::ConsoleCoreConfig']]],
-  ['escape_122',['Escape',['../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#a23dfddc9ab3bcefc23ca3f2edca06290',1,'Console::Core::CommandSystem::CommandParser']]],
-  ['escapechar_123',['EscapeChar',['../d6/dce/class_console_1_1_core_1_1_console_core_config.html#ac48909c53dd63a6fc58b895e1761e60d',1,'Console::Core::ConsoleCoreConfig']]],
-  ['expand_124',['Expand',['../d5/d35/class_console_1_1_core_1_1_expander_system_1_1_a_expander.html#acca7b3b4d88251758311b45ae5923fd2',1,'Console.Core.ExpanderSystem.AExpander.Expand()'],['../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a042cd83b7887a356e4f62766ca44ffd7',1,'Console.Core.ExpanderSystem.ExpanderManager.Expand()']]],
-  ['expandermanager_125',['ExpanderManager',['../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html',1,'Console.Core.ExpanderSystem.ExpanderManager'],['../d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ad66072f2a2166b463ada03e5b7a0cd7f',1,'Console.Core.AConsoleManager.ExpanderManager()']]],
-  ['expandermanager_2ecs_126',['ExpanderManager.cs',['../d3/da9/_expander_manager_8cs.html',1,'']]],
-  ['expanders_127',['Expanders',['../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662',1,'Console::Core::ExpanderSystem::ExpanderManager']]],
-  ['extensionassembly_128',['ExtensionAssembly',['../d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#ac03b1d881c822fce9df47256564d4766',1,'Console::Core::ExtensionSystem::AExtensionInitializer']]],
-  ['extensioncommands_129',['ExtensionCommands',['../d7/d5f/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_extension_commands.html',1,'Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands'],['../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a4ede0ff892b51fdcbddbda01106d1d10',1,'Console.Core.ExtensionCommands()']]],
-  ['extensioncommands_2ecs_130',['ExtensionCommands.cs',['../db/d7c/_extension_commands_8cs.html',1,'']]],
-  ['extensionloader_131',['ExtensionLoader',['../dc/de5/class_console_1_1_core_1_1_extension_system_1_1_extension_loader.html',1,'Console::Core::ExtensionSystem']]],
-  ['extensionloader_2ecs_132',['ExtensionLoader.cs',['../d6/d72/_extension_loader_8cs.html',1,'']]]
+  ['default_142',['Default',['../d3/d10/namespace_console_1_1_core_1_1_extension_system.html#a4a359e257b0719c9bb4d66dd3faea177a7a1920d61156abc05a60135aefe8bc67',1,'Console.Core.ExtensionSystem.Default()'],['../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1a7a1920d61156abc05a60135aefe8bc67',1,'Console.Core.CommandSystem.Commands.Default()']]],
+  ['defaultcommands_143',['DefaultCommands',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html',1,'Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands'],['../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a4e1f58348725d1aec52cc3cae1d08faa',1,'Console.Core.DefaultCommands()']]],
+  ['defaultcommands_2ecs_144',['DefaultCommands.cs',['../d5/d2b/_default_commands_8cs.html',1,'']]],
+  ['defaultlogger_145',['DefaultLogger',['../d6/da4/class_console_1_1_core_1_1_log_system_1_1_default_logger.html',1,'Console::Core::LogSystem']]],
+  ['defaultlogger_2ecs_146',['DefaultLogger.cs',['../d9/d8e/_default_logger_8cs.html',1,'']]],
+  ['delete_147',['Delete',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a4a5d628f63e462416b036b695a113065',1,'Console::Core::CommandSystem::Builder::CommandBuilder']]],
+  ['deleteproperty_148',['DeleteProperty',['../d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#afcfff994143c7b277bc18fedc07297ca',1,'Console::Core::CommandSystem::Commands::BuiltIn::PropertyCommands']]],
+  ['dirautofillattribute_149',['DirAutoFillAttribute',['../da/d8e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_attribute.html',1,'Console::Core::CommandSystem::Builder::IOAutoFill::Directories']]],
+  ['dirautofillattribute_2ecs_150',['DirAutoFillAttribute.cs',['../d8/d95/_dir_auto_fill_attribute_8cs.html',1,'']]],
+  ['dirautofillprovider_151',['DirAutoFillProvider',['../d9/d26/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_provider.html',1,'Console::Core::CommandSystem::Builder::IOAutoFill::Directories']]],
+  ['dirautofillprovider_2ecs_152',['DirAutoFillProvider.cs',['../d9/d07/_dir_auto_fill_provider_8cs.html',1,'']]]
 ];

@@ -4,7 +4,7 @@ namespace Console.Core
 {
     /// <summary>
     /// Console Startup Settings
-    /// Defines which default commands are added.
+    /// Defines which default Commands are added.
     /// </summary>
     [Flags]
     public enum ConsoleInitOptions

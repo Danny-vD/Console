@@ -3,6 +3,7 @@ var namespace_console_1_1_environment_variables =
     [ "DefaultVariables", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables.html", "d2/d53/class_console_1_1_environment_variables_1_1_default_variables" ],
     [ "DelegateVariableProvider", "dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider.html", "dc/d83/class_console_1_1_environment_variables_1_1_delegate_variable_provider" ],
     [ "EnvInitializer", "d2/df9/class_console_1_1_environment_variables_1_1_env_initializer.html", "d2/df9/class_console_1_1_environment_variables_1_1_env_initializer" ],
+    [ "EnvironmentVariableAutoFillProvider", "d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider.html", "d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider" ],
     [ "EnvironmentVariableManager", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager.html", "d4/d62/class_console_1_1_environment_variables_1_1_environment_variable_manager" ],
     [ "RangeVariableProvider", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider.html", "df/d63/class_console_1_1_environment_variables_1_1_range_variable_provider" ],
     [ "VariableContainer", "d0/dbe/class_console_1_1_environment_variables_1_1_variable_container.html", "d0/dbe/class_console_1_1_environment_variables_1_1_variable_container" ],

@@ -6,13 +6,13 @@ using System.Reflection;
 using System.Windows.Forms;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder;
 using Console.Core.PropertySystem;
 using Console.Form.Internal;
 
 
 namespace Console.Form
 {
-
     /// <summary>
     /// The Windows Form that represents the Console Window
     /// </summary>
@@ -160,6 +160,9 @@ namespace Console.Form
 
         #endregion
 
+        private readonly FormsCommandBuilderInput input;
+        private bool Abort { get; set; }
+
         /// <summary>
         /// The Instance of the ConsoleForm
         /// </summary>
@@ -202,6 +205,7 @@ namespace Console.Form
             Instance = this;
             InitializeComponent();
             Closed += (sender, args) => ReleaseInstance();
+            input=new FormsCommandBuilderInput(tbConsoleIn);
             tbConsoleIn.KeyDown += (sender, args) => TbConsoleIn_KeyDown(args);
 
             if (!Directory.Exists(".\\extensions\\")) Directory.CreateDirectory(".\\extensions\\");
@@ -225,6 +229,7 @@ namespace Console.Form
         private void ReleaseInstance()
         {
             Instance = null;
+            Abort = input.Abort = true;
         }
 
         /// <summary>
@@ -344,6 +349,15 @@ namespace Console.Form
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             EnterCommand();
+        }
+
+        private void ConsoleForm_Load(object sender, EventArgs e)
+        {
+            Show();
+            while (!Abort)
+            {
+                string s = CommandBuilder.BuildCommand(input, false);
+            }
         }
     }
 }

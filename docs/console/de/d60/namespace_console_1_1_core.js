@@ -10,5 +10,6 @@ var namespace_console_1_1_core =
     [ "ReflectionSystem", "d3/d13/namespace_console_1_1_core_1_1_reflection_system.html", "d3/d13/namespace_console_1_1_core_1_1_reflection_system" ],
     [ "AConsoleManager", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html", "d9/dcb/class_console_1_1_core_1_1_a_console_manager" ],
     [ "AObjectSelector", "d5/d9c/class_console_1_1_core_1_1_a_object_selector.html", "d5/d9c/class_console_1_1_core_1_1_a_object_selector" ],
+    [ "ConsoleAttribute", "dd/d7a/class_console_1_1_core_1_1_console_attribute.html", "dd/d7a/class_console_1_1_core_1_1_console_attribute" ],
     [ "ConsoleCoreConfig", "d6/dce/class_console_1_1_core_1_1_console_core_config.html", "d6/dce/class_console_1_1_core_1_1_console_core_config" ]
 ];

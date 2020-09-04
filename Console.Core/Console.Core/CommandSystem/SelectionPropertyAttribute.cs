@@ -7,7 +7,7 @@ namespace Console.Core.CommandSystem
     /// This makes it impossible to specify the parameter in the command text.
     /// </summary>
     [AttributeUsage(AttributeTargets.Parameter)]
-    public class SelectionPropertyAttribute : Attribute
+    public class SelectionPropertyAttribute : ConsoleAttribute
     {
         /// <summary>
         /// Should the Converter System Change the types of the selected objects to match the command?

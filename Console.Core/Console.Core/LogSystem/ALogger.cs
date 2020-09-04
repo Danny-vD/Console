@@ -66,7 +66,7 @@ namespace Console.Core.LogSystem
                 }
                 else
                 {
-                    Sub.Log(value);
+                    Sub.LogWarning(value);
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace Console.Core.LogSystem
                 }
                 else
                 {
-                    Sub.Log(value);
+                    Sub.LogError(value);
                 }
             }
         }

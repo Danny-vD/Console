@@ -12,7 +12,7 @@ namespace Console.Core.CommandSystem.Commands
         /// <summary>
         /// All Commands in the Console System.
         /// </summary>
-        public static readonly List<AbstractCommand> commands = new List<AbstractCommand>();
+        public static List<AbstractCommand> Commands { get; private set; } = new List<AbstractCommand>();
 
         /// <summary>
         /// Invokes a given command with given parameters (does not respect user-defined conversions between types, except IConvertible)
@@ -38,7 +38,7 @@ namespace Console.Core.CommandSystem.Commands
         {
             AbstractCommand command = GetCommand(commandName, paramsCount);
 
-            if (commands.Any(item => item.HasName(newName)))
+            if (Commands.Any(item => item.HasName(newName)))
             {
                 ConsoleCoreConfig.CoreLogger.LogError($"Rename failed! A command with name {newName} already exists!");
                 return;
@@ -57,7 +57,7 @@ namespace Console.Core.CommandSystem.Commands
         {
             AbstractCommand command = GetCommand(commandName, paramsCount);
 
-            if (commands.Any(item => item.HasName(alias)))
+            if (Commands.Any(item => item.HasName(alias)))
             {
                 ConsoleCoreConfig.CoreLogger.LogError($"Rename failed! A command with name {alias} already exists!");
                 return;
@@ -88,7 +88,7 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>Returns the Command that Fits the Name/Parameter Count Combination</returns>
         private static AbstractCommand Find(string commandName, int paramsCount, int flagCount = 0)
         {
-            foreach (AbstractCommand abstractCommand in commands)
+            foreach (AbstractCommand abstractCommand in Commands)
             {
                 if (!abstractCommand.HasName(commandName))
                 {
@@ -100,8 +100,6 @@ namespace Console.Core.CommandSystem.Commands
                 {
                     if (abstractCommand.ParametersCount.Min == pc)
                     {
-                        int flagC = refl.FlagAttributeCount - (paramsCount - refl.ParametersCount.Min);
-                        int parC = paramsCount + refl.SelectionAttributeCount + flagC;
                         if (refl.ParametersCount.Contains(paramsCount))
                         {
                             return refl;
@@ -138,10 +136,10 @@ namespace Console.Core.CommandSystem.Commands
 
 
         /// <summary>
-        /// Returns a list of all commands with a given name
+        /// Returns a list of all Commands with a given name
         /// </summary>
         /// <param name="commandName">Command Name</param>
-        /// <param name="find">Should the Method also contain commands that contain the command name?</param>
+        /// <param name="find">Should the Method also contain Commands that contain the command name?</param>
         /// <returns>Commands that fit the search criteria</returns>
         public static IEnumerable<AbstractCommand> GetCommands(string commandName, bool find = false)
         {
@@ -149,13 +147,13 @@ namespace Console.Core.CommandSystem.Commands
             List<AbstractCommand> tempCommands;
             if (find)
             {
-                tempCommands = commands.Where(command =>
+                tempCommands = Commands.Where(command =>
                         command.Name.StartsWith(commandName) || command.Aliases.Any(x => x.StartsWith(commandName)))
                     .ToList();
             }
             else
             {
-                tempCommands = commands.Where(command => command.HasName(commandName)).ToList();
+                tempCommands = Commands.Where(command => command.HasName(commandName)).ToList();
             }
 
             if (tempCommands.Count == 0)
@@ -165,6 +163,11 @@ namespace Console.Core.CommandSystem.Commands
             }
 
             return tempCommands;
+        }
+
+        private static void SortCommands()
+        {
+            Commands = Commands.OrderBy(x => x.Name).ToList();
         }
 
         /// <summary>
@@ -181,11 +184,11 @@ namespace Console.Core.CommandSystem.Commands
 
 
             AbstractCommand
-                cmd = null; //commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Contains(command.ParametersCount.Max-command.FlagAttributeCount));
+                cmd = null; //Commands.FirstOrDefault(item => item.HasName(command.GetAllNames()) && item.ParametersCount.Contains(command.ParametersCount.Max-command.FlagAttributeCount));
 
-            for (int i = 0; i < commands.Count; i++)
+            for (int i = 0; i < Commands.Count; i++)
             {
-                AbstractCommand item = commands[i];
+                AbstractCommand item = Commands[i];
                 if (item.HasName(command.GetAllNames()) && item.ParametersCount.Min == command.ParametersCount.Min)
                 {
                     cmd = item;
@@ -208,7 +211,8 @@ namespace Console.Core.CommandSystem.Commands
                 return;
             }
 
-            commands.Add(command);
+            Commands.Add(command);
+            SortCommands();
 
             string ToString(List<string> list)
             {
@@ -237,7 +241,7 @@ namespace Console.Core.CommandSystem.Commands
         {
             AbstractCommand command = GetCommand(commandName, paramsCount);
 
-            commands.Remove(command);
+            Commands.Remove(command);
         }
 
 
@@ -247,7 +251,7 @@ namespace Console.Core.CommandSystem.Commands
         /// <param name="command">Command to Remove</param>
         public static void RemoveCommand(AbstractCommand command)
         {
-            commands.Remove(command);
+            Commands.Remove(command);
         }
     }
 }

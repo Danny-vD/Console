@@ -19,7 +19,7 @@ namespace Console.CLI
     internal class Program
     {
         [Property("logs.cli.mute")]
-        private bool MuteLogs
+        public static bool MuteLogs
         {
             get => Logger.Mute;
             set => Logger.Mute = value;
@@ -78,6 +78,7 @@ namespace Console.CLI
             //};
             //CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
             CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath);
+            PropertyAttributeUtils.AddProperties<Program>();
             //new EnvInitializer().Initialize();
             //new DefaultConverterInitializer().Initialize();
 
@@ -93,12 +94,14 @@ namespace Console.CLI
                     cm.EnterCommand($"run " + args[i]);
                 }
             }
+            ConsoleBuilderInput bi = new ConsoleBuilderInput();
 
             while (true)
             {
-                System.Console.Write($"{Directory.GetCurrentDirectory().Replace(initDir, "").Replace('\\', '/')}/>");
+                //System.Console.Write($"{Directory.GetCurrentDirectory().Replace(initDir, "").Replace('\\', '/')}/>");
 
-                string cmd = CommandBuilder.CreateCommand();
+
+                string cmd = CommandBuilder.BuildCommand(bi);//CommandBuilder.CreateCommand();
 
                 //string cmd = System.Console.ReadLine();
                 //if (cmd != null && cmd.ToLower() == "exit") break;
@@ -114,7 +117,7 @@ namespace Console.CLI
             while (true)
             {
                 AConsoleManager.Instance.InvokeOnTick();
-                Thread.Sleep((int) (ConsoleTick * 1000));
+                Thread.Sleep((int)(ConsoleTick * 1000));
             }
         }
     }

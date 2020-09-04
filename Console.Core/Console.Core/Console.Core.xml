@@ -33,7 +33,7 @@
         </member>
         <member name="F:Console.Core.AConsoleManager.ExpanderManager">
             <summary>
-            Expander System that allows to Expand parts of commands(Environment System)
+            Expander System that allows to Expand parts of Commands(Environment System)
             </summary>
         </member>
         <member name="M:Console.Core.AConsoleManager.InvokeLogEvent(System.String)">
@@ -56,6 +56,12 @@
             <summary>
             The Object Selector
             </summary>
+        </member>
+        <member name="M:Console.Core.AConsoleManager.LoadCommands(Console.Core.ConsoleInitOptions)">
+            <summary>
+            Loads the Default Commands as Specified.
+            </summary>
+            <param name="options">Default Command Options</param>
         </member>
         <member name="M:Console.Core.AConsoleManager.#ctor(Console.Core.ConsoleInitOptions)">
             <summary>
@@ -164,7 +170,7 @@
         </member>
         <member name="T:Console.Core.AObjectSelector">
             <summary>
-            Selector that allows for selected objects to be passed to commands as well.
+            Selector that allows for selected objects to be passed to Commands as well.
             </summary>
         </member>
         <member name="P:Console.Core.AObjectSelector.SelectedObjects">
@@ -202,113 +208,137 @@
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.AutoFillProvider">
             <summary>
-            
+            Abstract AutoFillProvider.
+            Is used to provide AutoFill Suggestions while typing a command
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.AutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+        <member name="M:Console.Core.CommandSystem.Builder.AutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
             <summary>
-            
+            Determines if the Provider can Provide Useful AutoFill Suggestions
             </summary>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <returns></returns>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.AutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
             <summary>
-            
+            Returns the Auto Fill Entries that are useful in the current Context.
             </summary>
-            <param name="start"></param>
-            <returns></returns>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider">
             <summary>
-            
+            Provides Boolean Values as AutoFill Suggestions
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+        <member name="M:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
             <summary>
-            
+            Determines if the Provider can Provide Useful AutoFill Suggestions
             </summary>
-            <param name="builder"></param>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <returns></returns>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
             <summary>
-            
+            Returns the Auto Fill Entries that are useful in the current Context.
             </summary>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <param name="start"></param>
-            <returns></returns>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillAttribute">
             <summary>
-            
+            When a Parameter Gets Decorated with the CommandAutoFillAttribute it enables the CommandBuilder to Suggest Possible Command Names for this Parameter
             </summary>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider">
             <summary>
-            
+            Provides Command Names as AutoFill Suggestions
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+        <member name="M:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
             <summary>
-            
+            Determines if the Provider can Provide Useful AutoFill Suggestions
             </summary>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <returns></returns>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
             <summary>
-            
+            Returns the Auto Fill Entries that are useful in the current Context.
             </summary>
-            <param name="start"></param>
-            <returns></returns>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.CommandBuilder">
             <summary>
-            
+            Class Used to Build Commands with AutoFill Capabilites
             </summary>
         </member>
-        <member name="P:Console.Core.CommandSystem.Builder.CommandBuilder.Complete">
+        <member name="F:Console.Core.CommandSystem.Builder.CommandBuilder.Providers">
             <summary>
-            
+            The AutoFillProvider List
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.Remove">
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.AddProvider(Console.Core.CommandSystem.Builder.AutoFillProvider)">
             <summary>
-            
+            Adds the Specified AutoFill Provider to the CommandBuilder System
+            </summary>
+            <param name="provider">The Provider to be Added</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.AddProvider(System.Collections.Generic.IEnumerable{Console.Core.CommandSystem.Builder.AutoFillProvider})">
+            <summary>
+            Adds the Specified AutoFill Providers to the CommandBuilder System
+            </summary>
+            <param name="providers">The Providers to be Added</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.BuildCommand(Console.Core.CommandSystem.Builder.ICommandBuilderInput,System.Boolean)">
+            <summary>
+            This is a Blocking Call.
+            Builds a Command based on the Input.
+            </summary>
+            <param name="input">Input Abstraction</param>
+            <param name="prefix">If true will write the prefix infront of the command</param>
+            <returns>Built Command</returns>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Builder.CommandBuilder.IsCompleted">
+            <summary>
+            Is true if the Command was Built
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.CompletePart">
+        <member name="P:Console.Core.CommandSystem.Builder.CommandBuilder.Cursor">
             <summary>
-            
+            The Cursor Position of the Builder
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.Append(System.Char)">
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.Input(System.ConsoleKeyInfo)">
             <summary>
-            
+            Handles the Input From the Console
             </summary>
-            <param name="character"></param>
+            <param name="info">Key Info</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.Clear">
+            <summary>
+            Clears the Command Builder
+            </summary>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.ToString">
             <summary>
-            
+            Returns the Command String
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Console.Core.CommandSystem.Builder.CommandBuilder.CreateCommand">
-            <summary>
-            
-            </summary>
-            <returns></returns>
+            <returns>Command String</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute">
             <summary>
-            
+            When a Parameter Gets Decorated with the EnumAutoFillAttribute it enables the CommandBuilder to Suggest Possible Enum Name Entry Values for this Parameter
             </summary>
         </member>
         <member name="F:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute.EnumType">
@@ -329,79 +359,215 @@
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider">
             <summary>
-            
+            Provides Enum Names as AutoFill Suggestions
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+        <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
             <summary>
-            
+            Determines if the Provider can Provide Useful AutoFill Suggestions
             </summary>
-            <param name="builder"></param>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <returns></returns>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
             <summary>
-            
+            Returns the Auto Fill Entries that are useful in the current Context.
             </summary>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <param name="start"></param>
-            <returns></returns>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.ICommandBuilder">
+            <summary>
+            Command Builder Interface
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Builder.ICommandBuilder.IsCompleted">
+            <summary>
+            If true the Command was Built.
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Builder.ICommandBuilder.Cursor">
+            <summary>
+            The Cursor Position
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilder.Clear">
+            <summary>
+            Clears the Command Builder
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilder.Input(System.ConsoleKeyInfo)">
+            <summary>
+            Handles the Input From the Console
+            </summary>
+            <param name="info">Key Info</param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilder.ToString">
+            <summary>
+            Returns the Command String
+            </summary>
+            <returns>Command String</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.ICommandBuilderInput">
+            <summary>
+            Abstaction that enables compatibility with multiple input types.
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Builder.ICommandBuilderInput.Abort">
+            <summary>
+            Gets or Sets the Value that indicates that the Current Command Build should be aborted
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilderInput.ReadKey">
+            <summary>
+            Blocking Call.
+            Does Wait until the User has Pressed a Key
+            </summary>
+            <returns>The Pressed Key Info</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilderInput.Write(System.String)">
+            <summary>
+            Writes a String to the Input
+            </summary>
+            <param name="str"></param>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilderInput.ResetLine">
+            <summary>
+            Deletes all Content of the Line and Sets the Cursor Position to the Beginning of the Line
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilderInput.EndLine">
+            <summary>
+            Ends the Line
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.ICommandBuilderInput.SetCursorPosition(System.Int32)">
+            <summary>
+            Sets the Cursor Position in the InputField
+            </summary>
+            <param name="pos">New Cursor Position</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillAttribute">
+            <summary>
+            When a Parameter Gets Decorated with the DirAutoFillAttribute it enables the CommandBuilder to Suggest Possible Directory Entry Values for this Parameter
+            </summary>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillProvider">
+            <summary>
+            Provides Directory Paths as AutoFill Suggestions
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillAttribute">
+            <summary>
+            When a Parameter Gets Decorated with the FileAutoFillAttribute it enables the CommandBuilder to Suggest Possible File Entry Values for this Parameter
+            </summary>
+        </member>
+        <member name="P:Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillAttribute.SearchTerm">
+            <summary>
+            The Search Term that will be applied
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillAttribute.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="extension">Extension Search Term</param>
+        </member>
+        <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillProvider">
+            <summary>
+            Provides File Paths as AutoFill Suggestions
+            </summary>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillAttribute">
             <summary>
-            
+            When a Parameter Gets Decorated with the IOAutoFillAttribute it enables the CommandBuilder to Suggest Possible File System Entry Values for this Parameter
             </summary>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider">
             <summary>
-            
+            Provides File System Paths as AutoFill Suggestions
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+        <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
             <summary>
-            
+            Determines if the Provider can Provide Useful AutoFill Suggestions
             </summary>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <returns></returns>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
             <summary>
-            
+            Returns the Auto Fill Entries that are useful in the current Context.
             </summary>
-            <param name="start"></param>
-            <returns></returns>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillAttribute">
             <summary>
-            
+            When a Parameter Gets Decorated with the PropertyAutoFillAttribute it enables the CommandBuilder to Suggest Possible Property Values for this Parameter
             </summary>
         </member>
         <member name="T:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider">
             <summary>
-            
+            Provides Property Paths as AutoFill Suggestions
             </summary>
         </member>
-        <member name="M:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider.CanFill(Console.Core.CommandSystem.Builder.CommandBuilder,Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+        <member name="M:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
             <summary>
-            
+            Determines if the Provider can Provide Useful AutoFill Suggestions
             </summary>
-            <param name="builder"></param>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <returns></returns>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
             <summary>
-            
+            Returns the Auto Fill Entries that are useful in the current Context.
             </summary>
-            <param name="cmd"></param>
-            <param name="paramNum"></param>
-            <param name="start"></param>
-            <returns></returns>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
         </member>
         <member name="T:Console.Core.CommandSystem.CommandAttribute">
             <summary>
@@ -434,12 +600,12 @@
         </member>
         <member name="T:Console.Core.CommandSystem.CommandAttributeUtils">
             <summary>
-            Utilities for adding commands marked with the CommandAttribute
+            Utilities for adding Commands marked with the CommandAttribute
             </summary>
         </member>
         <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.AddCommands``1">
             <summary>
-            Call this to add all static commands from a type
+            Call this to add all static Commands from a type
             </summary>
             <typeparam name="T">Type containing the Commands.</typeparam>
         </member>
@@ -451,7 +617,7 @@
         </member>
         <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.AddCommands(System.Object)">
             <summary>
-            Call this to add all commands from an instance
+            Call this to add all Commands from an instance
             </summary>
             <param name="instance">The Instance containing the Commands.</param>
         </member>
@@ -462,7 +628,7 @@
             </summary>
             <param name="t">Type containing the Commands.</param>
             <param name="flags">Binding Flags for the Reflection Queries</param>
-            <returns>Array of Method Infos eligible to be used as commands.</returns>
+            <returns>Array of Method Infos eligible to be used as Commands.</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.GetStaticCommandData(System.Type)">
             <summary>
@@ -473,7 +639,7 @@
         </member>
         <member name="M:Console.Core.CommandSystem.CommandAttributeUtils.GetCommandData(System.Type,System.Object)">
             <summary>
-            Get all commands from a type/instance(only works for non static functions)
+            Get all Commands from a type/instance(only works for non static functions)
             </summary>
             <param name="t">Type containing the Commands</param>
             <param name="instance">The Instance of the Type containing the Commands.</param>
@@ -739,7 +905,7 @@
         <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Help(System.Boolean)">
             <summary>
             Help Command.
-            <param name="shortInfo">Flag -s that optionally returns a shortened version of the commands.</param>
+            <param name="shortInfo">Flag -s that optionally returns a shortened version of the Commands.</param>
             </summary>
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Help(System.String,System.Boolean)">
@@ -747,7 +913,7 @@
             Help Command
             </summary>
             <param name="commandName">Search Term</param>
-            <param name="shortInfo">Flag -s that optionally returns a shortened version of the commands.</param>
+            <param name="shortInfo">Flag -s that optionally returns a shortened version of the Commands.</param>
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.DefaultCommands.Echo(System.String)">
             <summary>
@@ -762,7 +928,7 @@
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands.AddExtensionsCommands">
             <summary>
-            Adds all Extension commands.
+            Adds all Extension Commands.
             </summary>
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.BuiltIn.ExtensionCommands.LoadFromFolder(System.String)">
@@ -907,7 +1073,7 @@
             Contains all Loaded Commands and Implements the Core Command Logic like Adding/Removing/Renaming/...
             </summary>
         </member>
-        <member name="F:Console.Core.CommandSystem.Commands.CommandManager.commands">
+        <member name="P:Console.Core.CommandSystem.Commands.CommandManager.Commands">
             <summary>
             All Commands in the Console System.
             </summary>
@@ -963,10 +1129,10 @@
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.CommandManager.GetCommands(System.String,System.Boolean)">
             <summary>
-            Returns a list of all commands with a given name
+            Returns a list of all Commands with a given name
             </summary>
             <param name="commandName">Command Name</param>
-            <param name="find">Should the Method also contain commands that contain the command name?</param>
+            <param name="find">Should the Method also contain Commands that contain the command name?</param>
             <returns>Commands that fit the search criteria</returns>
         </member>
         <member name="M:Console.Core.CommandSystem.Commands.CommandManager.AddCommand(Console.Core.CommandSystem.Commands.AbstractCommand)">
@@ -1819,6 +1985,17 @@
             </summary>
             <returns>String Representation</returns>
         </member>
+        <member name="T:Console.Core.ConsoleAttribute">
+            <summary>
+            Implements Eye Friendly ToString Method
+            </summary>
+        </member>
+        <member name="M:Console.Core.ConsoleAttribute.ToString">
+            <summary>
+            Returns the Name of the Attribute
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Console.Core.ConsoleCoreConfig">
             <summary>
             Core Configuration File of the Console System.
@@ -1832,6 +2009,16 @@
         <member name="P:Console.Core.ConsoleCoreConfig.CoreVersion">
             <summary>
             The Version of the Core Library
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.AggressiveILOptimizations">
+            <summary>
+            Enables Optimizations without the OptimizeILAttribute
+            </summary>
+        </member>
+        <member name="F:Console.Core.ConsoleCoreConfig.EnableILOptimizations">
+            <summary>
+            Enables IL Method Call Optimizations
             </summary>
         </member>
         <member name="F:Console.Core.ConsoleCoreConfig.WriteCommand">
@@ -1910,7 +2097,7 @@
         </member>
         <member name="F:Console.Core.ConsoleCoreConfig.AllowOverlappingCommands">
             <summary>
-            If true the Console does not check if commands can be invoked or are hidden by other commands.
+            If true the Console does not check if Commands can be invoked or are hidden by other Commands.
             </summary>
         </member>
         <member name="M:Console.Core.ConsoleCoreConfig.FindClosing(System.String,System.Char,System.Char,System.Int32,System.Int32)">
@@ -1927,7 +2114,7 @@
         <member name="T:Console.Core.ConsoleInitOptions">
             <summary>
             Console Startup Settings
-            Defines which default commands are added.
+            Defines which default Commands are added.
             </summary>
         </member>
         <member name="F:Console.Core.ConsoleInitOptions.All">
@@ -2118,6 +2305,7 @@
             Loads all Extensions contained in the specified folder.
             </summary>
             <param name="folder">Folder Containing Extensions</param>
+            <param name="create">If True the Specified Directory gets Created if it does not exist</param>
         </member>
         <member name="M:Console.Core.ExtensionSystem.ExtensionLoader.LoadExtensionFile(System.String)">
             <summary>
@@ -2176,6 +2364,121 @@
             <summary>
             Extensions get loaded as late as possible.
             </summary>
+        </member>
+        <member name="T:Console.Core.ILOptimizations.OptimizeILAttribute">
+            <summary>
+            Can be used to Signal that a Method can be Optimized to IL Code to avoid Reflection
+            </summary>
+        </member>
+        <member name="T:Console.Core.ILOptimizations.ILTools">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.CanOptimize(System.Reflection.MemberInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.SetPropertyDel``1(System.Reflection.PropertyInfo)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.SetProperty(System.Reflection.PropertyInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetPropertyDel``1(System.Reflection.PropertyInfo)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetProperty(System.Reflection.PropertyInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetConstructorDel``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetConstructorDel``1(System.Type)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetConstructor(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.SetField(System.Reflection.FieldInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetField(System.Reflection.FieldInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetFieldDel``1(System.Reflection.FieldInfo)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.SetFieldDel``1(System.Reflection.FieldInfo)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetMethodDel``1(System.Reflection.MethodInfo)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ILOptimizations.ILTools.GetMethod(System.Reflection.MethodInfo)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
         </member>
         <member name="T:Console.Core.LogSystem.ALogger">
             <summary>
@@ -2786,6 +3089,22 @@
             <param name="instance">The Instance</param>
             <param name="parameters">Parameters of the Invocation</param>
             <returns>Return of the Invocation</returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.Get(System.Reflection.FieldInfo,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.Set(System.Reflection.FieldInfo,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="instance"></param>
+            <param name="value"></param>
         </member>
         <member name="M:Console.Core.ReflectionSystem.ReflectionUtils.Get(System.Reflection.PropertyInfo,System.Object)">
             <summary>

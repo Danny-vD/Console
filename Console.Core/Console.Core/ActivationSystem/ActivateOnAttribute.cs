@@ -10,7 +10,7 @@ namespace Console.Core.ActivationSystem
     /// This attribute can be attached to a class.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
-    public class ActivateOnAttribute : Attribute
+    public class ActivateOnAttribute : ConsoleAttribute
     {
     }
 }

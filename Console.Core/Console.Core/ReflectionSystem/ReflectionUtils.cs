@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
+using Console.Core.ILOptimizations;
 using Console.Core.ReflectionSystem.Interfaces;
 
 
@@ -16,6 +19,53 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public static class ReflectionUtils
     {
+
+        private static readonly Dictionary<string, DynamicMethod> ILOptimizedCode = new Dictionary<string, DynamicMethod>();
+        private static DynamicMethod GetILOptimizedInvoke(MethodInfo info)
+        {
+            string key = "<>mthd." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
+            if (ILOptimizedCode.ContainsKey(key)) return ILOptimizedCode[key];
+            ILTools.ILLogger.Log("Optimizing Method: " + info);
+            ILOptimizedCode[key] = ILTools.GetMethod(info);
+            return ILOptimizedCode[key];
+        }
+        private static DynamicMethod GetILOptimizedFieldGet(FieldInfo info)
+        {
+            string key = "<>fg." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
+            if (ILOptimizedCode.ContainsKey(key)) return ILOptimizedCode[key];
+            ILTools.ILLogger.Log("Optimizing Field Get: " + info);
+            ILOptimizedCode[key] = ILTools.GetField(info);
+            return ILOptimizedCode[key];
+        }
+        private static DynamicMethod GetILOptimizedFieldSet(FieldInfo info)
+        {
+            string key = "<>fs." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
+            if (ILOptimizedCode.ContainsKey(key)) return ILOptimizedCode[key];
+            ILTools.ILLogger.Log("Optimizing Field Set: " + info);
+            ILOptimizedCode[key] = ILTools.SetField(info);
+            return ILOptimizedCode[key];
+        }
+
+        private static object InvokeFieldGetILOptimized(DynamicMethod del, object instance)
+        {
+            return del.Invoke(null, new[] { instance });
+        }
+        private static void InvokeFieldSetILOptimized(DynamicMethod del, object instance, object value)
+        {
+            del.Invoke(null, new[] { instance, value });
+        }
+
+        private static object InvokeILOptimized(DynamicMethod del, object instance, object[] parameters)
+        {
+            List<object> paramList = new List<object>();
+            if (instance != null)
+                paramList.Add(instance);
+            if (parameters != null)
+                paramList.AddRange(parameters);
+            return del.Invoke(null, paramList.ToArray());
+        }
+
+
         /// <summary>
         /// Invokes a Method Info without breaking the stack when the Invocation Fais.
         /// </summary>
@@ -25,13 +75,22 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Return of the Invocation</returns>
         public static object InvokePreserveStack(this MethodInfo info, object instance, object[] parameters)
         {
+            if (ConsoleCoreConfig.EnableILOptimizations && ILTools.CanOptimize(info))
+            {
+                return InvokeILOptimized(GetILOptimizedInvoke(info), instance, parameters);
+            }
             try
             {
                 return info.Invoke(instance, parameters);
             }
             catch (Exception e)
             {
-                Exception actual = e is TargetInvocationException ? e.InnerException : e;
+                Exception invoc = e;
+                while (invoc is TargetInvocationException)
+                {
+                    invoc = invoc.InnerException;
+                }
+                Exception actual = invoc;
                 if (actual == null)
                 {
                     throw new Exception("The exception is null and can not be thrown.");
@@ -59,6 +118,41 @@ namespace Console.Core.ReflectionSystem
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static object Get(this FieldInfo info, object instance)
+        {
+            //if (ConsoleCoreConfig.EnableILOptimizations && ILTools.CanOptimize(info))
+            //{
+            //    return InvokeFieldGetILOptimized(GetILOptimizedFieldGet(info), instance);
+            //}
+            return info.GetValue(instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="instance"></param>
+        /// <param name="value"></param>
+        public static void Set(this FieldInfo info, object instance, object value)
+        {
+            info.SetValue(instance, value);
+            return; //Below is bugged
+            if (ConsoleCoreConfig.EnableILOptimizations && ILTools.CanOptimize(info))
+            {
+                InvokeFieldSetILOptimized(GetILOptimizedFieldSet(info), instance, value);
+            }
+            else
+            {
+
+            }
+        }
+
+        /// <summary>
         /// Returns the Value of the Property.
         /// </summary>
         /// <param name="info">The Info Containing the Value</param>
@@ -77,7 +171,7 @@ namespace Console.Core.ReflectionSystem
         /// <param name="value">New Value</param>
         public static void Set(this PropertyInfo info, object instance, object value)
         {
-            InvokePreserveStack(info.SetMethod, instance, new[] {value});
+            InvokePreserveStack(info.SetMethod, instance, new[] { value });
         }
 
 

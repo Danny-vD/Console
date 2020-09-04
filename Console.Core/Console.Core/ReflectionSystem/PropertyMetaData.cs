@@ -40,7 +40,7 @@ namespace Console.Core.ReflectionSystem
         /// <param name="value">New Value</param>
         public void Set(object value)
         {
-            ReflectedInfo.SetValue(Instance, CommandAttributeUtils.ConvertToNonGeneric(value, ValueType));
+            ReflectedInfo.Set(Instance, CommandAttributeUtils.ConvertToNonGeneric(value, ValueType));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Value of the Property</returns>
         public object Get()
         {
-            return ReflectedInfo.GetValue(Instance);
+            return ReflectedInfo.Get(Instance);
         }
 
         /// <summary>

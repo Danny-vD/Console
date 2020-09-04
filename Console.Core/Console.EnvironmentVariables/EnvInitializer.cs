@@ -2,6 +2,7 @@
 using System.Reflection;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder;
 using Console.Core.ExpanderSystem;
 using Console.Core.ExtensionSystem;
 using Console.Core.LogSystem;
@@ -64,6 +65,7 @@ namespace Console.EnvironmentVariables
         /// </summary>
         protected override void Initialize()
         {
+            CommandBuilder.AddProvider(new EnvironmentVariableAutoFillProvider());
             ConsoleCoreConfig.AddEscapeChar(EnvironmentVariableManager.ActivationPrefix);
             PropertyAttributeUtils.AddProperties<EnvInitializer>();
             EnvironmentVariableManager.AddProvider(DefaultVariables.Instance);

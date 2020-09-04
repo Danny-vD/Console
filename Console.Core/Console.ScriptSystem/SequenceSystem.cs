@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using Console.Core;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
 using Console.Core.CommandSystem.Commands;
+using Console.Core.ILOptimizations;
 using Console.Core.LogSystem;
 using Console.ScriptSystem.Async;
 using Console.ScriptSystem.Deblocker;
@@ -116,6 +118,7 @@ namespace Console.ScriptSystem
         /// <param name="name">Name of the new Sequence</param>
         /// <param name="overwrite">If true an existing sequence gets overwritten if it exists.</param>
         [Command(SequenceCreate, "Creates a Sequence with a specified name", "create-seq")]
+        [OptimizeIL]
         public static void CreateSequence(string name, [CommandFlag] bool overwrite)
         {
             if (Sequences.ContainsKey(name))
@@ -136,7 +139,8 @@ namespace Console.ScriptSystem
         /// <param name="sequence">Sequence Name</param>
         /// <param name="parameterName">Parameter Name</param>
         [Command(SequenceAddParameter, "Adds a Parameter to the Sequence", "seq-add-param")]
-        private static void AddParameterToSequence(string sequence, string parameterName)
+        [OptimizeIL]
+        public static void AddParameterToSequence(string sequence, string parameterName)
         {
             if (Sequences.ContainsKey(sequence))
             {
@@ -157,6 +161,7 @@ namespace Console.ScriptSystem
         [Command(SequenceAdd,
             "Adds a Command to a Sequence. If --create is passed the Sequence will be created if not existing",
             "add-seq")]
+        [OptimizeIL]
         public static void AddToSequence(string name, string command, [CommandFlag] bool create)
         {
             if (!Sequences.ContainsKey(name))
@@ -181,6 +186,7 @@ namespace Console.ScriptSystem
         /// </summary>
         /// <param name="name">Name of the Sequence</param>
         [Command(SequenceDelete, "Deletes a Sequence by name", "delete-seq")]
+        [OptimizeIL]
         public static void DeleteSequence(string name)
         {
             if (!Sequences.ContainsKey(name))
@@ -199,6 +205,7 @@ namespace Console.ScriptSystem
         /// Deletes all Loaded Sequences.
         /// </summary>
         [Command("clear-sequences", "Clears all Loaded Sequences", "clear-seq")]
+        [OptimizeIL]
         public static void ClearSequences()
         {
             int count = Sequences.Count;
@@ -240,14 +247,21 @@ namespace Console.ScriptSystem
         /// </summary>
         /// <param name="name"></param>
         [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
+        [OptimizeIL]
         public static void RunSequence(string name)
         {
             RunSequence(name, "");
         }
 
 
+        /// <summary>
+        /// Runs a Sequence as Async
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="parameter"></param>
         [Command("run-seq-async", "Runs a Sequence in \"background\".")]
-        private static void RunAsync(string name, string parameter)
+        [OptimizeIL]
+        public static void RunAsync(string name, string parameter)
         {
 
             if (!Sequences.ContainsKey(name))
@@ -298,6 +312,7 @@ namespace Console.ScriptSystem
         /// <param name="name"></param>
         /// <param name="parameter"></param>
         [Command(SequenceRun, "Runs a sequence by name", "run-seq")]
+        [OptimizeIL]
         public static void RunSequence(string name, string parameter)
         {
             if (!Sequences.ContainsKey(name))
@@ -340,7 +355,7 @@ namespace Console.ScriptSystem
         /// <param name="file">Source File</param>
         /// <param name="create">If true will create the Sequence if it does not exist</param>
         [Command(SequenceLoad, "Loads the Sequence Content from File", "load-seq")]
-        public static void LoadSequence(string name, string file, [CommandFlag] bool create)
+        public static void LoadSequence(string name, [FileAutoFill] string file, [CommandFlag] bool create)
         {
             if (!File.Exists(file))
             {
@@ -383,7 +398,7 @@ namespace Console.ScriptSystem
         /// <param name="commandName">The Command name</param>
         [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file",
             "file-to-cmd")]
-        private static void CreateCommandFromFile(string fileName, string commandName)
+        private static void CreateCommandFromFile([FileAutoFill]string fileName, string commandName)
         {
             CreateCommandFromFile(fileName, commandName, "Runs File: " + fileName);
         }
@@ -397,7 +412,7 @@ namespace Console.ScriptSystem
         /// <param name="helpText">The Help Text that will be set for this command</param>
         [Command(FileToCommand, "Creates and Adds a Command that when invoked will run the specified file",
             "file-to-cmd")]
-        private static void CreateCommandFromFile(string fileName, string commandName, string helpText)
+        private static void CreateCommandFromFile([FileAutoFill]string fileName, string commandName, string helpText)
         {
             Command cmd = new Command(commandName,
                 () => ScriptSystem.RunFile(fileName));
@@ -434,8 +449,14 @@ namespace Console.ScriptSystem
             CommandManager.AddCommand(cmd);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="command"></param>
         [Command("for-all", "Runs the specified command for each Item in the List")]
-        private static void ForAll(string list, string command)
+        [OptimizeIL]
+        public static void ForAll(string list, string command)
         {
             string[] li = list.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim())
                 .Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();

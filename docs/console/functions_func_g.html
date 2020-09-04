@@ -105,6 +105,17 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>GetAttributes&lt; K, V &gt;()
 : <a class="el" href="d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html#a2abc224d7fc84070c5d29256b13f9d72">Console.Core.ReflectionSystem.ReflectionUtils</a>
 </li>
+<li>GetAutoFills()
+: <a class="el" href="d7/d2b/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_auto_fill_provider.html#a170848b04f7b6b290b81aa372d0d5e7b">Console.Core.CommandSystem.Builder.AutoFillProvider</a>
+, <a class="el" href="d2/d6e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_bool_auto_fill_1_1_bool_auto_fill_provider.html#a2673376f44e199bfeac9528a4becabbc">Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider</a>
+, <a class="el" href="d2/dab/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_auto_fill_1_1_command_auto_fill_provider.html#a8526d41350cb368d0f8958ba58c77c80">Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider</a>
+, <a class="el" href="dd/dc4/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_provider.html#a9c20322802823eff24110c33eaca34d2">Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider</a>
+, <a class="el" href="d9/d26/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_provider.html#a3fa87720ad54ca273701bfa7e4728e07">Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillProvider</a>
+, <a class="el" href="d4/d5f/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_provider.html#abe104d076c4c623415b9ee8c254ee48c">Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillProvider</a>
+, <a class="el" href="d8/db8/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_i_o_auto_fill_provider.html#a957e0fc175578e24beefed291c866bf9">Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider</a>
+, <a class="el" href="de/dcf/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_property_auto_fill_1_1_property_auto_fill_provider.html#a4448e2e997b56170e993845eb99fe761">Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider</a>
+, <a class="el" href="d2/d7f/class_console_1_1_environment_variables_1_1_environment_variable_auto_fill_provider.html#aba4758b6e51bb2c27bbddf00affb547d">Console.EnvironmentVariables.EnvironmentVariableAutoFillProvider</a>
+</li>
 <li>GetBlockName()
 : <a class="el" href="d4/dab/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_settings.html#ae8cb45a1f34e9fb091de3548e7a894e7">Console.ScriptSystem.Deblocker.DeblockerSettings</a>
 </li>
@@ -135,6 +146,9 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 </li>
 <li>GetCurrent()
 : <a class="el" href="d8/dd1/class_console_1_1_script_system_1_1_async_1_1_async_runner.html#aee0b37414baa8914419b16f065abd767">Console.ScriptSystem.Async.AsyncRunner</a>
+</li>
+<li>GetCurrentParameterPartIndex()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ad9e580fa5eaae5f0b5225ed81976718e">Console.Core.CommandSystem.Builder.CommandBuilder</a>
 </li>
 <li>GetEndOfLine()
 : <a class="el" href="dc/de1/class_console_1_1_script_system_1_1_deblocker_1_1_deblocker_collection.html#a80396c9f67059e7bca8b5cceee66162b">Console.ScriptSystem.Deblocker.DeblockerCollection</a>
@@ -167,7 +181,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="d7/dc7/class_console_1_1_evaluator_1_1_core_1_1_parser.html#ae2dcbe1bae94812d38c5ce5f4c437d86">Console.Evaluator.Core.Parser</a>
 </li>
 <li>GetLogger()
-: <a class="el" href="d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#abde1ecfb9c5d35c0067dead693b13682">Console.Core.ExtensionSystem.AExtensionInitializer</a>
+: <a class="el" href="d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#a73bb0b70e9230108adaf8fee4ed9a100">Console.Core.ExtensionSystem.AExtensionInitializer</a>
 </li>
 <li>GetMemberInfo()
 : <a class="el" href="d7/dc7/class_console_1_1_evaluator_1_1_core_1_1_parser.html#a6c1499d0c6707a1d94b47783272794d1">Console.Evaluator.Core.Parser</a>
@@ -194,14 +208,32 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>GetParameterValue()
 : <a class="el" href="d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#aaa6739820f615a1ed2fdbf2660c273fb">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection</a>
 </li>
+<li>GetPart()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a4907a06c9fc5e23b71a7f2919c9a4722">Console.Core.CommandSystem.Builder.CommandBuilder</a>
+</li>
+<li>GetPartBounds()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a1e58bf254c536d13333a921eea2ab74e">Console.Core.CommandSystem.Builder.CommandBuilder</a>
+</li>
 <li>GetPassword()
 : <a class="el" href="dc/d76/class_console_1_1_networking_1_1_authentication_1_1_cryptography.html#a8b07cbd94e33364735969e175d538b5a">Console.Networking.Authentication.Cryptography</a>
+</li>
+<li>GetPossibleAutoFills()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a217a3c9e9a1b42d7b154428accde840e">Console.Core.CommandSystem.Builder.CommandBuilder</a>
+</li>
+<li>GetPossibleCommands()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a594a2b6e90c99800d3d1af4679c8ceff">Console.Core.CommandSystem.Builder.CommandBuilder</a>
+</li>
+<li>GetPossibleProviders()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a8c3cc0b8f52611c51e9b2bf7a4be79a3">Console.Core.CommandSystem.Builder.CommandBuilder</a>
+</li>
+<li>GetPrefix()
+: <a class="el" href="dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a48750c7c5734ca2796b966a8fb73d222">Console.Core.CommandSystem.Builder.CommandBuilder</a>
 </li>
 <li>GetPropertiesWithAttribute&lt; T &gt;()
 : <a class="el" href="d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html#af4345377258ef4dadd3b807b5027f436">Console.Core.ReflectionSystem.ReflectionUtils</a>
 </li>
 <li>GetProperty()
-: <a class="el" href="d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a59e9847984c468ddaf19e412131adc04">Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands</a>
+: <a class="el" href="d3/d00/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_property_commands.html#a3e93c3b0ca45912caee6c9d15d93e95c">Console.Core.CommandSystem.Commands.BuiltIn.PropertyCommands</a>
 , <a class="el" href="df/d00/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code_call_method.html#a291d54611c1bac3048b947919779cdc7">Console.Evaluator.Core.OPCodes.OPCodeCallMethod</a>
 </li>
 <li>GetPropertyValue()

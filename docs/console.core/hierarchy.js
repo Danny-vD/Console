@@ -50,28 +50,45 @@ var hierarchy =
     ] ],
     [ "Console.Core.AObjectSelector", "d5/d9c/class_console_1_1_core_1_1_a_object_selector.html", null ],
     [ "Attribute", null, [
-      [ "Console.Core.ActivationSystem.ActivateOnAttribute", "df/d3d/class_console_1_1_core_1_1_activation_system_1_1_activate_on_attribute.html", null ],
-      [ "Console.Core.CommandSystem.CommandAttribute", "dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute.html", null ],
-      [ "Console.Core.CommandSystem.CommandFlagAttribute", "d0/dfb/class_console_1_1_core_1_1_command_system_1_1_command_flag_attribute.html", null ],
-      [ "Console.Core.CommandSystem.SelectionPropertyAttribute", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html", null ],
-      [ "Console.Core.PropertySystem.PropertyAttribute", "dc/dfa/class_console_1_1_core_1_1_property_system_1_1_property_attribute.html", null ]
+      [ "Console.Core.ConsoleAttribute", "dd/d7a/class_console_1_1_core_1_1_console_attribute.html", [
+        [ "Console.Core.ActivationSystem.ActivateOnAttribute", "df/d3d/class_console_1_1_core_1_1_activation_system_1_1_activate_on_attribute.html", null ],
+        [ "Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillAttribute", "df/d39/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_auto_fill_1_1_command_auto_fill_attribute.html", null ],
+        [ "Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillAttribute", "d7/df1/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_attribute.html", null ],
+        [ "Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillAttribute", "da/d8e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_attribute.html", null ],
+        [ "Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillAttribute", "d3/dd9/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_attribute.html", null ],
+        [ "Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillAttribute", "d1/dc9/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_i_o_auto_fill_attribute.html", null ],
+        [ "Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillAttribute", "d2/df3/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_property_auto_fill_1_1_property_auto_fill_attribute.html", null ],
+        [ "Console.Core.CommandSystem.CommandAttribute", "dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute.html", null ],
+        [ "Console.Core.CommandSystem.CommandFlagAttribute", "d0/dfb/class_console_1_1_core_1_1_command_system_1_1_command_flag_attribute.html", null ],
+        [ "Console.Core.CommandSystem.SelectionPropertyAttribute", "d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html", null ],
+        [ "Console.Core.PropertySystem.PropertyAttribute", "dc/dfa/class_console_1_1_core_1_1_property_system_1_1_property_attribute.html", null ]
+      ] ]
     ] ],
-    [ "Console.Core.CommandSystem.Commands.Command", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Builder.AutoFillProvider", "d7/d2b/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_auto_fill_provider.html", [
+      [ "Console.Core.CommandSystem.Builder.BoolAutoFill.BoolAutoFillProvider", "d2/d6e/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_bool_auto_fill_1_1_bool_auto_fill_provider.html", null ],
+      [ "Console.Core.CommandSystem.Builder.CommandAutoFill.CommandAutoFillProvider", "d2/dab/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_auto_fill_1_1_command_auto_fill_provider.html", null ],
+      [ "Console.Core.CommandSystem.Builder.EnumAutoFill.EnumAutoFillProvider", "dd/dc4/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_enum_auto_fill_1_1_enum_auto_fill_provider.html", null ],
+      [ "Console.Core.CommandSystem.Builder.IOAutoFill.Directories.DirAutoFillProvider", "d9/d26/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_directories_1_1_dir_auto_fill_provider.html", null ],
+      [ "Console.Core.CommandSystem.Builder.IOAutoFill.Files.FileAutoFillProvider", "d4/d5f/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_files_1_1_file_auto_fill_provider.html", null ],
+      [ "Console.Core.CommandSystem.Builder.IOAutoFill.IOAutoFillProvider", "d8/db8/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_o_auto_fill_1_1_i_o_auto_fill_provider.html", null ],
+      [ "Console.Core.CommandSystem.Builder.PropertyAutoFill.PropertyAutoFillProvider", "de/dcf/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_property_auto_fill_1_1_property_auto_fill_provider.html", null ]
+    ] ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
-    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9, TParam10, TParam11, TParam12, TParam13, TParam14 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
+    [ "Console.Core.CommandSystem.Commands.Command< TParam0, TParam1, TParam2, TParam3, TParam4, TParam5, TParam6, TParam7, TParam8, TParam9 >", "db/d24/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command.html", null ],
     [ "Console.Core.CommandSystem.CommandAttributeUtils", "da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html", null ],
     [ "Console.Core.CommandSystem.Commands.CommandManager", "de/d16/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_command_manager.html", null ],
     [ "Console.Core.CommandSystem.CommandParser", "d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html", null ],
@@ -93,6 +110,10 @@ var hierarchy =
       ] ],
       [ "Console.Core.ReflectionSystem.ParameterMetaData", "d5/dc5/class_console_1_1_core_1_1_reflection_system_1_1_parameter_meta_data.html", null ]
     ] ],
+    [ "Console.Core.CommandSystem.Builder.ICommandBuilder", "d9/d2f/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder.html", [
+      [ "Console.Core.CommandSystem.Builder.CommandBuilder", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html", null ]
+    ] ],
+    [ "Console.Core.CommandSystem.Builder.ICommandBuilderInput", "d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html", null ],
     [ "Console.Core.ReflectionSystem.Interfaces.IGettable", "d3/d7a/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_gettable.html", [
       [ "Console.Core.ReflectionSystem.Interfaces.IValueTypeContainer", "da/da7/interface_console_1_1_core_1_1_reflection_system_1_1_interfaces_1_1_i_value_type_container.html", null ]
     ] ],

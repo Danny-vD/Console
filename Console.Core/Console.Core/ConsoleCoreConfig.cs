@@ -25,6 +25,19 @@ namespace Console.Core
         [Property("version.core")]
         public static Version CoreVersion => Assembly.GetExecutingAssembly().GetName().Version;
 
+
+
+        /// <summary>
+        /// Enables Optimizations without the OptimizeILAttribute
+        /// </summary>
+        [Property("core.il.aggressive")]
+        public static bool AggressiveILOptimizations = false;
+        /// <summary>
+        /// Enables IL Method Call Optimizations
+        /// </summary>
+        [Property("core.il.enable")]
+        public static bool EnableILOptimizations = false;
+
         /// <summary>
         /// Should the Console print the entered command?
         /// </summary>
@@ -67,11 +80,14 @@ namespace Console.Core
         /// <summary>
         /// The Character that is used to seperate input in the console.
         /// </summary>
-        [Property("core.input.flagprefix")] public static string CommandFlagPrefix = "--";
+        [Property("core.input.flagprefix")]
+        public static string CommandFlagPrefix = "--";
+
         /// <summary>
         /// The Character that is used to escape the EscapableChars
         /// </summary>
-        [Property("core.input.escapechar")] public static char EscapeChar = '\\';
+        [Property("core.input.escapechar")]
+        public static char EscapeChar = '\\';
 
         /// <summary>
         /// Console Newline Character
@@ -86,7 +102,7 @@ namespace Console.Core
         /// <summary>
         /// Backing Field of the Escapable Character Array
         /// </summary>
-        private static readonly List<char> _escapableChars = new List<char> {StringChar};
+        private static readonly List<char> _escapableChars = new List<char> { StringChar };
 
         /// <summary>
         /// Adds a Character to the EscapeChars
@@ -124,7 +140,7 @@ namespace Console.Core
         }
 
         /// <summary>
-        /// If true the Console does not check if commands can be invoked or are hidden by other commands.
+        /// If true the Console does not check if Commands can be invoked or are hidden by other Commands.
         /// </summary>
         [Property("core.commands.allowoverlapping")]
         public static bool AllowOverlappingCommands;

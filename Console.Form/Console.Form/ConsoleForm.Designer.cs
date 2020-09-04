@@ -97,6 +97,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ConsoleForm";
             this.Text = "ConsoleForm";
+            this.Load += new System.EventHandler(this.ConsoleForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

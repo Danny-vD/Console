@@ -2,9 +2,10 @@
 
 namespace Console.Core.CommandSystem.Builder.CommandAutoFill
 {
+
     /// <summary>
-    /// 
+    /// When a Parameter Gets Decorated with the CommandAutoFillAttribute it enables the CommandBuilder to Suggest Possible Command Names for this Parameter
     /// </summary>
     [AttributeUsage(AttributeTargets.Parameter)]
-    public class CommandAutoFillAttribute : Attribute { }
+    public class CommandAutoFillAttribute : ConsoleAttribute { }
 }

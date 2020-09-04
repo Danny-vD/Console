@@ -26,6 +26,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\Console.CLI.xml</DocumentationFile>
     <WarningsAsErrors>1591</WarningsAsErrors>
+    <NoWarn>1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +51,7 @@
     <Compile Include="CLIConsoleManager.cs" />
     <Compile Include="CLIObjSelector.cs" />
     <Compile Include="CLIObjectSelectionCommands.cs" />
+    <Compile Include="ConsoleBuilderInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
