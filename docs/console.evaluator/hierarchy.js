@@ -3,6 +3,8 @@ var hierarchy =
     [ "AExtensionInitializer", null, [
       [ "Console.Evaluator.EvalInitializer", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html", null ]
     ] ],
+    [ "Console.Evaluator.ConditionalCommands", "d6/dc0/class_console_1_1_evaluator_1_1_conditional_commands.html", null ],
+    [ "Console.Evaluator.Eval", "d2/d29/class_console_1_1_evaluator_1_1_eval.html", null ],
     [ "Console.Evaluator.Core.Evaluator", "db/d29/class_console_1_1_evaluator_1_1_core_1_1_evaluator.html", null ],
     [ "Exception", null, [
       [ "Console.Evaluator.Core.ParserException", "d7/d43/class_console_1_1_evaluator_1_1_core_1_1_parser_exception.html", null ],
@@ -32,8 +34,5 @@ var hierarchy =
     ] ],
     [ "Console.Evaluator.Core.Interfaces.IVariableBag", "de/dc6/interface_console_1_1_evaluator_1_1_core_1_1_interfaces_1_1_i_variable_bag.html", null ],
     [ "Console.Evaluator.Core.Parser", "d7/dc7/class_console_1_1_evaluator_1_1_core_1_1_parser.html", null ],
-    [ "Console.Evaluator.Core.Tokenizer", "d8/d94/class_console_1_1_evaluator_1_1_core_1_1_tokenizer.html", null ],
-    [ "VariableContainer", null, [
-      [ "Console.Evaluator.EvalVariableProvider", "d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html", null ]
-    ] ]
+    [ "Console.Evaluator.Core.Tokenizer", "d8/d94/class_console_1_1_evaluator_1_1_core_1_1_tokenizer.html", null ]
 ];

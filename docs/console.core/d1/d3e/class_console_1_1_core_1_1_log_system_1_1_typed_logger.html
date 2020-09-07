@@ -191,18 +191,19 @@ Properties</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00054">54</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span> (logPrefixFirst)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                ALogger log = <span class="keyword">new</span> PrefixLogger(prefix);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                log.WrapAround(<span class="keyword">new</span> TypedLogger());</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> log;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            TypedLogger pfx = <span class="keyword">new</span> TypedLogger();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            pfx.WrapAround(<span class="keyword">new</span> PrefixLogger(prefix));</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> pfx;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00057">57</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (logPrefixFirst)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                ALogger log = <span class="keyword">new</span> PrefixLogger(prefix);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                log.WrapAround(<span class="keyword">new</span> TypedLogger());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> log;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            TypedLogger pfx = <span class="keyword">new</span> TypedLogger();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            pfx.WrapAround(<span class="keyword">new</span> PrefixLogger(prefix));</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">return</span> pfx;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,10 +241,10 @@ Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a7ba23daf870dbaa8d7064b72c74ab793">Console.Core.LogSystem.ALogger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00025">25</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            base.Log(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f">LogPrefix</a> + value);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00028">28</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            base.Log(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f">LogPrefix</a> + value);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -281,10 +282,10 @@ Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#a857b276c6c032113f105cf46cc21b2b7">Console.Core.LogSystem.ALogger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00043">43</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            base.LogError(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1">LogErrorPrefix</a> + value);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00046">46</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            base.LogError(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1">LogErrorPrefix</a> + value);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -322,10 +323,10 @@ Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#abb3dd96e3e77567df95e542eaa36067b">Console.Core.LogSystem.ALogger</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00034">34</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            base.LogWarning(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a">LogWarningPrefix</a> + value);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00037">37</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            base.LogWarning(<a class="code" href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a">LogWarningPrefix</a> + value);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -352,8 +353,8 @@ Properties</h2></td></tr>
 
 <p>The Prefix that is used by error logs </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="stringliteral">&quot;[Error]&quot;</span>;</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00022">22</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="stringliteral">&quot;[Error]&quot;</span>;</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -379,8 +380,8 @@ Properties</h2></td></tr>
 
 <p>The Prefix that is used by normal Logs </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00011">11</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="stringliteral">&quot;[Log]&quot;</span>;</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="stringliteral">&quot;[Log]&quot;</span>;</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -406,8 +407,8 @@ Properties</h2></td></tr>
 
 <p>The Prefix that is used by warning logs </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="stringliteral">&quot;[Warning]&quot;</span>;</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d0/dd2/_typed_logger_8cs_source.html">TypedLogger.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="stringliteral">&quot;[Warning]&quot;</span>;</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -416,9 +417,9 @@ Properties</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_a88b6cc89a86ed6f62ebceecafb65521f"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f">Console.Core.LogSystem.TypedLogger.LogPrefix</a></div><div class="ttdeci">string LogPrefix</div><div class="ttdoc">The Prefix that is used by normal Logs</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00011">TypedLogger.cs:11</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_a9e150c9c08e3c2ab64421ab92abc91a1"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1">Console.Core.LogSystem.TypedLogger.LogErrorPrefix</a></div><div class="ttdeci">string LogErrorPrefix</div><div class="ttdoc">The Prefix that is used by error logs</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00019">TypedLogger.cs:19</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_ab5562f315fbec53737603adeacd2c30a"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a">Console.Core.LogSystem.TypedLogger.LogWarningPrefix</a></div><div class="ttdeci">string LogWarningPrefix</div><div class="ttdoc">The Prefix that is used by warning logs</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00015">TypedLogger.cs:15</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_a88b6cc89a86ed6f62ebceecafb65521f"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f">Console.Core.LogSystem.TypedLogger.LogPrefix</a></div><div class="ttdeci">string LogPrefix</div><div class="ttdoc">The Prefix that is used by normal Logs</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00012">TypedLogger.cs:12</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_a9e150c9c08e3c2ab64421ab92abc91a1"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1">Console.Core.LogSystem.TypedLogger.LogErrorPrefix</a></div><div class="ttdeci">string LogErrorPrefix</div><div class="ttdoc">The Prefix that is used by error logs</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00022">TypedLogger.cs:22</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_typed_logger_html_ab5562f315fbec53737603adeacd2c30a"><div class="ttname"><a href="../../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a">Console.Core.LogSystem.TypedLogger.LogWarningPrefix</a></div><div class="ttdeci">string LogWarningPrefix</div><div class="ttdoc">The Prefix that is used by warning logs</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/_typed_logger_8cs_source.html#l00017">TypedLogger.cs:17</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

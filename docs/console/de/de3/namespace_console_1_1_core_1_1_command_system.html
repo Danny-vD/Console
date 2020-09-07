@@ -84,7 +84,8 @@ $(document).ready(function(){initNavTree('de/de3/namespace_console_1_1_core_1_1_
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">Console.Core.CommandSystem Namespace Reference</div>  </div>
 </div><!--header-->
@@ -95,6 +96,8 @@ $(document).ready(function(){initNavTree('de/de3/namespace_console_1_1_core_1_1_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:dc/de1/namespace_console_1_1_core_1_1_command_system_1_1_attributes"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de1/namespace_console_1_1_core_1_1_command_system_1_1_attributes.html">Attributes</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d3/d85/namespace_console_1_1_core_1_1_command_system_1_1_builder"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d85/namespace_console_1_1_core_1_1_command_system_1_1_builder.html">Builder</a></td></tr>
 <tr class="memdesc:d3/d85/namespace_console_1_1_core_1_1_command_system_1_1_builder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the Command <a class="el" href="../../d3/d85/namespace_console_1_1_core_1_1_command_system_1_1_builder.html" title="Contains the Command Builder / AutoFillProviders Implementations of the Console Library.">Builder</a> / AutoFillProviders Implementations of the <a class="el" href="../../d8/db5/namespace_console.html">Console</a> Library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,26 +107,126 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute.html">CommandAttribute</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command Attribute that only works on methods. Allows multiple Attributes on the same methods(this is a fancy way to create aliases without using the alias system :D)  <a href="../../dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da6/class_console_1_1_core_1_1_command_system_1_1_command_filter.html">CommandFilter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html">CommandAttributeUtils</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for adding <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a> marked with the <a class="el" href="../../dd/db6/class_console_1_1_core_1_1_command_system_1_1_command_attribute.html" title="Command Attribute that only works on methods. Allows multiple Attributes on the same methods(this is ...">CommandAttribute</a>  <a href="../../da/d28/class_console_1_1_core_1_1_command_system_1_1_command_attribute_utils.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dda/class_console_1_1_core_1_1_command_system_1_1_command_identity.html">CommandIdentity</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfb/class_console_1_1_core_1_1_command_system_1_1_command_flag_attribute.html">CommandFlagAttribute</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be used to optionally allow specifying of parameters in the Switch Syntax Parameters of type Boolean can be decorated with this, can be specified by specifying the parameter name  <a href="../../d0/dfb/class_console_1_1_core_1_1_command_system_1_1_command_flag_attribute.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/da0/class_console_1_1_core_1_1_command_system_1_1_command_manager.html">CommandManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all Loaded <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a> and Implements the <a class="el" href="../../de/d60/namespace_console_1_1_core.html" title="The Root Namespace of the Console.Core Library.">Core</a> Command Logic like Adding/Removing/Renaming/...  <a href="../../df/da0/class_console_1_1_core_1_1_command_system_1_1_command_manager.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html">CommandParser</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command Parser does the Parsing and Invocation of the Input Command  <a href="../../d6/d7f/class_console_1_1_core_1_1_command_system_1_1_command_parser.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html">SelectionPropertyAttribute</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be used to Specify that the Selected Objects should be passed to this parameter. This makes it impossible to specify the parameter in the command text.  <a href="../../d6/d38/class_console_1_1_core_1_1_command_system_1_1_selection_property_attribute.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfd/interface_console_1_1_core_1_1_command_system_1_1_i_command_filter.html">ICommandFilter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to Filter Available <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a>  <a href="../../df/dfd/interface_console_1_1_core_1_1_command_system_1_1_i_command_filter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aec08881788d22154a403d6af5eecb45c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45c">AmbiguityResolveResponse</a> { <a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45ca05d26e7d7c53744b903ae1f6f8a8c7ed">AmbiguityResolveResponse.Resolve</a> = 0, 
+<a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45ca8ce61dd2505effd96f937fa743b6491f">AmbiguityResolveResponse.Throw</a> = 1, 
+<a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45ca902b0d55fddef6f8d651fe1035b7d4bd">AmbiguityResolveResponse.Error</a> = 2, 
+<a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45ca0eaadb4fcb48a0a0ed7bc9868be9fbaa">AmbiguityResolveResponse.Warning</a> = 4
+ }</td></tr>
+<tr class="separator:aec08881788d22154a403d6af5eecb45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e42c955a2fa256055629e0f4922fa8e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#a6e42c955a2fa256055629e0f4922fa8e">AmbiguityResolveStrategy</a> { <a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#a6e42c955a2fa256055629e0f4922fa8ea05602ad27c432a05f26a92b6bc277994">AmbiguityResolveStrategy.Alphabetically</a> = 8, 
+<a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#a6e42c955a2fa256055629e0f4922fa8ea502996d9790340c5fd7b86a5b93b1c9f">AmbiguityResolveStrategy.Priority</a> = 16
+ }</td></tr>
+<tr class="separator:a6e42c955a2fa256055629e0f4922fa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html" title="The Console.Core.CommandSystem namespace contains the Parsing Logic as well as BuiltIn Commands and C...">Console.Core.CommandSystem</a> namespace contains the Parsing Logic as well as BuiltIn <a class="el" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html" title="The Console.Core.CommandSystem.Commands namespace contains BuiltIn Commands and the Command Implement...">Commands</a> and Classes Related to Command Execution. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="aec08881788d22154a403d6af5eecb45c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec08881788d22154a403d6af5eecb45c">&#9670;&nbsp;</a></span>AmbiguityResolveResponse</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45c">Console.Core.CommandSystem.AmbiguityResolveResponse</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aec08881788d22154a403d6af5eecb45ca05d26e7d7c53744b903ae1f6f8a8c7ed"></a>Resolve&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="aec08881788d22154a403d6af5eecb45ca8ce61dd2505effd96f937fa743b6491f"></a>Throw&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="aec08881788d22154a403d6af5eecb45ca902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="aec08881788d22154a403d6af5eecb45ca0eaadb4fcb48a0a0ed7bc9868be9fbaa"></a>Warning&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/df5/_command_manager_8cs_source.html#l00015">15</a> of file <a class="el" href="../../dd/df5/_command_manager_8cs_source.html">CommandManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        Resolve = 0,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        Throw = 1,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        Error = 2,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45ca05d26e7d7c53744b903ae1f6f8a8c7ed">Warning</a> = 4</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6e42c955a2fa256055629e0f4922fa8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e42c955a2fa256055629e0f4922fa8e">&#9670;&nbsp;</a></span>AmbiguityResolveStrategy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#a6e42c955a2fa256055629e0f4922fa8e">Console.Core.CommandSystem.AmbiguityResolveStrategy</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6e42c955a2fa256055629e0f4922fa8ea05602ad27c432a05f26a92b6bc277994"></a>Alphabetically&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="a6e42c955a2fa256055629e0f4922fa8ea502996d9790340c5fd7b86a5b93b1c9f"></a>Priority&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/df5/_command_manager_8cs_source.html#l00044">44</a> of file <a class="el" href="../../dd/df5/_command_manager_8cs_source.html">CommandManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Alphabetically = 8,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d4/d8c/namespace_console_1_1_evaluator_1_1_core_1_1_enums.html#a95d6facc0a809bfec693932be6002624">Priority</a> = 16</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespace_console_1_1_evaluator_1_1_core_1_1_enums_html_a95d6facc0a809bfec693932be6002624"><div class="ttname"><a href="../../d4/d8c/namespace_console_1_1_evaluator_1_1_core_1_1_enums.html#a95d6facc0a809bfec693932be6002624">Console.Evaluator.Core.Enums.Priority</a></div><div class="ttdeci">Priority</div><div class="ttdoc">The Priority Defines the precedence of certain operators</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d4b/_priority_8cs_source.html#l00006">Priority.cs:7</a></div></div>
+<div class="ttc" id="anamespace_console_1_1_core_1_1_command_system_html_aec08881788d22154a403d6af5eecb45ca05d26e7d7c53744b903ae1f6f8a8c7ed"><div class="ttname"><a href="../../de/de3/namespace_console_1_1_core_1_1_command_system.html#aec08881788d22154a403d6af5eecb45ca05d26e7d7c53744b903ae1f6f8a8c7ed">Console.Core.CommandSystem.AmbiguityResolveResponse.Resolve</a></div><div class="ttdeci">@ Resolve</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

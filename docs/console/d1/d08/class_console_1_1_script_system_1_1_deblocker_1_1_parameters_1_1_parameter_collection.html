@@ -158,10 +158,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00015">15</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a> = <span class="keyword">new</span> Dictionary&lt;string, string&gt;();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a> = <span class="keyword">new</span> Dictionary&lt;string, string&gt;();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -210,19 +210,20 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00082">82</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> c = <span class="keyword">new</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a>();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordtype">string</span>[] p = parameter.Split(<span class="keyword">new</span>[] {<span class="charliteral">&#39;,&#39;</span>}, StringSplitOptions.RemoveEmptyEntries).Select(x =&gt; x.Trim())</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                .ToArray();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordtype">int</span> max = Math.Min(sig.Length, p.Length);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; max; i++)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                c.Params[sig[i]] = p[i];</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> c;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00086">86</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> c = <span class="keyword">new</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordtype">string</span>[] p = parameter.Split(<span class="keyword">new</span>[] { <span class="charliteral">&#39;,&#39;</span> }, StringSplitOptions.RemoveEmptyEntries).Select(x =&gt; x.Trim())</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                  .ToArray();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordtype">int</span> max = Math.Min(sig.Length, p.Length);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; max; i++)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                c.Params[sig[i]] = p[i];</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> c;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,15 +271,16 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00066">66</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> child = <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#acb357d97e0feb6b1e7d477be20f6dc7b">CreateCollection</a>(sig, parameter);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a> == <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">return</span> child;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a>.<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ad6eec5832c690390904ad9e5873c1dfb">MakeSub</a>(child);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00069">69</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> child = <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#acb357d97e0feb6b1e7d477be20f6dc7b">CreateCollection</a>(sig, parameter);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a> == <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> child;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a>.<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ad6eec5832c690390904ad9e5873c1dfb">MakeSub</a>(child);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -315,10 +317,10 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Value of the Parameter</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a> != <span class="keyword">null</span> ? <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a>.<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#aaa6739820f615a1ed2fdbf2660c273fb">GetParameterValue</a>(name) : name;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00037">37</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a> != <span class="keyword">null</span> ? <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a>.<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#aaa6739820f615a1ed2fdbf2660c273fb">GetParameterValue</a>(name) : name;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,14 +348,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00041">41</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a>.ContainsKey(name))</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a>[name];</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> name;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a>.ContainsKey(name))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a>[name];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">return</span> name;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -389,10 +392,10 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a> = collection;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00025">25</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Current</a> = collection;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -420,15 +423,16 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00050">50</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> ret = <span class="keyword">new</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> {<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a> = <span class="keyword">new</span> Dictionary&lt;string, string&gt;(<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a>)};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">foreach</span> (KeyValuePair&lt;string, string&gt; keyValuePair <span class="keywordflow">in</span> child.Params)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                ret.Params[keyValuePair.Key] = keyValuePair.Value;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00052">52</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> ret = <span class="keyword">new</span> <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">ParameterCollection</a> { <a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a> = <span class="keyword">new</span> Dictionary&lt;string, string&gt;(<a class="code" href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Params</a>) };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">foreach</span> (KeyValuePair&lt;string, string&gt; keyValuePair <span class="keywordflow">in</span> child.Params)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                ret.Params[keyValuePair.Key] = keyValuePair.Value;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -453,7 +457,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00012">12</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00013">13</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
 
 </div>
 </div>
@@ -477,7 +481,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00013">13</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html#l00014">14</a> of file <a class="el" href="../../d4/d84/_parameter_collection_8cs_source.html">ParameterCollection.cs</a>.</p>
 
 </div>
 </div>
@@ -486,12 +490,12 @@ Static Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_ad6eec5832c690390904ad9e5873c1dfb"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ad6eec5832c690390904ad9e5873c1dfb">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.MakeSub</a></div><div class="ttdeci">ParameterCollection MakeSub(ParameterCollection child)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00050">ParameterCollection.cs:50</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_ae2a16aac235391e4a9a4e6da40a38c1e"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.Params</a></div><div class="ttdeci">Dictionary&lt; string, string &gt; Params</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00013">ParameterCollection.cs:13</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_add3fe5e7e895964efe36404d0d3d92a3"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.Current</a></div><div class="ttdeci">static ParameterCollection Current</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00012">ParameterCollection.cs:12</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_af22565138f9cd2b5d2c33865420aa7bd"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.ParameterCollection</a></div><div class="ttdeci">ParameterCollection()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00015">ParameterCollection.cs:15</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_aaa6739820f615a1ed2fdbf2660c273fb"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#aaa6739820f615a1ed2fdbf2660c273fb">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.GetParameterValue</a></div><div class="ttdeci">string GetParameterValue(string name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00041">ParameterCollection.cs:41</a></div></div>
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_acb357d97e0feb6b1e7d477be20f6dc7b"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#acb357d97e0feb6b1e7d477be20f6dc7b">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.CreateCollection</a></div><div class="ttdeci">static ParameterCollection CreateCollection(string[] sig, string parameter)</div><div class="ttdoc">Creates a Collection</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00082">ParameterCollection.cs:82</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_ad6eec5832c690390904ad9e5873c1dfb"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ad6eec5832c690390904ad9e5873c1dfb">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.MakeSub</a></div><div class="ttdeci">ParameterCollection MakeSub(ParameterCollection child)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00052">ParameterCollection.cs:52</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_ae2a16aac235391e4a9a4e6da40a38c1e"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#ae2a16aac235391e4a9a4e6da40a38c1e">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.Params</a></div><div class="ttdeci">Dictionary&lt; string, string &gt; Params</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00014">ParameterCollection.cs:14</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_add3fe5e7e895964efe36404d0d3d92a3"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#add3fe5e7e895964efe36404d0d3d92a3">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.Current</a></div><div class="ttdeci">static ParameterCollection Current</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00013">ParameterCollection.cs:13</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_af22565138f9cd2b5d2c33865420aa7bd"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#af22565138f9cd2b5d2c33865420aa7bd">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.ParameterCollection</a></div><div class="ttdeci">ParameterCollection()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00016">ParameterCollection.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_aaa6739820f615a1ed2fdbf2660c273fb"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#aaa6739820f615a1ed2fdbf2660c273fb">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.GetParameterValue</a></div><div class="ttdeci">string GetParameterValue(string name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00042">ParameterCollection.cs:42</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection_html_acb357d97e0feb6b1e7d477be20f6dc7b"><div class="ttname"><a href="../../d1/d08/class_console_1_1_script_system_1_1_deblocker_1_1_parameters_1_1_parameter_collection.html#acb357d97e0feb6b1e7d477be20f6dc7b">Console.ScriptSystem.Deblocker.Parameters.ParameterCollection.CreateCollection</a></div><div class="ttdeci">static ParameterCollection CreateCollection(string[] sig, string parameter)</div><div class="ttdoc">Creates a Collection</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d84/_parameter_collection_8cs_source.html#l00086">ParameterCollection.cs:86</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

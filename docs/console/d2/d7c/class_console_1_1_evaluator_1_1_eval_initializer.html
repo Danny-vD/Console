@@ -159,7 +159,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initializer of the <a class="el" href="../../d8/d90/namespace_console_1_1_evaluator.html" title="The Evaluator Extension implements a Variable Container in the EnvironmentVariable System....">Evaluator</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae8a7f5a6d3fe35f1cba844f61bf2989a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8a7f5a6d3fe35f1cba844f61bf2989a">&#9670;&nbsp;</a></span>Initialize()</h2>
@@ -188,12 +188,14 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html#ae092568a0b06533bbacf318026aac996">Console.Core.ExtensionSystem.AExtensionInitializer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00041">41</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            EvalVariableProvider ep = <span class="keyword">new</span> EvalVariableProvider();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html">PropertyAttributeUtils</a>.<a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>&lt;EvalInitializer&gt;();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html">PropertyAttributeUtils</a>.<a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>&lt;EvalVariableProvider&gt;();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00045">45</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <a class="code" href="../../dc/d55/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils.html">CommandAttributeUtils</a>.<a class="code" href="../../dc/d55/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils.html#a0a992e5e5771f9e62f48d816733b8a56">AddCommands</a>(typeof(ConditionalCommands));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="../../dc/d55/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils.html">CommandAttributeUtils</a>.<a class="code" href="../../dc/d55/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils.html#a0a992e5e5771f9e62f48d816733b8a56">AddCommands</a>(typeof(Eval));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html">PropertyAttributeUtils</a>.<a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>&lt;EvalInitializer&gt;();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html">PropertyAttributeUtils</a>.<a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>(typeof(Eval));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,7 +222,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Version of the <a class="el" href="../../d8/d90/namespace_console_1_1_evaluator.html" title="The Evaluator Extension implements a Variable Container in the EnvironmentVariable System....">Evaluator</a> Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00035">35</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00039">39</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -246,7 +248,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Load Order of the Extension </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00030">30</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
 
 </div>
 </div>
@@ -271,11 +273,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00020">20</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b">Logger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b">Logger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a> = value;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html#l00023">23</a> of file <a class="el" href="../../d2/dde/_eval_initializer_8cs_source.html">EvalInitializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keyword">get</span> =&gt; <a class="code" href="../../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b">Logger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">set</span> =&gt; <a class="code" href="../../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b">Logger</a>.<a class="code" href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Mute</a> = value;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -284,10 +286,12 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html_a86cbf1ac677311cdacafaa5d8a08e27d"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a></div><div class="ttdeci">static void AddProperties(Type t)</div><div class="ttdoc">Adds Static Fields and Properties to the Property System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00017">PropertyAttributeUtils.cs:17</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_a_logger_html_aebe16a6842c69486e821533c36a357c2"><div class="ttname"><a href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Console.Core.LogSystem.ALogger.Mute</a></div><div class="ttdeci">bool Mute</div><div class="ttdoc">If true the Logger will not output any Logs</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db4/_a_logger_8cs_source.html#l00017">ALogger.cs:17</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html">Console.Core.PropertySystem.PropertyAttributeUtils</a></div><div class="ttdoc">Utilities for adding Properties from Fields/Properties decorated with the PropertyAttribute</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00009">PropertyAttributeUtils.cs:10</a></div></div>
-<div class="ttc" id="aclass_console_1_1_evaluator_1_1_eval_initializer_html_a967cfc859e60c52618008afc2a796c7b"><div class="ttname"><a href="../../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b">Console.Evaluator.EvalInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">The Load Order of the Extension</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dde/_eval_initializer_8cs_source.html#l00030">EvalInitializer.cs:30</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils_html"><div class="ttname"><a href="../../dc/d55/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils.html">Console.Core.CommandSystem.Attributes.CommandAttributeUtils</a></div><div class="ttdoc">Utilities for adding Commands marked with the CommandAttribute</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00015">CommandAttributeUtils.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html_a86cbf1ac677311cdacafaa5d8a08e27d"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a></div><div class="ttdeci">static void AddProperties(Type t)</div><div class="ttdoc">Adds Static Fields and Properties to the Property System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00019">PropertyAttributeUtils.cs:19</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_log_system_1_1_a_logger_html_aebe16a6842c69486e821533c36a357c2"><div class="ttname"><a href="../../d0/d83/class_console_1_1_core_1_1_log_system_1_1_a_logger.html#aebe16a6842c69486e821533c36a357c2">Console.Core.LogSystem.ALogger.Mute</a></div><div class="ttdeci">bool Mute</div><div class="ttdoc">If true the Logger will not output any Logs</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db4/_a_logger_8cs_source.html#l00018">ALogger.cs:18</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils_html_a0a992e5e5771f9e62f48d816733b8a56"><div class="ttname"><a href="../../dc/d55/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute_utils.html#a0a992e5e5771f9e62f48d816733b8a56">Console.Core.CommandSystem.Attributes.CommandAttributeUtils.AddCommands</a></div><div class="ttdeci">static void AddCommands(Type type)</div><div class="ttdoc">Adds all Static Commands contained in this type.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d35/_command_attribute_utils_8cs_source.html#l00032">CommandAttributeUtils.cs:32</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html">Console.Core.PropertySystem.PropertyAttributeUtils</a></div><div class="ttdoc">Utilities for adding Properties from Fields/Properties decorated with the PropertyAttribute</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00010">PropertyAttributeUtils.cs:11</a></div></div>
+<div class="ttc" id="aclass_console_1_1_evaluator_1_1_eval_initializer_html_a967cfc859e60c52618008afc2a796c7b"><div class="ttname"><a href="../../d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html#a967cfc859e60c52618008afc2a796c7b">Console.Evaluator.EvalInitializer.Logger</a></div><div class="ttdeci">static ALogger Logger</div><div class="ttdoc">The Load Order of the Extension</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dde/_eval_initializer_8cs_source.html#l00033">EvalInitializer.cs:33</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -131,7 +131,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Gets Send by the Host with a Encrypted Data Section To Authenitcate send the Encrypted Data Section back to the host. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00013">13</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00014">14</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6b35bfda9f805b994b036732802c5c66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b35bfda9f805b994b036732802c5c66">&#9670;&nbsp;</a></span>AuthenticationPacket()</h2>
@@ -157,10 +157,10 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00030">30</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Data</a> = data;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00026">26</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Data</a> = data;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -183,19 +183,18 @@ Public Attributes</h2></td></tr>
 <p>Tries to Create the <a class="el" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html" title="Gets Send by the Host with a Encrypted Data Section To Authenitcate send the Encrypted Data Section b...">AuthenticationPacket</a> Response with the Decrypted Data </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00039">39</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="comment">//Decrypt the Data</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6b35bfda9f805b994b036732802c5c66">AuthenticationPacket</a>(NetworkingSettings.AuthenticatorInstance.Decrypt(<a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Data</a>));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">catch</span> (Exception)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6b35bfda9f805b994b036732802c5c66">AuthenticationPacket</a>(<span class="keyword">new</span> <span class="keywordtype">byte</span>[<a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Data</a>.Length]);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00041">41</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment">//Decrypt the Data</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6b35bfda9f805b994b036732802c5c66">AuthenticationPacket</a>(NetworkingSettings.AuthenticatorInstance.Decrypt(<a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Data</a>));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">catch</span> (Exception)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6b35bfda9f805b994b036732802c5c66">AuthenticationPacket</a>(<span class="keyword">new</span> <span class="keywordtype">byte</span>[<a class="code" href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Data</a>.Length]);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -214,7 +213,7 @@ Public Attributes</h2></td></tr>
 
 <p>The Data Section </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00018">18</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00020">20</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
 
 </div>
 </div>
@@ -232,7 +231,7 @@ Public Attributes</h2></td></tr>
 
 <p>Flag that specifies that the networking layer should not encrypt/decrypt the packet. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00024">24</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html#l00035">35</a> of file <a class="el" href="../../df/d4e/_authentication_packet_8cs_source.html">AuthenticationPacket.cs</a>.</p>
 
 </div>
 </div>
@@ -241,8 +240,8 @@ Public Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet_html_af6f80a67985323891025faedae0ff7bf"><div class="ttname"><a href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Console.Networking.Packets.Authentication.AuthenticationPacket.Data</a></div><div class="ttdeci">readonly byte[] Data</div><div class="ttdoc">The Data Section</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d4e/_authentication_packet_8cs_source.html#l00018">AuthenticationPacket.cs:18</a></div></div>
-<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet_html_a6b35bfda9f805b994b036732802c5c66"><div class="ttname"><a href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6b35bfda9f805b994b036732802c5c66">Console.Networking.Packets.Authentication.AuthenticationPacket.AuthenticationPacket</a></div><div class="ttdeci">AuthenticationPacket(byte[] data)</div><div class="ttdoc">Public Constructor</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d4e/_authentication_packet_8cs_source.html#l00030">AuthenticationPacket.cs:30</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet_html_af6f80a67985323891025faedae0ff7bf"><div class="ttname"><a href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#af6f80a67985323891025faedae0ff7bf">Console.Networking.Packets.Authentication.AuthenticationPacket.Data</a></div><div class="ttdeci">readonly byte[] Data</div><div class="ttdoc">The Data Section</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d4e/_authentication_packet_8cs_source.html#l00020">AuthenticationPacket.cs:20</a></div></div>
+<div class="ttc" id="aclass_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet_html_a6b35bfda9f805b994b036732802c5c66"><div class="ttname"><a href="../../d2/d34/class_console_1_1_networking_1_1_packets_1_1_authentication_1_1_authentication_packet.html#a6b35bfda9f805b994b036732802c5c66">Console.Networking.Packets.Authentication.AuthenticationPacket.AuthenticationPacket</a></div><div class="ttdeci">AuthenticationPacket(byte[] data)</div><div class="ttdoc">Public Constructor</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d4e/_authentication_packet_8cs_source.html#l00026">AuthenticationPacket.cs:26</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

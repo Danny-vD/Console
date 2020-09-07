@@ -134,7 +134,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>PacketSerializer Implementation for <a class="el" href="../../d0/d3f/class_console_1_1_networking_1_1_packets_1_1_connection_response_1_1_connection_request_response_packet.html" title="Packet that gets Returned by the Host.">ConnectionRequestResponsePacket</a> and subclasses. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html#l00009">9</a> of file <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html">ConnectionRequestResponseSerializer.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html#l00010">10</a> of file <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html">ConnectionRequestResponseSerializer.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8ce19f01d028476c9e09435ac8b2199c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ce19f01d028476c9e09435ac8b2199c">&#9670;&nbsp;</a></span>Deserialize()</h2>
@@ -171,15 +171,33 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d50/class_console_1_1_networking_1_1_packets_1_1_abstract_1_1_packet_serializer.html#adff179096a27e15d7e5aacab9ca44134">Console.Networking.Packets.Abstract.PacketSerializer&lt; ConnectionRequestResponsePacket &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html#l00016">16</a> of file <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html">ConnectionRequestResponseSerializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordtype">bool</span> suc = data[0] == 1;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">return</span> suc</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                ? (ConnectionRequestResponsePacket) <span class="keyword">new</span> ConnectionRequestResponseSuccessPacket(</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                    NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1))</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                : (ConnectionRequestResponsePacket) <span class="keyword">new</span> ConnectionRequestResponseFailedPacket(</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1));</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html#l00018">18</a> of file <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html">ConnectionRequestResponseSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordtype">bool</span> suc = data[0] == 1;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> suc</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                       ? <span class="keyword">new</span> ConnectionRequestResponseSuccessPacket(</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                                    NetworkingSettings</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                                        .EncodingInstance</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                                        .GetString(</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                                   data,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                                                   1,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                                                   data</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                                                                       .Length -</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                                                                   1</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                                                                  )</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                                                   )</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                       : (ConnectionRequestResponsePacket) new ConnectionRequestResponseFailedPacket(</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                                                                                     NetworkingSettings</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                                                                                         .EncodingInstance</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                                                                                         .GetString(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                                                                                                    data,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                                                                                    1,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                                                                                                    data</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                                                                                                        .Length -</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                                                                                                    1</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                                                                                                   )</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                                                                                    );</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,20 +234,21 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Serialized Data</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html#l00032">32</a> of file <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html">ConnectionRequestResponseSerializer.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            List&lt;byte&gt; data = <span class="keyword">new</span> List&lt;byte&gt; {(byte) (item.Success ? 1 : 0)};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span> (item is ConnectionRequestResponseFailedPacket fail)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                data.AddRange(NetworkingSettings.EncodingInstance.GetBytes(fail.Reason));</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (item is ConnectionRequestResponseSuccessPacket suc)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                data.AddRange(NetworkingSettings.EncodingInstance.GetBytes(suc.AuthMethod));</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> data.ToArray();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html#l00052">52</a> of file <a class="el" href="../../db/dc9/_connection_request_response_serializer_8cs_source.html">ConnectionRequestResponseSerializer.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            List&lt;byte&gt; data = <span class="keyword">new</span> List&lt;byte&gt; { (byte) (item.Success ? 1 : 0) };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span> (item is ConnectionRequestResponseFailedPacket fail)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                data.AddRange(NetworkingSettings.EncodingInstance.GetBytes(fail.Reason));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">if</span> (item is ConnectionRequestResponseSuccessPacket suc)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                data.AddRange(NetworkingSettings.EncodingInstance.GetBytes(suc.AuthMethod));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> data.ToArray();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

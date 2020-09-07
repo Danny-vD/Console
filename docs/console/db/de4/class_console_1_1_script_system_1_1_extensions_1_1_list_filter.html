@@ -184,10 +184,10 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00022">22</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a> = extensions.ToList();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a> = extensions.ToList();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,17 +223,17 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00031">31</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span> (File.Exists(file))</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">if</span> (File.Exists(file))</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a> = File.ReadAllLines(file).ToList();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a> = File.ReadAllLines(file).ToList();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a> = <span class="keyword">new</span> List&lt;string&gt;();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a> = <span class="keyword">new</span> List&lt;string&gt;();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -256,15 +256,16 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns all Contained <a class="el" href="../../d2/dd3/namespace_console_1_1_script_system_1_1_extensions.html" title="Implements extension System that allows for Multiple Extensions to have custom logic.">Extensions</a> </p>
 <dl class="section return"><dt>Returns</dt><dd>Extension List</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00048">48</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> extension <span class="keywordflow">in</span> <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                sb.AppendLine(<span class="stringliteral">&quot;\t&quot;</span> + extension);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> sb.ToString();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> extension <span class="keywordflow">in</span> <a class="code" href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Extensions</a>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                sb.AppendLine(<span class="stringliteral">&quot;\t&quot;</span> + extension);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> sb.ToString();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,8 +292,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The Extension List used to Allow/Disallow <a class="el" href="../../d2/dd3/namespace_console_1_1_script_system_1_1_extensions.html" title="Implements extension System that allows for Multiple Extensions to have custom logic.">Extensions</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00016">16</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{ <span class="keyword">get</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html#l00042">42</a> of file <a class="el" href="../../d6/dd6/_list_filter_8cs_source.html">ListFilter.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{ <span class="keyword">get</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -301,7 +302,7 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_script_system_1_1_extensions_1_1_list_filter_html_a2befeab2572c63ad9ec6e32f8796a083"><div class="ttname"><a href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Console.ScriptSystem.Extensions.ListFilter.Extensions</a></div><div class="ttdeci">List&lt; string &gt; Extensions</div><div class="ttdoc">The Extension List used to Allow/Disallow Extensions</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dd6/_list_filter_8cs_source.html#l00016">ListFilter.cs:16</a></div></div>
+<div class="ttc" id="aclass_console_1_1_script_system_1_1_extensions_1_1_list_filter_html_a2befeab2572c63ad9ec6e32f8796a083"><div class="ttname"><a href="../../db/de4/class_console_1_1_script_system_1_1_extensions_1_1_list_filter.html#a2befeab2572c63ad9ec6e32f8796a083">Console.ScriptSystem.Extensions.ListFilter.Extensions</a></div><div class="ttdeci">List&lt; string &gt; Extensions</div><div class="ttdoc">The Extension List used to Allow/Disallow Extensions</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dd6/_list_filter_8cs_source.html#l00042">ListFilter.cs:42</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -138,10 +138,10 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html#l00023">23</a> of file <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html">ExpanderManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Expanders</a>.Add(expander);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html#l00024">24</a> of file <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html">ExpanderManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Expanders</a>.Add(expander);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -170,15 +170,16 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Expanded String</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html#l00033">33</a> of file <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html">ExpanderManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordtype">string</span> ret = input;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Expanders</a>.Count; i++)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                ret = <a class="code" href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Expanders</a>[i].Expand(ret);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html#l00034">34</a> of file <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html">ExpanderManager.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordtype">string</span> ret = input;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Expanders</a>.Count; i++)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                ret = <a class="code" href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Expanders</a>[i].Expand(ret);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -205,7 +206,7 @@ Private Attributes</h2></td></tr>
 
 <p>List of Loaded Expanders </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html">ExpanderManager.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html#l00018">18</a> of file <a class="el" href="../../d3/da9/_expander_manager_8cs_source.html">ExpanderManager.cs</a>.</p>
 
 </div>
 </div>
@@ -214,7 +215,7 @@ Private Attributes</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_expander_system_1_1_expander_manager_html_a7bfbcea728f576310715fa057b459662"><div class="ttname"><a href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Console.Core.ExpanderSystem.ExpanderManager.Expanders</a></div><div class="ttdeci">readonly List&lt; AExpander &gt; Expanders</div><div class="ttdoc">List of Loaded Expanders</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da9/_expander_manager_8cs_source.html#l00017">ExpanderManager.cs:17</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_expander_system_1_1_expander_manager_html_a7bfbcea728f576310715fa057b459662"><div class="ttname"><a href="../../d9/df4/class_console_1_1_core_1_1_expander_system_1_1_expander_manager.html#a7bfbcea728f576310715fa057b459662">Console.Core.ExpanderSystem.ExpanderManager.Expanders</a></div><div class="ttdeci">readonly List&lt; AExpander &gt; Expanders</div><div class="ttdoc">List of Loaded Expanders</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da9/_expander_manager_8cs_source.html#l00018">ExpanderManager.cs:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

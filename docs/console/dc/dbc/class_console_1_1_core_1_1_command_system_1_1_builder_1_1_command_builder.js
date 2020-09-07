@@ -29,9 +29,9 @@ var class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder =
     [ "builder", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a4121e80c81da88a06e159bb71472972a", null ],
     [ "history", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a3d6888c3182c9e76b3b884dd414c3e09", null ],
     [ "HistoryIndex", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ab260b57717314f165b4aab88779c5021", null ],
-    [ "instance", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a6ec196020aaafbcf18beb19dfb516927", null ],
+    [ "instance", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a0463af7f27ce61c07d6b4aad28148164", null ],
     [ "int", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ae08a2a183e87056e6832e96b48fa0322", null ],
-    [ "Providers", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ae0f199331b134e4be85186c2d2be402e", null ],
+    [ "Providers", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a0738e405e9cd70ba1b89a4497affaa2c", null ],
     [ "Cursor", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ab3f9a8df3a19bc998d6c570ec4c454d2", null ],
     [ "IsCompleted", "dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a97052b2ed22dd4ff0c1e3baa5cc205b8", null ]
 ];

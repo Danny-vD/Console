@@ -108,7 +108,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities for adding Properties from Fields/Properties decorated with the <a class="el" href="../../dc/dfa/class_console_1_1_core_1_1_property_system_1_1_property_attribute.html" title="Property Attribute. When a Field or Property is Decorated with this attribute it will be loaded by th...">PropertyAttribute</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00009">9</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8249eeab9d9a0bb21c81703dcd2ec530"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8249eeab9d9a0bb21c81703dcd2ec530">&#9670;&nbsp;</a></span>AddProperties() <span class="overload">[1/2]</span></h2>
@@ -142,15 +142,16 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00036">36</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> (instance == <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleFields&lt;PropertyAttribute&gt;(instance));</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleProps&lt;PropertyAttribute&gt;(instance));</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00038">38</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> (instance == <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleFields&lt;PropertyAttribute&gt;(instance));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetConsoleProps&lt;PropertyAttribute&gt;(instance));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -186,11 +187,11 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00017">17</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetStaticConsoleFields&lt;PropertyAttribute&gt;(t));</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetStaticConsoleProps&lt;PropertyAttribute&gt;(t));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00019">19</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetStaticConsoleFields&lt;PropertyAttribute&gt;(t));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            PropertyManager.AddRefHelpers(<a class="code" href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">ReflectionUtils</a>.GetStaticConsoleProps&lt;PropertyAttribute&gt;(t));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -225,10 +226,10 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00027">27</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>(typeof(T));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00029">29</a> of file <a class="el" href="../../d4/da8/_property_attribute_utils_8cs_source.html">PropertyAttributeUtils.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">AddProperties</a>(typeof(T));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -237,8 +238,8 @@ Static Public Member Functions</h2></td></tr>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html_a86cbf1ac677311cdacafaa5d8a08e27d"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a></div><div class="ttdeci">static void AddProperties(Type t)</div><div class="ttdoc">Adds Static Fields and Properties to the Property System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00017">PropertyAttributeUtils.cs:17</a></div></div>
-<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_reflection_utils_html"><div class="ttname"><a href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">Console.Core.ReflectionSystem.ReflectionUtils</a></div><div class="ttdoc">Utility Class used for Reflection</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d15/_reflection_utils_8cs_source.html#l00017">ReflectionUtils.cs:18</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_property_system_1_1_property_attribute_utils_html_a86cbf1ac677311cdacafaa5d8a08e27d"><div class="ttname"><a href="../../d0/d4f/class_console_1_1_core_1_1_property_system_1_1_property_attribute_utils.html#a86cbf1ac677311cdacafaa5d8a08e27d">Console.Core.PropertySystem.PropertyAttributeUtils.AddProperties</a></div><div class="ttdeci">static void AddProperties(Type t)</div><div class="ttdoc">Adds Static Fields and Properties to the Property System</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da8/_property_attribute_utils_8cs_source.html#l00019">PropertyAttributeUtils.cs:19</a></div></div>
+<div class="ttc" id="aclass_console_1_1_core_1_1_reflection_system_1_1_reflection_utils_html"><div class="ttname"><a href="../../d7/d88/class_console_1_1_core_1_1_reflection_system_1_1_reflection_utils.html">Console.Core.ReflectionSystem.ReflectionUtils</a></div><div class="ttdoc">Utility Class used for Reflection</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d15/_reflection_utils_8cs_source.html#l00020">ReflectionUtils.cs:21</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

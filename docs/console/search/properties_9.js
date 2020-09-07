@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['logerrorprefix_2882',['LogErrorPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1',1,'Console::Core::LogSystem::TypedLogger']]],
-  ['logprefix_2883',['LogPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f',1,'Console::Core::LogSystem::TypedLogger']]],
-  ['logwarningprefix_2884',['LogWarningPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a',1,'Console::Core::LogSystem::TypedLogger']]]
+  ['logerrorprefix_3041',['LogErrorPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a9e150c9c08e3c2ab64421ab92abc91a1',1,'Console::Core::LogSystem::TypedLogger']]],
+  ['logprefix_3042',['LogPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#a88b6cc89a86ed6f62ebceecafb65521f',1,'Console::Core::LogSystem::TypedLogger']]],
+  ['logwarningprefix_3043',['LogWarningPrefix',['../d1/d3e/class_console_1_1_core_1_1_log_system_1_1_typed_logger.html#ab5562f315fbec53737603adeacd2c30a',1,'Console::Core::LogSystem::TypedLogger']]]
 ];

@@ -1,6 +1,12 @@
 var files_dup =
 [
     [ "CallType.cs", "dc/d41/_call_type_8cs.html", "dc/d41/_call_type_8cs" ],
+    [ "ConditionalCommands.cs", "d8/da4/_conditional_commands_8cs.html", [
+      [ "ConditionalCommands", "d6/dc0/class_console_1_1_evaluator_1_1_conditional_commands.html", "d6/dc0/class_console_1_1_evaluator_1_1_conditional_commands" ]
+    ] ],
+    [ "Eval.cs", "de/d84/_eval_8cs.html", [
+      [ "Eval", "d2/d29/class_console_1_1_evaluator_1_1_eval.html", "d2/d29/class_console_1_1_evaluator_1_1_eval" ]
+    ] ],
     [ "EvalInitializer.cs", "d2/dde/_eval_initializer_8cs.html", [
       [ "EvalInitializer", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer.html", "d2/d7c/class_console_1_1_evaluator_1_1_eval_initializer" ]
     ] ],
@@ -10,9 +16,6 @@ var files_dup =
     ] ],
     [ "EvalVariable.cs", "dc/d60/_eval_variable_8cs.html", [
       [ "EvalVariable", "d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable.html", "d1/d36/class_console_1_1_evaluator_1_1_core_1_1_eval_variable" ]
-    ] ],
-    [ "EvalVariableProvider.cs", "d6/d1c/_eval_variable_provider_8cs.html", [
-      [ "EvalVariableProvider", "d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider.html", "d3/d06/class_console_1_1_evaluator_1_1_eval_variable_provider" ]
     ] ],
     [ "Globals.cs", "d1/d64/_globals_8cs.html", [
       [ "Globals", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals.html", "df/d9d/class_console_1_1_evaluator_1_1_core_1_1_globals" ]

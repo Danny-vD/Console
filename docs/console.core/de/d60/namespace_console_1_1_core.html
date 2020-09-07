@@ -111,6 +111,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:d3/d10/namespace_console_1_1_core_1_1_extension_system"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html">ExtensionSystem</a></td></tr>
 <tr class="memdesc:d3/d10/namespace_console_1_1_core_1_1_extension_system"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d3/d10/namespace_console_1_1_core_1_1_extension_system.html" title="The Console.Core.ExtensionSystem namespace is used by the Core Library to load Extensions....">Console.Core.ExtensionSystem</a> namespace is used by the <a class="el" href="../../de/d60/namespace_console_1_1_core.html" title="The Root Namespace of the Console.Core Library.">Core</a> Library to load Extensions. This namespace contains the <a class="el" href="../../d3/db6/class_console_1_1_core_1_1_extension_system_1_1_a_extension_initializer.html" title="Helper Class that has to be implemented with an empty public constructor to be detected and loaded by...">AExtensionInitializer</a> class that can be used to execute any initialization logic on load from within the extension <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/daa/namespace_console_1_1_core_1_1_i_l_optimizations"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/daa/namespace_console_1_1_core_1_1_i_l_optimizations.html">ILOptimizations</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:dd/d12/namespace_console_1_1_core_1_1_log_system"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d12/namespace_console_1_1_core_1_1_log_system.html">LogSystem</a></td></tr>
 <tr class="memdesc:dd/d12/namespace_console_1_1_core_1_1_log_system"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Log System provides Logger Implementations that allow for prefixes and other transformations of the incoming logs <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,14 +141,13 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a5dff3d5e409a50e8fe99f2fa13da64b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5">ConsoleInitOptions</a> { <br />
-&#160;&#160;<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5ab1c94ca2fbc3e78fc30069c8d0f01680">ConsoleInitOptions.All</a> = -1 &amp; ~FlagTests, 
+&#160;&#160;<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a7a1920d61156abc05a60135aefe8bc67">ConsoleInitOptions.Default</a> = Core | Properties, 
 <a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a6adf97f83acf6453d4a6a4b1070f3754">ConsoleInitOptions.None</a> = 0, 
-<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a4e1f58348725d1aec52cc3cae1d08faa">ConsoleInitOptions.DefaultCommands</a> = 1, 
-<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5aa7a27a8997b5f3f746e9a1d362a6dc14">ConsoleInitOptions.PropertyCommands</a> = 2, 
+<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a129a860545e73b19bb88ab90211cd0b0">ConsoleInitOptions.Loader</a> = 1, 
+<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a83168e6cb289d732cc78427b51f93153">ConsoleInitOptions.Core</a> = 2, 
 <br />
-&#160;&#160;<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a4ede0ff892b51fdcbddbda01106d1d10">ConsoleInitOptions.ExtensionCommands</a> = 4, 
-<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5aa4aab6d71cc7b0e77386ea2e79397805">ConsoleInitOptions.SelectionCommands</a> = 8, 
-<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a607598e21192b2753672e93bc5df4c25">ConsoleInitOptions.FlagTests</a> = 16
+&#160;&#160;<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a9fc2d28c05ed9eb1d75ba4465abf15a9">ConsoleInitOptions.Properties</a> = 4, 
+<a class="el" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a6ff9dd0d34f65181173c1e4bc39939de">ConsoleInitOptions.Selection</a> = 8
 <br />
  }</td></tr>
 <tr class="memdesc:a5dff3d5e409a50e8fe99f2fa13da64b5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="d8/db5/namespace_console.html">Console</a> Startup Settings Defines which default Commands are added.  <a href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5">More...</a><br /></td></tr>
@@ -177,39 +178,43 @@ Enumerations</h2></td></tr>
 
 <p><a class="el" href="../../d8/db5/namespace_console.html">Console</a> Startup Settings Defines which default Commands are added. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5ab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"><p>Add all Default Commands </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>Do not add any Default Commands </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a4e1f58348725d1aec52cc3cae1d08faa"></a>DefaultCommands&#160;</td><td class="fielddoc"><p>Clear / Help and Echo Command </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5aa7a27a8997b5f3f746e9a1d362a6dc14"></a>PropertyCommands&#160;</td><td class="fielddoc"><p>Commands that allow interfacing with the Property System </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a4ede0ff892b51fdcbddbda01106d1d10"></a>ExtensionCommands&#160;</td><td class="fielddoc"><p>Commands that allow Loading Extensions from the Commandline </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5aa4aab6d71cc7b0e77386ea2e79397805"></a>SelectionCommands&#160;</td><td class="fielddoc"><p>Commands that allow viewing and clearing the selected object list </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a607598e21192b2753672e93bc5df4c25"></a>FlagTests&#160;</td><td class="fielddoc"><p>Commands that Test the behaviour of Flag Attributes. </p>
-</td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a129a860545e73b19bb88ab90211cd0b0"></a>Loader&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a83168e6cb289d732cc78427b51f93153"></a>Core&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a9fc2d28c05ed9eb1d75ba4465abf15a9"></a>Properties&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
+<tr><td class="fieldname"><a id="a5dff3d5e409a50e8fe99f2fa13da64b5a6ff9dd0d34f65181173c1e4bc39939de"></a>Selection&#160;</td><td class="fielddoc"><pre class="fragment">    &lt;/summary&gt; 
+</pre> </td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="../../d9/db2/_console_init_options_8cs_source.html#l00010">10</a> of file <a class="el" href="../../d9/db2/_console_init_options_8cs_source.html">ConsoleInitOptions.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        All = -1 &amp; ~<a class="code" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5ab1c94ca2fbc3e78fc30069c8d0f01680">FlagTests</a>,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1a7a1920d61156abc05a60135aefe8bc67">None</a> = 0,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        DefaultCommands = 1,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        PropertyCommands = 2,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        ExtensionCommands = 4,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        SelectionCommands = 8,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5ab1c94ca2fbc3e78fc30069c8d0f01680">FlagTests</a> = 16,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        Default = Core | Properties,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1a7a1920d61156abc05a60135aefe8bc67">None</a> = 0,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        Loader = 1,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        Core = 2,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        Properties = 4,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a7a1920d61156abc05a60135aefe8bc67">Selection</a> = 8,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespace_console_1_1_core_html_a5dff3d5e409a50e8fe99f2fa13da64b5a7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5a7a1920d61156abc05a60135aefe8bc67">Console.Core.ConsoleInitOptions.Default</a></div><div class="ttdeci">@ Default</div></div>
 <div class="ttc" id="anamespace_console_1_1_core_1_1_command_system_1_1_commands_html_ae7c11c7d72ebfb3ca84cdf00abf76cb1a7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../d3/d8d/namespace_console_1_1_core_1_1_command_system_1_1_commands.html#ae7c11c7d72ebfb3ca84cdf00abf76cb1a7a1920d61156abc05a60135aefe8bc67">Console.Core.CommandSystem.Commands.ToStringMode.Default</a></div><div class="ttdeci">@ Default</div><div class="ttdoc">Default ToStringMode.</div></div>
-<div class="ttc" id="anamespace_console_1_1_core_html_a5dff3d5e409a50e8fe99f2fa13da64b5ab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="../../de/d60/namespace_console_1_1_core.html#a5dff3d5e409a50e8fe99f2fa13da64b5ab1c94ca2fbc3e78fc30069c8d0f01680">Console.Core.ConsoleInitOptions.All</a></div><div class="ttdeci">@ All</div><div class="ttdoc">Add all Default Commands</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

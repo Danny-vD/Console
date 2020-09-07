@@ -1,6 +1,5 @@
 var class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code =
 [
-    [ "OPCode", "d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a6b6b3bbec9df313451b61897e465af1d", null ],
     [ "CanReturn", "d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#ad7a05dc93d0c366f462c048fb19e2fcc", null ],
     [ "Convert", "d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#a72af404c78ff82ecd246238faf53e3f5", null ],
     [ "ConvertToSystemType", "d5/d71/class_console_1_1_evaluator_1_1_core_1_1_o_p_codes_1_1_o_p_code.html#ae3c52fa4fa16a81c15039eb2478b8e17", null ],

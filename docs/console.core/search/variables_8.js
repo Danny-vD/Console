@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['instance_764',['instance',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a6ec196020aaafbcf18beb19dfb516927',1,'Console.Core.CommandSystem.Builder.CommandBuilder.instance()'],['../da/d7a/class_console_1_1_core_1_1_reflection_system_1_1_abstract_1_1_a_instanced_meta_data.html#ab074adf6e8c7389f59e75ef6ea72af84',1,'Console.Core.ReflectionSystem.Abstract.AInstancedMetaData.Instance()']]],
-  ['int_765',['int',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ae08a2a183e87056e6832e96b48fa0322',1,'Console::Core::CommandSystem::Builder::CommandBuilder']]]
+  ['help1helpmessage_827',['help1HelpMessage',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a69f93ff31c1b7f209db9751a184fa089',1,'Console::Core::CommandSystem::Commands::BuiltIn::DefaultCommands']]],
+  ['helpcommand_828',['helpCommand',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#ab1cec06d91d45e51b9c719bb662834a0',1,'Console::Core::CommandSystem::Commands::BuiltIn::DefaultCommands']]],
+  ['helphelpmessage_829',['helpHelpMessage',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#a1ee637373ece851257f520a39c2dcee6',1,'Console::Core::CommandSystem::Commands::BuiltIn::DefaultCommands']]],
+  ['helplogger_830',['HelpLogger',['../d6/d64/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_built_in_1_1_default_commands.html#ad60553235f20c44fe374215c73a8009b',1,'Console::Core::CommandSystem::Commands::BuiltIn::DefaultCommands']]],
+  ['helpmessage_831',['HelpMessage',['../d7/dca/class_console_1_1_core_1_1_command_system_1_1_attributes_1_1_command_attribute.html#a1b915273ac07abc575155651dca0cb0e',1,'Console.Core.CommandSystem.Attributes.CommandAttribute.HelpMessage()'],['../da/dbf/class_console_1_1_core_1_1_command_system_1_1_commands_1_1_abstract_command.html#a4d6487702c962a18e2191d7ed4b799dc',1,'Console.Core.CommandSystem.Commands.AbstractCommand.HelpMessage()']]],
+  ['history_832',['history',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#a3d6888c3182c9e76b3b884dd414c3e09',1,'Console::Core::CommandSystem::Builder::CommandBuilder']]],
+  ['historyindex_833',['HistoryIndex',['../dc/dbc/class_console_1_1_core_1_1_command_system_1_1_builder_1_1_command_builder.html#ab260b57717314f165b4aab88779c5021',1,'Console::Core::CommandSystem::Builder::CommandBuilder']]]
 ];

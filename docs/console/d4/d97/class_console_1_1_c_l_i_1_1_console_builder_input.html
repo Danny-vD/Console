@@ -134,7 +134,7 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstaction that enables compatibility with the <a class="el" href="../../d5/d07/namespace_console_1_1_c_l_i.html" title="Commandline Interface Test Application">CLI</a> <a class="el" href="../../d8/db5/namespace_console.html">Console</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00009">9</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00010">10</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa2223074ed6537296e47d63a048d4d36"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2223074ed6537296e47d63a048d4d36">&#9670;&nbsp;</a></span>EndLine()</h2>
@@ -155,10 +155,10 @@ Properties</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html#a390f1586d25e054466473c6a3a642b2f">Console.Core.CommandSystem.Builder.ICommandBuilderInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00040">40</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            System.Console.WriteLine();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00041">41</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            System.Console.WriteLine();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,10 +182,10 @@ Properties</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html#a80fe10a8c2906f6f3defba716f183aed">Console.Core.CommandSystem.Builder.ICommandBuilderInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00031">31</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> System.Console.ReadKey();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00032">32</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> System.Console.ReadKey();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -208,15 +208,16 @@ Properties</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html#a474befcaf71ea1a4b2ee5f3bef1fc5fa">Console.Core.CommandSystem.Builder.ICommandBuilderInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00059">59</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            System.Console.CursorLeft = 0;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; System.Console.WindowWidth - 1; i++)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                System.Console.Write(<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            System.Console.CursorLeft = 0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00060">60</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            System.Console.CursorLeft = 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; System.Console.WindowWidth - 1; i++)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                System.Console.Write(<span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            System.Console.CursorLeft = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -246,10 +247,10 @@ Properties</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html#a0cb7560543177b91893eb9fbf2725f86">Console.Core.CommandSystem.Builder.ICommandBuilderInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00050">50</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            System.Console.CursorLeft = pos;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00051">51</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            System.Console.CursorLeft = pos;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -279,10 +280,10 @@ Properties</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d20/interface_console_1_1_core_1_1_command_system_1_1_builder_1_1_i_command_builder_input.html#a52c73a7853d1e21843ca69ddec9ffd78">Console.Core.CommandSystem.Builder.ICommandBuilderInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00021">21</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            System.Console.Write(str);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00022">22</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            System.Console.Write(str);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -309,8 +310,8 @@ Properties</h2></td></tr>
 
 <p>Gets or Sets the Value that indicates that the Current Command Build should be aborted </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00015">15</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html#l00016">16</a> of file <a class="el" href="../../dd/dd5/_console_builder_input_8cs_source.html">ConsoleBuilderInput.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
 </div><!-- fragment -->
 </div>
 </div>

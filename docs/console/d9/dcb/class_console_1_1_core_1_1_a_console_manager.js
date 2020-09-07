@@ -1,15 +1,15 @@
 var class_console_1_1_core_1_1_a_console_manager =
 [
-    [ "AConsoleManager", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#af58a5e7d60d22fe00690f10ae7145dc1", null ],
+    [ "AConsoleManager", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a8344d2ad763d9cfc0eb76671bc28d39a", null ],
+    [ "AConsoleManager", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a25b65f6a9b00fb3ba3249f3869feff2a", null ],
     [ "_Log", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab1b1cd9cdc0429029e6351175dc0bd2f", null ],
     [ "_LogError", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a4e6b10286da51a88540ff21d7e681376", null ],
     [ "_LogWarning", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a05018f6e49438d2e9d2e287b7a0f4551", null ],
     [ "Clear", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a4202e20950613bd486341151f4926c91", null ],
     [ "EnterCommand", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#ab9b1d7ba7f1b176a9925f32b9ac2ae10", null ],
-    [ "InvokeLogEvent", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a166f2a21bb26de83a6da77cfecf1308d", null ],
     [ "InvokeOnFinishInitialize", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a4b7f1904bcf9a40dde495718d754c79d", null ],
     [ "InvokeOnTick", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#af5aadb8c282ae0c43dfa0b487d87c8c7", null ],
-    [ "LoadCommands", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#af728eb654f4d449931294fae4d42d14b", null ],
+    [ "LoadCommands", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#aa82f4e2b3d7ae8ecde137fa798507868", null ],
     [ "Log", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#aeb186362c87b6c0f33a7b6dac6ec6820", null ],
     [ "LogCommand", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#a44c5fe58400ae93c956b9fa9cb995740", null ],
     [ "LogError", "d9/dcb/class_console_1_1_core_1_1_a_console_manager.html#adb5ffaab9f812ec776df503725727cc1", null ],
