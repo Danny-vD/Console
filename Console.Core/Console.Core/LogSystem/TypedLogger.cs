@@ -5,14 +5,17 @@
     /// </summary>
     public class TypedLogger : ALogger
     {
+
         /// <summary>
         /// The Prefix that is used by normal Logs
         /// </summary>
         public string LogPrefix { get; set; } = "[Log]";
+
         /// <summary>
         /// The Prefix that is used by warning logs
         /// </summary>
         public string LogWarningPrefix { get; set; } = "[Warning]";
+
         /// <summary>
         /// The Prefix that is used by error logs
         /// </summary>
@@ -59,9 +62,11 @@
                 log.WrapAround(new TypedLogger());
                 return log;
             }
+
             TypedLogger pfx = new TypedLogger();
             pfx.WrapAround(new PrefixLogger(prefix));
             return pfx;
         }
+
     }
 }

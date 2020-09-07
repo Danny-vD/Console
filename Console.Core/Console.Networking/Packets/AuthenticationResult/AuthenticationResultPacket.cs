@@ -11,6 +11,7 @@ namespace Console.Networking.Packets.AuthenticationResult
     /// </summary>
     public class AuthenticationResultPacket : ANetworkPacket
     {
+
         /// <summary>
         /// Flag that Indicates the State of the Authentication
         /// </summary>
@@ -24,5 +25,6 @@ namespace Console.Networking.Packets.AuthenticationResult
         {
             Success = success;
         }
+
     }
 }

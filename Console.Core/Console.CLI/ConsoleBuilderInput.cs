@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Core.CommandSystem.Builder;
 
 namespace Console.CLI
@@ -63,7 +64,9 @@ namespace Console.CLI
             {
                 System.Console.Write(' ');
             }
+
             System.Console.CursorLeft = 0;
         }
+
     }
 }

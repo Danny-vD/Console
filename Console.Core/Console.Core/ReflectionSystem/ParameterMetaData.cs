@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 using Console.Core.ReflectionSystem.Interfaces;
 
 namespace Console.Core.ReflectionSystem
@@ -11,18 +12,11 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public class ParameterMetaData : IAttributeCollection
     {
-        /// <summary>
-        /// List of attributes on this parameter
-        /// </summary>
-        public List<Attribute> Attributes => ReflectedInfo.GetCustomAttributes(true).OfType<Attribute>().ToList();
+
         /// <summary>
         /// The Parameter Info
         /// </summary>
         public readonly ParameterInfo ReflectedInfo;
-        /// <summary>
-        /// The Parameter Type
-        /// </summary>
-        public Type ParameterType => ReflectedInfo.ParameterType;
 
         /// <summary>
         /// Public Parameter Info
@@ -32,5 +26,16 @@ namespace Console.Core.ReflectionSystem
         {
             ReflectedInfo = info;
         }
+
+        /// <summary>
+        /// The Parameter Type
+        /// </summary>
+        public Type ParameterType => ReflectedInfo.ParameterType;
+
+        /// <summary>
+        /// List of attributes on this parameter
+        /// </summary>
+        public List<Attribute> Attributes => ReflectedInfo.GetCustomAttributes(true).OfType<Attribute>().ToList();
+
     }
 }

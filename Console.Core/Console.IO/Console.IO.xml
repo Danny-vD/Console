@@ -9,6 +9,11 @@
             Commands that can be useful when working with filesystems
             </summary>
         </member>
+        <member name="F:Console.IO.IOCommands.IO_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Console.IO.IOCommands.ChangeDir(System.String)">
             <summary>
             Changes the Current Directory.

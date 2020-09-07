@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
@@ -11,7 +12,24 @@ namespace Console.Core
     /// </summary>
     public static class ConsoleCoreConfig
     {
+
         #region Console Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string CORE_NAMESPACE = "core";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string PROPERTY_NAMESPACE = CORE_NAMESPACE + "::property";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string SELECTION_NAMESPACE = CORE_NAMESPACE + "::selection";
+
 
         /// <summary>
         /// Logger used to Write Logs from the Core Library
@@ -26,12 +44,12 @@ namespace Console.Core
         public static Version CoreVersion => Assembly.GetExecutingAssembly().GetName().Version;
 
 
-
         /// <summary>
         /// Enables Optimizations without the OptimizeILAttribute
         /// </summary>
         [Property("core.il.aggressive")]
         public static bool AggressiveILOptimizations = false;
+
         /// <summary>
         /// Enables IL Method Call Optimizations
         /// </summary>
@@ -41,7 +59,8 @@ namespace Console.Core
         /// <summary>
         /// Should the Console print the entered command?
         /// </summary>
-        [Property("core.output.writecommand")] public static bool WriteCommand = false;
+        [Property("core.output.writecommand")]
+        public static bool WriteCommand = false;
 
         /// <summary>
         /// If True will only write the exception message instead of the whole exception
@@ -52,7 +71,8 @@ namespace Console.Core
         /// <summary>
         /// The Prefix of Commands.
         /// </summary>
-        [Property("core.input.prefix")] public static string ConsolePrefix = "";
+        [Property("core.input.prefix")]
+        public static string ConsolePrefix = "";
 
         /// <summary>
         /// The Character that is used to enclose string blocks.
@@ -67,6 +87,7 @@ namespace Console.Core
                 _stringChar = value;
             }
         }
+
         /// <summary>
         /// Backing field for the StringChar Property
         /// </summary>
@@ -77,6 +98,7 @@ namespace Console.Core
         /// </summary>
         [Property("core.input.commandseparator")]
         public static char CommandInputSeparator = ' ';
+
         /// <summary>
         /// The Character that is used to seperate input in the console.
         /// </summary>
@@ -145,6 +167,12 @@ namespace Console.Core
         [Property("core.commands.allowoverlapping")]
         public static bool AllowOverlappingCommands;
 
+        /// <summary>
+        /// If true the Console does not write an error message if Commands are hidden by other Commands.
+        /// </summary>
+        [Property("core.commands.allowoverlapping.noerror")]
+        public static bool DisableOverlappingCommandsLogs;
+
 
         /// <summary>
         /// Finds the Corresponding Closing Tag
@@ -155,7 +183,8 @@ namespace Console.Core
         /// <param name="start">The Start index from where the search begins</param>
         /// <param name="openBrackets">The Amount of open brackets that were already found.</param>
         /// <returns>Index of the Corresponding Closing Tag</returns>
-        public static int FindClosing(string cmd, char openBracket, char closeBracket, int start = 0,
+        public static int FindClosing(
+            string cmd, char openBracket, char closeBracket, int start = 0,
             int openBrackets = 0)
         {
             int open = openBrackets;
@@ -175,9 +204,11 @@ namespace Console.Core
                     }
                 }
             }
+
             return -1;
         }
 
         #endregion
+
     }
 }

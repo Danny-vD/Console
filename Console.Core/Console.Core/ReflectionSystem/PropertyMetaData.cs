@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
-using Console.Core.CommandSystem;
+
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.ReflectionSystem.Abstract;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -11,6 +12,7 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public class PropertyMetaData : AInstancedMetaData<PropertyInfo>, IValueTypeContainer
     {
+
         /// <summary>
         /// Public Constructor.
         /// </summary>
@@ -24,6 +26,7 @@ namespace Console.Core.ReflectionSystem
         /// The Type of the Property.
         /// </summary>
         public Type ValueType => ReflectedInfo.PropertyType;
+
         /// <summary>
         /// Flag that determines if the Value can be Written
         /// </summary>
@@ -61,5 +64,6 @@ namespace Console.Core.ReflectionSystem
         {
             return (T) Get();
         }
+
     }
 }

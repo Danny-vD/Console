@@ -1,9 +1,7 @@
-﻿
-
-
-/// <summary>
+﻿/// <summary>
 /// The Log System provides Logger Implementations that allow for prefixes and other transformations of the incoming logs
 /// </summary>
+
 namespace Console.Core.LogSystem
 {
     /// <summary>
@@ -11,12 +9,13 @@ namespace Console.Core.LogSystem
     /// </summary>
     public abstract class ALogger
     {
+
+        private ALogger Sub;
+
         /// <summary>
         /// If true the Logger will not output any Logs
         /// </summary>
         public bool Mute { get; set; }
-
-        private ALogger Sub;
 
         /// <summary>
         /// Wraps the passed logger into the current logger lowest level
@@ -29,6 +28,7 @@ namespace Console.Core.LogSystem
             {
                 sub = sub.Sub;
             }
+
             sub.Sub = logger;
         }
 
@@ -90,5 +90,6 @@ namespace Console.Core.LogSystem
                 }
             }
         }
+
     }
 }

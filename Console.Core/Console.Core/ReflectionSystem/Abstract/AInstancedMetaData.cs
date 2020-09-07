@@ -9,6 +9,7 @@ namespace Console.Core.ReflectionSystem.Abstract
     public abstract class AInstancedMetaData<T> : AMetaData<T>
         where T : MemberInfo
     {
+
         /// <summary>
         /// The Object Instance that contains the Member
         /// </summary>
@@ -23,5 +24,6 @@ namespace Console.Core.ReflectionSystem.Abstract
         {
             Instance = instance;
         }
+
     }
 }

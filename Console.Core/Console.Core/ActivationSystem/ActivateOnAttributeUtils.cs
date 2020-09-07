@@ -10,6 +10,7 @@ namespace Console.Core.ActivationSystem
     /// </summary>
     public static class ActivateOnAttributeUtils
     {
+
         /// <summary>
         /// Activates all Types in this assembly that are or inherit from the base type.
         /// </summary>
@@ -26,6 +27,7 @@ namespace Console.Core.ActivationSystem
                 {
                     continue;
                 }
+
                 ActivateOnAttribute ao = type.GetCustomAttribute<ActivateOnAttribute>();
                 Type[] pTypes = parameter.Select(x => x.GetType()).ToArray();
                 if (ao != null && !type.IsAbstract && type.GetConstructor(pTypes) != null)
@@ -34,6 +36,7 @@ namespace Console.Core.ActivationSystem
                     ret.Add(ci.Invoke(parameter));
                 }
             }
+
             return ret.ToArray();
         }
 
@@ -48,5 +51,6 @@ namespace Console.Core.ActivationSystem
         {
             return ActivateObjects(asm, typeof(T), parameters).Cast<T>().ToArray();
         }
+
     }
 }

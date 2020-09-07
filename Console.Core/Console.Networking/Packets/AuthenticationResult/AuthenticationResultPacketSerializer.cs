@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.AuthenticationResult
     /// </summary>
     public class AuthenticationResultPacketSerializer : PacketSerializer<AuthenticationResultPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -25,7 +26,8 @@ namespace Console.Networking.Packets.AuthenticationResult
         /// <returns>Serialized Data</returns>
         protected override byte[] Serialize(AuthenticationResultPacket item)
         {
-            return new[] {(byte) (item.Success ? 1 : 0)};
+            return new[] { (byte) (item.Success ? 1 : 0) };
         }
+
     }
 }

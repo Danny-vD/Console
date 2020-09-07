@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Console.Core.CommandSystem;
+
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.ConverterSystem;
-using Console.Core.ILOptimizations;
-using Console.Core.PropertySystem;
 using Console.Core.ReflectionSystem.Abstract;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -16,23 +15,6 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public class MethodMetaData : AInstancedMetaData<MethodInfo>, IInvokable
     {
-        
-        /// <summary>
-        /// Name of the Method
-        /// </summary>
-        public string Name => ReflectedInfo.Name;
-        /// <summary>
-        /// The Parameter Count of the Method
-        /// </summary>
-        public int ParameterCount => ParameterTypes.Length;
-        /// <summary>
-        /// The Meta Data of the Commands.
-        /// </summary>
-        public ParameterMetaData[] ParameterTypes { get; }
-        /// <summary>
-        /// The Return type of the Invocation
-        /// </summary>
-        public Type ReturnType => ReflectedInfo.ReturnType;
 
         /// <summary>
         /// Public constructor
@@ -43,6 +25,26 @@ namespace Console.Core.ReflectionSystem
         {
             ParameterTypes = info.GetParameters().Select(x => new ParameterMetaData(x)).ToArray();
         }
+
+        /// <summary>
+        /// Name of the Method
+        /// </summary>
+        public string Name => ReflectedInfo.Name;
+
+        /// <summary>
+        /// The Parameter Count of the Method
+        /// </summary>
+        public int ParameterCount => ParameterTypes.Length;
+
+        /// <summary>
+        /// The Meta Data of the Commands.
+        /// </summary>
+        public ParameterMetaData[] ParameterTypes { get; }
+
+        /// <summary>
+        /// The Return type of the Invocation
+        /// </summary>
+        public Type ReturnType => ReflectedInfo.ReturnType;
 
 
         /// <summary>
@@ -80,13 +82,16 @@ namespace Console.Core.ReflectionSystem
                 if (cfa != null)
                 {
                     string name = cfa.Name ?? pt[i].Name;
-                    bool lval = cparameter.Any(x =>
-                        x.ToString().StartsWith(ConsoleCoreConfig.CommandFlagPrefix) &&
-                        x.ToString().Remove(0, 2) == name);
+                    bool lval = cparameter.Any(
+                                               x =>
+                                                   x.ToString().StartsWith(ConsoleCoreConfig.CommandFlagPrefix) &&
+                                                   x.ToString().Remove(0, 2) == name
+                                              );
                     if (lval)
                     {
                         cparameter.Remove(ConsoleCoreConfig.CommandFlagPrefix + name);
                     }
+
                     ret[i] = lval;
                 }
             }
@@ -110,28 +115,30 @@ namespace Console.Core.ReflectionSystem
             for (int i = 0; i < pt.Length; i++)
             {
                 SelectionPropertyAttribute sp = pt[i].GetCustomAttribute<SelectionPropertyAttribute>();
-                if (sp != null && !(AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0 &&
-                                    pt.Length == cparameter.Count))
+                if (sp != null &&
+                    !(AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0 &&
+                      pt.Length == cparameter.Count))
                 {
-
                     object v = AConsoleManager.Instance.ObjectSelector.SelectedObjects.ToArray();
                     if (AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count == 0)
                     {
                         if (pt.Length == cparameter.Count)
                         {
-                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(cparameter[i - off],
-                                pt[i].ParameterType);
+                            ret[i] = CommandAttributeUtils.ConvertToNonGeneric(
+                                                                               cparameter[i - off],
+                                                                               pt[i].ParameterType
+                                                                              );
                             continue;
                         }
-                        else
-                        {
-                            v = null;
-                        }
+
+                        v = null;
                     }
                     else if (!sp.NoConverter && CustomConvertManager.CanConvert(v, pt[i].ParameterType))
                     {
                         v = CustomConvertManager.Convert(
-                            v, pt[i].ParameterType);
+                                                         v,
+                                                         pt[i].ParameterType
+                                                        );
                     }
 
                     ret[i] = v;
@@ -147,6 +154,7 @@ namespace Console.Core.ReflectionSystem
                     {
                         ret[i] = cparameter[i - off].ToString().ToLower() == "true";
                     }
+
                     continue;
                 }
 
@@ -156,5 +164,6 @@ namespace Console.Core.ReflectionSystem
 
             return ret;
         }
+
     }
 }

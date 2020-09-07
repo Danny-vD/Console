@@ -7,6 +7,7 @@ namespace Console.Core
     /// </summary>
     public abstract class AObjectSelector
     {
+
         /// <summary>
         /// The Selected Objects
         /// </summary>
@@ -55,5 +56,6 @@ namespace Console.Core
             SelectedObjects.Clear();
             AddToSelection(obj);
         }
+
     }
 }

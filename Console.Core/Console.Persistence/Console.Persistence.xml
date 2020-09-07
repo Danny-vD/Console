@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.Persistence</name>
+    </assembly>
+    <members>
+        <member name="T:Console.Persistence.PersistentPropertiesInitializer">
+            <summary>
+            Initializer of the PersistentProperties Extension
+            </summary>
+        </member>
+        <member name="F:Console.Persistence.PersistentPropertiesInitializer.PERSISTENT_PROPERTIES_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Console.Persistence.PersistentPropertiesInitializer.Logger">
+            <summary>
+            Logger for this Extension
+            </summary>
+        </member>
+        <member name="P:Console.Persistence.PersistentPropertiesInitializer.PersistentPropertiesVersion">
+            <summary>
+            Version of the Persistent Properties Extension
+            </summary>
+        </member>
+        <member name="P:Console.Persistence.PersistentPropertiesInitializer.Order">
+            <summary>
+            The Load Order of the Extension
+            </summary>
+        </member>
+        <member name="M:Console.Persistence.PersistentPropertiesInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="T:Console.Persistence.PropertyLoaderCommands">
+            <summary>
+            Property Loader Command Collection
+            </summary>
+        </member>
+        <member name="M:Console.Persistence.PropertyLoaderCommands.Load(System.String)">
+            <summary>
+            Loads a Settings File.
+            </summary>
+            <param name="file">Filepath</param>
+        </member>
+        <member name="M:Console.Persistence.PropertyLoaderCommands.Save(System.String)">
+            <summary>
+            Saves all Properties to a file
+            </summary>
+            <param name="file">Filepath</param>
+        </member>
+        <member name="M:Console.Persistence.PropertyLoaderCommands.Save(System.String,System.String)">
+            <summary>
+            Saves all Properties that start with the search term to a file
+            </summary>
+            <param name="file">Filepath</param>
+            <param name="searchTerm">Search String</param>
+        </member>
+        <member name="T:Console.Persistence.PropertyParser">
+            <summary>
+            Internal Helper Class
+            </summary>
+        </member>
+        <member name="M:Console.Persistence.PropertyParser.LoadProperties(System.String)">
+            <summary>
+            Returns the Property Data from a File.
+            </summary>
+            <param name="content">The File Content.</param>
+            <returns>Property Data</returns>
+        </member>
+    </members>
+</doc>

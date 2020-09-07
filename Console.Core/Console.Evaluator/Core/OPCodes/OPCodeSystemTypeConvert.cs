@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 
@@ -10,10 +11,29 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     internal class OPCodeSystemTypeConvert : OPCode
     {
+
+        /// <summary>
+        /// The Evaluation Type Backing Field
+        /// </summary>
+        private readonly EvalType mEvalType = EvalType.Unknown;
+
+        /// <summary>
+        /// The System Type Backing Field
+        /// </summary>
+        private readonly Type mSystemType;
+
         /// <summary>
         /// The Parameter Backing Field
         /// </summary>
         private IEvalTypedValue _param1;
+
+        public OPCodeSystemTypeConvert(IEvalTypedValue param1, Type type)
+        {
+            Param1 = param1;
+            mValueDelegate = CType;
+            mSystemType = type;
+            mEvalType = Globals.GetEvalType(type);
+        }
 
         /// <summary>
         /// The Parameter
@@ -38,31 +58,6 @@ namespace Console.Evaluator.Core.OPCodes
                 }
             }
         }
-        /// <summary>
-        /// The Evaluation Type Backing Field
-        /// </summary>
-        private readonly EvalType mEvalType = EvalType.Unknown;
-        /// <summary>
-        /// The System Type Backing Field
-        /// </summary>
-        private readonly Type mSystemType;
-
-        public OPCodeSystemTypeConvert(IEvalTypedValue param1, Type type)
-        {
-            Param1 = param1;
-            mValueDelegate = CType;
-            mSystemType = type;
-            mEvalType = Globals.GetEvalType(type);
-        }
-
-        /// <summary>
-        /// Converts the Parameter Value into the Specified System Type
-        /// </summary>
-        /// <returns>Parameter Value as Type mSystemType</returns>
-        private object CType()
-        {
-            return System.Convert.ChangeType(Param1.Value, mSystemType);
-        }
 
         /// <summary>
         /// The Evaluation Type
@@ -75,6 +70,15 @@ namespace Console.Evaluator.Core.OPCodes
         public override Type SystemType => mSystemType;
 
         /// <summary>
+        /// Converts the Parameter Value into the Specified System Type
+        /// </summary>
+        /// <returns>Parameter Value as Type mSystemType</returns>
+        private object CType()
+        {
+            return System.Convert.ChangeType(Param1.Value, mSystemType);
+        }
+
+        /// <summary>
         /// Gets Invoked when the parameter value changes.
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
@@ -83,5 +87,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

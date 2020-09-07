@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.Log
     /// </summary>
     public class LogPacketSerializer : PacketSerializer<LogPacket>
     {
+
         /// <summary>
         /// Deserializes the packet
         /// </summary>
@@ -26,5 +27,6 @@ namespace Console.Networking.Packets.Log
         {
             return NetworkingSettings.EncodingInstance.GetBytes(item.LogLine);
         }
+
     }
 }

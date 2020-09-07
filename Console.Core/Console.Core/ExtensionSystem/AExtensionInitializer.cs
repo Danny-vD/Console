@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+
 using Console.Core.ActivationSystem;
 using Console.Core.LogSystem;
 
@@ -11,8 +12,20 @@ namespace Console.Core.ExtensionSystem
     [ActivateOn]
     public abstract class AExtensionInitializer
     {
-        private Assembly ExtensionAssembly => GetType().Assembly;
+
         private static readonly Dictionary<Assembly, ALogger> Loggers = new Dictionary<Assembly, ALogger>();
+
+        private Assembly ExtensionAssembly => GetType().Assembly;
+
+        /// <summary>
+        /// The Load Order of the Extension
+        /// </summary>
+        public virtual LoadOrder Order => LoadOrder.Default;
+
+        /// <summary>
+        /// The Logger Prefix for this Extension
+        /// </summary>
+        protected virtual string LoggerPrefix => ExtensionAssembly.GetName().Name;
 
         /// <summary>
         /// Returns the Logger with the Correct Prefix for the Assembly
@@ -54,15 +67,6 @@ namespace Console.Core.ExtensionSystem
         }
 
         /// <summary>
-        /// The Load Order of the Extension
-        /// </summary>
-        public virtual LoadOrder Order => LoadOrder.Default;
-        /// <summary>
-        /// The Logger Prefix for this Extension
-        /// </summary>
-        protected virtual string LoggerPrefix => ExtensionAssembly.GetName().Name;
-
-        /// <summary>
         /// Initializes the Extensions in this Assembly.
         /// </summary>
         protected abstract void Initialize();
@@ -72,5 +76,6 @@ namespace Console.Core.ExtensionSystem
             SetLogger(TypedLogger.CreateTypedWithPrefix(LoggerPrefix));
             Initialize();
         }
+
     }
 }

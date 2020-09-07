@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.OPCodes;
 
@@ -10,22 +11,26 @@ namespace Console.Evaluator.Core
     /// </summary>
     public class Evaluator
     {
-        /// <summary>
-        /// The List of Classes that Inherit IVariableBack and/or IEvalFunctions
-        /// </summary>
-        internal ArrayList mEnvironmentFunctionsList;
-        /// <summary>
-        /// If true will throw an exception when a parameter/function is not found.
-        /// </summary>
-        public bool RaiseVariableNotFoundException;
-        /// <summary>
-        /// Defines the Parser Syntax of the Evaluator
-        /// </summary>
-        public readonly ParserSyntax Syntax;
+
         /// <summary>
         /// If True all Variables and Functions will be matched in case sensitive
         /// </summary>
         public readonly bool CaseSensitive;
+
+        /// <summary>
+        /// Defines the Parser Syntax of the Evaluator
+        /// </summary>
+        public readonly ParserSyntax Syntax;
+
+        /// <summary>
+        /// The List of Classes that Inherit IVariableBack and/or IEvalFunctions
+        /// </summary>
+        internal ArrayList mEnvironmentFunctionsList;
+
+        /// <summary>
+        /// If true will throw an exception when a parameter/function is not found.
+        /// </summary>
+        public bool RaiseVariableNotFoundException;
 
         /// <summary>
         /// Public Constructor
@@ -49,6 +54,7 @@ namespace Console.Evaluator.Core
             {
                 return;
             }
+
             if (!mEnvironmentFunctionsList.Contains(obj))
             {
                 mEnvironmentFunctionsList.Add(obj);
@@ -88,52 +94,52 @@ namespace Console.Evaluator.Core
             {
                 return (string) value;
             }
-            else if (value is null)
+
+            if (value is null)
             {
                 return string.Empty;
             }
-            else if (value is DateTime)
+
+            if (value is DateTime)
             {
                 DateTime d = (DateTime) value;
                 if (d.TimeOfDay.TotalMilliseconds > 0)
                 {
                     return d.ToString();
                 }
-                else
-                {
-                    return d.ToShortDateString();
-                }
+
+                return d.ToShortDateString();
             }
-            else if (value is decimal)
+
+            if (value is decimal)
             {
                 decimal d = (decimal) value;
                 if (d % 1 != 0)
                 {
                     return d.ToString("#,##0.00");
                 }
-                else
-                {
-                    return d.ToString("#,##0");
-                }
+
+                return d.ToString("#,##0");
             }
-            else if (value is double)
+
+            if (value is double)
             {
                 double d = (double) value;
                 if (d % 1 != 0)
                 {
                     return d.ToString("#,##0.00");
                 }
-                else
-                {
-                    return d.ToString("#,##0");
-                }
+
+                return d.ToString("#,##0");
             }
-            else if (value is object)
+
+            if (value is object)
             {
                 return value.ToString();
             }
 
             return default;
         }
+
     }
 }

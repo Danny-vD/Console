@@ -12,6 +12,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class AuthenticationPacketClientHandler : APacketClientHandler<AuthenticationPacket>
     {
+
         /// <summary>
         /// Handles the Packet
         /// </summary>
@@ -20,5 +21,6 @@ namespace Console.Networking.Handlers
         {
             NetworkingSettings.ClientSession.Client.TrySendPacket(item.CreateResponse());
         }
+
     }
 }

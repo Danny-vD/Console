@@ -7,6 +7,7 @@ namespace Console.Core
     /// </summary>
     public abstract class ConsoleAttribute : Attribute
     {
+
         /// <summary>
         /// Returns the Name of the Attribute
         /// </summary>
@@ -15,5 +16,6 @@ namespace Console.Core
         {
             return GetType().Name;
         }
+
     }
 }

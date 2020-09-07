@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+
 using Console.Core.LogSystem;
 
 namespace Console.Core.ILOptimizations
@@ -11,7 +12,10 @@ namespace Console.Core.ILOptimizations
     /// Can be used to Signal that a Method can be Optimized to IL Code to avoid Reflection
     /// </summary>
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Field | AttributeTargets.Property)]
-    public class OptimizeILAttribute : Attribute { }
+    public class OptimizeILAttribute : Attribute
+    {
+
+    }
 
     /// <summary>
     /// 
@@ -30,19 +34,26 @@ namespace Console.Core.ILOptimizations
         {
             OptimizeILAttribute attrib = info.GetCustomAttribute<OptimizeILAttribute>();
             bool optimize = ConsoleCoreConfig.AggressiveILOptimizations || attrib != null;
-            bool wrong = (info is MethodInfo mi && !mi.IsPublic) || (info is FieldInfo fi && (!fi.IsPublic));
+            bool wrong = info is MethodInfo mi && !mi.IsPublic || info is FieldInfo fi && !fi.IsPublic;
             if (optimize && wrong)
             {
-                //if (attrib != null)
-                    ILLogger.LogWarning($"Can not optimize non-public methods. Make the Method {info} public to be able to optimize.");
+                if (attrib != null)
+                {
+                    ILLogger.LogWarning(
+                                        $"Can not optimize non-public methods. Make the Method {info} public to be able to optimize."
+                                       );
+                }
+
                 return false;
             }
+
             return optimize;
         }
 
         #region Property
 
         #region Set
+
         /// <summary>
         /// 
         /// </summary>
@@ -65,8 +76,6 @@ namespace Console.Core.ILOptimizations
             return GetMethod(info.SetMethod);
         }
 
-
-
         #endregion
 
         #region Get
@@ -82,6 +91,7 @@ namespace Console.Core.ILOptimizations
         {
             return GetMethodDel<T>(info.GetMethod);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -97,6 +107,7 @@ namespace Console.Core.ILOptimizations
         #endregion
 
         #region Constructor
+
         /// <summary>
         /// 
         /// </summary>
@@ -119,8 +130,9 @@ namespace Console.Core.ILOptimizations
             where T : Delegate
         {
             DynamicMethod dm = GetConstructor(type);
-            return (T)dm.CreateDelegate(typeof(T));
+            return (T) dm.CreateDelegate(typeof(T));
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -139,6 +151,7 @@ namespace Console.Core.ILOptimizations
         #endregion
 
         #region Field
+
         /// <summary>
         /// 
         /// </summary>
@@ -146,9 +159,11 @@ namespace Console.Core.ILOptimizations
         /// <returns></returns>
         public static DynamicMethod SetField(FieldInfo info)
         {
-
-            DynamicMethod dm = new DynamicMethod("ILSetFieldValue." + info.Name, null,
-                new[] { typeof(object), info.FieldType });
+            DynamicMethod dm = new DynamicMethod(
+                                                 "ILSetFieldValue." + info.Name,
+                                                 null,
+                                                 new[] { typeof(object), info.FieldType }
+                                                );
             ILGenerator gen = dm.GetILGenerator();
 
             gen.Emit(OpCodes.Ldarg_0);
@@ -166,9 +181,11 @@ namespace Console.Core.ILOptimizations
         /// <returns></returns>
         public static DynamicMethod GetField(FieldInfo info)
         {
-
-            DynamicMethod dm = new DynamicMethod("ILGetFieldValue." + info.Name, info.FieldType,
-                new[] { typeof(object) });
+            DynamicMethod dm = new DynamicMethod(
+                                                 "ILGetFieldValue." + info.Name,
+                                                 info.FieldType,
+                                                 new[] { typeof(object) }
+                                                );
             ILGenerator gen = dm.GetILGenerator();
             gen.Emit(OpCodes.Ldarg_0);
             gen.Emit(OpCodes.Ldfld, info);
@@ -186,7 +203,7 @@ namespace Console.Core.ILOptimizations
             where T : Delegate
         {
             DynamicMethod dm = GetField(info);
-            return (T)dm.CreateDelegate(typeof(T));
+            return (T) dm.CreateDelegate(typeof(T));
         }
 
         /// <summary>
@@ -199,7 +216,7 @@ namespace Console.Core.ILOptimizations
             where T : Delegate
         {
             DynamicMethod dm = SetField(info);
-            return (T)dm.CreateDelegate(typeof(T));
+            return (T) dm.CreateDelegate(typeof(T));
         }
 
         #endregion
@@ -216,7 +233,7 @@ namespace Console.Core.ILOptimizations
             where T : Delegate
         {
             DynamicMethod dm = GetMethod(info);
-            return (T)dm.CreateDelegate(typeof(T));
+            return (T) dm.CreateDelegate(typeof(T));
         }
 
         /// <summary>
@@ -226,8 +243,11 @@ namespace Console.Core.ILOptimizations
         /// <returns></returns>
         public static DynamicMethod GetMethod(MethodInfo info)
         {
+            if (info.IsStatic)
+            {
+                return GetStaticMethod(info);
+            }
 
-            if (info.IsStatic) return GetStaticMethod(info);
             return GetInstanceMethod(info);
         }
 
@@ -268,7 +288,7 @@ namespace Console.Core.ILOptimizations
             return dm;
         }
 
-
         #endregion
+
     }
 }

@@ -5,10 +5,12 @@
     /// </summary>
     public struct ParameterRange
     {
+
         /// <summary>
         /// Minimum Parameter Count
         /// </summary>
         public int Min;
+
         /// <summary>
         /// Maximum Parameter Count
         /// </summary>
@@ -53,5 +55,6 @@
         {
             return $"{Min} - {Max}";
         }
+
     }
 }

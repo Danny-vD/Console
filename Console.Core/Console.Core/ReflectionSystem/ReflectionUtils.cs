@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
+
 using Console.Core.ILOptimizations;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -20,27 +20,61 @@ namespace Console.Core.ReflectionSystem
     public static class ReflectionUtils
     {
 
-        private static readonly Dictionary<string, DynamicMethod> ILOptimizedCode = new Dictionary<string, DynamicMethod>();
+        private static readonly Dictionary<string, bool> ExecutedOnce = new Dictionary<string, bool>();
+
+        private static readonly Dictionary<string, DynamicMethod> ILOptimizedCode =
+            new Dictionary<string, DynamicMethod>();
+
+        private static string GetILOptimizedFieldGetKey(FieldInfo info)
+        {
+            return "<>fg." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
+        }
+
+        private static string GetILOptimizedFieldSetKey(FieldInfo info)
+        {
+            return "<>fs." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
+        }
+
+        private static string GetILOptimizedMethodKey(MethodInfo info)
+        {
+            return "<>mthd." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
+        }
+
         private static DynamicMethod GetILOptimizedInvoke(MethodInfo info)
         {
-            string key = "<>mthd." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
-            if (ILOptimizedCode.ContainsKey(key)) return ILOptimizedCode[key];
+            string key = GetILOptimizedMethodKey(info);
+            if (ILOptimizedCode.ContainsKey(key))
+            {
+                return ILOptimizedCode[key];
+            }
+
             ILTools.ILLogger.Log("Optimizing Method: " + info);
             ILOptimizedCode[key] = ILTools.GetMethod(info);
+            ExecutedOnce[key] = false;
             return ILOptimizedCode[key];
         }
+
         private static DynamicMethod GetILOptimizedFieldGet(FieldInfo info)
         {
-            string key = "<>fg." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
-            if (ILOptimizedCode.ContainsKey(key)) return ILOptimizedCode[key];
+            string key = GetILOptimizedFieldGetKey(info);
+            if (ILOptimizedCode.ContainsKey(key))
+            {
+                return ILOptimizedCode[key];
+            }
+
             ILTools.ILLogger.Log("Optimizing Field Get: " + info);
             ILOptimizedCode[key] = ILTools.GetField(info);
             return ILOptimizedCode[key];
         }
+
         private static DynamicMethod GetILOptimizedFieldSet(FieldInfo info)
         {
-            string key = "<>fs." + info.DeclaringType.AssemblyQualifiedName + "." + info.Name;
-            if (ILOptimizedCode.ContainsKey(key)) return ILOptimizedCode[key];
+            string key = GetILOptimizedFieldSetKey(info);
+            if (ILOptimizedCode.ContainsKey(key))
+            {
+                return ILOptimizedCode[key];
+            }
+
             ILTools.ILLogger.Log("Optimizing Field Set: " + info);
             ILOptimizedCode[key] = ILTools.SetField(info);
             return ILOptimizedCode[key];
@@ -50,6 +84,7 @@ namespace Console.Core.ReflectionSystem
         {
             return del.Invoke(null, new[] { instance });
         }
+
         private static void InvokeFieldSetILOptimized(DynamicMethod del, object instance, object value)
         {
             del.Invoke(null, new[] { instance, value });
@@ -59,9 +94,15 @@ namespace Console.Core.ReflectionSystem
         {
             List<object> paramList = new List<object>();
             if (instance != null)
+            {
                 paramList.Add(instance);
+            }
+
             if (parameters != null)
+            {
                 paramList.AddRange(parameters);
+            }
+
             return del.Invoke(null, paramList.ToArray());
         }
 
@@ -77,10 +118,16 @@ namespace Console.Core.ReflectionSystem
         {
             if (ConsoleCoreConfig.EnableILOptimizations && ILTools.CanOptimize(info))
             {
-                return InvokeILOptimized(GetILOptimizedInvoke(info), instance, parameters);
+                string key = GetILOptimizedMethodKey(info);
+                if (ExecutedOnce.ContainsKey(key) && ExecutedOnce[key])
+                {
+                    return InvokeILOptimized(GetILOptimizedInvoke(info), instance, parameters);
+                }
             }
+
             try
             {
+                ExecutedOnce[GetILOptimizedMethodKey(info)] = true;
                 return info.Invoke(instance, parameters);
             }
             catch (Exception e)
@@ -90,15 +137,17 @@ namespace Console.Core.ReflectionSystem
                 {
                     invoc = invoc.InnerException;
                 }
+
                 Exception actual = invoc;
                 if (actual == null)
                 {
                     throw new Exception("The exception is null and can not be thrown.");
                 }
+
                 try
                 {
                     ExceptionDispatchInfo.Capture(actual)
-                        .Throw(); //Throw the Exception but do not change the stacktrace
+                                         .Throw(); //Throw the Exception but do not change the stacktrace
                 }
                 catch (Exception exception)
                 {
@@ -113,6 +162,7 @@ namespace Console.Core.ReflectionSystem
 
                     //throw actual;
                 }
+
                 return null;
             }
         }
@@ -142,13 +192,10 @@ namespace Console.Core.ReflectionSystem
         {
             info.SetValue(instance, value);
             return; //Below is bugged
+
             if (ConsoleCoreConfig.EnableILOptimizations && ILTools.CanOptimize(info))
             {
                 InvokeFieldSetILOptimized(GetILOptimizedFieldSet(info), instance, value);
-            }
-            else
-            {
-
             }
         }
 
@@ -185,9 +232,17 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
         public static Dictionary<T, IValueTypeContainer> GetStaticConsoleProps<T>(Type t) where T : Attribute
         {
-            return t.GetPropertiesWithAttribute<T>(BindingFlags.Static).Select(x =>
-                new KeyValuePair<T, IValueTypeContainer>(x.Key,
-                    new StaticPropertyMetaData(x.Value))).ToDictionary(x => x.Key, x => x.Value);
+            return t.GetPropertiesWithAttribute<T>(BindingFlags.Static).Select(
+                                                                               x =>
+                                                                                   new KeyValuePair<T,
+                                                                                       IValueTypeContainer>(
+                                                                                                            x.Key,
+                                                                                                            new
+                                                                                                                StaticPropertyMetaData(
+                                                                                                                                       x.Value
+                                                                                                                                      )
+                                                                                                           )
+                                                                              ).ToDictionary(x => x.Key, x => x.Value);
         }
 
         /// <summary>
@@ -198,9 +253,16 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
         public static Dictionary<T, IValueTypeContainer> GetStaticConsoleFields<T>(Type t) where T : Attribute
         {
-            return t.GetFieldsWithAttribute<T>(BindingFlags.Static).Select(x =>
-                new KeyValuePair<T, IValueTypeContainer>(x.Key,
-                    new StaticFieldMetaData(x.Value))).ToDictionary(x => x.Key, x => x.Value);
+            return t.GetFieldsWithAttribute<T>(BindingFlags.Static).Select(
+                                                                           x =>
+                                                                               new KeyValuePair<T, IValueTypeContainer>(
+                                                                                                                        x.Key,
+                                                                                                                        new
+                                                                                                                            StaticFieldMetaData(
+                                                                                                                                                x.Value
+                                                                                                                                               )
+                                                                                                                       )
+                                                                          ).ToDictionary(x => x.Key, x => x.Value);
         }
 
         /// <summary>
@@ -211,9 +273,24 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
         public static Dictionary<T, IValueTypeContainer> GetConsoleProps<T>(object instance) where T : Attribute
         {
-            return instance.GetType().GetPropertiesWithAttribute<T>(BindingFlags.Instance).Select(x =>
-                new KeyValuePair<T, IValueTypeContainer>(x.Key,
-                    new PropertyMetaData(instance, x.Value))).ToDictionary(x => x.Key, x => x.Value);
+            return instance.GetType().GetPropertiesWithAttribute<T>(BindingFlags.Instance).Select(
+                                                                                                  x =>
+                                                                                                      new KeyValuePair<T
+                                                                                                        , IValueTypeContainer
+                                                                                                      >(
+                                                                                                        x.Key,
+                                                                                                        new
+                                                                                                            PropertyMetaData(
+                                                                                                                             instance,
+                                                                                                                             x.Value
+                                                                                                                            )
+                                                                                                       )
+                                                                                                 ).ToDictionary(
+                                                                                                                x => x
+                                                                                                                    .Key,
+                                                                                                                x => x
+                                                                                                                    .Value
+                                                                                                               );
         }
 
         /// <summary>
@@ -224,9 +301,21 @@ namespace Console.Core.ReflectionSystem
         /// <returns>Dictionary of Attributes and IValueTypeContainer Implementations</returns>
         public static Dictionary<T, IValueTypeContainer> GetConsoleFields<T>(object instance) where T : Attribute
         {
-            return instance.GetType().GetFieldsWithAttribute<T>(BindingFlags.Instance).Select(x =>
-                new KeyValuePair<T, IValueTypeContainer>(x.Key,
-                    new FieldMetaData(instance, x.Value))).ToDictionary(x => x.Key, x => x.Value);
+            return instance.GetType().GetFieldsWithAttribute<T>(BindingFlags.Instance).Select(
+                                                                                              x =>
+                                                                                                  new KeyValuePair<T,
+                                                                                                      IValueTypeContainer
+                                                                                                  >(
+                                                                                                    x.Key,
+                                                                                                    new FieldMetaData(
+                                                                                                                      instance,
+                                                                                                                      x.Value
+                                                                                                                     )
+                                                                                                   )
+                                                                                             ).ToDictionary(
+                                                                                                            x => x.Key,
+                                                                                                            x => x.Value
+                                                                                                           );
         }
 
         #endregion
@@ -244,8 +333,11 @@ namespace Console.Core.ReflectionSystem
         public static Dictionary<T, FieldInfo> GetFieldsWithAttribute<T>(this Type t, BindingFlags flag)
             where T : Attribute
         {
-            return GetAttributes<T, FieldInfo>(t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
-                .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
+            return GetAttributes<T, FieldInfo>(
+                                               t.GetFields(flag | BindingFlags.NonPublic | BindingFlags.Public)
+                                                .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>()
+                                                .ToList()
+                                              );
         }
 
         /// <summary>
@@ -258,8 +350,11 @@ namespace Console.Core.ReflectionSystem
         public static Dictionary<T, PropertyInfo> GetPropertiesWithAttribute<T>(this Type t, BindingFlags flag)
             where T : Attribute
         {
-            return GetAttributes<T, PropertyInfo>(t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
-                .Where(x => x.GetCustomAttributes<T>().Count() != 0).Cast<MemberInfo>().ToList());
+            return GetAttributes<T, PropertyInfo>(
+                                                  t.GetProperties(flag | BindingFlags.NonPublic | BindingFlags.Public)
+                                                   .Where(x => x.GetCustomAttributes<T>().Count() != 0)
+                                                   .Cast<MemberInfo>().ToList()
+                                                 );
         }
 
 
@@ -283,9 +378,11 @@ namespace Console.Core.ReflectionSystem
                     ret.Add(attribute, propertyInfo);
                 }
             }
+
             return ret;
         }
 
         #endregion
+
     }
 }

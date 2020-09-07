@@ -10,6 +10,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class ConnectionRequestHostHandler : APacketHostHandler<ConnectionRequestPacket>
     {
+
         /// <summary>
         /// Handles the packet of type T
         /// </summary>
@@ -26,10 +27,12 @@ namespace Console.Networking.Handlers
             {
                 ret = new ConnectionRequestResponseSuccessPacket(NetworkingSettings.Authenticator);
             }
+
             if (!client.TrySendPacket(ret))
             {
                 NetworkedInitializer.Logger.LogWarning("Can not send Packet " + item);
             }
         }
+
     }
 }

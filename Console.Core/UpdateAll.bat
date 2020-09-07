@@ -1,5 +1,5 @@
 dotnet build
-start UpdateCLIProject.bat
-start UpdateUnityProject.bat
-start UpdateFormsProject.bat
+start RunForAllExtensions.bat UpdateCLILibrary.bat
+start RunForAllExtensions.bat UpdateFormsLibrary.bat
+start RunForAllExtensions.bat UpdateUnityLibrary.bat
 pause

@@ -1,0 +1,1075 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.Script</name>
+    </assembly>
+    <members>
+        <member name="T:Console.Script.Async.AsyncRunner">
+            <summary>
+            Class that Implements Async Script Sequences
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.AsyncRunner.ScopeSettings">
+            <summary>
+            Sets the Position where new SubRunner get added.
+            SubLevel => as Sub of the Runner that started the Sequence
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.AsyncRunner.ExecutionOrder">
+            <summary>
+            Sets the Order in which the Runners Get Executed
+            SubFirst => Sub Runners have Higher Priority than the ParentRunner
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.AsyncRunner.SubOrder">
+            <summary>
+            Sets the Order in which the SubRunners get executed.
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.AsyncRunner.Name">
+            <summary>
+            The Name of the AsyncRunner. This is used to Avoid Unpredictable Results when executing the same content at the same time.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.#cctor">
+            <summary>
+            Static Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.#ctor(Console.Script.Deblocker.Parameters.ParameterCollection)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="param">The Parameter Collection of the Runner</param>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.#ctor(Console.Script.Deblocker.Parameters.ParameterCollection,System.String[],System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="param">The Parameter Collection of the Runner</param>
+            <param name="lines">The Content of the Runner</param>
+            <param name="name">Name of the Async Runner.(Used to manage Async Execution of the Same Content</param>
+        </member>
+        <member name="P:Console.Script.Async.AsyncRunner.Parent">
+            <summary>
+            The Parent of this Async Runner
+            </summary>
+        </member>
+        <member name="P:Console.Script.Async.AsyncRunner.Params">
+            <summary>
+            The Parameter Collection of this Runner
+            </summary>
+        </member>
+        <member name="P:Console.Script.Async.AsyncRunner.Current">
+            <summary>
+            The Current Runner that is used
+            </summary>
+        </member>
+        <member name="P:Console.Script.Async.AsyncRunner.SubsFinished">
+            <summary>
+            True if all Subrunners Finished Executing
+            </summary>
+        </member>
+        <member name="P:Console.Script.Async.AsyncRunner.ThisFinished">
+            <summary>
+            True if this Runner finished executing its content
+            </summary>
+        </member>
+        <member name="P:Console.Script.Async.AsyncRunner.Finished">
+            <summary>
+            True if the Runner and All SubRunners Finished Executing
+            </summary>
+        </member>
+        <member name="E:Console.Script.Async.AsyncRunner.OnFinish">
+            <summary>
+            Gets Invoked when the AsyncRunner finishes executing the Content
+            </summary>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.AddSub(Console.Script.Async.AsyncRunner)">
+            <summary>
+            Adds a Sub Runner to this runner
+            </summary>
+            <param name="runner">Runner to add</param>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.GetNextSub">
+            <summary>
+            Returns the Next SubRunner of this Runner
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.GetCurrent">
+            <summary>
+            Returns the Runner that should be executed next
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.GetLine">
+            <summary>
+            Returns the Next Line of this Runner
+            NULL if ThisFinished is true
+            </summary>
+            <returns>Next Line</returns>
+        </member>
+        <member name="M:Console.Script.Async.AsyncRunner.Clean">
+            <summary>
+            Removes all Finished Runners
+            </summary>
+        </member>
+        <member name="T:Console.Script.Async.ScriptExecutionOrder">
+            <summary>
+            Sets the Order in which the Runners get Executed
+            SubFirst => Sub Runners have Higher Priority than the Parent
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.ScriptExecutionOrder.ParentFirst">
+            <summary>
+            Will Execute the Parent Script Content before Executing the Subscripts
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.ScriptExecutionOrder.SubFirst">
+            <summary>
+            Will Execute the Sub Scripts before continuing the Parent Script
+            </summary>
+        </member>
+        <member name="T:Console.Script.Async.ScriptScopeSettings">
+            <summary>
+            Specifies the Position where new Runners get Added.
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.ScriptScopeSettings.SubLevel">
+            <summary>
+            Will be executed as Subscript of the Parent
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.ScriptScopeSettings.ParentLevel">
+            <summary>
+            Will be executed on the Same Level as the Parent Script
+            </summary>
+        </member>
+        <member name="T:Console.Script.Async.SubScriptOrder">
+            <summary>
+            Specifies the Order in which the SubRunner get executed in turns
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.SubScriptOrder.Stack">
+            <summary>
+            The Last Script that got Inserted at this level will be finished first
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.SubScriptOrder.Queue">
+            <summary>
+            The First Script that got Inserted at this level will be finished first
+            </summary>
+        </member>
+        <member name="F:Console.Script.Async.SubScriptOrder.Rotating">
+            <summary>
+            The Subscripts will get one execution cycle in turns
+            </summary>
+        </member>
+        <member name="T:Console.Script.Deblocker.Conditions.ForAllDeblocker">
+            <summary>
+            Implements the deblocking for the "for-all" command.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Conditions.ForAllDeblocker.Key">
+            <summary>
+            Deblocker Key
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Conditions.ForAllDeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Deblocks the for-all command.
+            </summary>
+            <param name="line">The Command</param>
+            <param name="begin">Lines that should be prepended before the line deblock</param>
+            <param name="end">Lines that should be appended after the line deblock</param>
+            <returns>The Deblocked Line</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Conditions.IfDeblocker">
+            <summary>
+            ADeblocker Implementation with key "if"
+            Implements if Syntax with SequenceSystem / Evaluator Extension as backend.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Conditions.IfDeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Conditions.IfDeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Returns the Deblocked Content of the Line
+            </summary>
+            <param name="line">Line to Deblock</param>
+            <param name="begin">Lines that get prepended to the beginning of the file</param>
+            <param name="end">Lines that get appended to the end of the file</param>
+            <returns>List of Deblocked Content</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.Conditions.IfDeblocker.Deblock(Console.Script.Deblocker.Line,System.String[],System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Returns the Deblocked Content of the Line
+            </summary>
+            <param name="line">Line to Deblock</param>
+            <param name="parameters">The parameters of this Block</param>
+            <param name="begin">Lines that get prepended to the beginning of the file</param>
+            <param name="end">Lines that get appended to the end of the file</param>
+            <returns>List of Deblocked Content</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.Conditions.IfDeblocker.CreateBlock(System.String,System.String[],System.String[],System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Creates a Block with a specified name and content
+            </summary>
+            <param name="name">The name of the Block</param>
+            <param name="content">The Content of the Block</param>
+            <param name="parameters">Parameters of the Block</param>
+            <param name="begin">The Deblocked Lines that should be added at the beginning of the block</param>
+            <param name="end">The Deblocked Lines that should be added at the beginning of the block</param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Conditions.IfElseDeblocker">
+            <summary>
+            ADeblocker Implementation with key "ifelse"
+            Implements if Syntax with SequenceSystem / Evaluator Extension as backend.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Conditions.IfElseDeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="T:Console.Script.Deblocker.Conditions.IfElseIfDeblocker">
+            <summary>
+            ADeblocker Implementation with key "ifelseif"
+            Implements if Syntax with SequenceSystem / Evaluator Extension as backend.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Conditions.IfElseIfDeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="T:Console.Script.Deblocker.Conditions.WhileDeblocker">
+            <summary>
+            Implements the deblocking for the "while" command.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Conditions.WhileDeblocker.Key">
+            <summary>
+            Deblocker Key
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Conditions.WhileDeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Deblocks the while command.
+            </summary>
+            <param name="line">The Command</param>
+            <param name="begin">Lines that should be prepended before the line deblock</param>
+            <param name="end">Lines that should be appended after the line deblock</param>
+            <returns>The Deblocked Line</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.DeblockerCollection">
+            <summary>
+            Static Minimal DeblockerCollection Parsing API
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerCollection.Deblockers">
+            <summary>
+            List of Deblockers
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.DeblockerCollection.AddDeblocker(Console.Script.Deblocker.Implementations.ADeblocker)">
+            <summary>
+            Adds a Deblocker to the System
+            </summary>
+            <param name="deblocker">Deblocker to Add</param>
+        </member>
+        <member name="M:Console.Script.Deblocker.DeblockerCollection.ParseLines(System.String,System.Int32)">
+            <summary>
+            Returns the Parsed Lines as List
+            </summary>
+            <param name="content">Content to create the lines from</param>
+            <param name="begin">Start index</param>
+            <returns>List of Parsed Lines</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.DeblockerCollection.Parse(System.String)">
+            <summary>
+            Returns the Parsed and Deblocked Content of the File
+            </summary>
+            <param name="content">File Content</param>
+            <returns>Parsed and Deblocked Content</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.DeblockerCollection.GetEndOfLine(System.String,System.Int32)">
+            <summary>
+            returns the index of either the next new line Skipping all script blocks.
+            </summary>
+            <param name="content">File Content</param>
+            <param name="start">Start index</param>
+            <returns>Index of the next newline or end of file.</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.DeblockerSettings">
+            <summary>
+            The Settings of the DeblockerCollection
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.BLOCK_NAME_BEGIN">
+            <summary>
+            The Start of a Block that has no name/has the name generated by the Compiler
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.BlockBracketOpen">
+            <summary>
+            Open Block Bracket
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.BlockBracketClosed">
+            <summary>
+            Close Block Bracket
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.OpenFunctionBracket">
+            <summary>
+            The Open Tag for the Function Signature
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.CloseFunctionBracket">
+            <summary>
+            The Close Tag for the Function Signature
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.CommentMultiPrefix">
+            <summary>
+            The Prefix for Comments
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.CommentMultiPostfix">
+            <summary>
+            The Prefix for Comments
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.CommentPrefix">
+            <summary>
+            The Prefix for Comments
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.DeblockerSettings.BlockCount">
+            <summary>
+            Private Counter to create Unique Block Names
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.DeblockerSettings.MuteLogs">
+            <summary>
+            Mutes all Deblockerk System Logs
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.DeblockerSettings.Logger">
+            <summary>
+            Logger used by the Deblocker System
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.DeblockerSettings.GetKey(System.Int32)">
+            <summary>
+            Helper Function that provides a Unique Key Sequence
+            </summary>
+            <param name="index">Block Index</param>
+            <returns>String Representation if the Block Index for Replacement later.</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.DeblockerSettings.GetBlockName">
+            <summary>
+            Returns a Unique Block Name
+            </summary>
+            <returns>Unique Block Name: e.g.: BLOCK_0 </returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Functions.FunctionDeblocker">
+            <summary>
+            ADeblocker Implementation with key "function"
+            Implements Function Syntax with SequenceSystem as backend.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Functions.FunctionDeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Functions.FunctionDeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Returns the Deblocked Content of the Line
+            </summary>
+            <param name="line">Line to Deblock</param>
+            <param name="begin">Lines that get prepended to the beginning of the file</param>
+            <param name="end">Lines that get appended to the end of the file</param>
+            <returns>List of Deblocked Content</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Functions.Internal.FunctionSignature">
+            <summary>
+            The Internal Representation of the Parameters of Sequences.
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.Functions.Internal.FunctionSignature.OriginalSignature">
+            <summary>
+            The Original Signature as it was defined in the Sequence
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.Functions.Internal.FunctionSignature.ParameterNames">
+            <summary>
+            The List of Parameter Names
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Functions.Internal.FunctionSignature.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="parameterNames">The Original Parameter Signature</param>
+        </member>
+        <member name="M:Console.Script.Deblocker.Functions.Internal.FunctionSignature.ToString">
+            <summary>
+            Returns the Correctly Formatted Sequence Signature String Representation
+            </summary>
+            <returns>Formatted Parameter Signature</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.Functions.Internal.FunctionSignature.Parse(Console.Script.Deblocker.Line,System.Int32@,System.Int32@)">
+            <summary>
+            Parses the parameter signature from a line.
+            </summary>
+            <param name="line">The Line with the Parameter Signature</param>
+            <param name="sigStart">Out Variable that contains the start index of the Signature</param>
+            <param name="sigLength">Out Variable that contains the length of the signature</param>
+            <returns>Parsed Signature</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Functions.Internal.FunctionSignatureException">
+            <summary>
+            A FunctionSignatureException gets thrown when the FunctionSignature is not able to be parsed.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Functions.Internal.FunctionSignatureException.#ctor(System.String)">
+            <summary>
+            Public Constructor.
+            </summary>
+            <param name="message">Error Message.</param>
+        </member>
+        <member name="T:Console.Script.Deblocker.Functions.LocalFunctionDeblocker">
+            <summary>
+            FunctionDeblocker Implementation with key "local-function"
+            Creates a Sequence that is only usable in the same script as it is created.
+            Implements Function Syntax with SequenceSystem as backend.
+            Does Release the Resources of a Function when the Script Finished Executing.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Functions.LocalFunctionDeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Functions.LocalFunctionDeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Returns the Deblocked Content of the Line
+            </summary>
+            <param name="line">Line to Deblock</param>
+            <param name="begin">Lines that get prepended to the beginning of the file</param>
+            <param name="end">Lines that get appended to the end of the file</param>
+            <returns>List of Deblocked Content</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Implementations.ADeblocker">
+            <summary>
+            ADeblocker class. Used to Customize the way a Line gets Deblocked.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Implementations.ADeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Implementations.ADeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Returns the Deblocked Content of the Line
+            </summary>
+            <param name="line">Line to Deblock</param>
+            <param name="begin">Lines that get prepended to the beginning of the file</param>
+            <param name="end">Lines that get appended to the end of the file</param>
+            <returns>List of Deblocked Content</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Implementations.DefaultDeblocker">
+            <summary>
+            Default ADeblocker Implementation.
+            Does Parse the Blocks and Creates as many lines of the command as the longest block.
+            Shorter Blocks get Repeated with Modulo
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Implementations.DefaultDeblocker.Key">
+            <summary>
+            The Key of the Deblocker that has to match the block command to be activated.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Implementations.DefaultDeblocker.Deblock(Console.Script.Deblocker.Line,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Returns the Deblocked Content of the Line
+            </summary>
+            <param name="line">Line to Deblock</param>
+            <param name="begin">Lines that get prepended to the beginning of the file</param>
+            <param name="end">Lines that get appended to the end of the file</param>
+            <returns>List of Deblocked Content</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Line">
+            <summary>
+            Data Class that is used to Parse the Blocks into Lines.
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.Line._originalLine">
+            <summary>
+            The Original Line Backing Field
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.Line._blocks">
+            <summary>
+            Blocks Backing Field
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.Line._cleanedLine">
+            <summary>
+            Backing Field for CleanedLine
+            </summary>
+        </member>
+        <member name="F:Console.Script.Deblocker.Line._cleanParts">
+            <summary>
+            Clean Parts Backing Field
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Line.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:Console.Script.Deblocker.Line.#ctor(System.String,System.String,System.Collections.Generic.List{System.String[]})">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="originalLine">Original Line</param>
+            <param name="cleanLine">The Cleaned Line</param>
+            <param name="blocks">The Blocks of this Line</param>
+        </member>
+        <member name="P:Console.Script.Deblocker.Line.OriginalLine">
+            <summary>
+            The Original Line Backing Field
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Line.CleanedLine">
+            <summary>
+            The Cleaned Line(Blocks are replaced with DeblockerSettings.GetKey keys)
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Line.Blocks">
+            <summary>
+            The Collection of blocks in this Line
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Line.CleanParts">
+            <summary>
+            The Clean Line but Correctly Split
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Line.IsAtomic">
+            <summary>
+            If True the Original line is already the final line.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Line.Parse">
+            <summary>
+            Fills the Backed Properties with their parse results
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Line.ToString">
+            <summary>
+            To String Implementation
+            </summary>
+            <returns>The Original String Line</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.Line.GetCleanedLine(System.String,System.Collections.Generic.List{System.String[]}@)">
+            <summary>
+            Returns the Line with all blocks replaced with DeblockerSettings.GetKey keys.
+            </summary>
+            <param name="originalLine">The Original Line</param>
+            <param name="blocks">The Blocks that were parsed</param>
+            <returns>The Original Line with Replacement for the Blocks</returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Parameters.ParameterCollection">
+            <summary>
+            A ParameterCollection is a Collection of parameter names from blocks
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Parameters.ParameterCollection.MakeCurrent(Console.Script.Deblocker.Parameters.ParameterCollection)">
+            <summary>
+            Sets the collection as the Current Collection that gets used by the $param() expander
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="M:Console.Script.Deblocker.Parameters.ParameterCollection.GetParameter(System.String)">
+            <summary>
+            Returns the Value of the Parameter
+            If the Value is not found the ParameterName is returned
+            </summary>
+            <param name="name">Parameter Name</param>
+            <returns>The Value of the Parameter</returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.Parameters.ParameterCollection.CreateSubCollection(System.String[],System.String)">
+            <summary>
+            Creates a Collection based on the Current Collection
+            </summary>
+            <param name="sig">Parameter Signature</param>
+            <param name="parameter">Parameter Values</param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Script.Deblocker.Parameters.ParameterCollection.CreateCollection(System.String[],System.String)">
+            <summary>
+            Creates a Collection
+            </summary>
+            <param name="sig">Parameter Signature</param>
+            <param name="parameter">Parameter Values</param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Script.Deblocker.Parameters.ParameterVariableContainer">
+            <summary>
+            Implements the Parameter Provider for Parameterized Sequences.
+            </summary>
+        </member>
+        <member name="P:Console.Script.Deblocker.Parameters.ParameterVariableContainer.FunctionName">
+            <summary>
+            The Provider Name
+            </summary>
+        </member>
+        <member name="M:Console.Script.Deblocker.Parameters.ParameterVariableContainer.GetValue(System.String)">
+            <summary>
+            Returns the Parameter specified from the Current ParameterCollection
+            </summary>
+            <param name="parameter">Parameter Name</param>
+            <returns>Value of the Parameter</returns>
+        </member>
+        <member name="T:Console.Script.Extensions.AExtensionFilter">
+            <summary>
+            Abstract Extension Filter that is used to allow/disallow scripts with specific extensions to be ran.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.AExtensionFilter.Allowed(System.String)">
+            <summary>
+            Returns true if the extension is allowed to be loaded.
+            </summary>
+            <param name="extensions">Extension to Check</param>
+            <returns>True if Allowed</returns>
+        </member>
+        <member name="M:Console.Script.Extensions.AExtensionFilter.IsAllowed(System.String)">
+            <summary>
+            Returns True if the Extension is allowed by the loaded Filters
+            </summary>
+            <param name="extension">The Extension to be Checked</param>
+            <returns>True if allowed.</returns>
+        </member>
+        <member name="M:Console.Script.Extensions.AExtensionFilter.AddFilter(Console.Script.Extensions.AExtensionFilter)">
+            <summary>
+            Adds a Filter to the Loaded Filters
+            </summary>
+            <param name="filter">Filter to Add</param>
+        </member>
+        <member name="M:Console.Script.Extensions.AExtensionFilter.RemoveFilter(Console.Script.Extensions.AExtensionFilter)">
+            <summary>
+            Removes a Filter fro the Loaded Filters
+            </summary>
+            <param name="filter">Filter to Remove</param>
+        </member>
+        <member name="T:Console.Script.Extensions.BlackListFilter">
+            <summary>
+            All Extensions in this filter are explicitly not allowed.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="file">File(extension seperated by new lines)</param>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.#ctor(System.String[])">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="list">Extension List</param>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.Allowed(System.String)">
+            <summary>
+            Returns true if the extension is allowed to be loaded.
+            </summary>
+            <param name="extensions">Extension to Check</param>
+            <returns>True if Allowed</returns>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.Add(System.String)">
+            <summary>
+            Adds an Extension to the Black List
+            </summary>
+            <param name="extension">Extension that should be BlackListed</param>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.Remove(System.String)">
+            <summary>
+            Removes an Extension from the Black List
+            </summary>
+            <param name="extension">Extension that should be Removed</param>
+        </member>
+        <member name="M:Console.Script.Extensions.BlackListFilter.ToString">
+            <summary>
+            Returns all Contained Extensions
+            </summary>
+            <returns>Extension List</returns>
+        </member>
+        <member name="T:Console.Script.Extensions.ListFilter">
+            <summary>
+            Abstract List Filter. Does Implement an Extension List
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.ListFilter.#ctor(System.String[])">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="extensions">Extension List</param>
+        </member>
+        <member name="M:Console.Script.Extensions.ListFilter.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="file">File(extension seperated by new lines)</param>
+        </member>
+        <member name="P:Console.Script.Extensions.ListFilter.Extensions">
+            <summary>
+            The Extension List used to Allow/Disallow Extensions
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.ListFilter.ToString">
+            <summary>
+            Returns all Contained Extensions
+            </summary>
+            <returns>Extension List</returns>
+        </member>
+        <member name="T:Console.Script.Extensions.WhiteListFilter">
+            <summary>
+            All Extensions in this filter are explicitly allowed.
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="file">File(extension seperated by new lines)</param>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.#ctor(System.String[])">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="list">Extension List</param>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.Allowed(System.String)">
+            <summary>
+            Returns true if the extension is allowed to be loaded.
+            </summary>
+            <param name="extensions">Extension to Check</param>
+            <returns>True if Allowed</returns>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.Add(System.String)">
+            <summary>
+            Adds an Extension to the White List
+            </summary>
+            <param name="extension">Extension that should be WhiteListed</param>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.Remove(System.String)">
+            <summary>
+            Removes an Extension from the White List
+            </summary>
+            <param name="extension">Extension that should be Removed</param>
+        </member>
+        <member name="M:Console.Script.Extensions.WhiteListFilter.ToString">
+            <summary>
+            Returns all Contained Extensions
+            </summary>
+            <returns>Extension List</returns>
+        </member>
+        <member name="T:Console.Script.ScriptSystem">
+            <summary>
+            Script System Implementation
+            </summary>
+        </member>
+        <member name="F:Console.Script.ScriptSystem.RunCommandName">
+            <summary>
+            Run Command Name
+            </summary>
+        </member>
+        <member name="M:Console.Script.ScriptSystem.RunAsync(System.String)">
+            <summary>
+            Runs a File as Async
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="M:Console.Script.ScriptSystem.RunFile(System.String)">
+            <summary>
+            Runs a Text File as if it would be typed into the console line by line.
+            </summary>
+            <param name="path">Filepath</param>
+        </member>
+        <member name="T:Console.Script.ScriptSystemInitializer">
+            <summary>
+            Initializer of the ScriptSystem Extension
+            </summary>
+        </member>
+        <member name="F:Console.Script.ScriptSystemInitializer.SCRIPT_SYSTEM_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Console.Script.ScriptSystemInitializer.MuteLogs">
+            <summary>
+            Mutes all Script System Logs
+            </summary>
+        </member>
+        <member name="P:Console.Script.ScriptSystemInitializer.Logger">
+            <summary>
+            Logger used by the Script System
+            </summary>
+        </member>
+        <member name="P:Console.Script.ScriptSystemInitializer.ScriptSystemVersion">
+            <summary>
+            Version of the ScriptSystem Extension
+            </summary>
+        </member>
+        <member name="M:Console.Script.ScriptSystemInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="T:Console.Script.Sequence">
+            <summary>
+            The Internal Representation of a Sequence
+            </summary>
+        </member>
+        <member name="F:Console.Script.Sequence.Lines">
+            <summary>
+            The Sequence Content
+            </summary>
+        </member>
+        <member name="F:Console.Script.Sequence.Signature">
+            <summary>
+            The Sequence Signature
+            </summary>
+        </member>
+        <member name="M:Console.Script.Sequence.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="T:Console.Script.SequenceSystem">
+            <summary>
+            Static SequenceSystem API
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceOut">
+            <summary>
+            The Logger used by the Sequence System
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.Sequences">
+            <summary>
+            Internal Dictionary of Sequences.
+            </summary>
+        </member>
+        <member name="P:Console.Script.SequenceSystem.SequenceText">
+            <summary>
+            All Sequences listed like they get displayed on the console.
+            </summary>
+        </member>
+        <member name="P:Console.Script.SequenceSystem.LoadedSequences">
+            <summary>
+            List of Sequences.
+            </summary>
+        </member>
+        <member name="P:Console.Script.SequenceSystem.SequenceCreateOverwrite">
+            <summary>
+            Flag that is used to force overwriting when creating a sequence
+            Used in the Deblocker to minimize script length
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceCreate">
+            <summary>
+            Create Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceAdd">
+            <summary>
+            Add To Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceAddParameter">
+            <summary>
+            Add Parameter to Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceDelete">
+            <summary>
+            Delete Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceSave">
+            <summary>
+            Save Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceLoad">
+            <summary>
+            Load Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceRun">
+            <summary>
+            Run Sequence Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.SequenceToCommand">
+            <summary>
+            Sequence to Command Name
+            </summary>
+        </member>
+        <member name="F:Console.Script.SequenceSystem.FileToCommand">
+            <summary>
+            File to Command Name
+            </summary>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.CreateSequence(System.String,System.Boolean)">
+            <summary>
+            Creates a Sequence by name
+            </summary>
+            <param name="name">Name of the new Sequence</param>
+            <param name="overwrite">If true an existing sequence gets overwritten if it exists.</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.AddParameterToSequence(System.String,System.String)">
+            <summary>
+            Adds a parameter to the Specified Sequence
+            </summary>
+            <param name="sequence">Sequence Name</param>
+            <param name="parameterName">Parameter Name</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.AddToSequence(System.String,System.String,System.Boolean)">
+            <summary>
+            Adds a Command to the Sequence with the Specified Name
+            </summary>
+            <param name="name">Name of the Sequene</param>
+            <param name="command">Command to add</param>
+            <param name="create">If true the Sequence gets created if it does not exist</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.DeleteSequence(System.String)">
+            <summary>
+            Deletes a Sequence with the specified name.
+            </summary>
+            <param name="name">Name of the Sequence</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.ClearSequences">
+            <summary>
+            Deletes all Loaded Sequences.
+            </summary>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.ShowSequence(System.String)">
+            <summary>
+            Lists the Specified Sequence Content
+            </summary>
+            <param name="name">The Name of the Sequence</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.ListSequences">
+            <summary>
+            Lists all Loaded Sequences by name
+            </summary>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.RunSequence(System.String)">
+            <summary>
+            Runs a Sequence by Name
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.RunAsync(System.String)">
+            <summary>
+            Runs a Sequence as Async
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.RunAsync(System.String,System.String)">
+            <summary>
+            Runs a Sequence as Async
+            </summary>
+            <param name="name"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.RunSequence(System.String,System.String)">
+            <summary>
+            Runs a Sequence by Name
+            </summary>
+            <param name="name"></param>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.SaveSequence(System.String,System.String)">
+            <summary>
+            Saves a Sequence By Name to File
+            </summary>
+            <param name="name">Name of the Sequence</param>
+            <param name="file">Destination File</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.LoadSequence(System.String,System.String,System.Boolean)">
+            <summary>
+            Loads a Sequence from File
+            </summary>
+            <param name="name">Name of the new Sequence</param>
+            <param name="file">Source File</param>
+            <param name="create">If true will create the Sequence if it does not exist</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.CreateCommandFromFile(System.String,System.String)">
+            <summary>
+            Creates and Adds a Command that when invoked will run the specified file
+            </summary>
+            <param name="fileName">The File that will be run</param>
+            <param name="commandName">The Command name</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.CreateCommandFromFile(System.String,System.String,System.String)">
+            <summary>
+            Creates and Adds a Command that when invoked will run the specified file
+            </summary>
+            <param name="fileName">The File that will be run</param>
+            <param name="commandName">The Command name</param>
+            <param name="helpText">The Help Text that will be set for this command</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.CreateCommandFromSequence(System.String,System.String)">
+            <summary>
+            Creates and Adds a Command that when invoked will run the specified sequence
+            </summary>
+            <param name="sequenceName">The Sequence that will be run</param>
+            <param name="commandName">The Command Name</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.CreateCommandFromSequence(System.String,System.String,System.String)">
+            <summary>
+            Creates and Adds a Command that when invoked will run the specified sequence
+            </summary>
+            <param name="sequenceName">The Sequence that will be run</param>
+            <param name="commandName">The Command Name</param>
+            <param name="helpText">The Help Text that will be set for this command</param>
+        </member>
+        <member name="M:Console.Script.SequenceSystem.ForAll(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+            <param name="command"></param>
+        </member>
+    </members>
+</doc>

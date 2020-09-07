@@ -12,5 +12,6 @@ namespace Console.Core.ActivationSystem
     [AttributeUsage(AttributeTargets.Class)]
     public class ActivateOnAttribute : ConsoleAttribute
     {
+
     }
 }

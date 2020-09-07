@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 
@@ -11,10 +12,48 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     public class OPCodeGetArrayEntry : OPCode
     {
+
+        /// <summary>
+        /// The Parameters of the Array Indexer
+        /// </summary>
+        private readonly IEvalTypedValue[] mParams;
+
+        /// <summary>
+        /// The Result Evaluation Type Backing Field
+        /// </summary>
+        private readonly EvalType mResultEvalType;
+
+        /// <summary>
+        /// The Result System Type Backing Field
+        /// </summary>
+        private readonly Type mResultSystemType;
+
+        /// <summary>
+        /// The Values of the Parameters
+        /// </summary>
+        private readonly int[] mValues;
+
         /// <summary>
         /// The Array Backing Field
         /// </summary>
         private OPCode _array;
+
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="array">Array to Index</param>
+        /// <param name="params">The Parameter of the Index Operation</param>
+        public OPCodeGetArrayEntry(OPCode array, IList @params)
+        {
+            IEvalTypedValue[] newParams = new IEvalTypedValue[@params.Count];
+            int[] newValues = new int[@params.Count];
+            @params.CopyTo(newParams, 0);
+            Array = array;
+            mParams = newParams;
+            mValues = newValues;
+            mResultSystemType = array.SystemType.GetElementType();
+            mResultEvalType = Globals.GetEvalType(mResultSystemType);
+        }
 
         /// <summary>
         /// The Array
@@ -41,40 +80,6 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
-        /// The Parameters of the Array Indexer
-        /// </summary>
-        private readonly IEvalTypedValue[] mParams;
-        /// <summary>
-        /// The Values of the Parameters
-        /// </summary>
-        private readonly int[] mValues;
-        /// <summary>
-        /// The Result Evaluation Type Backing Field
-        /// </summary>
-        private readonly EvalType mResultEvalType;
-        /// <summary>
-        /// The Result System Type Backing Field
-        /// </summary>
-        private readonly Type mResultSystemType;
-
-        /// <summary>
-        /// Public Constructor
-        /// </summary>
-        /// <param name="array">Array to Index</param>
-        /// <param name="params">The Parameter of the Index Operation</param>
-        public OPCodeGetArrayEntry(OPCode array, IList @params)
-        {
-            IEvalTypedValue[] newParams = new IEvalTypedValue[@params.Count];
-            int[] newValues = new int[@params.Count];
-            @params.CopyTo(newParams, 0);
-            Array = array;
-            mParams = newParams;
-            mValues = newValues;
-            mResultSystemType = array.SystemType.GetElementType();
-            mResultEvalType = Globals.GetEvalType(mResultSystemType);
-        }
-
-        /// <summary>
         /// The Object in the array at the specified index.
         /// </summary>
         public override object Value
@@ -87,10 +92,12 @@ namespace Console.Evaluator.Core.OPCodes
                 {
                     mValues[i] = System.Convert.ToInt32(mParams[i].Value);
                 }
+
                 res = arr.GetValue(mValues);
                 return res;
             }
         }
+
         /// <summary>
         /// The System Type
         /// </summary>
@@ -111,5 +118,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

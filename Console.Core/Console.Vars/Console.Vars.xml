@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.Vars</name>
+    </assembly>
+    <members>
+        <member name="T:Console.Vars.DefaultProviders.ClassQueryProvider">
+            <summary>
+            VariableProvider Implementation that returns the Assembly Qualified Name of the Specified Type Search Term
+            </summary>
+        </member>
+        <member name="P:Console.Vars.DefaultProviders.ClassQueryProvider.FunctionName">
+            <summary>
+            The Function name that is used to get this Variable.
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.ClassQueryProvider.GetValue(System.String)">
+            <summary>
+            Returns the Assembly Qualified Name of the Searched Type
+            </summary>
+            <param name="parameter">Search term for the Type</param>
+            <returns>Assembly Qualified Name of the Type or "NOT_FOUND" when no type is found.</returns>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.ClassQueryProvider.Find(System.String)">
+            <summary>
+            Finds a Type by name in all assemblies
+            </summary>
+            <param name="name">Search Term</param>
+            <returns>Search Result. Null if not found.</returns>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.ClassQueryProvider.IsMatch(System.Type,System.String)">
+            <summary>
+            Returns true if the Name is either the TypeName the FullName or the AssemblyQualifiedName
+            </summary>
+            <param name="t">Type to Test</param>
+            <param name="name">Name of the Target Type</param>
+            <returns>True if the Name is matching the type</returns>
+        </member>
+        <member name="T:Console.Vars.DefaultProviders.DefaultVariables">
+            <summary>
+            VariableContainer Implementation that has no func name and provides default environment variables.
+            </summary>
+        </member>
+        <member name="F:Console.Vars.DefaultProviders.DefaultVariables.Instance">
+            <summary>
+            Singleton Instance
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.DefaultVariables.#cctor">
+            <summary>
+            Static Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.DefaultVariables.#ctor">
+            <summary>
+            Private Constructor.
+            </summary>
+        </member>
+        <member name="T:Console.Vars.DefaultProviders.IO.DirectoriesVariableProvider">
+            <summary>
+            VariableProvider Implementation that returns the Directories in the Specified Directory.
+            </summary>
+        </member>
+        <member name="P:Console.Vars.DefaultProviders.IO.DirectoriesVariableProvider.FunctionName">
+            <summary>
+            The Function name that is used to get this Variable.
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.IO.DirectoriesVariableProvider.GetValue(System.String)">
+            <summary>
+            Returns the Directories in the Specified Directory
+            </summary>
+            <param name="parameter">Path of the directory to be searched.</param>
+            <returns>A list of Directories</returns>
+        </member>
+        <member name="T:Console.Vars.DefaultProviders.IO.FilesVariableProvider">
+            <summary>
+            VariableProvider Implementation that returns the Files in the Specified Directory.
+            </summary>
+        </member>
+        <member name="P:Console.Vars.DefaultProviders.IO.FilesVariableProvider.FunctionName">
+            <summary>
+            The Function name that is used to get this Variable.
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.IO.FilesVariableProvider.ToList(System.String[])">
+            <summary>
+            Helper Function that turns a String Array into a ; seperated list.
+            </summary>
+            <param name="li"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.IO.FilesVariableProvider.GetValue(System.String)">
+            <summary>
+            Returns the Files in the Specified Directory
+            </summary>
+            <param name="parameter">Path of the directory to be searched.</param>
+            <returns>A list of Files</returns>
+        </member>
+        <member name="T:Console.Vars.DefaultProviders.IO.IOProviderInitializer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.IO.IOProviderInitializer.Initialize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Console.Vars.DefaultProviders.PropertyVariableProvider">
+            <summary>
+            VariableContainer Implementation with the FuncName: "props"
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.PropertyVariableProvider.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="P:Console.Vars.DefaultProviders.PropertyVariableProvider.EnvList">
+            <summary>
+            All Environment Variables inside this container
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.PropertyVariableProvider.GetValue(System.String)">
+            <summary>
+            Returns the Value of the Property
+            </summary>
+            <param name="parameter">The Property in this container</param>
+            <returns>The property value or NO_VALUE when the property is not found</returns>
+        </member>
+        <member name="T:Console.Vars.DefaultProviders.RangeVariableProvider">
+            <summary>
+            Creates a ; Seperated List of numbers in a specfied range
+            </summary>
+        </member>
+        <member name="P:Console.Vars.DefaultProviders.RangeVariableProvider.FunctionName">
+            <summary>
+            The Function Name
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.RangeVariableProvider.GetValue(System.String)">
+            <summary>
+            Parameter Layouts:
+                end
+                start;end
+                start;end;step
+            If Step is not specified the step will be 1
+            </summary>
+            <param name="parameter">Input Parameter</param>
+            <returns>; Seperated List of Numbers</returns>
+        </member>
+        <member name="M:Console.Vars.DefaultProviders.RangeVariableProvider.CreateRange(System.Double,System.Double,System.Double)">
+            <summary>
+            Creates the Range String
+            </summary>
+            <param name="start">Start Number</param>
+            <param name="end">End Number</param>
+            <param name="step">Amount of change each step.</param>
+            <returns>; Seperated List of Numbers</returns>
+        </member>
+        <member name="T:Console.Vars.DelegateVariableProvider">
+            <summary>
+            Delegate Implementation of the Variable Provider.
+            Allows Creation of Variable Providers without adding more classes.
+            </summary>
+        </member>
+        <member name="F:Console.Vars.DelegateVariableProvider.Provider">
+            <summary>
+            The Provider Func
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DelegateVariableProvider.#ctor(System.String,System.Func{System.String,System.String})">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="functionName">The Function Name that is used in the console: $funcName(data)</param>
+            <param name="provider">Provider Func</param>
+        </member>
+        <member name="P:Console.Vars.DelegateVariableProvider.FunctionName">
+            <summary>
+            The Function Name
+            </summary>
+        </member>
+        <member name="M:Console.Vars.DelegateVariableProvider.GetValue(System.String)">
+            <summary>
+            Returns the Value of the Provider
+            </summary>
+            <param name="parameter">Input Data</param>
+            <returns>Value of the Provider</returns>
+        </member>
+        <member name="T:Console.Vars.EnvInitializer">
+            <summary>
+            Initializer of the EnvironmentVariables Extension
+            </summary>
+        </member>
+        <member name="F:Console.Vars.EnvInitializer.VARS_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Console.Vars.EnvInitializer.Logger">
+            <summary>
+            Logger for this Extension
+            </summary>
+        </member>
+        <member name="P:Console.Vars.EnvInitializer.Order">
+            <summary>
+            The Load Order of the EnvironmentVariable Extensions
+            </summary>
+        </member>
+        <member name="P:Console.Vars.EnvInitializer.EnvVersion">
+            <summary>
+            Version of the Environment Variables Extension
+            </summary>
+        </member>
+        <member name="M:Console.Vars.EnvInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="T:Console.Vars.EnvInitializer.EnvExpander">
+            <summary>
+            AExpander Implementation for the environment variables
+            </summary>
+        </member>
+        <member name="M:Console.Vars.EnvInitializer.EnvExpander.Expand(System.String)">
+            <summary>
+            Returns the Expanded String based on the Input String
+            </summary>
+            <param name="input">Input String</param>
+            <returns>Expanded String</returns>
+        </member>
+        <member name="T:Console.Vars.EnvironmentVariableAutoFillProvider">
+            <summary>
+            Implements the Auto Fill for Environment Variable Providers
+            </summary>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
+        <member name="T:Console.Vars.EnvironmentVariableManager">
+            <summary>
+            Static EnvironmentVariable API
+            </summary>
+        </member>
+        <member name="F:Console.Vars.EnvironmentVariableManager.OpenBracket">
+            <summary>
+            Character used to Start the Content section of the Environment Expander
+            </summary>
+        </member>
+        <member name="F:Console.Vars.EnvironmentVariableManager.CloseBracket">
+            <summary>
+            Character used to End the Content section of the Environment Expander
+            </summary>
+        </member>
+        <member name="F:Console.Vars.EnvironmentVariableManager.Providers">
+            <summary>
+            All Providers
+            </summary>
+        </member>
+        <member name="P:Console.Vars.EnvironmentVariableManager.ActivationPrefix">
+            <summary>
+            The Character that is used to Activate the environment variable expander
+            </summary>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.GetEnvironmentList">
+            <summary>
+            Returns all Environment Providers
+            </summary>
+            <returns>; Seperated List of Providers</returns>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.AddStringTransformMethods(System.String,System.String)">
+            <summary>
+            Adds all Static Methods of a Type that have one string input and string return as VariableProviders.
+            </summary>
+            <param name="funcPrefix">The Desired prefix</param>
+            <param name="qualifiedType">The Qualified Assembly Name of the Type</param>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.AddStringTransformMethods(System.String,System.Type)">
+            <summary>
+            Adds all Static Methods of a Type that have one string input and string return as VariableProviders.
+            </summary>
+            <param name="funcPrefix">The Desired prefix</param>
+            <param name="type">The Type</param>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.ValidType(System.Type)">
+            <summary>
+            Returns True if the Type is a string or a Primitive
+            </summary>
+            <param name="t">Type to Check</param>
+            <returns>True if the Type is valid as VariableProvider return/input</returns>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.GetProvider(System.String,System.Reflection.MethodInfo)">
+            <summary>
+            Returns the Variable provider from a MethodInfo Class
+            </summary>
+            <param name="funcPrefix">Desired FuncName</param>
+            <param name="info">The Method that will provide the values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.Expand(System.String)">
+            <summary>
+            Expands the Input String with the VariableProvider Implementations
+            </summary>
+            <param name="cmd">Input String</param>
+            <returns>Expanded Output String</returns>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.AddProvider(Console.Vars.VariableProvider)">
+            <summary>
+            Adds a Provider to the EnvironmentVariable Manager.
+            </summary>
+            <param name="provider">Provider to Add</param>
+        </member>
+        <member name="M:Console.Vars.EnvironmentVariableManager.RemoveProvider(System.String)">
+            <summary>
+            Removes a Provider from the EnvironmentVariable Manager.
+            </summary>
+            <param name="funcName">Name of the Provider to Remove</param>
+        </member>
+        <member name="T:Console.Vars.VariableContainer">
+            <summary>
+            Variable Container Implementation.
+            Allows for Grouping Environment Variables
+            </summary>
+        </member>
+        <member name="F:Console.Vars.VariableContainer.Providers">
+            <summary>
+            Contained Providers
+            </summary>
+        </member>
+        <member name="M:Console.Vars.VariableContainer.#ctor(System.String)">
+            <summary>
+            Public Constructor.
+            </summary>
+            <param name="funcName">Name of the Variable Container.</param>
+        </member>
+        <member name="P:Console.Vars.VariableContainer.EnvList">
+            <summary>
+            ; Seperated list of contained VariableProviders.
+            </summary>
+        </member>
+        <member name="P:Console.Vars.VariableContainer.FunctionName">
+            <summary>
+            Name of the Container Function
+            </summary>
+        </member>
+        <member name="M:Console.Vars.VariableContainer.GetValue(System.String)">
+            <summary>
+            Returns the Value of the Provider
+            </summary>
+            <param name="parameter">Input Data</param>
+            <returns>Value of the Provider</returns>
+        </member>
+        <member name="M:Console.Vars.VariableContainer.AddProvider(Console.Vars.VariableProvider)">
+            <summary>
+            Adds a Provider to the EnvironmentVariable Manager.
+            </summary>
+            <param name="provider">Provider to Add</param>
+        </member>
+        <member name="M:Console.Vars.VariableContainer.RemoveProvider(System.String)">
+            <summary>
+            Removes a Provider from the EnvironmentVariable Manager.
+            </summary>
+            <param name="providerName">Name of the Provider to Remove</param>
+        </member>
+        <member name="T:Console.Vars.VariableProvider">
+            <summary>
+            Abstract Variable Provider.
+            Can be Inherited to create a VariableProvider for the EnvironmentVariable System.
+            </summary>
+        </member>
+        <member name="P:Console.Vars.VariableProvider.FunctionName">
+            <summary>
+            The Function Name
+            </summary>
+        </member>
+        <member name="M:Console.Vars.VariableProvider.GetValue(System.String)">
+            <summary>
+            Returns the Value of the Provider
+            </summary>
+            <param name="parameter">Input Data</param>
+            <returns>Value of the Provider</returns>
+        </member>
+    </members>
+</doc>

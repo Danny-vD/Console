@@ -10,9 +10,11 @@ namespace Console.Networking.Packets.ConnectionResponse
     /// </summary>
     public abstract class ConnectionRequestResponsePacket : ANetworkPacket
     {
+
         /// <summary>
         /// Does the Host Allow the Connection?
         /// </summary>
         public virtual bool Success { get; }
+
     }
 }

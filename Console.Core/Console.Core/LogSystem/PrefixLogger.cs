@@ -5,10 +5,6 @@
     /// </summary>
     public class PrefixLogger : ALogger
     {
-        /// <summary>
-        /// The Prefix that is used for this Logger
-        /// </summary>
-        public string Prefix { get; set; }
 
         /// <summary>
         /// Public Constructor
@@ -26,6 +22,11 @@
         {
             Prefix = $"[{prefix}]";
         }
+
+        /// <summary>
+        /// The Prefix that is used for this Logger
+        /// </summary>
+        public string Prefix { get; set; }
 
         /// <summary>
         /// Writes a Log to the Console
@@ -53,5 +54,6 @@
         {
             base.LogError(Prefix + value);
         }
+
     }
 }

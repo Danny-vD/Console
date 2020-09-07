@@ -7,14 +7,16 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     internal class OPCodeImmediate : OPCode
     {
-        /// <summary>
-        /// The Known Value Backing Field
-        /// </summary>
-        private readonly object mValue;
+
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
         private readonly EvalType mEvalType;
+
+        /// <summary>
+        /// The Known Value Backing Field
+        /// </summary>
+        private readonly object mValue;
 
         /// <summary>
         /// Public Constructor
@@ -36,5 +38,6 @@ namespace Console.Evaluator.Core.OPCodes
         /// The Evaluation Type
         /// </summary>
         public override EvalType EvalType => mEvalType;
+
     }
 }

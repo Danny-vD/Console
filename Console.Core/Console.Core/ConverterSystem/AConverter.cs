@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Core.ActivationSystem;
 
 namespace Console.Core.ConverterSystem
@@ -9,6 +10,7 @@ namespace Console.Core.ConverterSystem
     [ActivateOn]
     public abstract class AConverter
     {
+
         /// <summary>
         /// Returns true when the Converter is Able to Convert the parameter into the target type
         /// </summary>
@@ -24,5 +26,6 @@ namespace Console.Core.ConverterSystem
         /// <param name="target">Target Type</param>
         /// <returns>Converted Value</returns>
         public abstract object Convert(object parameter, Type target);
+
     }
 }

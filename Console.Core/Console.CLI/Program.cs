@@ -2,8 +2,9 @@
 using System.IO;
 using System.Reflection;
 using System.Threading;
+
 using Console.Core;
-using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.CommandSystem.Builder;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
@@ -16,25 +17,38 @@ namespace Console.CLI
     /// <summary>
     /// CLI Entry Class
     /// </summary>
-    internal class Program
+    public class Program
     {
-        [Property("logs.cli.mute")]
-        public static bool MuteLogs
-        {
-            get => Logger.Mute;
-            set => Logger.Mute = value;
-        }
-        internal static readonly ALogger Logger = new PrefixLogger(Assembly.GetExecutingAssembly().GetName().Name);
 
         /// <summary>
         /// Path of the Extensions
         /// </summary>
         private const string ExtensionPath = ".\\extensions\\";
 
+        internal static readonly ALogger Logger = new PrefixLogger(Assembly.GetExecutingAssembly().GetName().Name);
+
         /// <summary>
         /// Defines in what intervall the console tick event gets invoked
         /// </summary>
-        [Property("networking.tick")] private static readonly float ConsoleTick = 0.2f;
+        [Property("networking.tick")]
+        private static readonly float ConsoleTick = 0.2f;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private Program()
+        {
+        }
+
+        /// <summary>
+        /// Mutes Logs from the CLI Implementation
+        /// </summary>
+        [Property("logs.cli.mute")]
+        public static bool MuteLogs
+        {
+            get => Logger.Mute;
+            set => Logger.Mute = value;
+        }
 
         /// <summary>
         /// The Commandline Interface Version
@@ -45,7 +59,7 @@ namespace Console.CLI
         /// <summary>
         /// Closes the Commandline with Error Code 0
         /// </summary>
-        [Command("exit", "Closes the application.", "Exit", "Quit", "quit")]
+        [Command("exit", HelpMessage = "Closes the application.", Aliases = new[] { "Exit", "Quit", "quit" })]
         private static void Exit()
         {
             Exit(0);
@@ -55,7 +69,11 @@ namespace Console.CLI
         /// Closes the Commandline with a specified ErrorCode
         /// </summary>
         /// <param name="exitCode">Exit Code</param>
-        [Command("exit", "Closes the application with the specified Exit Code.", "Exit", "Quit", "quit")]
+        [Command(
+            "exit",
+            HelpMessage = "Closes the application with the specified Exit Code.",
+            Aliases = new[] { "Exit", "Quit", "quit" }
+        )]
         private static void Exit(int exitCode)
         {
             Environment.Exit(exitCode);
@@ -67,8 +85,8 @@ namespace Console.CLI
         /// <param name="args">CLI parameter</param>
         private static void Main(string[] args)
         {
-
             string initDir = Directory.GetCurrentDirectory();
+
             //List<AExtensionInitializer> ii = new List<AExtensionInitializer>
             //{
             //    new ClassQueryInitializer(),
@@ -77,8 +95,9 @@ namespace Console.CLI
             //    new NetworkedInitializer()
             //};
             //CLIConsoleManager cm = new CLIConsoleManager(ii.ToArray(), AConsoleManager.ConsoleInitOptions.All);
-            CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath);
+            CLIConsoleManager cm = new CLIConsoleManager(ExtensionPath, ConsoleInitOptions.Loader);
             PropertyAttributeUtils.AddProperties<Program>();
+
             //new EnvInitializer().Initialize();
             //new DefaultConverterInitializer().Initialize();
 
@@ -91,9 +110,10 @@ namespace Console.CLI
             {
                 for (int i = 0; i < args.Length; i++)
                 {
-                    cm.EnterCommand($"run " + args[i]);
+                    cm.EnterCommand("run " + args[i]);
                 }
             }
+
             ConsoleBuilderInput bi = new ConsoleBuilderInput();
 
             while (true)
@@ -101,7 +121,7 @@ namespace Console.CLI
                 //System.Console.Write($"{Directory.GetCurrentDirectory().Replace(initDir, "").Replace('\\', '/')}/>");
 
 
-                string cmd = CommandBuilder.BuildCommand(bi);//CommandBuilder.CreateCommand();
+                string cmd = CommandBuilder.BuildCommand(bi); //CommandBuilder.CreateCommand();
 
                 //string cmd = System.Console.ReadLine();
                 //if (cmd != null && cmd.ToLower() == "exit") break;
@@ -117,8 +137,9 @@ namespace Console.CLI
             while (true)
             {
                 AConsoleManager.Instance.InvokeOnTick();
-                Thread.Sleep((int)(ConsoleTick * 1000));
+                Thread.Sleep((int) (ConsoleTick * 1000));
             }
         }
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
+
 using Console.Core;
 using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets;
@@ -16,12 +17,6 @@ namespace Console.Networking
     /// </summary>
     public class HostSession
     {
-        /// <summary>
-        /// Packet Receive gets invoked when any packet was received from any client
-        /// </summary>
-        /// <param name="socket">The Sender Socket</param>
-        /// <param name="packet">The Transmitted Packet</param>
-        public delegate void PacketReceive(ConsoleSocket socket, ANetworkPacket packet);
 
         /// <summary>
         /// Gets Invoked when a client connected to the host
@@ -36,13 +31,11 @@ namespace Console.Networking
         public delegate void ClientDisconnecting(ConsoleSocket socket);
 
         /// <summary>
-        /// OnPacketReceive Event. Invoked when a Packet gets Received.
+        /// Packet Receive gets invoked when any packet was received from any client
         /// </summary>
-        public static event PacketReceive OnPacketReceive;
-        /// <summary>
-        /// OnClientConnected Event. Invoked when a client disconnected
-        /// </summary>
-        public static event ClientConnected OnClientConnected;
+        /// <param name="socket">The Sender Socket</param>
+        /// <param name="packet">The Transmitted Packet</param>
+        public delegate void PacketReceive(ConsoleSocket socket, ANetworkPacket packet);
 
         /// <summary>
         /// The TCP Listener used to detect connection attempts.
@@ -53,14 +46,26 @@ namespace Console.Networking
         /// The Listener Loop Thread.
         /// </summary>
         private static Thread LoopThread;
+
         /// <summary>
         /// List of Connected Clients
         /// </summary>
         private static readonly List<ConsoleSocket> Clients = new List<ConsoleSocket>();
+
         /// <summary>
         /// Flag that gets set to true when the Host is running.
         /// </summary>
         public static bool IsRunning { get; private set; }
+
+        /// <summary>
+        /// OnPacketReceive Event. Invoked when a Packet gets Received.
+        /// </summary>
+        public static event PacketReceive OnPacketReceive;
+
+        /// <summary>
+        /// OnClientConnected Event. Invoked when a client disconnected
+        /// </summary>
+        public static event ClientConnected OnClientConnected;
 
         /// <summary>
         /// Broadcasts all Logs received to every client that is connected.
@@ -91,6 +96,7 @@ namespace Console.Networking
             {
                 return;
             }
+
             socket.TrySendPacket(new ConnectionAbortPacket("Host Closed Connection"));
             socket.Dispose();
         }
@@ -175,7 +181,6 @@ namespace Console.Networking
             {
                 if (Clients[i].IsDisposed || !Clients[i].Connected)
                 {
-
                     Clients.RemoveAt(i);
                 }
             }
@@ -215,7 +220,9 @@ namespace Console.Networking
                 Clients.ForEach(x => x.ProcessPacket());
                 RemoveInactiveClients();
             }
+
             DisconnectClients();
         }
+
     }
 }

@@ -10,6 +10,7 @@ namespace Console.Networking.Authentication
     /// </summary>
     public class DefaultAuthenticator : IAuthenticator
     {
+
         /// <summary>
         /// Decrypts the Passed Data
         /// </summary>
@@ -39,5 +40,6 @@ namespace Console.Networking.Authentication
             client.SetAuthenticator(this);
             client.TrySendPacket(new AuthenticationResultPacket(true));
         }
+
     }
 }

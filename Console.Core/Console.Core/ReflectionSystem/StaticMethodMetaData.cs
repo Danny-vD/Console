@@ -7,6 +7,7 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public class StaticMethodMetaData : MethodMetaData
     {
+
         /// <summary>
         /// Public Constructor
         /// </summary>
@@ -14,5 +15,6 @@ namespace Console.Core.ReflectionSystem
         public StaticMethodMetaData(MethodInfo info) : base(null, info)
         {
         }
+
     }
 }

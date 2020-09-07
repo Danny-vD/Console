@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 using Console.Core;
 
 namespace Console.CLI
@@ -8,6 +9,7 @@ namespace Console.CLI
     /// </summary>
     public class CLIObjSelector : AObjectSelector
     {
+
         /// <summary>
         /// All Selectable Objects.
         /// Keyed by String.
@@ -18,5 +20,6 @@ namespace Console.CLI
         /// The Selected Objects
         /// </summary>
         public override List<object> SelectedObjects { get; } = new List<object>();
+
     }
 }

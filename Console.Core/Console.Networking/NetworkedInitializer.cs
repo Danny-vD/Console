@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Reflection;
+
 using Console.Core.ActivationSystem;
-using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.ExtensionSystem;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
@@ -22,6 +23,7 @@ namespace Console.Networking
     /// </summary>
     public class NetworkedInitializer : AExtensionInitializer
     {
+
         /// <summary>
         /// Logger for this Extension
         /// </summary>
@@ -38,16 +40,17 @@ namespace Console.Networking
         protected override void Initialize()
         {
             AppDomain.CurrentDomain.ProcessExit += (sender, args) =>
-            {
-                if (NetworkingSettings.IsClient)
-                {
-                    NetworkingSettings.ClientSession.Disconnect();
-                }
-                if (NetworkingSettings.IsHost)
-                {
-                    NetworkingSettings.HostSession.ForceStopHost();
-                }
-            };
+                                                   {
+                                                       if (NetworkingSettings.IsClient)
+                                                       {
+                                                           NetworkingSettings.ClientSession.Disconnect();
+                                                       }
+
+                                                       if (NetworkingSettings.IsHost)
+                                                       {
+                                                           NetworkingSettings.HostSession.ForceStopHost();
+                                                       }
+                                                   };
 
             IPacketClientHandler[] ch =
                 ActivateOnAttributeUtils.ActivateObjects<IPacketClientHandler>(Assembly.GetExecutingAssembly());
@@ -79,7 +82,7 @@ namespace Console.Networking
             PropertyAttributeUtils.AddProperties<SymmetricBlockAuthenticator>();
             Instance = new NetworkedConsoleProcess();
             CommandAttributeUtils.AddCommands(typeof(WebConsoleCommands));
-
         }
+
     }
 }

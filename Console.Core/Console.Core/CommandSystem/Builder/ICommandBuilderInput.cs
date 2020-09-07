@@ -7,6 +7,7 @@ namespace Console.Core.CommandSystem.Builder
     /// </summary>
     public interface ICommandBuilderInput
     {
+
         /// <summary>
         /// Gets or Sets the Value that indicates that the Current Command Build should be aborted
         /// </summary>
@@ -29,6 +30,7 @@ namespace Console.Core.CommandSystem.Builder
         /// Deletes all Content of the Line and Sets the Cursor Position to the Beginning of the Line
         /// </summary>
         void ResetLine();
+
         /// <summary>
         /// Ends the Line
         /// </summary>
@@ -39,5 +41,6 @@ namespace Console.Core.CommandSystem.Builder
         /// </summary>
         /// <param name="pos">New Cursor Position</param>
         void SetCursorPosition(int pos);
+
     }
 }

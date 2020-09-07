@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+
 using Console.Core.ActivationSystem;
-using Console.Core.CommandSystem.Builder.IOAutoFill.Directories;
-using Console.Core.CommandSystem.Builder.IOAutoFill.Files;
 
 /// <summary>
 /// The Console.Core.ExtensionSystem namespace is used by the Core Library to load Extensions.
@@ -18,6 +17,7 @@ namespace Console.Core.ExtensionSystem
     /// </summary>
     public static class ExtensionLoader
     {
+
         #region Load Extensions
 
         /// <summary>
@@ -25,9 +25,14 @@ namespace Console.Core.ExtensionSystem
         /// </summary>
         /// <param name="folder">Folder Containing Extensions</param>
         /// <param name="create">If True the Specified Directory gets Created if it does not exist</param>
-        public static void LoadFromFolder([DirAutoFill] string folder, bool create = true)
+        public static void LoadFromFolder(
+            string folder, bool create = true)
         {
-            if (create && !Directory.Exists(folder)) Directory.CreateDirectory(folder);
+            if (create && !Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
             if (Directory.Exists(folder))
             {
                 LoadExtensionFiles(Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories));
@@ -38,7 +43,8 @@ namespace Console.Core.ExtensionSystem
         /// Loads an Extension from File.
         /// </summary>
         /// <param name="file">Extension Path</param>
-        public static void LoadExtensionFile([FileAutoFill] string file)
+        public static void LoadExtensionFile(
+            string file)
         {
             LoadExtensionFiles(new[] { file });
         }
@@ -64,9 +70,9 @@ namespace Console.Core.ExtensionSystem
             Dictionary<LoadOrder, List<AExtensionInitializer>> extensions =
                 new Dictionary<LoadOrder, List<AExtensionInitializer>>
                 {
-                    {LoadOrder.Default, new List<AExtensionInitializer>()},
-                    {LoadOrder.First, new List<AExtensionInitializer>()},
-                    {LoadOrder.After, new List<AExtensionInitializer>()},
+                    { LoadOrder.Default, new List<AExtensionInitializer>() },
+                    { LoadOrder.First, new List<AExtensionInitializer>() },
+                    { LoadOrder.After, new List<AExtensionInitializer>() }
                 };
 
             foreach (AExtensionInitializer e in exts)
@@ -76,6 +82,7 @@ namespace Console.Core.ExtensionSystem
                     extensions[e.Order].Add(e);
                 }
             }
+
             InitializeExtensions(extensions);
         }
 
@@ -111,6 +118,7 @@ namespace Console.Core.ExtensionSystem
             {
                 aExtensionInitializer._InnerInitialize();
             }
+
             return extensions.Count;
         }
 
@@ -127,9 +135,13 @@ namespace Console.Core.ExtensionSystem
                 AExtensionInitializer[] inits = ActivateOnAttributeUtils.ActivateObjects<AExtensionInitializer>(asm);
                 if (inits.Length == 0)
                 {
-                    ConsoleCoreConfig.CoreLogger.LogWarning("Assembly " + asm.GetName().Name +
-                                                            " does not have an Initializer but is loaded.");
+                    ConsoleCoreConfig.CoreLogger.LogWarning(
+                                                            "Assembly " +
+                                                            asm.GetName().Name +
+                                                            " does not have an Initializer but is loaded."
+                                                           );
                 }
+
                 return inits;
             }
             catch (Exception e)
@@ -141,5 +153,6 @@ namespace Console.Core.ExtensionSystem
         }
 
         #endregion
+
     }
 }

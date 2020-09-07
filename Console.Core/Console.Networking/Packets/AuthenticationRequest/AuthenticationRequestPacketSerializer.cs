@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.AuthenticationRequest
     /// </summary>
     public class AuthenticationRequestPacketSerializer : PacketSerializer<AuthenticationRequestPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -27,5 +28,6 @@ namespace Console.Networking.Packets.AuthenticationRequest
         {
             return new byte[1024];
         }
+
     }
 }

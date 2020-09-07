@@ -10,13 +10,16 @@ namespace Console.Networking.Packets.SendData
     /// </summary>
     public class SendDataPacket : ANetworkPacket
     {
-        /// <summary>
-        /// Is True when this packet is the last one in this Packet Series
-        /// </summary>
-        public bool LastPacket;
+
         /// <summary>
         /// The Data Chunk of the Packet
         /// </summary>
         public byte[] Data;
+
+        /// <summary>
+        /// Is True when this packet is the last one in this Packet Series
+        /// </summary>
+        public bool LastPacket;
+
     }
 }

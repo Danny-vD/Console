@@ -9,6 +9,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class LogClientHandler : APacketClientHandler<LogPacket>
     {
+
         /// <summary>
         /// Handles the Packet
         /// </summary>
@@ -17,5 +18,6 @@ namespace Console.Networking.Handlers
         {
             AConsoleManager.Instance.LogPlainText(item.LogLine);
         }
+
     }
 }

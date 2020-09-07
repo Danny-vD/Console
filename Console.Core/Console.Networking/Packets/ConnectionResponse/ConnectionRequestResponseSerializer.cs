@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.ConnectionResponse
@@ -8,6 +9,7 @@ namespace Console.Networking.Packets.ConnectionResponse
     /// </summary>
     public class ConnectionRequestResponseSerializer : PacketSerializer<ConnectionRequestResponsePacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -17,10 +19,28 @@ namespace Console.Networking.Packets.ConnectionResponse
         {
             bool suc = data[0] == 1;
             return suc
-                ? (ConnectionRequestResponsePacket) new ConnectionRequestResponseSuccessPacket(
-                    NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1))
-                : (ConnectionRequestResponsePacket) new ConnectionRequestResponseFailedPacket(
-                    NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1));
+                       ? new ConnectionRequestResponseSuccessPacket(
+                                                                    NetworkingSettings
+                                                                        .EncodingInstance
+                                                                        .GetString(
+                                                                                   data,
+                                                                                   1,
+                                                                                   data
+                                                                                       .Length -
+                                                                                   1
+                                                                                  )
+                                                                   )
+                       : (ConnectionRequestResponsePacket) new ConnectionRequestResponseFailedPacket(
+                                                                                                     NetworkingSettings
+                                                                                                         .EncodingInstance
+                                                                                                         .GetString(
+                                                                                                                    data,
+                                                                                                                    1,
+                                                                                                                    data
+                                                                                                                        .Length -
+                                                                                                                    1
+                                                                                                                   )
+                                                                                                    );
         }
 
 
@@ -31,11 +51,12 @@ namespace Console.Networking.Packets.ConnectionResponse
         /// <returns>Serialized Data</returns>
         protected override byte[] Serialize(ConnectionRequestResponsePacket item)
         {
-            List<byte> data = new List<byte> {(byte) (item.Success ? 1 : 0)};
+            List<byte> data = new List<byte> { (byte) (item.Success ? 1 : 0) };
             if (item is ConnectionRequestResponseFailedPacket fail)
             {
                 data.AddRange(NetworkingSettings.EncodingInstance.GetBytes(fail.Reason));
             }
+
             if (item is ConnectionRequestResponseSuccessPacket suc)
             {
                 data.AddRange(NetworkingSettings.EncodingInstance.GetBytes(suc.AuthMethod));
@@ -43,5 +64,6 @@ namespace Console.Networking.Packets.ConnectionResponse
 
             return data.ToArray();
         }
+
     }
 }

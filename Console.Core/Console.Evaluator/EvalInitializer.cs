@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection;
+
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.ExtensionSystem;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
@@ -16,6 +18,7 @@ namespace Console.Evaluator
     /// </summary>
     public class EvalInitializer : AExtensionInitializer
     {
+
         [Property("logs.evaluator.mute")]
         private static bool MuteLogs
         {
@@ -28,6 +31,7 @@ namespace Console.Evaluator
         /// The Load Order of the Extension
         /// </summary>
         public static ALogger Logger => GetLogger(Assembly.GetExecutingAssembly());
+
         /// <summary>
         /// Version of the Evaluator Extension
         /// </summary>
@@ -40,9 +44,12 @@ namespace Console.Evaluator
         /// </summary>
         protected override void Initialize()
         {
-            EvalVariableProvider ep = new EvalVariableProvider();
+
+            CommandAttributeUtils.AddCommands(typeof(ConditionalCommands));
+            CommandAttributeUtils.AddCommands(typeof(Eval));
             PropertyAttributeUtils.AddProperties<EvalInitializer>();
-            PropertyAttributeUtils.AddProperties<EvalVariableProvider>();
+            PropertyAttributeUtils.AddProperties(typeof(Eval));
         }
+
     }
 }

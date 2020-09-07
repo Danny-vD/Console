@@ -10,6 +10,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class CommandHostHandler : APacketHostHandler<CommandPacket>
     {
+
         /// <summary>
         /// Handles the packet of type T
         /// </summary>
@@ -20,5 +21,6 @@ namespace Console.Networking.Handlers
             NetworkedInitializer.Logger.Log("Running Command on Host: " + item.Input);
             AConsoleManager.Instance.EnterCommand(item.Input);
         }
+
     }
 }

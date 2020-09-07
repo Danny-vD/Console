@@ -7,6 +7,7 @@ namespace Console.Core.CommandSystem.Builder
     /// </summary>
     public interface ICommandBuilder
     {
+
         /// <summary>
         /// If true the Command was Built.
         /// </summary>
@@ -34,5 +35,6 @@ namespace Console.Core.CommandSystem.Builder
         /// </summary>
         /// <returns>Command String</returns>
         string ToString();
+
     }
 }

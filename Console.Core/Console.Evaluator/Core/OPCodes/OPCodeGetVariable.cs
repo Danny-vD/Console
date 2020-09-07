@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 
@@ -10,10 +11,20 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     public class OPCodeGetVariable : OPCode
     {
+
         /// <summary>
         /// The TypedValue Backing Field
         /// </summary>
         private IEvalTypedValue _mParam1;
+
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="value">IEvalTypedValue to Get the Variable From</param>
+        public OPCodeGetVariable(IEvalTypedValue value)
+        {
+            mParam1 = value;
+        }
 
         /// <summary>
         /// The TypedValue
@@ -40,15 +51,6 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
-        /// Public Constructor
-        /// </summary>
-        /// <param name="value">IEvalTypedValue to Get the Variable From</param>
-        public OPCodeGetVariable(IEvalTypedValue value)
-        {
-            mParam1 = value;
-        }
-
-        /// <summary>
         /// The Variable Value
         /// </summary>
         public override object Value => mParam1.Value;
@@ -72,5 +74,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

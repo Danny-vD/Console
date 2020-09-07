@@ -12,6 +12,7 @@ namespace Console.Core.ConverterSystem
     /// </summary>
     public static class CustomConvertManager
     {
+
         /// <summary>
         /// All Loaded Converters.
         /// </summary>
@@ -50,6 +51,7 @@ namespace Console.Core.ConverterSystem
             {
                 return conv.Convert(parameter, target);
             }
+
             return parameter;
         }
 
@@ -72,5 +74,6 @@ namespace Console.Core.ConverterSystem
                 return (TNewType) @object;
             }
         }
+
     }
 }

@@ -10,6 +10,7 @@ namespace Console.Networking.Packets.Log
     /// </summary>
     public class LogPacket : ANetworkPacket
     {
+
         /// <summary>
         /// Log Line written on the Host.
         /// </summary>
@@ -23,5 +24,6 @@ namespace Console.Networking.Packets.Log
         {
             LogLine = logLine;
         }
+
     }
 }

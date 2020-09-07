@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.ConnectionRequest
     /// </summary>
     public class ConnectionRequestSerializer : PacketSerializer<ConnectionRequestPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -27,5 +28,6 @@ namespace Console.Networking.Packets.ConnectionRequest
             byte[] data = NetworkingSettings.EncodingInstance.GetBytes(item.Version);
             return data;
         }
+
     }
 }

@@ -1,0 +1,5 @@
+sp scriptsystem.routines.runsubroutinesasasync false
+sp scriptsystem.routines.prioritizesubroutines true
+sp scriptsystem.routines.blockingsubroutines false
+echo "Sub First / Ordered / No-Block"
+run-seq-async async-test

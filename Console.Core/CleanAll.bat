@@ -1,0 +1,1 @@
+start RunForAllExtensions.bat Clean.bat

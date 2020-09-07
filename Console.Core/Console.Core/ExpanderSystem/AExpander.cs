@@ -8,11 +8,13 @@ namespace Console.Core.ExpanderSystem
     [ActivateOn]
     public abstract class AExpander
     {
+
         /// <summary>
         /// Returns the Expanded String based on the Input String
         /// </summary>
         /// <param name="input">Input String</param>
         /// <returns>Expanded String</returns>
         public abstract string Expand(string input);
+
     }
 }

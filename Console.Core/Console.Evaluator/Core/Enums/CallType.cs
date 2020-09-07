@@ -11,21 +11,26 @@ namespace Console.Evaluator.Core.Enums
     [Flags]
     internal enum CallType
     {
+
         /// <summary>
         /// The Call will be invoked with a Field as the Target
         /// </summary>
         Field = 1,
+
         /// <summary>
         /// The Call will be invoked with a Method as the Target
         /// </summary>
         Method = 2,
+
         /// <summary>
         /// The Call will be invoked with a Property as the Target
         /// </summary>
         Property = 4,
+
         /// <summary>
         /// The Call will be invoked with this setting when the Target Could not be Determined.
         /// </summary>
         All = 7
+
     }
 }

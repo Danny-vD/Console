@@ -1,0 +1,8 @@
+load-seq yeet scripts/misc/async/yeet.txt --create
+load-seq yote scripts/misc/async/yote.txt --create
+load-seq yate scripts/misc/async/yate.txt --create
+
+run-seq-async yeet
+run-seq-async yote
+run-seq-async yate
+echo "Finished"

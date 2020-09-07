@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.SendDataRequest
     /// </summary>
     public class SendDataRequestPacketSerializer : PacketSerializer<SendDataRequestPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type SendDataRequestPacket
         /// </summary>
@@ -27,5 +28,6 @@ namespace Console.Networking.Packets.SendDataRequest
         {
             return NetworkingSettings.EncodingInstance.GetBytes(item.Destination);
         }
+
     }
 }

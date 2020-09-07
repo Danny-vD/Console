@@ -9,6 +9,7 @@ namespace Console.Core.PropertySystem
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
     public class PropertyAttribute : ConsoleAttribute
     {
+
         /// <summary>
         /// The Property Path/Name
         /// </summary>
@@ -22,5 +23,6 @@ namespace Console.Core.PropertySystem
         {
             PropertyPath = propertyPath;
         }
+
     }
 }

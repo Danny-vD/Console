@@ -1,4 +1,5 @@
-﻿using Console.Core.CommandSystem.Builder.CommandAutoFill;
+﻿using Console.Core.CommandSystem.Attributes;
+using Console.Core.CommandSystem.Builder.BuiltIn.CommandAutoFill;
 using Console.Core.ILOptimizations;
 using Console.Core.LogSystem;
 
@@ -13,8 +14,17 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class DefaultCommands
     {
+
         private static readonly ALogger EchoLogger = TypedLogger.CreateTypedWithPrefix("echo");
         private static readonly ALogger HelpLogger = TypedLogger.CreateTypedWithPrefix("help");
+
+        /// <summary>
+        /// Adds all Default Commands.
+        /// </summary>
+        public static void AddDefaultCommands()
+        {
+            CommandAttributeUtils.AddCommands<DefaultCommands>();
+        }
 
         #region Internal Data
 
@@ -26,20 +36,17 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
 
         #endregion
 
-        /// <summary>
-        /// Adds all Default Commands.
-        /// </summary>
-        public static void AddDefaultCommands()
-        {
-            CommandAttributeUtils.AddCommands<DefaultCommands>();
-        }
-
         #region Default Commands
 
         /// <summary>
         /// Clear Command
         /// </summary>
-        [Command(clearCommand, clearCommandMessage, "cls", "clr")]
+        [Command(
+            clearCommand,
+            HelpMessage = clearCommandMessage,
+            Namespace = ConsoleCoreConfig.CORE_NAMESPACE,
+            Aliases = new[] { "cls", "clr" }
+        )]
         [OptimizeIL]
         public static void Clear()
         {
@@ -51,14 +58,23 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// Help Command.
         /// <param name="shortInfo">Flag -s that optionally returns a shortened version of the Commands.</param>
         /// </summary>
-        [Command(helpCommand, helpHelpMessage, "h")]
+        [Command(
+            helpCommand,
+            HelpMessage = helpHelpMessage,
+            Namespace = ConsoleCoreConfig.CORE_NAMESPACE,
+            Aliases = new[] { "h" }
+        )]
         [OptimizeIL]
-        public static void Help([CommandFlag("s")] bool shortInfo)
+        public static void Help(
+            [CommandFlag("s")]
+            bool shortInfo)
         {
-            foreach (AbstractCommand command in CommandManager.Commands)
+            foreach (AbstractCommand command in CommandManager.AllCommands)
             {
-                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) +
-                               "\n--------------------------");
+                HelpLogger.Log(
+                               command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) +
+                               "\n--------------------------"
+                              );
             }
         }
 
@@ -67,14 +83,24 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="commandName">Search Term</param>
         /// <param name="shortInfo">Flag -s that optionally returns a shortened version of the Commands.</param>
-        [Command(helpCommand, help1HelpMessage, "h")]
+        [Command(
+            helpCommand,
+            HelpMessage = help1HelpMessage,
+            Namespace = ConsoleCoreConfig.CORE_NAMESPACE,
+            Aliases = new[] { "h" }
+        )]
         [OptimizeIL]
-        public static void Help([CommandAutoFill] string commandName, [CommandFlag("s")] bool shortInfo)
+        public static void Help(
+            [CommandAutoFill]
+            string commandName, [CommandFlag("s")]
+            bool shortInfo)
         {
             foreach (AbstractCommand command in CommandManager.GetCommands(commandName, true))
             {
-                HelpLogger.Log(command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) +
-                               "\n--------------------------");
+                HelpLogger.Log(
+                               command.ToString(shortInfo ? ToStringMode.Short : ToStringMode.Long) +
+                               "\n--------------------------"
+                              );
             }
         }
 
@@ -82,7 +108,11 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// Echo Command.
         /// </summary>
         /// <param name="value">Value to Write to the Console.</param>
-        [Command("echo", "Echos the input")]
+        [Command(
+            "echo",
+            HelpMessage = "Echos the input",
+            Namespace = ConsoleCoreConfig.CORE_NAMESPACE
+        )]
         [OptimizeIL]
         public static void Echo(string value)
         {
@@ -90,5 +120,6 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         }
 
         #endregion
+
     }
 }

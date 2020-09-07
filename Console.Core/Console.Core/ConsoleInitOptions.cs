@@ -9,33 +9,36 @@ namespace Console.Core
     [Flags]
     public enum ConsoleInitOptions
     {
+
         /// <summary>
-        /// Add all Default Commands
+        /// 
         /// </summary>
-        All = -1 & ~FlagTests,
+        Default = Core | Properties,
+
         /// <summary>
-        /// Do not add any Default Commands
+        /// 
         /// </summary>
         None = 0,
+
         /// <summary>
-        /// Clear / Help and Echo Command
+        /// 
         /// </summary>
-        DefaultCommands = 1,
+        Loader = 1,
+
         /// <summary>
-        /// Commands that allow interfacing with the Property System
+        /// 
         /// </summary>
-        PropertyCommands = 2,
+        Core = 2,
+
         /// <summary>
-        /// Commands that allow Loading Extensions from the Commandline
+        /// 
         /// </summary>
-        ExtensionCommands = 4,
+        Properties = 4,
+
         /// <summary>
-        /// Commands that allow viewing and clearing the selected object list
+        /// 
         /// </summary>
-        SelectionCommands = 8,
-        /// <summary>
-        /// Commands that Test the behaviour of Flag Attributes.
-        /// </summary>
-        FlagTests = 16,
+        Selection = 8,
+
     }
 }

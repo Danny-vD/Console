@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Console.Utility</name>
+    </assembly>
+    <members>
+        <member name="T:Console.Utility.AutoFill.IOAutoFill.Directories.DirAutoFillAttribute">
+            <summary>
+            When a Parameter Gets Decorated with the DirAutoFillAttribute it enables the CommandBuilder to Suggest Possible Directory Entry Values for this Parameter
+            </summary>
+        </member>
+        <member name="T:Console.Utility.AutoFill.IOAutoFill.Directories.DirAutoFillProvider">
+            <summary>
+            Provides Directory Paths as AutoFill Suggestions
+            </summary>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.Directories.DirAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.Directories.DirAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
+        <member name="T:Console.Utility.AutoFill.IOAutoFill.Files.FileAutoFillAttribute">
+            <summary>
+            When a Parameter Gets Decorated with the FileAutoFillAttribute it enables the CommandBuilder to Suggest Possible File Entry Values for this Parameter
+            </summary>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.Files.FileAutoFillAttribute.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="extension">Extension Search Term</param>
+        </member>
+        <member name="P:Console.Utility.AutoFill.IOAutoFill.Files.FileAutoFillAttribute.SearchTerm">
+            <summary>
+            The Search Term that will be applied
+            </summary>
+        </member>
+        <member name="T:Console.Utility.AutoFill.IOAutoFill.Files.FileAutoFillProvider">
+            <summary>
+            Provides File Paths as AutoFill Suggestions
+            </summary>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.Files.FileAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.Files.FileAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
+        <member name="T:Console.Utility.AutoFill.IOAutoFill.IOAutoFillAttribute">
+            <summary>
+            When a Parameter Gets Decorated with the IOAutoFillAttribute it enables the CommandBuilder to Suggest Possible File System Entry Values for this Parameter
+            </summary>
+        </member>
+        <member name="T:Console.Utility.AutoFill.IOAutoFill.IOAutoFillProvider">
+            <summary>
+            Provides File System Paths as AutoFill Suggestions
+            </summary>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.IOAutoFillProvider.CanFill(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32)">
+            <summary>
+            Determines if the Provider can Provide Useful AutoFill Suggestions
+            </summary>
+            <param name="cmd">Command</param>
+            <param name="paramNum">Command Parameter Index</param>
+            <returns>True if it can AutoFill</returns>
+        </member>
+        <member name="M:Console.Utility.AutoFill.IOAutoFill.IOAutoFillProvider.GetAutoFills(Console.Core.CommandSystem.Commands.AbstractCommand,System.Int32,System.String)">
+            <summary>
+            Returns the Auto Fill Entries that are useful in the current Context.
+            </summary>
+            <param name="cmd">The Command</param>
+            <param name="paramNum">The Command Parameter Index</param>
+            <param name="start">The Start of the Parameter("search term")</param>
+            <returns>List of Viable AutoFill Entries</returns>
+        </member>
+        <member name="T:Console.Utility.Commands.Commands.UtilCommandCommands">
+            <summary>
+            Utility Commands for the Command Systems
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Commands.Commands.UtilCommandCommands.AddCommands(System.String)">
+            <summary>
+            Adds all commands of a specified type
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+        </member>
+        <member name="T:Console.Utility.Commands.Extensions.ExtensionCommands">
+            <summary>
+            Contains Default Commands to load Extensions from Files.
+            </summary>
+        </member>
+        <member name="F:Console.Utility.Commands.Extensions.ExtensionCommands.EXTENSION_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Commands.Extensions.ExtensionCommands.AddExtensionsCommands">
+            <summary>
+            Adds all Extension Commands.
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Commands.Extensions.ExtensionCommands.LoadFromFolder(System.String)">
+            <summary>
+            Loads all extensions from the specified folder.
+            </summary>
+            <param name="folder">Folder with Extensions</param>
+        </member>
+        <member name="M:Console.Utility.Commands.Extensions.ExtensionCommands.LoadExtensionFile(System.String)">
+            <summary>
+            Loads the Specified Extension from File.
+            </summary>
+            <param name="file">.dll Library</param>
+        </member>
+        <member name="T:Console.Utility.Commands.Properties.UtilPropertyCommands">
+            <summary>
+            Utility Commands for the Property System
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Commands.Properties.UtilPropertyCommands.AddProperties(System.String)">
+            <summary>
+            Adds all Static Properties of the Specified Type
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+        </member>
+        <member name="M:Console.Utility.Commands.Properties.UtilPropertyCommands.AddPropertiesAny(System.String)">
+            <summary>
+            Adds all static public properties of the specified type.
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+        </member>
+        <member name="M:Console.Utility.Commands.Properties.UtilPropertyCommands.AddPropertiesAny(System.String,System.String)">
+            <summary>
+            Adds all Static public properties of the specified type
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Type Name</param>
+            <param name="prefix">Prefix of the Command</param>
+        </member>
+        <member name="M:Console.Utility.Commands.Properties.UtilPropertyCommands.AddAnyPropertiesByType(System.String,System.Type)">
+            <summary>
+            Adds all Properties from the Specified type with the specified prefix
+            </summary>
+            <param name="prefix">Prefix of the Command</param>
+            <param name="t">Type containing the commands</param>
+        </member>
+        <member name="T:Console.Utility.Converters.ArrayCustomConverter">
+            <summary>
+            Custom AConverter implementation that does the Array Conversion
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.ArrayCustomConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.ArrayCustomConverter.GetAsList``1(System.Array)">
+            <summary>
+            Used by Reflection to Create a List of a specific type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Utility.Converters.ArrayCustomConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="T:Console.Utility.Converters.ColorConverter">
+            <summary>
+            AConverter Implementation that Converts a RRGGBB or AARRGGBB hex string into a C# Color Struct if Prepended with a Hashtag
+            If a Hashtag is not present the color gets interpreted by name(e.g. Red == FFFF0000 OR FF0000)
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.ColorConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.ColorConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.ColorConverter.Convert(System.String)">
+            <summary>
+            Converts the Hex Code into a byte
+            </summary>
+            <param name="hexCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Console.Utility.Converters.DateTimeConverter">
+            <summary>
+            AConverter Implementation that converts from DateTime structs to string representations and from string representations to DateTime Structs
+            </summary>
+        </member>
+        <member name="F:Console.Utility.Converters.DateTimeConverter.DateTimeCulture">
+            <summary>
+            Culture that is used when converting
+            </summary>
+        </member>
+        <member name="F:Console.Utility.Converters.DateTimeConverter.DateTimeFormat">
+            <summary>
+            The Format string that is used when converting from DateTime To String.
+            </summary>
+        </member>
+        <member name="P:Console.Utility.Converters.DateTimeConverter.Culture">
+            <summary>
+            Helper Property that provides the CultureInstance
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.DateTimeConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.DateTimeConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="T:Console.Utility.Converters.DefaultConverterInitializer">
+            <summary>
+            Initializer of the DefaultConverters Extension
+            </summary>
+        </member>
+        <member name="F:Console.Utility.Converters.DefaultConverterInitializer.CONVERTER_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Console.Utility.Converters.DirInfoConverter">
+            <summary>
+            AConverter Implementation that converts a Path String into a DirectoryInfo class.
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.DirInfoConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.DirInfoConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="T:Console.Utility.Converters.EnumConverter">
+            <summary>
+            AConverter Implementation that converts the name of an enum to the corresponding enum value
+            </summary>
+        </member>
+        <member name="F:Console.Utility.Converters.EnumConverter.CaseSensitive">
+            <summary>
+            Flag that if set to true will Parse the Names in case sensitive.
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.EnumConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.EnumConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="T:Console.Utility.Converters.EnumDigitConverter">
+            <summary>
+            AConverter Implementation that converts an Integer into the corresponding Enum Value
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.EnumDigitConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.EnumDigitConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="T:Console.Utility.Converters.FileInfoConverter">
+            <summary>
+            AConverter Implementation that converts a Path String into a FileInfo Class.
+            </summary>
+        </member>
+        <member name="M:Console.Utility.Converters.FileInfoConverter.CanConvert(System.Object,System.Type)">
+            <summary>
+            Returns true when the Converter is Able to Convert the parameter into the target type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>True if the conversion can be done</returns>
+        </member>
+        <member name="M:Console.Utility.Converters.FileInfoConverter.Convert(System.Object,System.Type)">
+            <summary>
+            Converts the Parameter into the Target Type
+            </summary>
+            <param name="parameter">Parameter Value</param>
+            <param name="target">Target Type</param>
+            <returns>Converted Value</returns>
+        </member>
+        <member name="T:Console.Utility.UtilExtensionInitializer">
+            <summary>
+            Initializer of the UtilExtension Extension
+            </summary>
+        </member>
+        <member name="F:Console.Utility.UtilExtensionInitializer.UTIL_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Console.Utility.UtilExtensionInitializer.UtilsVersion">
+            <summary>
+            Version of the UtilExtension Extension
+            </summary>
+        </member>
+        <member name="M:Console.Utility.UtilExtensionInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+        <member name="M:Console.Utility.UtilExtensionInitializer.ListEnumValues(System.String)">
+            <summary>
+            Prints all Values of an Enum to the Console.
+            </summary>
+            <param name="qualifiedName"></param>
+        </member>
+    </members>
+</doc>

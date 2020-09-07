@@ -15,10 +15,7 @@ namespace Console.Core.ReflectionSystem.Abstract
     public abstract class AMetaData<T>
         where T : MemberInfo
     {
-        /// <summary>
-        /// Attributes of the Member
-        /// </summary>
-        public List<Attribute> Attributes { get; }
+
         /// <summary>
         /// The Inner Member Info Instance
         /// </summary>
@@ -33,5 +30,11 @@ namespace Console.Core.ReflectionSystem.Abstract
             ReflectedInfo = member;
             Attributes = member.GetCustomAttributes(true).OfType<Attribute>().ToList();
         }
+
+        /// <summary>
+        /// Attributes of the Member
+        /// </summary>
+        public List<Attribute> Attributes { get; }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using Console.Core.ReflectionSystem;
 using Console.Core.ReflectionSystem.Interfaces;
 
@@ -14,11 +15,13 @@ namespace Console.Core.PropertySystem
     /// </summary>
     public static class PropertyManager
     {
+
         /// <summary>
         /// All Properties
         /// </summary>
         private static readonly Dictionary<string, IValueTypeContainer> Properties =
             new Dictionary<string, IValueTypeContainer>();
+
         /// <summary>
         /// List of all Property Paths/Names
         /// </summary>
@@ -69,6 +72,19 @@ namespace Console.Core.PropertySystem
             Properties[propertyPath] = helper;
         }
 
+
+        /// <summary>
+        /// Adds all Properties into the System
+        /// </summary>
+        /// <param name="infos">Value Containers to be Added.</param>
+        internal static void AddRefHelpers(Dictionary<PropertyAttribute, IValueTypeContainer> infos)
+        {
+            foreach (KeyValuePair<PropertyAttribute, IValueTypeContainer> propertyInfo in infos)
+            {
+                Properties[propertyInfo.Key.PropertyPath] = propertyInfo.Value;
+            }
+        }
+
         #region Try Get/Set
 
         /// <summary>
@@ -94,6 +110,7 @@ namespace Console.Core.PropertySystem
             {
                 return false;
             }
+
             value = GetPropertyValue(propertyPath);
             return true;
         }
@@ -111,8 +128,11 @@ namespace Console.Core.PropertySystem
             }
             else
             {
-                ConsoleCoreConfig.CoreLogger.LogWarning("Can not Write property: " + propertyPath +
-                                                        " its already existing and readonly");
+                ConsoleCoreConfig.CoreLogger.LogWarning(
+                                                        "Can not Write property: " +
+                                                        propertyPath +
+                                                        " its already existing and readonly"
+                                                       );
             }
         }
 
@@ -145,25 +165,15 @@ namespace Console.Core.PropertySystem
                     AddProperty(propertyPath, value);
                     return true;
                 }
+
                 return false;
             }
+
             SetPropertyValue(propertyPath, value);
             return true;
         }
 
         #endregion
 
-
-        /// <summary>
-        /// Adds all Properties into the System
-        /// </summary>
-        /// <param name="infos">Value Containers to be Added.</param>
-        internal static void AddRefHelpers(Dictionary<PropertyAttribute, IValueTypeContainer> infos)
-        {
-            foreach (KeyValuePair<PropertyAttribute, IValueTypeContainer> propertyInfo in infos)
-            {
-                Properties[propertyInfo.Key.PropertyPath] = propertyInfo.Value;
-            }
-        }
     }
 }

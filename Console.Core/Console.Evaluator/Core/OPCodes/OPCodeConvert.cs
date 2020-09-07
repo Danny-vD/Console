@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 
@@ -13,38 +14,16 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     internal class OPCodeConvert : OPCode
     {
-        /// <summary>
-        /// The First parameter Backing Field
-        /// </summary>
-        private IEvalTypedValue _param1;
 
-        /// <summary>
-        /// The First Parameter
-        /// </summary>
-        private IEvalTypedValue Param1
-        {
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _param1;
-
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                if (_param1 != null)
-                {
-                    _param1.ValueChanged -= Param1ValueChanged;
-                }
-
-                _param1 = value;
-                if (_param1 != null)
-                {
-                    _param1.ValueChanged += Param1ValueChanged;
-                }
-            }
-        }
         /// <summary>
         /// The Evaluation Type of the Parameter Backing Field
         /// </summary>
         private readonly EvalType mEvalType = EvalType.Unknown;
+
+        /// <summary>
+        /// The First parameter Backing Field
+        /// </summary>
+        private IEvalTypedValue _param1;
 
         /// <summary>
         /// Public Constructor
@@ -87,12 +66,46 @@ namespace Console.Evaluator.Core.OPCodes
 
                 default:
                 {
-                    tokenizer.RaiseError("Cannot convert " + param1.SystemType.Name + " to " +
-                                         ((int) evalType).ToString());
+                    tokenizer.RaiseError(
+                                         "Cannot convert " +
+                                         param1.SystemType.Name +
+                                         " to " +
+                                         (int) evalType
+                                        );
                     break;
                 }
             }
         }
+
+        /// <summary>
+        /// The First Parameter
+        /// </summary>
+        private IEvalTypedValue Param1
+        {
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            get => _param1;
+
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                if (_param1 != null)
+                {
+                    _param1.ValueChanged -= Param1ValueChanged;
+                }
+
+                _param1 = value;
+                if (_param1 != null)
+                {
+                    _param1.ValueChanged += Param1ValueChanged;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// The Evaluation Type of the Parameter
+        /// </summary>
+        public override EvalType EvalType => mEvalType;
 
         /// <summary>
         /// returns the Parameter as Boolean
@@ -132,12 +145,6 @@ namespace Console.Evaluator.Core.OPCodes
 
 
         /// <summary>
-        /// The Evaluation Type of the Parameter
-        /// </summary>
-        public override EvalType EvalType => mEvalType;
-
-
-        /// <summary>
         /// Gets Invoked when the parameter Value changes.
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
@@ -146,5 +153,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

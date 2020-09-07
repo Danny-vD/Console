@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.SendDataRequestResponse
     /// </summary>
     public class SendDataRequestResponseSerializer : PacketSerializer<SendDataRequestResponsePacket>
     {
+
         /// <summary>
         /// Serializes a Packet of Type SendDataRequestResponsePacket into a Byte array
         /// </summary>
@@ -14,7 +15,7 @@ namespace Console.Networking.Packets.SendDataRequestResponse
         /// <returns>Serialized Data</returns>
         protected override byte[] Serialize(SendDataRequestResponsePacket item)
         {
-            return new[] {(byte) (item.Allowed ? 1 : 0)};
+            return new[] { (byte) (item.Allowed ? 1 : 0) };
         }
 
         /// <summary>
@@ -28,7 +29,9 @@ namespace Console.Networking.Packets.SendDataRequestResponse
             {
                 return SendDataRequestResponsePacket.Allow;
             }
+
             return SendDataRequestResponsePacket.Deny;
         }
+
     }
 }

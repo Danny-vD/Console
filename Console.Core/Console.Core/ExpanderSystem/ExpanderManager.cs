@@ -11,6 +11,7 @@ namespace Console.Core.ExpanderSystem
     /// </summary>
     public class ExpanderManager
     {
+
         /// <summary>
         /// List of Loaded Expanders
         /// </summary>
@@ -37,7 +38,9 @@ namespace Console.Core.ExpanderSystem
             {
                 ret = Expanders[i].Expand(ret);
             }
+
             return ret;
         }
+
     }
 }

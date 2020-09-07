@@ -9,6 +9,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class ConnectionRequestResponseClientHandler : APacketClientHandler<ConnectionRequestResponsePacket>
     {
+
         /// <summary>
         /// Handles the Packet
         /// </summary>
@@ -24,8 +25,11 @@ namespace Console.Networking.Handlers
                 NetworkingSettings.Authenticator = successPacket.AuthMethod;
                 if (NetworkingSettings.AuthenticatorInstance == null) //Authenticator not found
                 {
-                    NetworkedInitializer.Logger.LogWarning("Authenticator with the name: " +
-                                                           NetworkingSettings.Authenticator + " does not exist.");
+                    NetworkedInitializer.Logger.LogWarning(
+                                                           "Authenticator with the name: " +
+                                                           NetworkingSettings.Authenticator +
+                                                           " does not exist."
+                                                          );
                 }
                 else
                 {
@@ -34,10 +38,12 @@ namespace Console.Networking.Handlers
                     {
                         NetworkedInitializer.Logger.LogWarning("Can not send packet: " + car.PacketIdentifier);
                     }
+
                     // NetworkingSettings.AuthenticatorInstance.AuthenticateClient(NetworkingSettings.ClientSession.Client);
                     //Authenticate
                 }
             }
         }
+
     }
 }

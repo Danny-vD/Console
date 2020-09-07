@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.OPCodes
@@ -9,10 +10,20 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     internal class OPCodeVariable : OPCode
     {
+
         /// <summary>
         /// The Variable Backing Field
         /// </summary>
         private EvalVariable _mVariable;
+
+        /// <summary>
+        /// Public Constructor
+        /// </summary>
+        /// <param name="variable">The Variable</param>
+        public OPCodeVariable(EvalVariable variable)
+        {
+            mVariable = variable;
+        }
 
         /// <summary>
         /// The Variable
@@ -39,15 +50,6 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
-        /// Public Constructor
-        /// </summary>
-        /// <param name="variable">The Variable</param>
-        public OPCodeVariable(EvalVariable variable)
-        {
-            mVariable = variable;
-        }
-
-        /// <summary>
         /// The Variable 
         /// </summary>
         public override object Value => mVariable;
@@ -66,5 +68,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

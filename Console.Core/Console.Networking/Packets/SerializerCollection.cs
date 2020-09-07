@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets
@@ -10,6 +11,7 @@ namespace Console.Networking.Packets
     /// </summary>
     public static class SerializerCollection
     {
+
         /// <summary>
         /// All available Serializers
         /// </summary>
@@ -70,6 +72,7 @@ namespace Console.Networking.Packets
             {
                 return (T) s._Deserialize(content);
             }
+
             throw new SerializerException("Can not Deserialize: " + identifier);
         }
 
@@ -86,6 +89,7 @@ namespace Console.Networking.Packets
             {
                 return s._Serialize(item);
             }
+
             throw new SerializerException("Can not Serialize: " + item);
         }
 
@@ -94,6 +98,7 @@ namespace Console.Networking.Packets
         /// </summary>
         private class SerializerException : Exception
         {
+
             /// <summary>
             /// Public Constructor
             /// </summary>
@@ -101,6 +106,8 @@ namespace Console.Networking.Packets
             public SerializerException(string message) : base(message)
             {
             }
+
         }
+
     }
 }

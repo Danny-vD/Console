@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+
 using Console.Core.PropertySystem;
 
 
@@ -16,6 +17,23 @@ namespace Console.Networking.Authentication
     /// </summary>
     public static class Cryptography
     {
+
+        #region Password Derive Bytes
+
+        /// <summary>
+        /// Creates a Rfc2898DeriveBytes Instance from a password.
+        /// </summary>
+        /// <param name="pass">Password to use.</param>
+        /// <param name="salt">The Password Salt.</param>
+        /// <param name="iterations">How many iterations should the Derrive Algorithm Perform.</param>
+        /// <returns></returns>
+        public static Rfc2898DeriveBytes GetPassword(byte[] pass, byte[] salt, int iterations = 2)
+        {
+            return new Rfc2898DeriveBytes(pass, salt, iterations);
+        }
+
+        #endregion
+
         #region Settings
 
         /// <summary>
@@ -45,22 +63,6 @@ namespace Console.Networking.Authentication
 
         #endregion
 
-        #region Password Derive Bytes
-
-        /// <summary>
-        /// Creates a Rfc2898DeriveBytes Instance from a password.
-        /// </summary>
-        /// <param name="pass">Password to use.</param>
-        /// <param name="salt">The Password Salt.</param>
-        /// <param name="iterations">How many iterations should the Derrive Algorithm Perform.</param>
-        /// <returns></returns>
-        public static Rfc2898DeriveBytes GetPassword(byte[] pass, byte[] salt, int iterations = 2)
-        {
-            return new Rfc2898DeriveBytes(pass, salt, iterations);
-        }
-
-        #endregion
-
         #region Encrypt
 
         /// <summary>
@@ -73,7 +75,6 @@ namespace Console.Networking.Authentication
         /// <returns>Encrypted Value</returns>
         public static byte[] Encrypt(SymmetricAlgorithm alg, byte[] value, byte[] vector, Rfc2898DeriveBytes password)
         {
-
             byte[] encrypted;
 
             byte[] keyBytes = password.GetBytes(alg.KeySize / 8);
@@ -134,8 +135,13 @@ namespace Console.Networking.Authentication
         /// <returns>Encrypted Value</returns>
         public static byte[] Encrypt(SymmetricAlgorithm alg, byte[] value, byte[] password)
         {
-            return Encrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
-                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
+            return Encrypt(
+                           alg,
+                           value,
+                           password,
+                           GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                           GetBytes(NetworkingSettings.EncodingInstance, DefaultVector)
+                          );
         }
 
         /// <summary>
@@ -148,8 +154,12 @@ namespace Console.Networking.Authentication
         public static byte[] Encrypt<T>(byte[] value, byte[] password)
             where T : SymmetricAlgorithm, new()
         {
-            return Encrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
-                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
+            return Encrypt<T>(
+                              value,
+                              password,
+                              GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                              GetBytes(NetworkingSettings.EncodingInstance, DefaultVector)
+                             );
         }
 
         #endregion
@@ -175,23 +185,16 @@ namespace Console.Networking.Authentication
 
             alg.Mode = CipherMode.CBC;
 
-            try
+            using (ICryptoTransform decryptor = alg.CreateDecryptor(keyBytes, vector))
             {
-                using (ICryptoTransform decryptor = alg.CreateDecryptor(keyBytes, vector))
+                using (MemoryStream from = new MemoryStream(valueBytes))
                 {
-                    using (MemoryStream from = new MemoryStream(valueBytes))
+                    using (CryptoStream reader = new CryptoStream(from, decryptor, CryptoStreamMode.Read))
                     {
-                        using (CryptoStream reader = new CryptoStream(from, decryptor, CryptoStreamMode.Read))
-                        {
-                            decrypted = new byte[valueBytes.Length];
-                            decryptedByteCount = reader.Read(decrypted, 0, decrypted.Length);
-                        }
+                        decrypted = new byte[valueBytes.Length];
+                        decryptedByteCount = reader.Read(decrypted, 0, decrypted.Length);
                     }
                 }
-            }
-            catch (Exception)
-            {
-                throw;
             }
 
 
@@ -237,8 +240,13 @@ namespace Console.Networking.Authentication
         /// <returns>Decrypted Value</returns>
         public static byte[] Decrypt(SymmetricAlgorithm alg, byte[] value, byte[] password)
         {
-            return Decrypt(alg, value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
-                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
+            return Decrypt(
+                           alg,
+                           value,
+                           password,
+                           GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                           GetBytes(NetworkingSettings.EncodingInstance, DefaultVector)
+                          );
         }
 
         /// <summary>
@@ -251,8 +259,12 @@ namespace Console.Networking.Authentication
         public static byte[] Decrypt<T>(byte[] value, byte[] password)
             where T : SymmetricAlgorithm, new()
         {
-            return Decrypt<T>(value, password, GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
-                GetBytes(NetworkingSettings.EncodingInstance, DefaultVector));
+            return Decrypt<T>(
+                              value,
+                              password,
+                              GetBytes(NetworkingSettings.EncodingInstance, DefaultSalt),
+                              GetBytes(NetworkingSettings.EncodingInstance, DefaultVector)
+                             );
         }
 
         #endregion
@@ -282,5 +294,6 @@ namespace Console.Networking.Authentication
         }
 
         #endregion
+
     }
 }

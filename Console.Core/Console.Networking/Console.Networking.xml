@@ -9,6 +9,15 @@
             Helper Class that Implements Symmetric Algorithm Functions
             </summary>
         </member>
+        <member name="M:Console.Networking.Authentication.Cryptography.GetPassword(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            Creates a Rfc2898DeriveBytes Instance from a password.
+            </summary>
+            <param name="pass">Password to use.</param>
+            <param name="salt">The Password Salt.</param>
+            <param name="iterations">How many iterations should the Derrive Algorithm Perform.</param>
+            <returns></returns>
+        </member>
         <member name="F:Console.Networking.Authentication.Cryptography.DefaultSalt">
             <summary>
             The Password Salt
@@ -26,15 +35,6 @@
             <param name="rnd">Random Ínstance</param>
             <param name="size">The Size of the Resulting String</param>
             <returns>The Generated Random String Sequence</returns>
-        </member>
-        <member name="M:Console.Networking.Authentication.Cryptography.GetPassword(System.Byte[],System.Byte[],System.Int32)">
-            <summary>
-            Creates a Rfc2898DeriveBytes Instance from a password.
-            </summary>
-            <param name="pass">Password to use.</param>
-            <param name="salt">The Password Salt.</param>
-            <param name="iterations">How many iterations should the Derrive Algorithm Perform.</param>
-            <returns></returns>
         </member>
         <member name="M:Console.Networking.Authentication.Cryptography.Encrypt(System.Security.Cryptography.SymmetricAlgorithm,System.Byte[],System.Byte[],System.Security.Cryptography.Rfc2898DeriveBytes)">
             <summary>
@@ -209,50 +209,10 @@
             IAuthenticatior Implementation that works with SymmetricAlgorithms to encrypt and decrypt packets.
             </summary>
         </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.AuthPassword">
-            <summary>
-            The Password used for authentication.
-            </summary>
-        </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.EncryptionType">
-            <summary>
-            The Encryption Algorithm
-            </summary>
-        </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.HashType">
-            <summary>
-            The Hash Provider
-            </summary>
-        </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.CipherMode">
-            <summary>
-            The Algorithm CipherMode
-            </summary>
-        </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.PaddingMode">
-            <summary>
-            The Algorithm Padding Mode
-            </summary>
-        </member>
         <member name="F:Console.Networking.Authentication.SymmetricBlockAuthenticator.AuthenticationDataLength">
             <summary>
             The Size of the Encrypted Chunk of authentication data.
             </summary>
-        </member>
-        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.CreateKey(System.Int32)">
-            <summary>
-            Creates the Password Used for the Algorithm
-            </summary>
-            <param name="count"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.CreateFixSize(System.Byte[],System.Int32)">
-            <summary>
-            Creates a Byte array of fixed size from the contents of data
-            </summary>
-            <param name="data">Source Data</param>
-            <param name="count">New Array Size</param>
-            <returns></returns>
         </member>
         <member name="F:Console.Networking.Authentication.SymmetricBlockAuthenticator._authPassword">
             <summary>
@@ -284,19 +244,9 @@
             Hash Provider Backing Field.
             </summary>
         </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.HashProvider">
-            <summary>
-            Hash Provider
-            </summary>
-        </member>
         <member name="F:Console.Networking.Authentication.SymmetricBlockAuthenticator.provider">
             <summary>
             Algorithm Provider Backing Field.
-            </summary>
-        </member>
-        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.Provider">
-            <summary>
-            Algorithm Provider
             </summary>
         </member>
         <member name="F:Console.Networking.Authentication.SymmetricBlockAuthenticator.AuthenticationSessions">
@@ -304,17 +254,81 @@
             Collection of Authentication Sessions
             </summary>
         </member>
-        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.CreateProvider">
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.AuthPassword">
             <summary>
-            Creates the Specified Symmetric Algorithm
+            The Password used for authentication.
             </summary>
-            <returns></returns>
+        </member>
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.EncryptionType">
+            <summary>
+            The Encryption Algorithm
+            </summary>
+        </member>
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.HashType">
+            <summary>
+            The Hash Provider
+            </summary>
+        </member>
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.CipherMode">
+            <summary>
+            The Algorithm CipherMode
+            </summary>
+        </member>
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.PaddingMode">
+            <summary>
+            The Algorithm Padding Mode
+            </summary>
+        </member>
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.HashProvider">
+            <summary>
+            Hash Provider
+            </summary>
+        </member>
+        <member name="P:Console.Networking.Authentication.SymmetricBlockAuthenticator.Provider">
+            <summary>
+            Algorithm Provider
+            </summary>
         </member>
         <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.AuthenticateClient(Console.Networking.Packets.ConsoleSocket)">
             <summary>
             Gets Invoked by the Host to initialize the authentication of a connected client.
             </summary>
             <param name="client">Client to Authenticate</param>
+        </member>
+        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.Decrypt(System.Byte[])">
+            <summary>
+            Decrypts the Passed Data
+            </summary>
+            <param name="data">Passed Data</param>
+            <returns>Decrypted Data</returns>
+        </member>
+        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts the Passed Data
+            </summary>
+            <param name="data">Passed Data</param>
+            <returns>Encrypted Data</returns>
+        </member>
+        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.CreateKey(System.Int32)">
+            <summary>
+            Creates the Password Used for the Algorithm
+            </summary>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.CreateFixSize(System.Byte[],System.Int32)">
+            <summary>
+            Creates a Byte array of fixed size from the contents of data
+            </summary>
+            <param name="data">Source Data</param>
+            <param name="count">New Array Size</param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.CreateProvider">
+            <summary>
+            Creates the Specified Symmetric Algorithm
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.ClientAuthenticationReceive(Console.Networking.Packets.ConsoleSocket,Console.Networking.Packets.Authentication.AuthenticationPacket)">
             <summary>
@@ -346,20 +360,6 @@
             <param name="len">Length of the Array</param>
             <returns>Array with random numbers</returns>
         </member>
-        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.Decrypt(System.Byte[])">
-            <summary>
-            Decrypts the Passed Data
-            </summary>
-            <param name="data">Passed Data</param>
-            <returns>Decrypted Data</returns>
-        </member>
-        <member name="M:Console.Networking.Authentication.SymmetricBlockAuthenticator.Encrypt(System.Byte[])">
-            <summary>
-            Encrypts the Passed Data
-            </summary>
-            <param name="data">Passed Data</param>
-            <returns>Encrypted Data</returns>
-        </member>
         <member name="T:Console.Networking.ClientSession">
             <summary>
             Client Session Used to Connect to a Host Session
@@ -390,11 +390,6 @@
             The Connection Failed.
             </summary>
         </member>
-        <member name="P:Console.Networking.ClientSession.Client">
-            <summary>
-            The Socket used to Communicate with the Host.
-            </summary>
-        </member>
         <member name="F:Console.Networking.ClientSession.ConnectThread">
             <summary>
             The Connect Thread used to implement non blocking Connect.
@@ -403,6 +398,11 @@
         <member name="F:Console.Networking.ClientSession.State">
             <summary>
             The Current Client Session State.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.ClientSession.Client">
+            <summary>
+            The Socket used to Communicate with the Host.
             </summary>
         </member>
         <member name="M:Console.Networking.ClientSession.RegisterHandler(Console.Networking.Handlers.Abstract.IPacketClientHandler)">
@@ -676,13 +676,6 @@
             Host Session managing the Connected Clients.
             </summary>
         </member>
-        <member name="T:Console.Networking.HostSession.PacketReceive">
-            <summary>
-            Packet Receive gets invoked when any packet was received from any client
-            </summary>
-            <param name="socket">The Sender Socket</param>
-            <param name="packet">The Transmitted Packet</param>
-        </member>
         <member name="T:Console.Networking.HostSession.ClientConnected">
             <summary>
             Gets Invoked when a client connected to the host
@@ -695,15 +688,12 @@
             </summary>
             <param name="socket">The client that disconnected.</param>
         </member>
-        <member name="E:Console.Networking.HostSession.OnPacketReceive">
+        <member name="T:Console.Networking.HostSession.PacketReceive">
             <summary>
-            OnPacketReceive Event. Invoked when a Packet gets Received.
+            Packet Receive gets invoked when any packet was received from any client
             </summary>
-        </member>
-        <member name="E:Console.Networking.HostSession.OnClientConnected">
-            <summary>
-            OnClientConnected Event. Invoked when a client disconnected
-            </summary>
+            <param name="socket">The Sender Socket</param>
+            <param name="packet">The Transmitted Packet</param>
         </member>
         <member name="F:Console.Networking.HostSession.Listener">
             <summary>
@@ -723,6 +713,16 @@
         <member name="P:Console.Networking.HostSession.IsRunning">
             <summary>
             Flag that gets set to true when the Host is running.
+            </summary>
+        </member>
+        <member name="E:Console.Networking.HostSession.OnPacketReceive">
+            <summary>
+            OnPacketReceive Event. Invoked when a Packet gets Received.
+            </summary>
+        </member>
+        <member name="E:Console.Networking.HostSession.OnClientConnected">
+            <summary>
+            OnClientConnected Event. Invoked when a client disconnected
             </summary>
         </member>
         <member name="M:Console.Networking.HostSession.OnLog(System.String)">
@@ -791,14 +791,14 @@
             Container of the Commands for hosting and connecting
             </summary>
         </member>
-        <member name="F:Console.Networking.NetworkedConsoleProcess.hc">
-            <summary>
-            Host Commands
-            </summary>
-        </member>
         <member name="F:Console.Networking.NetworkedConsoleProcess.cc">
             <summary>
             Client Commands(Does invoke ProcessLogMessages every ConsoleTick.
+            </summary>
+        </member>
+        <member name="F:Console.Networking.NetworkedConsoleProcess.hc">
+            <summary>
+            Host Commands
             </summary>
         </member>
         <member name="M:Console.Networking.NetworkedConsoleProcess.#ctor">
@@ -831,9 +831,24 @@
             Global Networking Settings.
             </summary>
         </member>
-        <member name="P:Console.Networking.NetworkingSettings.MuteLogs">
+        <member name="F:Console.Networking.NetworkingSettings.NETWORKING_NAMESPACE">
             <summary>
-            Mutes all logs from the networking system.
+            
+            </summary>
+        </member>
+        <member name="F:Console.Networking.NetworkingSettings.NETWORKING_CLIENT_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Console.Networking.NetworkingSettings.NETWORKING_HOST_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Console.Networking.NetworkingSettings.NETWORKING_WEB_NAMESPACE">
+            <summary>
+            
             </summary>
         </member>
         <member name="F:Console.Networking.NetworkingSettings.MuteLayerLogs">
@@ -867,11 +882,6 @@
             If True the WebConsoleCommands run-url command is enabled.
             </summary>
         </member>
-        <member name="P:Console.Networking.NetworkingSettings.EncodingInstance">
-            <summary>
-            The Encoding Instance.
-            </summary>
-        </member>
         <member name="F:Console.Networking.NetworkingSettings.PacketDataMaxBytes">
             <summary>
             The Maximum Data Size of a single Packet.
@@ -882,34 +892,9 @@
             The Maximum ID Size of a single Packet.
             </summary>
         </member>
-        <member name="P:Console.Networking.NetworkingSettings.PacketDataMaxSizeKB">
-            <summary>
-            The Maximum Data Size of a single Packet.
-            </summary>
-        </member>
-        <member name="P:Console.Networking.NetworkingSettings.PacketDataMaxSizeMB">
-            <summary>
-            The Maximum Data Size of a single Packet.
-            </summary>
-        </member>
-        <member name="P:Console.Networking.NetworkingSettings.PacketIdentifierMaxSizeKB">
-            <summary>
-            The Maximum ID Size of a single Packet.
-            </summary>
-        </member>
-        <member name="P:Console.Networking.NetworkingSettings.NetworkVersion">
-            <summary>
-            Version of the Networking Extension
-            </summary>
-        </member>
         <member name="F:Console.Networking.NetworkingSettings.AllowConnections">
             <summary>
             If set to false the Host will not accept any new connections.
-            </summary>
-        </member>
-        <member name="P:Console.Networking.NetworkingSettings.Authenticator">
-            <summary>
-            The IAuthenticator Implementation that is used for authentication
             </summary>
         </member>
         <member name="F:Console.Networking.NetworkingSettings._authenticator">
@@ -932,14 +917,54 @@
             The Client Session for the Console
             </summary>
         </member>
-        <member name="P:Console.Networking.NetworkingSettings.IsClient">
-            <summary>
-            Is True if the Console is Client
-            </summary>
-        </member>
         <member name="F:Console.Networking.NetworkingSettings.HostSession">
             <summary>
             The Host Session for the Console
+            </summary>
+        </member>
+        <member name="F:Console.Networking.NetworkingSettings.authenticatorInstance">
+            <summary>
+            The IAuthenticator Instance Backing Field.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.MuteLogs">
+            <summary>
+            Mutes all logs from the networking system.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.EncodingInstance">
+            <summary>
+            The Encoding Instance.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.PacketDataMaxSizeKB">
+            <summary>
+            The Maximum Data Size of a single Packet.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.PacketDataMaxSizeMB">
+            <summary>
+            The Maximum Data Size of a single Packet.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.PacketIdentifierMaxSizeKB">
+            <summary>
+            The Maximum ID Size of a single Packet.
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.NetworkVersion">
+            <summary>
+            Version of the Networking Extension
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.Authenticator">
+            <summary>
+            The IAuthenticator Implementation that is used for authentication
+            </summary>
+        </member>
+        <member name="P:Console.Networking.NetworkingSettings.IsClient">
+            <summary>
+            Is True if the Console is Client
             </summary>
         </member>
         <member name="P:Console.Networking.NetworkingSettings.IsHost">
@@ -950,11 +975,6 @@
         <member name="P:Console.Networking.NetworkingSettings.AuthenticatorInstance">
             <summary>
             The IAuthenticator Instance.
-            </summary>
-        </member>
-        <member name="F:Console.Networking.NetworkingSettings.authenticatorInstance">
-            <summary>
-            The IAuthenticator Instance Backing Field.
             </summary>
         </member>
         <member name="T:Console.Networking.Packets.Abstract.ANetworkPacket">
@@ -1021,20 +1041,6 @@
             </summary>
             <returns>The Packet Identifier</returns>
         </member>
-        <member name="M:Console.Networking.Packets.Abstract.PacketSerializer`1.Deserialize(System.Byte[])">
-            <summary>
-            Deserializes the Data into a Network Packet of Type T
-            </summary>
-            <param name="data">Serialized Data</param>
-            <returns>Network Packet</returns>
-        </member>
-        <member name="M:Console.Networking.Packets.Abstract.PacketSerializer`1.Serialize(`0)">
-            <summary>
-            Serializes a Packet of Type T into a Byte array
-            </summary>
-            <param name="item">Packet</param>
-            <returns>Serialized Data</returns>
-        </member>
         <member name="M:Console.Networking.Packets.Abstract.PacketSerializer`1._Deserialize(System.Byte[])">
             <summary>
             Deserializes the Data into a ANetworkPacket
@@ -1048,6 +1054,20 @@
             </summary>
             <param name="item">Packet</param>
             <returns>Serialized Packet Data</returns>
+        </member>
+        <member name="M:Console.Networking.Packets.Abstract.PacketSerializer`1.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes the Data into a Network Packet of Type T
+            </summary>
+            <param name="data">Serialized Data</param>
+            <returns>Network Packet</returns>
+        </member>
+        <member name="M:Console.Networking.Packets.Abstract.PacketSerializer`1.Serialize(`0)">
+            <summary>
+            Serializes a Packet of Type T into a Byte array
+            </summary>
+            <param name="item">Packet</param>
+            <returns>Serialized Data</returns>
         </member>
         <member name="T:Console.Networking.Packets.AuthenticationRequest.AuthenticationRequestPacket">
             <summary>
@@ -1124,16 +1144,16 @@
             The Data Section
             </summary>
         </member>
-        <member name="P:Console.Networking.Packets.Authentication.AuthenticationPacket.DoNotEncrypt">
-            <summary>
-            Flag that specifies that the networking layer should not encrypt/decrypt the packet.
-            </summary>
-        </member>
         <member name="M:Console.Networking.Packets.Authentication.AuthenticationPacket.#ctor(System.Byte[])">
             <summary>
             Public Constructor
             </summary>
             <param name="data"></param>
+        </member>
+        <member name="P:Console.Networking.Packets.Authentication.AuthenticationPacket.DoNotEncrypt">
+            <summary>
+            Flag that specifies that the networking layer should not encrypt/decrypt the packet.
+            </summary>
         </member>
         <member name="M:Console.Networking.Packets.Authentication.AuthenticationPacket.CreateResponse">
             <summary>
@@ -1165,14 +1185,14 @@
             Gets Sent from the client to the server to execute a command.
             </summary>
         </member>
-        <member name="F:Console.Networking.Packets.Command.CommandPacket.Resolved">
-            <summary>
-            Flag that determines if the Command was resolved by the client.
-            </summary>
-        </member>
         <member name="F:Console.Networking.Packets.Command.CommandPacket.Input">
             <summary>
             The Client Input.
+            </summary>
+        </member>
+        <member name="F:Console.Networking.Packets.Command.CommandPacket.Resolved">
+            <summary>
+            Flag that determines if the Command was resolved by the client.
             </summary>
         </member>
         <member name="M:Console.Networking.Packets.Command.CommandPacket.#ctor(System.Boolean,System.String)">
@@ -1216,6 +1236,12 @@
             True if the Connection Abort has any Reason Attached.
             </summary>
         </member>
+        <member name="M:Console.Networking.Packets.ConnectionAbort.ConnectionAbortPacket.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="reason">The Connection Abort Reason</param>
+        </member>
         <member name="P:Console.Networking.Packets.ConnectionAbort.ConnectionAbortPacket.Reason">
             <summary>
             The Reason of the Connection Abort
@@ -1225,12 +1251,6 @@
             <summary>
             Flag that specifies that the networking layer should not encrypt/decrypt the packet.
             </summary>
-        </member>
-        <member name="M:Console.Networking.Packets.ConnectionAbort.ConnectionAbortPacket.#ctor(System.String)">
-            <summary>
-            Public Constructor
-            </summary>
-            <param name="reason">The Connection Abort Reason</param>
         </member>
         <member name="T:Console.Networking.Packets.ConnectionAbort.ConnectionAbortPacketSerializer">
             <summary>
@@ -1257,11 +1277,6 @@
             This is the first package that gets sent.
             </summary>
         </member>
-        <member name="P:Console.Networking.Packets.ConnectionRequest.ConnectionRequestPacket.DoNotEncrypt">
-            <summary>
-            Flag that specifies that the networking layer should not encrypt/decrypt the packet.
-            </summary>
-        </member>
         <member name="F:Console.Networking.Packets.ConnectionRequest.ConnectionRequestPacket.Version">
             <summary>
             The Clients Version 
@@ -1272,6 +1287,11 @@
             Public Constructor
             </summary>
             <param name="version">Console Core Version</param>
+        </member>
+        <member name="P:Console.Networking.Packets.ConnectionRequest.ConnectionRequestPacket.DoNotEncrypt">
+            <summary>
+            Flag that specifies that the networking layer should not encrypt/decrypt the packet.
+            </summary>
         </member>
         <member name="T:Console.Networking.Packets.ConnectionRequest.ConnectionRequestSerializer">
             <summary>
@@ -1297,16 +1317,6 @@
             Gets sent if the Host has denied the Connection
             </summary>
         </member>
-        <member name="P:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseFailedPacket.Success">
-            <summary>
-            Does the Host Allow the Connection?
-            </summary>
-        </member>
-        <member name="P:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseFailedPacket.PacketIdentifier">
-            <summary>
-            Unique Identifier for this Packet
-            </summary>
-        </member>
         <member name="F:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseFailedPacket.Reason">
             <summary>
             The Reason why the Connection Request is Denied.
@@ -1317,6 +1327,16 @@
             Public Constructor
             </summary>
             <param name="reason">The Fail Reason</param>
+        </member>
+        <member name="P:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseFailedPacket.Success">
+            <summary>
+            Does the Host Allow the Connection?
+            </summary>
+        </member>
+        <member name="P:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseFailedPacket.PacketIdentifier">
+            <summary>
+            Unique Identifier for this Packet
+            </summary>
         </member>
         <member name="T:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponsePacket">
             <summary>
@@ -1352,6 +1372,17 @@
             Gets sent after the Host has accepted the connection to the client.
             </summary>
         </member>
+        <member name="F:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSuccessPacket.AuthMethod">
+            <summary>
+            The Authentication Method of the host.
+            </summary>
+        </member>
+        <member name="M:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSuccessPacket.#ctor(System.String)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="authMethod">The Hosts Authentication Method</param>
+        </member>
         <member name="P:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSuccessPacket.DoNotEncrypt">
             <summary>
             Flag that specifies that the networking layer should not encrypt/decrypt the packet.
@@ -1367,17 +1398,6 @@
             Unique Identifier for this Packet
             </summary>
         </member>
-        <member name="F:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSuccessPacket.AuthMethod">
-            <summary>
-            The Authentication Method of the host.
-            </summary>
-        </member>
-        <member name="M:Console.Networking.Packets.ConnectionResponse.ConnectionRequestResponseSuccessPacket.#ctor(System.String)">
-            <summary>
-            Public Constructor
-            </summary>
-            <param name="authMethod">The Hosts Authentication Method</param>
-        </member>
         <member name="T:Console.Networking.Packets.ConsoleSocket">
             <summary>
             Networking Socket for the ConsoleSystem.
@@ -1388,6 +1408,27 @@
             Delegate that gets invoked when a Packet Gets Received on this ConsoleSocket
             </summary>
             <param name="package">The Received package</param>
+        </member>
+        <member name="F:Console.Networking.Packets.ConsoleSocket._authenticator">
+            <summary>
+            Authenticator Instance Backing Field.
+            </summary>
+        </member>
+        <member name="F:Console.Networking.Packets.ConsoleSocket.Client">
+            <summary>
+            The Underlying TCP Client.
+            </summary>
+        </member>
+        <member name="M:Console.Networking.Packets.ConsoleSocket.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Networking.Packets.ConsoleSocket.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            Public Construtor
+            </summary>
+            <param name="client">Underlying TCP Client</param>
         </member>
         <member name="P:Console.Networking.Packets.ConsoleSocket.IsDisposed">
             <summary>
@@ -1404,47 +1445,26 @@
             True if the IAuthenticator Instance authorized the Client
             </summary>
         </member>
-        <member name="E:Console.Networking.Packets.ConsoleSocket.OnPacketReceive">
-            <summary>
-            Event that gets invoked when a Packet gets received.
-            </summary>
-        </member>
-        <member name="F:Console.Networking.Packets.ConsoleSocket.Client">
-            <summary>
-            The Underlying TCP Client.
-            </summary>
-        </member>
-        <member name="F:Console.Networking.Packets.ConsoleSocket._authenticator">
-            <summary>
-            Authenticator Instance Backing Field.
-            </summary>
-        </member>
         <member name="P:Console.Networking.Packets.ConsoleSocket.Authenticator">
             <summary>
             Authenticator Instance
             </summary>
         </member>
-        <member name="M:Console.Networking.Packets.ConsoleSocket.#ctor">
+        <member name="M:Console.Networking.Packets.ConsoleSocket.Dispose">
             <summary>
-            Public Constructor
+            Disposes all underlying resources.
             </summary>
         </member>
-        <member name="M:Console.Networking.Packets.ConsoleSocket.#ctor(System.Net.Sockets.TcpClient)">
+        <member name="E:Console.Networking.Packets.ConsoleSocket.OnPacketReceive">
             <summary>
-            Public Construtor
+            Event that gets invoked when a Packet gets received.
             </summary>
-            <param name="client">Underlying TCP Client</param>
         </member>
         <member name="M:Console.Networking.Packets.ConsoleSocket.SetAuthenticator(Console.Networking.Authentication.IAuthenticator)">
             <summary>
             Sets the Authenticator Instance
             </summary>
             <param name="auth">New IAuthenticator Instance</param>
-        </member>
-        <member name="M:Console.Networking.Packets.ConsoleSocket.Dispose">
-            <summary>
-            Disposes all underlying resources.
-            </summary>
         </member>
         <member name="M:Console.Networking.Packets.ConsoleSocket.Connect(System.String,System.Int32)">
             <summary>
@@ -1516,6 +1536,16 @@
             The Packet that gets returned by the Host that specifies if the File Is allowed to be sent
             </summary>
         </member>
+        <member name="F:Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponsePacket.Allow">
+            <summary>
+            Allow Packet Response
+            </summary>
+        </member>
+        <member name="F:Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponsePacket.Deny">
+            <summary>
+            Deny Packet Response
+            </summary>
+        </member>
         <member name="F:Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponsePacket.Allowed">
             <summary>
             Flag that Determines if the File is allowed.
@@ -1526,16 +1556,6 @@
             Private Constructor
             </summary>
             <param name="allow">Allow the File Transfer?</param>
-        </member>
-        <member name="F:Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponsePacket.Allow">
-            <summary>
-            Allow Packet Response
-            </summary>
-        </member>
-        <member name="F:Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponsePacket.Deny">
-            <summary>
-            Deny Packet Response
-            </summary>
         </member>
         <member name="T:Console.Networking.Packets.SendDataRequestResponse.SendDataRequestResponseSerializer">
             <summary>
@@ -1596,14 +1616,14 @@
             Data Packet for Transmitting Data from the client to the host
             </summary>
         </member>
-        <member name="F:Console.Networking.Packets.SendData.SendDataPacket.LastPacket">
-            <summary>
-            Is True when this packet is the last one in this Packet Series
-            </summary>
-        </member>
         <member name="F:Console.Networking.Packets.SendData.SendDataPacket.Data">
             <summary>
             The Data Chunk of the Packet
+            </summary>
+        </member>
+        <member name="F:Console.Networking.Packets.SendData.SendDataPacket.LastPacket">
+            <summary>
+            Is True when this packet is the last one in this Packet Series
             </summary>
         </member>
         <member name="T:Console.Networking.Packets.SendData.SendDataPacketSerializer">
@@ -1695,21 +1715,10 @@
             Manages the SendDataPacket Response Chain
             </summary>
         </member>
-        <member name="M:Console.Networking.SendData.SendDataManager.#cctor">
-            <summary>
-            Static Constructor
-            </summary>
-        </member>
         <member name="F:Console.Networking.SendData.SendDataManager.FileCount">
             <summary>
             Count Variable to ensure unique Channel Names
             </summary>
-        </member>
-        <member name="M:Console.Networking.SendData.SendDataManager.GetKey">
-            <summary>
-            Returns the next Channel Name
-            </summary>
-            <returns>Unique Channel Name</returns>
         </member>
         <member name="F:Console.Networking.SendData.SendDataManager.Events">
             <summary>
@@ -1720,6 +1729,17 @@
             <summary>
             All Active Channels that are waiting for data on the host.
             </summary>
+        </member>
+        <member name="M:Console.Networking.SendData.SendDataManager.#cctor">
+            <summary>
+            Static Constructor
+            </summary>
+        </member>
+        <member name="M:Console.Networking.SendData.SendDataManager.GetKey">
+            <summary>
+            Returns the next Channel Name
+            </summary>
+            <returns>Unique Channel Name</returns>
         </member>
         <member name="M:Console.Networking.SendData.SendDataManager.TrySendData(System.String,System.String)">
             <summary>

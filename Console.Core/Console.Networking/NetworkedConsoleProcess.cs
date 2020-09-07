@@ -1,5 +1,5 @@
 ﻿using Console.Core;
-using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Attributes;
 using Console.Networking.Commands;
 
 namespace Console.Networking
@@ -9,14 +9,16 @@ namespace Console.Networking
     /// </summary>
     public class NetworkedConsoleProcess
     {
-        /// <summary>
-        /// Host Commands
-        /// </summary>
-        private readonly HostConsoleCommand hc = new HostConsoleCommand();
+
         /// <summary>
         /// Client Commands(Does invoke ProcessLogMessages every ConsoleTick.
         /// </summary>
         private readonly ClientConsoleCommand cc = new ClientConsoleCommand();
+
+        /// <summary>
+        /// Host Commands
+        /// </summary>
+        private readonly HostConsoleCommand hc = new HostConsoleCommand();
 
         /// <summary>
         /// Public Constructor
@@ -27,5 +29,6 @@ namespace Console.Networking
             CommandAttributeUtils.AddCommands(cc);
             AConsoleManager.OnConsoleTick += NetworkingSettings.ClientSession.ProcessLogMessages;
         }
+
     }
 }

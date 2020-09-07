@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.OPCodes
@@ -9,67 +10,21 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     internal class OPCodeBinary : OPCode
     {
-        /// <summary>
-        /// The Backing Field First Inner OPCode Parameter
-        /// </summary>
-        private OPCode _param1;
-        /// <summary>
-        /// The First Inner OPCode Parameter
-        /// </summary>
-        private OPCode Param1
-        {
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _param1;
-
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                if (_param1 != null)
-                {
-                    _param1.ValueChanged -= Param1ValueChanged;
-                }
-
-                _param1 = value;
-                if (_param1 != null)
-                {
-                    _param1.ValueChanged += Param1ValueChanged;
-                }
-            }
-        }
-
-        /// <summary>
-        /// The Backing Field Second Inner OPCode Parameter
-        /// </summary>
-        private OPCode _param2;
-
-        /// <summary>
-        /// The Second Inner OPCode Parameter
-        /// </summary>
-        private OPCode Param2
-        {
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _param2;
-
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                if (_param2 != null)
-                {
-                    _param2.ValueChanged -= Param2_ValueChanged;
-                }
-
-                _param2 = value;
-                if (_param2 != null)
-                {
-                    _param2.ValueChanged += Param2_ValueChanged;
-                }
-            }
-        }
 
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
         private readonly EvalType mEvalType;
+
+        /// <summary>
+        /// The Backing Field First Inner OPCode Parameter
+        /// </summary>
+        private OPCode _param1;
+
+        /// <summary>
+        /// The Backing Field Second Inner OPCode Parameter
+        /// </summary>
+        private OPCode _param2;
 
         /// <summary>
         /// Public Constructor
@@ -200,6 +155,7 @@ namespace Console.Evaluator.Core.OPCodes
 
                     break;
                 }
+
                 case TokenType.OperatorNe:
                 {
                     if (v1Type == EvalType.Boolean && v2Type == EvalType.Boolean)
@@ -212,8 +168,10 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = NUM_NE_NUM;
                         mEvalType = EvalType.Boolean;
                     }
+
                     break;
                 }
+
                 case TokenType.OperatorGt:
                 {
                     if (v1Type == EvalType.Number && v2Type == EvalType.Number)
@@ -221,8 +179,10 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = NUM_GT_NUM;
                         mEvalType = EvalType.Boolean;
                     }
+
                     break;
                 }
+
                 case TokenType.OperatorGe:
                 {
                     if (v1Type == EvalType.Number && v2Type == EvalType.Number)
@@ -230,8 +190,10 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = NUM_GE_NUM;
                         mEvalType = EvalType.Boolean;
                     }
+
                     break;
                 }
+
                 case TokenType.OperatorEq:
                 {
                     if (v1Type == EvalType.Boolean && v2Type == EvalType.Boolean)
@@ -244,8 +206,10 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = NUM_EQ_NUM;
                         mEvalType = EvalType.Boolean;
                     }
+
                     break;
                 }
+
                 case TokenType.OperatorLe:
                 {
                     if (v1Type == EvalType.Number && v2Type == EvalType.Number)
@@ -253,8 +217,10 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = NUM_LE_NUM;
                         mEvalType = EvalType.Boolean;
                     }
+
                     break;
                 }
+
                 case TokenType.OperatorLt:
                 {
                     if (v1Type == EvalType.Number && v2Type == EvalType.Number)
@@ -262,18 +228,76 @@ namespace Console.Evaluator.Core.OPCodes
                         mValueDelegate = NUM_LT_NUM;
                         mEvalType = EvalType.Boolean;
                     }
+
                     break;
                 }
             }
 
             if (mValueDelegate is null)
             {
-                tokenizer.RaiseError("Cannot apply the operator " + tt.ToString().Replace("operator_", "") + " on " +
-                                     v1Type.ToString() + " and " + v2Type.ToString());
-
-
+                tokenizer.RaiseError(
+                                     "Cannot apply the operator " +
+                                     tt.ToString().Replace("operator_", "") +
+                                     " on " +
+                                     v1Type +
+                                     " and " +
+                                     v2Type
+                                    );
             }
         }
+
+        /// <summary>
+        /// The First Inner OPCode Parameter
+        /// </summary>
+        private OPCode Param1
+        {
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            get => _param1;
+
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                if (_param1 != null)
+                {
+                    _param1.ValueChanged -= Param1ValueChanged;
+                }
+
+                _param1 = value;
+                if (_param1 != null)
+                {
+                    _param1.ValueChanged += Param1ValueChanged;
+                }
+            }
+        }
+
+        /// <summary>
+        /// The Second Inner OPCode Parameter
+        /// </summary>
+        private OPCode Param2
+        {
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            get => _param2;
+
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                if (_param2 != null)
+                {
+                    _param2.ValueChanged -= Param2_ValueChanged;
+                }
+
+                _param2 = value;
+                if (_param2 != null)
+                {
+                    _param2.ValueChanged += Param2_ValueChanged;
+                }
+            }
+        }
+
+        /// <summary>
+        /// The Evaluation Type
+        /// </summary>
+        public override EvalType EvalType => mEvalType;
 
         /// <summary>
         /// Returns Param1 AND Param2
@@ -435,7 +459,7 @@ namespace Console.Evaluator.Core.OPCodes
         /// <returns>Concatenated String</returns>
         private object STR_CONCAT_STR()
         {
-            return Param1.Value.ToString() + Param2.Value.ToString();
+            return Param1.Value + Param2.Value.ToString();
         }
 
         /// <summary>
@@ -457,11 +481,6 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
-        /// The Evaluation Type
-        /// </summary>
-        public override EvalType EvalType => mEvalType;
-
-        /// <summary>
         /// Gets Invoked when the first value was changed
         /// </summary>
         /// <param name="sender">The Sender of the Event</param>
@@ -480,5 +499,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

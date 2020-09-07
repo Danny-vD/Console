@@ -11,17 +11,21 @@ namespace Console.Core.ReflectionSystem.Interfaces
     /// </summary>
     public interface IValueTypeContainer : IAttributeCollection, ISettable, IGettable
     {
+
         /// <summary>
         /// The Type of the Value
         /// </summary>
         Type ValueType { get; }
+
         /// <summary>
         /// Flag that determines if the Value can be Read
         /// </summary>
         bool CanRead { get; }
+
         /// <summary>
         /// Flag that determines if the Value can be written.
         /// </summary>
         bool CanWrite { get; }
+
     }
 }

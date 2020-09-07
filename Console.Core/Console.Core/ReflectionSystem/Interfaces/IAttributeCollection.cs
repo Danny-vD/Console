@@ -8,9 +8,11 @@ namespace Console.Core.ReflectionSystem.Interfaces
     /// </summary>
     public interface IAttributeCollection
     {
+
         /// <summary>
         /// Collection of Attributes
         /// </summary>
         List<Attribute> Attributes { get; }
+
     }
 }

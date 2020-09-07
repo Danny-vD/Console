@@ -9,6 +9,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class ConnectionAuthRequestPacketHostHandler : APacketHostHandler<AuthenticationRequestPacket>
     {
+
         /// <summary>
         /// Handles the packet of type T
         /// </summary>
@@ -18,5 +19,6 @@ namespace Console.Networking.Handlers
         {
             NetworkingSettings.AuthenticatorInstance.AuthenticateClient(client);
         }
+
     }
 }

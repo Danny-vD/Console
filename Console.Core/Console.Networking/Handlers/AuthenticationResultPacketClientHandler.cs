@@ -8,6 +8,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class AuthenticationResultPacketClientHandler : APacketClientHandler<AuthenticationResultPacket>
     {
+
         /// <summary>
         /// Handles the Packet
         /// </summary>
@@ -16,5 +17,6 @@ namespace Console.Networking.Handlers
         {
             NetworkingSettings.ClientSession.Client.SetAuthenticator(NetworkingSettings.AuthenticatorInstance);
         }
+
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Console.Core.CommandSystem.Commands;
 
 /// <summary>
 /// The Console.Core.CommandSystem namespace contains the Parsing Logic as well as BuiltIn Commands and Classes Related to Command Execution.
@@ -13,6 +12,7 @@ namespace Console.Core.CommandSystem
     /// </summary>
     public class CommandParser
     {
+
         /// <summary>
         /// Parses and Processes the passed command.
         /// </summary>
@@ -22,7 +22,9 @@ namespace Console.Core.CommandSystem
             if (ConsoleCoreConfig.ConsolePrefix != string.Empty && !command.StartsWith(ConsoleCoreConfig.ConsolePrefix))
             {
                 ConsoleCoreConfig.CoreLogger.LogWarning(
-                    $"Command does not start with prefix: " + ConsoleCoreConfig.ConsolePrefix);
+                                                        "Command does not start with prefix: " +
+                                                        ConsoleCoreConfig.ConsolePrefix
+                                                       );
                 return;
             }
 
@@ -46,6 +48,7 @@ namespace Console.Core.CommandSystem
             {
                 return;
             }
+
             string commandName = commandArguments[0].Trim();
             if (string.IsNullOrEmpty(commandName))
             {
@@ -58,6 +61,7 @@ namespace Console.Core.CommandSystem
                 CommandManager.Invoke(commandName);
                 return;
             }
+
             //System.Console.WriteLine("Next Command: " + arguments);
 
             arguments = arguments.Remove(0, commandName.Length);
@@ -85,7 +89,7 @@ namespace Console.Core.CommandSystem
         /// <returns>Result of the Split Operation</returns>
         private static string[] Split(string arguments, char split)
         {
-            return arguments.Split(new[] {split}, StringSplitOptions.RemoveEmptyEntries);
+            return arguments.Split(new[] { split }, StringSplitOptions.RemoveEmptyEntries);
         }
 
         /// <summary>
@@ -99,6 +103,7 @@ namespace Console.Core.CommandSystem
             {
                 return new string[0];
             }
+
             string[] sections = commandArguments.Split(ConsoleCoreConfig.CommandInputSeparator);
 
             List<string> arguments = InnerParseStringBlocks(sections);
@@ -120,8 +125,10 @@ namespace Console.Core.CommandSystem
                 {
                     continue;
                 }
+
                 sb.Append(content[i]);
             }
+
             return sb.ToString();
         }
 
@@ -137,9 +144,7 @@ namespace Console.Core.CommandSystem
             string ret = content;
             for (int i = 0; i < escapeChars.Length; i++)
             {
-
                 ret = ret.Replace(escChar + escapeChars[i].ToString(), escapeChars[i].ToString());
-
             }
 
             ret = ret.Replace(escChar.ToString() + escChar, escChar.ToString());
@@ -160,10 +165,9 @@ namespace Console.Core.CommandSystem
             ret = ret.Replace(escChar.ToString(), escChar + escChar.ToString());
             for (int i = 0; i < escapeChars.Length; i++)
             {
-
                 ret = ret.Replace(escapeChars[i].ToString(), escChar.ToString() + escapeChars[i]);
-
             }
+
             return ret;
         }
 
@@ -179,6 +183,7 @@ namespace Console.Core.CommandSystem
             {
                 return false;
             }
+
             if (part[idx - 1] == ConsoleCoreConfig.EscapeChar) //Previous Char is Escape Char
             {
                 //If the previous char is not escaped this char is escaped
@@ -224,8 +229,13 @@ namespace Console.Core.CommandSystem
                     {
                         string argumentString = stringBuilder.ToString();
                         stringBuilder.Clear();
-                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar,
-                            ConsoleCoreConfig.EscapableChars));
+                        arguments.Add(
+                                      UnEscape(
+                                               CleanContent(argumentString),
+                                               ConsoleCoreConfig.EscapeChar,
+                                               ConsoleCoreConfig.EscapableChars
+                                              )
+                                     );
                         append = false;
                     }
 
@@ -240,8 +250,13 @@ namespace Console.Core.CommandSystem
                     {
                         string argumentString = stringBuilder.ToString();
                         stringBuilder.Clear();
-                        arguments.Add(UnEscape(CleanContent(argumentString), ConsoleCoreConfig.EscapeChar,
-                            ConsoleCoreConfig.EscapableChars));
+                        arguments.Add(
+                                      UnEscape(
+                                               CleanContent(argumentString),
+                                               ConsoleCoreConfig.EscapeChar,
+                                               ConsoleCoreConfig.EscapableChars
+                                              )
+                                     );
                         append = false;
                     }
 
@@ -259,5 +274,6 @@ namespace Console.Core.CommandSystem
 
             return arguments;
         }
+
     }
 }

@@ -7,6 +7,7 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public class StaticPropertyMetaData : PropertyMetaData
     {
+
         /// <summary>
         /// Public Constructor
         /// </summary>
@@ -14,5 +15,6 @@ namespace Console.Core.ReflectionSystem
         public StaticPropertyMetaData(PropertyInfo info) : base(null, info)
         {
         }
+
     }
 }

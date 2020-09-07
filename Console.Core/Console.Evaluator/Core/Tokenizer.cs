@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+
 using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core
@@ -9,26 +10,32 @@ namespace Console.Evaluator.Core
     /// </summary>
     public class Tokenizer
     {
-        /// <summary>
-        /// The Current Expression
-        /// </summary>
-        private readonly string mString;
+
         /// <summary>
         /// Length of mString
         /// </summary>
         private readonly int mLen;
+
         /// <summary>
-        /// The Current Position in the mString Expression
+        /// The Current Expression
         /// </summary>
-        private int mPos;
+        private readonly string mString;
+
         /// <summary>
         /// The Current Character that is beeing tokenized
         /// </summary>
         private char mCurChar;
+
+        /// <summary>
+        /// The Current Position in the mString Expression
+        /// </summary>
+        private int mPos;
+
         /// <summary>
         /// The Start Position of the next Tokenization
         /// </summary>
         public int StartPos;
+
         /// <summary>
         /// The Current Token Type
         /// </summary>
@@ -89,7 +96,7 @@ namespace Console.Evaluator.Core
                 msg += "; ";
             }
 
-            RaiseError(msg + "Unexpected " + TokenType.ToString().Replace('_', ' ') + " : " + Value.ToString());
+            RaiseError(msg + "Unexpected " + TokenType.ToString().Replace('_', ' ') + " : " + Value);
         }
 
         /// <summary>
@@ -107,19 +114,19 @@ namespace Console.Evaluator.Core
                 msg += ". ";
             }
 
-            msg = "Cannot apply the operator " + tt.ToString();
+            msg = "Cannot apply the operator " + tt;
             if (valueLeft is null)
             {
                 msg += " on nothing";
             }
             else
             {
-                msg += " on a " + valueLeft.GetType().ToString();
+                msg += " on a " + valueLeft.GetType();
             }
 
             if (valueRight != null)
             {
-                msg += " and a " + valueRight.GetType().ToString();
+                msg += " and a " + valueRight.GetType();
             }
 
             RaiseError(msg);
@@ -131,8 +138,14 @@ namespace Console.Evaluator.Core
         /// <returns></returns>
         private bool IsOp()
         {
-            return (mCurChar == '+') | (mCurChar == '-') | (mCurChar == '–') | (mCurChar == '%') | (mCurChar == '/') |
-                   (mCurChar == '(') | (mCurChar == ')') | (mCurChar == '.');
+            return (mCurChar == '+') |
+                   (mCurChar == '-') |
+                   (mCurChar == '–') |
+                   (mCurChar == '%') |
+                   (mCurChar == '/') |
+                   (mCurChar == '(') |
+                   (mCurChar == ')') |
+                   (mCurChar == '.');
         }
 
         /// <summary>
@@ -301,6 +314,7 @@ namespace Console.Evaluator.Core
                         TokenType = TokenType.CloseBracket;
                         break;
                     }
+
                     // do nothing
                     case var case1 when '\0' <= case1 && case1 <= ' ':
                     {
@@ -318,6 +332,7 @@ namespace Console.Evaluator.Core
                 {
                     break;
                 }
+
                 NextChar();
             } while (true);
         }
@@ -377,9 +392,12 @@ namespace Console.Evaluator.Core
         /// </summary>
         private void ParseIdentifier()
         {
-            while (((mCurChar >= '0') & (mCurChar <= '9')) | ((mCurChar >= 'a') & (mCurChar <= 'z')) |
-                   ((mCurChar >= 'A') & (mCurChar <= 'Z')) | ((mCurChar >= 'A') & (mCurChar <= 'Z')) |
-                   (mCurChar >= '\u0080') | (mCurChar == '_'))
+            while (((mCurChar >= '0') & (mCurChar <= '9')) |
+                   ((mCurChar >= 'a') & (mCurChar <= 'z')) |
+                   ((mCurChar >= 'A') & (mCurChar <= 'Z')) |
+                   ((mCurChar >= 'A') & (mCurChar <= 'Z')) |
+                   (mCurChar >= '\u0080') |
+                   (mCurChar == '_'))
             {
                 Value.Append(mCurChar);
                 NextChar();
@@ -490,7 +508,7 @@ namespace Console.Evaluator.Core
                             Value.Append("[Error " + ex.Message + "]");
                         }
 
-                        saveValue.Append(Value.ToString());
+                        saveValue.Append(Value);
                         Value = saveValue;
                         StartPos = saveStartPos;
                     }
@@ -535,5 +553,6 @@ namespace Console.Evaluator.Core
 
             TokenType = TokenType.ValueDate;
         }
+
     }
 }

@@ -11,15 +11,16 @@ namespace Console.Networking.Packets.Command
     /// </summary>
     public class CommandPacket : ANetworkPacket
     {
-        /// <summary>
-        /// Flag that determines if the Command was resolved by the client.
-        /// </summary>
-        public readonly bool Resolved;
 
         /// <summary>
         /// The Client Input.
         /// </summary>
         public readonly string Input;
+
+        /// <summary>
+        /// Flag that determines if the Command was resolved by the client.
+        /// </summary>
+        public readonly bool Resolved;
 
         /// <summary>
         /// Public Constructor
@@ -31,5 +32,6 @@ namespace Console.Networking.Packets.Command
             Resolved = resolved;
             Input = input;
         }
+
     }
 }

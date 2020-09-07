@@ -5,15 +5,7 @@
     /// </summary>
     public class ConnectionRequestResponseFailedPacket : ConnectionRequestResponsePacket
     {
-        /// <summary>
-        /// Does the Host Allow the Connection?
-        /// </summary>
-        public override bool Success => false;
 
-        /// <summary>
-        /// Unique Identifier for this Packet
-        /// </summary>
-        public override string PacketIdentifier => typeof(ConnectionRequestResponsePacket).AssemblyQualifiedName;
         /// <summary>
         /// The Reason why the Connection Request is Denied.
         /// </summary>
@@ -27,5 +19,16 @@
         {
             Reason = reason ?? "";
         }
+
+        /// <summary>
+        /// Does the Host Allow the Connection?
+        /// </summary>
+        public override bool Success => false;
+
+        /// <summary>
+        /// Unique Identifier for this Packet
+        /// </summary>
+        public override string PacketIdentifier => typeof(ConnectionRequestResponsePacket).AssemblyQualifiedName;
+
     }
 }

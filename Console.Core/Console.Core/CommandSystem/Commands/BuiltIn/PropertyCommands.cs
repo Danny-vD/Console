@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Console.Core.CommandSystem.Builder.PropertyAutoFill;
+
+using Console.Core.CommandSystem.Attributes;
+using Console.Core.CommandSystem.Builder.BuiltIn.PropertyAutoFill;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
 
@@ -11,6 +13,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
     /// </summary>
     public class PropertyCommands
     {
+
         private static readonly ALogger ListPropertiesLogger = TypedLogger.CreateTypedWithPrefix("list-properties");
         private static readonly ALogger GetPropertiesLogger = TypedLogger.CreateTypedWithPrefix("get-properties");
 
@@ -27,7 +30,12 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <summary>
         /// Lists all Property Names
         /// </summary>
-        [Command("list-properties", "Lists all Properties", "lp")]
+        [Command(
+            "list-properties",
+            HelpMessage = "Lists all Properties",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "lp" }
+        )]
         private static void ListPropertiesCommand()
         {
             ListPropertiesCommand(string.Empty);
@@ -37,8 +45,15 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// Lists all Properties that start with the specified string
         /// </summary>
         /// <param name="start">Search Term.</param>
-        [Command("list-properties", "Lists all Properties that start with the specified sequence", "lp")]
-        private static void ListPropertiesCommand([PropertyAutoFill] string start)
+        [Command(
+            "list-properties",
+            HelpMessage = "Lists all Properties that start with the specified sequence",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "lp" }
+        )]
+        private static void ListPropertiesCommand(
+            [PropertyAutoFill]
+            string start)
         {
             string ret = "Properties:\n\t";
             List<string> p = PropertyManager.AllPropertyPaths;
@@ -53,6 +68,7 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                     }
                 }
             }
+
             ListPropertiesLogger.Log(ret);
         }
 
@@ -63,8 +79,13 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// <summary>
         /// Lists All properties and their values.
         /// </summary>
-        [Command("get-property",
-            "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
+        [Command(
+            "get-property",
+            HelpMessage =
+                "Gets the value of the specified property and prints its ToString implementation to the console.",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "gp" }
+        )]
         private static void GetProperty()
         {
             GetProperty("");
@@ -74,9 +95,16 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// Lists all Properties(including values) that start with the specified string.
         /// </summary>
         /// <param name="propertyPath">Search Term/Property Path</param>
-        [Command("get-property",
-            "Gets the value of the specified property and prints its ToString implementation to the console.", "gp")]
-        private static void GetProperty([PropertyAutoFill] string propertyPath)
+        [Command(
+            "get-property",
+            HelpMessage =
+                "Gets the value of the specified property and prints its ToString implementation to the console.",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "gp" }
+        )]
+        private static void GetProperty(
+            [PropertyAutoFill]
+            string propertyPath)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -94,16 +122,21 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
                         {
                             v = "ERROR";
                         }
+
                         s += $"\n\t{target} = {v ?? "NULL"}";
                     }
+
                     GetPropertiesLogger.Log(s);
                 }
+
                 return;
             }
+
             if (!PropertyManager.TryGetValue(propertyPath, out object value))
             {
                 GetPropertiesLogger.LogWarning("Can not get the value at path: " + propertyPath);
             }
+
             GetPropertiesLogger.Log($"{propertyPath} = {value}");
         }
 
@@ -116,8 +149,16 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
-        [Command("set-property-selection", "Sets the specified property to the specified value", "sps")]
-        private static void SetPropertySelection([PropertyAutoFill] string propertyPath, [SelectionProperty(true)] object propertyValue)
+        [Command(
+            "set-property-selection",
+            HelpMessage = "Sets the specified property to the specified value",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "sps" }
+        )]
+        private static void SetPropertySelection(
+            [PropertyAutoFill]
+            string propertyPath, [SelectionProperty(true)]
+            object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -132,14 +173,23 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
-        [Command("add-property-selection", "Sets or Adds the specified property to the specified value", "aps")]
-        private static void AddPropertySelection([PropertyAutoFill] string propertyPath, [SelectionProperty(true)] object propertyValue)
+        [Command(
+            "add-property-selection",
+            HelpMessage = "Sets or Adds the specified property to the specified value",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "aps" }
+        )]
+        private static void AddPropertySelection(
+            [PropertyAutoFill]
+            string propertyPath, [SelectionProperty(true)]
+            object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
                 PropertyManager.AddProperty(propertyPath, propertyValue);
                 return;
             }
+
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
@@ -148,8 +198,15 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
-        [Command("set-property", "Sets the specified property to the specified value", "sp")]
-        private static void SetProperty([PropertyAutoFill] string propertyPath, object propertyValue)
+        [Command(
+            "set-property",
+            HelpMessage = "Sets the specified property to the specified value",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "sp" }
+        )]
+        private static void SetProperty(
+            [PropertyAutoFill]
+            string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
@@ -164,18 +221,28 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         /// </summary>
         /// <param name="propertyPath">Property Name</param>
         /// <param name="propertyValue">New Value of the Property</param>
-        [Command("add-property", "Sets or Adds the specified property to the specified value", "ap")]
-        private static void AddProperty([PropertyAutoFill] string propertyPath, object propertyValue)
+        [Command(
+            "add-property",
+            HelpMessage = "Sets or Adds the specified property to the specified value",
+            Namespace = ConsoleCoreConfig.PROPERTY_NAMESPACE,
+            Aliases = new[] { "ap" }
+        )]
+        private static void AddProperty(
+            [PropertyAutoFill]
+            string propertyPath, object propertyValue)
         {
             if (!PropertyManager.HasProperty(propertyPath))
             {
                 PropertyManager.AddProperty(propertyPath, propertyValue);
                 return;
             }
+
             PropertyManager.SetPropertyValue(propertyPath, propertyValue);
         }
 
-        private static void DeleteProperty([PropertyAutoFill] string propertyPath)
+        private static void DeleteProperty(
+            [PropertyAutoFill]
+            string propertyPath)
         {
             if (PropertyManager.HasProperty(propertyPath))
             {
@@ -184,5 +251,6 @@ namespace Console.Core.CommandSystem.Commands.BuiltIn
         }
 
         #endregion
+
     }
 }

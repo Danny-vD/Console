@@ -11,23 +11,16 @@ namespace Console.Networking.Packets.ConnectionAbort
     /// </summary>
     public class ConnectionAbortPacket : ANetworkPacket
     {
+
         /// <summary>
         /// Reason Backing Field
         /// </summary>
         private readonly string _reason;
+
         /// <summary>
         /// True if the Connection Abort has any Reason Attached.
         /// </summary>
         public readonly bool HasReason;
-        /// <summary>
-        /// The Reason of the Connection Abort
-        /// </summary>
-        public string Reason => _reason ?? "No Reason";
-
-        /// <summary>
-        /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
-        /// </summary>
-        public override bool DoNotEncrypt => true;
 
         /// <summary>
         /// Public Constructor
@@ -38,5 +31,16 @@ namespace Console.Networking.Packets.ConnectionAbort
             _reason = reason;
             HasReason = _reason != null;
         }
+
+        /// <summary>
+        /// The Reason of the Connection Abort
+        /// </summary>
+        public string Reason => _reason ?? "No Reason";
+
+        /// <summary>
+        /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
+        /// </summary>
+        public override bool DoNotEncrypt => true;
+
     }
 }

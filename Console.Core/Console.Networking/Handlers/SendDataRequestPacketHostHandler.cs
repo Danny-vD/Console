@@ -11,6 +11,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class SendDataRequestPacketHostHandler : APacketHostHandler<SendDataRequestPacket>
     {
+
         /// <summary>
         /// Handles the SendDataRequestPackets from clients
         /// </summary>
@@ -28,5 +29,6 @@ namespace Console.Networking.Handlers
                 client.TrySendPacket(SendDataRequestResponsePacket.Deny);
             }
         }
+
     }
 }

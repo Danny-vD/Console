@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using Console.Core;
-using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Attributes;
 
 namespace Console.CLI
 {
@@ -9,6 +10,7 @@ namespace Console.CLI
     /// </summary>
     public class CLIObjectSelectionCommands
     {
+
         /// <summary>
         /// Helper Property. Contains all selectable objects
         /// </summary>
@@ -30,15 +32,17 @@ namespace Console.CLI
         /// Adds an object to the selected objects
         /// </summary>
         /// <param name="key">Key of the Object to Select</param>
-        [Command("add-selectable", "Adds an object to the selection")]
+        [Command("add-selectable", HelpMessage = "Adds an object to the selection")]
         private static void Select(string key)
         {
             if (SelectableObjects.ContainsKey(key))
             {
                 Program.Logger.Log("Selecting Object: " + SelectableObjects[key]);
                 AConsoleManager.Instance.ObjectSelector.AddToSelection(SelectableObjects[key]);
-                Program.Logger.Log("Selected Objects: " +
-                                   AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count);
+                Program.Logger.Log(
+                                   "Selected Objects: " +
+                                   AConsoleManager.Instance.ObjectSelector.SelectedObjects.Count
+                                  );
             }
         }
 
@@ -47,7 +51,7 @@ namespace Console.CLI
         /// Makes the object to select the only selected object
         /// </summary>
         /// <param name="key">Key of the Object to Select</param>
-        [Command("select-selectable", "Select an object")]
+        [Command("select-selectable", HelpMessage = "Select an object")]
         private static void SelectOne(string key)
         {
             AConsoleManager.Instance.ObjectSelector.ClearSelection();
@@ -59,7 +63,7 @@ namespace Console.CLI
         /// Removes an object from the selection
         /// </summary>
         /// <param name="key">Key of the Object to Remove</param>
-        [Command("remove-selectable", "Removes an object from the selection")]
+        [Command("remove-selectable", HelpMessage = "Removes an object from the selection")]
         private static void RemoveSelection(string key)
         {
             if (SelectableObjects.ContainsKey(key))
@@ -72,7 +76,7 @@ namespace Console.CLI
         /// <summary>
         /// Lists all Selectable Objects in the Console
         /// </summary>
-        [Command("list-selectable", "Lists all Selectable Objects", "al")]
+        [Command("list-selectable", HelpMessage = "Lists all Selectable Objects", Aliases = new[] { "al" })]
         private static void ListSelectable()
         {
             string s = "Selectable Objects:";
@@ -80,7 +84,9 @@ namespace Console.CLI
             {
                 s += "\n\t" + selectableObject.Key + " = " + selectableObject.Value;
             }
+
             Program.Logger.Log(s);
         }
+
     }
 }

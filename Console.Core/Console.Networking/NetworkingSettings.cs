@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Text;
+
 using Console.Core.PropertySystem;
 using Console.Networking.Authentication;
 
@@ -11,15 +12,26 @@ namespace Console.Networking
     /// </summary>
     public class NetworkingSettings
     {
+
         /// <summary>
-        /// Mutes all logs from the networking system.
+        /// 
         /// </summary>
-        [Property("logs.networking.mute")]
-        private static bool MuteLogs
-        {
-            get => NetworkedInitializer.Logger.Mute;
-            set => NetworkedInitializer.Logger.Mute = value;
-        }
+        public const string NETWORKING_NAMESPACE = "networking";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string NETWORKING_CLIENT_NAMESPACE = NETWORKING_NAMESPACE + "::client";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string NETWORKING_HOST_NAMESPACE = NETWORKING_NAMESPACE + "::host";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string NETWORKING_WEB_NAMESPACE = NETWORKING_NAMESPACE + "::web";
 
         /// <summary>
         /// Does not Send Logs from the networking layer if true.
@@ -31,7 +43,8 @@ namespace Console.Networking
         /// <summary>
         /// Encoding that is used for communication
         /// </summary>
-        [Property("networking.text.encoding")] public static string Encoding = "ASCII";
+        [Property("networking.text.encoding")]
+        public static string Encoding = "ASCII";
 
         /// <summary>
         /// If True the Host will allow the SendFileRequest from a client
@@ -48,7 +61,9 @@ namespace Console.Networking
         /// <summary>
         /// If True the WebConsoleCommands WGET command is enabled
         /// </summary>
-        [Property("networking.wget.enabled")] public static bool WGetAllow = true;
+        [Property("networking.wget.enabled")]
+        public static bool WGetAllow = true;
+
         /// <summary>
         /// If True the WebConsoleCommands run-url command is enabled.
         /// </summary>
@@ -56,20 +71,70 @@ namespace Console.Networking
         public static bool RunUrlAllow = true;
 
         /// <summary>
-        /// The Encoding Instance.
-        /// </summary>
-        public static Encoding EncodingInstance => System.Text.Encoding.GetEncoding(Encoding);
-
-        /// <summary>
         /// The Maximum Data Size of a single Packet.
         /// </summary>
         [Property("networking.packets.data.maxsize.bytes")]
         public static int PacketDataMaxBytes = 1024 * 4;
+
         /// <summary>
         /// The Maximum ID Size of a single Packet.
         /// </summary>
         [Property("networking.packets.header.maxsize.bytes")]
         public static int PacketIdentifierMaxBytes = 1024;
+
+        /// <summary>
+        /// If set to false the Host will not accept any new connections.
+        /// </summary>
+        [Property("networking.host.allowconnections")]
+        public static bool AllowConnections = true;
+
+        /// <summary>
+        /// Backing field with default Value.
+        /// </summary>
+        private static string _authenticator = typeof(DefaultAuthenticator).AssemblyQualifiedName;
+
+        /// <summary>
+        /// Specifies how many packets are allowed to be processed per tick
+        /// </summary>
+        [Property("networking.client.packetspertick")]
+        public static int ClientPacketsPerTick = 5;
+
+        /// <summary>
+        /// Specifies the time that the Networking Layer will wait when the packet is still beeing transmitted.
+        /// </summary>
+        [Property("networking.socket.packetwaitms")]
+        public static int PacketWaitSleepTimer = 1000;
+
+        /// <summary>
+        /// The Client Session for the Console
+        /// </summary>
+        public static ClientSession ClientSession = new ClientSession();
+
+        /// <summary>
+        /// The Host Session for the Console
+        /// </summary>
+        public static HostSession HostSession = new HostSession();
+
+
+        /// <summary>
+        /// The IAuthenticator Instance Backing Field.
+        /// </summary>
+        private static IAuthenticator authenticatorInstance;
+
+        /// <summary>
+        /// Mutes all logs from the networking system.
+        /// </summary>
+        [Property("logs.networking.mute")]
+        private static bool MuteLogs
+        {
+            get => NetworkedInitializer.Logger.Mute;
+            set => NetworkedInitializer.Logger.Mute = value;
+        }
+
+        /// <summary>
+        /// The Encoding Instance.
+        /// </summary>
+        public static Encoding EncodingInstance => System.Text.Encoding.GetEncoding(Encoding);
 
         /// <summary>
         /// The Maximum Data Size of a single Packet.
@@ -80,6 +145,7 @@ namespace Console.Networking
             get => PacketDataMaxBytes / 1024;
             set => PacketDataMaxBytes = value * 1024;
         }
+
         /// <summary>
         /// The Maximum Data Size of a single Packet.
         /// </summary>
@@ -108,12 +174,6 @@ namespace Console.Networking
         public static Version NetworkVersion => Assembly.GetExecutingAssembly().GetName().Version;
 
         /// <summary>
-        /// If set to false the Host will not accept any new connections.
-        /// </summary>
-        [Property("networking.host.allowconnections")]
-        public static bool AllowConnections = true;
-
-        /// <summary>
         /// The IAuthenticator Implementation that is used for authentication
         /// </summary>
         [Property("networking.auth.provider")]
@@ -126,47 +186,25 @@ namespace Console.Networking
                 {
                     return;
                 }
+
                 _authenticator = value;
             }
         }
-        /// <summary>
-        /// Backing field with default Value.
-        /// </summary>
-        private static string _authenticator = typeof(DefaultAuthenticator).AssemblyQualifiedName;
-
-        /// <summary>
-        /// Specifies how many packets are allowed to be processed per tick
-        /// </summary>
-        [Property("networking.client.packetspertick")]
-        public static int ClientPacketsPerTick = 5;
-
-        /// <summary>
-        /// Specifies the time that the Networking Layer will wait when the packet is still beeing transmitted.
-        /// </summary>
-        [Property("networking.socket.packetwaitms")]
-        public static int PacketWaitSleepTimer = 1000;
-
-        /// <summary>
-        /// The Client Session for the Console
-        /// </summary>
-        public static ClientSession ClientSession = new ClientSession();
 
         /// <summary>
         /// Is True if the Console is Client
         /// </summary>
         [Property("networking.client.active")]
-        public static bool IsClient => ClientSession.Client.Connected &&
-                                       !ClientSession.Client.IsDisposed &&
-                                       ClientSession.Client.IsAuthenticated;
+        public static bool IsClient =>
+            ClientSession.Client.Connected &&
+            !ClientSession.Client.IsDisposed &&
+            ClientSession.Client.IsAuthenticated;
 
-        /// <summary>
-        /// The Host Session for the Console
-        /// </summary>
-        public static HostSession HostSession = new HostSession();
         /// <summary>
         /// Is True if the Console is Hosting
         /// </summary>
-        [Property("networking.host.active")] public static bool IsHost => HostSession.IsRunning;
+        [Property("networking.host.active")]
+        public static bool IsHost => HostSession.IsRunning;
 
         /// <summary>
         /// The IAuthenticator Instance.
@@ -178,17 +216,11 @@ namespace Console.Networking
                 if (authenticatorInstance == null)
                 {
                     authenticatorInstance = (IAuthenticator) Activator.CreateInstance(Type.GetType(_authenticator));
-
                 }
 
                 return authenticatorInstance;
             }
         }
 
-
-        /// <summary>
-        /// The IAuthenticator Instance Backing Field.
-        /// </summary>
-        private static IAuthenticator authenticatorInstance;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+
 using Console.Core.ConverterSystem;
 using Console.Core.ReflectionSystem;
 
@@ -14,6 +14,38 @@ namespace Console.Core.CommandSystem.Commands
     /// </summary>
     public abstract class AbstractCommand
     {
+
+        ///// <summary>
+        ///// Command Name.
+        ///// </summary>
+        //public string Name { get; protected set; }
+
+
+        ///// <summary>
+        ///// List of Alternative Command Names
+        ///// </summary>
+        //protected readonly List<string> aliases;
+
+        ///// <summary>
+        ///// List of Aliases for thie Command
+        ///// </summary>
+        //public string[] Aliases => aliases.ToArray();
+
+        /// <summary>
+        /// The Help Message of this Command.
+        /// </summary>
+        protected string HelpMessage = "No help message set.";
+
+        /// <summary>
+        /// Protected Constructor.
+        /// </summary>
+        /// <param name="paramsCount">Amount of Parameters</param>
+        protected AbstractCommand(int paramsCount)
+        {
+            ParametersCount = new ParameterRange(paramsCount);
+            Identity = new CommandIdentity("", new string[0]);
+        }
+
         /// <summary>
         /// The Parameter Range of the Command
         /// </summary>
@@ -36,40 +68,15 @@ namespace Console.Core.CommandSystem.Commands
         public abstract List<ParameterMetaData> MetaData { get; }
 
         /// <summary>
-        /// Command Name.
+        /// 
         /// </summary>
-        public string Name { get; protected set; }
-
-        /// <summary>
-        /// List of Alternative Command Names
-        /// </summary>
-        protected readonly List<string> aliases;
-
-        /// <summary>
-        /// List of Aliases for thie Command
-        /// </summary>
-        public string[] Aliases => aliases.ToArray();
-
-        /// <summary>
-        /// The Help Message of this Command.
-        /// </summary>
-        protected string HelpMessage = "No help message set.";
+        public CommandIdentity Identity { get; }
 
         /// <summary>
         /// Invokes this Command with the specified parameters.
         /// </summary>
         /// <param name="parameters"></param>
         public abstract void Invoke(params object[] parameters);
-
-        /// <summary>
-        /// Protected Constructor.
-        /// </summary>
-        /// <param name="paramsCount">Amount of Parameters</param>
-        protected AbstractCommand(int paramsCount)
-        {
-            ParametersCount = new ParameterRange(paramsCount);
-            aliases = new List<string>();
-        }
 
         /// <summary>
         /// Returns true when the Parameter is the correct type for the command.
@@ -83,7 +90,6 @@ namespace Console.Core.CommandSystem.Commands
 
             try
             {
-
                 if (CustomConvertManager.CanConvert(parameter, typeof(TType)))
                 {
                     return true;
@@ -91,6 +97,7 @@ namespace Console.Core.CommandSystem.Commands
 
 
                 parameter.ConvertTo<TType>();
+
                 // Convert to check if it will throw an error
 
                 return true;
@@ -98,7 +105,8 @@ namespace Console.Core.CommandSystem.Commands
             catch
             {
                 ConsoleCoreConfig.CoreLogger.LogError(
-                    $"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!");
+                                                      $"{parameter} ({parameter.GetType().Name}) can not be converted to type {newTypeName}!"
+                                                     );
                 return false;
             }
         }
@@ -111,7 +119,6 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>The Changed Parameter</returns>
         protected static TNewType ConvertTo<TNewType>(object parameter)
         {
-
             if (CustomConvertManager.CanConvert(parameter, typeof(TNewType)))
             {
                 return (TNewType) CustomConvertManager.Convert(parameter, typeof(TNewType));
@@ -120,28 +127,28 @@ namespace Console.Core.CommandSystem.Commands
             return parameter.ConvertTo<TNewType>();
         }
 
-        /// <summary>
-        /// Sets the Command Name
-        /// </summary>
-        /// <param name="name">New Name</param>
-        public void SetName(string name)
-        {
-            Name = name;
-        }
+        ///// <summary>
+        ///// Sets the Command Name
+        ///// </summary>
+        ///// <param name="name">New Name</param>
+        //public void SetName(string name)
+        //{
+        //    Name = name;
+        //}
 
 
-        /// <summary>
-        /// Returns all Command Names including Aliases.
-        /// </summary>
-        /// <returns>All Names and Aliases in one Array</returns>
-        public List<string> GetAllNames()
-        {
-            List<string> names = new List<string>() {Name};
+        ///// <summary>
+        ///// Returns all Command Names including Aliases.
+        ///// </summary>
+        ///// <returns>All Names and Aliases in one Array</returns>
+        //public List<string> GetAllNames()
+        //{
+        //    List<string> names = new List<string>() { Name };
 
-            aliases.ForEach(names.Add);
+        //    aliases.ForEach(names.Add);
 
-            return names;
-        }
+        //    return names;
+        //}
 
         /// <summary>
         /// Returns the name, plus all the parameter types
@@ -150,50 +157,50 @@ namespace Console.Core.CommandSystem.Commands
         /// <returns>The Full Name including Signature</returns>
         public abstract string GetFullName(ToStringMode mode);
 
-        /// <summary>
-        /// Returns true if the Command has this Name or Alias.
-        /// </summary>
-        /// <param name="name">Name to test against.</param>
-        /// <param name="startsWith">If true the Name comparison is only checking if the commandname is starting with the specified name</param>
-        /// <returns>True if the Name does match this Commands Name or one of its Aliases.</returns>
-        public bool HasName(string name, bool startsWith=false)
-        {
-            if (startsWith) return Name.StartsWith(name) || Aliases.Any(x => x.StartsWith(name));
-            return Name == name || Aliases.Contains(name);
-        }
+        ///// <summary>
+        ///// Returns true if the Command has this Name or Alias.
+        ///// </summary>
+        ///// <param name="name">Name to test against.</param>
+        ///// <param name="startsWith">If true the Name comparison is only checking if the commandname is starting with the specified name</param>
+        ///// <returns>True if the Name does match this Commands Name or one of its Aliases.</returns>
+        //public bool HasName(string name, bool startsWith = false)
+        //{
+        //    if (startsWith) return Name.StartsWith(name) || Aliases.Any(x => x.StartsWith(name));
+        //    return Name == name || Aliases.Contains(name);
+        //}
 
-        /// <summary>
-        /// Returns true if any of the names is contained in this Command.
-        /// </summary>
-        /// <param name="names">Names to test against.</param>
-        /// <returns>True if any Name does match this Commands Name or one of its Aliases.</returns>
-        public bool HasName(IEnumerable<string> names)
-        {
-            return names.Any(s => HasName(s));
-        }
+        ///// <summary>
+        ///// Returns true if any of the names is contained in this Command.
+        ///// </summary>
+        ///// <param name="names">Names to test against.</param>
+        ///// <returns>True if any Name does match this Commands Name or one of its Aliases.</returns>
+        //public bool HasName(IEnumerable<string> names)
+        //{
+        //    return names.Any(s => HasName(s));
+        //}
 
-        /// <summary>
-        /// Adds an Alias to this Command.
-        /// </summary>
-        /// <param name="alias">Alias to add</param>
-        public void AddAlias(string alias)
-        {
-            if (Aliases.Contains(alias))
-            {
-                return;
-            }
+        ///// <summary>
+        ///// Adds an Alias to this Command.
+        ///// </summary>
+        ///// <param name="alias">Alias to add</param>
+        //public void AddAlias(string alias)
+        //{
+        //    if (Aliases.Contains(alias))
+        //    {
+        //        return;
+        //    }
 
-            aliases.Add(alias);
-        }
+        //    aliases.Add(alias);
+        //}
 
-        /// <summary>
-        /// Removes an Alias from this Command.
-        /// </summary>
-        /// <param name="name">Alias to Remove</param>
-        public void RemoveAlias(string name)
-        {
-            aliases.Remove(name);
-        }
+        ///// <summary>
+        ///// Removes an Alias from this Command.
+        ///// </summary>
+        ///// <param name="name">Alias to Remove</param>
+        //public void RemoveAlias(string name)
+        //{
+        //    aliases.Remove(name);
+        //}
 
         /// <summary>
         /// Sets the Help Message of this Command.
@@ -225,6 +232,7 @@ namespace Console.Core.CommandSystem.Commands
             {
                 return "";
             }
+
             StringBuilder stringBuilder = new StringBuilder(ConsoleCoreConfig.ConsolePrefix);
 
             stringBuilder.Append(GetFullName(mode));
@@ -232,6 +240,7 @@ namespace Console.Core.CommandSystem.Commands
             {
                 return stringBuilder.ToString();
             }
+
             stringBuilder.Append(": \n");
             stringBuilder.AppendLine("\t" + HelpMessage);
             if (mode == ToStringMode.Default)
@@ -242,15 +251,15 @@ namespace Console.Core.CommandSystem.Commands
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Aliases: ");
 
-            if (Aliases.Length == 0)
-            {
-                stringBuilder.AppendLine("\tNone");
-            }
+            //if (Aliases.Length == 0)
+            //{
+            //    stringBuilder.AppendLine("\tNone");
+            //}
 
-            foreach (string alias in Aliases)
-            {
-                stringBuilder.AppendLine("\t" + alias);
-            }
+            //foreach (string alias in Aliases)
+            //{
+            //    stringBuilder.AppendLine("\t" + alias);
+            //}
 
             return stringBuilder.ToString();
 
@@ -261,5 +270,6 @@ namespace Console.Core.CommandSystem.Commands
             // Alias2
             // etc.
         }
+
     }
 }

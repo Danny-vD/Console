@@ -11,6 +11,17 @@ namespace Console.Evaluator.Math
     /// </summary>
     public class MathEvalFunctions : IEvalFunctions, IVariableBag
     {
+
+        /// <summary>
+        /// Constant Value of E
+        /// </summary>
+        public double E = System.Math.E;
+
+        /// <summary>
+        /// Constant Value of PI
+        /// </summary>
+        public double PI = System.Math.PI;
+
         /// <summary>
         /// Returns the Functions inherited from this class.
         /// </summary>
@@ -19,15 +30,6 @@ namespace Console.Evaluator.Math
         {
             return null;
         }
-
-        /// <summary>
-        /// Constant Value of PI
-        /// </summary>
-        public double PI = System.Math.PI;
-        /// <summary>
-        /// Constant Value of E
-        /// </summary>
-        public double E = System.Math.E;
 
         /// <summary>
         /// Returns a Variable with the specified Name
@@ -117,6 +119,7 @@ namespace Console.Evaluator.Math
         {
             return System.Math.Cosh(value);
         }
+
         /// <summary>Returns the largest integer less than or equal to the specified double-precision floating-point number.</summary>
         /// <param name="d">A double-precision floating-point number.</param>
         /// <returns>The largest integer less than or equal to <paramref name="d">d</paramref>. If <paramref name="d">d</paramref> is equal to System.Double.NaN, System.Double.NegativeInfinity, or System.Double.PositiveInfinity, that value is returned.</returns>
@@ -202,6 +205,7 @@ namespace Console.Evaluator.Math
         {
             return System.Math.Log(d);
         }
+
         /// <summary>
         /// Returns the Logarithm with base 10 of <paramref name="d"/>
         /// </summary>
@@ -319,5 +323,6 @@ namespace Console.Evaluator.Math
 
             return ret;
         }
+
     }
 }

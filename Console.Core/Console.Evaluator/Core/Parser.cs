@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Reflection;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 using Console.Evaluator.Core.OPCodes;
@@ -15,14 +16,16 @@ namespace Console.Evaluator.Core
     /// </summary>
     internal class Parser
     {
-        /// <summary>
-        /// The Tokenizer that is used for the Parsing Process
-        /// </summary>
-        private Tokenizer mTokenizer;
+
         /// <summary>
         /// The Evaluator Instance
         /// </summary>
         private readonly Evaluator mEvaluator;
+
+        /// <summary>
+        /// The Tokenizer that is used for the Parsing Process
+        /// </summary>
+        private Tokenizer mTokenizer;
 
         /// <summary>
         /// Public Constructor
@@ -44,6 +47,7 @@ namespace Console.Evaluator.Core
             {
                 str = string.Empty;
             }
+
             mTokenizer = new Tokenizer(str);
             mTokenizer.NextToken();
             OPCode res = ParseExpr(null, Priority.None);
@@ -53,12 +57,11 @@ namespace Console.Evaluator.Core
                 {
                     res = new OPCodeImmediate(EvalType.String, string.Empty);
                 }
+
                 return res;
             }
-            else
-            {
-                mTokenizer.RaiseUnexpectedToken();
-            }
+
+            mTokenizer.RaiseUnexpectedToken();
 
             return default;
         }
@@ -131,11 +134,15 @@ namespace Console.Evaluator.Core
                     {
                         try
                         {
-                            valueLeft = new OPCodeImmediate(EvalType.Number,
-                                double.Parse(mTokenizer.Value.ToString(), System.Globalization.NumberStyles.Float,
-                                    System.Globalization.CultureInfo.InvariantCulture));
-
-
+                            valueLeft = new OPCodeImmediate(
+                                                            EvalType.Number,
+                                                            double.Parse(
+                                                                         mTokenizer.Value.ToString(),
+                                                                         System.Globalization.NumberStyles.Float,
+                                                                         System.Globalization.CultureInfo
+                                                                               .InvariantCulture
+                                                                        )
+                                                           );
                         }
                         catch (Exception)
                         {
@@ -154,8 +161,12 @@ namespace Console.Evaluator.Core
                         }
                         catch (Exception)
                         {
-                            mTokenizer.RaiseError(string.Format("Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#",
-                                mTokenizer.Value.ToString()));
+                            mTokenizer.RaiseError(
+                                                  string.Format(
+                                                                "Invalid date {0}, it should be #DD/MM/YYYY hh:mm:ss#",
+                                                                mTokenizer.Value
+                                                               )
+                                                 );
                         }
 
                         mTokenizer.NextToken();
@@ -170,7 +181,6 @@ namespace Console.Evaluator.Core
                         {
                             // good we eat the end parenthesis and continue ...
                             mTokenizer.NextToken();
-                            break;
                         }
                         else
                         {
@@ -189,15 +199,11 @@ namespace Console.Evaluator.Core
                         parameters = ParseParameters(ref argbrackets);
                         break;
                     }
-
-                    default:
-                    {
-                        break;
-                    }
                 }
 
                 break;
             } while (true);
+
             if (valueLeft is null)
             {
                 mTokenizer.RaiseUnexpectedToken("No Expression found");
@@ -230,10 +236,6 @@ namespace Console.Evaluator.Core
                             valueRight = ParseExpr(valueLeft, Priority.Plusminus);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                         }
-                        else
-                        {
-                            break;
-                        }
 
                         break;
                     }
@@ -246,10 +248,6 @@ namespace Console.Evaluator.Core
                             valueRight = ParseExpr(valueLeft, Priority.Plusminus);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                         }
-                        else
-                        {
-                            break;
-                        }
 
                         break;
                     }
@@ -261,10 +259,6 @@ namespace Console.Evaluator.Core
                             mTokenizer.NextToken();
                             valueRight = ParseExpr(valueLeft, Priority.Concat);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                        }
-                        else
-                        {
-                            break;
                         }
 
                         break;
@@ -279,10 +273,6 @@ namespace Console.Evaluator.Core
                             valueRight = ParseExpr(valueLeft, Priority.Muldiv);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                         }
-                        else
-                        {
-                            break;
-                        }
 
                         break;
                     }
@@ -293,10 +283,6 @@ namespace Console.Evaluator.Core
                         {
                             mTokenizer.NextToken();
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, acc);
-                        }
-                        else
-                        {
-                            break;
                         }
 
                         break;
@@ -310,10 +296,6 @@ namespace Console.Evaluator.Core
                             valueRight = ParseExpr(valueLeft, Priority.Or);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                         }
-                        else
-                        {
-                            break;
-                        }
 
                         break;
                     }
@@ -325,10 +307,6 @@ namespace Console.Evaluator.Core
                             mTokenizer.NextToken();
                             valueRight = ParseExpr(valueLeft, Priority.And);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
-                        }
-                        else
-                        {
-                            break;
                         }
 
                         break;
@@ -348,21 +326,14 @@ namespace Console.Evaluator.Core
                             valueRight = ParseExpr(valueLeft, Priority.Equality);
                             valueLeft = new OPCodeBinary(mTokenizer, valueLeft, tt, valueRight);
                         }
-                        else
-                        {
-                            break;
-                        }
 
-                        break;
-                    }
-
-                    default:
-                    {
                         break;
                     }
                 }
+
                 break;
             } while (true);
+
             return valueLeft;
         }
 
@@ -376,7 +347,8 @@ namespace Console.Evaluator.Core
         /// <param name="callType">The CallType of the Method</param>
         /// <param name="errorIfNotFound">If True will throw an exception when the function with name funcName is not found</param>
         /// <returns></returns>
-        private bool EmitCallFunction(ref OPCode valueLeft, string funcName, ArrayList parameters, CallType callType,
+        private bool EmitCallFunction(
+            ref OPCode valueLeft, string funcName, ArrayList parameters, CallType callType,
             bool errorIfNotFound)
         {
             OPCode newOpcode = default;
@@ -392,6 +364,7 @@ namespace Console.Evaluator.Core
                         {
                             break;
                         }
+
                         if (functions is IEvalFunctions evalFunctions)
                         {
                             functions = evalFunctions.InheritedFunctions();
@@ -413,14 +386,13 @@ namespace Console.Evaluator.Core
                 valueLeft = newOpcode;
                 return true;
             }
-            else
+
+            if (errorIfNotFound)
             {
-                if (errorIfNotFound)
-                {
-                    mTokenizer.RaiseError("Variable or method " + funcName + " was not found");
-                }
-                return false;
+                mTokenizer.RaiseError("Variable or method " + funcName + " was not found");
             }
+
+            return false;
         }
 
         /// <summary>
@@ -432,7 +404,8 @@ namespace Console.Evaluator.Core
         /// <param name="parameters">The Parameters used in the Function</param>
         /// <param name="callType">The CallType of the Function</param>
         /// <returns>The Local Function OPCode</returns>
-        private OPCode GetLocalFunction(object @base, Type baseType, string funcName, ArrayList parameters,
+        private OPCode GetLocalFunction(
+            object @base, Type baseType, string funcName, ArrayList parameters,
             CallType callType)
         {
             MemberInfo mi;
@@ -447,6 +420,7 @@ namespace Console.Evaluator.Core
                         {
                             mTokenizer.RaiseError("Unexpected Field");
                         }
+
                         break;
                     }
 
@@ -456,6 +430,7 @@ namespace Console.Evaluator.Core
                         {
                             mTokenizer.RaiseError("Unexpected Method");
                         }
+
                         break;
                     }
 
@@ -465,12 +440,13 @@ namespace Console.Evaluator.Core
                         {
                             mTokenizer.RaiseError("Unexpected Property");
                         }
+
                         break;
                     }
 
                     default:
                     {
-                        mTokenizer.RaiseUnexpectedToken(mi.MemberType.ToString() + " members are not supported");
+                        mTokenizer.RaiseUnexpectedToken(mi.MemberType + " members are not supported");
                         break;
                     }
                 }
@@ -501,8 +477,12 @@ namespace Console.Evaluator.Core
         private MemberInfo GetMemberInfo(Type objType, string func, ArrayList parameters)
         {
             BindingFlags bindingAttr;
-            bindingAttr = BindingFlags.GetProperty | BindingFlags.GetField | BindingFlags.Public |
-                          BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Static;
+            bindingAttr = BindingFlags.GetProperty |
+                          BindingFlags.GetField |
+                          BindingFlags.Public |
+                          BindingFlags.InvokeMethod |
+                          BindingFlags.Instance |
+                          BindingFlags.Static;
 
 
             if (mEvaluator.CaseSensitive == false)
@@ -550,10 +530,12 @@ namespace Console.Evaluator.Core
                 {
                     plist = new ParameterInfo[] { };
                 }
+
                 if (parameters is null)
                 {
                     parameters = new ArrayList();
                 }
+
                 ParameterInfo pi;
                 if (parameters.Count > plist.Length)
                 {
@@ -564,6 +546,7 @@ namespace Console.Evaluator.Core
                     for (int index = 0, loopTo1 = plist.Length - 1; index <= loopTo1; index++)
                     {
                         pi = plist[index];
+
                         // For Each pi As Reflection.ParameterInfo In plist
                         if (idx < parameters.Count)
                         {
@@ -610,12 +593,15 @@ namespace Console.Evaluator.Core
                 {
                     return 10;
                 }
+
                 if (ReferenceEquals(type, typeof(string)))
                 {
                     return 8;
                 }
+
                 return 5;
             }
+
             if (ReferenceEquals(type, value.GetType()))
             {
                 return 10;
@@ -639,6 +625,7 @@ namespace Console.Evaluator.Core
                         mTokenizer.NextToken();
                         break;
                     }
+
                     // fine this is either an array or a default property
                     case TokenType.OpenParenthesis:
                     {
@@ -663,6 +650,7 @@ namespace Console.Evaluator.Core
         {
             // first check functions
             ArrayList parameters; // parameters... 
+
             // Dim types As New ArrayList
             string func = mTokenizer.Value.ToString();
             mTokenizer.NextToken();
@@ -696,6 +684,7 @@ namespace Console.Evaluator.Core
                     EmitCallFunction(ref valueLeft, func, emptyParameters, CallType.All, true);
                     paramsNotUsed = true;
                 }
+
                 // we found a function without parameters 
                 // so our parameters must be default property or an array
                 Type t = valueLeft.SystemType;
@@ -744,7 +733,8 @@ namespace Console.Evaluator.Core
             ArrayList parameters = default;
             OPCode valueleft;
             TokenType lClosing = default;
-            if (mTokenizer.TokenType == TokenType.OpenParenthesis || (mTokenizer.TokenType == TokenType.OpenBracket) &
+            if (mTokenizer.TokenType == TokenType.OpenParenthesis ||
+                (mTokenizer.TokenType == TokenType.OpenBracket) &
                 (mEvaluator.Syntax == ParserSyntax.CSharp))
             {
                 switch (mTokenizer.TokenType)
@@ -782,18 +772,20 @@ namespace Console.Evaluator.Core
                         mTokenizer.NextToken();
                         break;
                     }
-                    else if (mTokenizer.TokenType == TokenType.Comma)
+
+                    if (mTokenizer.TokenType == TokenType.Comma)
                     {
                         mTokenizer.NextToken();
                     }
                     else
                     {
-                        mTokenizer.RaiseUnexpectedToken(lClosing.ToString() + " not found");
+                        mTokenizer.RaiseUnexpectedToken(lClosing + " not found");
                     }
                 } while (true);
             }
 
             return parameters;
         }
+
     }
 }

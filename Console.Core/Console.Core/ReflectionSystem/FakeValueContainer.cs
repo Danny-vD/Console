@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Console.Core.ReflectionSystem.Interfaces;
 
 namespace Console.Core.ReflectionSystem
@@ -9,6 +10,21 @@ namespace Console.Core.ReflectionSystem
     /// </summary>
     public class FakeValueContainer : IValueTypeContainer
     {
+
+        /// <summary>
+        /// The Inner Value
+        /// </summary>
+        public object Value;
+
+        /// <summary>
+        /// Creates a Fake Value Container
+        /// </summary>
+        /// <param name="value">Value</param>
+        public FakeValueContainer(object value)
+        {
+            Value = value;
+        }
+
         /// <summary>
         /// Flag that determines if the Value can be Read
         /// </summary>
@@ -30,20 +46,6 @@ namespace Console.Core.ReflectionSystem
         public List<Attribute> Attributes { get; }
 
         /// <summary>
-        /// The Inner Value
-        /// </summary>
-        public object Value;
-
-        /// <summary>
-        /// Creates a Fake Value Container
-        /// </summary>
-        /// <param name="value">Value</param>
-        public FakeValueContainer(object value)
-        {
-            Value = value;
-        }
-
-        /// <summary>
         /// Gets the Inner Value
         /// </summary>
         /// <returns>The Inner Value</returns>
@@ -60,5 +62,6 @@ namespace Console.Core.ReflectionSystem
         {
             Value = value;
         }
+
     }
 }

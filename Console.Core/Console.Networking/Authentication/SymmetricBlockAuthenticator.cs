@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+
 using Console.Core.PropertySystem;
 using Console.Networking.Packets;
 using Console.Networking.Packets.Authentication;
@@ -14,6 +15,55 @@ namespace Console.Networking.Authentication
     /// </summary>
     public class SymmetricBlockAuthenticator : IAuthenticator
     {
+
+        /// <summary>
+        /// The Size of the Encrypted Chunk of authentication data.
+        /// </summary>
+        [Property("networking.auth.symmetric.authdatalength")]
+        public static int AuthenticationDataLength = 256;
+
+        /// <summary>
+        /// Auth Password Backing Field.
+        /// </summary>
+        private static string _authPassword = "12345678";
+
+        /// <summary>
+        /// Algorithm Provider Type Backing Field
+        /// </summary>
+        private static string _encryptionType = "AES";
+
+        /// <summary>
+        /// Hash Provider Type Backing Field.
+        /// </summary>
+        private static string _hashType = "SHA256";
+
+        /// <summary>
+        /// The Algorithm Cipher Mode Backing Field
+        /// </summary>
+        private static CipherMode _cipherMode = CipherMode.CBC;
+
+        /// <summary>
+        /// The Algorithm Padding Mode Backing Field
+        /// </summary>
+        private static PaddingMode _paddingMode = PaddingMode.PKCS7;
+
+
+        /// <summary>
+        /// Hash Provider Backing Field.
+        /// </summary>
+        private static HashAlgorithm hashProvider;
+
+        /// <summary>
+        /// Algorithm Provider Backing Field.
+        /// </summary>
+        private static SymmetricAlgorithm provider;
+
+        /// <summary>
+        /// Collection of Authentication Sessions
+        /// </summary>
+        private static readonly Dictionary<ConsoleSocket, byte[]> AuthenticationSessions =
+            new Dictionary<ConsoleSocket, byte[]>();
+
         /// <summary>
         /// The Password used for authentication.
         /// </summary>
@@ -27,6 +77,7 @@ namespace Console.Networking.Authentication
                 CreateProvider();
             }
         }
+
         /// <summary>
         /// The Encryption Algorithm
         /// </summary>
@@ -40,6 +91,7 @@ namespace Console.Networking.Authentication
                 CreateProvider();
             }
         }
+
         /// <summary>
         /// The Hash Provider
         /// </summary>
@@ -53,6 +105,7 @@ namespace Console.Networking.Authentication
                 CreateProvider();
             }
         }
+
         /// <summary>
         /// The Algorithm CipherMode
         /// </summary>
@@ -82,10 +135,60 @@ namespace Console.Networking.Authentication
         }
 
         /// <summary>
-        /// The Size of the Encrypted Chunk of authentication data.
+        /// Hash Provider
         /// </summary>
-        [Property("networking.auth.symmetric.authdatalength")]
-        public static int AuthenticationDataLength = 256;
+        private static HashAlgorithm HashProvider => hashProvider ?? (hashProvider = HashAlgorithm.Create(HashType));
+
+        /// <summary>
+        /// Algorithm Provider
+        /// </summary>
+        private static SymmetricAlgorithm Provider => provider ?? (provider = CreateProvider());
+
+        /// <summary>
+        /// Gets Invoked by the Host to initialize the authentication of a connected client.
+        /// </summary>
+        /// <param name="client">Client to Authenticate</param>
+        public void AuthenticateClient(ConsoleSocket client)
+        {
+            byte[] data = GetRandomData(AuthenticationDataLength);
+
+
+            AuthenticationSessions[client] = data;
+
+            client.OnPacketReceive += package =>
+                                      {
+                                          if (package is AuthenticationPacket a)
+                                          {
+                                              ClientAuthenticationReceive(client, a);
+                                          }
+                                      };
+            if (!client.TrySendPacket(
+                                      new AuthenticationPacket(Encrypt(data))
+                                     ))
+            {
+            }
+        }
+
+
+        /// <summary>
+        /// Decrypts the Passed Data
+        /// </summary>
+        /// <param name="data">Passed Data</param>
+        /// <returns>Decrypted Data</returns>
+        public byte[] Decrypt(byte[] data)
+        {
+            return Cryptography.Decrypt(Provider, data, CreateKey(Provider.Key.Length));
+        }
+
+        /// <summary>
+        /// Encrypts the Passed Data
+        /// </summary>
+        /// <param name="data">Passed Data</param>
+        /// <returns>Encrypted Data</returns>
+        public byte[] Encrypt(byte[] data)
+        {
+            return Cryptography.Encrypt(Provider, data, CreateKey(Provider.Key.Length));
+        }
 
 
         /// <summary>
@@ -95,8 +198,10 @@ namespace Console.Networking.Authentication
         /// <returns></returns>
         private static byte[] CreateKey(int count)
         {
-            return CreateFixSize(HashProvider.ComputeHash(NetworkingSettings.EncodingInstance.GetBytes(AuthPassword)),
-                count);
+            return CreateFixSize(
+                                 HashProvider.ComputeHash(NetworkingSettings.EncodingInstance.GetBytes(AuthPassword)),
+                                 count
+                                );
         }
 
         /// <summary>
@@ -112,53 +217,9 @@ namespace Console.Networking.Authentication
             {
                 ret[i] = data[i % data.Length];
             }
+
             return ret;
         }
-
-        /// <summary>
-        /// Auth Password Backing Field.
-        /// </summary>
-        private static string _authPassword = "12345678";
-        /// <summary>
-        /// Algorithm Provider Type Backing Field
-        /// </summary>
-        private static string _encryptionType = "AES";
-        /// <summary>
-        /// Hash Provider Type Backing Field.
-        /// </summary>
-        private static string _hashType = "SHA256";
-        /// <summary>
-        /// The Algorithm Cipher Mode Backing Field
-        /// </summary>
-        private static CipherMode _cipherMode = CipherMode.CBC;
-        /// <summary>
-        /// The Algorithm Padding Mode Backing Field
-        /// </summary>
-        private static PaddingMode _paddingMode = PaddingMode.PKCS7;
-
-
-        /// <summary>
-        /// Hash Provider Backing Field.
-        /// </summary>
-        private static HashAlgorithm hashProvider;
-        /// <summary>
-        /// Hash Provider
-        /// </summary>
-        private static HashAlgorithm HashProvider => hashProvider ?? (hashProvider = HashAlgorithm.Create(HashType));
-        /// <summary>
-        /// Algorithm Provider Backing Field.
-        /// </summary>
-        private static SymmetricAlgorithm provider;
-        /// <summary>
-        /// Algorithm Provider
-        /// </summary>
-        private static SymmetricAlgorithm Provider => provider ?? (provider = CreateProvider());
-
-        /// <summary>
-        /// Collection of Authentication Sessions
-        /// </summary>
-        private static readonly Dictionary<ConsoleSocket, byte[]> AuthenticationSessions =
-            new Dictionary<ConsoleSocket, byte[]>();
 
         /// <summary>
         /// Creates the Specified Symmetric Algorithm
@@ -168,38 +229,12 @@ namespace Console.Networking.Authentication
         {
             provider = SymmetricAlgorithm.Create(EncryptionType);
             hashProvider = HashAlgorithm.Create(HashType);
+
             //provider.Mode = CipherMode;
             //provider.Padding = PaddingMode;
             provider.Key = CreateKey(provider.Key.Length);
             provider.GenerateIV();
             return provider;
-        }
-
-        /// <summary>
-        /// Gets Invoked by the Host to initialize the authentication of a connected client.
-        /// </summary>
-        /// <param name="client">Client to Authenticate</param>
-        public void AuthenticateClient(ConsoleSocket client)
-        {
-
-            byte[] data = GetRandomData(AuthenticationDataLength);
-
-
-            AuthenticationSessions[client] = data;
-
-            client.OnPacketReceive += package =>
-            {
-                if (package is AuthenticationPacket a)
-                {
-                    ClientAuthenticationReceive(client, a);
-                }
-            };
-            if (!client.TrySendPacket(
-                new AuthenticationPacket(Encrypt(data))))
-            {
-                return;
-            }
-
         }
 
         /// <summary>
@@ -239,6 +274,7 @@ namespace Console.Networking.Authentication
             {
                 s += data[i];
             }
+
             return s;
         }
 
@@ -254,15 +290,18 @@ namespace Console.Networking.Authentication
             {
                 return true;
             }
+
             if (original == null || data == null)
             {
                 return false;
             }
+
             //if (original != data) return false;
             if (original.Length != data.Length)
             {
                 return false;
             }
+
             for (int i = 0; i < original.Length; i++)
             {
                 if (original[i] != data[i])
@@ -270,6 +309,7 @@ namespace Console.Networking.Authentication
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -286,29 +326,9 @@ namespace Console.Networking.Authentication
             return ret;
         }
 
-
-        /// <summary>
-        /// Decrypts the Passed Data
-        /// </summary>
-        /// <param name="data">Passed Data</param>
-        /// <returns>Decrypted Data</returns>
-        public byte[] Decrypt(byte[] data)
-        {
-            return Cryptography.Decrypt(Provider, data, CreateKey(Provider.Key.Length));
-        }
-
-        /// <summary>
-        /// Encrypts the Passed Data
-        /// </summary>
-        /// <param name="data">Passed Data</param>
-        /// <returns>Encrypted Data</returns>
-        public byte[] Encrypt(byte[] data)
-        {
-            return Cryptography.Encrypt(Provider, data, CreateKey(Provider.Key.Length));
-        }
-
         //Client => ConnectionRequest
         //Server => RequestResponse + Data To encrypt
         //Client => AuthPacket + EncryptedData
+
     }
 }

@@ -7,10 +7,12 @@ namespace Console.Evaluator.Core
     /// </summary>
     public class ParserException : Exception
     {
+
         /// <summary>
         /// The Formula that failed to parse
         /// </summary>
         public readonly string Formula;
+
         /// <summary>
         /// The Index in the Formula where the parser went wrong
         /// </summary>
@@ -27,5 +29,6 @@ namespace Console.Evaluator.Core
             Formula = formula;
             Pos = pos;
         }
+
     }
 }

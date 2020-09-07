@@ -11,9 +11,11 @@ namespace Console.Networking.Packets.AuthenticationRequest
     /// </summary>
     public class AuthenticationRequestPacket : ANetworkPacket
     {
+
         /// <summary>
         /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
         /// </summary>
         public override bool DoNotEncrypt => true;
+
     }
 }

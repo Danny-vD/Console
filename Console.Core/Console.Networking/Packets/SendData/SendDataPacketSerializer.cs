@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.SendData
@@ -9,6 +10,7 @@ namespace Console.Networking.Packets.SendData
     /// </summary>
     public class SendDataPacketSerializer : PacketSerializer<SendDataPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type SendDataPacket
         /// </summary>
@@ -19,7 +21,11 @@ namespace Console.Networking.Packets.SendData
             bool last = data[0] == 1;
             List<byte> d = data.ToList();
             d.RemoveAt(0);
-            return new SendDataPacket {Data = d.ToArray(), LastPacket = last};
+            return new SendDataPacket
+                   {
+                       Data = d.ToArray(),
+                       LastPacket = last
+                   };
         }
 
         /// <summary>
@@ -34,5 +40,6 @@ namespace Console.Networking.Packets.SendData
             data.AddRange(item.Data);
             return data.ToArray();
         }
+
     }
 }

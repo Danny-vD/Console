@@ -7,6 +7,7 @@ namespace Console.Networking.Authentication
     /// </summary>
     public interface IAuthenticator
     {
+
         /// <summary>
         /// Gets Invoked by the Host to initialize the authentication of a connected client.
         /// </summary>
@@ -26,5 +27,6 @@ namespace Console.Networking.Authentication
         /// <param name="data">Passed Data</param>
         /// <returns>Encrypted Data</returns>
         byte[] Encrypt(byte[] data);
+
     }
 }

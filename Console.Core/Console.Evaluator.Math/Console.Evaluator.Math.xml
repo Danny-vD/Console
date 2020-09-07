@@ -9,21 +9,21 @@
             Implements the System.Math api as usable class for the Evaluator Extension
             </summary>
         </member>
-        <member name="M:Console.Evaluator.Math.MathEvalFunctions.InheritedFunctions">
+        <member name="F:Console.Evaluator.Math.MathEvalFunctions.E">
             <summary>
-            Returns the Functions inherited from this class.
+            Constant Value of E
             </summary>
-            <returns></returns>
         </member>
         <member name="F:Console.Evaluator.Math.MathEvalFunctions.PI">
             <summary>
             Constant Value of PI
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Math.MathEvalFunctions.E">
+        <member name="M:Console.Evaluator.Math.MathEvalFunctions.InheritedFunctions">
             <summary>
-            Constant Value of E
+            Returns the Functions inherited from this class.
             </summary>
+            <returns></returns>
         </member>
         <member name="M:Console.Evaluator.Math.MathEvalFunctions.GetVariable(System.String)">
             <summary>

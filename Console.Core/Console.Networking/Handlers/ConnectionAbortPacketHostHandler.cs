@@ -9,6 +9,7 @@ namespace Console.Networking.Handlers
     /// </summary>
     public class ConnectionAbortPacketHostHandler : APacketHostHandler<ConnectionAbortPacket>
     {
+
         /// <summary>
         /// Handles the packet of type T
         /// </summary>
@@ -19,5 +20,6 @@ namespace Console.Networking.Handlers
             NetworkedInitializer.Logger.LogWarning("Client aborted the Connection with Reason: " + item.Reason);
             NetworkingSettings.HostSession.RemoveClient(client);
         }
+
     }
 }

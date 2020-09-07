@@ -5,10 +5,12 @@
     /// </summary>
     public interface IGettable
     {
+
         /// <summary>
         /// Returns the Inner Value
         /// </summary>
         /// <returns>The Inner Value</returns>
         object Get();
+
     }
 }

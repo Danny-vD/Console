@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
-using Console.Core.CommandSystem;
+
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.ExtensionSystem;
 using Console.Core.LogSystem;
 using Console.Core.PropertySystem;
@@ -15,6 +16,7 @@ namespace Console.IO
     /// </summary>
     public class IOInitializer : AExtensionInitializer
     {
+
         [Property("logs.io.mute")]
         private static bool MuteLogs
         {
@@ -42,5 +44,6 @@ namespace Console.IO
             PropertyAttributeUtils.AddProperties<IOInitializer>();
             CommandAttributeUtils.AddCommands<IOCommands>();
         }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.OPCodes
@@ -9,39 +10,16 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     internal class OPCodeUnary : OPCode
     {
-        /// <summary>
-        /// The Parameter Backing Field
-        /// </summary>
-        private OPCode _param1;
-
-        /// <summary>
-        /// The Parameter
-        /// </summary>
-        private OPCode Param1
-        {
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            get => _param1;
-
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                if (_param1 != null)
-                {
-                    _param1.ValueChanged -= Param1ValueChanged;
-                }
-
-                _param1 = value;
-                if (_param1 != null)
-                {
-                    _param1.ValueChanged += Param1ValueChanged;
-                }
-            }
-        }
 
         /// <summary>
         /// The Evaluation Type Backing Field
         /// </summary>
         private readonly EvalType mEvalType;
+
+        /// <summary>
+        /// The Parameter Backing Field
+        /// </summary>
+        private OPCode _param1;
 
         /// <summary>
         /// Public Constructor
@@ -79,6 +57,36 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
+        /// The Parameter
+        /// </summary>
+        private OPCode Param1
+        {
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            get => _param1;
+
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                if (_param1 != null)
+                {
+                    _param1.ValueChanged -= Param1ValueChanged;
+                }
+
+                _param1 = value;
+                if (_param1 != null)
+                {
+                    _param1.ValueChanged += Param1ValueChanged;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// The Evaluation Type
+        /// </summary>
+        public override EvalType EvalType => mEvalType;
+
+        /// <summary>
         /// Returns the Inverse of the Parameter(Boolean)
         /// </summary>
         /// <returns>Inverse of the Parameter Value</returns>
@@ -96,12 +104,6 @@ namespace Console.Evaluator.Core.OPCodes
             return -(double) Param1.Value;
         }
 
-
-        /// <summary>
-        /// The Evaluation Type
-        /// </summary>
-        public override EvalType EvalType => mEvalType;
-
         /// <summary>
         /// Gets Invoked when the parameter value changes.
         /// </summary>
@@ -111,5 +113,6 @@ namespace Console.Evaluator.Core.OPCodes
         {
             RaiseEventValueChanged(sender, e);
         }
+
     }
 }

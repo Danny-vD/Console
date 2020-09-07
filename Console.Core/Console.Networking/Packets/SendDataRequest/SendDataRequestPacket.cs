@@ -10,6 +10,7 @@ namespace Console.Networking.Packets.SendDataRequest
     /// </summary>
     public class SendDataRequestPacket : ANetworkPacket
     {
+
         /// <summary>
         /// The Destination file on the Host Machine
         /// </summary>
@@ -23,5 +24,6 @@ namespace Console.Networking.Packets.SendDataRequest
         {
             Destination = destination;
         }
+
     }
 }

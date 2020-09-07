@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Core.ReflectionSystem;
 
 namespace Console.Core.PropertySystem
@@ -8,6 +9,7 @@ namespace Console.Core.PropertySystem
     /// </summary>
     public class PropertyAttributeUtils
     {
+
         #region Add Properties
 
         /// <summary>
@@ -39,10 +41,12 @@ namespace Console.Core.PropertySystem
             {
                 return;
             }
+
             PropertyManager.AddRefHelpers(ReflectionUtils.GetConsoleFields<PropertyAttribute>(instance));
             PropertyManager.AddRefHelpers(ReflectionUtils.GetConsoleProps<PropertyAttribute>(instance));
         }
 
         #endregion
+
     }
 }

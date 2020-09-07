@@ -10,6 +10,7 @@ namespace Console.Core.CommandSystem.Builder
     [ActivateOn]
     public abstract class AutoFillProvider
     {
+
         /// <summary>
         /// Determines if the Provider can Provide Useful AutoFill Suggestions
         /// </summary>
@@ -26,5 +27,6 @@ namespace Console.Core.CommandSystem.Builder
         /// <param name="start">The Start of the Parameter("search term")</param>
         /// <returns>List of Viable AutoFill Entries</returns>
         public abstract string[] GetAutoFills(AbstractCommand cmd, int paramNum, string start);
+
     }
 }

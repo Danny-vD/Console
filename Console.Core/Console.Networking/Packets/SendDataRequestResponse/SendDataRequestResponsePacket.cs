@@ -10,6 +10,17 @@ namespace Console.Networking.Packets.SendDataRequestResponse
     /// </summary>
     public class SendDataRequestResponsePacket : ANetworkPacket
     {
+
+        /// <summary>
+        /// Allow Packet Response
+        /// </summary>
+        public static readonly SendDataRequestResponsePacket Allow = new SendDataRequestResponsePacket(true);
+
+        /// <summary>
+        /// Deny Packet Response
+        /// </summary>
+        public static readonly SendDataRequestResponsePacket Deny = new SendDataRequestResponsePacket(true);
+
         /// <summary>
         /// Flag that Determines if the File is allowed.
         /// </summary>
@@ -24,14 +35,5 @@ namespace Console.Networking.Packets.SendDataRequestResponse
             Allowed = allow;
         }
 
-        /// <summary>
-        /// Allow Packet Response
-        /// </summary>
-        public static readonly SendDataRequestResponsePacket Allow = new SendDataRequestResponsePacket(true);
-
-        /// <summary>
-        /// Deny Packet Response
-        /// </summary>
-        public static readonly SendDataRequestResponsePacket Deny = new SendDataRequestResponsePacket(true);
     }
 }

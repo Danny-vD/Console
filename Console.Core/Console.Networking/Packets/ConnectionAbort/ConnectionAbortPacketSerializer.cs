@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.ConnectionAbort
     /// </summary>
     public class ConnectionAbortPacketSerializer : PacketSerializer<ConnectionAbortPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -18,6 +19,7 @@ namespace Console.Networking.Packets.ConnectionAbort
             {
                 return new ConnectionAbortPacket();
             }
+
             return new ConnectionAbortPacket(NetworkingSettings.EncodingInstance.GetString(data));
         }
 
@@ -31,5 +33,6 @@ namespace Console.Networking.Packets.ConnectionAbort
         {
             return item.HasReason ? NetworkingSettings.EncodingInstance.GetBytes(item.Reason) : new byte[0];
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Evaluator.Core.Enums;
 
 namespace Console.Evaluator.Core.Interfaces
@@ -8,13 +9,16 @@ namespace Console.Evaluator.Core.Interfaces
     /// </summary>
     public interface IEvalTypedValue : IEvalValue
     {
+
         /// <summary>
         /// The C# Type of the Value
         /// </summary>
         Type SystemType { get; }
+
         /// <summary>
         /// The Evaluator Type of the Value
         /// </summary>
         EvalType EvalType { get; }
+
     }
 }

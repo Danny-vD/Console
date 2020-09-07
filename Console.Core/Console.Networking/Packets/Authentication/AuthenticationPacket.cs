@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Networking.Packets.Abstract;
 
 /// <summary>
@@ -12,16 +13,11 @@ namespace Console.Networking.Packets.Authentication
     /// </summary>
     public class AuthenticationPacket : ANetworkPacket
     {
+
         /// <summary>
         /// The Data Section
         /// </summary>
         public readonly byte[] Data;
-
-
-        /// <summary>
-        /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
-        /// </summary>
-        public override bool DoNotEncrypt => true;
 
         /// <summary>
         /// Public Constructor
@@ -32,6 +28,12 @@ namespace Console.Networking.Packets.Authentication
             Data = data;
         }
 
+
+        /// <summary>
+        /// Flag that specifies that the networking layer should not encrypt/decrypt the packet.
+        /// </summary>
+        public override bool DoNotEncrypt => true;
+
         /// <summary>
         /// Tries to Create the AuthenticationPacket Response with the Decrypted Data
         /// </summary>
@@ -41,7 +43,6 @@ namespace Console.Networking.Packets.Authentication
             //Decrypt the Data
             try
             {
-
                 return new AuthenticationPacket(NetworkingSettings.AuthenticatorInstance.Decrypt(Data));
             }
             catch (Exception)
@@ -49,5 +50,6 @@ namespace Console.Networking.Packets.Authentication
                 return new AuthenticationPacket(new byte[Data.Length]);
             }
         }
+
     }
 }

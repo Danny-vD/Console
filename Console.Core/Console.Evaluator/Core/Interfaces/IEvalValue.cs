@@ -9,13 +9,16 @@ namespace Console.Evaluator.Core.Interfaces
     /// </summary>
     public interface IEvalValue
     {
+
         /// <summary>
         /// The Value of the Object
         /// </summary>
         object Value { get; }
+
         /// <summary>
         /// Value Changed Event
         /// </summary>
         event ValueChangedEventHandler ValueChanged;
+
     }
 }

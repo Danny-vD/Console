@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 
@@ -10,16 +11,6 @@ namespace Console.Evaluator.Core.OPCodes
     /// </summary>
     public abstract class OPCode : IEvalTypedValue, IEvalHasDescription
     {
-        /// <summary>
-        /// The ValueDelegate used to Compute the Value
-        /// </summary>
-        protected ValueDelegate mValueDelegate;
-
-        /// <summary>
-        /// The ValueDelegate Definition
-        /// </summary>
-        /// <returns></returns>
-        protected delegate object ValueDelegate();
 
         /// <summary>
         /// The RunDelegate Definition
@@ -27,36 +18,9 @@ namespace Console.Evaluator.Core.OPCodes
         public delegate void RunDelegate();
 
         /// <summary>
-        /// Empty Constructor
+        /// The ValueDelegate used to Compute the Value
         /// </summary>
-        protected OPCode()
-        {
-        }
-
-        /// <summary>
-        /// Raises the Event ValueChanged
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void RaiseEventValueChanged(object sender, EventArgs e)
-        {
-            ValueChanged?.Invoke(sender, e);
-        }
-
-        /// <summary>
-        /// The Evaluation Type of the OPCode
-        /// </summary>
-        public abstract EvalType EvalType { get; }
-
-        /// <summary>
-        /// Returns true if the OPCode is able to return a Value of the Specified Type
-        /// </summary>
-        /// <param name="type">The Type</param>
-        /// <returns>True if the OPCode can return this Value Type</returns>
-        public bool CanReturn(EvalType type)
-        {
-            return true;
-        }
+        protected ValueDelegate mValueDelegate;
 
         /// <summary>
         /// The Description of the OPCode
@@ -69,6 +33,11 @@ namespace Console.Evaluator.Core.OPCodes
         public virtual string Name => "OPCode " + GetType().Name;
 
         /// <summary>
+        /// The Evaluation Type of the OPCode
+        /// </summary>
+        public abstract EvalType EvalType { get; }
+
+        /// <summary>
         /// The Value of the OPCode.
         /// Invoked the ValueDelegate
         /// </summary>
@@ -78,6 +47,31 @@ namespace Console.Evaluator.Core.OPCodes
         /// The System Type of the OPCode Value
         /// </summary>
         public virtual Type SystemType => Globals.GetSystemType(EvalType);
+
+        /// <summary>
+        /// ValueChanged EventHandler
+        /// </summary>
+        public event ValueChangedEventHandler ValueChanged;
+
+        /// <summary>
+        /// Raises the Event ValueChanged
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void RaiseEventValueChanged(object sender, EventArgs e)
+        {
+            ValueChanged?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// Returns true if the OPCode is able to return a Value of the Specified Type
+        /// </summary>
+        /// <param name="type">The Type</param>
+        /// <returns>True if the OPCode can return this Value Type</returns>
+        public bool CanReturn(EvalType type)
+        {
+            return true;
+        }
 
         /// <summary>
         /// Converts the Specified OPCode to the Specified EvalType
@@ -95,7 +89,7 @@ namespace Console.Evaluator.Core.OPCodes
                 }
                 else
                 {
-                    tokenizer.RaiseError("Cannot convert " + param1.Name + " into " + ((int) evalType).ToString());
+                    tokenizer.RaiseError("Cannot convert " + param1.Name + " into " + (int) evalType);
                 }
             }
         }
@@ -112,6 +106,7 @@ namespace Console.Evaluator.Core.OPCodes
                 if (ReferenceEquals(systemType, typeof(object)))
                 {
                 }
+
                 // ignore
                 else
                 {
@@ -133,8 +128,10 @@ namespace Console.Evaluator.Core.OPCodes
         }
 
         /// <summary>
-        /// ValueChanged EventHandler
+        /// The ValueDelegate Definition
         /// </summary>
-        public event ValueChangedEventHandler ValueChanged;
+        /// <returns></returns>
+        protected delegate object ValueDelegate();
+
     }
 }

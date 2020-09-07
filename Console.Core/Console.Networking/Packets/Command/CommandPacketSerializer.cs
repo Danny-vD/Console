@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using Console.Networking.Packets.Abstract;
 
 namespace Console.Networking.Packets.Command
@@ -9,6 +10,7 @@ namespace Console.Networking.Packets.Command
     /// </summary>
     public class CommandPacketSerializer : PacketSerializer<CommandPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -16,8 +18,10 @@ namespace Console.Networking.Packets.Command
         /// <returns>Network Packet</returns>
         protected override CommandPacket Deserialize(byte[] data)
         {
-            return new CommandPacket(data[0] == 1,
-                NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1));
+            return new CommandPacket(
+                                     data[0] == 1,
+                                     NetworkingSettings.EncodingInstance.GetString(data, 1, data.Length - 1)
+                                    );
         }
 
         /// <summary>
@@ -31,5 +35,6 @@ namespace Console.Networking.Packets.Command
             data.Insert(0, (byte) (item.Resolved ? 1 : 0));
             return data.ToArray();
         }
+
     }
 }

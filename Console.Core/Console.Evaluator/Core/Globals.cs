@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Evaluator.Core.Enums;
 using Console.Evaluator.Core.Interfaces;
 
@@ -9,6 +10,7 @@ namespace Console.Evaluator.Core
     /// </summary>
     public static class Globals
     {
+
         /// <summary>
         /// Returns true if the two stings are equal
         /// </summary>
@@ -26,6 +28,7 @@ namespace Console.Evaluator.Core
             {
                 lv1 = v1.Length;
             }
+
             if (v2 is null)
             {
                 lv2 = 0;
@@ -34,14 +37,17 @@ namespace Console.Evaluator.Core
             {
                 lv2 = v2.Length;
             }
+
             if (lv1 != lv2)
             {
                 return false;
             }
+
             if (lv1 == 0)
             {
                 return true;
             }
+
             char c1, c2;
             for (int i = 0, loopTo = lv1 - 1; i <= loopTo; i++)
             {
@@ -97,6 +103,7 @@ namespace Console.Evaluator.Core
                         {
                             return false;
                         }
+
                         break;
                     }
                 }
@@ -116,11 +123,9 @@ namespace Console.Evaluator.Core
             {
                 return EvalType.Unknown;
             }
-            else
-            {
-                Type t = o.GetType();
-                return GetEvalType(t);
-            }
+
+            Type t = o.GetType();
+            return GetEvalType(t);
         }
 
         /// <summary>
@@ -130,30 +135,36 @@ namespace Console.Evaluator.Core
         /// <returns>The Eval Type for this Type</returns>
         internal static EvalType GetEvalType(Type t)
         {
-            if (ReferenceEquals(t, typeof(float)) | ReferenceEquals(t, typeof(double)) |
-                ReferenceEquals(t, typeof(decimal)) | ReferenceEquals(t, typeof(short)) |
-                ReferenceEquals(t, typeof(int)) | ReferenceEquals(t, typeof(long)) | ReferenceEquals(t, typeof(byte)) |
-                ReferenceEquals(t, typeof(ushort)) | ReferenceEquals(t, typeof(uint)) |
+            if (ReferenceEquals(t, typeof(float)) |
+                ReferenceEquals(t, typeof(double)) |
+                ReferenceEquals(t, typeof(decimal)) |
+                ReferenceEquals(t, typeof(short)) |
+                ReferenceEquals(t, typeof(int)) |
+                ReferenceEquals(t, typeof(long)) |
+                ReferenceEquals(t, typeof(byte)) |
+                ReferenceEquals(t, typeof(ushort)) |
+                ReferenceEquals(t, typeof(uint)) |
                 ReferenceEquals(t, typeof(ulong)))
             {
                 return EvalType.Number;
             }
-            else if (ReferenceEquals(t, typeof(DateTime)))
+
+            if (ReferenceEquals(t, typeof(DateTime)))
             {
                 return EvalType.Date;
             }
-            else if (ReferenceEquals(t, typeof(bool)))
+
+            if (ReferenceEquals(t, typeof(bool)))
             {
                 return EvalType.Boolean;
             }
-            else if (ReferenceEquals(t, typeof(string)))
+
+            if (ReferenceEquals(t, typeof(string)))
             {
                 return EvalType.String;
             }
-            else
-            {
-                return EvalType.Object;
-            }
+
+            return EvalType.Object;
         }
 
         /// <summary>
@@ -231,5 +242,6 @@ namespace Console.Evaluator.Core
         {
             return Convert.ToString(o.Value);
         }
+
     }
 }

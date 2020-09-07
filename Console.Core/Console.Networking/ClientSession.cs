@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+
 using Console.Networking.Handlers.Abstract;
 using Console.Networking.Packets;
 using Console.Networking.Packets.Command;
@@ -13,41 +14,49 @@ namespace Console.Networking
     /// </summary>
     public class ClientSession
     {
+
         /// <summary>
         /// The Connection State of the Client Session
         /// </summary>
         public enum ConnectionState
         {
+
             /// <summary>
             /// The Client Session is Ready to Connect
             /// </summary>
             Idle,
+
             /// <summary>
             /// The Client Session is trying to connect to a Host.
             /// </summary>
             Connecting,
+
             /// <summary>
             /// The Client Session Successfully Connected to the Host
             /// </summary>
             Connected,
+
             /// <summary>
             /// The Connection Failed.
             /// </summary>
             Error
+
         }
+
+        /// <summary>
+        /// The Connect Thread used to implement non blocking Connect.
+        /// </summary>
+        private Thread ConnectThread;
+
+        /// <summary>
+        /// The Current Client Session State.
+        /// </summary>
+        public ConnectionState State;
 
         /// <summary>
         /// The Socket used to Communicate with the Host.
         /// </summary>
         public ConsoleSocket Client { get; } = new ConsoleSocket();
-        /// <summary>
-        /// The Connect Thread used to implement non blocking Connect.
-        /// </summary>
-        private Thread ConnectThread;
-        /// <summary>
-        /// The Current Client Session State.
-        /// </summary>
-        public ConnectionState State;
 
 
         /// <summary>
@@ -70,6 +79,7 @@ namespace Console.Networking
             {
                 return;
             }
+
             State = ConnectionState.Connecting;
             NetworkedInitializer.Logger.Log("Connecting...");
             ConnectThread = new Thread(() => ConnectionThread(ip, port));
@@ -113,11 +123,14 @@ namespace Console.Networking
         /// <param name="cmd"></param>
         public void RunCommand(string cmd)
         {
-            if (Client == null || !Client.IsAuthenticated || !Client.Connected ||
+            if (Client == null ||
+                !Client.IsAuthenticated ||
+                !Client.Connected ||
                 !Client.TrySendPacket(new CommandPacket(true, cmd)))
             {
                 NetworkedInitializer.Logger.LogWarning(
-                    "Can not run command. No connection to host.\nRun connect-console command to connect to a host");
+                                                       "Can not run command. No connection to host.\nRun connect-console command to connect to a host"
+                                                      );
             }
         }
 
@@ -126,12 +139,12 @@ namespace Console.Networking
         /// </summary>
         public void ProcessLogMessages()
         {
-
             if (State == ConnectionState.Error)
             {
                 NetworkedInitializer.Logger.LogWarning("Can not connect..");
                 State = ConnectionState.Idle;
             }
+
             if (State == ConnectionState.Connected)
             {
                 NetworkedInitializer.Logger.Log("Connected.");
@@ -143,12 +156,12 @@ namespace Console.Networking
             {
                 return;
             }
+
             for (int i = 0; i < NetworkingSettings.ClientPacketsPerTick; i++)
             {
                 Client?.ProcessPacket();
             }
-
-
         }
+
     }
 }

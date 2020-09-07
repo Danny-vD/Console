@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Compat.Script.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Compat.Script.IO.ScriptIOCompatInitializer">
+            <summary>
+            Initializer of the ScriptIOCompat Extension
+            </summary>
+        </member>
+        <member name="F:Compat.Script.IO.ScriptIOCompatInitializer.AutoStartFile">
+            <summary>
+            The ; Seperated List of scripts to run after the console initialized.
+            </summary>
+        </member>
+        <member name="P:Compat.Script.IO.ScriptIOCompatInitializer.Logger">
+            <summary>
+            The Logger for this Extension
+            </summary>
+        </member>
+        <member name="P:Compat.Script.IO.ScriptIOCompatInitializer.EnvVersion">
+            <summary>
+            Version of the ScriptIOCompat Extension
+            </summary>
+        </member>
+        <member name="M:Compat.Script.IO.ScriptIOCompatInitializer.AutoStart">
+            <summary>
+            Autostart Routine.
+            Does Load the ; separated property scriptiocompat.scripts.autostart and executes all scripts in this list in sequence
+            </summary>
+        </member>
+        <member name="M:Compat.Script.IO.ScriptIOCompatInitializer.Initialize">
+            <summary>
+            Initialization Function
+            </summary>
+        </member>
+    </members>
+</doc>

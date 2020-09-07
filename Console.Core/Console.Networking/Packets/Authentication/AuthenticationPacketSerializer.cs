@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.Authentication
     /// </summary>
     public class AuthenticationPacketSerializer : PacketSerializer<AuthenticationPacket>
     {
+
         /// <summary>
         /// Deserializes the Data into a Network Packet of Type T
         /// </summary>
@@ -26,5 +27,6 @@ namespace Console.Networking.Packets.Authentication
         {
             return item.Data;
         }
+
     }
 }

@@ -7,6 +7,7 @@ namespace Console.Networking.Packets.Abstract
     /// </summary>
     internal interface IPacketSerializer
     {
+
         /// <summary>
         /// Returns the Target Type of the Serializer
         /// </summary>
@@ -32,5 +33,6 @@ namespace Console.Networking.Packets.Abstract
         /// <param name="item">Packet</param>
         /// <returns>Serialized Packet Data</returns>
         byte[] _Serialize(ANetworkPacket item);
+
     }
 }

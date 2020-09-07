@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Console.Core.ActivationSystem;
 
 namespace Console.Networking.Packets.Abstract
@@ -11,6 +12,7 @@ namespace Console.Networking.Packets.Abstract
     public abstract class PacketSerializer<T> : IPacketSerializer
         where T : ANetworkPacket
     {
+
         /// <summary>
         /// Returns the Target Type of the Serializer
         /// </summary>
@@ -28,20 +30,6 @@ namespace Console.Networking.Packets.Abstract
         {
             return GetTargetType().AssemblyQualifiedName;
         }
-
-        /// <summary>
-        /// Deserializes the Data into a Network Packet of Type T
-        /// </summary>
-        /// <param name="data">Serialized Data</param>
-        /// <returns>Network Packet</returns>
-        protected abstract T Deserialize(byte[] data);
-
-        /// <summary>
-        /// Serializes a Packet of Type T into a Byte array
-        /// </summary>
-        /// <param name="item">Packet</param>
-        /// <returns>Serialized Data</returns>
-        protected abstract byte[] Serialize(T item);
 
 
         /// <summary>
@@ -65,7 +53,23 @@ namespace Console.Networking.Packets.Abstract
             {
                 return Serialize(obj);
             }
+
             throw new InvalidCastException("Expected Type: " + typeof(T) + " got: " + item.GetType().Name);
         }
+
+        /// <summary>
+        /// Deserializes the Data into a Network Packet of Type T
+        /// </summary>
+        /// <param name="data">Serialized Data</param>
+        /// <returns>Network Packet</returns>
+        protected abstract T Deserialize(byte[] data);
+
+        /// <summary>
+        /// Serializes a Packet of Type T into a Byte array
+        /// </summary>
+        /// <param name="item">Packet</param>
+        /// <returns>Serialized Data</returns>
+        protected abstract byte[] Serialize(T item);
+
     }
 }

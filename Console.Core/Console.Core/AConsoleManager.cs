@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Reflection;
+
 using Console.Core.ActivationSystem;
 using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.CommandSystem.Builder;
-using Console.Core.CommandSystem.Builder.EnumAutoFill;
+using Console.Core.CommandSystem.Builder.BuiltIn.EnumAutoFill;
 using Console.Core.CommandSystem.Commands.BuiltIn;
 using Console.Core.ExpanderSystem;
 using Console.Core.PropertySystem;
@@ -20,10 +22,51 @@ namespace Console.Core
     /// </summary>
     public abstract class AConsoleManager
     {
+
+        /// <summary>
+        /// Expander System that allows to Expand parts of Commands(Environment System)
+        /// </summary>
+        public static readonly ExpanderManager ExpanderManager = new ExpanderManager();
+
         /// <summary>
         /// The Parser that handles the Command Input
         /// </summary>
         protected readonly CommandParser Parser;
+
+        static AConsoleManager()
+        {
+            PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
+            PropertyAttributeUtils.AddProperties<CommandIdentity>();
+            CommandAttributeUtils.AddCommands<CommandIdentity>();
+            PropertyAttributeUtils.AddProperties(typeof(CommandManager));
+        }
+
+        /// <summary>
+        /// Protected Constructor
+        /// </summary>
+        /// <param name="options">Console Initialization Flags.</param>
+        protected AConsoleManager(ConsoleInitOptions options = ConsoleInitOptions.Default)
+        {
+            Instance = this;
+
+            AutoFillProvider[] provs =
+                ActivateOnAttributeUtils.ActivateObjects<AutoFillProvider>(Assembly.GetExecutingAssembly());
+
+            CommandBuilder.AddProvider(provs);
+
+            Parser = new CommandParser();
+            LoadCommands(options);
+        }
+
+        /// <summary>
+        /// Singleton Instance of the Console
+        /// </summary>
+        public static AConsoleManager Instance { get; private set; }
+
+        /// <summary>
+        /// The Object Selector
+        /// </summary>
+        public abstract AObjectSelector ObjectSelector { get; }
 
         /// <summary>
         /// Has to be invoked for all Logs
@@ -41,19 +84,14 @@ namespace Console.Core
         /// </summary>
         public static event Action OnConsoleTick;
 
-        /// <summary>
-        /// Expander System that allows to Expand parts of Commands(Environment System)
-        /// </summary>
-        public static readonly ExpanderManager ExpanderManager = new ExpanderManager();
-
-        /// <summary>
-        /// Helper Function that has to get called every time a log gets sent(used by the networking system to transmit the logs)
-        /// </summary>
-        /// <param name="text">The Text to Log</param>
-        protected void InvokeLogEvent(string text)
-        {
-            OnLog?.Invoke(text);
-        }
+        ///// <summary>
+        ///// Helper Function that has to get called every time a log gets sent(used by the networking system to transmit the logs)
+        ///// </summary>
+        ///// <param name="text">The Text to Log</param>
+        //protected void InvokeLogEvent(string text)
+        //{
+        //    OnLog?.Invoke(text);
+        //}
 
         /// <summary>
         /// Allows the Inheriting Class to invoke the OnInitializationFinished Event
@@ -66,62 +104,31 @@ namespace Console.Core
         }
 
         /// <summary>
-        /// Singleton Instance of the Console
-        /// </summary>
-        public static AConsoleManager Instance { get; private set; }
-
-        /// <summary>
-        /// The Object Selector
-        /// </summary>
-        public abstract AObjectSelector ObjectSelector { get; }
-
-        /// <summary>
         /// Loads the Default Commands as Specified.
         /// </summary>
         /// <param name="options">Default Command Options</param>
-        [Command("load-default", "Loads the Default Commands", "load")]
-        private static void LoadCommands([EnumAutoFill] ConsoleInitOptions options)
+        [Command("load-default", HelpMessage = "Loads the Default Commands", Aliases = new[] { "load" })]
+        private static void LoadCommands([EnumAutoFill]ConsoleInitOptions options)
         {
-            if ((options & ConsoleInitOptions.DefaultCommands) != 0)
+            if ((options & ConsoleInitOptions.Loader) != 0)
+            {
+                CommandAttributeUtils.AddCommands<AConsoleManager>();
+            }
+
+            if ((options & ConsoleInitOptions.Core) != 0)
             {
                 DefaultCommands.AddDefaultCommands();
             }
-            if ((options & ConsoleInitOptions.ExtensionCommands) != 0)
-            {
-                ExtensionCommands.AddExtensionsCommands();
-            }
-            if ((options & ConsoleInitOptions.PropertyCommands) != 0)
+
+            if ((options & ConsoleInitOptions.Properties) != 0)
             {
                 PropertyCommands.AddPropertyCommands();
             }
-            if ((options & ConsoleInitOptions.SelectionCommands) != 0)
+
+            if ((options & ConsoleInitOptions.Selection) != 0)
             {
                 ObjectSelectionCommands.AddSelectionCommands();
             }
-            if ((options & ConsoleInitOptions.FlagTests) != 0)
-            {
-                FlagTests.AddFlagTestCommands();
-            }
-        }
-
-        /// <summary>
-        /// Protected Constructor
-        /// </summary>
-        /// <param name="options">Console Initialization Flags.</param>
-        protected AConsoleManager(ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
-        {
-            Instance = this;
-
-
-            AutoFillProvider[] provs =
-                ActivateOnAttributeUtils.ActivateObjects<AutoFillProvider>(Assembly.GetExecutingAssembly());
-
-            CommandBuilder.AddProvider(provs);
-
-            Parser = new CommandParser();
-            PropertyAttributeUtils.AddProperties(typeof(ConsoleCoreConfig));
-            CommandAttributeUtils.AddCommands<AConsoleManager>();
-            LoadCommands(options);
         }
 
         /// <summary>
@@ -141,6 +148,7 @@ namespace Console.Core
         /// <param name="obj">Object to Log</param>
         internal void _Log(object obj)
         {
+            OnLog?.Invoke(obj.ToString());
             Log(obj);
         }
 
@@ -156,6 +164,7 @@ namespace Console.Core
         /// <param name="obj">Object to Log</param>
         internal void _LogWarning(object obj)
         {
+            OnLog?.Invoke(obj.ToString());
             LogWarning(obj);
         }
 
@@ -171,6 +180,7 @@ namespace Console.Core
         /// <param name="obj">Object to Log</param>
         internal void _LogError(object obj)
         {
+            OnLog?.Invoke(obj.ToString());
             LogError(obj);
         }
 
@@ -182,6 +192,7 @@ namespace Console.Core
         {
             if (ConsoleCoreConfig.WriteCommand)
             {
+                OnLog?.Invoke(command);
                 LogPlainText(command);
             }
         }
@@ -202,6 +213,7 @@ namespace Console.Core
             {
                 return;
             }
+
             string text = ExpanderManager.Expand(command);
             OnSubmitCommand(text);
             LogCommand(command);
@@ -223,5 +235,6 @@ namespace Console.Core
         protected virtual void OnSubmitCommand(string command)
         {
         }
+
     }
 }

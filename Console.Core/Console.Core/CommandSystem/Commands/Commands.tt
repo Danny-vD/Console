@@ -59,8 +59,8 @@ string[] invokeImpl = new string[CommandCount];
 
 
 	string fullNameTypeImpl = "typeof({0}).Name";
-	shortNameImpl[cc] = "{Name} Parameter Count: " + $"{cc-1}";
-	fullNameImpl[cc] = "{Name} ";
+	shortNameImpl[cc] = "{Identity.QualifiedName} Parameter Count: " + $"{cc-1}";
+	fullNameImpl[cc] = "{Identity.QualifiedName} ";
 	for(int i = 1; i < cc; i++)
 	{
 		fullNameImpl[cc] += "{"+ string.Format(fullNameTypeImpl, "TParam"+(i-1))+"}";
@@ -115,7 +115,7 @@ string[] invokeImpl = new string[CommandCount];
         /// <param name="commandCallback">The Callback with <#=cc-1#> Parameter(s) that gets invoked when the command is executed.</param>
 		public <#=className#>(string name, <#= func[cc] #> commandCallback) : base(<#=cc-1#>)
 		{
-			Name = name;
+			Identity.AddName(name);
 			callback = commandCallback;
 		}
 

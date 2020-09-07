@@ -4,6 +4,18 @@
         <name>Console.Evaluator</name>
     </assembly>
     <members>
+        <member name="T:Console.Evaluator.ConditionalCommands">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Console.Evaluator.ConditionalCommands.While(System.String,System.String)">
+            <summary>
+            Runs the command until the expression evaluates to false
+            </summary>
+            <param name="expr"></param>
+            <param name="command"></param>
+        </member>
         <member name="T:Console.Evaluator.Core.Enums.CallType">
             <summary>
             Defines the Different CallTypes that the Evaluator can Utilize
@@ -294,6 +306,16 @@
             The Main Class of the Evaluator.
             </summary>
         </member>
+        <member name="F:Console.Evaluator.Core.Evaluator.CaseSensitive">
+            <summary>
+            If True all Variables and Functions will be matched in case sensitive
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.Evaluator.Syntax">
+            <summary>
+            Defines the Parser Syntax of the Evaluator
+            </summary>
+        </member>
         <member name="F:Console.Evaluator.Core.Evaluator.mEnvironmentFunctionsList">
             <summary>
             The List of Classes that Inherit IVariableBack and/or IEvalFunctions
@@ -302,16 +324,6 @@
         <member name="F:Console.Evaluator.Core.Evaluator.RaiseVariableNotFoundException">
             <summary>
             If true will throw an exception when a parameter/function is not found.
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.Core.Evaluator.Syntax">
-            <summary>
-            Defines the Parser Syntax of the Evaluator
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.Core.Evaluator.CaseSensitive">
-            <summary>
-            If True all Variables and Functions will be matched in case sensitive
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.Evaluator.#ctor(Console.Evaluator.Core.Enums.ParserSyntax,System.Boolean)">
@@ -353,14 +365,14 @@
             Is Used as Possible Variable Provider.
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.EvalVariable.mValue">
-            <summary>
-            The Value of the Variable
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.EvalVariable.mDescription">
             <summary>
             The Backing Field Description of the Variable
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.EvalVariable.mEvalType">
+            <summary>
+            The Backing Field Evaluation Type of the Variable
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.EvalVariable.mName">
@@ -373,10 +385,19 @@
             The Backing Field System Type of the Variable
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.EvalVariable.mEvalType">
+        <member name="F:Console.Evaluator.Core.EvalVariable.mValue">
             <summary>
-            The Backing Field Evaluation Type of the Variable
+            The Value of the Variable
             </summary>
+        </member>
+        <member name="M:Console.Evaluator.Core.EvalVariable.#ctor(System.String,System.Object,System.String,System.Type)">
+            <summary>
+            Public Constructor
+            </summary>
+            <param name="name">Name of the Variable</param>
+            <param name="originalValue">The Original Value of the Variable</param>
+            <param name="description">The Variable Description</param>
+            <param name="systemType">The Type of the Variable</param>
         </member>
         <member name="P:Console.Evaluator.Core.EvalVariable.Description">
             <summary>
@@ -397,15 +418,6 @@
             <summary>
             The System Type of the Variable
             </summary>
-        </member>
-        <member name="M:Console.Evaluator.Core.EvalVariable.#ctor(System.String,System.Object,System.String,System.Type)">
-            <summary>
-            Public Constructor
-            </summary>
-            <param name="name">Name of the Variable</param>
-            <param name="originalValue">The Original Value of the Variable</param>
-            <param name="description">The Variable Description</param>
-            <param name="systemType">The Type of the Variable</param>
         </member>
         <member name="P:Console.Evaluator.Core.EvalVariable.Value">
             <summary>
@@ -553,45 +565,15 @@
             Does Implement IEvalTypedValue and IEvalHasDescription Interfaces
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCode.mValueDelegate">
-            <summary>
-            The ValueDelegate used to Compute the Value
-            </summary>
-        </member>
-        <member name="T:Console.Evaluator.Core.OPCodes.OPCode.ValueDelegate">
-            <summary>
-            The ValueDelegate Definition
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Console.Evaluator.Core.OPCodes.OPCode.RunDelegate">
             <summary>
             The RunDelegate Definition
             </summary>
         </member>
-        <member name="M:Console.Evaluator.Core.OPCodes.OPCode.#ctor">
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCode.mValueDelegate">
             <summary>
-            Empty Constructor
+            The ValueDelegate used to Compute the Value
             </summary>
-        </member>
-        <member name="M:Console.Evaluator.Core.OPCodes.OPCode.RaiseEventValueChanged(System.Object,System.EventArgs)">
-            <summary>
-            Raises the Event ValueChanged
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCode.EvalType">
-            <summary>
-            The Evaluation Type of the OPCode
-            </summary>
-        </member>
-        <member name="M:Console.Evaluator.Core.OPCodes.OPCode.CanReturn(Console.Evaluator.Core.Enums.EvalType)">
-            <summary>
-            Returns true if the OPCode is able to return a Value of the Specified Type
-            </summary>
-            <param name="type">The Type</param>
-            <returns>True if the OPCode can return this Value Type</returns>
         </member>
         <member name="P:Console.Evaluator.Core.OPCodes.OPCode.Description">
             <summary>
@@ -601,6 +583,11 @@
         <member name="P:Console.Evaluator.Core.OPCodes.OPCode.Name">
             <summary>
             The OPCode Name
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCode.EvalType">
+            <summary>
+            The Evaluation Type of the OPCode
             </summary>
         </member>
         <member name="P:Console.Evaluator.Core.OPCodes.OPCode.Value">
@@ -613,6 +600,25 @@
             <summary>
             The System Type of the OPCode Value
             </summary>
+        </member>
+        <member name="E:Console.Evaluator.Core.OPCodes.OPCode.ValueChanged">
+            <summary>
+            ValueChanged EventHandler
+            </summary>
+        </member>
+        <member name="M:Console.Evaluator.Core.OPCodes.OPCode.RaiseEventValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Raises the Event ValueChanged
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Console.Evaluator.Core.OPCodes.OPCode.CanReturn(Console.Evaluator.Core.Enums.EvalType)">
+            <summary>
+            Returns true if the OPCode is able to return a Value of the Specified Type
+            </summary>
+            <param name="type">The Type</param>
+            <returns>True if the OPCode can return this Value Type</returns>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCode.Convert(Console.Evaluator.Core.Tokenizer,Console.Evaluator.Core.OPCodes.OPCode@,Console.Evaluator.Core.Enums.EvalType)">
             <summary>
@@ -636,14 +642,20 @@
             <param name="param1">New parameter 2</param>
             <param name="param2">New parameter 1</param>
         </member>
-        <member name="E:Console.Evaluator.Core.OPCodes.OPCode.ValueChanged">
+        <member name="T:Console.Evaluator.Core.OPCodes.OPCode.ValueDelegate">
             <summary>
-            ValueChanged EventHandler
+            The ValueDelegate Definition
             </summary>
+            <returns></returns>
         </member>
         <member name="T:Console.Evaluator.Core.OPCodes.OPCodeBinary">
             <summary>
             OPCode that is Returned when the OPCode does Resolve to a Binary Result(Boolean)
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeBinary.mEvalType">
+            <summary>
+            The Evaluation Type Backing Field
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeBinary._param1">
@@ -651,24 +663,9 @@
             The Backing Field First Inner OPCode Parameter
             </summary>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeBinary.Param1">
-            <summary>
-            The First Inner OPCode Parameter
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeBinary._param2">
             <summary>
             The Backing Field Second Inner OPCode Parameter
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeBinary.Param2">
-            <summary>
-            The Second Inner OPCode Parameter
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeBinary.mEvalType">
-            <summary>
-            The Evaluation Type Backing Field
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeBinary.#ctor(Console.Evaluator.Core.Tokenizer,Console.Evaluator.Core.OPCodes.OPCode,Console.Evaluator.Core.Enums.TokenType,Console.Evaluator.Core.OPCodes.OPCode)">
@@ -679,6 +676,21 @@
             <param name="param1">First Parameter</param>
             <param name="tt">The Token Type</param>
             <param name="param2">Second Parameter</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeBinary.Param1">
+            <summary>
+            The First Inner OPCode Parameter
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeBinary.Param2">
+            <summary>
+            The Second Inner OPCode Parameter
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeBinary.EvalType">
+            <summary>
+            The Evaluation Type
+            </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeBinary.BOOL_AND_BOOL">
             <summary>
@@ -800,11 +812,6 @@
             </summary>
             <returns>The Percentage of the First Value</returns>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeBinary.EvalType">
-            <summary>
-            The Evaluation Type
-            </summary>
-        </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeBinary.Param1ValueChanged(System.Object,System.EventArgs)">
             <summary>
             Gets Invoked when the first value was changed
@@ -829,19 +836,9 @@
             The Object Instance Backing Field
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod._baseValue">
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod._resultEvalType">
             <summary>
-            The Base Value of the Call Method OPCode Backing Field
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.BaseValue">
-            <summary>
-            The Base Value of the Call Method OPCode
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.mBaseValueObject">
-            <summary>
-            The Base Value Object
+            The Evaluation Type of the Result
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.mMethod">
@@ -864,9 +861,9 @@
             The Call Return Type
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod._resultEvalType">
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod._baseValue">
             <summary>
-            The Evaluation Type of the Result
+            The Base Value of the Call Method OPCode Backing Field
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod._resultValue">
@@ -874,9 +871,9 @@
             The Result Value Backing Field
             </summary>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.ResultValue">
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.mBaseValueObject">
             <summary>
-            The Result Value
+            The Base Value Object
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.#ctor(System.Object,System.Reflection.MemberInfo,System.Collections.IList)">
@@ -886,6 +883,31 @@
             <param name="baseObject">The Base Object Instance</param>
             <param name="method">The Member Info</param>
             <param name="params">The Parameters of the Call</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.BaseValue">
+            <summary>
+            The Base Value of the Call Method OPCode
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.ResultValue">
+            <summary>
+            The Result Value
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.Value">
+            <summary>
+            Value Property.
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.SystemType">
+            <summary>
+            The Result System Type
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.EvalType">
+            <summary>
+            The Result Evaluator Type
+            </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.GetNew(Console.Evaluator.Core.Tokenizer,System.Object,System.Reflection.MemberInfo,System.Collections.IList)">
             <summary>
@@ -921,21 +943,6 @@
             </summary>
             <returns>Value</returns>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.Value">
-            <summary>
-            Value Property.
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.SystemType">
-            <summary>
-            The Result System Type
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.EvalType">
-            <summary>
-            The Result Evaluator Type
-            </summary>
-        </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeCallMethod.ParamsValueChanged(System.Object,System.EventArgs)">
             <summary>
             Gets Invoked when the paramerters to the function call changed.
@@ -962,19 +969,14 @@
             Implements Conversions between different Types
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeConvert._param1">
-            <summary>
-            The First parameter Backing Field
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeConvert.Param1">
-            <summary>
-            The First Parameter
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeConvert.mEvalType">
             <summary>
             The Evaluation Type of the Parameter Backing Field
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeConvert._param1">
+            <summary>
+            The First parameter Backing Field
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeConvert.#ctor(Console.Evaluator.Core.Tokenizer,Console.Evaluator.Core.Interfaces.IEvalTypedValue,Console.Evaluator.Core.Enums.EvalType)">
@@ -984,6 +986,16 @@
             <param name="tokenizer">Tokenizer Instance</param>
             <param name="param1">The First Parameter</param>
             <param name="evalType">The Evaluator Type</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeConvert.Param1">
+            <summary>
+            The First Parameter
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeConvert.EvalType">
+            <summary>
+            The Evaluation Type of the Parameter
+            </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeConvert.TBool">
             <summary>
@@ -1009,11 +1021,6 @@
             </summary>
             <returns>String Value</returns>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeConvert.EvalType">
-            <summary>
-            The Evaluation Type of the Parameter
-            </summary>
-        </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeConvert.Param1ValueChanged(System.Object,System.EventArgs)">
             <summary>
             Gets Invoked when the parameter Value changes.
@@ -1026,24 +1033,9 @@
             Opcode that implements ArrayEntries
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry._array">
-            <summary>
-            The Array Backing Field
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.Array">
-            <summary>
-            The Array
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.mParams">
             <summary>
             The Parameters of the Array Indexer
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.mValues">
-            <summary>
-            The Values of the Parameters
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.mResultEvalType">
@@ -1056,12 +1048,27 @@
             The Result System Type Backing Field
             </summary>
         </member>
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.mValues">
+            <summary>
+            The Values of the Parameters
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry._array">
+            <summary>
+            The Array Backing Field
+            </summary>
+        </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.#ctor(Console.Evaluator.Core.OPCodes.OPCode,System.Collections.IList)">
             <summary>
             Public Constructor
             </summary>
             <param name="array">Array to Index</param>
             <param name="params">The Parameter of the Index Operation</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.Array">
+            <summary>
+            The Array
+            </summary>
         </member>
         <member name="P:Console.Evaluator.Core.OPCodes.OPCodeGetArrayEntry.Value">
             <summary>
@@ -1095,16 +1102,16 @@
             The TypedValue Backing Field
             </summary>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeGetVariable.mParam1">
-            <summary>
-            The TypedValue
-            </summary>
-        </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeGetVariable.#ctor(Console.Evaluator.Core.Interfaces.IEvalTypedValue)">
             <summary>
             Public Constructor
             </summary>
             <param name="value">IEvalTypedValue to Get the Variable From</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeGetVariable.mParam1">
+            <summary>
+            The TypedValue
+            </summary>
         </member>
         <member name="P:Console.Evaluator.Core.OPCodes.OPCodeGetVariable.Value">
             <summary>
@@ -1133,14 +1140,14 @@
             Implements the Immediate Return OPCode that is used to directly return a known value.
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeImmediate.mValue">
-            <summary>
-            The Known Value Backing Field
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeImmediate.mEvalType">
             <summary>
             The Evaluation Type Backing Field
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeImmediate.mValue">
+            <summary>
+            The Known Value Backing Field
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeImmediate.#ctor(Console.Evaluator.Core.Enums.EvalType,System.Object)">
@@ -1165,16 +1172,6 @@
             Implements Conversions from System Type to System Type by using Reflection
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert._param1">
-            <summary>
-            The Parameter Backing Field
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.Param1">
-            <summary>
-            The Parameter
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.mEvalType">
             <summary>
             The Evaluation Type Backing Field
@@ -1185,11 +1182,15 @@
             The System Type Backing Field
             </summary>
         </member>
-        <member name="M:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.CType">
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert._param1">
             <summary>
-            Converts the Parameter Value into the Specified System Type
+            The Parameter Backing Field
             </summary>
-            <returns>Parameter Value as Type mSystemType</returns>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.Param1">
+            <summary>
+            The Parameter
+            </summary>
         </member>
         <member name="P:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.EvalType">
             <summary>
@@ -1200,6 +1201,12 @@
             <summary>
             The System Type
             </summary>
+        </member>
+        <member name="M:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.CType">
+            <summary>
+            Converts the Parameter Value into the Specified System Type
+            </summary>
+            <returns>Parameter Value as Type mSystemType</returns>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeSystemTypeConvert.Param1ValueChanged(System.Object,System.EventArgs)">
             <summary>
@@ -1213,19 +1220,14 @@
             Implements Unary OPCodes like NOT and UNARY_MINUS
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeUnary._param1">
-            <summary>
-            The Parameter Backing Field
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeUnary.Param1">
-            <summary>
-            The Parameter
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.OPCodes.OPCodeUnary.mEvalType">
             <summary>
             The Evaluation Type Backing Field
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.OPCodes.OPCodeUnary._param1">
+            <summary>
+            The Parameter Backing Field
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeUnary.#ctor(Console.Evaluator.Core.Enums.TokenType,Console.Evaluator.Core.OPCodes.OPCode)">
@@ -1234,6 +1236,16 @@
             </summary>
             <param name="tt">The Token Type</param>
             <param name="param1">The Parameter</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeUnary.Param1">
+            <summary>
+            The Parameter
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeUnary.EvalType">
+            <summary>
+            The Evaluation Type
+            </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeUnary.BOOLEAN_NOT">
             <summary>
@@ -1246,11 +1258,6 @@
             Returns the Negative Value of the Parameter(Double)
             </summary>
             <returns>The Negative Value of the Parameter</returns>
-        </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeUnary.EvalType">
-            <summary>
-            The Evaluation Type
-            </summary>
         </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeUnary.Param1ValueChanged(System.Object,System.EventArgs)">
             <summary>
@@ -1269,16 +1276,16 @@
             The Variable Backing Field
             </summary>
         </member>
-        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeVariable.mVariable">
-            <summary>
-            The Variable
-            </summary>
-        </member>
         <member name="M:Console.Evaluator.Core.OPCodes.OPCodeVariable.#ctor(Console.Evaluator.Core.EvalVariable)">
             <summary>
             Public Constructor
             </summary>
             <param name="variable">The Variable</param>
+        </member>
+        <member name="P:Console.Evaluator.Core.OPCodes.OPCodeVariable.mVariable">
+            <summary>
+            The Variable
+            </summary>
         </member>
         <member name="P:Console.Evaluator.Core.OPCodes.OPCodeVariable.Value">
             <summary>
@@ -1302,14 +1309,14 @@
             The Internal Parser.
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.Parser.mTokenizer">
-            <summary>
-            The Tokenizer that is used for the Parsing Process
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.Parser.mEvaluator">
             <summary>
             The Evaluator Instance
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.Parser.mTokenizer">
+            <summary>
+            The Tokenizer that is used for the Parsing Process
             </summary>
         </member>
         <member name="M:Console.Evaluator.Core.Parser.#ctor(Console.Evaluator.Core.Evaluator)">
@@ -1419,24 +1426,24 @@
             The Tokenizer parses the Single Parts of the Expression to usable Tokens
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.Tokenizer.mString">
-            <summary>
-            The Current Expression
-            </summary>
-        </member>
         <member name="F:Console.Evaluator.Core.Tokenizer.mLen">
             <summary>
             Length of mString
             </summary>
         </member>
-        <member name="F:Console.Evaluator.Core.Tokenizer.mPos">
+        <member name="F:Console.Evaluator.Core.Tokenizer.mString">
             <summary>
-            The Current Position in the mString Expression
+            The Current Expression
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.Tokenizer.mCurChar">
             <summary>
             The Current Character that is beeing tokenized
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Core.Tokenizer.mPos">
+            <summary>
+            The Current Position in the mString Expression
             </summary>
         </member>
         <member name="F:Console.Evaluator.Core.Tokenizer.StartPos">
@@ -1544,6 +1551,65 @@
             <param name="variableName">The Variable Name that was not found</param>
             <param name="innerException">The Inner Exception</param>
         </member>
+        <member name="T:Console.Evaluator.Eval">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Eval.EVAL_NAMESPACE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Eval.RaiseExceptions">
+            <summary>
+            Specifies if the Evaluator should throw an Exception when the Expression is Faulty.
+            </summary>
+        </member>
+        <member name="F:Console.Evaluator.Eval.eval">
+            <summary>
+            The Evaluator instance
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Eval.Syntax">
+            <summary>
+            The Evaluator Syntax. Possible Values: CSharp and VisualBasic
+            </summary>
+        </member>
+        <member name="P:Console.Evaluator.Eval.CaseSensitive">
+            <summary>
+            Specifies if the Evaluator is Case Sensitive
+            </summary>
+        </member>
+        <member name="M:Console.Evaluator.Eval.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="expr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Console.Evaluator.Eval.Setup">
+            <summary>
+            Initializes the Evaluator Instance
+            </summary>
+        </member>
+        <member name="M:Console.Evaluator.Eval.AddVariable(System.String)">
+            <summary>
+            Adds Variables/Functions of the specified type as usable functions in the evaluator.
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Name of the Type</param>
+        </member>
+        <member name="M:Console.Evaluator.Eval.RemoveVariable(System.String)">
+            <summary>
+            Remove all Variables and Functions of the selected type.
+            </summary>
+            <param name="qualifiedName">Assembly Qualified Name of the Type</param>
+        </member>
+        <member name="M:Console.Evaluator.Eval.ClearVariables">
+            <summary>
+            Clears all Variables and Functions from the Evaluator.
+            </summary>
+        </member>
         <member name="T:Console.Evaluator.EvalInitializer">
             <summary>
             Initializer of the Evaluator Extension
@@ -1562,73 +1628,6 @@
         <member name="M:Console.Evaluator.EvalInitializer.Initialize">
             <summary>
             Initialization Function
-            </summary>
-        </member>
-        <member name="T:Console.Evaluator.EvalVariableProvider">
-            <summary>
-            VariableContainer Implementation with the name "eval" to be used in the EnvironmentVariable Extension.
-            Evaluates the Expression between the Brackets $eval(MYEXPRESSION)
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.EvalVariableProvider.Syntax">
-            <summary>
-            The Evaluator Syntax. Possible Values: CSharp and VisualBasic
-            </summary>
-        </member>
-        <member name="P:Console.Evaluator.EvalVariableProvider.CaseSensitive">
-            <summary>
-            Specifies if the Evaluator is Case Sensitive
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.EvalVariableProvider.RaiseExceptions">
-            <summary>
-            Specifies if the Evaluator should throw an Exception when the Expression is Faulty.
-            </summary>
-        </member>
-        <member name="F:Console.Evaluator.EvalVariableProvider.eval">
-            <summary>
-            The Evaluator instance
-            </summary>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.#ctor">
-            <summary>
-            Public Constructor.
-            </summary>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.GetValue(System.String)">
-            <summary>
-            Returns the Result of the Specified Expression
-            </summary>
-            <param name="parameter">The Expression</param>
-            <returns>Result of the Expression</returns>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.Setup">
-            <summary>
-            Initializes the Evaluator Instance
-            </summary>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.AddVariable(System.String)">
-            <summary>
-            Adds Variables/Functions of the specified type as usable functions in the evaluator.
-            </summary>
-            <param name="qualifiedName">Assembly Qualified Name of the Type</param>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.While(System.String,System.String)">
-            <summary>
-            Runs the command until the expression evaluates to false
-            </summary>
-            <param name="expr"></param>
-            <param name="command"></param>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.RemoveVariable(System.String)">
-            <summary>
-            Remove all Variables and Functions of the selected type.
-            </summary>
-            <param name="qualifiedName">Assembly Qualified Name of the Type</param>
-        </member>
-        <member name="M:Console.Evaluator.EvalVariableProvider.ClearVariables">
-            <summary>
-            Clears all Variables and Functions from the Evaluator.
             </summary>
         </member>
     </members>

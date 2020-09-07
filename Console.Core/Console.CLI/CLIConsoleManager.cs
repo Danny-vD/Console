@@ -1,5 +1,5 @@
 ﻿using Console.Core;
-using Console.Core.CommandSystem;
+using Console.Core.CommandSystem.Attributes;
 using Console.Core.ExtensionSystem;
 using Console.Core.PropertySystem;
 
@@ -10,18 +10,15 @@ namespace Console.CLI
     /// </summary>
     public class CLIConsoleManager : AConsoleManager
     {
-        /// <summary>
-        /// The Object Selector
-        /// </summary>
-        public override AObjectSelector ObjectSelector { get; }
 
         /// <summary>
         /// Public Constructor
         /// </summary>
         /// <param name="extensions">Extensions to be Loaded</param>
         /// <param name="options">ConsoleInitOptions , Specifying the Default Commands available</param>
-        public CLIConsoleManager(AExtensionInitializer[] extensions,
-            ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands) : this(options, false)
+        public CLIConsoleManager(
+            AExtensionInitializer[] extensions,
+            ConsoleInitOptions options = ConsoleInitOptions.Default) : this(options, false)
         {
             ExtensionLoader.ProcessLoadOrder(extensions);
             InvokeOnFinishInitialize();
@@ -36,8 +33,9 @@ namespace Console.CLI
         {
             CLIObjSelector s = new CLIObjSelector();
             ObjectSelector = s;
+
             //CLI Specific Setup
-            if ((options & ConsoleInitOptions.SelectionCommands) != 0)
+            if ((options & ConsoleInitOptions.Selection) != 0)
             {
                 CLIObjectSelectionCommands.AddSelectionCommands();
             }
@@ -49,7 +47,6 @@ namespace Console.CLI
             {
                 InvokeOnFinishInitialize();
             }
-
         }
 
         /// <summary>
@@ -57,12 +54,17 @@ namespace Console.CLI
         /// </summary>
         /// <param name="extensionPath">Folder Path of the Extension Folder</param>
         /// <param name="options">ConsoleInitOptions , Specifying the Default Commands available</param>
-        public CLIConsoleManager(string extensionPath, ConsoleInitOptions options = ConsoleInitOptions.DefaultCommands)
+        public CLIConsoleManager(string extensionPath, ConsoleInitOptions options = ConsoleInitOptions.Default)
             : this(options, false)
         {
             ExtensionLoader.LoadFromFolder(extensionPath);
             InvokeOnFinishInitialize();
         }
+
+        /// <summary>
+        /// The Object Selector
+        /// </summary>
+        public override AObjectSelector ObjectSelector { get; }
 
         /// <summary>
         /// Clears the Console Window
@@ -79,7 +81,6 @@ namespace Console.CLI
         /// <param name="object">Object to Log</param>
         protected override void Log(object @object)
         {
-            InvokeLogEvent(@object.ToString());
             System.Console.WriteLine(@object);
         }
 
@@ -111,5 +112,6 @@ namespace Console.CLI
         {
             Log(@object);
         }
+
     }
 }
