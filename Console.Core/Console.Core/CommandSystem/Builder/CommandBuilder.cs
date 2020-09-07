@@ -407,9 +407,38 @@ namespace Console.Core.CommandSystem.Builder
             {
                 ReplacePart(partIdx, fills.First());
             }
-            else
+            else if (!ReplaceUntilAmbiguous(partIdx, searchPart, fills))
             {
                 PrintOptions(fills);
+            }
+        }
+
+        private bool ReplaceUntilAmbiguous(int partIdx, string input, string[] fills)
+        {
+            string str = GetLongestCommonSubstring(fills);
+            if (str == input) return false;
+            ReplacePart(partIdx, str);
+            return true;
+        }
+
+        private static string GetLongestCommonSubstring(params string[] strings)
+        {
+            HashSet<string> commonSubstrings = new HashSet<string>(GetSubstrings(strings[0]));
+            foreach (string str in strings.Skip(1))
+            {
+                commonSubstrings.IntersectWith(GetSubstrings(str));
+                if (commonSubstrings.Count == 0)
+                    return string.Empty;
+            }
+
+            return commonSubstrings.OrderByDescending(s => s.Length).DefaultIfEmpty(string.Empty).First();
+        }
+
+        private static IEnumerable<string> GetSubstrings(string str)
+        {
+            for (int cc = 1; cc <= str.Length; cc++)
+            {
+                yield return str.Substring(0, cc);
             }
         }
 
